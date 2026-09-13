@@ -23,7 +23,7 @@ export const zh = {
   hero: {
     headline: "拆解流程、找到瓶頸，做出帶來實際影響的產品。",
     subline: "產品經理。電商、健康 App、AI 節能到資料串接。",
-    primaryCta: { label: "聯絡我", href: "#contact" },
+    primaryCta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "看案例", href: "#cases" },
   },
 
@@ -31,11 +31,10 @@ export const zh = {
     title: "成果數字",
     items: [
       {
-        prefix: "300 → ",
         value: 1000,
         suffix: " 單／日",
         label: "揀貨效率",
-        detail: "+233%，蔬果電商 AWS 上雲重構",
+        detail: "300 → 1,000 單／日（+233%），蔬果電商 AWS 上雲重構",
       },
       {
         prefix: "+",
@@ -240,10 +239,8 @@ export const zh = {
   contact: {
     title: "聯絡",
     text: "正在找產品經理，或想聊流程與瓶頸的問題，歡迎聯絡我。",
-    // TODO(kevin): email, then cta = { label: "聯絡我", href: "mailto:..." }
-    cta: null,
-    // TODO(kevin): LinkedIn 網址
-    links: [],
+    cta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/" }],
   },
 
   footer: {

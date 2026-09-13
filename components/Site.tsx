@@ -8,6 +8,7 @@ import { CaseStudies } from "./CaseStudies";
 import { Timeline } from "./Timeline";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
+import { HashScroll } from "./HashScroll";
 
 export function Site({ locale }: { locale: Locale }) {
   const content = getContent(locale);
@@ -24,6 +25,7 @@ export function Site({ locale }: { locale: Locale }) {
         <Contact {...props} />
       </main>
       <Footer {...props} />
+      <HashScroll />
     </>
   );
 }

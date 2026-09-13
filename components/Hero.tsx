@@ -13,8 +13,10 @@ export function Hero({ content, locale }: SectionProps) {
   return (
     <section id="hero" className="flex min-h-[calc(100dvh-4rem)] items-center py-12 md:py-16">
       <div className="mx-auto grid w-full max-w-site grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
-        <div className="lg:col-span-5">
-          <h1 className="text-3xl leading-tight font-semibold md:text-4xl lg:text-5xl">{headline}</h1>
+        <div className="lg:col-span-6">
+          <h1 className={locale === "zh" ? "text-3xl leading-tight font-semibold md:text-4xl lg:text-5xl" : "text-3xl leading-tight font-semibold md:text-4xl"}>
+            {headline}
+          </h1>
           <p className="mt-5 max-w-[36ch] text-base text-muted md:text-lg">{subline}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href={primaryCta.href} className={PRIMARY_CTA}>
@@ -27,7 +29,7 @@ export function Hero({ content, locale }: SectionProps) {
           </div>
         </div>
 
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-6">
           <BottleneckFlow content={content.animation} locale={locale} className="w-full" />
         </div>
       </div>

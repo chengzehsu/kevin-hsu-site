@@ -21,11 +21,10 @@ export const en = {
   },
 
   hero: {
-    headline:
-      "Break down flows. Find the bottleneck. Ship products that move the numbers.",
+    headline: "Find the bottleneck. Ship products that move the numbers.",
     subline:
       "Product manager. E-commerce, a health app, AI air-conditioning energy savings, and CDP data integration.",
-    primaryCta: { label: "Contact me", href: "#contact" },
+    primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "See the cases", href: "#cases" },
   },
 
@@ -33,11 +32,10 @@ export const en = {
     title: "Impact",
     items: [
       {
-        prefix: "300 → ",
         value: 1000,
-        suffix: " orders/day",
-        label: "Picking throughput",
-        detail: "+233%, fresh-produce e-commerce, AWS re-platform",
+        suffix: "/day",
+        label: "Orders picked",
+        detail: "300 → 1,000 orders/day (+233%), fresh-produce e-commerce, AWS re-platform",
       },
       {
         prefix: "+",
@@ -248,10 +246,8 @@ export const en = {
   contact: {
     title: "Contact",
     text: "If you are hiring a product manager, or want to talk through a flow and its bottleneck, I would like to hear from you.",
-    // TODO(kevin): email, then cta = { label: "Contact me", href: "mailto:..." }
-    cta: null,
-    // TODO(kevin): LinkedIn 網址
-    links: [],
+    cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/" }],
   },
 
   footer: {

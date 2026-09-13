@@ -36,7 +36,7 @@
 - [x] 5.2 Run copy checks: grep for `—` and `–` in `content/`, `components/`, `app/`; grep `用戶` in `content/`; count eyebrow labels; `pnpm tsc --noEmit`
 - [ ] 5.3 Screenshot `/` and `/en/` in light and dark at 1280×800 and 390×844 at 1× scale into the scratchpad; confirm hero within first viewport, single-line nav, no CTA wrap, no horizontal scroll
 - [ ] 5.4 Verify First-visit language redirect, Language switch preserves anchor, Reduced motion fallback, and Persistent labels in a browser; run Lighthouse on `/` targeting performance and accessibility ≥ 90
-- [ ] 5.5 Run `sd0x-dev-flow:precommit-fast` and commit
+- [x] 5.5 Run `sd0x-dev-flow:precommit-fast` and commit
 
 ## 6. Deployment (Phase 2)
 
