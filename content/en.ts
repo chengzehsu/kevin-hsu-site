@@ -6,7 +6,7 @@ export const en = {
   meta: {
     title: "Kevin Hsu | Product Manager",
     description:
-      "Kevin Hsu, product manager. I solve operational bottlenecks through hypothesis testing and AI tools, then ship products with measurable impact.",
+      "Kevin Hsu, product manager. I map the process, find what is getting in the way, then use data and practical tools to make it work better.",
   },
 
   nav: {
@@ -22,15 +22,15 @@ export const en = {
 
   hero: {
     eyebrow: "Kevin Hsu | Product Manager",
-    headline: "Solve bottlenecks. Build measurable products.",
-    subline: "I combine workflow analysis, hypothesis testing and AI tools to improve operations, accelerate delivery and support product growth.",
+    headline: "Find bottlenecks. Improve products.",
+    subline: "I map the work, find what is stuck, then use data, AI, and practical tools to make it better.",
     visualLabel: "AWS re-platform: from constraint to outcome",
     primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "See the cases", href: "#cases" },
   },
 
   metrics: {
-    title: "B2C and data product impact",
+    title: "Selected product results",
     items: [
       {
         value: 1000,
@@ -66,38 +66,38 @@ export const en = {
   },
 
   method: {
-    title: "Turning workflows into product impact",
+    title: "How I get work moving",
     steps: [
       {
-        verb: "Decompose",
-        text: "Break the flow into observable steps so each hand-off has a clear input and output.",
+        verb: "Map the flow",
+        text: "Lay out the steps so it is clear how the work moves from one person or system to the next.",
       },
       {
-        verb: "Locate the bottleneck",
-        text: "Use data and interviews to find the one step that actually caps throughput.",
+        verb: "Find the sticking point",
+        text: "Use data and interviews to find the part that is actually slowing things down.",
       },
       {
-        verb: "Hypothesize",
-        text: "Write a hypothesis, define the metric it should move, and choose the smallest test.",
+        verb: "Try a hypothesis",
+        text: "Get clear on what to change, what should improve, and the smallest way to try it.",
       },
       {
-        verb: "Validate and improve",
-        text: "Validate the result, refine the flow, and ensure the gain appears in operating metrics.",
+        verb: "See what changed",
+        text: "Check the result, then keep adjusting the flow until it works better.",
       },
     ],
     capabilitiesTitle: "Core capabilities",
     capabilities: [
       {
-        name: "AI-accelerated delivery",
-        text: "Build AI-enabled product workflows that shorten delivery timelines.",
+        name: "Using AI to move faster",
+        text: "Put AI into the product workflow to shorten the path from idea to delivery.",
       },
       {
-        name: "From product planning to hands-on delivery",
-        text: "Use AI to build internal tools that teams use in their daily work.",
+        name: "Taking plans through to delivery",
+        text: "Use AI to build internal tools that teams use in their day-to-day work.",
       },
       {
-        name: "Digital tools for operations",
-        text: "Break down operational bottlenecks, choose the right tool, and make the gains measurable.",
+        name: "Using tools to fix operational snags",
+        text: "Understand where the work gets stuck, then use the right tool to improve it step by step.",
       },
     ],
   },
@@ -197,7 +197,7 @@ export const en = {
           "Across enterprise training and consumer learning, conducted HR research, planned learning analytics, tested entry into Hong Kong, and improved internal workflows.",
         bullets: [
           "Enterprise learning: interviewed HR teams at companies of different sizes to understand training operations, then planned a learning dashboard for employee progress",
-          "Hong Kong market: partnered with marketing and used a third-party platform to enter the market with a lean, minimum viable approach in three weeks",
+          "Hong Kong market: partnered with marketing and used a third-party platform for a lightweight market test in three weeks",
           "Learning outcomes and revenue: planned in-class assessments and explored affiliate marketing and group buying features as new revenue paths",
           "Operations: mapped internal leave, time-off-in-lieu, and payment-request processes, then planned tools and workflows to improve efficiency",
         ],
@@ -251,7 +251,7 @@ export const en = {
 
   contact: {
     title: "Contact",
-    text: "If you are hiring a product manager, or want to talk through a flow and its bottleneck, I would like to hear from you.",
+    text: "If you are hiring a product manager, or working through a process that is stuck, I would be glad to talk.",
     cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/" }],
   },

@@ -130,7 +130,8 @@ body {
 }
 
 .hero-title-zh {
-  max-width: 11.5ch;
+  max-width: none;
+  font-size: clamp(2.7rem, 4vw, 4rem);
   letter-spacing: -0.045em;
   line-height: 1.15;
 }
