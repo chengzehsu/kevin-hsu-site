@@ -15,10 +15,8 @@ export function Timeline({ content }: SectionProps) {
               <p className="timeline-period text-sm text-muted tabular-nums md:col-span-3">{item.period}</p>
 
               <div className="timeline-content md:col-span-9">
-                <h3 className="flex flex-wrap items-baseline gap-x-3 text-lg">
-                  <span className="font-semibold">{item.role}</span>
-                  <span className="font-normal text-muted">{item.org}</span>
-                </h3>
+                <h3 className="text-lg font-semibold">{item.role}</h3>
+                <p className="mt-1 text-sm text-muted">{item.org}</p>
                 {item.summary ? (
                   <p className="mt-2 max-w-[65ch] text-muted">
                     <Highlight>{item.summary}</Highlight>

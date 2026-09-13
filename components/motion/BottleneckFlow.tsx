@@ -120,6 +120,7 @@ function Diagram({ content, final }: DiagramProps) {
       aria-hidden="true"
       focusable="false"
       className="block h-auto w-full"
+      data-flow-diagram=""
       style={{ aspectRatio: `${VIEW_W} / ${VIEW_H}` }}
     >
       {/* Pipes */}
@@ -327,6 +328,12 @@ export function BottleneckFlow({ content, className }: BottleneckFlowProps) {
     <div className={className}>
       <figure ref={scope} role="img" aria-label={content.ariaLabel} className="m-0">
         <Diagram key={run} content={content} final={reduce} />
+        <ol className="mobile-flow" aria-hidden="true">
+          {Object.values(content.nodes).map((label) => (
+            <li key={label}>{label}</li>
+          ))}
+          <li className="mobile-flow-result">{content.throughputLabel}</li>
+        </ol>
       </figure>
 
       {reduce ? (

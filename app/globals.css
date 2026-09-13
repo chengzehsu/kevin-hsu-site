@@ -174,6 +174,8 @@ body {
 }
 
 .flow-label { margin-bottom: 1.5rem; }
+.flow-label { display: inline-block; text-decoration: none; }
+.flow-label:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.35em; }
 
 /* Results: each data point earns a different amount of visual weight. */
 .impact-grid {
@@ -197,14 +199,14 @@ body {
   background: var(--surface);
 }
 
-.impact-cell-1 { grid-column: span 3; background: linear-gradient(135deg, var(--accent), color-mix(in oklch, var(--accent) 72%, var(--surface))); color: var(--accent-fg); }
+.impact-cell-1 { grid-column: span 4; background: linear-gradient(135deg, var(--accent), color-mix(in oklch, var(--accent) 72%, var(--surface))); color: var(--accent-fg); }
 .impact-cell-1 .text-muted { color: color-mix(in oklch, var(--accent-fg) 72%, transparent); }
 .impact-cell-1 .text-accent { color: var(--accent-fg); }
-.impact-cell-2 { grid-column: span 3; }
+.impact-cell-2 { grid-column: span 2; }
 .impact-cell-3 { grid-column: span 2; }
 .impact-cell-4 { grid-column: span 2; background: color-mix(in oklch, var(--surface-strong) 70%, transparent); }
-.impact-cell-5 { grid-column: span 2; }
-.impact-cell-6 { grid-column: span 4; }
+.impact-cell-5 { grid-column: span 3; }
+.impact-cell-6 { grid-column: span 3; }
 
 /* Method: a compact decision loop that reads as a system rather than a to-do list. */
 .method-grid {
@@ -261,6 +263,8 @@ body {
 .case-study-2 { background: color-mix(in oklch, var(--surface-strong) 44%, transparent); }
 .case-study-3 { background: color-mix(in oklch, var(--surface) 70%, transparent); }
 .case-heading h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); font-weight: 650; line-height: 1.25; }
+.case-impact { max-width: 22ch; font-size: 1.05rem; line-height: 1.5; }
+.case-impact .keyword { display: inline; background: none; color: var(--accent); font-size: 1.22em; }
 .case-evidence > div { padding-left: 1rem; border-left: 1px solid var(--line); }
 .case-evidence h4 { color: var(--muted); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.045em; }
 .case-evidence p { font-size: 0.975rem; line-height: 1.7; }
@@ -295,6 +299,18 @@ body {
   font-weight: 620;
 }
 
+.email-address {
+  display: inline-block;
+  margin-top: 1.75rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.35em;
+}
+
+.mobile-flow { display: none; }
+
 @media (prefers-reduced-motion: no-preference) {
   .site-nav a:not(.rounded-ui) {
     background-image: linear-gradient(var(--accent), var(--accent));
@@ -321,8 +337,8 @@ body {
   .hero-flow-shell { padding: 1.2rem; }
   .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .impact-cell { min-height: 10.5rem; padding: 1.1rem; }
-  .impact-cell-1, .impact-cell-2, .impact-cell-6 { grid-column: span 2; }
-  .impact-cell-3, .impact-cell-4, .impact-cell-5 { grid-column: span 1; }
+  .impact-cell-1, .impact-cell-2, .impact-cell-5, .impact-cell-6 { grid-column: span 2; }
+  .impact-cell-3, .impact-cell-4 { grid-column: span 1; }
   .method-grid { grid-template-columns: 1fr; }
   .method-step { min-height: 0; padding: 1.4rem; }
   .method-step h3 { margin-top: 1.5rem; }
@@ -331,6 +347,30 @@ body {
   .timeline-item { padding: 1.75rem 0; }
   .timeline-period { padding-right: 0; }
   .timeline-content { padding-left: 0; border-left: 0; }
+  [data-flow-diagram] { display: none; }
+  .mobile-flow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .mobile-flow li {
+    padding: 0.7rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    background: color-mix(in oklch, var(--bg) 85%, transparent);
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  .mobile-flow .mobile-flow-result {
+    grid-column: span 2;
+    border-color: color-mix(in oklch, var(--accent) 55%, var(--line));
+    color: var(--accent);
+    font-weight: 650;
+  }
 }
 
 /* ---- CJK typography: Chinese needs looser leading, no negative tracking, weight not italic ---- */
@@ -370,6 +410,23 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@media print {
+  .site-nav,
+  .reading-progress,
+  .hero-orbit,
+  [data-replay] {
+    display: none !important;
+  }
+  [data-reveal],
+  [data-hero-intro] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-section { min-height: auto; padding: 1.5rem 0; }
+  .hero-flow-shell { box-shadow: none; }
+  .case-study { break-inside: avoid; box-shadow: none; }
 }
 
 /* ---- BottleneckFlow under reduced motion, before hydration and without JS:

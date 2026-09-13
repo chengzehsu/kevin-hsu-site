@@ -27,6 +27,9 @@ export function CaseStudies({ content }: SectionProps) {
                     <div className="case-heading self-start lg:sticky lg:top-28 lg:col-span-4">
                       <h3 className="text-xl font-semibold">{item.title}</h3>
                       {meta ? <p className="mt-2 text-sm text-muted">{meta}</p> : null}
+                      <p className="case-impact mt-6">
+                        <Highlight>{item.impact}</Highlight>
+                      </p>
                     </div>
 
                     <div className="case-evidence grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2 lg:col-span-8">

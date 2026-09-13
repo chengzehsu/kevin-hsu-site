@@ -81,6 +81,8 @@ export interface CaseStudy {
   org: string;
   period: string;
   title: string;
+  /** The outcome a hiring reader should understand before reading the full case. */
+  impact: string;
   situation: string;
   bottleneck: string;
   hypothesis: string;

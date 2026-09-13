@@ -3,7 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import "../globals.css";
 
 // Reveal blocks are server-rendered hidden and shown by motion; without JS they must stay visible.
-const NOSCRIPT_CSS = "[data-reveal]{opacity:1!important;transform:none!important}";
+const NOSCRIPT_CSS = "[data-reveal],[data-hero-intro]{opacity:1!important;transform:none!important}";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

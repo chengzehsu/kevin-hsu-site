@@ -9,7 +9,7 @@ const REDIRECT_SCRIPT =
   '(function(){try{if(/[?&]lang=zh(?:&|$)/.test(location.search))return;var h=location.hash||"";var p=localStorage.getItem("locale");var l=(navigator.language||"").toLowerCase();if(p==="en"||(!p&&l.indexOf("zh")!==0)){location.replace("/en/"+location.search+h)}}catch(e){}})();';
 
 // Reveal blocks are server-rendered hidden and shown by motion; without JS they must stay visible.
-const NOSCRIPT_CSS = "[data-reveal]{opacity:1!important;transform:none!important}";
+const NOSCRIPT_CSS = "[data-reveal],[data-hero-intro]{opacity:1!important;transform:none!important}";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

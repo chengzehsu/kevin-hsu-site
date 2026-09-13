@@ -24,6 +24,7 @@ export function HeroStatement({ eyebrow, headline, subline, children, chinese }:
         initial={reduce ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={transition(0.04)}
+        data-hero-intro=""
         className="hero-eyebrow"
       >
         {eyebrow}
@@ -32,6 +33,7 @@ export function HeroStatement({ eyebrow, headline, subline, children, chinese }:
         initial={reduce ? false : { opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={transition(0.13)}
+        data-hero-intro=""
         className={chinese ? "hero-title hero-title-zh" : "hero-title"}
       >
         {headline}
@@ -40,6 +42,7 @@ export function HeroStatement({ eyebrow, headline, subline, children, chinese }:
         initial={reduce ? false : { opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={transition(0.24)}
+        data-hero-intro=""
         className="hero-subline"
       >
         {subline}
@@ -48,6 +51,7 @@ export function HeroStatement({ eyebrow, headline, subline, children, chinese }:
         initial={reduce ? false : { opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={transition(0.34)}
+        data-hero-intro=""
         className="hero-actions"
       >
         {children}

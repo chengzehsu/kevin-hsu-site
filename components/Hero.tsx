@@ -29,7 +29,9 @@ export function Hero({ content, locale }: SectionProps) {
         </div>
 
         <div className="hero-flow-shell lg:col-span-6">
-          <p className="flow-label">{visualLabel}</p>
+          <a href="#grocery" className="flow-label">
+            {visualLabel}
+          </a>
           <BottleneckFlow content={content.animation} locale={locale} className="relative z-10 w-full" />
         </div>
       </div>

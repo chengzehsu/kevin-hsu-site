@@ -21,10 +21,10 @@ export const zh = {
   },
 
   hero: {
-    eyebrow: "AI 時代的產品經理",
+    eyebrow: "許承澤 Kevin Hsu｜產品經理",
     headline: "讓 AI 成為可驗證的營運成果。",
     subline: "從產品策略到落地交付，解開真正限制成長的瓶頸。",
-    visualLabel: "從瓶頸到成果，一個可驗證的案例",
+    visualLabel: "AWS 上雲重構：從瓶頸到成果",
     primaryCta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "看案例", href: "#cases" },
   },
@@ -118,7 +118,7 @@ export const zh = {
     columns: {
       situation: "情境",
       bottleneck: "瓶頸",
-      hypothesis: "假設與做法",
+      hypothesis: "我的做法",
       result: "結果",
     },
     items: [
@@ -127,6 +127,7 @@ export const zh = {
         org: "Fable 寓意科技",
         period: "2021/3 - 2022/7",
         title: "蔬果電商 AWS 上雲重構",
+        impact: "300 → 1,000 單／日，提升 233%",
         situation: "年營收 NT$2 億的蔬果電商，揀貨每日處理 300 單。",
         // TODO(kevin): 確認怎麼發現揀貨是瓶頸、驗證了什麼
         bottleneck: "揀貨環節是整條流程的產能瓶頸。",
@@ -139,6 +140,7 @@ export const zh = {
         org: "Fable 寓意科技",
         period: "2021/3 - 2022/7",
         title: "健康管理 App 新平台",
+        impact: "每日活躍使用者 12,000 → 20,000，成長 66%",
         situation:
           "年營收約 NT$8 億的健康管理 App，要重新規劃產品、新增體重計健康分析與活動報名，並轉移舊平台使用者資料。",
         bottleneck:
@@ -153,20 +155,22 @@ export const zh = {
         org: "歐可達數據科技有限公司",
         period: "2020/6 - 2020/12",
         title: "CDP 與資料團隊",
+        impact: "整合跨產業千萬筆客戶資料",
         situation:
           "管理產品與數據兩個團隊，負責 CDP 產品 Roadmap 與 Scrum 雙週迭代，為零售、電商與不動產客戶建立資料產品。",
         bottleneck:
           "客戶的線上電商與線下 POS 資料分散在不同系統，上千萬筆客戶資料需要先整理，才能成為可用的客戶視圖。",
         hypothesis:
-          "先定義資料策略與客戶 360 度視圖，清洗並建模客戶資料，再串接線上與線下資料，將洞察落在可執行的產品功能。",
+          "管理產品與數據兩個團隊，以 CDP 產品 Roadmap 與 Scrum 雙週迭代推進整合，並主導 PRD 撰寫與功能設計。",
         result:
-          "整合零售、電商與不動產領域千萬筆客戶資料，交付 CDP、LINE 與 Facebook Chatbot、網站埋點與數據儀表板。",
+          "整合零售、電商與不動產領域千萬筆客戶資料，串接線上電商與線下 POS 資料，並建立客戶 360 度視圖。",
       },
       {
         id: "ecofirst",
         org: "台灣愛淨 Ecofirst",
         period: "2025/3 - 現在",
         title: "AI 空調節能產品與營運流程",
+        impact: "案場營運效率提升 20%",
         situation:
           "制定並執行 AI 空調節能產品路線圖，需要軟體部、專案部、業務部協作，把產品部署到案場。",
         bottleneck:

@@ -21,10 +21,10 @@ export const en = {
   },
 
   hero: {
-    eyebrow: "PRODUCT LEAD FOR THE AI ERA",
+    eyebrow: "Kevin Hsu | Product Manager",
     headline: "Make AI work. Move the metric.",
     subline: "From product strategy to delivery, I solve the constraint that limits growth.",
-    visualLabel: "One evidence-based path from constraint to outcome",
+    visualLabel: "AWS re-platform: from constraint to outcome",
     primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "See the cases", href: "#cases" },
   },
@@ -121,7 +121,7 @@ export const en = {
     columns: {
       situation: "Situation",
       bottleneck: "Bottleneck",
-      hypothesis: "Hypothesis and approach",
+      hypothesis: "My contribution",
       result: "Result",
     },
     items: [
@@ -130,6 +130,7 @@ export const en = {
         org: "Fable",
         period: "2021/3 - 2022/7",
         title: "Fresh-produce e-commerce, AWS re-platform",
+        impact: "300 to 1,000 orders a day, up 233%",
         situation:
           "A fresh-produce e-commerce business with NT$200M in annual revenue. Picking handled 300 orders a day.",
         // TODO(kevin): 確認怎麼發現揀貨是瓶頸、驗證了什麼
@@ -145,6 +146,7 @@ export const en = {
         org: "Fable",
         period: "2021/3 - 2022/7",
         title: "Health-management app, new platform",
+        impact: "Daily active users: 12,000 to 20,000, up 66%",
         situation:
           "A health-management app with about NT$800M in annual revenue and about 12,000 daily active users. It needed a redesign, scale-based health analysis and event sign-up, plus a migration of existing user data.",
         bottleneck:
@@ -159,20 +161,22 @@ export const en = {
         org: "OKData",
         period: "2020/6 - 2020/12",
         title: "CDP and data team",
+        impact: "Integrated tens of millions of customer records",
         situation:
           "Managed product and data teams, owned the CDP roadmap and biweekly Scrum cadence, and built data products for retail, e-commerce and real-estate clients.",
         bottleneck:
           "Online e-commerce and offline POS data lived in separate systems. Tens of millions of customer records had to be structured before they could form a usable customer view.",
         hypothesis:
-          "Define the data strategy and customer 360 view first, clean and model the records, then connect online and offline sources to product features teams can act on.",
+          "Managed product and data teams, using the CDP roadmap and a biweekly Scrum cadence to drive integration. Led PRDs and feature design.",
         result:
-          "Integrated tens of millions of customer records across retail, e-commerce and real estate, and delivered the CDP, LINE and Facebook chatbots, web tracking and data dashboards.",
+          "Integrated tens of millions of customer records across retail, e-commerce and real estate, connected online e-commerce and offline POS data, and built customer 360 views.",
       },
       {
         id: "ecofirst",
         org: "Ecofirst",
         period: "2025/3 - Present",
         title: "AI air-conditioning energy savings and operations",
+        impact: "Site operations efficiency up 20%",
         situation:
           "Own the roadmap for an AI energy-saving product for air conditioning; delivery needs the software, project and sales teams working together to deploy at customer sites.",
         bottleneck:

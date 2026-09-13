@@ -40,6 +40,11 @@ export function Contact({ content }: SectionProps) {
               ))}
             </div>
           ) : null}
+          {showCta && cta?.href.startsWith("mailto:") ? (
+            <a className="email-address" href={cta.href}>
+              {cta.href.slice("mailto:".length)}
+            </a>
+          ) : null}
         </div>
       </div>
     </section>
