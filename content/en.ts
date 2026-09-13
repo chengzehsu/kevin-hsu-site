@@ -30,7 +30,7 @@ export const en = {
   },
 
   metrics: {
-    title: "B2C and data-product impact",
+    title: "B2C and data product impact",
     items: [
       {
         value: 1000,
@@ -49,14 +49,14 @@ export const en = {
         prefix: "+",
         value: 66,
         suffix: "%",
-        label: "Health-app DAU",
+        label: "Health app DAU",
         detail: "12,000 to 20,000 within one year",
       },
       {
         value: 10,
         suffix: "M records",
         label: "CDP customer-data integration",
-        detail: "Online EC × offline POS customer data",
+        detail: "Online e-commerce and offline POS data",
       },
     ],
     awards: [
@@ -66,7 +66,7 @@ export const en = {
   },
 
   method: {
-    title: "From flow to product impact",
+    title: "Turning workflows into product impact",
     steps: [
       {
         verb: "Decompose",
@@ -77,27 +77,27 @@ export const en = {
         text: "Use data and interviews to find the one step that actually caps throughput.",
       },
       {
-        verb: "Hypothesise",
-        text: "Write down the hypothesis and the metric it should move, then pick the smallest test.",
+        verb: "Hypothesize",
+        text: "Write a hypothesis, define the metric it should move, and choose the smallest test.",
       },
       {
         verb: "Validate and improve",
-        text: "Validate, keep improving the flow, and make sure the result shows up in operating numbers.",
+        text: "Validate the result, refine the flow, and ensure the gain appears in operating metrics.",
       },
     ],
     capabilitiesTitle: "Core capabilities",
     capabilities: [
       {
         name: "AI-accelerated delivery",
-        text: "Build AI-assisted product workflows that shorten delivery timelines.",
+        text: "Build AI-enabled product workflows that shorten delivery timelines.",
       },
       {
         name: "From product planning to hands-on delivery",
-        text: "With AI assistance, build tools that internal teams use in their daily work.",
+        text: "Use AI to build internal tools that teams use in their daily work.",
       },
       {
         name: "Digital tools for operations",
-        text: "Break down each operational bottleneck, choose the right tool and make the benefit measurable.",
+        text: "Break down operational bottlenecks, choose the right tool, and make the gains measurable.",
       },
     ],
   },
@@ -115,62 +115,62 @@ export const en = {
         id: "grocery",
         org: "Fable",
         period: "2021/3 - 2022/7",
-        title: "Fresh-produce e-commerce, AWS re-platform",
+        title: "AWS re-platforming for fresh-produce e-commerce",
         impact: "300 to 1,000 orders a day, up 233%",
         situation:
-          "A fresh-produce e-commerce business with NT$200M in annual revenue. Picking handled 300 orders a day.",
+          "A fresh-produce e-commerce business with NT$200M in annual revenue. Its picking operation handled 300 orders per day.",
         // TODO(kevin): 確認怎麼發現揀貨是瓶頸、驗證了什麼
         bottleneck:
           "Picking was the capacity bottleneck of the whole fulfilment flow.",
         hypothesis:
-          "Led the re-platform onto AWS, with the goal of lifting the picking capacity limit.",
+          "Led AWS re-platforming to relieve the picking capacity constraint.",
         result:
-          "Picking went from 300 to 1,000 orders a day (+233%). Platform revenue grew 120%, and the project was featured as an official AWS digital transformation case.",
+          "Picking capacity rose from 300 to 1,000 orders per day, up 233%. Platform revenue grew 120%, and the project was featured as an AWS digital transformation case study.",
       },
       {
         id: "health-app",
         org: "Fable",
         period: "2021/3 - 2022/7",
-        title: "Health-management app, new platform",
+        title: "Health management app re-platforming",
         impact: "Daily active users: 12,000 to 20,000, up 66%",
         situation:
-          "A health-management app with about NT$800M in annual revenue and about 12,000 daily active users. It needed a redesign, scale-based health analysis and event sign-up, plus a migration of existing user data.",
+          "A health management app with about NT$800M in annual revenue and about 12,000 daily active users. It needed a redesign, body-scale health analysis, event registration, and a migration of legacy user data.",
         bottleneck:
-          "Data fields in the old and new systems had to be defined precisely; otherwise the user data migration would fail.",
+          "Data fields in the legacy and new platforms had to be defined precisely; otherwise, the user-data migration would fail.",
         hypothesis:
-          "Ran requirement interviews to map user journeys, pain points and personas, added competitor analysis, then aligned priorities with the client in workshops. Led use-case design and QA acceptance.",
+          "Conducted requirements interviews to map user journeys, pain points, and personas; added competitor analysis; aligned priorities with the client in workshops; and led use-case design and QA acceptance.",
         result:
-          "Launched the new AWS-based platform and migrated user data. Daily active users went from about 12,000 to about 20,000, up 66% within a year.",
+          "Launched the new AWS-based platform and migrated user data. Daily active users grew from about 12,000 to about 20,000, up 66% within a year.",
       },
       {
         id: "cdp",
         org: "OKData",
         period: "2020/6 - 2020/12",
-        title: "CDP and data team",
+        title: "CDP product and data teams",
         impact: "Integrated 10M customer records",
         situation:
-          "Managed product and data teams, owned the CDP roadmap and biweekly Scrum cadence, and built data products for retail, e-commerce and real-estate clients.",
+          "Managed product and data teams, owned the CDP roadmap and biweekly Scrum sprints, and built data products for retail, e-commerce, and real estate clients.",
         bottleneck:
-          "Online e-commerce and offline POS data lived in separate systems. 10M customer records had to be structured before they could form a usable customer view.",
+          "Online e-commerce and offline POS data lived in separate systems. 10M customer records had to be structured before they could form a usable 360-degree customer view.",
         hypothesis:
-          "Managed product and data teams, using the CDP roadmap and a biweekly Scrum cadence to drive integration. Led PRDs and feature design.",
+          "Managed product and data teams, using the CDP roadmap and biweekly Scrum sprints to drive integration. Led PRDs and feature design.",
         result:
-          "Integrated 10M customer records across retail, e-commerce and real estate, connected online e-commerce and offline POS data, and built customer 360 views.",
+          "Integrated 10M customer records across retail, e-commerce, and real estate, connected online e-commerce and offline POS data, and built 360-degree customer views.",
       },
       {
         id: "ecofirst",
         org: "Ecofirst",
         period: "2025/3 - Present",
-        title: "AI air-conditioning energy savings and operations",
+        title: "AI energy-saving product for air conditioning",
         impact: "Site operations efficiency up 20%",
         situation:
-          "Own the roadmap for an AI energy-saving product for air conditioning; delivery needs the software, project and sales teams working together to deploy at customer sites.",
+          "Own the roadmap for an AI energy-saving air-conditioning product. Delivery requires the software, project, and sales teams to work together on customer-site deployments.",
         bottleneck:
-          "The cross-team development and deployment flow was not yet standardised, and site operations had room to improve.",
+          "The cross-team development and deployment flow was not yet standardized, and site operations had room to improve.",
         hypothesis:
-          "Coordinate the software, project and sales teams on one development and deployment flow, and write standard operating procedures for internal operations.",
+          "Coordinate the software, project, and sales teams on one development and deployment flow, and write standard operating procedures for internal operations.",
         result:
-          "A cross-team development and deployment flow is in place, and standardised procedures raised site operations efficiency by 20%.",
+          "A cross-team development and deployment flow is in place, and standardized procedures have raised site operations efficiency by 20%.",
       },
     ],
   },
@@ -183,7 +183,7 @@ export const en = {
         role: "Product Manager",
         period: "2025/3 - Present",
         summary:
-          "Own and execute the roadmap for an AI energy-saving product for air conditioning, setting product direction and feature strategy.",
+          "Own and execute the roadmap for an AI energy-saving air-conditioning product, setting product direction and feature strategy.",
         bullets: [
           "Coordinate the software, project and sales teams on one product development and deployment flow",
           "Streamlined internal operations with standard operating procedures, raising site operations efficiency by 20%",
@@ -194,12 +194,12 @@ export const en = {
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
         summary:
-          "Led product discovery across enterprise learning and consumer education, from HR interviews and learning data products to Hong Kong market validation and internal operations.",
+          "Across enterprise training and consumer learning, conducted HR research, planned learning analytics, tested entry into Hong Kong, and improved internal workflows.",
         bullets: [
           "Enterprise learning: interviewed HR teams at companies of different sizes to understand training operations, then planned a learning dashboard for employee progress",
-          "Hong Kong market: partnered with marketing and used a third-party platform to enter the market with a minimum viable approach in three weeks",
+          "Hong Kong market: partnered with marketing and used a third-party platform to enter the market with a lean, minimum viable approach in three weeks",
           "Learning outcomes and revenue: planned in-class assessments and explored affiliate marketing and group buying features as new revenue paths",
-          "Operations: mapped internal leave, compensatory time-off and payment-request processes, then planned tools and workflows to improve efficiency",
+          "Operations: mapped internal leave, time-off-in-lieu, and payment-request processes, then planned tools and workflows to improve efficiency",
         ],
       },
       {
@@ -209,9 +209,9 @@ export const en = {
         summary: null,
         // TODO(kevin): Heptabase 產品指標整理連結是否公開
         bullets: [
-          "Product management process: helped a multinational SaaS company cascade business strategy into product strategy, with a product roadmap tied to metrics",
-          "Business model: worked with a hospitality operator at the NT$100M+ scale and its FA to organise operating and financial data, find a market entry point and close a fundraising round",
-          "Venture process: mapped the firm's investment process and built a Notion dashboard so the owner could see the stage of every deal",
+          "Product strategy: helped a multinational SaaS company translate business strategy into product strategy, with a product roadmap tied to metrics",
+          "Business model: worked with a hospitality operator at the NT$100M+ scale and its financial adviser to organize operating and financial data, find a market entry point, and close a fundraising round",
+          "Investment process: mapped the firm's investment process and built a Notion dashboard so the owner could see the stage of every deal",
         ],
       },
       {
@@ -219,21 +219,21 @@ export const en = {
         role: "Senior Project Manager",
         period: "2021/3 - 2022/7",
         summary:
-          "Managed an NT$12M+ project portfolio with Agile, led a 10-person engineering team (web and app), mentored 2 junior PMs, and owned project initiation, execution, resourcing and gross margin. Won the 2022 PMI Taiwan Project Management Benchmark Award, Excellence.",
+          "Managed an NT$12M+ project portfolio using Agile methods, led a 10-person engineering team across web and app, mentored two junior PMs, and owned project initiation, execution, resourcing, and gross margin. Received the 2022 PMI Taiwan Project Management Benchmark Award, Excellence.",
         bullets: [
-          "Fresh-produce e-commerce (NT$200M annual revenue): led the AWS re-platform; picking went from 300 to 1,000 orders a day (+233%), revenue grew 120%, featured as an official AWS digital transformation case",
-          "Health-management app (about NT$800M annual revenue): built the new AWS-based platform and migrated user data; daily active users 12,000 → 20,000, up 66% within a year",
+          "Fresh-produce e-commerce (NT$200M annual revenue): led AWS re-platforming; picking capacity rose from 300 to 1,000 orders per day, up 233%; revenue grew 120%; featured as an AWS digital transformation case study",
+          "Health management app (about NT$800M annual revenue): launched the new AWS-based platform and migrated user data; daily active users grew from 12,000 to 20,000, up 66% within a year",
         ],
       },
       {
         org: "OKData",
         role: "Product Manager",
         period: "2020/6 - 2020/12",
-        summary: "Managed product and data teams, owning the CDP roadmap and a biweekly Scrum cadence.",
+        summary: "Managed product and data teams, owning the CDP roadmap and biweekly Scrum sprints.",
         bullets: [
-          "Integrated 10M customer records across retail, e-commerce and real estate, connecting online e-commerce and offline POS data",
+          "Integrated 10M customer records across retail, e-commerce, and real estate by connecting online e-commerce and offline POS data",
           "Led PRDs and feature design for the CDP, LINE and Facebook chatbots, web tracking and data dashboards",
-          "Defined client data strategies and built customer 360 views",
+          "Defined client data strategies and built 360-degree customer views",
         ],
       },
       {
@@ -243,7 +243,7 @@ export const en = {
         summary:
           "Ran user interviews with companies, learned their industries, found improvement opportunities, and validated them with minimum viable tests while collecting feedback.",
         bullets: [
-          "Incubated 2 companies outside the corporate structure, each at the NT$1M scale, and took their products to market validation",
+          "Incubated two companies outside the existing corporate structure, each at the NT$1M scale, and took their products to market validation",
         ],
       },
     ],
@@ -271,9 +271,9 @@ export const en = {
     hypothesis: "Led the AWS re-platform to improve the picking workflow",
     throughputLabel: "300 → 1,000 orders/day",
     captions: [
-      "Orders pile up at picking: 300 a day.",
+      "Orders queue at picking: 300 orders per day.",
       "Led the AWS re-platform to improve the picking workflow.",
-      "1,000 orders a day, and platform revenue up 120%.",
+      "Picking reached 1,000 orders per day, while platform revenue grew 120%.",
     ],
     replay: "Replay",
     ariaLabel:
