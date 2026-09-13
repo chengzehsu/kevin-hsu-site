@@ -6,7 +6,7 @@ export const zh = {
   meta: {
     title: "許承澤 Kevin Hsu｜產品經理",
     description:
-      "產品經理許承澤。擅長拆解流程、找到瓶頸點、提出假設並驗證優化，打造具體帶來影響力的產品。",
+      "產品經理許承澤。拆解營運瓶頸，透過假設驗證與 AI 工具，打造帶來具體成果的產品。",
   },
 
   nav: {
@@ -22,62 +22,48 @@ export const zh = {
 
   hero: {
     eyebrow: "許承澤 Kevin Hsu｜產品經理",
-    headline: "讓 AI 成為可驗證的營運成果。",
-    subline: "從產品策略到落地交付，解開真正限制成長的瓶頸。",
+    headline: "拆解營運瓶頸，打造有成果的產品。",
+    subline: "我結合流程拆解、假設驗證與 AI 工具，改善營運效率，推動產品交付與成長。",
     visualLabel: "AWS 上雲重構：從瓶頸到成果",
     primaryCta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "看案例", href: "#cases" },
   },
 
   metrics: {
-    title: "成果數字",
+    title: "B2C 與資料產品成果",
     items: [
       {
         value: 1000,
         suffix: " 單／日",
-        label: "揀貨效率",
-        detail: "300 → 1,000 單／日（+233%），蔬果電商 AWS 上雲重構",
+        label: "生鮮電商揀貨產能",
+        detail: "300 → 1,000 單／日，提升 233%",
       },
       {
         prefix: "+",
         value: 120,
         suffix: "%",
-        label: "平台營業額",
-        detail: "年營收 NT$2 億的蔬果電商",
+        label: "生鮮電商營業額",
+        detail: "年營收 NT$2 億的 B2C 電商",
       },
       {
         prefix: "+",
         value: 66,
         suffix: "%",
-        label: "每日活躍使用者",
-        detail: "12,000 → 20,000，健康管理 App",
+        label: "健康管理 App DAU",
+        detail: "12,000 → 20,000，一年內成長",
       },
       {
-        prefix: "NT$",
-        value: 1200,
-        suffix: " 萬+",
-        label: "專案組合規模",
-        detail: "Agile，10 人工程團隊",
-      },
-      {
-        prefix: "+",
-        value: 20,
-        suffix: "%",
-        label: "案場營運效率",
-        detail: "Ecofirst 標準化作業程序",
-      },
-      {
-        value: 2,
-        suffix: " 間",
-        label: "孵化公司",
-        detail: "眾碩，各為 100 萬規模",
+        value: 1000,
+        suffix: " 萬筆",
+        label: "CDP 客戶資料整合",
+        detail: "線上 EC × 線下 POS，跨產業客戶資料",
       },
     ],
     awards: ["2022 PMI 專案管理標竿獎 卓越獎", "AWS 官方數位轉型案例"],
   },
 
   method: {
-    title: "我怎麼工作",
+    title: "從流程到產品成果",
     steps: [
       {
         verb: "拆解",
@@ -103,12 +89,12 @@ export const zh = {
         text: "建立 AI 產品工作流程，縮短交付時程。",
       },
       {
-        name: "從規劃產品到打造產品",
-        text: "透過 AI 協助，打造不同工具提供內部夥伴使用。",
+        name: "從產品規劃到實際落地",
+        text: "透過 AI 輔助，打造內部夥伴實際使用的工具。",
       },
       {
-        name: "善用數位工具優化營運流程",
-        text: "理解各個營運瓶頸點，用合適的工具逐一優化並帶來效益。",
+        name: "數位工具優化營運流程",
+        text: "拆解不同營運瓶頸，選擇合適工具逐一優化，讓效益可被驗證。",
       },
     ],
   },
@@ -155,15 +141,15 @@ export const zh = {
         org: "歐可達數據科技有限公司",
         period: "2020/6 - 2020/12",
         title: "CDP 與資料團隊",
-        impact: "整合跨產業千萬筆客戶資料",
+        impact: "整合跨產業 1,000 萬筆客戶資料",
         situation:
           "管理產品與數據兩個團隊，負責 CDP 產品 Roadmap 與 Scrum 雙週迭代，為零售、電商與不動產客戶建立資料產品。",
         bottleneck:
-          "客戶的線上電商與線下 POS 資料分散在不同系統，上千萬筆客戶資料需要先整理，才能成為可用的客戶視圖。",
+          "客戶的線上電商與線下 POS 資料分散在不同系統，1,000 萬筆客戶資料需要先整理，才能成為可用的客戶視圖。",
         hypothesis:
           "管理產品與數據兩個團隊，以 CDP 產品 Roadmap 與 Scrum 雙週迭代推進整合，並主導 PRD 撰寫與功能設計。",
         result:
-          "整合零售、電商與不動產領域千萬筆客戶資料，串接線上電商與線下 POS 資料，並建立客戶 360 度視圖。",
+          "整合零售、電商與不動產領域 1,000 萬筆客戶資料，串接線上電商與線下 POS 資料，並建立客戶 360 度視圖。",
       },
       {
         id: "ecofirst",
@@ -239,7 +225,7 @@ export const zh = {
         period: "2020/6 - 2020/12",
         summary: "管理產品與數據兩個團隊，負責 CDP 產品 Roadmap 與 Scrum 雙週迭代。",
         bullets: [
-          "整合零售、電商與不動產垂直領域千萬筆客戶數據，串接線上電商與線下 POS 資料",
+          "整合零售、電商與不動產垂直領域 1,000 萬筆客戶資料，串接線上電商與線下 POS 資料",
           "主導 CDP、LINE 與 Facebook Chatbot、網站埋點與數據儀表板的 PRD 撰寫與功能設計",
           "為客戶制定數據策略，建立客戶 360 度視圖",
         ],
@@ -276,11 +262,11 @@ export const zh = {
       shipping: "出貨",
     },
     bottleneckLabel: "瓶頸",
-    hypothesis: "假設：揀貨是產能瓶頸",
+    hypothesis: "主導 AWS 上雲重構，改善揀貨流程",
     throughputLabel: "300 → 1,000 單／日",
     captions: [
       "訂單堆在揀貨環節，每日只能處理 300 單。",
-      "假設揀貨是瓶頸，主導 AWS 上雲重構驗證。",
+      "主導 AWS 上雲重構，改善揀貨流程。",
       "日處理 1,000 單，平台營業額成長 120%。",
     ],
     replay: "重播",

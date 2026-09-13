@@ -6,7 +6,7 @@ export const en = {
   meta: {
     title: "Kevin Hsu | Product Manager",
     description:
-      "Kevin Hsu, product manager. I break down flows, find the bottleneck, test a hypothesis, and ship products with measurable impact.",
+      "Kevin Hsu, product manager. I solve operational bottlenecks through hypothesis testing and AI tools, then ship products with measurable impact.",
   },
 
   nav: {
@@ -22,55 +22,41 @@ export const en = {
 
   hero: {
     eyebrow: "Kevin Hsu | Product Manager",
-    headline: "Make AI work. Move the metric.",
-    subline: "From product strategy to delivery, I solve the constraint that limits growth.",
+    headline: "Solve bottlenecks. Build measurable products.",
+    subline: "I combine workflow analysis, hypothesis testing and AI tools to improve operations, accelerate delivery and support product growth.",
     visualLabel: "AWS re-platform: from constraint to outcome",
     primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "See the cases", href: "#cases" },
   },
 
   metrics: {
-    title: "Impact",
+    title: "B2C and data-product impact",
     items: [
       {
         value: 1000,
-        suffix: "/day",
-        label: "Orders picked",
-        detail: "300 → 1,000 orders/day (+233%), fresh-produce e-commerce, AWS re-platform",
+        suffix: " orders/day",
+        label: "Fresh-produce picking capacity",
+        detail: "300 to 1,000 orders/day, up 233%",
       },
       {
         prefix: "+",
         value: 120,
         suffix: "%",
-        label: "Platform revenue",
-        detail: "Fresh-produce e-commerce, NT$200M annual revenue",
+        label: "Fresh-produce platform revenue",
+        detail: "B2C e-commerce with NT$200M annual revenue",
       },
       {
         prefix: "+",
         value: 66,
         suffix: "%",
-        label: "Daily active users",
-        detail: "12,000 → 20,000, health app",
+        label: "Health-app DAU",
+        detail: "12,000 to 20,000 within one year",
       },
       {
-        prefix: "NT$",
-        value: 12,
-        suffix: "M+",
-        label: "Project portfolio",
-        detail: "Agile, 10-person engineering team",
-      },
-      {
-        prefix: "+",
-        value: 20,
-        suffix: "%",
-        label: "Site operations efficiency",
-        detail: "Standardised operating procedures at Ecofirst",
-      },
-      {
-        value: 2,
-        suffix: "",
-        label: "Companies incubated",
-        detail: "Zhongshuo, each at the NT$1M scale",
+        value: 10,
+        suffix: "M records",
+        label: "CDP customer-data integration",
+        detail: "Online EC × offline POS customer data",
       },
     ],
     awards: [
@@ -80,7 +66,7 @@ export const en = {
   },
 
   method: {
-    title: "How I work",
+    title: "From flow to product impact",
     steps: [
       {
         verb: "Decompose",
@@ -106,12 +92,12 @@ export const en = {
         text: "Build AI-assisted product workflows that shorten delivery timelines.",
       },
       {
-        name: "From planning to building",
-        text: "With AI assistance, build internal tools that colleagues use in their daily work.",
+        name: "From product planning to hands-on delivery",
+        text: "With AI assistance, build tools that internal teams use in their daily work.",
       },
       {
         name: "Digital tools for operations",
-        text: "Understand each operational bottleneck and pick the right tool to fix it, with measurable benefit.",
+        text: "Break down each operational bottleneck, choose the right tool and make the benefit measurable.",
       },
     ],
   },
@@ -161,15 +147,15 @@ export const en = {
         org: "OKData",
         period: "2020/6 - 2020/12",
         title: "CDP and data team",
-        impact: "Integrated tens of millions of customer records",
+        impact: "Integrated 10M customer records",
         situation:
           "Managed product and data teams, owned the CDP roadmap and biweekly Scrum cadence, and built data products for retail, e-commerce and real-estate clients.",
         bottleneck:
-          "Online e-commerce and offline POS data lived in separate systems. Tens of millions of customer records had to be structured before they could form a usable customer view.",
+          "Online e-commerce and offline POS data lived in separate systems. 10M customer records had to be structured before they could form a usable customer view.",
         hypothesis:
           "Managed product and data teams, using the CDP roadmap and a biweekly Scrum cadence to drive integration. Led PRDs and feature design.",
         result:
-          "Integrated tens of millions of customer records across retail, e-commerce and real estate, connected online e-commerce and offline POS data, and built customer 360 views.",
+          "Integrated 10M customer records across retail, e-commerce and real estate, connected online e-commerce and offline POS data, and built customer 360 views.",
       },
       {
         id: "ecofirst",
@@ -245,7 +231,7 @@ export const en = {
         period: "2020/6 - 2020/12",
         summary: "Managed product and data teams, owning the CDP roadmap and a biweekly Scrum cadence.",
         bullets: [
-          "Integrated tens of millions of customer records across retail, e-commerce and real estate, connecting online e-commerce and offline POS data",
+          "Integrated 10M customer records across retail, e-commerce and real estate, connecting online e-commerce and offline POS data",
           "Led PRDs and feature design for the CDP, LINE and Facebook chatbots, web tracking and data dashboards",
           "Defined client data strategies and built customer 360 views",
         ],
@@ -282,11 +268,11 @@ export const en = {
       shipping: "Shipping",
     },
     bottleneckLabel: "Bottleneck",
-    hypothesis: "Hypothesis: picking is the bottleneck",
+    hypothesis: "Led the AWS re-platform to improve the picking workflow",
     throughputLabel: "300 → 1,000 orders/day",
     captions: [
       "Orders pile up at picking: 300 a day.",
-      "Hypothesis: picking is the bottleneck. Validated through the AWS re-platform.",
+      "Led the AWS re-platform to improve the picking workflow.",
       "1,000 orders a day, and platform revenue up 120%.",
     ],
     replay: "Replay",

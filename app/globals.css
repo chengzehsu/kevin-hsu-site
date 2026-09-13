@@ -203,8 +203,8 @@ body {
 .impact-cell-1 .text-muted { color: color-mix(in oklch, var(--accent-fg) 72%, transparent); }
 .impact-cell-1 .text-accent { color: var(--accent-fg); }
 .impact-cell-2 { grid-column: span 2; }
-.impact-cell-3 { grid-column: span 2; }
-.impact-cell-4 { grid-column: span 2; background: color-mix(in oklch, var(--surface-strong) 70%, transparent); }
+.impact-cell-3 { grid-column: span 3; }
+.impact-cell-4 { grid-column: span 3; background: color-mix(in oklch, var(--surface-strong) 70%, transparent); }
 .impact-cell-5 { grid-column: span 3; }
 .impact-cell-6 { grid-column: span 3; }
 
