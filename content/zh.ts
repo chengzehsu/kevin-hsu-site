@@ -1,0 +1,268 @@
+import type { SiteContent } from "./types";
+
+export const zh = {
+  locale: "zh",
+
+  meta: {
+    title: "許承澤 Kevin Hsu｜產品經理",
+    description:
+      "產品經理許承澤。擅長拆解流程、找到瓶頸點、提出假設並驗證優化，打造具體帶來影響力的產品。",
+  },
+
+  nav: {
+    brand: "Kevin Hsu",
+    links: [
+      { label: "案例", href: "#cases" },
+      { label: "經歷", href: "#experience" },
+      { label: "聯絡", href: "#contact" },
+    ],
+    switchLabel: "EN",
+    switchAria: "Switch to English",
+  },
+
+  hero: {
+    headline: "拆解流程、找到瓶頸，做出帶來實際影響的產品。",
+    subline: "產品經理。電商、健康 App、AI 節能到資料串接。",
+    primaryCta: { label: "聯絡我", href: "#contact" },
+    secondaryCta: { label: "看案例", href: "#cases" },
+  },
+
+  metrics: {
+    title: "成果數字",
+    items: [
+      {
+        prefix: "300 → ",
+        value: 1000,
+        suffix: " 單／日",
+        label: "揀貨效率",
+        detail: "+233%，蔬果電商 AWS 上雲重構",
+      },
+      {
+        prefix: "+",
+        value: 120,
+        suffix: "%",
+        label: "平台營業額",
+        detail: "年營收 NT$2 億的蔬果電商",
+      },
+      {
+        prefix: "+",
+        value: 66,
+        suffix: "%",
+        label: "每日活躍使用者",
+        detail: "12,000 → 20,000，健康管理 App",
+      },
+      {
+        prefix: "NT$",
+        value: 1200,
+        suffix: " 萬+",
+        label: "專案組合規模",
+        detail: "Agile，10 人工程團隊",
+      },
+      {
+        prefix: "+",
+        value: 20,
+        suffix: "%",
+        label: "案場營運效率",
+        detail: "Ecofirst 標準化作業程序",
+      },
+      {
+        value: 2,
+        suffix: " 間",
+        label: "孵化公司",
+        detail: "眾碩，各為 100 萬規模",
+      },
+    ],
+    awards: ["2022 PMI 專案管理標竿獎 卓越獎", "AWS 官方數位轉型案例"],
+  },
+
+  method: {
+    title: "我怎麼工作",
+    steps: [
+      {
+        verb: "拆解",
+        text: "把流程拆成可觀察的環節，看清每一步的輸入與輸出。",
+      },
+      {
+        verb: "找瓶頸",
+        text: "用資料與訪談找出真正卡住產能的那一段。",
+      },
+      {
+        verb: "提假設",
+        text: "針對瓶頸寫下假設與預期指標，決定最小的驗證方式。",
+      },
+      {
+        verb: "驗證優化",
+        text: "驗證後持續優化流程，讓成果反映在營運數字上。",
+      },
+    ],
+    capabilitiesTitle: "核心能力",
+    capabilities: [
+      {
+        name: "AI 驅動的交付加速",
+        text: "建立 AI 產品工作流程，縮短交付時程。",
+      },
+      {
+        name: "從規劃產品到打造產品",
+        text: "透過 AI 協助，打造不同工具提供內部夥伴使用。",
+      },
+      {
+        name: "善用數位工具優化營運流程",
+        text: "理解各個營運瓶頸點，用合適的工具逐一優化並帶來效益。",
+      },
+    ],
+  },
+
+  cases: {
+    title: "案例",
+    columns: {
+      situation: "情境",
+      bottleneck: "瓶頸",
+      hypothesis: "假設與做法",
+      result: "結果",
+    },
+    items: [
+      {
+        id: "grocery",
+        org: "Fable 寓意科技",
+        period: "2021/3 - 2022/7",
+        title: "蔬果電商 AWS 上雲重構",
+        situation: "年營收 NT$2 億的蔬果電商，揀貨每日處理 300 單。",
+        // TODO(kevin): 確認怎麼發現揀貨是瓶頸、驗證了什麼
+        bottleneck: "揀貨環節是整條流程的產能瓶頸。",
+        hypothesis: "主導 AWS 上雲重構，目標是解開揀貨的產能限制。",
+        result:
+          "揀貨從日處理 300 單到 1,000 單（+233%），營業額成長 120%，入選 AWS 官方數位轉型案例。",
+      },
+      {
+        id: "health-app",
+        org: "Fable 寓意科技",
+        period: "2021/3 - 2022/7",
+        title: "健康管理 App 新平台",
+        situation:
+          "年營收約 NT$8 億的健康管理 App，要重新規劃產品、新增體重計健康分析與活動報名，並轉移舊平台使用者資料。",
+        bottleneck:
+          "困難點在新舊系統的資料欄位定義，定義不清，使用者資料就無法成功轉移。",
+        hypothesis:
+          "需求訪談梳理使用者旅程、痛點與 Persona，競品分析後用工作坊與客戶對焦優先序，主導使用案例設計與 QA 驗收。",
+        result:
+          "以 AWS 為基礎上線新平台並完成資料轉移，每日活躍使用者從約 12,000 到約 20,000，一年內成長 66%。",
+      },
+      {
+        id: "cdp",
+        org: "Fable 寓意科技",
+        period: "2021/3 - 2022/7",
+        title: "CDP 與資料團隊",
+        situation:
+          "帶產品與資料兩個團隊，為品牌客戶建立 CDP、LINE 與 Facebook Chatbot、埋點、儀表板與輿情追蹤。",
+        bottleneck:
+          "客戶的線上電商、線下 POS 與人流資料各自分散，上千萬筆資料需要先清洗盤點才能使用。",
+        hypothesis:
+          "先清洗與盤點上千萬筆客戶資料並建立模型，再串接線上與線下資料；用社群爬蟲分析品牌議題。",
+        result:
+          "完成上千萬筆客戶資料的清洗、盤點與建模，串接電商、POS 與人流資料，交付 CDP、Chatbot、儀表板與輿情追蹤。",
+      },
+      {
+        id: "ecofirst",
+        org: "台灣愛淨 Ecofirst",
+        period: "2025/3 - 現在",
+        title: "AI 空調節能產品與營運流程",
+        situation:
+          "制定並執行 AI 空調節能產品路線圖，需要軟體部、專案部、業務部協作，把產品部署到案場。",
+        bottleneck:
+          "跨部門的開發與部署流程尚未標準化，案場營運流程有優化空間。",
+        hypothesis:
+          "協調軟體、專案、業務三個部門建立產品開發與部署流程，並為內部營運制定標準化作業程序。",
+        result:
+          "建立跨部門的開發與部署流程，標準化作業程序讓案場營運效率提升 20%。",
+      },
+    ],
+  },
+
+  experience: {
+    title: "經歷",
+    items: [
+      {
+        org: "台灣愛淨股份有限公司 Ecofirst",
+        role: "產品經理",
+        period: "2025/3 - 現在",
+        summary:
+          "制定並執行 AI 空調節能產品路線圖，引導產品方向與功能開發策略。",
+        bullets: [
+          "協調軟體部、專案部、業務部跨部門合作，建立產品開發與部署流程",
+          "優化內部營運流程，制定標準化作業程序，案場營運效率提升 20%",
+        ],
+      },
+      {
+        // TODO(kevin): 知識衛星職責與成果
+        org: "知識衛星 SAT. KNOWLEDGE",
+        role: "Senior Product Manager",
+        period: "2023/11 - 2024/8",
+      },
+      {
+        org: "個人接案",
+        role: "獨立顧問",
+        period: "2023/5 - 2023/11",
+        // TODO(kevin): Heptabase 產品指標整理連結是否公開
+        bullets: [
+          "產品管理流程梳理：替一家跨國 SaaS 公司從商業策略展開至產品策略，制定 Product Roadmap 並對應到指標，提高產品與商業的關聯",
+          "商業模式梳理：協助一家規模上億的旅宿業者，與 FA 整理內部營運和財務資料，找到市場切入點而完成募資",
+          "創投流程梳理：釐清創投流程後建立 Notion 儀表板，讓老闆一眼掌握所有投資案的階段",
+        ],
+      },
+      {
+        org: "Fable 寓意科技",
+        role: "Senior Project Manager",
+        period: "2021/3 - 2022/7",
+        summary:
+          "以 Agile 管理 NT$1,200 萬+ 專案組合，領導 10 人工程團隊（Web + App）並指導 2 名初階 PM，負責開案、執行、資源安排與專案毛利控制。獲 2022 PMI 專案管理標竿獎 卓越獎。",
+        bullets: [
+          "蔬果電商（年營收 NT$2 億）：主導 AWS 上雲重構，揀貨從日處理 300 單到 1,000 單（+233%），營業額成長 120%，入選 AWS 官方數位轉型案例",
+          "健康管理 App（年營收約 NT$8 億）：以 AWS 開發新平台並轉移使用者資料，每日活躍使用者 12,000 → 20,000，一年內成長 66%",
+          "產品與資料團隊：建立 CDP、LINE 與 Facebook Chatbot、埋點追蹤、資料儀表板與輿情追蹤，清洗盤點上千萬筆客戶資料並建模",
+        ],
+      },
+      {
+        org: "眾碩投資諮詢顧問股份有限公司",
+        role: "產品助理",
+        period: "2019/2 - 2020/6",
+        summary:
+          "與企業做使用者訪談、了解產業知識、找出優化機會點，做最小可行驗證並同步收集回饋。",
+        bullets: [
+          "體制外孵化成功 2 間規模 100 萬的公司，並打造產品進入市場驗證",
+        ],
+      },
+    ],
+  },
+
+  contact: {
+    title: "聯絡",
+    text: "正在找產品經理，或想聊流程與瓶頸的問題，歡迎聯絡我。",
+    // TODO(kevin): email, then cta = { label: "聯絡我", href: "mailto:..." }
+    // TODO(kevin): LinkedIn 網址
+    links: [],
+  },
+
+  footer: {
+    text: "© 2026 許承澤 Kevin Hsu",
+  },
+
+  animation: {
+    nodes: {
+      intake: "接單",
+      picking: "揀貨",
+      packing: "包裝",
+      shipping: "出貨",
+    },
+    bottleneckLabel: "瓶頸",
+    hypothesis: "假設：揀貨是產能瓶頸",
+    throughputLabel: "300 → 1,000 單／日",
+    captions: [
+      "訂單堆在揀貨環節，每日只能處理 300 單。",
+      "假設揀貨是瓶頸，主導 AWS 上雲重構驗證。",
+      "日處理 1,000 單，平台營業額成長 120%。",
+    ],
+    replay: "重播",
+    ariaLabel:
+      "動畫示意圖：訂單流經接單、揀貨、包裝、出貨四個環節，揀貨出現瓶頸，經 AWS 上雲重構後，每日處理量從 300 單提升到 1,000 單。",
+  },
+} satisfies SiteContent;

@@ -1,0 +1,19 @@
+# Spectra app data
+.spectra/
+
+# dependencies / pnpm local store
+node_modules/
+.pnpm-store/
+.pnpm-cache/
+.pnpm-state/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# misc
+.DS_Store
+.env
+.env.*
