@@ -156,17 +156,17 @@ export const en = {
       },
       {
         id: "cdp",
-        org: "Fable",
-        period: "2021/3 - 2022/7",
+        org: "OKData",
+        period: "2020/6 - 2020/12",
         title: "CDP and data team",
         situation:
-          "Led two teams, product and data, building a CDP, LINE and Facebook chatbots, web tracking, data dashboards and social listening for brand clients.",
+          "Managed product and data teams, owned the CDP roadmap and biweekly Scrum cadence, and built data products for retail, e-commerce and real-estate clients.",
         bottleneck:
-          "Client data was split across online e-commerce, offline POS and foot-traffic sources; tens of millions of customer records had to be cleaned and inventoried before use.",
+          "Online e-commerce and offline POS data lived in separate systems. Tens of millions of customer records had to be structured before they could form a usable customer view.",
         hypothesis:
-          "Clean and inventory the customer records first and build models on them, then integrate online and offline data. Use social crawlers to analyse brand topics.",
+          "Define the data strategy and customer 360 view first, clean and model the records, then connect online and offline sources to product features teams can act on.",
         result:
-          "Cleaned, inventoried and modelled tens of millions of customer records, integrated e-commerce, POS and foot-traffic data, and delivered the CDP, chatbots, dashboards and social listening.",
+          "Integrated tens of millions of customer records across retail, e-commerce and real estate, and delivered the CDP, LINE and Facebook chatbots, web tracking and data dashboards.",
       },
       {
         id: "ecofirst",
@@ -229,6 +229,17 @@ export const en = {
           "Fresh-produce e-commerce (NT$200M annual revenue): led the AWS re-platform; picking went from 300 to 1,000 orders a day (+233%), revenue grew 120%, featured as an official AWS digital transformation case",
           "Health-management app (about NT$800M annual revenue): built the new AWS-based platform and migrated user data; daily active users 12,000 → 20,000, up 66% within a year",
           "Product and data teams: built a CDP, LINE and Facebook chatbots, web tracking, dashboards and social listening; cleaned, inventoried and modelled tens of millions of customer records",
+        ],
+      },
+      {
+        org: "OKData",
+        role: "Product Manager",
+        period: "2020/6 - 2020/12",
+        summary: "Managed product and data teams, owning the CDP roadmap and a biweekly Scrum cadence.",
+        bullets: [
+          "Integrated tens of millions of customer records across retail, e-commerce and real estate, connecting online e-commerce and offline POS data",
+          "Led PRDs and feature design for the CDP, LINE and Facebook chatbots, web tracking and data dashboards",
+          "Defined client data strategies and built customer 360 views",
         ],
       },
       {
