@@ -261,11 +261,24 @@ body {
 .case-evidence .case-result { border-left-color: var(--accent); }
 .case-evidence .case-result h4 { color: var(--accent); }
 
-/* Experience uses a continuous rail, making career progression readable in a scan. */
-.timeline-list { position: relative; }
-.timeline-list::before { position: absolute; top: 0; bottom: 0; left: 24.5%; width: 1px; background: var(--line); content: ""; }
-.timeline-item { position: relative; }
-.timeline-period::after { position: absolute; top: 2.35rem; left: calc(25% - 0.3rem); width: 0.6rem; height: 0.6rem; border: 2px solid var(--bg); border-radius: 50%; background: var(--accent); content: ""; }
+/* Experience is a readable career ledger. The date leads, the evidence stays together. */
+.timeline-list { border-top: 1px solid var(--line); }
+.timeline-item {
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 260ms ease;
+}
+
+.timeline-item:hover { background: color-mix(in oklch, var(--surface) 62%, transparent); }
+.timeline-period { padding-right: 2rem; font-weight: 540; }
+.timeline-content {
+  min-width: 0;
+  padding-left: clamp(1.5rem, 4vw, 4rem);
+  border-left: 1px solid var(--line);
+}
+
+.timeline-content h3 { line-height: 1.4; }
+.timeline-content ul { max-width: 68ch; }
 
 .contact-panel {
   padding: clamp(2rem, 6vw, 4.5rem);
@@ -288,9 +301,9 @@ body {
   .method-step h3 { margin-top: 1.5rem; }
   .method-arrow { top: auto; right: 1.35rem; bottom: -0.65rem; transform: rotate(-90deg); }
   .capabilities-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .timeline-list::before { left: 0.3rem; }
-  .timeline-item { padding-left: 1.5rem; }
-  .timeline-period::after { top: 2.35rem; left: 0; }
+  .timeline-item { padding: 1.75rem 0; }
+  .timeline-period { padding-right: 0; }
+  .timeline-content { padding-left: 0; border-left: 0; }
 }
 
 /* ---- CJK typography: Chinese needs looser leading, no negative tracking, weight not italic ---- */

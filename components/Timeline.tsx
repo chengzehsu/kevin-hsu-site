@@ -10,11 +10,11 @@ export function Timeline({ content }: SectionProps) {
 
         <ol className="timeline-list mt-10">
           {items.map((item, i) => (
-            <li key={`${item.org}-${item.period}-${i}`} className="timeline-item grid grid-cols-1 gap-3 py-8 md:grid-cols-12">
+            <li key={`${item.org}-${item.period}-${i}`} className="timeline-item grid grid-cols-1 gap-4 py-9 md:grid-cols-12 md:gap-0">
               <p className="timeline-period text-sm text-muted tabular-nums md:col-span-3">{item.period}</p>
 
-              <div className="md:col-span-9">
-                <h3 className="flex flex-wrap items-baseline gap-x-3 text-base">
+              <div className="timeline-content md:col-span-9">
+                <h3 className="flex flex-wrap items-baseline gap-x-3 text-lg">
                   <span className="font-semibold">{item.role}</span>
                   <span className="font-normal text-muted">{item.org}</span>
                 </h3>
