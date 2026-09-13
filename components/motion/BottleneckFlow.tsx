@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimate, useInView, useReducedMotion } from "motion/react";
 import type { AnimationSequence } from "motion/react";
-import { ArrowCounterClockwise } from "@phosphor-icons/react";
+import { ArrowCounterClockwiseIcon } from "@phosphor-icons/react";
 import type { AnimationContent } from "@/content/types";
 import type { Locale } from "@/lib/locale";
 
@@ -353,11 +353,15 @@ export function BottleneckFlow({ content, className }: BottleneckFlowProps) {
           </div>
           <button
             type="button"
-            onClick={() => setRun((r) => r + 1)}
-            disabled={playing}
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-ui text-sm text-muted transition-colors hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-default disabled:opacity-60 disabled:hover:text-muted"
+            data-replay=""
+            aria-disabled={playing}
+            onClick={() => {
+              if (playing) return;
+              setRun((r) => r + 1);
+            }}
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-ui text-sm text-muted transition-colors hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-disabled:cursor-default aria-disabled:opacity-60 aria-disabled:hover:text-muted"
           >
-            <ArrowCounterClockwise size={16} weight="regular" aria-hidden="true" />
+            <ArrowCounterClockwiseIcon size={16} weight="regular" aria-hidden="true" />
             {content.replay}
           </button>
         </div>

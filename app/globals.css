@@ -9,7 +9,6 @@
   --surface: oklch(0.967 0.001 286.375); /* zinc-100 */
   --accent: oklch(0.62 0.17 45);       /* brick orange, the only accent */
   --accent-fg: oklch(0.985 0 0);
-  --accent-soft: oklch(0.95 0.035 45);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,12 +20,11 @@
     --surface: oklch(0.21 0.006 285.885); /* zinc-900 */
     --accent: oklch(0.72 0.16 45);
     --accent-fg: oklch(0.141 0.005 285.823);
-    --accent-soft: oklch(0.3 0.06 45);
   }
 }
 
 /* Expose tokens as Tailwind utilities: bg-bg, text-fg, text-muted, border-line, bg-surface,
-   bg-accent, text-accent, text-accent-fg, bg-accent-soft, rounded-ui, font-sans. */
+   bg-accent, text-accent, text-accent-fg, rounded-ui, font-sans. */
 @theme inline {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
@@ -35,7 +33,6 @@
   --color-surface: var(--surface);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
-  --color-accent-soft: var(--accent-soft);
   --radius-ui: 0.5rem;
   --font-sans: var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Noto Sans TC",
     ui-sans-serif, system-ui, sans-serif;
@@ -86,5 +83,29 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- BottleneckFlow under reduced motion, before hydration and without JS:
+   show the final frame (labels on, picking lane widened, queue gone) and hide the replay control.
+   The component renders the same state after mount, so nothing flips. ---- */
+@media (prefers-reduced-motion: reduce) {
+  [data-el="picking-hot"],
+  [data-el="bottleneck"],
+  [data-el="card"],
+  [data-el="throughput"] {
+    opacity: 1 !important;
+  }
+  [data-el^="queue-"],
+  [data-el^="trickle-"] {
+    opacity: 0 !important;
+  }
+  [data-el="pipe-picking"] {
+    transform: scaleY(3);
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+  }
+  [data-replay] {
+    display: none !important;
   }
 }

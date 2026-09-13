@@ -205,11 +205,14 @@ export const en = {
         org: "SAT. KNOWLEDGE",
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
+        summary: null,
+        bullets: [],
       },
       {
         org: "Freelance",
         role: "Independent consultant",
         period: "2023/5 - 2023/11",
+        summary: null,
         // TODO(kevin): Heptabase 產品指標整理連結是否公開
         bullets: [
           "Product management process: helped a multinational SaaS company cascade business strategy into product strategy, with a product roadmap tied to metrics",
@@ -246,6 +249,7 @@ export const en = {
     title: "Contact",
     text: "If you are hiring a product manager, or want to talk through a flow and its bottleneck, I would like to hear from you.",
     // TODO(kevin): email, then cta = { label: "Contact me", href: "mailto:..." }
+    cta: null,
     // TODO(kevin): LinkedIn 網址
     links: [],
   },

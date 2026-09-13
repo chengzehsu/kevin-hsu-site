@@ -23,24 +23,20 @@ export function CountUp({ value, prefix = "", suffix = "", locale, className }: 
   const isInView = useInView(ref, { once: true, amount: 0.6 });
   const prefersReduced = useReducedMotion();
 
-  const count = useMotionValue(0);
+  // Seeded with the final value so the static HTML (and no-JS visitors) read the real number.
+  const count = useMotionValue(value);
   const digits = useTransform(count, (v) => formatCount(Math.round(v), locale));
   const finalText = `${prefix}${formatCount(value, locale)}${suffix}`;
 
   useEffect(() => {
-    // Reduced motion: show the final number as soon as we know the preference.
-    if (prefersReduced) {
-      count.set(value);
-      return;
-    }
-    if (!isInView) return;
-    if (count.get() === value) return;
+    if (prefersReduced || !isInView) return;
+    count.set(0);
     const controls = animate(count, value, { duration: 1.2, ease: "easeOut" });
     return () => controls.stop();
   }, [isInView, prefersReduced, value, count]);
 
   return (
-    <span ref={ref} className={["relative inline-block tabular-nums", className].filter(Boolean).join(" ")}>
+    <span ref={ref} className={["relative tabular-nums", className].filter(Boolean).join(" ")}>
       {/* Reserves the final width so the layout never shifts while counting. */}
       <span aria-hidden="true" className="invisible whitespace-nowrap">
         {finalText}

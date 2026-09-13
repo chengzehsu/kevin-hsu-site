@@ -21,12 +21,16 @@ export function LocaleSwitch({ locale, label, ariaLabel }: LocaleSwitchProps) {
     if (event.defaultPrevented || event.button !== 0) return;
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
+    let stored = false;
     try {
       window.localStorage.setItem(LOCALE_STORAGE_KEY, other);
+      stored = true;
     } catch {
-      // Storage may be unavailable (private mode, disabled); navigation still works.
+      // Storage unavailable (private mode, quota): carry the choice in the URL instead,
+      // so the first-visit redirect on / does not bounce the visitor back to /en/.
     }
-    window.location.assign(localePath(other, window.location.hash));
+    const marker = stored ? "" : `?lang=${other}`;
+    window.location.assign(`${localePath(other)}${marker}${window.location.hash}`);
   }
 
   return (

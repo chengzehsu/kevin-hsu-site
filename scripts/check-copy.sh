@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copy and design-rule checks for the site (spec: portfolio-content / Copy rules).
-# Usage: bash scripts/check-copy.sh   (exit 1 on any violation)
+# Usage: bash scripts/check-copy.sh   (exit 1 on any violation; check 4 is advisory only)
 set -u
 cd "$(dirname "$0")/.."
 fail=0
@@ -16,7 +16,7 @@ n=$(grep -rhoE 'class(Name)?="[^"]*uppercase[^"]*tracking[^"]*"' components app 
 m=$(grep -rhoE 'class(Name)?="[^"]*tracking[^"]*uppercase[^"]*"' components app 2>/dev/null | wc -l | tr -d ' ')
 total=$((n + m)); echo "   found $total"; if [ "$total" -gt 2 ]; then fail=1; fi
 
-echo "4) visible string literals in section components (heuristic: JSX text nodes with CJK or 3+ letters)"
+echo "4) [advisory, never fails] visible string literals in section components (heuristic: JSX text nodes with CJK or 3+ letters)"
 if grep -rnE '>[^<{]*([一-鿿]|[A-Za-z]{3,})[^<{]*<' components/Nav.tsx components/Hero.tsx components/Metrics.tsx components/Method.tsx components/CaseStudies.tsx components/Timeline.tsx components/Contact.tsx components/Footer.tsx 2>/dev/null; then echo "   review the lines above (some are fine, e.g. aria hidden glyphs)"; else echo "   ok"; fi
 
 echo "5) scroll listeners / h-screen"

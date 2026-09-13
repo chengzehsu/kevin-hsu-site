@@ -197,11 +197,14 @@ export const zh = {
         org: "知識衛星 SAT. KNOWLEDGE",
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
+        summary: null,
+        bullets: [],
       },
       {
         org: "個人接案",
         role: "獨立顧問",
         period: "2023/5 - 2023/11",
+        summary: null,
         // TODO(kevin): Heptabase 產品指標整理連結是否公開
         bullets: [
           "產品管理流程梳理：替一家跨國 SaaS 公司從商業策略展開至產品策略，制定 Product Roadmap 並對應到指標，提高產品與商業的關聯",
@@ -238,6 +241,7 @@ export const zh = {
     title: "聯絡",
     text: "正在找產品經理，或想聊流程與瓶頸的問題，歡迎聯絡我。",
     // TODO(kevin): email, then cta = { label: "聯絡我", href: "mailto:..." }
+    cta: null,
     // TODO(kevin): LinkedIn 網址
     links: [],
   },

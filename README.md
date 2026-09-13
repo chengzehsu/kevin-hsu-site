@@ -19,3 +19,5 @@ bash scripts/check-copy.sh
 ## Deploy
 
 Zeabur hosts `out/` as a static site via `zbpack.json` (`build_command` + `output_dir`).
+
+Set `NEXT_PUBLIC_SITE_ORIGIN` (e.g. `https://kevin-hsu.zeabur.app`) as a build-time variable in Zeabur so canonical and hreflang URLs point at the real domain; the fallback in `lib/locale.ts` is only a default.

@@ -99,10 +99,10 @@ export interface ExperienceItem {
   org: string;
   role: string;
   period: string;
-  /** One or two sentences. Omit when facts are not yet supplied. */
-  summary?: string;
-  /** Short bullets, max 4. */
-  bullets?: string[];
+  /** One or two sentences; null when the facts are not yet supplied (both locales must declare it). */
+  summary: string | null;
+  /** Short bullets, max 4; empty array when none. */
+  bullets: string[];
 }
 
 export interface ExperienceContent {
@@ -113,8 +113,8 @@ export interface ExperienceContent {
 export interface ContactContent {
   title: string;
   text: string;
-  /** Same label as hero.primaryCta (single contact intent per locale). Omitted until the email is supplied. */
-  cta?: Cta;
+  /** Same label as hero.primaryCta (single contact intent per locale); null until the email is supplied. */
+  cta: Cta | null;
   /** Optional external links (LinkedIn, Heptabase). Omit entries whose URL is not yet supplied. */
   links: Cta[];
 }

@@ -26,7 +26,7 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
 
   if (reduce) {
     return (
-      <motion.div className={className} initial={HIDDEN} animate={SHOWN} transition={{ duration: 0 }}>
+      <motion.div data-reveal="" className={className} initial={HIDDEN} animate={SHOWN} transition={{ duration: 0 }}>
         {children}
       </motion.div>
     );
@@ -34,6 +34,7 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
 
   return (
     <motion.div
+      data-reveal=""
       className={className}
       initial={HIDDEN}
       whileInView={SHOWN}
