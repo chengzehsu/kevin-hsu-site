@@ -21,8 +21,10 @@ export const zh = {
   },
 
   hero: {
-    headline: "拆解流程、找到瓶頸，做出帶來實際影響的產品。",
-    subline: "產品經理。電商、健康 App、AI 節能到資料串接。",
+    eyebrow: "AI 時代的產品經理",
+    headline: "讓 AI 成為可驗證的營運成果。",
+    subline: "從產品策略到落地交付，解開真正限制成長的瓶頸。",
+    visualLabel: "從瓶頸到成果，一個可驗證的案例",
     primaryCta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "看案例", href: "#cases" },
   },

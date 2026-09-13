@@ -6,13 +6,13 @@ export function Metrics({ content, locale }: SectionProps) {
   const { title, items, awards } = content.metrics;
 
   return (
-    <section id="metrics" className="py-20 md:py-28">
+    <section id="metrics" className="metrics-section py-20 md:py-32">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-        <h2 className="sr-only">{title}</h2>
+        <h2 className="section-title">{title}</h2>
 
-        <ul className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-3">
+        <ul className="impact-grid mt-10">
           {items.map((metric, i) => (
-            <li key={`${metric.label}-${i}`} className={i === 0 ? "col-span-2 md:col-span-1" : undefined}>
+            <li key={`${metric.label}-${i}`} className={`impact-cell impact-cell-${i + 1}`}>
               <Reveal delay={i * 0.06}>
                 <CountUp
                   value={metric.value}

@@ -21,9 +21,10 @@ export const en = {
   },
 
   hero: {
-    headline: "Find the bottleneck. Ship products that move the numbers.",
-    subline:
-      "Product manager. E-commerce, a health app, AI air-conditioning energy savings, and CDP data integration.",
+    eyebrow: "PRODUCT LEAD FOR THE AI ERA",
+    headline: "Make AI work. Move the metric.",
+    subline: "From product strategy to delivery, I solve the constraint that limits growth.",
+    visualLabel: "One evidence-based path from constraint to outcome",
     primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "See the cases", href: "#cases" },
   },

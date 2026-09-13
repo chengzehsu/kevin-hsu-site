@@ -2,24 +2,28 @@
 
 /* ---- Semantic tokens: one palette, light and dark swap by prefers-color-scheme ---- */
 :root {
-  --bg: oklch(0.985 0 0);              /* zinc-50 */
-  --fg: oklch(0.21 0.006 285.885);     /* zinc-900 */
-  --muted: oklch(0.552 0.016 285.938); /* zinc-500 */
-  --line: oklch(0.92 0.004 286.32);    /* zinc-200 */
-  --surface: oklch(0.967 0.001 286.375); /* zinc-100 */
-  --accent: oklch(0.62 0.17 45);       /* brick orange, the only accent */
-  --accent-fg: oklch(0.985 0 0);
+  --bg: oklch(0.97 0.012 225);
+  --fg: oklch(0.23 0.03 245);
+  --muted: oklch(0.49 0.025 245);
+  --line: oklch(0.87 0.018 225);
+  --surface: oklch(0.945 0.016 225);
+  --surface-strong: oklch(0.91 0.026 225);
+  --accent: oklch(0.57 0.13 172);
+  --accent-fg: oklch(0.985 0.008 170);
+  --glow: oklch(0.57 0.13 172 / 0.16);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: oklch(0.141 0.005 285.823);  /* zinc-950 */
-    --fg: oklch(0.967 0.001 286.375);  /* zinc-100 */
-    --muted: oklch(0.705 0.015 286.067); /* zinc-400 */
-    --line: oklch(0.274 0.006 286.033);  /* zinc-800 */
-    --surface: oklch(0.21 0.006 285.885); /* zinc-900 */
-    --accent: oklch(0.72 0.16 45);
-    --accent-fg: oklch(0.141 0.005 285.823);
+    --bg: oklch(0.16 0.025 245);
+    --fg: oklch(0.94 0.02 220);
+    --muted: oklch(0.72 0.035 225);
+    --line: oklch(0.31 0.033 245);
+    --surface: oklch(0.21 0.028 245);
+    --surface-strong: oklch(0.26 0.035 245);
+    --accent: oklch(0.76 0.13 172);
+    --accent-fg: oklch(0.17 0.026 245);
+    --glow: oklch(0.76 0.13 172 / 0.16);
   }
 }
 
@@ -31,9 +35,10 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
-  --radius-ui: 0.5rem;
+  --radius-ui: 0.875rem;
   --font-sans: var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Noto Sans TC",
     ui-sans-serif, system-ui, sans-serif;
   --container-site: 72rem;
@@ -47,6 +52,245 @@ html {
 
 body {
   @apply bg-bg text-fg font-sans antialiased;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 80% -10%, var(--glow), transparent 25rem),
+    linear-gradient(115deg, transparent 0%, color-mix(in oklch, var(--line) 32%, transparent) 1px, transparent 1px);
+  background-size: auto, 96px 96px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+/* Systemic layers: 40 navigation, 50 overlays. */
+.site-nav {
+  border-bottom: 1px solid color-mix(in oklch, var(--line) 78%, transparent);
+  background: color-mix(in oklch, var(--bg) 84%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.reading-progress {
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  transform-origin: 0 50%;
+  background: var(--accent);
+}
+
+.section-title {
+  max-width: 16ch;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 620;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+/* Hero: the flow visual is a case artefact, not a fabricated product screen. */
+.hero-section {
+  position: relative;
+  display: flex;
+  min-height: calc(100dvh - 4.5rem);
+  align-items: center;
+  overflow: hidden;
+  padding: 3rem 0;
+}
+
+.hero-orbit {
+  position: absolute;
+  top: 10%;
+  right: -20rem;
+  width: 44rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in oklch, var(--accent) 34%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5rem color-mix(in oklch, var(--accent) 4%, transparent), 0 0 0 12rem color-mix(in oklch, var(--accent) 2%, transparent);
+  pointer-events: none;
+}
+
+.hero-eyebrow,
+.flow-label {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+}
+
+.hero-title {
+  max-width: 13.5ch;
+  margin: 1rem 0 0;
+  font-size: clamp(2.7rem, 5.1vw, 5.25rem);
+  font-weight: 620;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.hero-title-zh {
+  max-width: 11.5ch;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
+.hero-subline {
+  max-width: 34ch;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hero-flow-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+  border: 1px solid color-mix(in oklch, var(--line) 82%, transparent);
+  border-radius: var(--radius-ui);
+  background:
+    radial-gradient(circle at 78% 10%, var(--glow), transparent 12rem),
+    color-mix(in oklch, var(--surface) 90%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklch, white 16%, transparent), 0 1.5rem 4.5rem color-mix(in oklch, var(--fg) 10%, transparent);
+}
+
+.hero-flow-shell::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(90deg, color-mix(in oklch, var(--line) 48%, transparent) 1px, transparent 1px), linear-gradient(color-mix(in oklch, var(--line) 48%, transparent) 1px, transparent 1px);
+  background-size: 2.2rem 2.2rem;
+  content: "";
+  mask-image: linear-gradient(to bottom, black, transparent 74%);
+}
+
+.flow-label { margin-bottom: 1.5rem; }
+
+/* Results: each data point earns a different amount of visual weight. */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.impact-cell {
+  min-height: 12rem;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-ui);
+  background: color-mix(in oklch, var(--surface) 70%, transparent);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease, background-color 300ms ease;
+}
+
+.impact-cell:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklch, var(--accent) 62%, var(--line));
+  background: var(--surface);
+}
+
+.impact-cell-1 { grid-column: span 3; background: linear-gradient(135deg, var(--accent), color-mix(in oklch, var(--accent) 72%, var(--surface))); color: var(--accent-fg); }
+.impact-cell-1 .text-muted { color: color-mix(in oklch, var(--accent-fg) 72%, transparent); }
+.impact-cell-1 .text-accent { color: var(--accent-fg); }
+.impact-cell-2 { grid-column: span 3; }
+.impact-cell-3 { grid-column: span 2; }
+.impact-cell-4 { grid-column: span 2; background: color-mix(in oklch, var(--surface-strong) 70%, transparent); }
+.impact-cell-5 { grid-column: span 2; }
+.impact-cell-6 { grid-column: span 4; }
+
+/* Method: a compact decision loop that reads as a system rather than a to-do list. */
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-ui);
+  background: var(--line);
+}
+
+.method-step {
+  position: relative;
+  min-height: 17rem;
+  padding: 1.5rem;
+  background: var(--bg);
+}
+
+.method-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--accent) 15%, transparent);
+  color: var(--accent);
+}
+
+.method-step h3 { margin: 4.5rem 0 0; font-size: 1.2rem; font-weight: 650; }
+.method-step p { margin: 0.65rem 0 0; color: var(--muted); font-size: 0.925rem; line-height: 1.7; }
+.method-arrow { position: absolute; right: -0.65rem; top: 1.6rem; z-index: 1; color: var(--accent); }
+
+.capabilities-title { margin-top: 4.5rem; font-size: 1.05rem; font-weight: 650; }
+.capabilities-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 2.5rem; margin-top: 1.4rem; }
+.capability-item { padding-top: 1rem; border-top: 2px solid var(--accent); }
+
+/* Cases: the fixed left side holds context while the evidence carries the reader forward. */
+.case-study {
+  margin-top: 1rem;
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-ui);
+  background: color-mix(in oklch, var(--surface) 54%, transparent);
+}
+
+.case-study + .case-study { margin-top: 1rem; }
+.case-study-2 { background: color-mix(in oklch, var(--surface-strong) 44%, transparent); }
+.case-study-3 { background: color-mix(in oklch, var(--surface) 70%, transparent); }
+.case-heading h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); font-weight: 650; line-height: 1.25; }
+.case-evidence > div { padding-left: 1rem; border-left: 1px solid var(--line); }
+.case-evidence h4 { color: var(--muted); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.045em; }
+.case-evidence p { font-size: 0.975rem; line-height: 1.7; }
+.case-evidence .case-result { border-left-color: var(--accent); }
+.case-evidence .case-result h4 { color: var(--accent); }
+
+/* Experience uses a continuous rail, making career progression readable in a scan. */
+.timeline-list { position: relative; }
+.timeline-list::before { position: absolute; top: 0; bottom: 0; left: 24.5%; width: 1px; background: var(--line); content: ""; }
+.timeline-item { position: relative; }
+.timeline-period::after { position: absolute; top: 2.35rem; left: calc(25% - 0.3rem); width: 0.6rem; height: 0.6rem; border: 2px solid var(--bg); border-radius: 50%; background: var(--accent); content: ""; }
+
+.contact-panel {
+  padding: clamp(2rem, 6vw, 4.5rem);
+  border: 1px solid color-mix(in oklch, var(--accent) 42%, var(--line));
+  border-radius: var(--radius-ui);
+  background: radial-gradient(circle at 88% 18%, var(--glow), transparent 18rem), var(--surface);
+}
+
+@media (max-width: 767px) {
+  body { background-size: auto, 56px 56px; }
+  .hero-section { padding: 2.5rem 0 3rem; }
+  .hero-title { max-width: 12ch; font-size: clamp(2.45rem, 11vw, 3.4rem); }
+  .hero-flow-shell { padding: 1.2rem; }
+  .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .impact-cell { min-height: 10.5rem; padding: 1.1rem; }
+  .impact-cell-1, .impact-cell-2, .impact-cell-6 { grid-column: span 2; }
+  .impact-cell-3, .impact-cell-4, .impact-cell-5 { grid-column: span 1; }
+  .method-grid { grid-template-columns: 1fr; }
+  .method-step { min-height: 0; padding: 1.4rem; }
+  .method-step h3 { margin-top: 1.5rem; }
+  .method-arrow { top: auto; right: 1.35rem; bottom: -0.65rem; transform: rotate(-90deg); }
+  .capabilities-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .timeline-list::before { left: 0.3rem; }
+  .timeline-item { padding-left: 1.5rem; }
+  .timeline-period::after { top: 2.35rem; left: 0; }
 }
 
 /* ---- CJK typography: Chinese needs looser leading, no negative tracking, weight not italic ---- */

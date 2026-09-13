@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
 import { BottleneckFlow } from "./motion/BottleneckFlow";
+import { HeroStatement } from "./motion/HeroStatement";
 
 const PRIMARY_CTA =
   "inline-flex items-center gap-2 whitespace-nowrap rounded-ui bg-accent px-5 py-3 font-medium text-accent-fg transition-transform hover:bg-accent/90 active:scale-[0.98]";
@@ -8,17 +9,14 @@ const SECONDARY_CTA =
   "inline-flex items-center gap-2 whitespace-nowrap rounded-ui border border-line px-5 py-3 transition-transform hover:bg-surface active:scale-[0.98]";
 
 export function Hero({ content, locale }: SectionProps) {
-  const { headline, subline, primaryCta, secondaryCta } = content.hero;
+  const { eyebrow, headline, subline, visualLabel, primaryCta, secondaryCta } = content.hero;
 
   return (
-    <section id="hero" className="flex min-h-[calc(100dvh-4rem)] items-center py-12 md:py-16">
-      <div className="mx-auto grid w-full max-w-site grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
+    <section id="hero" className="hero-section">
+      <div className="hero-orbit" aria-hidden="true" />
+      <div className="mx-auto grid w-full max-w-site grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-8">
         <div className="lg:col-span-6">
-          <h1 className={locale === "zh" ? "text-3xl leading-tight font-semibold md:text-4xl lg:text-5xl" : "text-3xl leading-tight font-semibold md:text-4xl"}>
-            {headline}
-          </h1>
-          <p className="mt-5 max-w-[36ch] text-base text-muted md:text-lg">{subline}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <HeroStatement eyebrow={eyebrow} headline={headline} subline={subline} chinese={locale === "zh"}>
             <a href={primaryCta.href} className={PRIMARY_CTA}>
               {primaryCta.label}
               <ArrowRightIcon size={18} weight="regular" aria-hidden="true" />
@@ -26,11 +24,12 @@ export function Hero({ content, locale }: SectionProps) {
             <a href={secondaryCta.href} className={SECONDARY_CTA}>
               {secondaryCta.label}
             </a>
-          </div>
+          </HeroStatement>
         </div>
 
-        <div className="lg:col-span-6">
-          <BottleneckFlow content={content.animation} locale={locale} className="w-full" />
+        <div className="hero-flow-shell lg:col-span-6">
+          <p className="flow-label">{visualLabel}</p>
+          <BottleneckFlow content={content.animation} locale={locale} className="relative z-10 w-full" />
         </div>
       </div>
     </section>

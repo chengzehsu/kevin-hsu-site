@@ -4,14 +4,14 @@ export function Timeline({ content }: SectionProps) {
   const { title, items } = content.experience;
 
   return (
-    <section id="experience" className="py-20 md:py-28">
+    <section id="experience" className="timeline-section py-20 md:py-32">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-semibold md:text-3xl">{title}</h2>
+        <h2 className="section-title">{title}</h2>
 
-        <ol className="mt-10 divide-y divide-line">
+        <ol className="timeline-list mt-10">
           {items.map((item, i) => (
-            <li key={`${item.org}-${item.period}-${i}`} className="grid grid-cols-1 gap-3 py-8 md:grid-cols-12">
-              <p className="text-sm text-muted tabular-nums md:col-span-3">{item.period}</p>
+            <li key={`${item.org}-${item.period}-${i}`} className="timeline-item grid grid-cols-1 gap-3 py-8 md:grid-cols-12">
+              <p className="timeline-period text-sm text-muted tabular-nums md:col-span-3">{item.period}</p>
 
               <div className="md:col-span-9">
                 <h3 className="flex flex-wrap items-baseline gap-x-3 text-base">

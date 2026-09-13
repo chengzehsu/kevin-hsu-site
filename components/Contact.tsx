@@ -12,32 +12,34 @@ export function Contact({ content }: SectionProps) {
   const hasActions = showCta || links.length > 0;
 
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="contact-section py-20 md:py-32">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-semibold md:text-3xl">{title}</h2>
-        <p className="mt-4 max-w-[50ch] text-muted">{text}</p>
+        <div className="contact-panel">
+          <h2 className="section-title">{title}</h2>
+          <p className="mt-4 max-w-[50ch] text-muted">{text}</p>
 
-        {hasActions ? (
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            {showCta && cta ? (
-              <a href={cta.href} className={PRIMARY_CTA}>
-                {cta.label}
-                {cta.href.startsWith("#") ? (
-                  <ArrowRightIcon size={18} weight="regular" aria-hidden="true" />
-                ) : (
+          {hasActions ? (
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              {showCta && cta ? (
+                <a href={cta.href} className={PRIMARY_CTA}>
+                  {cta.label}
+                  {cta.href.startsWith("#") ? (
+                    <ArrowRightIcon size={18} weight="regular" aria-hidden="true" />
+                  ) : (
+                    <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
+                  )}
+                </a>
+              ) : null}
+
+              {links.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className={TEXT_LINK}>
+                  {link.label}
                   <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
-                )}
-              </a>
-            ) : null}
-
-            {links.map((link) => (
-              <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className={TEXT_LINK}>
-                {link.label}
-                <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
-              </a>
-            ))}
-          </div>
-        ) : null}
+                </a>
+              ))}
+            </div>
+          ) : null}
+        </div>
       </div>
     </section>
   );

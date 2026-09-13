@@ -12,25 +12,25 @@ export function CaseStudies({ content }: SectionProps) {
   const { title, columns, items } = content.cases;
 
   return (
-    <section id="cases" className="py-20 md:py-28">
+    <section id="cases" className="cases-section py-20 md:py-32">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-semibold md:text-3xl">{title}</h2>
+        <h2 className="section-title">{title}</h2>
 
         <div className="mt-10">
           {items.map((item, i) => {
             const meta = caseMeta(item);
             return (
               <Reveal key={item.id}>
-                <article id={item.id} className={i === 0 ? undefined : "mt-10 border-t border-line pt-10"}>
-                  <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-                    <div className="self-start lg:sticky lg:top-24 lg:col-span-4">
+                <article id={item.id} className={`case-study case-study-${i + 1}`}>
+                  <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+                    <div className="case-heading self-start lg:sticky lg:top-28 lg:col-span-4">
                       <h3 className="text-xl font-semibold">{item.title}</h3>
                       {meta ? <p className="mt-2 text-sm text-muted">{meta}</p> : null}
                     </div>
 
-                    <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 lg:col-span-8">
+                    <div className="case-evidence grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2 lg:col-span-8">
                       {COLUMN_ORDER.map((key) => (
-                        <div key={key}>
+                        <div key={key} className={key === "result" ? "case-result" : undefined}>
                           <h4 className="text-sm font-medium">{columns[key]}</h4>
                           <p className={`mt-1 ${key === "result" ? "text-fg" : "text-muted"}`}>{item[key]}</p>
                         </div>

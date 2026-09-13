@@ -1,12 +1,14 @@
 import type { SectionProps } from "@/content/types";
 import { localePath } from "@/lib/locale";
 import { LocaleSwitch } from "./LocaleSwitch";
+import { ScrollProgress } from "./motion/ScrollProgress";
 
 export function Nav({ content, locale }: SectionProps) {
   const { brand, links, switchLabel, switchAria } = content.nav;
 
   return (
-    <header className="sticky top-0 z-40 h-16 border-b border-line bg-bg/80 backdrop-blur">
+    <header className="site-nav sticky top-0 z-40 h-[4.5rem]">
+      <ScrollProgress />
       <div className="mx-auto flex h-full w-full max-w-site items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a href={localePath(locale)} className="font-medium whitespace-nowrap text-fg">
           {brand}

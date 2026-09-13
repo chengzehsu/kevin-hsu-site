@@ -24,10 +24,14 @@ export interface NavContent {
 }
 
 export interface HeroContent {
+  /** A short positioning line above the headline. */
+  eyebrow: string;
   /** Max two lines at desktop. */
   headline: string;
   /** Max 20 words / 20 characters. */
   subline: string;
+  /** Label for the evidence-based flow shown beside the introduction. */
+  visualLabel: string;
   primaryCta: Cta;
   secondaryCta: Cta;
 }
