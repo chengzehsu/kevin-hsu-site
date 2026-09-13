@@ -200,12 +200,17 @@ export const en = {
         ],
       },
       {
-        // TODO(kevin): 知識衛星職責與成果
         org: "SAT. KNOWLEDGE",
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
-        summary: null,
-        bullets: [],
+        summary:
+          "Led product discovery across enterprise learning and consumer education, from HR interviews and learning data products to Hong Kong market validation and internal operations.",
+        bullets: [
+          "Enterprise learning: interviewed HR teams at companies of different sizes to understand training operations, then planned a learning dashboard for employee progress",
+          "Hong Kong market: partnered with marketing and used a third-party platform to enter the market with a minimum viable approach in three weeks",
+          "Learning outcomes and revenue: planned in-class assessments and explored affiliate marketing and group buying features as new revenue paths",
+          "Operations: mapped internal leave, compensatory time-off and payment-request processes, then planned tools and workflows to improve efficiency",
+        ],
       },
       {
         org: "Freelance",
