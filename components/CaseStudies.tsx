@@ -1,4 +1,5 @@
 import type { CaseStudy, SectionProps } from "@/content/types";
+import { Highlight } from "./Highlight";
 import { Reveal } from "./motion/Reveal";
 
 type ColumnKey = "situation" | "bottleneck" | "hypothesis" | "result";
@@ -32,7 +33,9 @@ export function CaseStudies({ content }: SectionProps) {
                       {COLUMN_ORDER.map((key) => (
                         <div key={key} className={key === "result" ? "case-result" : undefined}>
                           <h4 className="text-sm font-medium">{columns[key]}</h4>
-                          <p className={`mt-1 ${key === "result" ? "text-fg" : "text-muted"}`}>{item[key]}</p>
+                          <p className={`mt-1 ${key === "result" ? "text-fg" : "text-muted"}`}>
+                            <Highlight>{item[key]}</Highlight>
+                          </p>
                         </div>
                       ))}
                     </div>

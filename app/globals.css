@@ -249,9 +249,15 @@ body {
   border: 1px solid var(--line);
   border-radius: var(--radius-ui);
   background: color-mix(in oklch, var(--surface) 54%, transparent);
+  transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1), border-color 360ms ease, box-shadow 360ms ease;
 }
 
 .case-study + .case-study { margin-top: 1rem; }
+.case-study:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in oklch, var(--accent) 48%, var(--line));
+  box-shadow: 0 1.25rem 3rem color-mix(in oklch, var(--fg) 9%, transparent);
+}
 .case-study-2 { background: color-mix(in oklch, var(--surface-strong) 44%, transparent); }
 .case-study-3 { background: color-mix(in oklch, var(--surface) 70%, transparent); }
 .case-heading h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); font-weight: 650; line-height: 1.25; }
@@ -279,6 +285,27 @@ body {
 
 .timeline-content h3 { line-height: 1.4; }
 .timeline-content ul { max-width: 68ch; }
+
+/* A restrained highlighter keeps a hiring manager's eye on scope and evidence. */
+.keyword {
+  padding: 0 0.12em;
+  border-radius: 0.18em;
+  background: color-mix(in oklch, var(--accent) 18%, transparent);
+  color: color-mix(in oklch, var(--accent) 80%, var(--fg));
+  font-weight: 620;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav a:not(.rounded-ui) {
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition: color 220ms ease, background-size 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-nav a:not(.rounded-ui):hover { background-size: 100% 1px; }
+}
 
 .contact-panel {
   padding: clamp(2rem, 6vw, 4.5rem);
@@ -310,6 +337,8 @@ body {
 :lang(zh-Hant) {
   line-height: 1.8;
   letter-spacing: 0;
+  /* CLReq recommends a gap of no more than 1/4 em at Han-alphanumeric boundaries. */
+  text-autospace: ideograph-alpha ideograph-numeric;
 }
 :lang(zh-Hant) :is(h1, h2, h3) {
   letter-spacing: 0;

@@ -1,5 +1,6 @@
 import { ArrowRightIcon, ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
+import { MagneticLink } from "./motion/MagneticLink";
 
 const PRIMARY_CTA =
   "inline-flex items-center gap-2 whitespace-nowrap rounded-ui bg-accent px-5 py-3 font-medium text-accent-fg transition-transform hover:bg-accent/90 active:scale-[0.98]";
@@ -21,14 +22,14 @@ export function Contact({ content }: SectionProps) {
           {hasActions ? (
             <div className="mt-8 flex flex-wrap items-center gap-4">
               {showCta && cta ? (
-                <a href={cta.href} className={PRIMARY_CTA}>
+                <MagneticLink href={cta.href} className={PRIMARY_CTA}>
                   {cta.label}
                   {cta.href.startsWith("#") ? (
                     <ArrowRightIcon size={18} weight="regular" aria-hidden="true" />
                   ) : (
                     <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
                   )}
-                </a>
+                </MagneticLink>
               ) : null}
 
               {links.map((link) => (

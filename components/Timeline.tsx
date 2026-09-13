@@ -1,4 +1,5 @@
 import type { SectionProps } from "@/content/types";
+import { Highlight } from "./Highlight";
 
 export function Timeline({ content }: SectionProps) {
   const { title, items } = content.experience;
@@ -18,11 +19,17 @@ export function Timeline({ content }: SectionProps) {
                   <span className="font-semibold">{item.role}</span>
                   <span className="font-normal text-muted">{item.org}</span>
                 </h3>
-                {item.summary ? <p className="mt-2 max-w-[65ch] text-muted">{item.summary}</p> : null}
+                {item.summary ? (
+                  <p className="mt-2 max-w-[65ch] text-muted">
+                    <Highlight>{item.summary}</Highlight>
+                  </p>
+                ) : null}
                 {item.bullets && item.bullets.length > 0 ? (
                   <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted">
                     {item.bullets.map((bullet, j) => (
-                      <li key={`${j}-${bullet}`}>{bullet}</li>
+                      <li key={`${j}-${bullet}`}>
+                        <Highlight>{bullet}</Highlight>
+                      </li>
                     ))}
                   </ul>
                 ) : null}

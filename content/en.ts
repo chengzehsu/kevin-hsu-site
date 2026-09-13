@@ -233,7 +233,6 @@ export const en = {
         bullets: [
           "Fresh-produce e-commerce (NT$200M annual revenue): led the AWS re-platform; picking went from 300 to 1,000 orders a day (+233%), revenue grew 120%, featured as an official AWS digital transformation case",
           "Health-management app (about NT$800M annual revenue): built the new AWS-based platform and migrated user data; daily active users 12,000 → 20,000, up 66% within a year",
-          "Product and data teams: built a CDP, LINE and Facebook chatbots, web tracking, dashboards and social listening; cleaned, inventoried and modelled tens of millions of customer records",
         ],
       },
       {
