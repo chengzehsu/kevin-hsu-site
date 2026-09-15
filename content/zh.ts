@@ -89,7 +89,7 @@ export const zh = {
       {
         id: "pmi",
         kind: "award",
-        category: "專案獎項",
+        category: "獲獎紀錄",
         year: "2022",
         title: "PMI 專案管理標竿獎",
         distinction: "卓越獎",
@@ -99,11 +99,11 @@ export const zh = {
       {
         id: "aws",
         kind: "feature",
-        category: "案例收錄",
-        year: "2025",
+        category: "專案期間",
+        caseId: "grocery",
         title: "AWS 數位轉型案例",
         distinction: "放心初蔬果網",
-        description: "關鍵評論網 AWS 專題報導，記錄電商系統重構與上雲的過程。文章內容由 AWS 提供。",
+        description: "在寓意科技主導放心初的系統重構與上雲，後續由 AWS 提供內容、刊登於關鍵評論網。",
         link: {
           label: "閱讀案例報導",
           href: "https://www.thenewslens.com/feature/aws/250301",

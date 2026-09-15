@@ -19,7 +19,11 @@ for (const [locale, file, heading] of [
     assert.equal((awards.match(/data-recognition="award"/g) ?? []).length, 1);
     assert.equal((awards.match(/data-recognition="feature"/g) ?? []).length, 1);
     assert.ok(awards.includes("2022"));
-    assert.ok(awards.includes("2025"));
+    const feature = awards.match(/<li[^>]*data-recognition="feature"[\s\S]*?<\/li>/)?.[0];
+    const grocery = html.match(/<article id="grocery"[\s\S]*?<\/article>/)?.[0];
+    assert.ok(feature?.includes("2021/3 - 2022/7"), "Show the project execution period, not the article publication date");
+    assert.ok(grocery?.includes("2021/3 - 2022/7"), "Feature dates must agree with the associated case");
+    assert.ok(!feature.includes("2025"));
     const sourceLink = awards.match(/<a[^>]*href="https:\/\/www\.thenewslens\.com\/feature\/aws\/250301"[^>]*>/)?.[0];
     assert.ok(sourceLink?.includes(article), "Use the supplied public source");
     assert.ok(sourceLink.includes('target="_blank"'));
@@ -34,5 +38,16 @@ for (const [locale, file, heading] of [
     assert.match(html, /property="og:image" content="https:\/\/chengzeresume\.zeabur\.app\/(en\/)?opengraph-image\?v=20260915"/);
     assert.match(html, /property="og:image:width" content="1200"/);
     assert.match(html, /property="og:image:height" content="630"/);
+  });
+
+  test(`${locale}: company names are consistent across cases and experience`, async () => {
+    const html = await readFile(new URL(file, import.meta.url), "utf8");
+    assert.ok(!/OKData/i.test(html), "Do not reintroduce the incorrect English company name");
+    if (locale === "en") {
+      const cdp = html.match(/<article id="cdp"[\s\S]*?<\/article>/)?.[0];
+      const experience = html.match(/<section id="experience"[\s\S]*?<\/section>/)?.[0];
+      assert.ok(cdp?.includes("Oakda"));
+      assert.ok(experience?.includes("Oakda"));
+    }
   });
 }

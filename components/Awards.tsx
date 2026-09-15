@@ -15,12 +15,15 @@ export function Awards({ content }: SectionProps) {
             const Icon = item.kind === "award" ? TrophyIcon : ArticleIcon;
             const external = item.link.href.startsWith("https://");
             const Arrow = external ? ArrowUpRightIcon : ArrowRightIcon;
+            const period = item.kind === "award"
+              ? item.year
+              : content.cases.items.find((project) => project.id === item.caseId)?.period;
 
             return (
               <li key={item.id} className={styles.item} data-recognition={item.kind}>
                 <Reveal delay={index * 0.06}>
                   <div className={styles.meta}>
-                    <span><time dateTime={item.year}>{item.year}</time><span aria-hidden="true"> · </span>{item.category}</span>
+                    <span>{period ? <>{period}<span aria-hidden="true"> · </span></> : null}{item.category}</span>
                     <Icon size={24} weight="regular" aria-hidden="true" />
                   </div>
                   <h3 className={styles.title}>{item.title}</h3>

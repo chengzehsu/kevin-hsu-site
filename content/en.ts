@@ -89,7 +89,7 @@ export const en = {
       {
         id: "pmi",
         kind: "award",
-        category: "Project award",
+        category: "Award",
         year: "2022",
         title: "PMI Taiwan Project Management Benchmark Award",
         distinction: "Excellence",
@@ -99,11 +99,11 @@ export const en = {
       {
         id: "aws",
         kind: "feature",
-        category: "Case feature",
-        year: "2025",
+        category: "Project period",
+        caseId: "grocery",
         title: "AWS digital transformation case",
         distinction: "Fresh-produce commerce",
-        description: "The News Lens' AWS feature covers the e-commerce rebuild and cloud migration. Article content provided by AWS.",
+        description: "Led the e-commerce rebuild and AWS migration at Fable. The project was later featured by The News Lens, with content provided by AWS.",
         link: {
           label: "Read the article (Chinese)",
           href: "https://www.thenewslens.com/feature/aws/250301",
@@ -195,7 +195,7 @@ export const en = {
       },
       {
         id: "cdp",
-        org: "OKData (歐可達數據科技有限公司)",
+        org: "Oakda (歐可達數據科技有限公司)",
         period: "2020/6 - 2020/12",
         rank: 4,
         title: "Connecting customer data",
@@ -288,7 +288,7 @@ export const en = {
         ],
       },
       {
-        org: "OKData (歐可達數據科技有限公司)",
+        org: "Oakda (歐可達數據科技有限公司)",
         role: "Product Manager",
         period: "2020/6 - 2020/12",
         skillSignal: "Using data definitions and cross-channel behaviour to turn fragmented information into useful services and decisions.",

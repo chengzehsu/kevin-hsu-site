@@ -63,17 +63,20 @@ export interface MetricsContent {
   items: Metric[];
 }
 
-export interface RecognitionItem {
+interface RecognitionDetails {
   id: string;
-  /** Keep project awards distinct from editorial case features. */
-  kind: "award" | "feature";
   category: string;
-  year: string;
   title: string;
   distinction: string;
   description: string;
   link: Cta;
 }
+
+/** Features inherit the execution period from their case, never the article publication date. */
+export type RecognitionItem = RecognitionDetails & (
+  | { kind: "award"; year: string }
+  | { kind: "feature"; caseId: string }
+);
 
 export interface AwardsContent {
   title: string;
