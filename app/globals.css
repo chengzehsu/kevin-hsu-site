@@ -106,6 +106,10 @@ main { width: 100%; max-width: 100%; overflow-x: hidden; }
 }
 .metric-unit { font-size: .52em; font-weight: 500; letter-spacing: 0; }
 
+/* Adjacent sections contribute half the gap each: 80px desktop, 56px mobile.
+   Keep this shared so per-section utility padding cannot silently double it. */
+.content-section { padding-block: 2.5rem; }
+
 .section-title {
   max-width: 23ch;
   font-family: var(--font-display);
@@ -436,6 +440,7 @@ main { width: 100%; max-width: 100%; overflow-x: hidden; }
 
 @media (max-width: 767px) {
   .hero-section { padding: 2.5rem 0 3rem; }
+  .content-section { padding-block: 1.75rem; }
   .section-title { font-size: clamp(1.5rem, 6.5vw, 2rem); }
   .hero-title { max-width: 12ch; font-size: clamp(2.45rem, 11vw, 3.4rem); }
   .hero-flow-shell { padding: 1.2rem; }

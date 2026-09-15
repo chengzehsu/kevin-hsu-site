@@ -3,10 +3,10 @@ import { CountUp } from "./motion/CountUp";
 import { Reveal } from "./motion/Reveal";
 
 export function Metrics({ content, locale }: SectionProps) {
-  const { title, items, awards } = content.metrics;
+  const { title, items } = content.metrics;
 
   return (
-    <section id="metrics" className="metrics-section py-16 md:py-24">
+    <section id="metrics" className="metrics-section content-section">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 className="section-title">{title}</h2>
 
@@ -29,14 +29,6 @@ export function Metrics({ content, locale }: SectionProps) {
             </li>
           ))}
         </ul>
-
-        {awards.length > 0 ? (
-          <p className="mt-12 flex flex-wrap gap-x-8 gap-y-2 border-t border-line pt-6 text-sm text-muted">
-            {awards.map((award) => (
-              <span key={award}>{award}</span>
-            ))}
-          </p>
-        ) : null}
       </div>
     </section>
   );

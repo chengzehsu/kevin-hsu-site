@@ -5,6 +5,7 @@ import { Hero } from "./Hero";
 import { Metrics } from "./Metrics";
 import { Method } from "./Method";
 import { CaseStudies } from "./CaseStudies";
+import { Awards } from "./Awards";
 import { Timeline } from "./Timeline";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
@@ -20,6 +21,7 @@ export function Site({ locale }: { locale: Locale }) {
         <Hero {...props} />
         <Metrics {...props} />
         <CaseStudies {...props} />
+        <Awards {...props} />
         <Method {...props} />
         <Timeline {...props} />
         <Contact {...props} />

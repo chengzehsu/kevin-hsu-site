@@ -17,7 +17,7 @@ m=$(grep -rhoE 'class(Name)?="[^"]*tracking[^"]*uppercase[^"]*"' components app 
 total=$((n + m)); echo "   found $total"; if [ "$total" -gt 2 ]; then fail=1; fi
 
 echo "4) [advisory, never fails] visible string literals in section components (heuristic: JSX text nodes with CJK or 3+ letters)"
-if grep -rnE '>[^<{]*([一-鿿]|[A-Za-z]{3,})[^<{]*<' components/Nav.tsx components/Hero.tsx components/Metrics.tsx components/Method.tsx components/CaseStudies.tsx components/Timeline.tsx components/Contact.tsx components/Footer.tsx 2>/dev/null; then echo "   review the lines above (some are fine, e.g. aria hidden glyphs)"; else echo "   ok"; fi
+if grep -rnE '>[^<{]*([一-鿿]|[A-Za-z]{3,})[^<{]*<' components/Nav.tsx components/Hero.tsx components/Metrics.tsx components/Awards.tsx components/Method.tsx components/CaseStudies.tsx components/Timeline.tsx components/Contact.tsx components/Footer.tsx 2>/dev/null; then echo "   review the lines above (some are fine, e.g. aria hidden glyphs)"; else echo "   ok"; fi
 
 echo "5) scroll listeners / h-screen"
 if grep -rn -e "addEventListener('scroll'" -e 'addEventListener("scroll"' -e 'h-screen' components app; then fail=1; else echo "   ok"; fi

@@ -16,7 +16,9 @@ export default async function OpenGraphImage() {
   return new ImageResponse(
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 76px", background: "#eef1f4", color: "#202b36", fontFamily: "Manrope", fontWeight: 600 }}>
       <div style={{ display: "flex", color: "#285cab", fontSize: 24 }}>{hero.eyebrow}</div>
-      <div style={{ display: "flex", maxWidth: 1048, fontSize: 66, lineHeight: 1.2, letterSpacing: "-0.03em" }}>{hero.headline}</div>
+      <div style={{ display: "flex", flexDirection: "column", maxWidth: 1048, fontSize: 66, lineHeight: 1.2, letterSpacing: "-0.03em" }}>
+        {hero.headline.split(/(?<=\.)\s+/).map((line) => <div key={line} style={{ display: "flex" }}>{line}</div>)}
+      </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
         <div style={{ display: "flex", color: "#536274", fontSize: 22 }}>Ecofirst Taiwan</div>
         <div style={{ display: "flex", borderTop: "1px solid #cdd5de", paddingTop: 24 }}>

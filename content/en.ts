@@ -4,9 +4,9 @@ export const en = {
   locale: "en",
 
   meta: {
-    title: "Kevin Hsu | Product Manager",
+    title: "Kevin Hsu | AI Product Manager",
     description:
-      "Product manager Kevin Hsu has experience in 0-to-1 AI products, B2B platforms, and data systems, including e-commerce re-platforming, enterprise learning, IoT integration, and customer data platforms.",
+      "AI product manager building internal tools and delivery workflows. At Ecofirst, improved delivery efficiency by 50%, with experience in e-commerce, health apps, and customer data.",
   },
 
   nav: {
@@ -81,9 +81,34 @@ export const en = {
         detail: "Clarified multi-tenant management needs and product flow",
       },
     ],
-    awards: [
-      "2022 PMI Taiwan Project Management Benchmark Award, Excellence",
-      "Featured AWS digital transformation case",
+  },
+
+  awards: {
+    title: "Awards & case features",
+    items: [
+      {
+        id: "pmi",
+        kind: "award",
+        category: "Project award",
+        year: "2022",
+        title: "PMI Taiwan Project Management Benchmark Award",
+        distinction: "Excellence",
+        description: "Project work at Fable, spanning process mapping, system re-platforming, and cross-team delivery.",
+        link: { label: "See the experience", href: "#experience" },
+      },
+      {
+        id: "aws",
+        kind: "feature",
+        category: "Case feature",
+        year: "2025",
+        title: "AWS digital transformation case",
+        distinction: "Fresh-produce commerce",
+        description: "The News Lens' AWS feature covers the e-commerce rebuild and cloud migration. Article content provided by AWS.",
+        link: {
+          label: "Read the article (Chinese)",
+          href: "https://www.thenewslens.com/feature/aws/250301",
+        },
+      },
     ],
   },
 

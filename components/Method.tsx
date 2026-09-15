@@ -6,7 +6,7 @@ export function Method({ content }: SectionProps) {
   const { title, steps, capabilitiesTitle, capabilities } = content.method;
 
   return (
-    <section id="method" className="method-section py-16 md:py-24">
+    <section id="method" className="method-section content-section">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 className="section-title">{title}</h2>
 

@@ -11,7 +11,7 @@ export function buildMetadata(locale: Locale): Metadata {
   const content = getContent(locale);
   const { title, description } = content.meta;
   const url = localePath(locale);
-  const socialImage = locale === "zh" ? "/opengraph-image" : "/en/opengraph-image";
+  const socialImage = `${locale === "zh" ? "/opengraph-image" : "/en/opengraph-image"}?v=20260915`;
 
   return {
     title,

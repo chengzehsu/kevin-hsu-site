@@ -4,9 +4,9 @@ export const zh = {
   locale: "zh",
 
   meta: {
-    title: "許承澤 Kevin Hsu｜產品經理",
+    title: "許承澤 Kevin Hsu｜AI 產品經理",
     description:
-      "產品經理許承澤，具 0 到 1 AI 產品、B2B 平台與資料系統經驗。曾推動電商全端重構、企業培訓平台、IoT 整合與跨通路數據中台。",
+      "擅長拆解流程、找出瓶頸，透過 AI 打造產品與內部工具。在愛淨推動產品交付效率提升 50%；具生鮮電商、健康 App 與跨通路資料整合經驗。",
   },
 
   nav: {
@@ -81,7 +81,35 @@ export const zh = {
         detail: "先把多住戶管理的流程理清楚",
       },
     ],
-    awards: ["2022 PMI 專案管理標竿獎 卓越獎", "AWS 官方數位轉型案例"],
+  },
+
+  awards: {
+    title: "獎項與案例收錄",
+    items: [
+      {
+        id: "pmi",
+        kind: "award",
+        category: "專案獎項",
+        year: "2022",
+        title: "PMI 專案管理標竿獎",
+        distinction: "卓越獎",
+        description: "Fable 寓意科技期間的專案成果，從流程盤點、系統重構到跨團隊交付。",
+        link: { label: "看相關經歷", href: "#experience" },
+      },
+      {
+        id: "aws",
+        kind: "feature",
+        category: "案例收錄",
+        year: "2025",
+        title: "AWS 數位轉型案例",
+        distinction: "放心初蔬果網",
+        description: "關鍵評論網 AWS 專題報導，記錄電商系統重構與上雲的過程。文章內容由 AWS 提供。",
+        link: {
+          label: "閱讀案例報導",
+          href: "https://www.thenewslens.com/feature/aws/250301",
+        },
+      },
+    ],
   },
 
   method: {

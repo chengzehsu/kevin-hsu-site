@@ -17,7 +17,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
   const orderedItems = [...items].sort((a, b) => a.rank - b.rank);
 
   return (
-    <section id="cases" className="cases-section py-16 md:py-24">
+    <section id="cases" className="cases-section content-section">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 className="section-title">{title}</h2>
 

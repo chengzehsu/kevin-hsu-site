@@ -61,8 +61,23 @@ export interface Metric {
 export interface MetricsContent {
   title: string;
   items: Metric[];
-  /** Awards / recognitions shown as one quiet line under the strip. */
-  awards: string[];
+}
+
+export interface RecognitionItem {
+  id: string;
+  /** Keep project awards distinct from editorial case features. */
+  kind: "award" | "feature";
+  category: string;
+  year: string;
+  title: string;
+  distinction: string;
+  description: string;
+  link: Cta;
+}
+
+export interface AwardsContent {
+  title: string;
+  items: RecognitionItem[];
 }
 
 export interface MethodStep {
@@ -174,6 +189,7 @@ export interface SiteContent {
   nav: NavContent;
   hero: HeroContent;
   metrics: MetricsContent;
+  awards: AwardsContent;
   method: MethodContent;
   cases: CasesContent;
   experience: ExperienceContent;
