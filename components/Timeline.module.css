@@ -83,6 +83,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .summary {
@@ -150,7 +151,9 @@
   background: color-mix(in oklch, var(--surface) 54%, transparent);
 }
 
-@media (max-width: 767px) {
+/* The evidence grid needs a full record column. At tablet widths, retaining a
+   separate date column makes the two evidence cells overflow long entries. */
+@media (max-width: 1023px) {
   .ledger {
     margin-top: 2.5rem;
   }
@@ -185,7 +188,9 @@
   .recordHeader {
     margin-top: 0.4rem;
   }
+}
 
+@media (max-width: 767px) {
   .summary {
     margin-top: 0.85rem;
   }
