@@ -10,7 +10,7 @@ export function Nav({ content, locale }: SectionProps) {
     <header className="site-nav sticky top-0 z-40 h-[4.5rem]">
       <ScrollProgress />
       <div className="mx-auto flex h-full w-full max-w-site items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <a href={localePath(locale)} className="font-medium whitespace-nowrap text-fg">
+        <a href={localePath(locale)} className="font-display text-xl leading-none whitespace-nowrap text-fg">
           {brand}
         </a>
 

@@ -30,13 +30,17 @@ export interface HeroContent {
   headline: string;
   /** Max 20 words / 20 characters. */
   subline: string;
-  /** Label for the evidence-based flow shown beside the introduction. */
-  visualLabel: string;
   /** Three factual signals that help a hiring reader understand the profile quickly. */
   profile: Array<{
     label: string;
     value: string;
   }>;
+  /** The operating loop that differentiates this product practice. */
+  builderLoop: {
+    label: string;
+    steps: [string, string, string, string, string];
+    result: string;
+  };
   primaryCta: Cta;
   secondaryCta: Cta;
 }
@@ -85,9 +89,13 @@ export interface CaseStudy {
   id: string;
   org: string;
   period: string;
+  /** Display order; lower comes first. */
+  rank: number;
   title: string;
   /** The outcome a hiring reader should understand before reading the full case. */
   impact: string;
+  /** The work Kevin personally drove, separated from the overall outcome. */
+  ownership: string;
   situation: string;
   bottleneck: string;
   hypothesis: string;
@@ -103,6 +111,7 @@ export interface CasesContent {
     hypothesis: string;
     result: string;
   };
+  ownershipLabel: string;
   items: CaseStudy[];
 }
 
@@ -110,6 +119,8 @@ export interface ExperienceItem {
   org: string;
   role: string;
   period: string;
+  /** The product judgement or practice accumulated in this chapter. */
+  skillSignal: string;
   /** One or two sentences; null when the facts are not yet supplied (both locales must declare it). */
   summary: string | null;
   /** Short bullets, max 4; empty array when none. */
@@ -118,6 +129,7 @@ export interface ExperienceItem {
 
 export interface ExperienceContent {
   title: string;
+  skillLabel: string;
   items: ExperienceItem[];
 }
 
@@ -144,7 +156,7 @@ export interface AnimationContent {
   };
   /** Label shown on the picking node when it becomes the bottleneck. */
   bottleneckLabel: string;
-  /** Text of the hypothesis card, one short sentence. */
+  /** Text of the hypothesis card, one or two short lines. */
   hypothesis: string;
   /** Throughput label after optimisation, e.g. "300 → 1,000 單／日". */
   throughputLabel: string;

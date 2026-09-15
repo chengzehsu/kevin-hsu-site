@@ -63,7 +63,7 @@ const TRICKLE_END = END_X - TRICKLE_START_X;
 
 const PIPE_SCALE = 3;
 
-const CARD = { x: 80, y: 36, w: 320, h: 36 };
+const CARD = { x: 80, y: 28, w: 320, h: 50 };
 const BOTTLENECK = { dotX: NODE_X[1] + 4, dotY: 100, textX: NODE_X[1] + 12, textY: 104 };
 const THROUGHPUT = { x: NODE_X[3] + NODE_W, y: 196 };
 
@@ -110,6 +110,7 @@ interface DiagramProps {
 
 function Diagram({ content, final }: DiagramProps) {
   const labels = [content.nodes.intake, content.nodes.picking, content.nodes.packing, content.nodes.shipping];
+  const hypothesisLines = content.hypothesis.split("\n");
   const hidden = final ? 1 : 0;
 
   return (
@@ -255,14 +256,17 @@ function Diagram({ content, final }: DiagramProps) {
         />
         <text
           x={CARD.x + CARD.w / 2}
-          y={CARD.y + CARD.h / 2}
+          y={CARD.y + 18}
           textAnchor="middle"
-          dominantBaseline="central"
           fontSize={13}
           fontFamily="inherit"
           fill="var(--fg)"
         >
-          {content.hypothesis}
+          {hypothesisLines.map((line, index) => (
+            <tspan key={line} x={CARD.x + CARD.w / 2} dy={index === 0 ? 0 : 17}>
+              {line}
+            </tspan>
+          ))}
         </text>
       </g>
 

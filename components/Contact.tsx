@@ -5,7 +5,7 @@ import { MagneticLink } from "./motion/MagneticLink";
 const PRIMARY_CTA =
   "inline-flex items-center gap-2 whitespace-nowrap rounded-ui bg-accent px-5 py-3 font-medium text-accent-fg transition-transform hover:bg-accent/90 active:scale-[0.98]";
 const TEXT_LINK =
-  "inline-flex items-center gap-1.5 underline decoration-line underline-offset-4 transition-colors hover:decoration-accent";
+  "inline-flex min-h-11 items-center gap-1.5 underline decoration-line underline-offset-4 transition-colors hover:decoration-accent";
 
 export function Contact({ content }: SectionProps) {
   const { title, text, cta, links } = content.contact;
@@ -13,7 +13,7 @@ export function Contact({ content }: SectionProps) {
   const hasActions = showCta || links.length > 0;
 
   return (
-    <section id="contact" className="contact-section py-20 md:py-32">
+    <section id="contact" className="contact-section py-16 md:py-24">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <div className="contact-panel">
           <h2 className="section-title">{title}</h2>

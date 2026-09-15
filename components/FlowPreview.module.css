@@ -1,0 +1,49 @@
+.preview { position: relative; width: 100%; min-width: 0; border: 1px solid #c5d2e2; border-radius: 1.1rem; background: linear-gradient(145deg, #f5f8fc, #e5edf6); color: var(--fg); overflow: hidden; box-shadow: 0 16px 40px -28px #7184a0; }
+.header { position: relative; z-index: 1; padding: 1.45rem 1.6rem 0; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .66rem; font-weight: 500; line-height: 1.5; }
+.heading > span:last-child { font-variant-numeric: tabular-nums; font-weight: 400; }
+.title { margin: .65rem 0 0; font-size: clamp(1.25rem, 2.15vw, 1.6rem); line-height: 1.4; font-weight: 500; letter-spacing: -.025em; }
+.film { position: relative; width: 100%; aspect-ratio: 8 / 5; margin-block: .5rem 0; overflow: hidden; background: #e7eef7; }
+.image, .video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.image { z-index: 0; }
+.video { z-index: 1; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.film[data-film-ready="true"] .video { opacity: 1; }
+.film[data-film-failed="true"] .video { opacity: 0; }
+.caption { display: flex; align-items: center; gap: .85rem; min-height: 3.5rem; padding: .75rem 1.6rem; border-top: 1px solid #cbd7e5; color: var(--fg); }
+.caption p { margin: 0; min-width: 0; font-size: .92rem; line-height: 1.6; font-weight: 500; }
+.phase { flex: 0 0 auto; color: var(--accent); font-size: .65rem; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.phase > span { color: var(--muted); font-weight: 400; }
+.controls { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .65rem; margin: 0 1.25rem; padding: .45rem 0 .65rem; border-top: 1px solid #cbd7e5; }
+.transport { display: flex; align-items: center; gap: .15rem; }
+.transport button { display: grid; place-items: center; width: 44px; min-width: 44px; height: 44px; border-radius: .55rem; color: var(--accent); cursor: pointer; transition: background .2s; }
+.transport button:hover { background: #d8e3f0; }
+.explore { display: flex; justify-self: end; align-items: center; justify-content: center; gap: .5rem; min-width: 0; min-height: 44px; padding: .5rem .65rem; border-radius: .55rem; color: var(--accent); font-size: .75rem; font-weight: 500; line-height: 1.5; cursor: pointer; transition: background .2s; }
+.explore svg { flex: 0 0 auto; transition: transform .2s; }
+.explore:hover { background: #d8e3f0; }
+.explore:hover svg { transform: translate(2px, -2px); }
+.transport button:focus-visible, .explore:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.dialog { width: min(850px, calc(100vw - 40px)); max-height: calc(100dvh - 40px); padding: 0; margin: auto; border: 1px solid var(--line); border-radius: 1rem; color: var(--fg); background: var(--surface); overscroll-behavior: contain; }
+.dialog::backdrop { background: rgb(29 43 61 / .4); }
+.dialogContent { min-width: 0; }
+.dialogBar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .35rem .6rem .35rem 1.8rem; border-bottom: 1px solid var(--line); background: var(--surface); font-size: .75rem; color: var(--muted); }
+.dialogBar button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: .5rem; color: var(--fg); cursor: pointer; }
+.dialogBar button:hover { background: var(--surface-strong); }
+.dialogContent > [data-flow-scenario] { border: 0; border-radius: 0; box-shadow: none; }
+.loading { min-height: 360px; padding: 3rem; display: grid; align-content: center; justify-items: center; color: var(--muted); }
+.loading button { min-height: 44px; margin-top: 1rem; color: var(--accent); text-decoration: underline; cursor: pointer; }
+@media (max-width:767px) {
+  .header { padding: 1.2rem 1.1rem 0; }
+  .heading { font-size: .61rem; gap: .5rem; }
+  .title { margin-top: .55rem; font-size: 1.3rem; }
+  .caption { min-height: 3.8rem; padding: .7rem 1.1rem; gap: .65rem; }
+  .caption p { font-size: .84rem; }
+  .phase { font-size: .61rem; }
+  .controls { margin-inline: .75rem; gap: .35rem; }
+  .explore { padding-inline: .45rem; gap: .3rem; font-size: .71rem; }
+  .dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); }
+  .dialogBar { padding-left: 1.15rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .video, .transport button, .explore, .explore svg { transition: none; }
+  .explore:hover svg { transform: none; }
+}

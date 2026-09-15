@@ -21,21 +21,25 @@ export const en = {
   },
 
   hero: {
-    eyebrow: "Kevin Hsu | Product Manager",
-    headline: "Turn unclear operational needs into products teams actually adopt.",
-    subline: "Experience across 0-to-1 AI products, B2B platforms, and data integration, from process mapping through cross-functional delivery.",
-    visualLabel: "E-commerce re-platforming: from order to delivery",
+    eyebrow: "Kevin Hsu | AI Product Manager",
+    headline: "Product thinking. Working software.",
+    subline: "At Ecofirst, I build AI-assisted development workflows and internal tools the team uses, improving delivery efficiency by 50%.",
     profile: [
-      { label: "Current role", value: "0-to-1 AI energy-saving product and operations tools" },
-      { label: "Product experience", value: "B2B platforms, data products, e-commerce, and IoT" },
-      { label: "Recent result", value: "AI development workflows improved delivery efficiency by 50%" },
+      { label: "Positioning", value: "AI product manager · systems-minded PM" },
+      { label: "Where I work best", value: "0-to-1, B2B, data, and operations" },
+      { label: "Looking for", value: "A team ready to put AI into real work" },
     ],
+    builderLoop: {
+      label: "From fieldwork to product",
+      steps: ["Map work", "Find the issue", "Set a hypothesis", "Build a tool", "Check impact"],
+      result: "Ecofirst: delivery +50%, site operations +20%",
+    },
     primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "See the cases", href: "#cases" },
   },
 
   metrics: {
-    title: "Product results, with evidence",
+    title: "Results from the work",
     items: [
       {
         prefix: "+",
@@ -84,44 +88,45 @@ export const en = {
   },
 
   method: {
-    title: "From problem definition to delivery",
+    title: "From a field problem to a usable product",
     steps: [
       {
-        verb: "Define the problem",
-        text: "Start with user needs, operations, and business goals to clarify the problem worth solving.",
+        verb: "Map the flow",
+        text: "Start in the work itself, with users, operations, and the delivery team, until the actual constraint is clear.",
       },
       {
         verb: "Find the constraint",
-        text: "Use data, interviews, and process mapping to identify the highest-leverage constraint.",
+        text: "Use process mapping, data, and frontline feedback to identify the constraint worth solving first.",
       },
       {
-        verb: "Design the solution",
-        text: "Turn needs into a testable product plan, aligned on priorities, resources, and success measures.",
+        verb: "Form a hypothesis",
+        text: "Turn the problem into a testable product hypothesis and make explicit what to build first and what to defer.",
       },
       {
-        verb: "Drive delivery",
-        text: "Coordinate delivery, acceptance, and iteration, then track whether the outcome improved.",
+        verb: "Build and validate",
+        text: "Ship tools and products with engineering, design, and operations, then validate impact through speed, errors, and adoption.",
       },
     ],
-    capabilitiesTitle: "What I bring",
+    capabilitiesTitle: "Core capabilities",
     capabilities: [
       {
-        name: "0-to-1 AI products and development workflows",
-        text: "Use AI tools in product and development work to speed delivery while requirements continue to evolve.",
+        name: "AI-accelerated delivery",
+        text: "Use AI to reshape the workflow from clarification and specification through making and acceptance, shortening the path from idea to a shippable outcome.",
       },
       {
-        name: "B2B platforms and operational flow",
-        text: "Understand the distinct workflows of enterprise buyers, administrators, and frontline users to design products and back-office tools that work in practice.",
+        name: "From product planning to building",
+        text: "Go beyond a roadmap: turn high-frequency internal needs into tools that software, project, and sales partners can use directly.",
       },
       {
-        name: "Data products and systems integration",
-        text: "Clarify data definitions and system boundaries, then connect product, engineering, and operations so data can support decisions and services.",
+        name: "Digital tools for operational constraints",
+        text: "Understand where the work is stuck and what it costs, then intervene with workflow, data, or tools and validate through efficiency, errors, and adoption.",
       },
     ],
   },
 
   cases: {
     title: "Cases",
+    ownershipLabel: "What I drove",
     columns: {
       situation: "Situation",
       bottleneck: "Bottleneck",
@@ -133,8 +138,10 @@ export const en = {
         id: "grocery",
         org: "Fable (寓意科技)",
         period: "2021/3 - 2022/7",
-        title: "Fresh-produce e-commerce re-platforming and warehouse-flow improvement",
+        rank: 2,
+        title: "Fresh-produce commerce, rebuilt",
         impact: "300 to 1,000 orders a day, up 233%",
+        ownership: "Mapped the order-to-delivery flow; aligned storefront, back office, app, and AWS re-platforming work.",
         situation:
           "During the pandemic, order growth overwhelmed the existing systems of a fresh-produce e-commerce business with NT$200M in annual revenue. Its storefront, back office, and app all needed rebuilding.",
         bottleneck:
@@ -148,8 +155,10 @@ export const en = {
         id: "health-app",
         org: "Fable (寓意科技)",
         period: "2021/3 - 2022/7",
-        title: "Health-management app re-platforming and IoT integration",
+        rank: 3,
+        title: "Health app and IoT integration",
         impact: "Daily active users: 12,000 to 20,000, up 66%",
+        ownership: "User interviews, competitor research, client workshops, prioritisation, use-case design, and QA acceptance.",
         situation:
           "A health-management app with about NT$800M in annual revenue and 12,000 daily active users needed re-platforming, IoT smart-scale health insights, event registration, and legacy-user-data migration.",
         bottleneck:
@@ -163,8 +172,10 @@ export const en = {
         id: "cdp",
         org: "OKData (歐可達數據科技有限公司)",
         period: "2020/6 - 2020/12",
-        title: "Cross-channel customer data platform",
+        rank: 4,
+        title: "Connecting customer data",
         impact: "Integrated 10M customer records",
+        ownership: "Product planning for CDP, chatbots, tracking, and dashboards, plus biweekly product-data collaboration.",
         situation:
           "Clients had customer data spread across LINE, Facebook, websites, e-commerce, and POS systems, so they could not see a user's source, purchase behavior, or frequency in one place.",
         bottleneck:
@@ -178,8 +189,10 @@ export const en = {
         id: "ecofirst",
         org: "Ecofirst (台灣愛淨)",
         period: "2025/3 - Present",
-        title: "0-to-1 AI energy-saving product and operations tools",
+        rank: 1,
+        title: "AI energy: from planning to delivery",
         impact: "Delivery efficiency up 50%; site operations up 20%",
+        ownership: "Product roadmap, AI development workflows, internal tools, and cross-functional deployment handoffs.",
         situation:
           "The AI energy-saving air-conditioning product is at the prototype stage. The existing approach was project-led, without reusable back-office systems and internal tools.",
         bottleneck:
@@ -194,11 +207,13 @@ export const en = {
 
   experience: {
     title: "Experience",
+    skillLabel: "What this chapter added",
     items: [
       {
         org: "Ecofirst Taiwan (台灣愛淨股份有限公司)",
         role: "Product Manager",
         period: "2025/3 - Present",
+        skillSignal: "Productising field practice: using roadmaps, AI tools, and delivery systems to make good work repeatable.",
         summary:
           "Own the roadmap and feature strategy for a 0-to-1 AI energy-saving air-conditioning product. Build internal tools with AI and move a fast-changing, project-led environment toward repeatable product operations.",
         bullets: [
@@ -211,6 +226,7 @@ export const en = {
         org: "SAT. KNOWLEDGE",
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
+        skillSignal: "Building B2B product judgement across buyers, administrators, and end users while validating commercial opportunity.",
         summary:
           "Planned a B2B enterprise-training platform for HR buyers, administrators, and employees, alongside learning-analytics work and market validation.",
         bullets: [
@@ -225,6 +241,7 @@ export const en = {
         org: "Freelance",
         role: "Independent consultant",
         period: "2023/5 - 2023/11",
+        skillSignal: "Turning ambiguous business problems into aligned product strategy, roadmaps, and cross-functional operating rhythm.",
         summary:
           "During a career transition, took on product strategy, SaaS, and fundraising-advisory work, building practical experience from business strategy and product management through cross-functional collaboration.",
         bullets: [
@@ -237,6 +254,7 @@ export const en = {
         org: "Fable (寓意科技)",
         role: "Senior Project Manager",
         period: "2021/3 - 2022/7",
+        skillSignal: "Developing systems product sense under delivery pressure: connecting user flow, technical re-platforming, and operating outcomes.",
         summary:
           "Managed an NT$12M+ project portfolio with Agile, led a 10-person engineering team and two junior PMs, and delivered storefront, back-office, and app re-platforming across e-commerce, warehouse operations, and IoT. Received the 2022 PMI Taiwan Project Management Benchmark Award, Excellence.",
         bullets: [
@@ -248,6 +266,7 @@ export const en = {
         org: "OKData (歐可達數據科技有限公司)",
         role: "Product Manager",
         period: "2020/6 - 2020/12",
+        skillSignal: "Using data definitions and cross-channel behaviour to turn fragmented information into useful services and decisions.",
         summary: "Managed product and data teams, owning the roadmap and biweekly Scrum sprints for a cross-channel customer data platform.",
         bullets: [
           "Integrated 10M customer records across retail, e-commerce, and real estate by connecting LINE, Facebook, websites, e-commerce, and POS data",
@@ -259,11 +278,12 @@ export const en = {
         org: "Zhongshuo Investment Consulting",
         role: "Product Associate",
         period: "2019/2 - 2020/6",
+        skillSignal: "Building product instinct through market exploration, prototyping, and competitor research: validate the problem before delivery.",
         summary:
           "In a venture studio that took equity through technology investment, helped traditional businesses move from product exploration to market validation through research, prototyping, requirements work, and outsourced delivery.",
         bullets: [
           "Worked on e-commerce, fan-community, and video-learning products: created wireframes and prototypes, ran competitive research, mapped flows, and coordinated engineering and design partners",
-          "Incubated two companies outside the existing corporate structure, each at the NT$1M scale, and helped take their products to market validation",
+          "Incubated two early-stage companies outside the existing corporate structure and helped take their products to market validation",
         ],
       },
     ],
@@ -271,7 +291,7 @@ export const en = {
 
   contact: {
     title: "Contact",
-    text: "If you are looking for a product manager with 0-to-1, B2B platform, data-product, or cross-functional delivery experience, I would be glad to talk.",
+    text: "If your product is stuck between requests, operations, and the people who need to work together, I would be glad to hear what is happening on the ground.",
     cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/" }],
   },
@@ -288,7 +308,7 @@ export const en = {
       shipping: "Shipping",
     },
     bottleneckLabel: "Bottleneck",
-    hypothesis: "Rebuilt storefront, back office, app, and AWS architecture around the order-to-delivery flow",
+    hypothesis: "Rebuilt the storefront, back office, app & AWS\naround one order-to-delivery flow",
     throughputLabel: "300 → 1,000 orders/day",
     captions: [
       "Orders queue at picking: 300 orders per day.",

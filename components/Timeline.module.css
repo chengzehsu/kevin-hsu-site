@@ -1,6 +1,6 @@
 .ledger {
   position: relative;
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  margin-top: 2.5rem;
   padding: 0;
   list-style: none;
 }
@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: 2.1rem minmax(8.5rem, 0.8fr) minmax(0, 3.2fr);
   column-gap: clamp(1rem, 2.8vw, 2.75rem);
-  padding: clamp(2rem, 4vw, 3.5rem) 0;
+  padding: 2rem 0;
 }
 
 .entry + .entry {
@@ -33,12 +33,13 @@
   width: 2.1rem;
   height: 2.1rem;
   place-items: center;
-  border: 1px solid var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
   border-radius: 50%;
   background: var(--bg);
   color: var(--accent);
+  font-family: var(--font-display);
   font-size: 0.69rem;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0.04em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -53,7 +54,7 @@
   margin: 0;
   color: var(--muted);
   font-size: 0.82rem;
-  font-weight: 590;
+  font-weight: 500;
   line-height: 1.45;
   font-variant-numeric: tabular-nums;
 }
@@ -71,19 +72,39 @@
 
 .role {
   margin: 0;
-  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
-  font-weight: 650;
-  letter-spacing: -0.018em;
-  line-height: 1.32;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
 }
 
 .organization {
   margin: 0;
   color: var(--accent);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
   line-height: 1.55;
   overflow-wrap: anywhere;
+}
+
+.skillSignal {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1.25rem 0 0;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 50%, var(--line));
+  color: var(--fg);
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.skillSignal span {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
 }
 
 .summary {
@@ -112,19 +133,26 @@
   align-items: start;
   min-width: 0;
   color: var(--muted);
-  font-size: 0.875rem;
-  line-height: 1.7;
+  font-size: 0.94rem;
+  line-height: 1.8;
   counter-increment: evidence;
 }
 
 .evidenceItem::before {
   padding-top: 0.18rem;
-  color: color-mix(in oklch, var(--accent) 76%, var(--muted));
-  font-size: 0.68rem;
-  font-weight: 650;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 500;
   line-height: 1.6;
   font-variant-numeric: tabular-nums;
   content: counter(evidence, decimal-leading-zero);
+}
+
+/* Highlight inserts inline <mark> elements. Keep the complete sentence in
+   one grid cell, otherwise each marked term becomes its own grid item and can
+   collide with the following text when a line wraps. */
+.evidenceText {
+  min-width: 0;
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
@@ -139,11 +167,10 @@
   .entry:hover .sequence {
     background: var(--accent);
     color: var(--accent-fg);
-    transform: scale(1.06);
   }
 
   .sequence {
-    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), background-color 220ms ease, color 220ms ease;
+    transition: background-color 220ms ease, color 220ms ease;
   }
 }
 

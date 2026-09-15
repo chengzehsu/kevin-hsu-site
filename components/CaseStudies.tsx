@@ -14,16 +14,17 @@ function caseMeta(item: CaseStudy): string {
 
 export function CaseStudies({ content, locale }: SectionProps) {
   const { title, columns, items } = content.cases;
+  const orderedItems = [...items].sort((a, b) => a.rank - b.rank);
 
   return (
-    <section id="cases" className="cases-section py-20 md:py-32">
+    <section id="cases" className="cases-section py-16 md:py-24">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 className="section-title">{title}</h2>
 
-        <CaseNavigator title={title} items={items} />
+        <CaseNavigator title={title} items={orderedItems} />
 
         <div className="mt-10">
-          {items.map((item, i) => {
+          {orderedItems.map((item, i) => {
             const meta = caseMeta(item);
             return (
               <Reveal key={item.id}>
@@ -38,10 +39,14 @@ export function CaseStudies({ content, locale }: SectionProps) {
                       <p className="case-impact mt-6">
                         <Highlight>{item.impact}</Highlight>
                       </p>
+                      <p className="case-ownership">
+                        <span>{content.cases.ownershipLabel}</span>
+                        {item.ownership}
+                      </p>
                       <CaseEvidence caseId={item.id} locale={locale} />
                     </div>
 
-                    <div className="case-evidence grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2 lg:col-span-8">
+                    <div className="case-evidence grid grid-cols-1 content-start gap-x-8 gap-y-7 sm:grid-cols-2 lg:col-span-8">
                       {COLUMN_ORDER.map((key) => (
                         <div key={key} className={key === "result" ? "case-result" : undefined}>
                           <h4 className="text-sm font-medium">{columns[key]}</h4>

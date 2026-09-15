@@ -3,10 +3,10 @@ import { Highlight } from "./Highlight";
 import styles from "./Timeline.module.css";
 
 export function Timeline({ content }: SectionProps) {
-  const { title, items } = content.experience;
+  const { title, skillLabel, items } = content.experience;
 
   return (
-    <section id="experience" className="py-20 md:py-32">
+    <section id="experience" className="py-16 md:py-24">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 className="section-title">{title}</h2>
 
@@ -27,6 +27,11 @@ export function Timeline({ content }: SectionProps) {
                   <p className={styles.organization}>{item.org}</p>
                 </header>
 
+                <p className={styles.skillSignal}>
+                  <span>{skillLabel}</span>
+                  {item.skillSignal}
+                </p>
+
                 {item.summary ? (
                   <p className={styles.summary}>
                     <Highlight>{item.summary}</Highlight>
@@ -37,7 +42,9 @@ export function Timeline({ content }: SectionProps) {
                   <ul className={styles.evidence}>
                     {item.bullets.map((bullet, j) => (
                       <li key={`${j}-${bullet}`} className={styles.evidenceItem}>
-                        <Highlight>{bullet}</Highlight>
+                        <span className={styles.evidenceText}>
+                          <Highlight>{bullet}</Highlight>
+                        </span>
                       </li>
                     ))}
                   </ul>

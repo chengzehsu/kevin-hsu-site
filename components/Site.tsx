@@ -19,8 +19,8 @@ export function Site({ locale }: { locale: Locale }) {
       <main>
         <Hero {...props} />
         <Metrics {...props} />
-        <Method {...props} />
         <CaseStudies {...props} />
+        <Method {...props} />
         <Timeline {...props} />
         <Contact {...props} />
       </main>

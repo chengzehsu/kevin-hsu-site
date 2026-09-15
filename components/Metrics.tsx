@@ -6,7 +6,7 @@ export function Metrics({ content, locale }: SectionProps) {
   const { title, items, awards } = content.metrics;
 
   return (
-    <section id="metrics" className="metrics-section py-20 md:py-32">
+    <section id="metrics" className="metrics-section py-16 md:py-24">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 className="section-title">{title}</h2>
 

@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
-import { GeistSans } from "geist/font/sans";
+import type { Metadata } from "next";
+import { SITE_ORIGIN } from "@/lib/locale";
 import "../globals.css";
+
+export const metadata: Metadata = { metadataBase: new URL(SITE_ORIGIN) };
 
 // First-visit language redirect. The web platform does not expose a dependable
 // operating-system locale, so use the device/browser preferred-language list.
@@ -14,8 +17,10 @@ const NOSCRIPT_CSS = "[data-reveal],[data-hero-intro]{opacity:1!important;transf
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh-Hant-TW" className={GeistSans.variable}>
+    <html lang="zh-Hant-TW">
       <head>
+        <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/noto-sans-tc-portfolio.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script dangerouslySetInnerHTML={{ __html: REDIRECT_SCRIPT }} />
         <noscript>
           <style dangerouslySetInnerHTML={{ __html: NOSCRIPT_CSS }} />
