@@ -32,6 +32,11 @@ export interface HeroContent {
   subline: string;
   /** Label for the evidence-based flow shown beside the introduction. */
   visualLabel: string;
+  /** Three factual signals that help a hiring reader understand the profile quickly. */
+  profile: Array<{
+    label: string;
+    value: string;
+  }>;
   primaryCta: Cta;
   secondaryCta: Cta;
 }

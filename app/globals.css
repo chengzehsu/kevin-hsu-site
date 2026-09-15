@@ -144,6 +144,35 @@ body {
   line-height: 1.75;
 }
 
+.hero-profile {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 40rem;
+  margin: 1.75rem 0 0;
+}
+
+.hero-profile > div {
+  min-width: 0;
+  padding: 0.75rem 0.85rem 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.hero-profile dt {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+}
+
+.hero-profile dd {
+  margin: 0.35rem 0 0;
+  color: var(--fg);
+  font-size: 0.8rem;
+  font-weight: 540;
+  line-height: 1.55;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -336,6 +365,8 @@ body {
   .hero-section { padding: 2.5rem 0 3rem; }
   .hero-title { max-width: 12ch; font-size: clamp(2.45rem, 11vw, 3.4rem); }
   .hero-flow-shell { padding: 1.2rem; }
+  .hero-profile { grid-template-columns: 1fr; gap: 0; }
+  .hero-profile > div { padding-inline: 0; }
   .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .impact-cell { min-height: 10.5rem; padding: 1.1rem; }
   .impact-cell-1, .impact-cell-2, .impact-cell-5, .impact-cell-6 { grid-column: span 2; }

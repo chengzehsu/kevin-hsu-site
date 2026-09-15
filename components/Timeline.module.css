@@ -1,0 +1,198 @@
+.ledger {
+  position: relative;
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding: 0;
+  list-style: none;
+}
+
+.ledger::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.05rem;
+  width: 1px;
+  background: var(--line);
+  content: "";
+}
+
+.entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.1rem minmax(8.5rem, 0.8fr) minmax(0, 3.2fr);
+  column-gap: clamp(1rem, 2.8vw, 2.75rem);
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
+}
+
+.entry + .entry {
+  border-top: 1px solid color-mix(in oklch, var(--line) 76%, transparent);
+}
+
+.sequence {
+  z-index: 1;
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 0.69rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.chronology {
+  min-width: 0;
+  padding-top: 0.42rem;
+}
+
+.period {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 590;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+}
+
+.record {
+  min-width: 0;
+  padding-left: clamp(1.15rem, 2.7vw, 2.5rem);
+  border-left: 1px solid var(--line);
+}
+
+.recordHeader {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.role {
+  margin: 0;
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  font-weight: 650;
+  letter-spacing: -0.018em;
+  line-height: 1.32;
+}
+
+.organization {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.summary {
+  max-width: 66ch;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.78;
+}
+
+.evidence {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 0.65rem clamp(1rem, 2vw, 1.5rem);
+  max-width: 72rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: evidence;
+}
+
+.evidenceItem {
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: start;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  counter-increment: evidence;
+}
+
+.evidenceItem::before {
+  padding-top: 0.18rem;
+  color: color-mix(in oklch, var(--accent) 76%, var(--muted));
+  font-size: 0.68rem;
+  font-weight: 650;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+  content: counter(evidence, decimal-leading-zero);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .entry {
+    transition: background-color 220ms ease;
+  }
+
+  .entry:hover {
+    background: color-mix(in oklch, var(--surface) 54%, transparent);
+  }
+
+  .entry:hover .sequence {
+    background: var(--accent);
+    color: var(--accent-fg);
+    transform: scale(1.06);
+  }
+
+  .sequence {
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), background-color 220ms ease, color 220ms ease;
+  }
+}
+
+.entry:focus-within {
+  background: color-mix(in oklch, var(--surface) 54%, transparent);
+}
+
+@media (max-width: 767px) {
+  .ledger {
+    margin-top: 2.5rem;
+  }
+
+  .ledger::before {
+    left: 0.95rem;
+  }
+
+  .entry {
+    grid-template-columns: 1.9rem minmax(0, 1fr);
+    column-gap: 1rem;
+    padding: 1.85rem 0;
+  }
+
+  .sequence {
+    width: 1.9rem;
+    height: 1.9rem;
+    font-size: 0.64rem;
+  }
+
+  .chronology {
+    grid-column: 2;
+    padding-top: 0.08rem;
+  }
+
+  .record {
+    grid-column: 2;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .recordHeader {
+    margin-top: 0.4rem;
+  }
+
+  .summary {
+    margin-top: 0.85rem;
+  }
+
+  .evidence {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    margin-top: 1rem;
+  }
+}

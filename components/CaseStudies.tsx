@@ -1,6 +1,9 @@
 import type { CaseStudy, SectionProps } from "@/content/types";
 import { Highlight } from "./Highlight";
+import { CaseEvidence } from "./CaseEvidence";
+import { CaseNavigator } from "./CaseNavigator";
 import { Reveal } from "./motion/Reveal";
+import styles from "./CaseNavigator.module.css";
 
 type ColumnKey = "situation" | "bottleneck" | "hypothesis" | "result";
 const COLUMN_ORDER: ColumnKey[] = ["situation", "bottleneck", "hypothesis", "result"];
@@ -9,7 +12,7 @@ function caseMeta(item: CaseStudy): string {
   return [item.org, item.period].filter(Boolean).join(" · ");
 }
 
-export function CaseStudies({ content }: SectionProps) {
+export function CaseStudies({ content, locale }: SectionProps) {
   const { title, columns, items } = content.cases;
 
   return (
@@ -17,12 +20,17 @@ export function CaseStudies({ content }: SectionProps) {
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 className="section-title">{title}</h2>
 
+        <CaseNavigator title={title} items={items} />
+
         <div className="mt-10">
           {items.map((item, i) => {
             const meta = caseMeta(item);
             return (
               <Reveal key={item.id}>
-                <article id={item.id} className={`case-study case-study-${i + 1}`}>
+                <article
+                  id={item.id}
+                  className={`case-study case-study-${i + 1} ${i === 0 ? styles.flagshipCase : ""}`}
+                >
                   <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
                     <div className="case-heading self-start lg:sticky lg:top-28 lg:col-span-4">
                       <h3 className="text-xl font-semibold">{item.title}</h3>
@@ -30,6 +38,7 @@ export function CaseStudies({ content }: SectionProps) {
                       <p className="case-impact mt-6">
                         <Highlight>{item.impact}</Highlight>
                       </p>
+                      <CaseEvidence caseId={item.id} locale={locale} />
                     </div>
 
                     <div className="case-evidence grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2 lg:col-span-8">

@@ -1,37 +1,48 @@
 import type { SectionProps } from "@/content/types";
 import { Highlight } from "./Highlight";
+import styles from "./Timeline.module.css";
 
 export function Timeline({ content }: SectionProps) {
   const { title, items } = content.experience;
 
   return (
-    <section id="experience" className="timeline-section py-20 md:py-32">
+    <section id="experience" className="py-20 md:py-32">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 className="section-title">{title}</h2>
 
-        <ol className="timeline-list mt-10">
+        <ol className={styles.ledger}>
           {items.map((item, i) => (
-            <li key={`${item.org}-${item.period}-${i}`} className="timeline-item grid grid-cols-1 gap-4 py-9 md:grid-cols-12 md:gap-0">
-              <p className="timeline-period text-sm text-muted tabular-nums md:col-span-3">{item.period}</p>
+            <li key={`${item.org}-${item.period}-${i}`} className={styles.entry}>
+              <span className={styles.sequence} aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
 
-              <div className="timeline-content md:col-span-9">
-                <h3 className="text-lg font-semibold">{item.role}</h3>
-                <p className="mt-1 text-sm text-muted">{item.org}</p>
+              <div className={styles.chronology}>
+                <p className={styles.period}>{item.period}</p>
+              </div>
+
+              <article className={styles.record}>
+                <header className={styles.recordHeader}>
+                  <h3 className={styles.role}>{item.role}</h3>
+                  <p className={styles.organization}>{item.org}</p>
+                </header>
+
                 {item.summary ? (
-                  <p className="mt-2 max-w-[65ch] text-muted">
+                  <p className={styles.summary}>
                     <Highlight>{item.summary}</Highlight>
                   </p>
                 ) : null}
-                {item.bullets && item.bullets.length > 0 ? (
-                  <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted">
+
+                {item.bullets.length > 0 ? (
+                  <ul className={styles.evidence}>
                     {item.bullets.map((bullet, j) => (
-                      <li key={`${j}-${bullet}`}>
+                      <li key={`${j}-${bullet}`} className={styles.evidenceItem}>
                         <Highlight>{bullet}</Highlight>
                       </li>
                     ))}
                   </ul>
                 ) : null}
-              </div>
+              </article>
             </li>
           ))}
         </ol>

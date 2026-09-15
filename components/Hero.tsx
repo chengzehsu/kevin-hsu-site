@@ -10,7 +10,7 @@ const SECONDARY_CTA =
   "inline-flex items-center gap-2 whitespace-nowrap rounded-ui border border-line px-5 py-3 transition-transform hover:bg-surface active:scale-[0.98]";
 
 export function Hero({ content, locale }: SectionProps) {
-  const { eyebrow, headline, subline, visualLabel, primaryCta, secondaryCta } = content.hero;
+  const { eyebrow, headline, subline, visualLabel, profile, primaryCta, secondaryCta } = content.hero;
 
   return (
     <section id="hero" className="hero-section">
@@ -18,6 +18,14 @@ export function Hero({ content, locale }: SectionProps) {
       <div className="mx-auto grid w-full max-w-site grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-8">
         <div className="lg:col-span-6">
           <HeroStatement eyebrow={eyebrow} headline={headline} subline={subline} chinese={locale === "zh"}>
+            <dl className="hero-profile" aria-label={eyebrow}>
+              {profile.map((item) => (
+                <div key={item.label}>
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
+              ))}
+            </dl>
             <MagneticLink href={primaryCta.href} className={PRIMARY_CTA}>
               {primaryCta.label}
               <ArrowRightIcon size={18} weight="regular" aria-hidden="true" />

@@ -11,6 +11,7 @@ export function buildMetadata(locale: Locale): Metadata {
   const content = getContent(locale);
   const { title, description } = content.meta;
   const url = localePath(locale);
+  const socialImage = locale === "zh" ? "/opengraph-image" : "/en/opengraph-image";
 
   return {
     title,
@@ -31,6 +32,21 @@ export function buildMetadata(locale: Locale): Metadata {
       locale: locale === "zh" ? "zh_TW" : "en_US",
       type: "website",
       siteName: content.nav.brand,
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+          type: "image/png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [socialImage],
     },
   };
 }
