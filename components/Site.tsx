@@ -22,8 +22,8 @@ export function Site({ locale }: { locale: Locale }) {
       <main>
         <Hero {...props} />
         <Metrics {...props} />
-        <Timeline {...props} />
         <SkillsRadar content={skillsContent[locale]} />
+        <Timeline {...props} />
         <CaseStudies {...props} />
         <LinkedInPosts {...props} />
         <Awards {...props} />

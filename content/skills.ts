@@ -25,6 +25,8 @@ export interface SkillsContent {
   totalLabel: string;
   featuredTitle: string;
   libraryTitle: string;
+  expandLibraryLabel: string;
+  collapseLibraryLabel: string;
   evidenceLabel: string;
   featured: FeaturedSkill[];
   groups: SkillGroup[];
@@ -38,12 +40,14 @@ export const skillsContent: Record<Locale, SkillsContent> = {
     totalLabel: "20 項技能，整理自 6 段經歷與 4 個案例",
     featuredTitle: "核心技能",
     libraryTitle: "完整技能庫",
+    expandLibraryLabel: "展開完整技能庫",
+    collapseLibraryLabel: "收合完整技能庫",
     evidenceLabel: "累積自",
     featured: [
       {
         id: "ai-delivery",
         name: "AI 產品交付與內部工具",
-        summary: "把 AI 放進需求、規格、製作與驗收流程，也把重複需求做成團隊實際使用的工具。",
+        summary: "將 AI 導入需求、規格、製作與驗收流程，並把重複需求做成團隊實際使用的工具。",
         proof: "產品交付效率提升 50%",
         references: [{ label: "台灣愛淨", href: "#experience-ecofirst" }],
       },
@@ -70,8 +74,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
       {
         id: "discovery",
         name: "使用者研究與 B2B 需求探索",
-        summary: "透過訪談、競品研究與工作坊，釐清採購者、管理者和使用者之間不同的需求。",
-        proof: "企業培訓平台與健康 App 的研究、排序與驗收",
+        summary: "透過訪談、競品研究與工作坊，釐清採購者、管理者與使用者之間不同的需求。",
+        proof: "企業培訓平台與健康 App 的研究、優先排序與驗收",
         references: [
           { label: "知識衛星", href: "#experience-sat" },
           { label: "Fable 寓意科技", href: "#health-app" },
@@ -113,7 +117,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
       },
       {
         kind: "systems",
-        title: "系統與產品場域",
+        title: "系統與產品領域",
         items: [
           { name: "0 到 1 產品", href: "#experience-ecofirst" },
           { name: "B2B SaaS", href: "#experience-sat" },
@@ -141,6 +145,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
     totalLabel: "20 skills drawn from 6 roles and 4 cases",
     featuredTitle: "Core skills",
     libraryTitle: "Full skill set",
+    expandLibraryLabel: "View full skill set",
+    collapseLibraryLabel: "Hide full skill set",
     evidenceLabel: "Built at",
     featured: [
       {

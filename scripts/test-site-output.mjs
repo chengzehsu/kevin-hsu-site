@@ -77,7 +77,7 @@ for (const [locale, file, heading] of [
     }
   });
 
-  test(`${locale}: the skills index is evidence-led and server rendered`, async () => {
+  test(`${locale}: the skills index is evidence-led, server rendered, and precedes work history`, async () => {
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     const skills = html.match(/<section id="skills"[\s\S]*?<\/section>/)?.[0];
     assert.ok(skills, "Skills must remain visible before hydration");
@@ -86,7 +86,7 @@ for (const [locale, file, heading] of [
     assert.ok(skills.includes(locale === "zh" ? "完整技能庫" : "Full skill set"));
     assert.ok(skills.includes(locale === "zh" ? "不是自評分數" : "No self-rated scores"));
     assert.ok(!skills.includes("<polygon"), "Skills should not use a subjective radar chart");
-    assert.ok(html.indexOf('<section id="experience"') < html.indexOf('<section id="skills"'));
+    assert.ok(html.indexOf('<section id="skills"') < html.indexOf('<section id="experience"'));
     assert.ok(html.indexOf('<section id="skills"') < html.indexOf('<section id="cases"'));
   });
 

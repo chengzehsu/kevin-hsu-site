@@ -53,8 +53,15 @@ export function SkillsRadar({ content }: { content: SkillsContent }) {
           </ol>
         </div>
 
-        <div className={`${styles.sectionBlock} ${styles.library}`}>
-          <h3>{content.libraryTitle}</h3>
+        <details className={`${styles.sectionBlock} ${styles.library}`}>
+          <summary className={styles.librarySummary}>
+            <h3>{content.libraryTitle}</h3>
+            <span>
+              <span className={styles.libraryClosedLabel}>{content.expandLibraryLabel}</span>
+              <span className={styles.libraryOpenLabel}>{content.collapseLibraryLabel}</span>
+              <ArrowUpRightIcon className={styles.libraryIcon} size={16} aria-hidden="true" />
+            </span>
+          </summary>
           <div className={styles.groups}>
             {content.groups.map((group, index) => {
               const headingId = `skill-group-${index}`;
@@ -75,7 +82,7 @@ export function SkillsRadar({ content }: { content: SkillsContent }) {
               );
             })}
           </div>
-        </div>
+        </details>
       </div>
     </section>
   );
