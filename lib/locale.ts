@@ -42,3 +42,7 @@ export function localePath(locale: Locale, hash = ""): string {
 export function otherLocale(locale: Locale): Locale {
   return locale === "zh" ? "en" : "zh";
 }
+
+export function casePath(locale: Locale, id: string): string {
+  return `${localePath(locale)}cases/${encodeURIComponent(id)}/`;
+}

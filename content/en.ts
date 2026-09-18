@@ -12,8 +12,9 @@ export const en = {
   nav: {
     brand: "Kevin Hsu",
     links: [
-      { label: "Cases", href: "#cases" },
       { label: "Experience", href: "#experience" },
+      { label: "Skills", href: "#skills" },
+      { label: "Cases", href: "#cases" },
       { label: "Contact", href: "#contact" },
     ],
     switchLabel: "中文",
@@ -26,7 +27,7 @@ export const en = {
     subline: "At Ecofirst, I build AI-assisted development workflows and internal tools the team uses, improving delivery efficiency by 50%.",
     profile: [
       { label: "Positioning", value: "AI product manager · systems-minded PM" },
-      { label: "Where I work best", value: "0-to-1, B2B, data, and operations" },
+      { label: "Product environments", value: "0-to-1 and re-platforming across B2B SaaS, B2C apps, and data products" },
       { label: "Looking for", value: "A team ready to put AI into real work" },
     ],
     builderLoop: {
@@ -44,12 +45,14 @@ export const en = {
       {
         prefix: "+",
         value: 50,
+        featured: true,
         suffix: "%",
         label: "Current product delivery efficiency",
         detail: "Introduced AI tools and development workflows",
       },
       {
         value: 1000,
+        featured: true,
         suffix: " orders/day",
         label: "Fresh-produce picking capacity",
         detail: "After AWS re-platforming: 300 to 1,000 orders/day",
@@ -64,6 +67,7 @@ export const en = {
       {
         prefix: "+",
         value: 66,
+        featured: true,
         suffix: "%",
         label: "Health app daily active users",
         detail: "After new-platform launch: 12,000 to 20,000/day",
@@ -151,6 +155,15 @@ export const en = {
 
   cases: {
     title: "Cases",
+    intro: "Start with the outcomes. Expand a case to see how I approached it.",
+    expandLabel: "See my approach",
+    collapseLabel: "Collapse case",
+    copyLabel: "Copy case link",
+    copiedLabel: "Link copied",
+    copyFallback: "Select and copy the link below.",
+    linkLabel: "Open case link",
+    backLabel: "Back to experience and cases",
+    filmLabel: "Watch the workflow",
     ownershipLabel: "What I drove",
     columns: {
       situation: "Situation",
@@ -232,12 +245,16 @@ export const en = {
 
   experience: {
     title: "Experience",
+    expandLabel: "View role details",
+    collapseLabel: "Collapse role",
     skillLabel: "What this chapter added",
     items: [
       {
+        id: "ecofirst",
         org: "Ecofirst Taiwan (台灣愛淨股份有限公司)",
         role: "Product Manager",
         period: "2025/3 - Present",
+        focus: "AI energy products, internal tools, and delivery workflows",
         skillSignal: "Productising field practice: using roadmaps, AI tools, and delivery systems to make good work repeatable.",
         summary:
           "Own the roadmap and feature strategy for a 0-to-1 AI energy-saving air-conditioning product. Build internal tools with AI and move a fast-changing, project-led environment toward repeatable product operations.",
@@ -248,9 +265,11 @@ export const en = {
         ],
       },
       {
+        id: "sat",
         org: "SAT. KNOWLEDGE",
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
+        focus: "B2B learning, learning analytics, and market validation",
         skillSignal: "Building B2B product judgement across buyers, administrators, and end users while validating commercial opportunity.",
         summary:
           "Planned a B2B enterprise-training platform for HR buyers, administrators, and employees, alongside learning-analytics work and market validation.",
@@ -263,9 +282,11 @@ export const en = {
         ],
       },
       {
+        id: "consulting",
         org: "Freelance",
         role: "Independent consultant",
         period: "2023/5 - 2023/11",
+        focus: "Product strategy, rental SaaS, and fundraising advisory",
         skillSignal: "Turning ambiguous business problems into aligned product strategy, roadmaps, and cross-functional operating rhythm.",
         summary:
           "During a career transition, took on product strategy, SaaS, and fundraising-advisory work, building practical experience from business strategy and product management through cross-functional collaboration.",
@@ -276,9 +297,11 @@ export const en = {
         ],
       },
       {
+        id: "fable",
         org: "Fable (寓意科技)",
         role: "Senior Project Manager",
         period: "2021/3 - 2022/7",
+        focus: "E-commerce and health app rebuilds, cross-functional delivery",
         skillSignal: "Developing systems product sense under delivery pressure: connecting user flow, technical re-platforming, and operating outcomes.",
         summary:
           "Managed an NT$12M+ project portfolio with Agile, led a 10-person engineering team and two junior PMs, and delivered storefront, back-office, and app re-platforming across e-commerce, warehouse operations, and IoT. Received the 2022 PMI Taiwan Project Management Benchmark Award, Excellence.",
@@ -288,9 +311,11 @@ export const en = {
         ],
       },
       {
+        id: "oakda",
         org: "Oakda (歐可達數據科技有限公司)",
         role: "Product Manager",
         period: "2020/6 - 2020/12",
+        focus: "Customer data platforms, chatbots, and dashboards",
         skillSignal: "Using data definitions and cross-channel behaviour to turn fragmented information into useful services and decisions.",
         summary: "Managed product and data teams, owning the roadmap and biweekly Scrum sprints for a cross-channel customer data platform.",
         bullets: [
@@ -300,9 +325,11 @@ export const en = {
         ],
       },
       {
+        id: "zhongshuo",
         org: "Zhongshuo Investment Consulting",
         role: "Product Associate",
         period: "2019/2 - 2020/6",
+        focus: "Market research, prototyping, and early product validation",
         skillSignal: "Building product instinct through market exploration, prototyping, and competitor research: validate the problem before delivery.",
         summary:
           "In a venture studio that took equity through technology investment, helped traditional businesses move from product exploration to market validation through research, prototyping, requirements work, and outsourced delivery.",
@@ -315,14 +342,15 @@ export const en = {
   },
 
   contact: {
-    title: "Contact",
-    text: "If your product is stuck between requests, operations, and the people who need to work together, I would be glad to hear what is happening on the ground.",
+    title: "Let's talk about the next product.",
+    text: "Looking for a product team ready to put AI into real work. Happy to discuss a role, your product direction, or the problems you are working on.",
     cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/" }],
   },
 
   footer: {
     text: "© 2026 Kevin Hsu",
+    backToTop: "Back to top",
   },
 
   animation: {

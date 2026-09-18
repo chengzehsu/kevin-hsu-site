@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type ComponentType } from "react";
-import { ArrowCounterClockwiseIcon, ArrowUpRightIcon, PauseIcon, PlayIcon, XIcon } from "@phosphor-icons/react/dist/ssr";
+import { useEffect, useRef, useState } from "react";
+import { ArrowCounterClockwiseIcon, PauseIcon, PlayIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Locale } from "@/lib/locale";
 import styles from "./FlowPreview.module.css";
 
@@ -13,17 +13,14 @@ const captions = {
   en: ["Requests keep arriving. Delivery stalls.", "Find the step that needs repeated confirmation.", "Clarify the rules. Turn repeat work into tools.", "Give the team time to deliver."],
 };
 
-/** A poster is server-rendered. Film and WebGL each load only when needed. */
+/** The poster appears first; video loads when visible and playback is allowed. */
 export function FlowPreview({ locale }: { locale: Locale }) {
   const zh = locale === "zh";
   const preview = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
-  const dialog = useRef<HTMLDialogElement>(null);
-  const trigger = useRef<HTMLButtonElement>(null);
   const intentRef = useRef<PlayIntent>("auto");
   const sourcesRequested = useRef(false);
   const endedRef = useRef(false);
-  const dialogOpen = useRef(false);
   const reconcile = useRef<() => void>(() => {});
   const canPlayNow = useRef<() => boolean>(() => false);
   const [intent, setIntent] = useState<PlayIntent>("auto");
@@ -33,9 +30,6 @@ export function FlowPreview({ locale }: { locale: Locale }) {
   const [ended, setEnded] = useState(false);
   const [filmFailed, setFilmFailed] = useState(false);
   const [phase, setPhase] = useState(0);
-  const [opened, setOpened] = useState(false);
-  const [failed, setFailed] = useState(false);
-  const [Experience, setExperience] = useState<ComponentType<{ locale: Locale }> | null>(null);
 
   useEffect(() => {
     const element = preview.current, candidate = video.current;
@@ -53,7 +47,7 @@ export function FlowPreview({ locale }: { locale: Locale }) {
       return intentRef.current === "play" || (intentRef.current === "auto" && automaticallyAllowed());
     }
     function allowedNow() {
-      return alive && visible && !document.hidden && !dialogOpen.current && !endedRef.current && wantsPlayback();
+      return alive && visible && !document.hidden && !endedRef.current && wantsPlayback();
     }
     canPlayNow.current = allowedNow;
     function cancelPendingLoad() {
@@ -126,13 +120,6 @@ export function FlowPreview({ locale }: { locale: Locale }) {
     reconcile.current();
   }, [loadVideo]);
 
-  useEffect(() => {
-    if (!opened) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = previousOverflow; };
-  }, [opened]);
-
   function requestPlay(restart = false) {
     intentRef.current = "play";
     setIntent("play");
@@ -155,14 +142,6 @@ export function FlowPreview({ locale }: { locale: Locale }) {
     setPlaying(false);
     reconcile.current();
   }
-  function open() {
-    dialogOpen.current = true;
-    video.current?.pause();
-    if (!dialog.current?.open) dialog.current?.showModal();
-    setOpened(true); setFailed(false);
-    if (!Experience) import("./BuilderLoop").then((module) => setExperience(() => module.BuilderLoop)).catch(() => setFailed(true));
-  }
-  function close() { dialog.current?.close(); }
   const preparing = loadVideo && !videoReady && !filmFailed && intent !== "pause";
   const pauseAction = playing || preparing;
 
@@ -193,17 +172,7 @@ export function FlowPreview({ locale }: { locale: Locale }) {
           </button>
           <button type="button" data-film-replay onClick={() => requestPlay(true)} aria-label={zh ? "從頭播放預覽" : "Replay preview from the start"}><ArrowCounterClockwiseIcon size={19} aria-hidden="true" /></button>
         </div>
-        <button ref={trigger} type="button" data-open-experiment className={styles.explore} onClick={open} aria-haspopup="dialog"><span>{zh ? "試試不同決策" : "Try a decision"}</span><ArrowUpRightIcon size={17} aria-hidden="true" /></button>
       </div>
     </section>
-    <dialog ref={dialog} className={styles.dialog} aria-label={zh ? "3D 流程重組互動作品" : "3D workflow experiment"} onClose={() => { dialogOpen.current = false; setOpened(false); trigger.current?.focus({ preventScroll: true }); reconcile.current(); }} onClick={(event) => { if (event.target === event.currentTarget) close(); }}>
-      <div className={styles.dialogContent}>
-        <div className={styles.dialogBar}><span>{zh ? "流程重組" : "Workflow experiment"}</span><button type="button" onClick={close} aria-label={zh ? "關閉體驗" : "Close experience"}><XIcon size={20} aria-hidden="true" /></button></div>
-        {opened && (Experience ? <Experience locale={locale} /> : <div className={styles.loading} role="status">
-          <p>{failed ? (zh ? "互動暫時無法開啟。你可以繼續看下方案例。" : "The experience could not load. The case studies are still available below.") : (zh ? "正在準備互動作品…" : "Preparing the experience…")}</p>
-          {failed && <button type="button" onClick={open}>{zh ? "再試一次" : "Try again"}</button>}
-        </div>)}
-      </div>
-    </dialog>
   </>;
 }

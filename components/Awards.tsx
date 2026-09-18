@@ -1,6 +1,5 @@
 import { ArrowRightIcon, ArrowUpRightIcon, ArticleIcon, TrophyIcon } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
-import { Reveal } from "./motion/Reveal";
 import styles from "./Awards.module.css";
 
 export function Awards({ content }: SectionProps) {
@@ -8,10 +7,10 @@ export function Awards({ content }: SectionProps) {
 
   return (
     <section id="awards" aria-labelledby="awards-heading" className="content-section">
-      <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
+      <div className="section-layout mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <h2 id="awards-heading" className="section-title">{title}</h2>
         <ul className={styles.list}>
-          {items.map((item, index) => {
+          {items.map((item) => {
             const Icon = item.kind === "award" ? TrophyIcon : ArticleIcon;
             const external = item.link.href.startsWith("https://");
             const Arrow = external ? ArrowUpRightIcon : ArrowRightIcon;
@@ -21,7 +20,6 @@ export function Awards({ content }: SectionProps) {
 
             return (
               <li key={item.id} className={styles.item} data-recognition={item.kind}>
-                <Reveal delay={index * 0.06}>
                   <div className={styles.meta}>
                     <span>{period ? <>{period}<span aria-hidden="true"> · </span></> : null}{item.category}</span>
                     <Icon size={24} weight="regular" aria-hidden="true" />
@@ -39,7 +37,6 @@ export function Awards({ content }: SectionProps) {
                     {item.link.label}
                     <Arrow size={18} aria-hidden="true" />
                   </a>
-                </Reveal>
               </li>
             );
           })}

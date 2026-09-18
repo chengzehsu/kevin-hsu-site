@@ -6,18 +6,21 @@ import "../globals.css";
 export const metadata: Metadata = { metadataBase: new URL(SITE_ORIGIN) };
 
 // Reveal blocks are server-rendered hidden and shown by motion; without JS they must stay visible.
-const NOSCRIPT_CSS = "[data-reveal],[data-hero-intro]{opacity:1!important;transform:none!important}";
+const NOSCRIPT_CSS = "[data-reveal],[data-hero-intro]{opacity:1!important;transform:none!important}[data-disclosure]::details-content{transition:none!important}";
+const THEME_SCRIPT =
+  '(function(){try{var t=localStorage.getItem("portfolio-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=d?"dark":"light"}catch(e){}})();';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <noscript>
           <style dangerouslySetInnerHTML={{ __html: NOSCRIPT_CSS }} />
         </noscript>
       </head>
-      <body>{children}</body>
+      <body id="top">{children}</body>
     </html>
   );
 }

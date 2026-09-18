@@ -1,7 +1,7 @@
 .list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 2.5rem;
+  margin-top: 0;
   border-block: 1px solid var(--line);
 }
 
@@ -76,4 +76,8 @@
   .list { grid-template-columns: 1fr; margin-top: 1.75rem; }
   .item { padding: 1.5rem 0; }
   .item + .item { padding-inline: 0; border-top: 1px solid var(--line); border-left: 0; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .list { margin-top: 2rem; }
 }

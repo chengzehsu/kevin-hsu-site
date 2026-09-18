@@ -29,7 +29,8 @@ for (const [locale, file, heading] of [
     assert.ok(sourceLink.includes('target="_blank"'));
     assert.ok(sourceLink.includes('rel="noopener noreferrer"'));
     assert.ok(html.indexOf('<section id="awards"') > html.indexOf('<section id="cases"'));
-    assert.ok(html.indexOf('<section id="awards"') < html.indexOf('<section id="method"'));
+    assert.ok(html.indexOf('<section id="experience"') < html.indexOf('<section id="cases"'));
+    assert.ok(html.indexOf('<section id="awards"') < html.indexOf('<section id="contact"'));
   });
 
   test(`${locale}: social previews have production URLs and a large-image card`, async () => {
@@ -49,5 +50,49 @@ for (const [locale, file, heading] of [
       assert.ok(cdp?.includes("Oakda"));
       assert.ok(experience?.includes("Oakda"));
     }
+  });
+
+  test(`${locale}: summaries and complete cases are usable without JavaScript`, async () => {
+    const html = await readFile(new URL(file, import.meta.url), "utf8");
+    const cases = html.match(/<section id="cases"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(cases);
+    assert.equal((cases.match(/data-disclosure="case"/g) ?? []).length, 4);
+    assert.equal((html.match(/data-disclosure="experience"/g) ?? []).length, 6);
+    assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(html), "Default visit stays compact");
+    assert.ok(!html.includes("data-open-experiment"));
+    assert.ok(!html.includes("<video"), "Do not fetch or mount the film before a request");
+    for (const id of ["ecofirst", "grocery", "health-app", "cdp"]) {
+      const article = cases.match(new RegExp(`<article id="${id}"[\\s\\S]*?<\\/article>`))?.[0];
+      assert.ok(article?.includes("<summary"));
+      const summary = article.match(/<summary[\s\S]*?<\/summary>/)?.[0];
+      assert.ok(summary?.includes(locale === "zh" ? "我實際主導" : "What I drove"));
+      const path = `${locale === "en" ? "/en" : ""}/cases/${id}/`;
+      assert.ok(article.includes(`href="${path}"`), "No-JS sharing must be a working link");
+      const detail = await readFile(new URL(`../out${path}index.html`, import.meta.url), "utf8");
+      assert.ok(detail.includes("<h1"));
+      assert.ok(detail.includes(`rel="canonical" href="https://chengzeresume.zeabur.app${path}"`));
+      assert.ok(detail.includes(`href="/cases/${id}/"`) || locale === "zh");
+      assert.ok(detail.includes(`href="/en/cases/${id}/"`) || locale === "en");
+      assert.ok(detail.includes(`href="${locale === "en" ? "/en/" : "/?lang=zh"}#${id}"`));
+    }
+  });
+
+  test(`${locale}: the skills index is evidence-led and server rendered`, async () => {
+    const html = await readFile(new URL(file, import.meta.url), "utf8");
+    const skills = html.match(/<section id="skills"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(skills, "Skills must remain visible before hydration");
+    assert.equal((skills.match(/data-featured-skill=/g) ?? []).length, 5);
+    assert.equal((skills.match(/data-skill=/g) ?? []).length, 20);
+    assert.ok(skills.includes(locale === "zh" ? "完整技能庫" : "Full skill set"));
+    assert.ok(skills.includes(locale === "zh" ? "不是自評分數" : "No self-rated scores"));
+    assert.ok(!skills.includes("<polygon"), "Skills should not use a subjective radar chart");
+    assert.ok(html.indexOf('<section id="experience"') < html.indexOf('<section id="skills"'));
+    assert.ok(html.indexOf('<section id="skills"') < html.indexOf('<section id="cases"'));
+  });
+
+  test(`${locale}: theme choice is available before and after hydration`, async () => {
+    const html = await readFile(new URL(file, import.meta.url), "utf8");
+    assert.ok(html.includes("portfolio-theme"), "Inline theme script must prevent a colour flash");
+    assert.ok(html.includes(locale === "zh" ? "切換為深色模式" : "Switch to dark mode"));
   });
 }

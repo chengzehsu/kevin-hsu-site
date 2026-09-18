@@ -51,6 +51,7 @@ export interface HeroContent {
  * Example (zh picking): prefix "300 → ", value 1000, suffix " 單／日", label "揀貨效率", detail "+233%".
  */
 export interface Metric {
+  featured?: boolean;
   prefix?: string;
   value: number;
   suffix?: string;
@@ -122,6 +123,15 @@ export interface CaseStudy {
 
 export interface CasesContent {
   title: string;
+  intro: string;
+  expandLabel: string;
+  collapseLabel: string;
+  copyLabel: string;
+  copiedLabel: string;
+  copyFallback: string;
+  linkLabel: string;
+  backLabel: string;
+  filmLabel: string;
   /** Column headings shared by all cases. */
   columns: {
     situation: string;
@@ -134,9 +144,12 @@ export interface CasesContent {
 }
 
 export interface ExperienceItem {
+  id: string;
   org: string;
   role: string;
   period: string;
+  /** Short scope visible before expanding the role. */
+  focus: string;
   /** The product judgement or practice accumulated in this chapter. */
   skillSignal: string;
   /** One or two sentences; null when the facts are not yet supplied (both locales must declare it). */
@@ -147,6 +160,8 @@ export interface ExperienceItem {
 
 export interface ExperienceContent {
   title: string;
+  expandLabel: string;
+  collapseLabel: string;
   skillLabel: string;
   items: ExperienceItem[];
 }
@@ -162,6 +177,7 @@ export interface ContactContent {
 
 export interface FooterContent {
   text: string;
+  backToTop: string;
 }
 
 /** All strings used inside the BottleneckFlow animation. */

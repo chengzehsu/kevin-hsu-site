@@ -1,12 +1,13 @@
 "use client";
 
 import type { MouseEvent } from "react";
-import { HTML_LANG, LOCALE_STORAGE_KEY, localePath, otherLocale, type Locale } from "@/lib/locale";
+import { HTML_LANG, LOCALE_STORAGE_KEY, casePath, localePath, otherLocale, type Locale } from "@/lib/locale";
 
 interface LocaleSwitchProps {
   locale: Locale;
   label: string;
   ariaLabel: string;
+  caseId?: string;
 }
 
 /**
@@ -14,8 +15,9 @@ interface LocaleSwitchProps {
  * With JS: stores the preference and keeps the current section hash (/#cases -> /en/#cases).
  * Modified clicks (cmd / ctrl / shift / middle button) fall through to native behaviour.
  */
-export function LocaleSwitch({ locale, label, ariaLabel }: LocaleSwitchProps) {
+export function LocaleSwitch({ locale, label, ariaLabel, caseId }: LocaleSwitchProps) {
   const other = otherLocale(locale);
+  const destination = caseId ? casePath(other, caseId) : localePath(other);
 
   function onClick(event: MouseEvent<HTMLAnchorElement>) {
     if (event.defaultPrevented || event.button !== 0) return;
@@ -30,12 +32,12 @@ export function LocaleSwitch({ locale, label, ariaLabel }: LocaleSwitchProps) {
       // so the first-visit redirect on / does not bounce the visitor back to /en/.
     }
     const marker = stored ? "" : `?lang=${other}`;
-    window.location.assign(`${localePath(other)}${marker}${window.location.hash}`);
+    window.location.assign(`${destination}${marker}${window.location.hash}`);
   }
 
   return (
     <a
-      href={localePath(other)}
+      href={destination}
       hrefLang={HTML_LANG[other]}
       aria-label={ariaLabel || undefined}
       onClick={onClick}

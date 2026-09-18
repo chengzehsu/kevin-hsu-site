@@ -3,13 +3,14 @@ import { getContent } from "@/content";
 import { Nav } from "./Nav";
 import { Hero } from "./Hero";
 import { Metrics } from "./Metrics";
-import { Method } from "./Method";
 import { CaseStudies } from "./CaseStudies";
 import { Awards } from "./Awards";
 import { Timeline } from "./Timeline";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 import { HashScroll } from "./HashScroll";
+import { SkillsRadar } from "./SkillsRadar";
+import { skillsContent } from "@/content/skills";
 
 export function Site({ locale }: { locale: Locale }) {
   const content = getContent(locale);
@@ -20,10 +21,10 @@ export function Site({ locale }: { locale: Locale }) {
       <main>
         <Hero {...props} />
         <Metrics {...props} />
+        <Timeline {...props} />
+        <SkillsRadar content={skillsContent[locale]} />
         <CaseStudies {...props} />
         <Awards {...props} />
-        <Method {...props} />
-        <Timeline {...props} />
         <Contact {...props} />
       </main>
       <Footer {...props} />

@@ -16,35 +16,39 @@ export function Contact({ content }: SectionProps) {
     <section id="contact" className="contact-section content-section">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <div className="contact-panel">
-          <h2 className="section-title">{title}</h2>
-          <p className="mt-4 max-w-[50ch] text-muted">{text}</p>
+          <div>
+            <h2 className="section-title">{title}</h2>
+            <p className="mt-4 max-w-[50ch] text-muted">{text}</p>
+          </div>
 
-          {hasActions ? (
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              {showCta && cta ? (
-                <MagneticLink href={cta.href} className={PRIMARY_CTA}>
-                  {cta.label}
-                  {cta.href.startsWith("#") ? (
-                    <ArrowRightIcon size={18} weight="regular" aria-hidden="true" />
-                  ) : (
+          <div className="contact-actions">
+            {hasActions ? (
+              <div className="flex flex-wrap items-center gap-4">
+                {showCta && cta ? (
+                  <MagneticLink href={cta.href} className={PRIMARY_CTA}>
+                    {cta.label}
+                    {cta.href.startsWith("#") ? (
+                      <ArrowRightIcon size={18} weight="regular" aria-hidden="true" />
+                    ) : (
+                      <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
+                    )}
+                  </MagneticLink>
+                ) : null}
+
+                {links.map((link) => (
+                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className={TEXT_LINK}>
+                    {link.label}
                     <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
-                  )}
-                </MagneticLink>
-              ) : null}
-
-              {links.map((link) => (
-                <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className={TEXT_LINK}>
-                  {link.label}
-                  <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
-          ) : null}
-          {showCta && cta?.href.startsWith("mailto:") ? (
-            <a className="email-address" href={cta.href}>
-              {cta.href.slice("mailto:".length)}
-            </a>
-          ) : null}
+                  </a>
+                ))}
+              </div>
+            ) : null}
+            {showCta && cta?.href.startsWith("mailto:") ? (
+              <a className="email-address" href={cta.href}>
+                {cta.href.slice("mailto:".length)}
+              </a>
+            ) : null}
+          </div>
         </div>
       </div>
     </section>

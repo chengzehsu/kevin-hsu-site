@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
-import { FlowPreview } from "./FlowPreview";
 import { HeroStatement } from "./motion/HeroStatement";
 import { MagneticLink } from "./motion/MagneticLink";
 import styles from "./Hero.module.css";
@@ -11,7 +10,7 @@ const SECONDARY_CTA =
   "inline-flex items-center gap-2 whitespace-nowrap rounded-ui border border-line px-5 py-3 transition-transform hover:bg-surface active:scale-[0.98]";
 
 export function Hero({ content, locale }: SectionProps) {
-  const { eyebrow, headline, subline, primaryCta, secondaryCta } = content.hero;
+  const { eyebrow, headline, subline, profile, primaryCta, secondaryCta } = content.hero;
 
   return (
     <section id="hero" className="hero-section">
@@ -36,9 +35,14 @@ export function Hero({ content, locale }: SectionProps) {
           />
         </div>
 
-        <div className={styles.experiment}>
-          <FlowPreview locale={locale} />
-        </div>
+        <dl className={styles.profile}>
+          {profile.map((item) => (
+            <div key={item.label}>
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

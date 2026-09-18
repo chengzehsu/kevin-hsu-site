@@ -1,9 +1,9 @@
 """Build compact local WOFF2 fonts from the Google Fonts OFL sources.
 
 Run after copy changes: python3 scripts/subset-fonts.py /path/to/font-sources
-The source directory must contain Manrope.ttf and NotoSansTC.ttf from:
-https://github.com/google/fonts/tree/main/ofl/manrope
+The source directory must contain NotoSansTC.ttf from:
 https://github.com/google/fonts/tree/main/ofl/notosanstc
+Geist is read from the installed npm package.
 Requires fonttools[woff]. No font processing runs during the site build.
 """
 
@@ -27,8 +27,8 @@ copy = "".join(
 )
 
 
-def write_subset(source_name, output_name, unicodes):
-    font = TTFont(SOURCE / source_name)
+def write_subset(source_path, output_name, unicodes):
+    font = TTFont(source_path)
     options = subset.Options()
     options.flavor = "woff2"
     options.layout_features = ["kern", "liga", "calt", "locl", "pnum", "tnum"]
@@ -42,5 +42,13 @@ def write_subset(source_name, output_name, unicodes):
     print(f"{output_name}: {destination.stat().st_size:,} bytes; {len(unicodes):,} characters")
 
 
-write_subset("Manrope.ttf", "manrope-latin.woff2", set(range(0x20, 0x180)) | set(range(0x2000, 0x2070)))
-write_subset("NotoSansTC.ttf", "noto-sans-tc-portfolio.woff2", {ord(char) for char in copy if ord(char) >= 0x2E80})
+write_subset(
+    ROOT / "node_modules/geist/dist/fonts/geist-sans/Geist-Variable.ttf",
+    "geist-latin.woff2",
+    set(range(0x20, 0x180)) | set(range(0x2000, 0x2070)),
+)
+write_subset(
+    SOURCE / "NotoSansTC.ttf",
+    "noto-sans-tc-portfolio.woff2",
+    {ord(char) for char in copy if ord(char) >= 0x2E80},
+)

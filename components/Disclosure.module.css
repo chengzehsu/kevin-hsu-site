@@ -1,0 +1,30 @@
+.disclosure { interpolate-size: allow-keywords; }
+.summary { list-style: none; cursor: pointer; border-radius: 0.25rem; }
+.summary::-webkit-details-marker { display: none; }
+.summary::marker { content: ""; }
+.summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.affordance { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 2.75rem; color: var(--accent); font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+.chevron { flex: none; transition: transform 220ms ease; }
+.openLabel { display: none; }
+.disclosure[open] > .summary .closedLabel { display: none; }
+.disclosure[open] > .summary .openLabel { display: inline; }
+.disclosure[open] > .summary .chevron { transform: rotate(180deg); }
+.body { padding-bottom: 1.5rem; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; margin-top: 1.25rem; }
+.close { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 2.75rem; padding: 0.5rem 0; color: var(--muted); font-size: 0.85rem; cursor: pointer; }
+.close[hidden] { display: none; }
+.close:hover { color: var(--accent); }
+.close:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+/* Browsers without intrinsic-size transitions retain native instant disclosure. */
+@supports (interpolate-size: allow-keywords) and selector(::details-content) {
+  .disclosure::details-content { block-size: 0; overflow: clip; transition: block-size 240ms ease, content-visibility 240ms; transition-behavior: allow-discrete; }
+  .disclosure[open]::details-content { block-size: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .disclosure::details-content, .chevron { transition: none; }
+}
+@media print {
+  .disclosure::details-content { content-visibility: visible; block-size: auto; overflow: visible; }
+  .affordance, .actions { display: none; }
+}

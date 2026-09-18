@@ -12,8 +12,9 @@ export const zh = {
   nav: {
     brand: "Kevin Hsu",
     links: [
-      { label: "案例", href: "#cases" },
       { label: "經歷", href: "#experience" },
+      { label: "能力", href: "#skills" },
+      { label: "案例", href: "#cases" },
       { label: "聯絡", href: "#contact" },
     ],
     switchLabel: "EN",
@@ -26,7 +27,7 @@ export const zh = {
     subline: "在愛淨，我用 AI 建立產品開發流程，打造團隊實際使用的內部工具，交付效率提升 50%。",
     profile: [
       { label: "定位", value: "AI 產品經理 · 系統型 PM" },
-      { label: "擅長的場域", value: "0→1、B2B、資料與營運流程" },
+      { label: "產品場域", value: "0 到 1 與產品重構，橫跨 B2B SaaS、B2C App 與資料產品" },
       { label: "正在找", value: "能把 AI 推進真實工作的產品團隊" },
     ],
     builderLoop: {
@@ -44,12 +45,14 @@ export const zh = {
       {
         prefix: "+",
         value: 50,
+        featured: true,
         suffix: "%",
         label: "愛淨的產品交付效率",
         detail: "把 AI 工具放進開發流程後",
       },
       {
         value: 1000,
+        featured: true,
         suffix: " 單／日",
         label: "生鮮電商的每日履約產能",
         detail: "系統重整後，300 → 1,000 單／日",
@@ -64,6 +67,7 @@ export const zh = {
       {
         prefix: "+",
         value: 66,
+        featured: true,
         suffix: "%",
         label: "健康 App 的每日活躍使用者",
         detail: "新版上線後，12,000 → 20,000／日",
@@ -151,6 +155,15 @@ export const zh = {
 
   cases: {
     title: "案例",
+    intro: "從成果開始，有興趣再展開看我怎麼做。",
+    expandLabel: "看我怎麼做",
+    collapseLabel: "收合案例",
+    copyLabel: "複製案例連結",
+    copiedLabel: "已複製連結",
+    copyFallback: "請選取並複製下方連結。",
+    linkLabel: "開啟案例連結",
+    backLabel: "返回經歷與案例",
+    filmLabel: "觀看流程示意",
     ownershipLabel: "我實際主導",
     columns: {
       situation: "當時的狀況",
@@ -231,13 +244,17 @@ export const zh = {
   },
 
   experience: {
-    title: "經歷",
+    title: "經歷速覽",
+    expandLabel: "工作內容",
+    collapseLabel: "收合經歷",
     skillLabel: "這段經歷讓我累積",
     items: [
       {
+        id: "ecofirst",
         org: "台灣愛淨股份有限公司 Ecofirst",
         role: "產品經理",
         period: "2025/3 - 現在",
+        focus: "AI 節能產品、內部工具與交付流程",
         skillSignal: "從現場做法抽象出可複製的產品系統：用 Roadmap、AI 工具與交付系統，讓團隊能持續複製。",
         summary:
           "做一個還在長大的 AI 空調節能產品。除了排產品方向，也把原本靠人記住的做法，慢慢整理成工具和流程。",
@@ -248,9 +265,11 @@ export const zh = {
         ],
       },
       {
+        id: "sat",
         org: "知識衛星 SAT. KNOWLEDGE",
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
+        focus: "B2B 企業培訓、學習數據與新市場驗證",
         skillSignal: "在採購者、管理者與使用者的需求衝突中取捨，建立 B2B 產品判斷並驗證商業機會。",
         summary:
           "做企業培訓平台時，我得同時顧人資採購、管理者和員工三種不同的使用方式，也做學習數據跟市場測試。",
@@ -263,9 +282,11 @@ export const zh = {
         ],
       },
       {
+        id: "consulting",
         org: "個人接案",
         role: "獨立顧問",
         period: "2023/5 - 2023/11",
+        focus: "產品策略、包租代管 SaaS 與募資顧問",
         skillSignal: "將商業目標、使用者流程與交付限制收斂成 Roadmap，讓工程、設計與需求方按同一套優先順序協作。",
         summary:
           "轉換工作的這段時間，接了產品策略、SaaS 和募資顧問案。每個案子都得從商業問題一路拆到團隊怎麼合作。",
@@ -276,9 +297,11 @@ export const zh = {
         ],
       },
       {
+        id: "fable",
         org: "Fable 寓意科技",
         role: "Senior Project Manager",
         period: "2021/3 - 2022/7",
+        focus: "電商與健康 App 重構、跨職能團隊交付",
         skillSignal: "在高壓交付裡練出系統產品觀：從使用者流程、技術重構到營運結果，串成同一個決策。",
         summary:
           "管過 NT$1,200 萬以上的案子，也帶過 10 人工程團隊和 2 位初階 PM。做過電商、倉儲、App 和 IoT 整合，拿過 2022 PMI 專案管理標竿獎卓越獎。",
@@ -288,9 +311,11 @@ export const zh = {
         ],
       },
       {
+        id: "oakda",
         org: "歐可達數據科技有限公司",
         role: "Product Manager",
         period: "2020/6 - 2020/12",
+        focus: "跨通路客戶資料平台、聊天機器人與儀表板",
         skillSignal: "從資料定義、身分識別與跨通路行為出發，知道資料如何產品化成可用的服務與決策。",
         summary: "帶產品和數據兩個團隊，把跨通路資料平台要做什麼、怎麼兩週兩週地做，先排清楚。",
         bullets: [
@@ -300,9 +325,11 @@ export const zh = {
         ],
       },
       {
+        id: "zhongshuo",
         org: "眾碩投資諮詢顧問股份有限公司",
         role: "產品助理",
         period: "2019/2 - 2020/6",
+        focus: "市場研究、原型設計與早期產品驗證",
         skillSignal: "從市場探索、原型與競品研究開始，建立先驗證問題、再投入交付的產品直覺。",
         summary:
           "在技術入股型創投裡，陪傳統企業從想法走到市場測試；研究、原型、需求和外包協作都做過。",
@@ -315,14 +342,15 @@ export const zh = {
   },
 
   contact: {
-    title: "聯絡",
-    text: "手上的產品或流程正卡著，想找個人一起拆，也可以找我聊。",
+    title: "聊聊下一個產品機會。",
+    text: "正在尋找能把 AI 推進真實工作的產品團隊。歡迎聊聊職缺、產品方向，或你們正在解決的問題。",
     cta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/" }],
   },
 
   footer: {
     text: "© 2026 許承澤 Kevin Hsu",
+    backToTop: "返回頂端",
   },
 
   animation: {
