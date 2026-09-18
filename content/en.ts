@@ -4,9 +4,9 @@ export const en = {
   locale: "en",
 
   meta: {
-    title: "Kevin Hsu | AI Product Manager",
+    title: "Kevin Hsu | Product Manager | B2C Re-platforming & Delivery",
     description:
-      "AI product manager building internal tools and delivery workflows. At Ecofirst, improved delivery efficiency by 50%, with experience in e-commerce, health apps, and customer data.",
+      "Product Manager with 5+ years of product-related experience. Led B2C e-commerce re-platforming, contributed to health-app re-platforming, and owned cross-functional delivery and data-product planning; led a 10-person engineering team and two junior PMs.",
   },
 
   nav: {
@@ -22,13 +22,13 @@ export const en = {
   },
 
   hero: {
-    eyebrow: "Kevin Hsu | AI Product Manager",
-    headline: "Product thinking. Working software.",
-    subline: "At Ecofirst, I build AI-assisted development workflows and internal tools the team uses, improving delivery efficiency by 50%.",
+    eyebrow: "Kevin Hsu | Product Manager",
+    headline: "Break down problems. Build the product.",
+    subline: "I use user interviews, competitive research, and process mapping to clarify priorities, then work with product, engineering, and operations teams to deliver.",
     profile: [
-      { label: "Positioning", value: "AI product manager · systems-minded PM" },
-      { label: "Product environments", value: "0-to-1 and re-platforming across B2B SaaS, B2C apps, and data products" },
-      { label: "Looking for", value: "A team ready to put AI into real work" },
+      { label: "Positioning", value: "Product Manager · B2C re-platforming and cross-functional delivery" },
+      { label: "Product environments", value: "B2C e-commerce, health apps, B2B enterprise learning, and cross-channel customer-data platforms" },
+      { label: "Looking for", value: "Global B2C platforms and growth-stage product teams" },
     ],
     builderLoop: {
       label: "From fieldwork to product",
@@ -61,8 +61,8 @@ export const en = {
         prefix: "+",
         value: 120,
         suffix: "%",
-        label: "Fresh-produce platform revenue",
-        detail: "Grew after re-platforming; client annual revenue: NT$200M",
+        label: "Fresh-produce platform revenue growth",
+        detail: "During re-platforming; client annual revenue: about NT$200M",
       },
       {
         prefix: "+",
@@ -70,7 +70,7 @@ export const en = {
         featured: true,
         suffix: "%",
         label: "Health app daily active users",
-        detail: "After new-platform launch: 12,000 to 20,000/day",
+        detail: "Within one year of launch: 12,000 to 20,000/day",
       },
       {
         value: 10,
@@ -204,7 +204,7 @@ export const en = {
         id: "grocery",
         org: "Fable (寓意科技)",
         period: "2021/3 - 2022/7",
-        rank: 2,
+        rank: 3,
         title: "Fresh-produce commerce, rebuilt",
         impact: "300 to 1,000 orders a day, up 233%",
         ownership: "Mapped the order-to-delivery flow; aligned storefront, back office, app, and AWS re-platforming work.",
@@ -215,13 +215,13 @@ export const en = {
         hypothesis:
           "Led storefront, back-office, app, and AWS re-platforming, aligning product, engineering, and operations around one order-to-warehouse delivery flow.",
         result:
-          "After re-platforming, picking capacity rose from 300 to 1,000 orders per day, up 233%. Platform revenue grew 120%, and the project was featured as an AWS digital transformation case study.",
+          "After re-platforming, picking capacity rose from 300 to 1,000 orders per day, up 233%. Platform revenue grew 120% during the re-platforming period, and the project was featured as an AWS digital transformation case study.",
       },
       {
         id: "health-app",
         org: "Fable (寓意科技)",
         period: "2021/3 - 2022/7",
-        rank: 3,
+        rank: 2,
         title: "Health app and IoT integration",
         impact: "Daily active users: 12,000 to 20,000, up 66%",
         ownership: "User interviews, competitor research, client workshops, prioritisation, use-case design, and QA acceptance.",
@@ -282,8 +282,8 @@ export const en = {
         org: "Ecofirst Taiwan (台灣愛淨股份有限公司)",
         role: "Product Manager",
         period: "2025/3 - Present",
-        focus: "AI energy products, internal tools, and delivery workflows",
-        skillSignal: "Productising field practice: using roadmaps, AI tools, and delivery systems to make good work repeatable.",
+        focus: "AI energy products, internal tools, and cross-functional delivery",
+        skillSignal: "Turning field practice into roadmaps, AI tools, and delivery workflows that give cross-functional teams a shared way to move work forward.",
         summary:
           "Own the roadmap and feature strategy for a 0-to-1 AI energy-saving air-conditioning product. Build internal tools with AI and move a fast-changing, project-led environment toward repeatable product operations.",
         bullets: [
@@ -298,15 +298,14 @@ export const en = {
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
         focus: "B2B learning, learning analytics, and market validation",
-        skillSignal: "Building B2B product judgement across buyers, administrators, and end users while validating commercial opportunity.",
+        skillSignal: "Clarifying priorities across the differing needs of buyers, administrators, and end users, then testing market opportunities.",
         summary:
           "Planned a B2B enterprise-training platform for HR buyers, administrators, and employees, alongside learning-analytics work and market validation.",
         bullets: [
-          "Enterprise training: interviewed HR teams at companies of different sizes to understand post-purchase course assignment, new-hire onboarding, and learning-management workflows",
-          "Learning analytics: planned a dashboard to help HR teams understand employee progress and capability growth",
-          "Hong Kong market: partnered with marketing and used a third-party platform for a lightweight market test in three weeks",
-          "Learning outcomes and revenue: planned in-class assessments and explored affiliate marketing and group buying features as new revenue paths",
-          "Operations: mapped internal leave, time-off-in-lieu, and payment-request processes, then planned tools and workflows to improve efficiency",
+          "Enterprise training: interviewed HR teams at companies of different sizes and defined post-purchase course assignment, new-hire onboarding, and learning-management workflows",
+          "Learning analytics: planned dashboards and in-class assessments to help HR teams understand employee progress and capability growth",
+          "Hong Kong market: partnered with marketing and used a third-party platform to test an entry approach in three weeks",
+          "Growth and operations: explored affiliate and group-buying features, and planned tools for internal leave, time-off-in-lieu, and payment-request flows",
         ],
       },
       {
@@ -319,7 +318,7 @@ export const en = {
         summary:
           "During a career transition, took on product strategy, SaaS, and fundraising-advisory work, building practical experience from business strategy and product management through cross-functional collaboration.",
         bullets: [
-          "Rental-management SaaS: helped an operator managing about 100 properties plan multi-tenant management software, clarify requirements, and establish a product-management flow",
+          "Rental-management SaaS: helped an operator managing about 100 properties define a multi-tenant management product, its requirements, and its product-management flow",
           "Collaboration flow: translated business strategy into product strategy and roadmaps, improving collaboration among engineers, designers, and requesters",
           "Fundraising advisory: helped energy and aluminum-plastics businesses map operations, refine pitch decks, and connect with investors",
         ],
@@ -332,10 +331,10 @@ export const en = {
         focus: "E-commerce and health app rebuilds, cross-functional delivery",
         skillSignal: "Developing systems product sense under delivery pressure: connecting user flow, technical re-platforming, and operating outcomes.",
         summary:
-          "Managed an NT$12M+ project portfolio with Agile, led a 10-person engineering team and two junior PMs, and delivered storefront, back-office, and app re-platforming across e-commerce, warehouse operations, and IoT. Received the 2022 PMI Taiwan Project Management Benchmark Award, Excellence.",
+          "Managed an NT$12M+ B2C project portfolio with Agile, led a 10-person engineering team and two junior PMs, and was responsible for storefront, back-office, and app re-platforming across e-commerce, warehouse operations, and IoT. Received the 2022 PMI Taiwan Project Management Benchmark Award, Excellence.",
         bullets: [
-          "Fresh-produce e-commerce (NT$200M annual revenue): during rapid order growth, led full-stack and AWS re-platforming; picking capacity rose from 300 to 1,000 orders a day, up 233%; platform revenue grew 120%",
-          "Health-management app (about NT$800M annual revenue): rebuilt the platform, migrated user data, and integrated IoT smart scales; daily active users grew from 12,000 to 20,000 within a year",
+          "Fresh-produce e-commerce (about NT$200M annual revenue): during rapid order growth, led full-stack and AWS re-platforming; picking capacity rose from 300 to 1,000 orders a day, up 233%; platform revenue grew 120% during the re-platforming period",
+          "Health-management app (about NT$800M annual revenue): used interviews, competitor research, and client workshops to set priorities; rebuilt the platform, migrated user data, and integrated IoT smart scales; daily active users grew from 12,000 to 20,000 within a year (+66%)",
         ],
       },
       {
