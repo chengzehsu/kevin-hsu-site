@@ -87,6 +87,34 @@ export const zh = {
     ],
   },
 
+  linkedinPosts: {
+    title: "LinkedIn 精選貼文",
+    intro: "從產品經理親手做工具，到把 AI 放進日常工作流程的實作紀錄。",
+    author: "許承澤 Kevin Hsu",
+    platform: "LinkedIn",
+    readLabel: "前往貼文",
+    items: [
+      {
+        title: "2 個月內完成 218 次提交",
+        description: "從串接 API 開始，將案場數據查詢流程做成工具，並用 Claude Code 持續迭代。",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7469732610550976512/",
+        image: { src: "/linkedin-posts/post-1.jpg", alt: "218 次提交的案場工具介面", width: 800, height: 819 },
+      },
+      {
+        title: "用 Cursor 與 Gemini 做 AI 名片管理助手",
+        description: "從 OCR 辨識失敗、重建版控，到部署上線的一次 0 到 1 實作。",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7412468258705944576/",
+        image: { src: "/linkedin-posts/post-2.jpg", alt: "AI 名片管理助手的流程示意圖", width: 800, height: 446 },
+      },
+      {
+        title: "用 AI 讓會議真的推進",
+        description: "透過 Notion AI 與 Claude Cowork 排程，自動整理待辦事項與提案初稿。",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
+        image: { src: "/linkedin-posts/post-3.jpg", alt: "PM 每日會議追蹤流程優化圖", width: 856, height: 838 },
+      },
+    ],
+  },
+
   awards: {
     title: "獎項與案例收錄",
     items: [

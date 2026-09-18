@@ -5,6 +5,7 @@ import { Hero } from "./Hero";
 import { Metrics } from "./Metrics";
 import { CaseStudies } from "./CaseStudies";
 import { Awards } from "./Awards";
+import { LinkedInPosts } from "./LinkedInPosts";
 import { Timeline } from "./Timeline";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
@@ -24,6 +25,7 @@ export function Site({ locale }: { locale: Locale }) {
         <Timeline {...props} />
         <SkillsRadar content={skillsContent[locale]} />
         <CaseStudies {...props} />
+        <LinkedInPosts {...props} />
         <Awards {...props} />
         <Contact {...props} />
       </main>

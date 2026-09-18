@@ -84,6 +84,27 @@ export interface AwardsContent {
   items: RecognitionItem[];
 }
 
+export interface LinkedInPost {
+  title: string;
+  description: string;
+  href: string;
+  image: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+}
+
+export interface LinkedInPostsContent {
+  title: string;
+  intro: string;
+  author: string;
+  platform: string;
+  readLabel: string;
+  items: [LinkedInPost, LinkedInPost, LinkedInPost];
+}
+
 export interface MethodStep {
   /** Short verb label, e.g. 拆解 / Decompose. Never "Step 1". */
   verb: string;
@@ -208,6 +229,7 @@ export interface SiteContent {
   nav: NavContent;
   hero: HeroContent;
   metrics: MetricsContent;
+  linkedinPosts: LinkedInPostsContent;
   awards: AwardsContent;
   method: MethodContent;
   cases: CasesContent;

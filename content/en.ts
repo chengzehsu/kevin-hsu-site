@@ -87,6 +87,34 @@ export const en = {
     ],
   },
 
+  linkedinPosts: {
+    title: "Selected LinkedIn posts",
+    intro: "Practical notes on a PM building tools and bringing AI into everyday workflows.",
+    author: "Kevin Hsu",
+    platform: "LinkedIn",
+    readLabel: "Read the post",
+    items: [
+      {
+        title: "218 commits in two months",
+        description: "Started by connecting APIs, then iterated on a tool that made site-data work easier with Claude Code.",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7469732610550976512/",
+        image: { src: "/linkedin-posts/post-1.jpg", alt: "Site-tool interface with 218 commits", width: 800, height: 819 },
+      },
+      {
+        title: "An AI business-card assistant with Cursor and Gemini",
+        description: "A 0-to-1 build through OCR failures, rebuilding version control, and getting the app deployed.",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7412468258705944576/",
+        image: { src: "/linkedin-posts/post-2.jpg", alt: "AI business-card assistant workflow illustration", width: 800, height: 446 },
+      },
+      {
+        title: "Using AI to move meetings forward",
+        description: "Notion AI and Claude Cowork Schedule automatically organise action items and proposal drafts.",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
+        image: { src: "/linkedin-posts/post-3.jpg", alt: "Daily PM meeting follow-up flow diagram", width: 856, height: 838 },
+      },
+    ],
+  },
+
   awards: {
     title: "Awards & case features",
     items: [
