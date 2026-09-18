@@ -53,7 +53,7 @@ export function SkillsRadar({ content }: { content: SkillsContent }) {
           </ol>
         </div>
 
-        <details className={`${styles.sectionBlock} ${styles.library}`}>
+        <details className={styles.library}>
           <summary className={styles.librarySummary}>
             <h3>{content.libraryTitle}</h3>
             <span>

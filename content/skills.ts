@@ -36,25 +36,25 @@ export interface SkillsContent {
 export const skillsContent: Record<Locale, SkillsContent> = {
   zh: {
     title: "技能",
-    intro: "不是自評分數。每項技能都連回實際做過的產品、流程或團隊工作。",
-    totalLabel: "20 項技能，整理自 6 段經歷與 4 個案例",
+    intro: "以下整理我在專案中實際負責過的能力，以及對應的工作經驗。",
+    totalLabel: "共 20 項能力，來自 6 段經歷與 4 個案例",
     featuredTitle: "核心技能",
     libraryTitle: "完整技能庫",
     expandLibraryLabel: "展開完整技能庫",
     collapseLibraryLabel: "收合完整技能庫",
-    evidenceLabel: "累積自",
+    evidenceLabel: "相關經歷",
     featured: [
       {
         id: "ai-delivery",
         name: "AI 產品交付與內部工具",
-        summary: "將 AI 導入需求、規格、製作與驗收流程，並把重複需求做成團隊實際使用的工具。",
+        summary: "使用 AI 協助需求、規格、製作與驗收，並把重複工作做成團隊使用的工具。",
         proof: "產品交付效率提升 50%",
         references: [{ label: "台灣愛淨", href: "#experience-ecofirst" }],
       },
       {
         id: "product-strategy",
         name: "產品策略、Roadmap 與優先排序",
-        summary: "從商業目標、使用者需求與交付限制收斂產品方向，排出先做什麼。",
+        summary: "依商業目標、使用者需求與交付限制，決定產品方向與先後順序。",
         proof: "從 0 到 1 規劃 AI 節能產品與包租代管 SaaS",
         references: [
           { label: "台灣愛淨", href: "#ecofirst" },
@@ -64,7 +64,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
       {
         id: "operations",
         name: "流程拆解與營運瓶頸改善",
-        summary: "先找出真正限制產能的環節，再用流程、規則或工具介入，最後回到營運結果驗證。",
+        summary: "找出限制產能的環節，再用流程、規則或工具改善，並確認營運結果。",
         proof: "揀貨 300 到 1,000 單／日，案場效率提升 20%",
         references: [
           { label: "Fable 寓意科技", href: "#grocery" },
@@ -74,7 +74,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
       {
         id: "discovery",
         name: "使用者研究與 B2B 需求探索",
-        summary: "透過訪談、競品研究與工作坊，釐清採購者、管理者與使用者之間不同的需求。",
+        summary: "透過訪談、競品研究與工作坊，了解採購者、管理者與使用者各自的需求。",
         proof: "企業培訓平台與健康 App 的研究、優先排序與驗收",
         references: [
           { label: "知識衛星", href: "#experience-sat" },
@@ -141,25 +141,25 @@ export const skillsContent: Record<Locale, SkillsContent> = {
   },
   en: {
     title: "Skills",
-    intro: "No self-rated scores. Every skill links back to product, workflow, or team work I have actually done.",
-    totalLabel: "20 skills drawn from 6 roles and 4 cases",
+    intro: "A record of the work I have owned in projects, with the related experience for each area.",
+    totalLabel: "20 capabilities across 6 roles and 4 cases",
     featuredTitle: "Core skills",
     libraryTitle: "Full skill set",
     expandLibraryLabel: "View full skill set",
     collapseLibraryLabel: "Hide full skill set",
-    evidenceLabel: "Built at",
+    evidenceLabel: "Related experience",
     featured: [
       {
         id: "ai-delivery",
         name: "AI product delivery and internal tools",
-        summary: "Bring AI into requirements, specifications, implementation, and acceptance, then turn repeated needs into tools teams use.",
+        summary: "Use AI across requirements, specifications, implementation, and acceptance, then turn repeated work into tools teams use.",
         proof: "Improved product delivery efficiency by 50%",
         references: [{ label: "Ecofirst", href: "#experience-ecofirst" }],
       },
       {
         id: "product-strategy",
         name: "Product strategy, roadmaps, and prioritisation",
-        summary: "Turn business goals, user needs, and delivery constraints into product direction and a clear order of work.",
+        summary: "Use business goals, user needs, and delivery constraints to set product direction and priorities.",
         proof: "Planned 0-to-1 AI energy and rental-management products",
         references: [
           { label: "Ecofirst", href: "#ecofirst" },
@@ -169,7 +169,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
       {
         id: "operations",
         name: "Workflow mapping and constraint improvement",
-        summary: "Find the step limiting throughput, intervene with process, rules, or tools, and validate the operational result.",
+        summary: "Find the step limiting throughput, improve it with process, rules, or tools, and check the operating result.",
         proof: "Increased picking from 300 to 1,000 orders/day and site efficiency by 20%",
         references: [
           { label: "Fable", href: "#grocery" },
@@ -179,7 +179,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
       {
         id: "discovery",
         name: "User research and B2B discovery",
-        summary: "Use interviews, competitor research, and workshops to clarify the needs of buyers, administrators, and end users.",
+        summary: "Use interviews, competitor research, and workshops to understand the needs of buyers, administrators, and end users.",
         proof: "Research, prioritisation, and acceptance for enterprise learning and health products",
         references: [
           { label: "SAT. KNOWLEDGE", href: "#experience-sat" },

@@ -3,6 +3,15 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const article = "https://www.thenewslens.com/feature/aws/250301";
+const skillsComponent = await readFile(new URL("../components/SkillsRadar.tsx", import.meta.url), "utf8");
+const skillsStyles = await readFile(new URL("../components/SkillsRadar.module.css", import.meta.url), "utf8");
+
+test("skills library keeps native details out of the section grid", () => {
+  assert.match(skillsComponent, /<details className=\{styles\.library\}>/);
+  assert.doesNotMatch(skillsComponent, /<details className=\{`\$\{styles\.sectionBlock\}/);
+  assert.match(skillsStyles, /\.library\s*\{\s*display: block;/);
+  assert.match(skillsStyles, /\.groups\s*\{[\s\S]*?margin-left: calc\(10rem \+ 2\.5rem\);/);
+});
 
 for (const [locale, file, heading] of [
   ["zh", "../out/index.html", "獎項與案例收錄"],
@@ -84,7 +93,7 @@ for (const [locale, file, heading] of [
     assert.equal((skills.match(/data-featured-skill=/g) ?? []).length, 5);
     assert.equal((skills.match(/data-skill=/g) ?? []).length, 20);
     assert.ok(skills.includes(locale === "zh" ? "完整技能庫" : "Full skill set"));
-    assert.ok(skills.includes(locale === "zh" ? "不是自評分數" : "No self-rated scores"));
+    assert.ok(skills.includes(locale === "zh" ? "以下整理我在專案中實際負責過的能力" : "A record of the work I have owned in projects"));
     assert.ok(!skills.includes("<polygon"), "Skills should not use a subjective radar chart");
     assert.ok(html.indexOf('<section id="skills"') < html.indexOf('<section id="experience"'));
     assert.ok(html.indexOf('<section id="skills"') < html.indexOf('<section id="cases"'));
