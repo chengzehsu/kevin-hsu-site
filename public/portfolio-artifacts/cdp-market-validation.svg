@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="674" viewBox="0 0 1200 674" role="img" aria-labelledby="title desc">
+  <title id="title">CDP 市場切入驗證</title>
+  <desc id="desc">從三十個目標名單、跨部門訪談到最小可行方案，最後整合五個通路的一千萬筆客戶資料。</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="674" fill="#F5F7FB"/>
+  <rect width="1200" height="674" fill="url(#grid)" opacity=".48"/>
+
+  <text x="64" y="61" fill="#2D61A6" font-family="Arial, Noto Sans TC, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4">PRODUCT DISCOVERY / CDP</text>
+  <text x="64" y="120" fill="#172234" font-family="Arial, Noto Sans TC, sans-serif" font-size="48" font-weight="700">從市場假設，到可驗證的切入點</text>
+  <text x="64" y="157" fill="#5A6980" font-family="Arial, Noto Sans TC, sans-serif" font-size="21">先縮小問題，再決定要做什麼；不是先擴大客製範圍。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="64" y="202" width="322" height="394" rx="26" fill="#152236"/>
+  </g>
+  <text x="96" y="245" fill="#8FB8EF" font-family="Arial, Noto Sans TC, sans-serif" font-size="14" font-weight="700" letter-spacing="2">VALIDATION INPUT</text>
+  <text x="92" y="354" fill="#F7FAFF" font-family="Arial, Noto Sans TC, sans-serif" font-size="112" font-weight="700">30</text>
+  <text x="96" y="394" fill="#F7FAFF" font-family="Arial, Noto Sans TC, sans-serif" font-size="27" font-weight="700">個目標名單</text>
+  <line x1="96" y1="426" x2="354" y2="426" stroke="#43536B"/>
+  <text x="96" y="465" fill="#B8C5D7" font-family="Arial, Noto Sans TC, sans-serif" font-size="18">UX × Sales × Marketing</text>
+  <text x="96" y="502" fill="#F7FAFF" font-family="Arial, Noto Sans TC, sans-serif" font-size="23" font-weight="700">共同設計 MVP 訪談</text>
+  <text x="96" y="538" fill="#B8C5D7" font-family="Arial, Noto Sans TC, sans-serif" font-size="18">用客戶證據取代內部猜測</text>
+
+  <g transform="translate(438 206)">
+    <text x="0" y="26" fill="#2D61A6" font-family="Arial, Noto Sans TC, sans-serif" font-size="15" font-weight="700" letter-spacing="2">DECISION PATH</text>
+    <line x1="23" y1="78" x2="23" y2="275" stroke="#A7B9D0" stroke-width="2"/>
+
+    <circle cx="23" cy="86" r="23" fill="#2D61A6"/>
+    <text x="23" y="94" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700">01</text>
+    <text x="67" y="83" fill="#172234" font-family="Arial, Noto Sans TC, sans-serif" font-size="26" font-weight="700">界定問題</text>
+    <text x="67" y="113" fill="#5A6980" font-family="Arial, Noto Sans TC, sans-serif" font-size="18">市場切入點不清楚，關係客製難以規模化</text>
+
+    <circle cx="23" cy="184" r="23" fill="#DCE8F7" stroke="#2D61A6" stroke-width="2"/>
+    <text x="23" y="192" text-anchor="middle" fill="#2D61A6" font-family="Arial, sans-serif" font-size="18" font-weight="700">02</text>
+    <text x="67" y="181" fill="#172234" font-family="Arial, Noto Sans TC, sans-serif" font-size="26" font-weight="700">訪談驗證</text>
+    <text x="67" y="211" fill="#5A6980" font-family="Arial, Noto Sans TC, sans-serif" font-size="18">確認客戶真正願意採用的共同需求</text>
+
+    <circle cx="23" cy="282" r="23" fill="#DCE8F7" stroke="#2D61A6" stroke-width="2"/>
+    <text x="23" y="290" text-anchor="middle" fill="#2D61A6" font-family="Arial, sans-serif" font-size="18" font-weight="700">03</text>
+    <text x="67" y="279" fill="#172234" font-family="Arial, Noto Sans TC, sans-serif" font-size="26" font-weight="700">收斂 MVP</text>
+    <text x="67" y="309" fill="#5A6980" font-family="Arial, Noto Sans TC, sans-serif" font-size="18">優化既有能力，形成最小可行方案</text>
+  </g>
+
+  <g transform="translate(438 532)">
+    <rect width="698" height="64" rx="15" fill="#E8EEF7"/>
+    <text x="24" y="27" fill="#52627A" font-family="Arial, Noto Sans TC, sans-serif" font-size="13" font-weight="700">DATA SOURCES</text>
+    <text x="24" y="49" fill="#172234" font-family="Arial, Noto Sans TC, sans-serif" font-size="15" font-weight="700">LINE · Facebook · 官網 · 電商 · POS</text>
+    <path d="M325 32h44m-10-9 10 9-10 9" fill="none" stroke="#2D61A6" stroke-width="2"/>
+    <text x="390" y="27" fill="#52627A" font-family="Arial, Noto Sans TC, sans-serif" font-size="13" font-weight="700">OUTCOME</text>
+    <text x="390" y="49" fill="#2D61A6" font-family="Arial, Noto Sans TC, sans-serif" font-size="18" font-weight="700">Customer 360 · 1,000 萬筆整合</text>
+  </g>
+
+  <text x="1136" y="635" text-anchor="end" fill="#7C899B" font-family="Arial, Noto Sans TC, sans-serif" font-size="13">Kevin Hsu / Product Manager</text>
+</svg>

@@ -1,43 +1,52 @@
 import type { SectionProps } from "@/content/types";
 import { casePath } from "@/lib/locale";
-import { Disclosure } from "./Disclosure";
-import { CaseDetails } from "./CaseDetails";
-import { CaseShare } from "./CaseShare";
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import { CaseArtifact } from "./CaseArtifact";
 import styles from "./CaseStudies.module.css";
 
 export function CaseStudies({ content, locale }: SectionProps) {
   const cases = content.cases;
   const items = [...cases.items].sort((a, b) => a.rank - b.rank);
+  const indexLabels = locale === "zh"
+    ? { case: "案例 / 成果", evidence: "工作證據" }
+    : { case: "CASE / OUTCOME", evidence: "WORK EVIDENCE" };
 
   return (
-    <section id="cases" className="content-section" aria-labelledby="cases-heading">
+    <section id="cases" className={`${styles.section} content-section`} aria-labelledby="cases-heading">
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <div className={styles.sectionHeading}>
-          <h2 id="cases-heading" className="section-title">{cases.title}</h2>
+          <div><span>01—04</span><h2 id="cases-heading" className="section-title">{cases.title}</h2></div>
           <p>{cases.intro}</p>
         </div>
+        <div className={styles.ledgerHeader} aria-hidden="true">
+          <span>{indexLabels.case}</span>
+          <span>{cases.columns.decision}</span>
+          <span>{indexLabels.evidence}</span>
+        </div>
         <div className={styles.list}>
-          {items.map((item) => (
-            <article id={item.id} key={item.id} className={styles.item}>
-              <Disclosure
-                kind="case"
-                expandLabel={cases.expandLabel}
-                collapseLabel={cases.collapseLabel}
-                summaryClassName={styles.summary}
-                summary={
-                  <>
-                    <span className={styles.identity}>
-                      <strong className={styles.title}>{item.title}</strong>
-                      <span className={styles.meta}>{item.org}<span aria-hidden="true"> · </span>{item.period}</span>
-                      <span className={styles.ownership}><span>{cases.ownershipLabel}</span>{item.ownership}</span>
-                    </span>
-                    <span className={styles.impact}>{item.impact}</span>
-                  </>
-                }
-                actions={<CaseShare href={casePath(locale, item.id)} labels={cases} />}
-              >
-                <CaseDetails item={item} content={content} locale={locale} />
-              </Disclosure>
+          {items.map((item, index) => (
+            <article id={item.id} key={item.id} className={styles.item} data-case-card="ledger">
+              <div className={styles.identity}>
+                <span className={styles.itemIndex} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <p className={styles.meta}>{item.role}<span aria-hidden="true"> · </span>{item.org}<span aria-hidden="true"> · </span>{item.period}</p>
+                <h3 className={styles.title}>{item.title}</h3>
+                <p className={styles.scope}>{item.scope}</p>
+                <div className={styles.outcome}>
+                  <span className={styles.decisionEyebrow}>{cases.columns.result}</span>
+                  <strong className={styles.outcomeImpact}>{item.impact}</strong>
+                  <p className={styles.proofNote}><span>{cases.measurementLabel}</span>{item.measurementSummary}</p>
+                </div>
+              </div>
+              <div className={styles.caseDecision}>
+                <span className={styles.decisionEyebrow}>{cases.columns.decision}</span>
+                <p>{item.decisionSummary}</p>
+              </div>
+              <div className={styles.caseVisual}>
+                <div className={styles.itemEvidence}><CaseArtifact caseId={item.id} locale={locale} compact /></div>
+                <a className={styles.caseLink} href={casePath(locale, item.id)} aria-label={`${cases.readLabel}: ${item.title}`}>
+                  {cases.readLabel}<ArrowUpRightIcon size={18} aria-hidden="true" />
+                </a>
+              </div>
             </article>
           ))}
         </div>

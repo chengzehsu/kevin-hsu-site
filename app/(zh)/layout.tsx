@@ -19,7 +19,7 @@ const NOSCRIPT_CSS = "[data-reveal],[data-hero-intro]{opacity:1!important;transf
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh-Hant-TW">
+    <html lang="zh-Hant-TW" suppressHydrationWarning>
       <head>
         <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/noto-sans-tc-portfolio.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />

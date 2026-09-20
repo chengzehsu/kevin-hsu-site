@@ -3,7 +3,6 @@ import { getContent } from "@/content";
 import { Nav } from "./Nav";
 import { Hero } from "./Hero";
 import { Metrics } from "./Metrics";
-import { CaseStudies } from "./CaseStudies";
 import { Awards } from "./Awards";
 import { LinkedInPosts } from "./LinkedInPosts";
 import { Timeline } from "./Timeline";
@@ -19,12 +18,11 @@ export function Site({ locale }: { locale: Locale }) {
   return (
     <>
       <Nav {...props} />
-      <main>
+      <main id="main-content">
         <Hero {...props} />
         <Metrics {...props} />
         <SkillsRadar content={skillsContent[locale]} />
         <Timeline {...props} />
-        <CaseStudies {...props} />
         <LinkedInPosts {...props} />
         <Awards {...props} />
         <Contact {...props} />

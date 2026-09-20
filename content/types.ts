@@ -21,6 +21,8 @@ export interface NavContent {
   switchLabel: string;
   /** Accessible name of the switch, e.g. "Switch to English". */
   switchAria: string;
+  /** Keyboard-only link that moves focus past the persistent navigation. */
+  skipLabel: string;
 }
 
 export interface HeroContent {
@@ -132,31 +134,52 @@ export interface CaseStudy {
   /** Display order; lower comes first. */
   rank: number;
   title: string;
+  /** Role held while making the decisions described in this case. */
+  role: string;
+  /** Product and organisational surface covered by the work. */
+  scope: string;
+  /** Functions and partners involved, so readers can see the leadership boundary. */
+  collaboration: string;
   /** The outcome a hiring reader should understand before reading the full case. */
   impact: string;
   /** The work Kevin personally drove, separated from the overall outcome. */
   ownership: string;
   situation: string;
   bottleneck: string;
+  /** The choice that shaped the work, including what was prioritised first. */
+  decision: string;
+  /** One-line version of the decision for the portfolio index. */
+  decisionSummary: string;
   hypothesis: string;
   result: string;
+  /** Concrete work products that support the narrative without exposing private files. */
+  artifacts: string[];
+  /** Baseline, period, or source used to interpret the outcome. */
+  measurement: string;
+  /** Short measurement basis shown in the portfolio index. */
+  measurementSummary: string;
 }
 
 export interface CasesContent {
   title: string;
   intro: string;
-  expandLabel: string;
-  collapseLabel: string;
   copyLabel: string;
   copiedLabel: string;
   copyFallback: string;
   linkLabel: string;
   backLabel: string;
   filmLabel: string;
+  readLabel: string;
+  roleLabel: string;
+  scopeLabel: string;
+  collaborationLabel: string;
+  artifactsLabel: string;
+  measurementLabel: string;
   /** Column headings shared by all cases. */
   columns: {
     situation: string;
     bottleneck: string;
+    decision: string;
     hypothesis: string;
     result: string;
   };

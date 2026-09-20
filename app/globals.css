@@ -76,6 +76,23 @@ main { width: 100%; max-width: 100%; overflow-x: hidden; }
   background: var(--bg);
 }
 
+.skip-link {
+  position: fixed;
+  top: .75rem;
+  left: .75rem;
+  z-index: 50;
+  padding: .65rem .85rem;
+  border-radius: var(--radius-ui);
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: .85rem;
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus { transform: translateY(0); }
+.site-nav a[aria-current="page"] { color: var(--fg); font-weight: 600; background-size: 100% 1px; }
+
 .site-nav nav a {
   display: inline-flex;
   min-height: 2.75rem;

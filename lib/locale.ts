@@ -46,3 +46,8 @@ export function otherLocale(locale: Locale): Locale {
 export function casePath(locale: Locale, id: string): string {
   return `${localePath(locale)}cases/${encodeURIComponent(id)}/`;
 }
+
+/** Dedicated index for the selected case studies. */
+export function portfolioPath(locale: Locale): string {
+  return `${localePath(locale)}portfolio/`;
+}

@@ -14,11 +14,12 @@ export const en = {
     links: [
       { label: "Experience", href: "#experience" },
       { label: "Skills", href: "#skills" },
-      { label: "Cases", href: "#cases" },
+      { label: "Portfolio", href: "/en/portfolio/" },
       { label: "Contact", href: "#contact" },
     ],
     switchLabel: "中文",
     switchAria: "切換到中文",
+    skipLabel: "Skip to main content",
   },
 
   hero: {
@@ -36,7 +37,7 @@ export const en = {
       result: "Ecofirst: delivery +50%, site operations +20%",
     },
     primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
-    secondaryCta: { label: "See the cases", href: "#cases" },
+    secondaryCta: { label: "See portfolio", href: "/en/portfolio/" },
   },
 
   metrics: {
@@ -182,21 +183,26 @@ export const en = {
   },
 
   cases: {
-    title: "Cases",
-    intro: "Start with the outcomes. Expand a case to see how I approached it.",
-    expandLabel: "See my approach",
-    collapseLabel: "Collapse case",
+    title: "Selected case studies",
+    intro: "Four cases, one structure: scope, decision, outcome, evidence.",
     copyLabel: "Copy case link",
     copiedLabel: "Link copied",
     copyFallback: "Select and copy the link below.",
     linkLabel: "Open case link",
-    backLabel: "Back to experience and cases",
+    backLabel: "Back to portfolio",
     filmLabel: "Watch the workflow",
+    readLabel: "Read full case",
+    roleLabel: "Role",
+    scopeLabel: "Scope",
+    collaborationLabel: "Collaboration",
+    artifactsLabel: "Work products",
+    measurementLabel: "How it was measured",
     ownershipLabel: "What I drove",
     columns: {
       situation: "Situation",
       bottleneck: "Bottleneck",
-      hypothesis: "My contribution",
+      decision: "Decision",
+      hypothesis: "Execution",
       result: "Result",
     },
     items: [
@@ -204,35 +210,53 @@ export const en = {
         id: "grocery",
         org: "Fable (寓意科技)",
         period: "2021/3 - 2022/7",
-        rank: 3,
+        rank: 1,
         title: "Fresh-produce commerce, rebuilt",
-        impact: "300 to 1,000 orders a day, up 233%",
-        ownership: "Mapped the order-to-delivery flow; aligned storefront, back office, app, and AWS re-platforming work.",
+        role: "Senior Project Manager",
+        scope: "NT$6.2M | Web/app | Orders, warehouse, AWS",
+        collaboration: "Product, engineering, client operations, warehouse logistics, and AWS teams",
+        impact: "Picking capacity: 300 → 1,000/day (+233%)",
+        ownership: "Mapped order-to-delivery; aligned storefront, back office, app, and AWS re-platforming.",
         situation:
-          "During the pandemic, order growth overwhelmed the existing systems of a fresh-produce e-commerce business with NT$200M in annual revenue. Its storefront, back office, and app all needed rebuilding.",
+          "Pandemic demand overwhelmed the storefront, back office, and app of a fresh-produce business with about NT$200M in annual revenue.",
         bottleneck:
-          "The end-to-end flow from order to delivery had to be mapped before the warehouse picking constraint and re-platforming priorities could be addressed.",
+          "End-to-end mapping identified picking and transport capacity as the primary constraints.",
+        decision:
+          "Fixed picking and transport capacity first, then rebuilt the storefront, back office, app, and AWS around the order-to-delivery flow.",
+        decisionSummary: "Removed warehouse and transport constraints first, then rebuilt the storefront, back office, and AWS stack together.",
         hypothesis:
-          "Led storefront, back-office, app, and AWS re-platforming, aligning product, engineering, and operations around one order-to-warehouse delivery flow.",
+          "Used one priority sequence across product, engineering, warehouse, and operations to phase peak-season fixes and re-platforming.",
         result:
-          "After re-platforming, picking capacity rose from 300 to 1,000 orders per day, up 233%. Platform revenue grew 120% during the re-platforming period, and the project was featured as an AWS digital transformation case study.",
+          "Picking capacity rose from 300 to 1,000 orders per day (+233%). Revenue grew 120% during the programme, which AWS later featured.",
+        artifacts: ["Project overview", "Order-flow map", "Industry and product analysis", "QA scripts", "Project knowledge base"],
+        measurement: "Compared daily picking capacity before and after the rebuild. The AWS digital-transformation feature provides public evidence; revenue growth was a team outcome during the programme.",
+        measurementSummary: "Daily picking capacity: before vs after",
       },
       {
         id: "health-app",
         org: "Fable (寓意科技)",
         period: "2021/3 - 2022/7",
-        rank: 2,
+        rank: 3,
         title: "Health app and IoT integration",
-        impact: "Daily active users: 12,000 to 20,000, up 66%",
-        ownership: "User interviews, competitor research, client workshops, prioritisation, use-case design, and QA acceptance.",
+        role: "Senior Project Manager",
+        scope: "Health app | IoT scales | Data migration | Localisation",
+        collaboration: "Client product, engineering, data migration, IoT, and localisation partners",
+        impact: "DAU: 12,000 → 20,000 in one year (+66%)",
+        ownership: "Led interviews, competitor analysis, workshops, prioritisation, and QA acceptance.",
         situation:
-          "A health-management app with about NT$800M in annual revenue and 12,000 daily active users needed re-platforming, IoT smart-scale health insights, event registration, and legacy-user-data migration.",
+          "A health app with about NT$800M in annual revenue needed re-platforming, IoT scales, event registration, localisation, and legacy-data migration.",
         bottleneck:
-          "Legacy and new data fields, IoT device data, and new feature flows had to be consistently defined or user data could not be safely migrated and used.",
+          "Legacy fields, IoT data, and new feature flows were inconsistent, blocking safe migration and use.",
+        decision:
+          "Turned interview scenarios into wireframes, user stories, and PRDs; aligned parameter and translation tables before development.",
+        decisionSummary: "Specified real user situations first, then reduced migration and localisation risk.",
         hypothesis:
-          "Mapped user journeys, pain points, and personas through interviews; added competitor analysis; aligned priorities with the client in workshops; and led use-case design and QA acceptance.",
+          "Used interviews, competitor research, and client workshops to prioritise work, then designed QA around real use cases.",
         result:
-          "Launched the new AWS-based platform and migrated user data. Daily active users grew from about 12,000 to about 20,000, up 66% within a year.",
+          "Launched the new platform and completed migration. DAU grew from about 12,000 to 20,000 within one year (+66%).",
+        artifacts: ["User interviews", "Wireframes", "User stories", "PRDs", "Parameter and translation tables"],
+        measurement: "Compared daily active users at launch and one year later. Growth from 12,000 to 20,000 was an overall product and team outcome.",
+        measurementSummary: "DAU: launch vs one year later",
       },
       {
         id: "cdp",
@@ -240,33 +264,51 @@ export const en = {
         period: "2020/6 - 2020/12",
         rank: 4,
         title: "Connecting customer data",
-        impact: "Integrated 10M customer records",
-        ownership: "Product planning for CDP, chatbots, tracking, and dashboards, plus biweekly product-data collaboration.",
+        role: "Product Manager",
+        scope: "CDP | Chatbots | Web tracking | Dashboards | POS",
+        collaboration: "UX, Sales, Marketing, product, and data teams",
+        impact: "3 industries × 5 channels | 10M records integrated",
+        ownership: "Planned the CDP, chatbots, tracking, and dashboards; led biweekly product-data delivery.",
         situation:
-          "Clients had customer data spread across LINE, Facebook, websites, e-commerce, and POS systems, so they could not see a user's source, purchase behavior, or frequency in one place.",
+          "LINE, Facebook, website, e-commerce, and POS data were fragmented, hiding each customer's source and purchase behaviour.",
         bottleneck:
-          "Channel formats and identities were inconsistent. 10M customer records had to be structured and connected before they could form usable 360-degree customer views.",
+          "Channel formats and identity rules differed; the data needed structuring and matching before it could form Customer 360 views.",
+        decision:
+          "Validated the entry point through 30 target accounts and cross-functional interviews, then adapted existing capabilities into an MVP.",
+        decisionSummary: "Tested the entry point with 30 target accounts and cross-functional interviews before converging on the MVP.",
         hypothesis:
-          "Used the CDP roadmap and biweekly Scrum sprints to align product and data teams, leading product requirements and feature design for the CDP, chatbots, web tracking, and data dashboards.",
+          "Used a biweekly cadence to align product and data delivery across the CDP, chatbots, tracking, and dashboards.",
         result:
-          "Integrated 10M customer records across retail, e-commerce, and real estate, connected online e-commerce and offline POS data, and built 360-degree customer views.",
+          "Connected five channels and integrated 10M records across retail, e-commerce, and real estate into Customer 360 views.",
+        artifacts: ["Product roadmap", "MVP interview plan", "Customer-data strategy", "Metrics knowledge base", "Data-product PRDs"],
+        measurement: "Measured structured and connected records plus channel coverage; 10M records is the cross-industry integration scale.",
+        measurementSummary: "Record volume and channel coverage after integration",
       },
       {
         id: "ecofirst",
         org: "Ecofirst (台灣愛淨)",
         period: "2025/3 - Present",
-        rank: 1,
+        rank: 2,
         title: "AI energy: from planning to delivery",
-        impact: "Delivery efficiency up 50%; site operations up 20%",
+        role: "Product Manager",
+        scope: "Roadmap | AI development | Internal tools | Deployment, site ops",
+        collaboration: "Software, project, sales, and site-operations teams",
+        impact: "Delivery efficiency +50% | Site operations +20%",
         ownership: "Product roadmap, AI development workflows, internal tools, and cross-functional deployment handoffs.",
         situation:
-          "The AI energy-saving air-conditioning product is at the prototype stage. The existing approach was project-led, without reusable back-office systems and internal tools.",
+          "The early-stage AI HVAC product relied on project-led delivery without reusable back-office systems or internal tools.",
         bottleneck:
-          "Incoming demand continued to grow, but development, deployment, and site operations had no standard flow, limiting product completeness and delivery speed.",
+          "Development, deployment, and site handoffs lacked a shared process, concentrating knowledge and delaying delivery.",
+        decision:
+          "Standardised development, deployment, and site handoffs before turning frequent operating work into internal tools.",
+        decisionSummary: "Made development, deployment, and site handoffs repeatable before expanding the feature set.",
         hypothesis:
-          "Set the roadmap, used AI development workflows to build internal tools, and coordinated software, project, and sales teams around one development and deployment flow.",
+          "Used the roadmap to align priorities and built one delivery flow with software, project, and sales teams.",
         result:
           "Put a cross-functional development and deployment flow in place. AI workflows raised delivery efficiency by 50%, while standard operating procedures improved site operations efficiency by 20%.",
+        artifacts: ["Product roadmap", "AI development workflow", "Internal operations tools", "Deployment handoff", "Standard operating procedures"],
+        measurement: "Compared internal delivery cycles and site operating time before and after adoption; figures come from team operating records, with client data kept private.",
+        measurementSummary: "Delivery cycle and site operating time: before vs after",
       },
     ],
   },

@@ -1,13 +1,14 @@
 "use client";
 
 import type { MouseEvent } from "react";
-import { HTML_LANG, LOCALE_STORAGE_KEY, casePath, localePath, otherLocale, type Locale } from "@/lib/locale";
+import { HTML_LANG, LOCALE_STORAGE_KEY, casePath, localePath, otherLocale, portfolioPath, type Locale } from "@/lib/locale";
 
 interface LocaleSwitchProps {
   locale: Locale;
   label: string;
   ariaLabel: string;
   caseId?: string;
+  page?: "portfolio";
 }
 
 /**
@@ -15,9 +16,9 @@ interface LocaleSwitchProps {
  * With JS: stores the preference and keeps the current section hash (/#cases -> /en/#cases).
  * Modified clicks (cmd / ctrl / shift / middle button) fall through to native behaviour.
  */
-export function LocaleSwitch({ locale, label, ariaLabel, caseId }: LocaleSwitchProps) {
+export function LocaleSwitch({ locale, label, ariaLabel, caseId, page }: LocaleSwitchProps) {
   const other = otherLocale(locale);
-  const destination = caseId ? casePath(other, caseId) : localePath(other);
+  const destination = caseId ? casePath(other, caseId) : page === "portfolio" ? portfolioPath(other) : localePath(other);
 
   function onClick(event: MouseEvent<HTMLAnchorElement>) {
     if (event.defaultPrevented || event.button !== 0) return;
