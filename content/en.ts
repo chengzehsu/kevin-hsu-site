@@ -191,7 +191,7 @@ export const en = {
     linkLabel: "Open case link",
     backLabel: "Back to portfolio",
     filmLabel: "Watch the workflow",
-    readLabel: "Read full case",
+    readLabel: "View case details",
     roleLabel: "Role",
     scopeLabel: "Scope",
     collaborationLabel: "Collaboration",

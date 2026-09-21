@@ -191,7 +191,7 @@ export const zh = {
     linkLabel: "開啟案例連結",
     backLabel: "回到作品集",
     filmLabel: "觀看流程示意",
-    readLabel: "閱讀完整案例",
+    readLabel: "查看案例詳情",
     roleLabel: "角色",
     scopeLabel: "範圍",
     collaborationLabel: "協作範圍",

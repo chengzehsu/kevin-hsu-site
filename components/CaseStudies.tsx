@@ -8,8 +8,8 @@ export function CaseStudies({ content, locale }: SectionProps) {
   const cases = content.cases;
   const items = [...cases.items].sort((a, b) => a.rank - b.rank);
   const indexLabels = locale === "zh"
-    ? { case: "案例 / 成果", evidence: "工作證據" }
-    : { case: "CASE / OUTCOME", evidence: "WORK EVIDENCE" };
+    ? { case: "案例 / 成果", evidence: "案例畫面" }
+    : { case: "CASE / OUTCOME", evidence: "CASE MATERIAL" };
 
   return (
     <section id="cases" className={`${styles.section} content-section`} aria-labelledby="cases-heading">

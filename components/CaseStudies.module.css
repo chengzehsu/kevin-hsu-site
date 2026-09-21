@@ -24,8 +24,25 @@
 .caseDecision strong { display: block; max-width: 28ch; color: var(--accent); font-size: 1.08rem; font-weight: 600; line-height: 1.65; }
 .caseDecision .decisionEyebrow { margin: 0 0 .55rem; }
 .caseDecision p { max-width: 56ch; margin: .65rem 0 0; color: var(--muted); font-size: .9rem; line-height: 1.8; }
-.caseLink { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; color: var(--accent); font-size: .84rem; font-weight: 600; white-space: nowrap; text-underline-offset: .3em; }
-.caseLink:hover { text-decoration: underline; }
+.caseLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.15rem;
+  min-height: 3rem;
+  padding: .65rem .8rem .65rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: .28rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: .84rem;
+  font-weight: 650;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+.caseLink:hover { border-color: var(--fg); background: var(--fg); color: var(--bg); transform: translateY(-2px); }
+.caseLink:active { transform: translateY(0) scale(.98); }
 .caseLink:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .details { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 2rem 3rem; padding: 1.75rem 0 0; border-top: 1px solid var(--line); }
 .narrative { display: grid; gap: 1.5rem; }
