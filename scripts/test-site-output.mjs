@@ -78,7 +78,7 @@ for (const [locale, file, heading] of [
     assert.ok(!html.includes("<video"), "Do not fetch or mount the film before a request");
     for (const id of ["ecofirst", "grocery", "health-app", "cdp"]) {
       const article = cases.match(new RegExp(`<article id="${id}"[\\s\\S]*?<\\/article>`))?.[0];
-      assert.ok(article?.includes(locale === "zh" ? "閱讀完整案例" : "Read full case"));
+      assert.ok(article?.includes(locale === "zh" ? "查看案例詳情" : "View case details"));
       const path = `${locale === "en" ? "/en" : ""}/cases/${id}/`;
       assert.ok(article.includes(`href="${path}"`), "No-JS sharing must be a working link");
       const detail = await readFile(new URL(`../out${path}index.html`, import.meta.url), "utf8");

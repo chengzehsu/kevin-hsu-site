@@ -4,8 +4,8 @@
 .period { color: var(--muted); font-size: 0.82rem; line-height: 1.6; font-variant-numeric: tabular-nums; }
 .identity { display: grid; gap: 0.25rem; min-width: 0; }
 .role { font-size: 1rem; font-weight: 600; line-height: 1.5; }
-.organization { color: var(--muted); font-size: 0.85rem; line-height: 1.6; overflow-wrap: anywhere; }
-.focus { color: var(--muted); font-size: 0.9rem; line-height: 1.8; }
+.organization { color: var(--muted); font-size: 0.9rem; line-height: 1.6; overflow-wrap: anywhere; }
+.focus { color: var(--muted); font-size: 0.94rem; line-height: 1.8; }
 .summary:hover .role { color: var(--accent); }
 .detail { max-width: 64rem; padding: 1.25rem 0 0 8.5rem; border-top: 1px solid var(--line); }
 .skillSignal { color: var(--fg); font-size: 0.92rem; line-height: 1.9; }
@@ -24,8 +24,8 @@
   .summary { grid-template-columns: minmax(0, 1fr) auto; gap: 0.5rem 0.75rem; }
   .period { grid-column: 1 / -1; }
   .identity { grid-column: 1; }
-  .focus { grid-column: 1 / -1; font-size: 0.85rem; }
+  .focus { grid-column: 1 / -1; font-size: 0.92rem; }
   .summary > :last-child { grid-column: 2; grid-row: 2; }
   .detail { padding-left: 0; }
-  .role { font-size: 0.95rem; }
+  .role { font-size: 1rem; }
 }

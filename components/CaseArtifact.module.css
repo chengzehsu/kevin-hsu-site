@@ -52,7 +52,7 @@
   border-radius: .18rem;
   background: rgb(7 16 28 / .72);
   color: #eef5ff;
-  font-size: .58rem;
+  font-size: .64rem;
   font-weight: 650;
   letter-spacing: .09em;
 }
@@ -67,14 +67,14 @@
 .caption > span {
   grid-row: 1 / span 2;
   color: var(--accent);
-  font-size: .62rem;
+  font-size: .7rem;
   font-weight: 650;
   letter-spacing: .1em;
   overflow-wrap: anywhere;
 }
 
 .caption strong {
-  font-size: .84rem;
+  font-size: .92rem;
   font-weight: 630;
   line-height: 1.5;
 }
@@ -82,7 +82,7 @@
 .caption p {
   margin: 0;
   color: var(--muted);
-  font-size: .7rem;
+  font-size: .8rem;
   line-height: 1.55;
 }
 

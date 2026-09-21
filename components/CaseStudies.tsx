@@ -7,9 +7,7 @@ import styles from "./CaseStudies.module.css";
 export function CaseStudies({ content, locale }: SectionProps) {
   const cases = content.cases;
   const items = [...cases.items].sort((a, b) => a.rank - b.rank);
-  const indexLabels = locale === "zh"
-    ? { case: "案例 / 成果", evidence: "案例畫面" }
-    : { case: "CASE / OUTCOME", evidence: "CASE MATERIAL" };
+  const decisionLabel = locale === "zh" ? "我的關鍵判斷" : "Key product judgment";
 
   return (
     <section id="cases" className={`${styles.section} content-section`} aria-labelledby="cases-heading">
@@ -17,11 +15,6 @@ export function CaseStudies({ content, locale }: SectionProps) {
         <div className={styles.sectionHeading}>
           <div><span>01—04</span><h2 id="cases-heading" className="section-title">{cases.title}</h2></div>
           <p>{cases.intro}</p>
-        </div>
-        <div className={styles.ledgerHeader} aria-hidden="true">
-          <span>{indexLabels.case}</span>
-          <span>{cases.columns.decision}</span>
-          <span>{indexLabels.evidence}</span>
         </div>
         <div className={styles.list}>
           {items.map((item, index) => (
@@ -36,10 +29,10 @@ export function CaseStudies({ content, locale }: SectionProps) {
                   <strong className={styles.outcomeImpact}>{item.impact}</strong>
                   <p className={styles.proofNote}><span>{cases.measurementLabel}</span>{item.measurementSummary}</p>
                 </div>
-              </div>
-              <div className={styles.caseDecision}>
-                <span className={styles.decisionEyebrow}>{cases.columns.decision}</span>
-                <p>{item.decisionSummary}</p>
+                <div className={styles.caseDecision}>
+                  <span className={styles.decisionEyebrow}>{decisionLabel}</span>
+                  <p>{item.decisionSummary}</p>
+                </div>
               </div>
               <div className={styles.caseVisual}>
                 <div className={styles.itemEvidence}><CaseArtifact caseId={item.id} locale={locale} compact /></div>
