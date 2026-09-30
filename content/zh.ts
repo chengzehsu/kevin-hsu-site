@@ -4,7 +4,7 @@ export const zh = {
   locale: "zh",
 
   meta: {
-    title: "許承澤 Kevin Hsu｜Product Manager｜B2C 平台重構與交付",
+    title: "許承澤 Kevin Hsu｜Product Manager｜先讓它能跑，再讓它上線",
     description:
       "具 5 年以上產品相關經驗的 Product Manager。曾主導 B2C 電商重構、參與健康 App 重構，並負責跨團隊交付與資料產品規劃；帶領過 10 人工程團隊與 2 位初階 PM。",
   },
@@ -12,9 +12,10 @@ export const zh = {
   nav: {
     brand: "Kevin Hsu",
     links: [
-      { label: "經歷", href: "#experience" },
-      { label: "能力", href: "#skills" },
+      { label: "AI 實作", href: "#linkedin-posts" },
       { label: "作品集", href: "/portfolio/" },
+      { label: "能力", href: "#skills" },
+      { label: "經歷", href: "#experience" },
       { label: "聯絡", href: "#contact" },
     ],
     switchLabel: "EN",
@@ -24,13 +25,45 @@ export const zh = {
 
   hero: {
     eyebrow: "許承澤 Kevin Hsu｜Product Manager",
-    headline: "拆解問題，把產品做出來。",
-    subline: "從使用者訪談、競品研究與流程拆解釐清優先順序，再與產品、工程和營運團隊一起交付。",
+    kicker: "規格寫完了，會議開完了，東西還沒跑起來？",
+    headline: "先讓它能【跑】，再讓它【上線】。",
+    traits: [
+      {
+        label: "好奇",
+        text: "看到新工具，我先動手試。",
+        proof: "用 Cursor 與 Gemini 做出 AI 名片管理助手",
+      },
+      {
+        label: "勇於嘗試",
+        text: "程式經驗不多，照樣做出內部平台。",
+        proof: "用 Claude Code，2 個月 218 次提交",
+      },
+      {
+        label: "追求效率",
+        text: "控制策略調整",
+        shift: { from: "1 週", to: "2 小時" },
+        proof: "把 AI 放進開發流程，交付效率 +50%",
+      },
+    ],
     profile: [
-      { label: "定位", value: "Product Manager · B2C 平台重構與跨團隊交付" },
-      { label: "產品領域", value: "B2C 電商、健康 App、B2B 企業培訓與跨通路資料平台" },
+      {
+        label: "定位",
+        value: "Product Manager · B2C 平台重構、跨團隊交付與 AI 工作流程",
+      },
+      {
+        label: "產品領域",
+        value: "B2C 電商、健康 App、B2B 企業培訓與跨通路資料平台",
+      },
       { label: "求職目標", value: "面向全球市場的 B2C 平台與成長期產品團隊" },
     ],
+    film: {
+      caption: "AI 節能產品：交付效率 +50%",
+      caseId: "ecofirst",
+      pauseLabel: "暫停影片",
+      playLabel: "播放影片",
+      summary:
+        "60 秒影片：規格寫完了，會議開完了，東西還沒跑起來。AI 時代的 PM，做出東西不再是門檻，要看的是六項能力：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；每一段經歷，都讓這張能力圖再大一圈。接著是三個工作習慣。好奇：看到新工具，我先動手試，Claude Code、Cursor、Gemini、Notion AI；用 Cursor 與 Gemini 自己做出 AI 名片管理助手，從 OCR 辨識失敗、重建版控到部署上線，流程是拍名片、Gemini 辨識、Notion 建檔。勇於嘗試：程式經驗不多的產品經理，用 Claude Code 做出內部平台，2 個月 218 次提交。追求效率：控制策略模擬工具把策略調整從 1 週縮短到 2 小時；把 AI 放進開發流程後，交付效率 +50%。先讓它能跑，再讓它上線。許承澤 Kevin Hsu，Product Manager · AI · B2C 平台 · 跨團隊交付。",
+    },
     builderLoop: {
       label: "從現場到產品",
       steps: ["看流程", "找問題", "定假設", "做工具", "看成效"],
@@ -89,29 +122,68 @@ export const zh = {
   },
 
   linkedinPosts: {
-    title: "LinkedIn 精選貼文",
-    intro: "從產品經理親手做工具，到把 AI 放進日常工作流程的實作紀錄。",
+    title: "三個習慣，四個作品",
+    intro: "每次卡住，就換一種 AI 工具親手試，做到團隊能用為止。",
     author: "許承澤 Kevin Hsu",
     platform: "LinkedIn",
-    readLabel: "前往貼文",
+    readLabel: "看實作紀錄",
     items: [
       {
-        title: "2 個月內完成 218 次提交",
-        description: "從串接 API 開始，將案場資料查詢流程做成工具，並用 Claude Code 持續迭代。",
+        trait: "勇於嘗試",
+        stat: "218",
+        statLabel: "次提交，2 個月",
+        title: "程式經驗不多，用 Claude Code 做出內部平台",
+        description: "從串接 API 開始，把案場資料查詢流程做成工具，邊用邊改。",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7469732610550976512/",
-        image: { src: "/linkedin-posts/post-1.jpg", alt: "218 次提交的案場工具介面", width: 800, height: 819 },
+        image: {
+          src: "/linkedin-posts/post-1.jpg",
+          alt: "218 次提交的案場工具介面",
+          width: 800,
+          height: 819,
+        },
       },
       {
+        trait: "好奇",
+        stat: "0 → 1",
+        statLabel: "自己做出來",
         title: "用 Cursor 與 Gemini 做 AI 名片管理助手",
-        description: "從 OCR 辨識失敗、重建版控，到部署上線的一次 0 到 1 實作。",
+        description: "從 OCR 辨識失敗、重建版控，到部署上線。",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7412468258705944576/",
-        image: { src: "/linkedin-posts/post-2.jpg", alt: "AI 名片管理助手的流程示意圖", width: 800, height: 446 },
+        image: {
+          src: "/linkedin-posts/post-2.jpg",
+          alt: "AI 名片管理助手的流程示意圖",
+          width: 800,
+          height: 446,
+        },
       },
       {
-        title: "用 AI 讓會議真的推進",
-        description: "透過 Notion AI 與 Claude Cowork 排程，自動整理待辦事項與提案初稿。",
+        trait: "追求效率",
+        stat: "1 週 → 2 小時",
+        statLabel: "控制策略調整",
+        title: "控制策略模擬工具",
+        description:
+          "把超過 10 萬種控制組合的試算做成工具，不再靠人工一組一組調。",
+        image: {
+          src: "/portfolio-wall/film-7.webp",
+          alt: "控制策略調整從 1 週縮短到 2 小時",
+          width: 480,
+          height: 300,
+        },
+      },
+      {
+        trait: "每天都在用",
+        stat: "+50%",
+        statLabel: "把 AI 放進開發流程後的交付效率",
+        title: "把 AI 放進每天的工作流程",
+        description:
+          "需求釐清、規格、驗收都用 AI 加速；連會議也交給 Notion AI 與 Claude Cowork 整理待辦和提案初稿。",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
-        image: { src: "/linkedin-posts/post-3.jpg", alt: "PM 每日會議追蹤流程優化圖", width: 856, height: 838 },
+        image: {
+          src: "/linkedin-posts/post-3.jpg",
+          alt: "PM 每日會議追蹤流程優化圖",
+          width: 856,
+          height: 838,
+        },
       },
     ],
   },
@@ -126,7 +198,8 @@ export const zh = {
         year: "2022",
         title: "PMI 專案管理標竿獎",
         distinction: "卓越獎",
-        description: "Fable 寓意科技期間的專案成果，從流程盤點、系統重構到跨團隊交付。",
+        description:
+          "Fable 寓意科技期間的專案成果，從流程盤點、系統重構到跨團隊交付。",
         link: { label: "看相關經歷", href: "#experience" },
       },
       {
@@ -136,7 +209,8 @@ export const zh = {
         caseId: "grocery",
         title: "AWS 數位轉型案例",
         distinction: "放心初蔬果網",
-        description: "在寓意科技主導放心初的系統重構與上雲，後續由 AWS 提供內容、刊登於關鍵評論網。",
+        description:
+          "在寓意科技主導放心初的系統重構與上雲，後續由 AWS 提供內容、刊登於關鍵評論網。",
         link: {
           label: "閱讀案例報導",
           href: "https://www.thenewslens.com/feature/aws/250301",
@@ -215,21 +289,27 @@ export const zh = {
         role: "Senior Project Manager",
         scope: "NT$620 萬｜Web／App｜訂單、倉儲、AWS",
         collaboration: "產品、工程、客戶營運、倉儲物流與 AWS 團隊",
-        impact: "揀貨日產能 300 → 1,000（+233%）",
+        impact: "揀貨日產能 300 → 1,000 單／日 (+233%)",
         ownership: "盤點訂單到交付流程；協調前後台、App 與 AWS 重構。",
         situation:
           "疫情期間訂單暴增，年營收約 NT$2 億的蔬果電商前台、後台與 App 無法支撐營運。",
-        bottleneck:
-          "端到端盤點後，確認揀貨站與運輸產能是主要瓶頸。",
+        bottleneck: "端到端盤點後，確認揀貨站與運輸產能是主要瓶頸。",
         decision:
           "先解決揀貨與運輸產能，再依訂單到交付流程同步重構前台、後台、App 與 AWS。",
         decisionSummary: "先解倉儲與運輸瓶頸，再同步重構前台、後台與 AWS。",
         hypothesis:
           "以同一份優先序協調產品、工程、倉儲與營運，分階段完成旺季改善與系統重構。",
         result:
-          "揀貨日產能由 300 提升至 1,000 單（+233%）；重構期間平台營收成長 120%，並獲 AWS 案例收錄。",
-        artifacts: ["專案總覽", "訂單資訊流盤點", "產業與商品資料分析", "測試腳本", "專案知識庫"],
-        measurement: "比較重構前後的揀貨日產能；AWS 數位轉型報導提供公開佐證。營收成長為重構期間的團隊成果。",
+          "揀貨日產能 300 → 1,000 單／日 (+233%)；重構期間平台營收成長 120%，並獲 AWS 案例收錄。",
+        artifacts: [
+          "專案總覽",
+          "訂單資訊流盤點",
+          "產業與商品資料分析",
+          "測試腳本",
+          "專案知識庫",
+        ],
+        measurement:
+          "比較重構前後的揀貨日產能；AWS 數位轉型報導提供公開佐證。營收成長為重構期間的團隊成果。",
         measurementSummary: "揀貨日產能：重構前後比較",
       },
       {
@@ -254,8 +334,15 @@ export const zh = {
           "以訪談、競品研究與客戶工作坊排優先序，再依使用情境設計測試與驗收。",
         result:
           "新平台上線並完成資料遷移；DAU 一年內由約 12,000 增至 20,000（+66%）。",
-        artifacts: ["使用者訪談", "Wireframe", "User Story", "PRD", "參數與翻譯對照表"],
-        measurement: "比較新平台上線時與一年後的每日活躍使用者；12,000 → 20,000 為整體產品與團隊成果。",
+        artifacts: [
+          "使用者訪談",
+          "Wireframe",
+          "User Story",
+          "PRD",
+          "參數與翻譯對照表",
+        ],
+        measurement:
+          "比較新平台上線時與一年後的每日活躍使用者；12,000 → 20,000 為整體產品與團隊成果。",
         measurementSummary: "DAU：上線與一年後比較",
       },
       {
@@ -268,20 +355,29 @@ export const zh = {
         scope: "CDP｜Chatbot｜網站埋點｜儀表板｜POS",
         collaboration: "UX、Sales、Marketing、產品與資料團隊",
         impact: "3 產業 × 5 通路｜整合 1,000 萬筆資料",
-        ownership: "規劃 CDP、Chatbot、埋點與儀表板；帶領產品與資料團隊雙週協作。",
+        ownership:
+          "規劃 CDP、Chatbot、埋點與儀表板；帶領產品與資料團隊雙週協作。",
         situation:
           "LINE、Facebook、官網、電商與 POS 資料分散，客戶無法辨識同一使用者的來源與消費行為。",
         bottleneck:
           "通路格式與身分識別規則不同，資料必須先結構化與串接才能形成 Customer 360。",
         decision:
           "先以 30 個目標名單及跨部門訪談驗證切入點，再調整既有能力形成 MVP。",
-        decisionSummary: "先用 30 個目標名單與跨部門訪談驗證切入點，再收斂 MVP。",
+        decisionSummary:
+          "先用 30 個目標名單與跨部門訪談驗證切入點，再收斂 MVP。",
         hypothesis:
           "以雙週節奏推進 CDP、Chatbot、埋點與儀表板需求，對齊產品與資料團隊。",
         result:
           "串接 5 個通路，整合零售、電商與不動產共 1,000 萬筆資料，建立 Customer 360。",
-        artifacts: ["Product Roadmap", "MVP 訪談計畫", "客戶資料策略提案", "指標知識體系", "資料產品 PRD"],
-        measurement: "以完成結構化與串接的資料量及通路覆蓋計算；1,000 萬筆為跨產業整合規模。",
+        artifacts: [
+          "Product Roadmap",
+          "MVP 訪談計畫",
+          "客戶資料策略提案",
+          "指標知識體系",
+          "資料產品 PRD",
+        ],
+        measurement:
+          "以完成結構化與串接的資料量及通路覆蓋計算；1,000 萬筆為跨產業整合規模。",
         measurementSummary: "資料規模與通路覆蓋：完成串接後計算",
       },
       {
@@ -299,15 +395,21 @@ export const zh = {
           "AI 空調節能產品仍在早期階段，專案式推進缺少可重用的後台與內部工具。",
         bottleneck:
           "開發、部署與案場交接沒有共通流程，需求容易卡在單點經驗與跨部門交接。",
-        decision:
-          "先把開發、部署與案場交接標準化，再將高頻作業做成內部工具。",
+        decision: "先把開發、部署與案場交接標準化，再將高頻作業做成內部工具。",
         decisionSummary: "先把開發、部署與案場交接做成可重複流程，再擴充功能。",
         hypothesis:
           "以 Roadmap 對齊優先序，並與軟體、專案、業務共同建立交付流程。",
         result:
           "建立跨部門的開發與部署流程，交付效率提升 50%，案場營運效率提升 20%。",
-        artifacts: ["產品 Roadmap", "AI 開發工作流程", "內部營運工具", "部署交接流程", "標準作業程序"],
-        measurement: "比較導入前後的內部交付週期與案場作業時間；數據來自團隊營運紀錄，不公開客戶資料。",
+        artifacts: [
+          "產品 Roadmap",
+          "AI 開發工作流程",
+          "內部營運工具",
+          "部署交接流程",
+          "標準作業程序",
+        ],
+        measurement:
+          "比較導入前後的內部交付週期與案場作業時間；數據來自團隊營運紀錄，不公開客戶資料。",
         measurementSummary: "交付週期與案場作業時間：導入前後比較",
       },
     ],
@@ -315,6 +417,8 @@ export const zh = {
 
   experience: {
     title: "經歷速覽",
+    intro: "六段經歷，練成同一個習慣。",
+    currentLabel: "現在",
     expandLabel: "工作內容",
     collapseLabel: "收合經歷",
     skillLabel: "這段經歷讓我累積",
@@ -325,7 +429,8 @@ export const zh = {
         role: "Product Manager",
         period: "2025/3 - 現在",
         focus: "AI 節能產品、內部工具與跨團隊交付",
-        skillSignal: "將現場做法整理成 Roadmap、AI 工具與交付流程，讓跨部門團隊有共同的推進方式。",
+        skillSignal:
+          "將現場做法整理成 Roadmap、AI 工具與交付流程，讓跨部門團隊有共同的推進方式。",
         summary:
           "負責仍處於早期階段的 AI 空調節能產品。除了規劃產品方向，也將原本仰賴個人經驗的做法逐步整理為工具與流程。",
         bullets: [
@@ -340,7 +445,8 @@ export const zh = {
         role: "Senior Product Manager",
         period: "2023/11 - 2024/8",
         focus: "B2B 企業培訓、學習資料與新市場驗證",
-        skillSignal: "在採購者、管理者與使用者的不同需求中釐清優先順序，並進行市場驗證。",
+        skillSignal:
+          "在採購者、管理者與使用者的不同需求中釐清優先順序，並進行市場驗證。",
         summary:
           "規劃企業培訓平台時，需兼顧人資人員、管理者與員工三種不同的使用情境，也負責學習資料與市場驗證。",
         bullets: [
@@ -356,7 +462,8 @@ export const zh = {
         role: "獨立顧問",
         period: "2023/5 - 2023/11",
         focus: "產品策略、包租代管 SaaS 與募資顧問",
-        skillSignal: "將商業目標、使用者流程與交付限制收斂成 Roadmap，讓工程、設計與需求方按同一套優先順序協作。",
+        skillSignal:
+          "將商業目標、使用者流程與交付限制收斂成 Roadmap，讓工程、設計與需求方按同一套優先順序協作。",
         summary:
           "職涯空窗期間，我承接產品策略、SaaS 與募資顧問案。每個案子都必須從商業問題一路拆解到團隊協作方式。",
         bullets: [
@@ -371,11 +478,12 @@ export const zh = {
         role: "Senior Project Manager",
         period: "2021/3 - 2022/7",
         focus: "電商與健康 App 重構、跨職能團隊交付",
-        skillSignal: "在高壓交付裡練出系統產品觀：從使用者流程、技術重構到營運結果，串成同一個決策。",
+        skillSignal:
+          "在高壓交付裡練出系統產品觀：從使用者流程、技術重構到營運結果，串成同一個決策。",
         summary:
           "管理 NT$1,200 萬以上的 B2C 專案組合，帶領 10 人工程團隊與 2 位初階 PM；負責電商、倉儲、App 與 IoT 整合，獲 2022 PMI 專案管理標竿獎卓越獎。",
         bullets: [
-          "蔬果電商（客戶年營收約 NT$2 億）：在訂單暴增期間主導全端與 AWS 架構重構，揀貨從日處理 300 單到 1,000 單（+233%）；重構期間平台營收成長 120%",
+          "蔬果電商（客戶年營收約 NT$2 億）：在訂單暴增期間主導全端與 AWS 架構重構，揀貨 300 → 1,000 單／日 (+233%)；重構期間平台營收成長 120%",
           "健康管理 App（年營收約 NT$8 億）：以使用者訪談、競品研究與客戶工作坊定義優先順序，重構平台、轉移資料並整合 IoT 體重計；每日活躍使用者一年內由 12,000 成長至 20,000（+66%）",
         ],
       },
@@ -385,12 +493,14 @@ export const zh = {
         role: "Product Manager",
         period: "2020/6 - 2020/12",
         focus: "跨通路客戶資料平台、聊天機器人與儀表板",
-        skillSignal: "從資料定義、身分識別與跨通路行為出發，知道資料如何產品化成可用的服務與決策。",
-        summary: "帶領產品與資料團隊，釐清跨通路資料平台的範圍，並以雙週節奏推進開發。",
+        skillSignal:
+          "從資料定義、身分識別與跨通路行為出發，知道資料如何產品化成可用的服務與決策。",
+        summary:
+          "帶領產品與資料團隊，釐清跨通路資料平台的範圍，並以雙週節奏推進開發。",
         bullets: [
           "整合零售、電商與不動產領域 1,000 萬筆客戶資料，串接 LINE、Facebook、官網、電商與 POS 資料",
           "主導 CDP、LINE 與 Facebook Chatbot、網站埋點與資料儀表板的 PRD 撰寫與功能設計",
-          "為客戶制定資料策略，建立客戶 360 度視圖",
+          "為客戶制定資料策略，建立客戶 360 度輪廓",
         ],
       },
       {
@@ -399,7 +509,8 @@ export const zh = {
         role: "產品助理",
         period: "2019/2 - 2020/6",
         focus: "市場研究、原型設計與早期產品驗證",
-        skillSignal: "從市場探索、原型與競品研究開始，建立先驗證問題、再投入交付的產品直覺。",
+        skillSignal:
+          "從市場探索、原型與競品研究開始，建立先驗證問題、再投入交付的產品直覺。",
         summary:
           "在技術入股型創投裡，陪傳統企業從想法走到市場測試；研究、原型、需求和外包協作都做過。",
         bullets: [
@@ -411,10 +522,16 @@ export const zh = {
   },
 
   contact: {
+    kicker: "先讓它能跑，再讓它上線。",
     title: "聊聊下一個產品機會。",
     text: "正在尋找能把 AI 推進真實工作的產品團隊。歡迎聊聊職缺、產品方向，或你們正在解決的問題。",
     cta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
-    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/" }],
+    links: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/",
+      },
+    ],
   },
 
   footer: {

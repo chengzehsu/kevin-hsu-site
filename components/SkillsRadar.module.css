@@ -1,102 +1,273 @@
+/* Skills: one chart, four statements. The radar is the same shape the hero film grows,
+   the statements carry one idea and one proof each, and the full list waits behind a disclosure. */
+
 .header {
   display: grid;
-  grid-template-columns: 10rem minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: start;
+  gap: 1rem;
+  max-width: 48rem;
 }
 
 .intro {
-  max-width: 44rem;
-  color: var(--fg);
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  max-width: 40rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   line-height: 1.75;
   text-wrap: pretty;
 }
 
-.total {
-  margin-top: 0.65rem;
-  color: var(--muted);
-  font-size: 0.86rem;
-}
-
-.sectionBlock {
+.stage {
   display: grid;
-  grid-template-columns: 10rem minmax(0, 1fr);
-  gap: 2.5rem;
-  margin-top: 2.75rem;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+  margin-top: clamp(2.25rem, 5vw, 3.5rem);
 }
 
-.sectionBlock > h3 {
-  padding-top: 1.2rem;
+.radarColumn {
+  position: sticky;
+  top: 6rem;
+  min-width: 0;
+}
+
+/* Radar panel */
+.radar {
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel) var(--radius-panel) var(--radius-tip) var(--radius-panel);
+  background:
+    radial-gradient(closest-side at 50% 42%, color-mix(in oklch, var(--accent) 14%, transparent), transparent),
+    var(--surface);
+}
+
+.radarPlot {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
+  aspect-ratio: 1;
+}
+
+.radarPlot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ring {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.spoke {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.from {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 5;
+  opacity: 0.8;
+}
+
+.to polygon {
+  fill: color-mix(in oklch, var(--accent) 20%, transparent);
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.to circle {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.axis {
+  position: absolute;
+  width: max-content;
+  max-width: 6.5rem;
+  transform: translate(-50%, -50%);
+  color: var(--fg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.radar figcaption {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.radar figcaption strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 620;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.legend {
+  display: flex;
+  gap: 1.1rem;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.legendFrom,
+.legendTo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.legendFrom::before,
+.legendTo::before {
+  width: 1.1rem;
+  height: 0;
+  content: "";
+}
+
+.legendFrom::before { border-top: 1.5px dashed var(--muted); }
+.legendTo::before { border-top: 2.5px solid var(--accent); }
+.legendTo { color: var(--accent); font-weight: 600; }
+
+.note {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+/* The polygon grows as the chart scrolls in, echoing the film. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .to {
+      transform-box: view-box;
+      transform-origin: 50% 50%;
+      animation: radar-grow linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 45%;
+    }
+  }
+}
+
+@keyframes radar-grow {
+  from { opacity: 0.2; transform: scale(0.4); }
+}
+
+/* Statements */
+.featuredTitle {
+  color: var(--muted);
+  font-size: 0.85rem;
   font-weight: 500;
 }
 
 .featured {
-  margin: 0;
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 3.75rem);
+  margin: 1.5rem 0 0;
   padding: 0;
-  border-top: 1px solid var(--line);
   list-style: none;
 }
 
 .featured > li {
-  display: grid;
-  grid-template-columns: minmax(13rem, 1fr) minmax(12rem, 0.8fr) minmax(9rem, 0.55fr);
-  gap: clamp(1.25rem, 3vw, 3rem);
-  padding-block: 1.35rem;
-  border-bottom: 1px solid var(--line);
+  min-width: 0;
 }
 
-.skillName h4 {
-  font-size: 1rem;
-  font-weight: 620;
-  line-height: 1.5;
-}
-
-.skillName > p {
-  max-width: 36rem;
-  margin-top: 0.45rem;
+.skillLabel {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.skillLabel > span {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.statement {
+  max-width: 18ch;
+  margin-top: 0.65rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+  font-weight: 650;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* AI delivery leads: the first statement takes the accent. */
+.featured > li:first-child .statement {
+  color: var(--accent);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.summary {
+  max-width: 34rem;
+  margin-top: 0.85rem;
+  color: var(--muted);
+  font-size: 0.95rem;
   line-height: 1.75;
+  text-wrap: pretty;
 }
 
 .proof {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-ui);
+  background: var(--surface-strong);
   color: var(--fg);
-  font-size: 0.94rem;
-  font-weight: 540;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
 }
 
-.references > span {
-  display: block;
+.featured > li:first-child .proof {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.references {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1rem;
+  margin-top: 0.5rem;
   color: var(--muted);
-  font-size: 0.72rem;
-}
-
-.references > div {
-  display: grid;
-  justify-items: start;
-  gap: 0.2rem;
-  margin-top: 0.35rem;
+  font-size: 0.8rem;
 }
 
 .references a {
   display: inline-flex;
-  min-height: 2rem;
+  min-height: 2.75rem;
   align-items: center;
   gap: 0.3rem;
   color: var(--fg);
   font-size: 0.86rem;
   font-weight: 550;
-  line-height: 1.4;
   text-decoration-color: transparent;
   text-underline-offset: 0.2rem;
   transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 
-.references a:hover {
+.references a:hover,
+.group a:hover {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-color: currentColor;
@@ -107,18 +278,17 @@
   transform: translateY(1px);
 }
 
+/* Full list */
 .library {
   display: block;
-  margin-top: 4rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
 }
 
 .librarySummary {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: 10rem minmax(0, 1fr);
-  gap: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding-top: 1.2rem;
+  gap: 0.5rem 1.25rem;
   cursor: pointer;
   list-style: none;
 }
@@ -126,44 +296,73 @@
 .librarySummary::-webkit-details-marker { display: none; }
 .librarySummary::marker { content: ""; }
 
-.librarySummary h3 {
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 500;
-}
-
-.librarySummary > span {
+.libraryAction {
   display: inline-flex;
   align-items: center;
-  justify-self: start;
-  gap: 0.45rem;
+  gap: 0.55rem;
   min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid color-mix(in oklch, var(--accent) 45%, var(--line));
+  border-radius: var(--radius-ui);
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
+  transition: background-color 180ms ease;
+}
+
+.librarySummary:hover .libraryAction {
+  background: color-mix(in oklch, var(--accent) 8%, transparent);
+}
+
+.total {
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 .libraryOpenLabel { display: none; }
-.libraryIcon { transition: transform 220ms ease; }
+.libraryIcon { flex: none; transition: transform 220ms ease; }
 .library[open] .libraryClosedLabel { display: none; }
 .library[open] .libraryOpenLabel { display: inline; }
 .library[open] .libraryIcon { transform: rotate(45deg); }
 
 .librarySummary:focus-visible {
+  outline: none;
+}
+
+.librarySummary:focus-visible .libraryAction {
   outline: 2px solid var(--accent);
-  outline-offset: 5px;
+  outline-offset: 3px;
+}
+
+.libraryBody {
+  margin-top: 1.5rem;
+}
+
+.libraryTitle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .groups {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.75rem 3.5rem;
-  margin-left: calc(10rem + 2.5rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .group {
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
+  min-width: 0;
+  padding: 1.1rem 1.1rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-ui);
+  background: var(--surface);
+}
+
+.group[data-kind="ai"] {
+  border-color: color-mix(in oklch, var(--accent) 45%, var(--line));
 }
 
 .group h4 {
@@ -171,19 +370,17 @@
   align-items: center;
   gap: 0.55rem;
   color: var(--accent);
-  font-size: 0.85rem;
-  font-weight: 620;
+  font-size: 0.88rem;
+  font-weight: 650;
 }
 
-.group h4 svg {
-  flex: none;
-}
+.group h4 svg { flex: none; }
 
 .group ul {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.25rem 1.5rem;
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
+  padding: 0;
+  list-style: none;
 }
 
 .group a {
@@ -191,91 +388,57 @@
   min-height: 2.5rem;
   align-items: center;
   color: var(--fg);
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   line-height: 1.45;
   text-decoration-color: transparent;
   text-underline-offset: 0.2rem;
   transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 
-.group a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-color: currentColor;
-}
-
 @media (max-width: 1023px) {
-  .header,
-  .sectionBlock,
-  .librarySummary {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .stage {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .sectionBlock > h3 {
-    padding-top: 0;
+  .radarColumn {
+    position: static;
+    max-width: 32rem;
   }
 
-  .librarySummary { padding-top: 0; }
-
-  .groups { margin-left: 0; }
-
-  .featured > li {
-    grid-template-columns: minmax(0, 1.3fr) minmax(10rem, 0.8fr);
-  }
-
-  .references {
-    grid-column: 1 / -1;
-  }
-
-  .references > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 1rem;
+  .groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767px) {
-  .sectionBlock {
-    margin-top: 2.25rem;
+  .radar {
+    padding: 1rem 1rem 1.25rem;
   }
 
-  .featured > li {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.9rem;
-    padding-block: 1.2rem;
+  .radarPlot {
+    width: 84%;
   }
 
-  .references {
-    grid-column: auto;
-  }
-
-  .library {
-    margin-top: 3.25rem;
-  }
-
-  .groups,
-  .group ul {
-    grid-template-columns: minmax(0, 1fr);
+  .axis {
+    max-width: 4.75rem;
+    font-size: 0.72rem;
   }
 
   .groups {
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .group ul {
-    gap: 0;
-  }
-
-  .references a,
-  .group a {
+  .group a,
+  .references a {
     min-height: 2.75rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .references a,
-  .group a {
+  .group a,
+  .libraryAction,
+  .libraryIcon {
     transition: none;
   }
 }

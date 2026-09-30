@@ -1,0 +1,1095 @@
+<!doctype html>
+<html
+  lang="zh-Hant"
+  data-composition-variables='[{"id":"lang","type":"enum","label":"Language","default":"zh","options":[{"value":"zh","label":"中文"},{"value":"en","label":"English"}]}]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1600, height=1000" />
+    <title>許承澤 Kevin Hsu · 60s</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Geist Film";
+        src: url("assets/geist-latin.woff2") format("woff2");
+        font-weight: 100 900;
+      }
+      @font-face {
+        font-family: "Noto TC Film";
+        src: url("assets/noto-tc-film.woff2") format("woff2");
+        font-weight: 100 900;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1600px;
+        height: 1000px;
+        overflow: hidden;
+        background: #f5f7fa;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        color: #202a36;
+        font-family: "Geist Film", "Noto TC Film", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .hl {
+        color: #2b5896;
+      }
+      .tag {
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: #2b5896;
+      }
+      .num {
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.045em;
+      }
+
+      /* ── Persistent layers ─────────────────────────────── */
+      #bg-dots {
+        position: absolute;
+        inset: -80px;
+        background-image: radial-gradient(circle, #c9d4e2 1.6px, transparent 1.8px);
+        background-size: 40px 40px;
+        opacity: 0.55;
+      }
+      #bg-glow {
+        position: absolute;
+        left: 820px;
+        top: -360px;
+        width: 1100px;
+        height: 1100px;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(43, 88, 150, 0.16), rgba(43, 88, 150, 0));
+      }
+      #bg-grain {
+        position: absolute;
+        inset: 0;
+        opacity: 0.06;
+      }
+      #chrome-row {
+        position: absolute;
+        left: 80px;
+        right: 80px;
+        top: 52px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      #chrome-count {
+        position: relative;
+        width: 110px;
+        height: 30px;
+      }
+      #chrome-count span {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        font-variant-numeric: tabular-nums;
+      }
+      #chrome-rule {
+        position: absolute;
+        left: 80px;
+        right: 80px;
+        top: 100px;
+        height: 2px;
+        background: #d7dfe8;
+      }
+
+      /* ── S1 hook ───────────────────────────────────────── */
+      .hook {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 360px;
+        font-size: 150px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.08;
+        opacity: 0;
+      }
+      #h1c {
+        top: 290px;
+      }
+      #h1c-small {
+        font-size: 64px;
+        font-weight: 600;
+        color: #526173;
+        letter-spacing: -0.01em;
+        margin-bottom: 18px;
+      }
+      #load {
+        position: absolute;
+        left: 140px;
+        top: 700px;
+        width: 620px;
+        opacity: 0;
+      }
+      #load-track {
+        position: relative;
+        height: 12px;
+        border-radius: 6px;
+        background: #d7dfe8;
+        overflow: hidden;
+      }
+      #load-fill {
+        position: absolute;
+        inset: 0;
+        background: #202a36;
+        border-radius: 6px;
+        transform-origin: 0 50%;
+      }
+      #load-label {
+        margin-top: 18px;
+        font-size: 28px;
+        font-weight: 600;
+        color: #526173;
+      }
+
+      /* ── S2 rubric ─────────────────────────────────────── */
+      #s2-copy {
+        position: absolute;
+        left: 140px;
+        top: 300px;
+        width: 620px;
+      }
+      #r1 {
+        font-size: 88px;
+        white-space: nowrap;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      #r2,
+      #r3 {
+        margin-top: 22px;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+      }
+      #r2 {
+        color: #526173;
+      }
+
+      /* ── Radar (persistent 6.0–35.4) ───────────────────── */
+      #radar-box {
+        position: absolute;
+        left: 800px;
+        top: 180px;
+        width: 720px;
+        height: 720px;
+      }
+      #radar-box svg {
+        position: absolute;
+        inset: 0;
+      }
+      .ax {
+        position: absolute;
+        width: 220px;
+        margin-left: -110px;
+        margin-top: -20px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 700;
+        color: #526173;
+        white-space: nowrap;
+        opacity: 0;
+      }
+      #radar-cap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 128px;
+        text-align: center;
+        font-size: 58px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        opacity: 0;
+      }
+
+      /* ── S3 chapters ───────────────────────────────────── */
+      .ch {
+        position: absolute;
+        left: 120px;
+        top: 220px;
+        width: 640px;
+        opacity: 0;
+      }
+      .ch-year {
+        font-size: 130px;
+        font-weight: 800;
+        line-height: 1;
+        color: #2b5896;
+      }
+      .ch-org {
+        margin-top: 18px;
+        font-size: 50px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .ch-role {
+        margin-top: 8px;
+        font-size: 28px;
+        font-weight: 600;
+        color: #526173;
+      }
+      .ch-title {
+        margin-top: 34px;
+        font-size: 40px;
+        font-weight: 700;
+      }
+      .ch-metric {
+        margin-top: 14px;
+        font-size: 34px;
+        font-weight: 700;
+        color: #2b5896;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      .ch-chips {
+        margin-top: 30px;
+        display: flex;
+        gap: 12px;
+      }
+      .ch-chips span {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 2px solid #2b5896;
+        background: #e3ebf6;
+        font-size: 26px;
+        font-weight: 700;
+        color: #2b5896;
+        white-space: nowrap;
+      }
+      #rail {
+        position: absolute;
+        left: 120px;
+        top: 890px;
+        width: 620px;
+        height: 4px;
+        border-radius: 2px;
+        background: #d7dfe8;
+      }
+      #rail-fill {
+        position: absolute;
+        inset: 0;
+        border-radius: 2px;
+        background: #2b5896;
+        transform-origin: 0 50%;
+      }
+
+      /* ── S4 AI way of working ──────────────────────────── */
+      #traits {
+        position: absolute;
+        left: 140px;
+        top: 150px;
+        display: flex;
+        gap: 14px;
+        opacity: 0;
+      }
+      #traits span {
+        padding: 10px 22px;
+        border-radius: 999px;
+        border: 2px solid #d7dfe8;
+        font-size: 28px;
+        font-weight: 700;
+        color: #526173;
+        background: #fcfcfd;
+      }
+      #a0 {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 300px;
+      }
+      #a0-l1,
+      #a0-l2 {
+        font-size: 120px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        opacity: 0;
+      }
+      #a0-l1 {
+        color: #526173;
+      }
+      #tools {
+        margin-top: 50px;
+        display: flex;
+        gap: 16px;
+      }
+      #tools span {
+        padding: 14px 26px;
+        border-radius: 16px;
+        border: 2px solid #d7dfe8;
+        background: #fcfcfd;
+        font-size: 32px;
+        font-weight: 700;
+        box-shadow: 0 12px 30px rgba(32, 42, 54, 0.08);
+        opacity: 0;
+      }
+      #a1 {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 260px;
+        opacity: 0;
+      }
+      .a-title {
+        margin-top: 18px;
+        white-space: nowrap;
+        font-size: 72px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+      }
+      .a-sub {
+        margin-top: 22px;
+        font-size: 36px;
+        font-weight: 600;
+        color: #526173;
+      }
+      #flow {
+        margin-top: 70px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      #flow .node {
+        padding: 22px 34px;
+        border-radius: 20px;
+        background: #fcfcfd;
+        border: 2px solid #d7dfe8;
+        font-size: 38px;
+        font-weight: 800;
+        box-shadow: 0 16px 36px rgba(32, 42, 54, 0.1);
+        opacity: 0;
+      }
+      #flow .node.on {
+        background: #2b5896;
+        border-color: #2b5896;
+        color: #f5f8fc;
+      }
+      #flow .arrow {
+        display: block;
+        width: 70px;
+        height: 4px;
+        border-radius: 2px;
+        background: #2b5896;
+        transform-origin: 0 50%;
+      }
+      #a2-left {
+        position: absolute;
+        left: 120px;
+        top: 250px;
+        width: 520px;
+        opacity: 0;
+      }
+      #a2-count {
+        margin-top: 28px;
+        font-size: 210px;
+        font-weight: 800;
+        line-height: 1.12;
+      }
+      #a2-unit {
+        margin-top: 6px;
+        font-size: 46px;
+        font-weight: 700;
+      }
+      #a2-body {
+        margin-top: 28px;
+        font-size: 31px;
+        font-weight: 500;
+        line-height: 1.5;
+        color: #526173;
+      }
+      #a2-body div {
+        white-space: nowrap;
+      }
+      #win {
+        position: absolute;
+        left: 680px;
+        top: 250px;
+        width: 840px;
+        border-radius: 22px;
+        background: #fcfcfd;
+        border: 2px solid #d7dfe8;
+        box-shadow:
+          0 50px 100px rgba(32, 42, 54, 0.16),
+          0 10px 24px rgba(32, 42, 54, 0.08);
+        overflow: hidden;
+        opacity: 0;
+      }
+      #win-bar {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 20px;
+        border-bottom: 2px solid #d7dfe8;
+        background: #eef2f7;
+      }
+      #win-bar i {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #c9d4e2;
+      }
+      #win-url {
+        margin-left: 18px;
+        font-size: 20px;
+        font-weight: 500;
+        color: #526173;
+      }
+      #win-view {
+        position: relative;
+        width: 840px;
+        height: 456px;
+        overflow: hidden;
+      }
+      #app {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 840px;
+        height: 456px;
+        transform-origin: 632px 288px;
+      }
+      #app img {
+        display: block;
+        width: 840px;
+        height: 456px;
+      }
+      #ripple {
+        position: absolute;
+        left: 740px;
+        top: 34px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 4px solid #2b5896;
+        opacity: 0;
+      }
+      #cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 48px;
+        transform-origin: 4px 3px;
+        opacity: 0;
+      }
+      #a3 {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 250px;
+        opacity: 0;
+      }
+      #a3-title {
+        margin-top: 18px;
+        font-size: 64px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      #a3-line {
+        margin-top: 20px;
+        height: 310px;
+        font-size: 270px;
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+        white-space: nowrap;
+      }
+      #a3-line span {
+        display: inline-block;
+      }
+      #a3-caret {
+        width: 14px;
+        height: 220px;
+        margin-left: 18px;
+        vertical-align: -16px;
+        background: #2b5896;
+        border-radius: 3px;
+      }
+      #a3-plus {
+        margin-top: 40px;
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+        opacity: 0;
+      }
+      #a3-plus b {
+        font-size: 72px;
+        font-weight: 800;
+        color: #2b5896;
+        letter-spacing: -0.03em;
+      }
+      #a3-plus span {
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      /* ── S5 tagline ────────────────────────────────────── */
+      .slam {
+        position: absolute;
+        left: 140px;
+        font-size: 190px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        white-space: nowrap;
+        opacity: 0;
+      }
+      #p1 {
+        top: 250px;
+      }
+      #p2 {
+        top: 520px;
+      }
+      #p2 .hl {
+        position: relative;
+        display: inline-block;
+      }
+      #p2-mark {
+        position: absolute;
+        left: 0;
+        right: 190px;
+        bottom: -8px;
+        height: 16px;
+        border-radius: 8px;
+        background: #2b5896;
+        transform-origin: 0 50%;
+      }
+
+      /* ── S6 end ────────────────────────────────────────── */
+      #end {
+        position: absolute;
+        left: 140px;
+        top: 250px;
+        width: 700px;
+      }
+      #end-name {
+        font-size: 150px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+      }
+      #end-en {
+        font-size: 92px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      #end-rule {
+        margin-top: 36px;
+        width: 420px;
+        height: 6px;
+        border-radius: 3px;
+        background: #2b5896;
+        transform-origin: 0 50%;
+      }
+      #end-role {
+        margin-top: 30px;
+        font-size: 32px;
+        font-weight: 600;
+        color: #526173;
+        white-space: nowrap;
+      }
+      #end-line {
+        margin-top: 14px;
+        font-size: 38px;
+        font-weight: 700;
+      }
+      #end-radar {
+        position: absolute;
+        left: 880px;
+        top: 200px;
+        width: 620px;
+        height: 620px;
+        opacity: 0;
+      }
+      /* ── English layout ────────────────────────────────── */
+      #root.en .hook {
+        font-size: 128px;
+      }
+      #root.en #r1 {
+        font-size: 76px;
+      }
+      #root.en #r2,
+      #root.en #r3 {
+        font-size: 46px;
+      }
+      #root.en .ax {
+        width: 300px;
+        margin-left: -150px;
+        font-size: 24px;
+      }
+      #root.en .ch-org {
+        font-size: 46px;
+      }
+      #root.en .ch-title {
+        font-size: 36px;
+      }
+      #root.en .ch-metric {
+        font-size: 30px;
+        white-space: normal;
+      }
+      #root.en .ch-chips span {
+        font-size: 22px;
+      }
+      #root.en #radar-cap {
+        font-size: 52px;
+      }
+      #root.en #traits span {
+        font-size: 26px;
+      }
+      #root.en #a0-l1,
+      #root.en #a0-l2 {
+        font-size: 110px;
+      }
+      #root.en #flow .node {
+        font-size: 34px;
+      }
+      #root.en #a2-unit {
+        font-size: 42px;
+      }
+      #root.en #a2-body {
+        font-size: 28px;
+      }
+      #root.en #a3-title {
+        font-size: 60px;
+      }
+      #root.en #a3-plus span {
+        font-size: 32px;
+      }
+      #root.en .slam {
+        font-size: 180px;
+      }
+      #root.en #p2-mark {
+        right: 0;
+      }
+      #root.en #end-name {
+        font-size: 140px;
+      }
+      #root.en #end-role {
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1600" data-height="1000">
+      <div id="bg" class="scene clip" data-start="0" data-duration="60" data-track-index="0">
+        <div id="bg-dots"></div>
+        <div id="bg-glow"></div>
+        <svg id="bg-grain" width="1600" height="1000" viewBox="0 0 1600 1000" aria-hidden="true">
+          <filter id="grain-f">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="1600" height="1000" filter="url(#grain-f)" />
+        </svg>
+      </div>
+
+      <!-- S1 hook: 0–6 -->
+      <div id="s1" class="scene clip" data-start="0" data-duration="6" data-track-index="1">
+        <div id="h1a" class="hook">規格寫完了。</div>
+        <div id="h1b" class="hook">會議開完了。</div>
+        <div id="h1c" class="hook">
+          <div id="h1c-small">東西，</div>
+          <div>還沒跑起來。</div>
+        </div>
+        <div id="load">
+          <div id="load-track"><div id="load-fill"></div></div>
+          <div id="load-label">載入中 12%</div>
+        </div>
+      </div>
+
+      <!-- S2 rubric: 6–12 -->
+      <div id="s2" class="scene clip" data-start="6" data-duration="6" data-track-index="1">
+        <div id="s2-copy">
+          <div id="r1">AI 時代的 PM，</div>
+          <div id="r2">做出東西不再是門檻，</div>
+          <div id="r3">要看的是這六項。</div>
+        </div>
+      </div>
+
+      <!-- S3 chapters: 12–35.4 (cards built by script) -->
+      <div id="s3" class="scene clip" data-start="12" data-duration="23.4" data-track-index="1">
+        <div id="chapters"></div>
+        <div id="rail"><div id="rail-fill"></div></div>
+      </div>
+
+      <!-- Radar: one continuous shape from 6.0 to 35.4, so the growth reads as accumulation. -->
+      <div id="radar" class="scene clip" data-start="6" data-duration="29.4" data-track-index="2">
+        <div id="radar-cap">每一段經歷，都讓這張圖再大一圈。</div>
+        <div id="radar-box"></div>
+      </div>
+
+      <!-- S4 AI way of working: 35.4–50 -->
+      <div id="s4" class="scene clip" data-start="35.4" data-duration="14.6" data-track-index="1">
+        <div id="traits"><span>好奇</span><span>勇於嘗試</span><span>追求效率</span></div>
+        <div id="a0">
+          <div id="a0-l1">看到新工具，</div>
+          <div id="a0-l2">我先<span class="hl">動手試</span>。</div>
+          <div id="tools"><span>Claude Code</span><span>Cursor</span><span>Gemini</span><span>Notion AI</span></div>
+        </div>
+        <div id="a1">
+          <div class="tag">AI 名片管理助手 · 0 到 1</div>
+          <div class="a-title">用 Cursor 與 Gemini，自己做出來。</div>
+          <div class="a-sub">從 OCR 辨識失敗、重建版控，到部署上線。</div>
+          <div id="flow">
+            <div class="node">拍名片</div>
+            <i class="arrow"></i>
+            <div class="node">Gemini 辨識</div>
+            <i class="arrow"></i>
+            <div class="node on">Notion 建檔</div>
+          </div>
+        </div>
+        <div id="a2-left">
+          <div class="tag">案場資料查詢工具</div>
+          <div id="a2-count" class="num">0</div>
+          <div id="a2-unit">次提交 · 2 個月</div>
+          <div id="a2-body">
+            <div>程式經驗不多的產品經理，</div>
+            <div>用 Claude Code 做出內部平台。</div>
+          </div>
+        </div>
+        <div id="win">
+          <div id="win-bar"><i></i><i></i><i></i><span id="win-url">ecofirst-hvac.app</span></div>
+          <div id="win-view">
+            <div id="app">
+              <img src="assets/ecofirst-app.png" alt="" />
+              <div id="ripple"></div>
+            </div>
+            <svg id="cursor" viewBox="0 0 34 40" aria-hidden="true">
+              <path
+                d="M3 2 L3 32 L11 25 L17 38 L23 35 L17 22 L28 22 Z"
+                fill="#202a36"
+                stroke="#fcfcfd"
+                stroke-width="2.5"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+        <div id="a3">
+          <div class="tag">控制策略模擬工具</div>
+          <div id="a3-title">策略調整需要</div>
+          <div id="a3-line"><span id="a3-text">1 週</span><span id="a3-caret"></span></div>
+          <div id="a3-plus"><b>+50%</b><span>把 AI 放進開發流程後的交付效率</span></div>
+        </div>
+      </div>
+
+      <!-- S5 tagline: 50–54.5 -->
+      <div id="s5" class="scene clip" data-start="50" data-duration="4.5" data-track-index="1">
+        <div id="p1" class="slam">先讓它能<span class="hl">跑。</span></div>
+        <div id="p2" class="slam">再讓它<span class="hl"><span id="p2-mark"></span>上線。</span></div>
+      </div>
+
+      <!-- S6 end: 54.5–60 -->
+      <div id="s6" class="scene clip" data-start="54.5" data-duration="5.5" data-track-index="1">
+        <div id="end">
+          <div id="end-name">許承澤</div>
+          <div id="end-en">Kevin Hsu</div>
+          <div id="end-rule"></div>
+          <div id="end-role">Product Manager · AI · B2C 平台 · 跨團隊交付</div>
+          <div id="end-line">先讓它能跑，再讓它上線。</div>
+        </div>
+        <div id="end-radar"></div>
+      </div>
+
+      <div id="chrome" class="scene clip" data-start="0" data-duration="60" data-track-index="4">
+        <div id="chrome-row">
+          <div>Kevin Hsu</div>
+          <div id="chrome-count">
+            <span>01 / 06</span><span>02 / 06</span><span>03 / 06</span><span>04 / 06</span><span>05 / 06</span
+            ><span>06 / 06</span>
+          </div>
+        </div>
+        <div id="chrome-rule"></div>
+      </div>
+    </div>
+
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const $$ = (s) => Array.from(document.querySelectorAll(s));
+      const ACCENT = "#2b5896";
+      const LANG = (window.__hyperframes?.getVariables?.() || {}).lang === "en" ? "en" : "zh";
+      const EN = LANG === "en";
+      if (EN) {
+        document.documentElement.lang = "en";
+        $("#root").classList.add("en");
+        const T = {
+          "#h1a": "Spec: done.",
+          "#h1b": "Meetings: done.",
+          "#h1c-small": "The product?",
+          "#h1c > div:last-child": "Still not running.",
+          "#load-label": "Loading 12%",
+          "#r1": "The AI-era PM.",
+          "#r2": "Building is no longer the hard part.",
+          "#r3": "These six are.",
+          "#radar-cap": "Every chapter made the shape bigger.",
+          "#a0-l1": "See a new tool?",
+          "#a1 .tag": "AI business-card assistant · 0 to 1",
+          "#a1 .a-title": "Built it with Cursor + Gemini.",
+          "#a1 .a-sub": "From failed OCR and a rebuilt repo to a live deploy.",
+          "#a2-left .tag": "Field data query tool",
+          "#a2-unit": "commits · 2 months",
+          "#a3 .tag": "Control-strategy simulator",
+          "#a3-title": "Tuning a strategy took",
+          "#a3-text": "1 week",
+          "#a3-plus span": "delivery speed after putting AI into the dev workflow",
+          "#end-name": "Kevin Hsu",
+          "#end-en": "許承澤",
+          "#end-role": "Product Manager · AI · B2C · Cross-team delivery",
+          "#end-line": "Make it run. Then ship it.",
+        };
+        Object.entries(T).forEach(([sel, txt]) => ($(sel).textContent = txt));
+        const H = {
+          "#a0-l2": 'I <span class="hl">try it first</span>.',
+          "#a2-body": "<div>A PM with little coding background</div><div>built an internal platform</div><div>with Claude Code.</div>",
+          "#p1": 'Make it <span class="hl">run.</span>',
+          "#p2": 'Then <span class="hl"><span id="p2-mark"></span>ship</span> it.',
+        };
+        Object.entries(H).forEach(([sel, html]) => ($(sel).innerHTML = html));
+        ["Curious", "Willing to try", "Chasing efficiency"].forEach((t, i) => ($$("#traits span")[i].textContent = t));
+        ["Snap a card", "Gemini reads it", "Saved to Notion"].forEach((t, i) => ($$("#flow .node")[i].textContent = t));
+      }
+
+      // ── Data: six AI-era PM axes and the six chapters that grew them (relative, never shown as scores) ──
+      const AXES = EN
+        ? ["Problem framing", "Fast experiments", "Prototyping", "Workflow redesign", "Cross-team delivery", "Data judgment"]
+        : ["問題定義", "快速實驗", "原型實作", "流程重構", "跨團隊交付", "資料判讀"];
+      const BASE = [0.1, 0.1, 0.08, 0.1, 0.1, 0.1];
+      const CHAPTERS = [
+        { year: "2019", org: "眾碩投資", role: "產品助理", title: "先驗證，再動手。", metric: "陪 2 家早期公司走到市場驗證", grow: [0, 2], shape: [0.36, 0.2, 0.3, 0.12, 0.15, 0.12] },
+        { year: "2020", org: "歐可達數據", role: "Product Manager", title: "讓資料說話。", metric: "5 個通路 · 1,000 萬筆客戶資料", grow: [5, 4], shape: [0.42, 0.25, 0.32, 0.2, 0.46, 0.72] },
+        { year: "2021", org: "Fable 寓意科技", role: "Senior Project Manager", title: "在壓力下規模化。", metric: "300 → 1,000 單／日 (+233%)", grow: [3, 4], shape: [0.48, 0.3, 0.34, 0.8, 0.84, 0.76] },
+        { year: "2023", org: "獨立顧問", role: "包租代管 SaaS", title: "從商業策略拆到 Roadmap。", metric: "協助約 100 棟房源的 SaaS 產品化", grow: [0, 3], shape: [0.82, 0.38, 0.36, 0.86, 0.86, 0.76] },
+        { year: "2024", org: "知識衛星", role: "Senior Product Manager", title: "三種使用者，一份優先序。", metric: "3 週驗證香港市場", grow: [1, 0], shape: [0.88, 0.72, 0.38, 0.87, 0.87, 0.78] },
+        { year: "2025", org: "台灣愛淨", role: "Product Manager", title: "把 AI 放進真實工作。", metric: "交付效率 +50% · 案場營運 +20%", grow: [2, 1], shape: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
+      ];
+
+      if (EN) {
+        const E = [
+          ["Zhongshuo Investment", "Product Assistant", "Validate first, then build.", "2 early ventures taken to market tests"],
+          ["Oakda Data", "Product Manager", "Make data speak.", "5 channels · 10M customer records"],
+          ["Fable", "Senior Project Manager", "Scale under pressure.", "300 → 1,000 orders/day (+233%)"],
+          ["Independent consultant", "Property-management SaaS", "From business strategy to roadmap.", "Productizing a SaaS for ~100 buildings"],
+          ["SAT. Knowledge", "Senior Product Manager", "Three users, one priority list.", "Hong Kong market validated in 3 weeks"],
+          ["Ecofirst", "Product Manager", "Put AI into real work.", "Delivery +50% · Site operations +20%"],
+        ];
+        CHAPTERS.forEach((c, i) => ([c.org, c.role, c.title, c.metric] = E[i]));
+      }
+
+      // ── Build radar SVG (static rings + live polygon) ──
+      const R = 230,
+        CX = 360,
+        CY = 360;
+      const ang = (k) => -Math.PI / 2 + (k * Math.PI * 2) / 6;
+      const pt = (k, v, r = R, cx = CX, cy = CY) => [cx + Math.cos(ang(k)) * r * v, cy + Math.sin(ang(k)) * r * v];
+      const ring = (v, r, cx, cy) => [0, 1, 2, 3, 4, 5].map((k) => pt(k, v, r, cx, cy).join(",")).join(" ");
+      function radarSVG(id, size, r) {
+        const c = size / 2;
+        return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true">
+          ${[0.25, 0.5, 0.75, 1].map((v) => `<polygon points="${ring(v, r, c, c)}" fill="none" stroke="#d7dfe8" stroke-width="2"/>`).join("")}
+          ${[0, 1, 2, 3, 4, 5].map((k) => { const [x, y] = pt(k, 1, r, c, c); return `<line x1="${c}" y1="${c}" x2="${x}" y2="${y}" stroke="#d7dfe8" stroke-width="2"/>`; }).join("")}
+          <polygon id="${id}-poly" fill="${ACCENT}" fill-opacity="0.22" stroke="${ACCENT}" stroke-width="4" stroke-linejoin="round"/>
+          ${[0, 1, 2, 3, 4, 5].map((k) => `<circle id="${id}-v${k}" r="8" fill="${ACCENT}"/>`).join("")}
+        </svg>`;
+      }
+      $("#radar-box").innerHTML = radarSVG("rd", 720, R);
+      AXES.forEach((label, k) => {
+        const [x, y] = pt(k, 1, R + 62);
+        const el = document.createElement("div");
+        el.className = "ax";
+        el.id = `ax${k}`;
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+        el.textContent = label;
+        $("#radar-box").append(el);
+      });
+      $("#end-radar").innerHTML = radarSVG("er", 620, 200);
+      function drawShape(id, vals, r, c) {
+        $(`#${id}-poly`).setAttribute("points", vals.map((v, k) => pt(k, v, r, c, c).join(",")).join(" "));
+        vals.forEach((v, k) => {
+          const [x, y] = pt(k, v, r, c, c);
+          $(`#${id}-v${k}`).setAttribute("cx", x);
+          $(`#${id}-v${k}`).setAttribute("cy", y);
+        });
+      }
+      drawShape("rd", BASE, R, CX);
+      drawShape("er", CHAPTERS[5].shape, 200, 310);
+
+      // ── Build chapter cards ──
+      CHAPTERS.forEach((c, i) => {
+        const card = document.createElement("div");
+        card.className = "ch";
+        card.id = `ch${i}`;
+        card.innerHTML = `<div class="ch-year num">${c.year}</div><div class="ch-org">${c.org}</div><div class="ch-role">${c.role}</div>
+          <div class="ch-title">${c.title}</div><div class="ch-metric">${c.metric}</div>
+          <div class="ch-chips">${c.grow.map((k) => `<span>+ ${AXES[k]}</span>`).join("")}</div>`;
+        $("#chapters").append(card);
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      function count(sel, from, to, at, dur, fmt) {
+        const box = { v: from };
+        const el = $(sel);
+        el.textContent = fmt(from);
+        tl.fromTo(box, { v: from }, { v: to, duration: dur, ease: "power2.out", immediateRender: false, onUpdate: () => (el.textContent = fmt(box.v)) }, at);
+      }
+      const int = (v) => Math.round(v).toLocaleString("en-US");
+
+      // ── Background + chrome ──
+      tl.fromTo("#bg-glow", { x: 0, y: 0 }, { x: -260, y: 120, duration: 60, ease: "sine.inOut" }, 0);
+      tl.fromTo("#bg-dots", { x: 0, y: 0 }, { x: -40, y: -40, duration: 60, ease: "none" }, 0);
+      const SCENES = [0, 6, 12, 35.4, 50, 54.5];
+      const counts = $$("#chrome-count span");
+      SCENES.forEach((t, i) => {
+        tl.set(counts, { opacity: 0 }, t);
+        tl.set(counts[i], { opacity: 1 }, t);
+      });
+      tl.fromTo("#chrome-row", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.3);
+      tl.fromTo("#chrome-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power3.out", transformOrigin: "0 50%" }, 0.3);
+
+      // ── S1 hook: three beats, 1.6s apart ──
+      tl.fromTo("#h1a", { opacity: 0, scale: 1.35, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "power4.out", transformOrigin: "0 50%" }, 0.4);
+      tl.set("#h1a", { opacity: 0 }, 2.0);
+      tl.fromTo("#h1b", { opacity: 0, x: -320 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 2.0);
+      tl.set("#h1b", { opacity: 0 }, 3.6);
+      tl.fromTo("#h1c", { opacity: 0, y: 90, rotation: 3 }, { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: "circ.out", transformOrigin: "0 100%" }, 3.6);
+      tl.fromTo("#load", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 4.1);
+      tl.fromTo("#load-fill", { scaleX: 0 }, { scaleX: 0.12, duration: 0.5, ease: "power2.out" }, 4.2);
+      tl.to("#load-fill", { scaleX: 0.125, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 5.0);
+
+      // ── S2 rubric: copy on the left, the empty radar's axes light up one by one ──
+      tl.fromTo("#r1", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 6.3);
+      tl.fromTo("#r2", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 7.2);
+      tl.fromTo("#r3", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 8.3);
+      tl.fromTo("#radar-box svg", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", transformOrigin: "50% 50%" }, 6.6);
+      AXES.forEach((_, k) => {
+        const at = 8.4 + k * 0.32;
+        tl.fromTo(`#ax${k}`, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, at);
+        tl.fromTo(`#ax${k}`, { color: ACCENT }, { color: "#526173", duration: 0.5, immediateRender: false }, at + 0.35);
+      });
+      tl.to("#s2-copy", { opacity: 0, x: -60, duration: 0.35, ease: "power3.in" }, 11.6);
+
+      // ── S3 chapters: 3.4s each; each chip lands, then the polygon grows toward that chapter's shape ──
+      const CH = CHAPTERS.map((_, i) => 12.2 + i * 3.4);
+      CHAPTERS.forEach((c, i) => {
+        const t = CH[i];
+        const sel = `#ch${i}`;
+        tl.fromTo(sel, { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, t);
+        tl.fromTo(`${sel} .ch-metric`, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, t + 0.6);
+        tl.fromTo(`${sel} .ch-chips span`, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", stagger: 0.12 }, t + 1.0);
+        c.grow.forEach((k) => {
+          tl.fromTo(`#ax${k}`, { color: ACCENT, scale: 1.12 }, { color: "#526173", scale: 1, duration: 1.2, ease: "power2.out", immediateRender: false }, t + 1.4);
+          tl.fromTo(`#rd-v${k}`, { attr: { r: 16 } }, { attr: { r: 8 }, duration: 1.0, ease: "power2.out", immediateRender: false }, t + 1.9);
+        });
+        if (i < CHAPTERS.length - 1) tl.to(sel, { opacity: 0, y: -60, duration: 0.3, ease: "power3.in" }, t + 3.1);
+      });
+      // One seek-safe driver for the whole growth: the shape is a pure function of time.
+      const grow = gsap.parseEase("power3.inOut");
+      const shapeAt = (t) =>
+        CHAPTERS.reduce((cur, c, i) => {
+          const k = grow(Math.min(1, Math.max(0, (t - (CH[i] + 1.4)) / 1.0)));
+          return cur.map((v, a) => v + (c.shape[a] - v) * k);
+        }, BASE.slice());
+      const clock = { t: 6 };
+      tl.fromTo(clock, { t: 6 }, { t: 35.4, duration: 29.4, ease: "none", immediateRender: false, onUpdate: () => drawShape("rd", shapeAt(clock.t), R, CX) }, 6);
+      tl.fromTo("#rail-fill", { scaleX: 0 }, { scaleX: 1, duration: 20.4, ease: "none" }, 12.2);
+
+      // Recap 32.4–35.4: the finished shape takes the centre.
+      tl.to(`#ch5, #rail`, { opacity: 0, x: -80, duration: 0.4, ease: "power3.in" }, 32.2);
+      tl.to("#radar-box", { x: -360, y: 40, scale: 1.08, duration: 0.9, ease: "power3.inOut" }, 32.4);
+      tl.fromTo("#radar-cap", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 33.0);
+      tl.fromTo("#rd-poly", { attr: { "fill-opacity": 0.22 } }, { attr: { "fill-opacity": 0.4 }, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 33.3);
+      tl.to("#radar-box, #radar-cap", { opacity: 0, duration: 0.3, ease: "power2.in" }, 35.05);
+
+      // ── S4 AI way of working: 35.4–50 ──
+      const traits = $$("#traits span");
+      const lightTrait = (i, at) => {
+        tl.set(traits, { backgroundColor: "#fcfcfd", color: "#526173", borderColor: "#d7dfe8" }, at);
+        tl.set(traits[i], { backgroundColor: ACCENT, color: "#f5f8fc", borderColor: ACCENT }, at);
+      };
+      tl.fromTo("#traits", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 35.6);
+      // A0 35.4–38.6: the stance, then the tools.
+      tl.fromTo("#a0-l1", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 35.6);
+      tl.fromTo("#a0-l2", { opacity: 0, scale: 1.2, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out", transformOrigin: "0 50%" }, 36.4);
+      tl.fromTo("#tools span", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", stagger: 0.14 }, 37.1);
+      tl.to("#a0", { opacity: 0, y: -40, duration: 0.3, ease: "power3.in" }, 38.4);
+      // A1 38.7–41.9: 好奇.
+      lightTrait(0, 38.7);
+      tl.fromTo("#a1", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 38.7);
+      $$("#flow .node").forEach((n, i) => tl.fromTo(n, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 39.5 + i * 0.45));
+      $$("#flow .arrow").forEach((a, i) => tl.fromTo(a, { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 39.75 + i * 0.45));
+      tl.to("#a1", { opacity: 0, x: -120, duration: 0.3, ease: "power3.in" }, 41.7);
+      // A2 42.0–45.8: 勇於嘗試, the real internal platform.
+      lightTrait(1, 42.0);
+      tl.fromTo("#a2-left", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 42.0);
+      count("#a2-count", 0, 218, 42.2, 1.5, int);
+      tl.fromTo("#a2-count", { scale: 0.7 }, { scale: 1, duration: 1.5, ease: "power2.out", transformOrigin: "0 80%" }, 42.2);
+      tl.fromTo("#win", { opacity: 0, y: 60, rotationX: 8 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.8, ease: "power3.out", transformPerspective: 1600 }, 42.1);
+      tl.fromTo("#cursor", { opacity: 0, x: 560, y: 400 }, { opacity: 1, x: 560, y: 400, duration: 0.1 }, 42.9);
+      tl.to("#cursor", { x: 762, y: 58, duration: 0.6, ease: "power2.inOut" }, 43.0);
+      tl.to("#cursor", { scale: 0.82, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, 43.62);
+      tl.fromTo("#ripple", { opacity: 0.9, scale: 0.3 }, { opacity: 0, scale: 2.4, duration: 0.6, ease: "power2.out" }, 43.62);
+      tl.to("#cursor", { opacity: 0, duration: 0.25 }, 44.1);
+      tl.fromTo("#app", { scale: 1 }, { scale: 1.5, duration: 1.2, ease: "power3.inOut" }, 44.2);
+      tl.to("#win", { x: 980, duration: 0.4, ease: "power3.in" }, 45.5);
+      tl.to("#a2-left", { x: -120, opacity: 0, duration: 0.3, ease: "power3.in" }, 45.6);
+      // A3 45.9–50: 追求效率, 1 週 → 2 小時, then +50%.
+      lightTrait(2, 45.9);
+      tl.fromTo("#a3", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 45.9);
+      const typed = $("#a3-text");
+      const TYPE = EN
+        ? [[46.8, "1 wee"], [46.87, "1 we"], [46.94, "1 w"], [47.01, "1 "], [47.08, "1"], [47.15, ""], [47.3, "2"], [47.37, "2 "], [47.44, "2 h"], [47.51, "2 ho"], [47.58, "2 hou"], [47.65, "2 hour"], [47.72, "2 hours"]]
+        : [[46.85, "1 "], [46.97, "1"], [47.09, ""], [47.3, "2"], [47.4, "2 "], [47.5, "2 小"], [47.6, "2 小時"]];
+      TYPE.forEach(([t, txt]) => tl.set(typed, { textContent: txt }, t));
+      tl.set(typed, { color: ACCENT }, 47.3);
+      tl.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 5, repeatDelay: 0.28 }, 46.2);
+      tl.set("#a3-caret", { opacity: 1 }, TYPE[0][0]);
+      tl.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 3, repeatDelay: 0.3 }, 47.9);
+      tl.fromTo("#a3-plus", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 48.3);
+      tl.to("#traits", { opacity: 0, duration: 0.3 }, 49.7);
+
+      // ── S5 tagline ──
+      tl.fromTo("#p1", { opacity: 0, scale: 1.45, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power4.out", transformOrigin: "0 50%" }, 50.3);
+      tl.fromTo("#p2", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 51.9);
+      tl.fromTo("#p2-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 52.5);
+      tl.to("#p1, #p2", { scale: 1.015, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0 50%" }, 52.8);
+
+      // ── S6 end: name beside the finished radar, then clear for the loop ──
+      tl.fromTo("#end-name", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.7);
+      tl.fromTo("#end-en", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.95);
+      tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.inOut" }, 55.3);
+      tl.fromTo("#end-role", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 55.5);
+      tl.fromTo("#end-line", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 55.8);
+      tl.fromTo("#end-radar", { opacity: 0, scale: 0.85, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.9, ease: "power3.out", transformOrigin: "50% 50%" }, 55.0);
+      tl.to("#end, #end-radar", { opacity: 0, duration: 0.45, ease: "power2.in" }, 59.4);
+      tl.to("#chrome-row, #chrome-rule", { opacity: 0, duration: 0.45, ease: "power2.in" }, 59.4);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

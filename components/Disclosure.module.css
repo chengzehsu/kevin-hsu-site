@@ -1,5 +1,5 @@
 .disclosure { interpolate-size: allow-keywords; }
-.summary { list-style: none; cursor: pointer; border-radius: 0.25rem; }
+.summary { list-style: none; cursor: pointer; border-radius: var(--radius-ui); }
 .summary::-webkit-details-marker { display: none; }
 .summary::marker { content: ""; }
 .summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }

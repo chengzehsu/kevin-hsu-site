@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { CasesContent } from "@/content/types";
-import styles from "./CaseStudies.module.css";
+import styles from "./CasePage.module.css";
 import { LinkSimpleIcon } from "@phosphor-icons/react/dist/ssr";
 
 type Labels = Pick<CasesContent, "copyLabel" | "copiedLabel" | "copyFallback" | "linkLabel">;

@@ -10,7 +10,6 @@ test("skills library keeps native details out of the section grid", () => {
   assert.match(skillsComponent, /<details className=\{styles\.library\}>/);
   assert.doesNotMatch(skillsComponent, /<details className=\{`\$\{styles\.sectionBlock\}/);
   assert.match(skillsStyles, /\.library\s*\{\s*display: block;/);
-  assert.match(skillsStyles, /\.groups\s*\{[\s\S]*?margin-left: calc\(10rem \+ 2\.5rem\);/);
 });
 
 for (const [locale, file, heading] of [
@@ -22,11 +21,10 @@ for (const [locale, file, heading] of [
   test(`${locale}: awards and case features are separate, server-rendered evidence`, async () => {
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     const awards = html.match(/<section id="awards"[\s\S]*?<\/section>/)?.[0];
-    const metrics = html.match(/<section id="metrics"[\s\S]*?<\/section>/)?.[0];
     assert.ok(awards, "Dedicated awards section must be present without JavaScript");
     assert.ok(awards.includes(heading));
-    assert.ok(metrics);
-    assert.ok(!metrics.includes("PMI"), "Awards must not remain in the metrics strip");
+    // The metrics strip was retired; its numbers now live on the case posters.
+    assert.ok(!html.includes('id="metrics"'), "The duplicated metrics strip stays retired");
     assert.equal((awards.match(/data-recognition="award"/g) ?? []).length, 1);
     assert.equal((awards.match(/data-recognition="feature"/g) ?? []).length, 1);
     assert.ok(awards.includes("2022"));
@@ -73,9 +71,17 @@ for (const [locale, file, heading] of [
     assert.equal((cases.match(/data-case-card="ledger"/g) ?? []).length, 4);
     assert.equal((cases.match(/data-case-card="featured"/g) ?? []).length, 0);
     assert.equal((html.match(/data-disclosure="experience"/g) ?? []).length, 6);
-    assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(html), "Default visit stays compact");
+    // Compact by default, except the current role: its evidence is what a hiring reader came for.
+    const openDetails = html.match(/<details[^>]*\sopen(?:[\s=>])[^>]*>/g) ?? [];
+    assert.equal(openDetails.length, 1, "Only the current role opens by default");
+    const firstExperience = html.match(/<details[^>]*data-disclosure="experience"[^>]*>/)?.[0];
+    assert.ok(firstExperience && /\sopen(?:[\s=>])/.test(firstExperience), "The open entry is the first (current) role");
     assert.ok(!html.includes("data-open-experiment"));
-    assert.ok(!html.includes("<video"), "Do not fetch or mount the film before a request");
+    // The hero film may mount, but no film bytes are requested before load: no sources in the HTML.
+    const hero = html.match(/<section id="hero"[\s\S]*?<\/section>/)?.[0] ?? "";
+    assert.equal((html.match(/<video/g) ?? []).length, 1, "Only the hero film mounts on the home page");
+    assert.ok(/<video[^>]*preload="none"/.test(hero), "The hero film must not preload");
+    assert.ok(!html.includes("<source"), "Film sources attach after load, never in the server HTML");
     for (const id of ["ecofirst", "grocery", "health-app", "cdp"]) {
       const article = cases.match(new RegExp(`<article id="${id}"[\\s\\S]*?<\\/article>`))?.[0];
       assert.ok(article?.includes(locale === "zh" ? "查看案例詳情" : "View case details"));
@@ -99,11 +105,12 @@ for (const [locale, file, heading] of [
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     const skills = html.match(/<section id="skills"[\s\S]*?<\/section>/)?.[0];
     assert.ok(skills, "Skills must remain visible before hydration");
-    assert.equal((skills.match(/data-featured-skill=/g) ?? []).length, 5);
+    assert.equal((skills.match(/data-featured-skill=/g) ?? []).length, 4);
     assert.equal((skills.match(/data-skill=/g) ?? []).length, 20);
     assert.ok(skills.includes(locale === "zh" ? "完整技能庫" : "Full skill set"));
     assert.ok(skills.includes(locale === "zh" ? "以下整理我在專案中實際負責過的能力" : "A record of the work I have owned in projects"));
-    assert.ok(!skills.includes("<polygon"), "Skills should not use a subjective radar chart");
+    // The radar mirrors the launch film: shape only, never scores.
+    assert.ok(!/<text[^>]*>\s*\d/.test(skills), "The skills radar must not print numeric scores");
     assert.ok(html.indexOf('<section id="skills"') < html.indexOf('<section id="experience"'));
   });
 

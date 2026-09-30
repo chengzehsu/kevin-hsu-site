@@ -1,0 +1,53 @@
+/* The film panel is left-anchored: signature panel corner top-left, tip bottom-left, bleed on the right. */
+.film {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 8 / 5;
+  border: 1px solid var(--line);
+  border-right: 0;
+  border-radius: var(--radius-panel) 0 0 var(--radius-tip);
+  background: #e7eef7;
+  /* The film is always bright; on the dark theme it reads as a lit screen on a stage, not a hole in the page. */
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--accent) 18%, transparent),
+    0 1.5rem 4rem -1.5rem color-mix(in oklch, var(--accent) 40%, transparent),
+    0 0 7rem -2rem color-mix(in oklch, var(--accent) 30%, transparent);
+}
+
+.poster, .video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.video { opacity: 0; transition: opacity 400ms ease; pointer-events: none; }
+.film[data-ready="true"] .video { opacity: 1; }
+
+.toggle {
+  position: absolute;
+  bottom: .85rem;
+  left: .85rem;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: var(--radius-ui);
+  /* The film is always light, so the control keeps its own dark scrim in both themes. */
+  background: rgb(20 30 44 / .72);
+  color: #f4f7fb;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+.toggle:hover { background: rgb(20 30 44 / .9); }
+.toggle:active { transform: scale(.96); }
+.toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+
+
+/* Matches Hero.module.css: from 90rem the film sits inside the column, so it gets its right edge back. */
+@media (min-width: 90rem) {
+  .film { border-right: 1px solid var(--line); border-radius: var(--radius-panel) var(--radius-ui) var(--radius-ui) var(--radius-tip); }
+}
+
+@media (max-width: 1023px) {
+  .film { border-radius: var(--radius-panel) 0 0 var(--radius-tip); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video, .toggle { transition: none; }
+}

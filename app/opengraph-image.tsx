@@ -21,7 +21,7 @@ export default async function OpenGraphImage() {
   return new ImageResponse(
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 76px", background: "#eef1f4", color: "#202b36", fontFamily: "Manrope, Noto Sans TC", fontWeight: 600 }}>
       <div style={{ display: "flex", color: "#285cab", fontSize: 24 }}>{hero.eyebrow}</div>
-      <div style={{ display: "flex", maxWidth: 1048, fontSize: 66, lineHeight: 1.3 }}>{hero.headline}</div>
+      <div style={{ display: "flex", maxWidth: 1048, fontSize: 66, lineHeight: 1.3 }}>{hero.headline.replace(/[【】]/g, "")}</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
         <div style={{ display: "flex", color: "#536274", fontSize: 22 }}>台灣愛淨 Ecofirst</div>
         <div style={{ display: "flex", borderTop: "1px solid #cdd5de", paddingTop: 24 }}>

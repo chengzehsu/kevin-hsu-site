@@ -1,29 +1,104 @@
-.composition { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 6vw, 6rem); width: 100%; max-width: 74rem; margin-inline: auto; padding-inline: 2rem; }
-.copy { min-width: 0; }
-.profile { display: grid; gap: 1.25rem; padding-left: 2rem; border-left: 1px solid var(--line); }
-.profile dt { margin-bottom: 0.35rem; color: var(--muted); font-size: 0.82rem; }
-.profile dd { font-size: 0.95rem; font-weight: 500; line-height: 1.75; }
-.copy :global(.hero-title) { max-width: 16ch; font-size: clamp(2.6rem, 4.6vw, 3.9rem); line-height: 1.12; font-weight: 550; }
-.copy :global(.hero-title-zh) { max-width: none; font-size: clamp(2.4rem, 4.1vw, 3.5rem); line-height: 1.35; font-weight: 600; letter-spacing: 0; }
-.copy :global(.hero-subline) { max-width: 40ch; font-size: 1rem; line-height: 1.9; }
-@media (max-width: 1023px) {
-  .composition { grid-template-columns: minmax(0, 1fr); max-width: 48rem; padding-inline: 1.5rem; }
-  .profile { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 1.5rem 0 0; border-left: 0; border-top: 1px solid var(--line); }
-  .copy :global(.hero-title) { max-width: 16ch; }
-  .copy :global(.hero-title-zh) { max-width: 12em; }
-  .copy :global(.hero-subline) { max-width: 44ch; }
+/* Split hero: display type on the left, the rendered workflow film bleeding off the right edge. */
+.hero {
+  --gutter: 2rem;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  /* Capped top space (skill: <= 6rem) so the proof strip peeks into the first screen. */
+  padding-block: clamp(2.5rem, 7vh, 5.5rem) clamp(3rem, 8vh, 5.5rem);
+  overflow: clip;
 }
+
+.composition {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  width: 100%;
+  max-width: 74rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.copy { min-width: 0; }
+
+.media {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  /* Bleed to the viewport edge: the container gap plus its own gutter. */
+  margin-right: calc(-1 * (max(0px, (100vw - 74rem) / 2) + var(--gutter)));
+}
+
+.media :global(figcaption) { padding-right: var(--gutter); }
+
+/* Soft spotlight behind the film, the same light the launch film uses. */
+.media::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -18% -10% -10% -18%;
+  background: radial-gradient(closest-side, color-mix(in oklch, var(--accent) 22%, transparent), transparent);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.caption {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 2.75rem;
+  margin-top: .85rem;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  transition: color 200ms ease;
+}
+.caption:hover { color: var(--accent); }
+
+.copy :global(.hero-eyebrow) { color: var(--muted); font-size: .9rem; font-weight: 500; letter-spacing: .01em; }
+.copy :global(.hero-title) {
+  max-width: none;
+  margin-top: 1.1rem;
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.copy :global(.hero-title-zh) {
+  font-size: clamp(2.4rem, 5.2vw, 4.25rem);
+  line-height: 1.16;
+  letter-spacing: -.02em;
+}
+.copy :global(.hero-title-zh .hero-line > span) { white-space: nowrap; }
+.copy :global(.hero-actions) { margin-top: 1.75rem; }
+
+/* On wide screens the bleed grows with the viewport and the film outweighs the copy 4:1; keep it in the column. */
+@media (min-width: 90rem) {
+  .composition { max-width: 80rem; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+  .media { margin-right: 0; }
+  .media :global(figcaption) { padding-right: 0; }
+}
+
+@media (max-width: 1023px) {
+  .hero { --gutter: 1.5rem; }
+  .composition { grid-template-columns: minmax(0, 1fr); max-width: 48rem; gap: 2.75rem; }
+  .media { margin-right: calc(-1 * var(--gutter)); }
+  .copy :global(.hero-title-zh) { font-size: clamp(2.4rem, 8vw, 4rem); }
+  .copy :global(.hero-title) { font-size: clamp(2.2rem, 6.4vw, 3.4rem); }
+}
+
 @media (max-width: 767px) {
-  .composition { padding-inline: 1rem; gap: 2.2rem; }
-  .profile { grid-template-columns: 1fr; gap: 0.65rem; padding-top: 1.1rem; }
-  .profile > div { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 0.7rem; align-items: baseline; }
-  .profile dt { margin: 0; }
-  .profile dd { font-size: 0.85rem; }
-  .copy :global(.hero-title) { max-width: none; font-size: clamp(1.75rem, 7.8vw, 2.65rem); }
-  .copy :global(.hero-title-zh) { max-width: 9em; font-size: clamp(1.95rem, 7.4vw, 2.6rem); }
-  .copy :global(.hero-subline) { font-size: 1rem; }
-  .copy :global(.hero-actions) { gap: .65rem; margin-top: 1.5rem; }
+  .hero { --gutter: 1rem; padding-block: 2rem 2.5rem; }
+  .copy :global(.hero-title-zh) { font-size: clamp(2.1rem, 10.4vw, 3rem); }
+  .copy :global(.hero-title) { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .copy :global(.hero-trait) { grid-template-columns: 4.75rem minmax(0, 1fr); gap: .75rem; }
+  .copy :global(.hero-actions) { gap: .65rem; margin-top: 1.75rem; }
   .copy :global(.hero-actions) > a { min-height: 44px; padding: .65rem .9rem; font-size: .875rem; }
 }
 
-.copy :global(.hero-eyebrow) { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.01em; color: var(--muted); }
+@media print {
+  .hero { min-height: auto; padding-block: 1.5rem; }
+  .media { display: none; }
+}

@@ -1,6 +1,8 @@
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
+import { casePath } from "@/lib/locale";
 import { HeroStatement } from "./motion/HeroStatement";
+import { HeroFilm } from "./motion/HeroFilm";
 import { MagneticLink } from "./motion/MagneticLink";
 import styles from "./Hero.module.css";
 
@@ -10,16 +12,17 @@ const SECONDARY_CTA =
   "inline-flex items-center gap-2 whitespace-nowrap rounded-ui border border-line px-5 py-3 transition-transform hover:bg-surface active:scale-[0.98]";
 
 export function Hero({ content, locale }: SectionProps) {
-  const { eyebrow, headline, subline, profile, primaryCta, secondaryCta } = content.hero;
+  const { eyebrow, kicker, headline, traits, primaryCta, secondaryCta, film } = content.hero;
 
   return (
-    <section id="hero" className="hero-section">
+    <section id="hero" className={styles.hero}>
       <div className={styles.composition}>
         <div className={styles.copy}>
           <HeroStatement
             eyebrow={eyebrow}
+            kicker={kicker}
             headline={headline}
-            subline={subline}
+            traits={traits}
             chinese={locale === "zh"}
             actions={
               <>
@@ -35,14 +38,20 @@ export function Hero({ content, locale }: SectionProps) {
           />
         </div>
 
-        <dl className={styles.profile}>
-          {profile.map((item) => (
-            <div key={item.label}>
-              <dt>{item.label}</dt>
-              <dd>{item.value}</dd>
-            </div>
-          ))}
-        </dl>
+        <figure className={styles.media}>
+          <HeroFilm
+            pauseLabel={film.pauseLabel}
+            playLabel={film.playLabel}
+            locale={locale}
+            summary={film.summary}
+            link={
+              <a href={casePath(locale, film.caseId)} className={`${styles.caption} action-link`}>
+                {film.caption}
+                <ArrowRightIcon size={16} aria-hidden="true" />
+              </a>
+            }
+          />
+        </figure>
       </div>
     </section>
   );

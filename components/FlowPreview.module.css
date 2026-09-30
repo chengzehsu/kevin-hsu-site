@@ -1,4 +1,4 @@
-.preview { position: relative; width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: 0.4rem; background: var(--surface-strong); color: var(--fg); overflow: hidden;  }
+.preview { position: relative; width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: var(--radius-ui); background: var(--surface-strong); color: var(--fg); overflow: hidden;  }
 .header { position: relative; z-index: 1; padding: 1.45rem 1.6rem 0; }
 .heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .66rem; font-weight: 500; line-height: 1.5; }
 .heading > span:last-child { font-variant-numeric: tabular-nums; font-weight: 400; }

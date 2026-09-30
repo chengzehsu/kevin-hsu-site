@@ -23,3 +23,13 @@ next-env.d.ts
 CLAUDE.local.md
 .sd0x/
 .claude/scripts/
+
+# Private job-search notes (salary, recruiter details): never commit
+talktoheadhunter.md
+
+# Launch film: renders and review snapshots are regenerated from videos/*/index.html;
+# the site ships the compressed copies in public/hero-reel.*
+videos/**/renders/
+videos/**/snapshots*/
+videos/**/.claude/
+videos/**/.hyperframes-check.log

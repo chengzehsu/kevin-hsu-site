@@ -1,52 +1,83 @@
-.heading { display: grid; gap: 0.7rem; }
-.heading > p { max-width: 54ch; color: var(--muted); font-size: 1rem; }
+.heading { display: grid; gap: .8rem; }
+.heading > p { max-width: 44ch; color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.7; }
 
-.grid {
+/* Bento: the lead build spans two rows, two builds stack beside it, the everyday workflow runs full width. */
+.bento {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-areas:
+    "lead curious"
+    "lead efficient"
+    "wide wide";
   gap: 1rem;
-  margin-top: 1.75rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
+.tile[data-tile="0"] { grid-area: lead; }
+.tile[data-tile="1"] { grid-area: curious; }
+.tile[data-tile="2"] { grid-area: efficient; }
+.tile[data-tile="3"] { grid-area: wide; }
 
-.card {
+.tile {
+  position: relative;
   display: flex;
-  min-height: 15.5rem;
   flex-direction: column;
   overflow: hidden;
-  padding: 1.5rem;
   border: 1px solid var(--line);
-  border-radius: var(--radius-ui);
+  border-radius: var(--radius-panel);
   background: var(--surface);
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  transition: border-color 250ms ease, transform 350ms cubic-bezier(.16, 1, .3, 1), box-shadow 350ms ease;
 }
+.tile:hover {
+  border-color: color-mix(in oklch, var(--accent) 45%, var(--line));
+  box-shadow: 0 1.5rem 3.5rem -1.5rem color-mix(in oklch, var(--accent) 35%, transparent);
+  transform: translateY(-3px);
+}
+.tile:has(.link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 4px; }
 
-.card:first-child { grid-row: span 2; min-height: 100%; padding: 2rem; background: var(--surface-strong); }
-.card:hover { border-color: color-mix(in oklch, var(--accent) 52%, var(--line)); box-shadow: 0 12px 30px rgb(43 88 150 / .09); transform: translateY(-2px); }
-.card:has(.link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 4px; }
+.media { position: relative; overflow: hidden; background: var(--surface-strong); }
+.image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 600ms cubic-bezier(.16, 1, .3, 1); }
+.tile:hover .image { transform: scale(1.03); }
+/* White-background screenshots glare on the dark theme; dim them slightly there. */
+:global(:root[data-theme="dark"]) .image { filter: brightness(.86); }
+@media (prefers-color-scheme: dark) { :global(:root:not([data-theme])) .image { filter: brightness(.86); } }
+.media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, color-mix(in oklch, var(--surface) 85%, transparent)); pointer-events: none; }
 
-.meta { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; color: var(--muted); font-size: 0.78rem; font-weight: 500; }
-.media { position: relative; width: calc(100% + 3rem); height: 8.5rem; margin: -1.5rem -1.5rem 1.35rem; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--surface-strong); }
-.media::after { position: absolute; inset: 0; content: ""; pointer-events: none; background: linear-gradient(180deg, rgb(28 43 62 / .08), rgb(20 32 47 / .32)); }
-.image { width: 100%; height: 100%; object-fit: cover; filter: saturate(.78) brightness(.82) contrast(.94); transition: filter .25s ease, transform .25s ease; }
-.card:first-child .media { width: calc(100% + 4rem); height: 18rem; margin: -2rem -2rem 1.75rem; }
-.card:hover .image { filter: saturate(.94) brightness(.94) contrast(.98); transform: scale(1.015); }
-.platform { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--accent); }
-.card h3 { max-width: 24ch; margin-top: 2rem; font-size: clamp(1.15rem, 1.7vw, 1.45rem); font-weight: 600; line-height: 1.42; letter-spacing: -0.02em; text-wrap: pretty; }
-.card:first-child h3 { margin-top: auto; font-size: clamp(1.35rem, 2.2vw, 1.85rem); }
-.card > p { max-width: 45ch; margin-top: 0.8rem; color: var(--muted); font-size: 0.92rem; line-height: 1.75; }
-.link { display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start; min-height: 2.75rem; margin-top: auto; padding-top: 1rem; color: var(--accent); font-size: 0.85rem; font-weight: 600; text-underline-offset: 0.3em; }
-.link:hover { text-decoration: underline; }
+.tile[data-tile="0"] .media { flex: 1 1 18rem; min-height: 18rem; }
+.tile[data-tile="1"] .media,
+.tile[data-tile="2"] .media { height: 9.5rem; }
+
+/* The efficiency tile leads with its number on an accent wash, not the picture. */
+.tile[data-tile="2"] { background: color-mix(in oklch, var(--accent) 12%, var(--surface)); }
+.tile[data-tile="2"] .media { order: 2; height: 0; flex: 0 0 0; }
+
+/* The wide tile sits image-right, so the row reads as a conclusion rather than a fourth card. */
+.tile[data-tile="3"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); }
+.tile[data-tile="3"] .media { order: 2; min-height: 15rem; }
+.tile[data-tile="3"] .media::after { background: linear-gradient(to right, color-mix(in oklch, var(--surface) 85%, transparent), transparent 40%); }
+
+.body { display: flex; flex-direction: column; flex: 1; padding: clamp(1.25rem, 2.2vw, 1.9rem); }
+.trait { width: fit-content; margin: 0; padding: .28rem .6rem; border-radius: var(--radius-ui); background: color-mix(in oklch, var(--accent) 14%, transparent); color: var(--accent); font-size: .8rem; font-weight: 600; letter-spacing: .02em; }
+
+.stat { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem .75rem; margin: 1rem 0 0; }
+.statValue { font-family: var(--font-display); font-size: clamp(2.1rem, 3.6vw, 3.1rem); font-weight: 650; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tile[data-tile="0"] .statValue { font-size: clamp(3rem, 6vw, 5.25rem); color: var(--accent); }
+.tile[data-tile="2"] .statValue { color: var(--accent); }
+.statLabel { color: var(--muted); font-size: .92rem; font-weight: 500; }
+
+.tile h3 { margin-top: 1rem; font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 600; line-height: 1.4; letter-spacing: -.015em; text-wrap: pretty; }
+.description { max-width: 46ch; margin-top: .55rem; color: var(--muted); font-size: .92rem; line-height: 1.7; }
+.link { display: inline-flex; align-items: center; gap: .45rem; align-self: flex-start; min-height: 2.75rem; margin-top: auto; padding-top: .9rem; color: var(--accent); font-size: .88rem; font-weight: 600; }
+.link:hover { text-decoration: underline; text-underline-offset: .3em; }
 .link:focus-visible { outline: 0; }
 
 @media (max-width: 767px) {
-  .grid { grid-template-columns: 1fr; gap: 0.75rem; }
-  .card, .card:first-child { min-height: 14rem; padding: 1.35rem; }
-  .media, .card:first-child .media { width: calc(100% + 2.7rem); height: auto; aspect-ratio: 1.75; max-height: 15rem; margin: -1.35rem -1.35rem 1.25rem; }
-  .card:first-child h3 { margin-top: 2rem; font-size: 1.35rem; }
+  .bento { grid-template-columns: minmax(0, 1fr); grid-template-areas: "lead" "curious" "efficient" "wide"; gap: .85rem; }
+  .tile[data-tile="0"] .media { flex: none; min-height: 0; height: 13rem; }
+  .tile[data-tile="3"] { display: flex; }
+  .tile[data-tile="3"] .media { order: 0; min-height: 0; height: 10rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card, .image { transition: none; }
-  .card:hover { transform: none; }
-  .card:hover .image { transform: none; }
+  .tile, .image { transition: none; }
+  .tile:hover, .tile:hover .image { transform: none; }
 }

@@ -7,8 +7,12 @@ export interface SkillReference {
 
 export interface FeaturedSkill {
   id: string;
+  /** Short capability label above the statement. */
   name: string;
+  /** One display-sized idea per capability. */
+  statement: string;
   summary: string;
+  /** One public fact; the picking metric keeps its canonical wording. */
   proof: string;
   references: SkillReference[];
 }
@@ -17,6 +21,19 @@ export interface SkillGroup {
   kind: "product" | "ai" | "systems" | "delivery";
   title: string;
   items: Array<{ name: string; href: string }>;
+}
+
+/**
+ * The same six axes and shapes the hero launch film draws (videos/kevin-launch-film/index.html,
+ * AXES and CHAPTERS[0] / CHAPTERS[5]). Values are relative depth across roles, never shown as scores.
+ */
+export interface SkillsRadarContent {
+  label: string;
+  caption: string;
+  note: string;
+  axes: [string, string, string, string, string, string];
+  from: { label: string; values: number[] };
+  to: { label: string; values: number[] };
 }
 
 export interface SkillsContent {
@@ -28,6 +45,7 @@ export interface SkillsContent {
   expandLibraryLabel: string;
   collapseLibraryLabel: string;
   evidenceLabel: string;
+  radar: SkillsRadarContent;
   featured: FeaturedSkill[];
   groups: SkillGroup[];
 }
@@ -40,21 +58,39 @@ export const skillsContent: Record<Locale, SkillsContent> = {
     totalLabel: "共 20 項能力，來自 6 段經歷與 4 個案例",
     featuredTitle: "核心技能",
     libraryTitle: "完整技能庫",
-    expandLibraryLabel: "展開完整技能庫",
-    collapseLibraryLabel: "收合完整技能庫",
+    expandLibraryLabel: "看完整能力清單",
+    collapseLibraryLabel: "收合能力清單",
     evidenceLabel: "相關經歷",
+    radar: {
+      label: "能力圖",
+      caption: "每一段經歷，都讓這張圖再大一圈。",
+      note: "軸長是依經歷排的相對程度，不是分數。",
+      axes: ["問題定義", "快速實驗", "原型實作", "流程重構", "跨團隊交付", "資料判讀"],
+      from: { label: "2019", values: [0.36, 0.2, 0.3, 0.12, 0.15, 0.12] },
+      to: { label: "2025", values: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
+    },
     featured: [
       {
         id: "ai-delivery",
-        name: "AI 產品交付與內部工具",
-        summary: "使用 AI 協助需求、規格、製作與驗收，並把重複工作做成團隊使用的工具。",
-        proof: "產品交付效率提升 50%",
+        name: "AI 交付",
+        statement: "把 AI 放進每天的交付流程。",
+        summary: "需求、規格、原型到驗收都用 AI 加速，重複的工作做成團隊天天在用的工具。",
+        proof: "交付效率 +50%",
         references: [{ label: "台灣愛淨", href: "#experience-ecofirst" }],
       },
       {
+        id: "operations",
+        name: "流程與營運",
+        statement: "先找到卡住產能的那一步。",
+        summary: "走進現場拆流程，用規則、系統或工具解開瓶頸，再回頭確認營運結果。",
+        proof: "揀貨 300 → 1,000 單／日 (+233%)",
+        references: [{ label: "Fable 寓意科技", href: "#grocery" }],
+      },
+      {
         id: "product-strategy",
-        name: "產品策略、Roadmap 與優先排序",
-        summary: "依商業目標、使用者需求與交付限制，決定產品方向與先後順序。",
+        name: "產品策略",
+        statement: "從商業問題，排出做得完的 Roadmap。",
+        summary: "依商業目標、使用者需求與交付限制，決定先做什麼、暫時不做什麼。",
         proof: "從 0 到 1 規劃 AI 節能產品與包租代管 SaaS",
         references: [
           { label: "台灣愛淨", href: "#ecofirst" },
@@ -62,29 +98,10 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         ],
       },
       {
-        id: "operations",
-        name: "流程拆解與營運瓶頸改善",
-        summary: "找出限制產能的環節，再用流程、規則或工具改善，並確認營運結果。",
-        proof: "揀貨 300 到 1,000 單／日，案場效率提升 20%",
-        references: [
-          { label: "Fable 寓意科技", href: "#grocery" },
-          { label: "台灣愛淨", href: "#ecofirst" },
-        ],
-      },
-      {
-        id: "discovery",
-        name: "使用者研究與 B2B 需求探索",
-        summary: "透過訪談、競品研究與工作坊，了解採購者、管理者與使用者各自的需求。",
-        proof: "企業培訓平台與健康 App 的研究、優先排序與驗收",
-        references: [
-          { label: "知識衛星", href: "#experience-sat" },
-          { label: "Fable 寓意科技", href: "#health-app" },
-        ],
-      },
-      {
         id: "systems",
-        name: "資料產品與系統整合",
-        summary: "把前後台、跨通路資料、IoT 與既有系統放在一起規劃，支援完整使用流程。",
+        name: "資料與系統",
+        statement: "把分散的資料接成一條流程。",
+        summary: "前後台、跨通路資料、IoT 與既有系統放在一起規劃，支援完整使用流程。",
         proof: "整合 1,000 萬筆跨通路客戶資料",
         references: [
           { label: "歐可達數據科技", href: "#cdp" },
@@ -145,50 +162,49 @@ export const skillsContent: Record<Locale, SkillsContent> = {
     totalLabel: "20 capabilities across 6 roles and 4 cases",
     featuredTitle: "Core skills",
     libraryTitle: "Full skill set",
-    expandLibraryLabel: "View full skill set",
-    collapseLibraryLabel: "Hide full skill set",
+    expandLibraryLabel: "See full skills list",
+    collapseLibraryLabel: "Hide skills list",
     evidenceLabel: "Related experience",
+    radar: {
+      label: "Capability map",
+      caption: "Every chapter made the shape bigger.",
+      note: "Axis length shows relative depth across roles, not a score.",
+      axes: ["Problem framing", "Fast experiments", "Prototyping", "Workflow redesign", "Cross-team delivery", "Data judgment"],
+      from: { label: "2019", values: [0.36, 0.2, 0.3, 0.12, 0.15, 0.12] },
+      to: { label: "2025", values: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
+    },
     featured: [
       {
         id: "ai-delivery",
-        name: "AI product delivery and internal tools",
-        summary: "Use AI across requirements, specifications, implementation, and acceptance, then turn repeated work into tools teams use.",
-        proof: "Improved product delivery efficiency by 50%",
+        name: "AI delivery",
+        statement: "Put AI into everyday delivery.",
+        summary: "Requirements, specs, prototypes, and acceptance all run faster with AI, and repeated work becomes tools the team uses daily.",
+        proof: "Delivery efficiency +50%",
         references: [{ label: "Ecofirst", href: "#experience-ecofirst" }],
       },
       {
+        id: "operations",
+        name: "Workflow and operations",
+        statement: "Find the step that caps throughput.",
+        summary: "Walk the floor, map the flow, clear the bottleneck with rules, systems, or tools, then check the operating result.",
+        proof: "Picking 300 → 1,000 orders/day (+233%)",
+        references: [{ label: "Fable", href: "#grocery" }],
+      },
+      {
         id: "product-strategy",
-        name: "Product strategy, roadmaps, and prioritisation",
-        summary: "Use business goals, user needs, and delivery constraints to set product direction and priorities.",
-        proof: "Planned 0-to-1 AI energy and rental-management products",
+        name: "Product strategy",
+        statement: "Turn business problems into a roadmap that ships.",
+        summary: "Use business goals, user needs, and delivery constraints to decide what comes first and what waits.",
+        proof: "Planned 0-to-1 AI energy and rental-management SaaS products",
         references: [
           { label: "Ecofirst", href: "#ecofirst" },
           { label: "Independent consulting", href: "#experience-consulting" },
         ],
       },
       {
-        id: "operations",
-        name: "Workflow mapping and constraint improvement",
-        summary: "Find the step limiting throughput, improve it with process, rules, or tools, and check the operating result.",
-        proof: "Increased picking from 300 to 1,000 orders/day and site efficiency by 20%",
-        references: [
-          { label: "Fable", href: "#grocery" },
-          { label: "Ecofirst", href: "#ecofirst" },
-        ],
-      },
-      {
-        id: "discovery",
-        name: "User research and B2B discovery",
-        summary: "Use interviews, competitor research, and workshops to understand the needs of buyers, administrators, and end users.",
-        proof: "Research, prioritisation, and acceptance for enterprise learning and health products",
-        references: [
-          { label: "SAT. KNOWLEDGE", href: "#experience-sat" },
-          { label: "Fable", href: "#health-app" },
-        ],
-      },
-      {
         id: "systems",
-        name: "Data products and systems integration",
+        name: "Data and systems",
+        statement: "Connect scattered data into one flow.",
         summary: "Plan front and back offices, cross-channel data, IoT, and legacy systems as one complete product flow.",
         proof: "Integrated 10M cross-channel customer records",
         references: [

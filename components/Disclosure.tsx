@@ -10,12 +10,14 @@ interface DisclosureProps {
   expandLabel: string;
   collapseLabel: string;
   summaryClassName?: string;
+  className?: string;
   actions?: ReactNode;
   kind: "case" | "experience";
+  defaultOpen?: boolean;
 }
 
 /** Native details keeps the complete text and keyboard interaction usable without JS. */
-export function Disclosure({ summary, children, expandLabel, collapseLabel, summaryClassName = "", actions, kind }: DisclosureProps) {
+export function Disclosure({ summary, children, expandLabel, collapseLabel, summaryClassName = "", className = "", actions, kind, defaultOpen = false }: DisclosureProps) {
   const details = useRef<HTMLDetailsElement>(null);
   const heading = useRef<HTMLElement>(null);
   const [hydrated, setHydrated] = useState(false);
@@ -36,7 +38,7 @@ export function Disclosure({ summary, children, expandLabel, collapseLabel, summ
   }
 
   return (
-    <details ref={details} className={styles.disclosure} data-disclosure={kind}>
+    <details ref={details} className={`${styles.disclosure} ${className}`} data-disclosure={kind} open={defaultOpen}>
       <summary ref={heading} className={`${styles.summary} ${summaryClassName}`}>
         {summary}
         <span className={styles.affordance}>

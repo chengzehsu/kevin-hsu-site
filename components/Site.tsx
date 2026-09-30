@@ -2,7 +2,7 @@ import type { Locale } from "@/lib/locale";
 import { getContent } from "@/content";
 import { Nav } from "./Nav";
 import { Hero } from "./Hero";
-import { Metrics } from "./Metrics";
+import { ProofStack } from "./ProofStack";
 import { Awards } from "./Awards";
 import { LinkedInPosts } from "./LinkedInPosts";
 import { Timeline } from "./Timeline";
@@ -20,10 +20,10 @@ export function Site({ locale }: { locale: Locale }) {
       <Nav {...props} />
       <main id="main-content">
         <Hero {...props} />
-        <Metrics {...props} />
+        <LinkedInPosts {...props} />
+        <ProofStack {...props} />
         <SkillsRadar content={skillsContent[locale]} />
         <Timeline {...props} />
-        <LinkedInPosts {...props} />
         <Awards {...props} />
         <Contact {...props} />
       </main>

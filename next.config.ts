@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   transpilePackages: ["three"],
   turbopack: { root: process.cwd() },
+  // Two root layouts ((zh) and en) leave no shared layout for not-found.tsx.
+  experimental: { globalNotFound: true },
 };
 
 export default nextConfig;

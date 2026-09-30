@@ -31,7 +31,7 @@ export function Nav({ content, locale, caseId, page }: SectionProps & { caseId?:
           ) : null}
           {links.length > 0 ? (
             <nav className="hidden sm:block">
-              <ul className="flex items-center gap-4 sm:gap-6">
+              <ul className="flex items-center gap-4 lg:gap-6">
                 {links.map((link) => (
                   <li key={link.href}>
                     <a

@@ -1,0 +1,71 @@
+.figure {
+  --max: 6.5rem;
+  display: grid;
+  gap: .35rem;
+  margin: 0;
+  container-type: inline-size;
+}
+
+.figure[data-size="hero"] { --max: 9.5rem; }
+
+.label {
+  color: var(--muted);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .15em .5em;
+  color: var(--accent);
+}
+
+/* Width budget: about .6em per glyph, so 100cqi / (.6 × chars) keeps the figure on one line. */
+.value {
+  font-family: var(--font-display);
+  font-size: min(var(--max), calc(160cqi / var(--chars)));
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.055em;
+  line-height: .95;
+  white-space: nowrap;
+}
+
+.unit,
+.delta {
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: 650;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+
+.delta { color: var(--fg); }
+
+.also {
+  width: fit-content;
+  margin-top: .45rem;
+  padding: .3rem .6rem;
+  border: 1px solid color-mix(in oklch, var(--accent) 40%, var(--line));
+  border-radius: var(--radius-ui);
+  color: var(--fg);
+  font-size: .86rem;
+  font-weight: 600;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .value {
+      animation: figure-wipe linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 35%;
+    }
+  }
+}
+
+@keyframes figure-wipe {
+  from { clip-path: inset(0 100% 0 0); opacity: .2; }
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
+}

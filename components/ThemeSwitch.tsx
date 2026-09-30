@@ -47,7 +47,9 @@ export function ThemeSwitch({ locale }: { locale: Locale }) {
       onClick={toggle}
       className="inline-grid size-11 shrink-0 place-items-center rounded-ui border border-line text-muted transition-colors hover:bg-surface hover:text-fg"
     >
-      {theme === "dark" ? <SunIcon size={18} aria-hidden="true" /> : <MoonIcon size={18} aria-hidden="true" />}
+      {/* Both glyphs render; CSS picks one from the pre-paint data-theme, so the icon never flips on hydration. */}
+      <SunIcon className="theme-icon-sun" size={18} aria-hidden="true" />
+      <MoonIcon className="theme-icon-moon" size={18} aria-hidden="true" />
     </button>
   );
 }

@@ -28,15 +28,33 @@ export interface NavContent {
 export interface HeroContent {
   /** A short positioning line above the headline. */
   eyebrow: string;
-  /** Max two lines at desktop. */
+  /** The hook from the launch film, set above the headline: the gap most PMs leave open. */
+  kicker: string;
+  /** Max two lines at desktop. Words wrapped in 【】 take the accent colour. */
   headline: string;
-  /** Max 20 words / 20 characters. */
-  subline: string;
+  /** Curious / experimental / efficient, each backed by one public fact. */
+  traits: Array<{
+    label: string;
+    text: string;
+    proof: string;
+    /** Optional before → after pair; the before value is struck through, as in the film. */
+    shift?: { from: string; to: string };
+  }>;
   /** Three factual signals that help a hiring reader understand the profile quickly. */
   profile: Array<{
     label: string;
     value: string;
   }>;
+  /** Hero film: the rendered workflow study, tied to the case it illustrates. */
+  film: {
+    /** Visible caption under the film; the picking metric keeps its canonical wording. */
+    caption: string;
+    caseId: string;
+    pauseLabel: string;
+    playLabel: string;
+    /** Screen-reader narration of the on-screen film text; the film is burned-in per locale. */
+    summary: string;
+  };
   /** The operating loop that differentiates this product practice. */
   builderLoop: {
     label: string;
@@ -87,9 +105,15 @@ export interface AwardsContent {
 }
 
 export interface LinkedInPost {
+  /** Which of the hero traits this build proves (好奇 / 勇於嘗試 / 追求效率). */
+  trait: string;
+  /** The one figure a reader should remember; public facts only. */
+  stat: string;
+  statLabel: string;
   title: string;
   description: string;
-  href: string;
+  /** LinkedIn build note; omitted when the work has no public post. */
+  href?: string;
   image: {
     src: string;
     alt: string;
@@ -104,7 +128,8 @@ export interface LinkedInPostsContent {
   author: string;
   platform: string;
   readLabel: string;
-  items: [LinkedInPost, LinkedInPost, LinkedInPost];
+  /** Order is the bento order: lead tile, two stacked tiles, one wide tile. */
+  items: [LinkedInPost, LinkedInPost, LinkedInPost, LinkedInPost];
 }
 
 export interface MethodStep {
@@ -207,10 +232,16 @@ export interface ExperienceContent {
   expandLabel: string;
   collapseLabel: string;
   skillLabel: string;
+  /** Optional one-line lead under the section title. */
+  intro?: string;
+  /** Marker on the current role, e.g. 現在 / Now. */
+  currentLabel?: string;
   items: ExperienceItem[];
 }
 
 export interface ContactContent {
+  /** Optional closing line above the title, e.g. the site tagline. */
+  kicker?: string;
   title: string;
   text: string;
   /** Same label as hero.primaryCta (single contact intent per locale); null until the email is supplied. */

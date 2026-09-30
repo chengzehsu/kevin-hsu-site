@@ -1,54 +1,94 @@
-import { ArrowRightIcon, ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+  EnvelopeSimpleIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
 import { MagneticLink } from "./motion/MagneticLink";
+import styles from "./Contact.module.css";
 
-const PRIMARY_CTA =
-  "inline-flex items-center gap-2 whitespace-nowrap rounded-ui bg-accent px-5 py-3 font-medium text-accent-fg transition-transform hover:bg-accent/90 active:scale-[0.98]";
-const TEXT_LINK =
-  "inline-flex min-h-11 items-center gap-1.5 underline decoration-line underline-offset-4 transition-colors hover:decoration-accent";
-
+/** The closing frame: the tagline, one contact intent, and the three facts a hiring reader keeps. */
 export function Contact({ content }: SectionProps) {
-  const { title, text, cta, links } = content.contact;
+  const { kicker, title, text, cta, links } = content.contact;
+  const { profile } = content.hero;
   const showCta = Boolean(cta && cta.label);
   const hasActions = showCta || links.length > 0;
+  const email =
+    showCta && cta?.href.startsWith("mailto:")
+      ? cta.href.slice("mailto:".length)
+      : null;
 
   return (
-    <section id="contact" className="contact-section content-section">
+    <section
+      id="contact"
+      className="contact-section content-section"
+      aria-labelledby="contact-heading"
+    >
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-        <div className="contact-panel">
-          <div>
-            <h2 className="section-title">{title}</h2>
-            <p className="mt-4 max-w-[50ch] text-muted">{text}</p>
-          </div>
+        <div className={`${styles.panel} scroll-rise`}>
+          <div className={styles.copy}>
+            {kicker ? <p className={styles.kicker}>{kicker}</p> : null}
+            <h2 id="contact-heading" className={styles.title}>
+              {title}
+            </h2>
+            <p className={styles.text}>{text}</p>
 
-          <div className="contact-actions">
             {hasActions ? (
-              <div className="flex flex-wrap items-center gap-4">
+              <div className={styles.actions}>
                 {showCta && cta ? (
-                  <MagneticLink href={cta.href} className={PRIMARY_CTA}>
+                  <MagneticLink href={cta.href} className={styles.primary}>
                     {cta.label}
                     {cta.href.startsWith("#") ? (
-                      <ArrowRightIcon size={18} weight="regular" aria-hidden="true" />
+                      <ArrowRightIcon
+                        size={20}
+                        weight="bold"
+                        aria-hidden="true"
+                      />
                     ) : (
-                      <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
+                      <ArrowUpRightIcon
+                        size={20}
+                        weight="bold"
+                        aria-hidden="true"
+                      />
                     )}
                   </MagneticLink>
                 ) : null}
 
                 {links.map((link) => (
-                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className={TEXT_LINK}>
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.secondary}
+                  >
                     {link.label}
-                    <ArrowUpRightIcon size={18} weight="regular" aria-hidden="true" />
+                    <ArrowUpRightIcon
+                      size={18}
+                      weight="regular"
+                      aria-hidden="true"
+                    />
                   </a>
                 ))}
               </div>
             ) : null}
-            {showCta && cta?.href.startsWith("mailto:") ? (
-              <a className="email-address" href={cta.href}>
-                {cta.href.slice("mailto:".length)}
+
+            {email ? (
+              <a className={styles.email} href={cta?.href}>
+                <EnvelopeSimpleIcon size={18} aria-hidden="true" />
+                {email}
               </a>
             ) : null}
           </div>
+
+          <dl className={styles.profile}>
+            {profile.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>
