@@ -1,11 +1,11 @@
 /* Portfolio case list: four artifact-led launches, each with its own composition. */
 .section { padding-block: clamp(5rem, 9vw, 8.5rem); }
 
+/* Heading and intro stack: one message per header, the intro reads directly under its title. */
 .head {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .9fr);
-  align-items: end;
-  gap: 1rem 4rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
 }
 
 .kicker {
@@ -22,8 +22,7 @@
 .heading { margin: 0; }
 
 .lede {
-  justify-self: end;
-  max-width: 40ch;
+  max-width: 44ch;
   margin: 0;
   color: var(--muted);
   font-size: 1.05rem;
@@ -263,7 +262,6 @@
 
 @media (max-width: 1023px) {
   .head { grid-template-columns: minmax(0, 1fr); }
-  .lede { justify-self: start; }
   .index ol { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 1rem; }
   .row[data-layout="split"] .visual { grid-column: 5 / -1; }
   .row[data-layout="split"] .body { grid-column: 1 / 5; }

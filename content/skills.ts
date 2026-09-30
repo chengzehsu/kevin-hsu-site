@@ -53,7 +53,7 @@ export interface SkillsContent {
 /** Skills are included only when the resume contains a role or case that supports them. */
 export const skillsContent: Record<Locale, SkillsContent> = {
   zh: {
-    title: "技能",
+    title: "能力",
     intro: "以下整理我在專案中實際負責過的能力，以及對應的工作經驗。",
     totalLabel: "共 20 項能力，來自 6 段經歷與 4 個案例",
     featuredTitle: "核心技能",
