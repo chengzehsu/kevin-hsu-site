@@ -3,7 +3,7 @@ import { Highlight } from "./Highlight";
 import { Disclosure } from "./Disclosure";
 import styles from "./Timeline.module.css";
 
-/** A vertical rail: the current role stays open with its evidence, earlier chapters fold to one line each. */
+/** A vertical rail: every role folds to one line of the same weight; the current one only carries a small "now" tag. */
 export function Timeline({ content }: SectionProps) {
   const {
     title,
@@ -36,50 +36,31 @@ export function Timeline({ content }: SectionProps) {
               <li
                 id={`experience-${item.id}`}
                 key={item.id}
-                className={`${styles.entry} ${current ? styles.current : ""} scroll-rise`}
+                className={`${styles.entry} scroll-rise`}
               >
                 <span className={styles.node} aria-hidden="true" />
                 <Disclosure
                   kind="experience"
-                  defaultOpen={current}
                   expandLabel={expandLabel}
                   collapseLabel={collapseLabel}
-                  className={current ? styles.currentPanel : ""}
-                  summaryClassName={
-                    current ? styles.currentSummary : styles.summary
-                  }
+                  summaryClassName={styles.summary}
                   summary={
-                    current ? (
-                      <span className={styles.currentHead}>
-                        <span className={styles.currentMeta}>
-                          {currentLabel ? (
-                            <span className={styles.now}>{currentLabel}</span>
-                          ) : null}
-                          <span className={styles.period}>{item.period}</span>
-                        </span>
-                        <strong className={styles.currentOrg}>
-                          {item.org}
-                        </strong>
-                        <span className={styles.currentRole}>{item.role}</span>
-                        <span className={styles.currentFocus}>
-                          {item.focus}
-                        </span>
+                    <>
+                      <span className={styles.year}>
+                        {item.period}
+                        {current && currentLabel ? (
+                          <span className={styles.now}>{currentLabel}</span>
+                        ) : null}
                       </span>
-                    ) : (
-                      <>
-                        <span className={styles.year}>{item.period}</span>
-                        <span className={styles.identity}>
-                          <strong className={styles.org}>{item.org}</strong>
-                          <span className={styles.role}>{item.role}</span>
-                        </span>
-                        <span className={styles.signal}>{item.focus}</span>
-                      </>
-                    )
+                      <span className={styles.identity}>
+                        <strong className={styles.org}>{item.org}</strong>
+                        <span className={styles.role}>{item.role}</span>
+                      </span>
+                      <span className={styles.signal}>{item.focus}</span>
+                    </>
                   }
                 >
-                  <div
-                    className={current ? styles.currentDetail : styles.detail}
-                  >
+                  <div className={styles.detail}>
                     {item.summary && (
                       <p className={styles.context}>
                         <Highlight>{item.summary}</Highlight>

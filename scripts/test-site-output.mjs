@@ -71,11 +71,9 @@ for (const [locale, file, heading] of [
     assert.equal((cases.match(/data-case-card="ledger"/g) ?? []).length, 4);
     assert.equal((cases.match(/data-case-card="featured"/g) ?? []).length, 0);
     assert.equal((html.match(/data-disclosure="experience"/g) ?? []).length, 6);
-    // Compact by default, except the current role: its evidence is what a hiring reader came for.
+    // Every role, the current one included, starts as one compact line of equal weight (user decision, 2026-10-01).
     const openDetails = html.match(/<details[^>]*\sopen(?:[\s=>])[^>]*>/g) ?? [];
-    assert.equal(openDetails.length, 1, "Only the current role opens by default");
-    const firstExperience = html.match(/<details[^>]*data-disclosure="experience"[^>]*>/)?.[0];
-    assert.ok(firstExperience && /\sopen(?:[\s=>])/.test(firstExperience), "The open entry is the first (current) role");
+    assert.equal(openDetails.length, 0, "No experience entry opens by default");
     assert.ok(!html.includes("data-open-experiment"));
     // The hero film may mount, but no film bytes are requested before load: no sources in the HTML.
     const hero = html.match(/<section id="hero"[\s\S]*?<\/section>/)?.[0] ?? "";
