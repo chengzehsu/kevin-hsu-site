@@ -31,12 +31,13 @@ export function ProofStack({ content, locale }: SectionProps) {
                 <a className={styles.link} href={casePath(locale, item.id)} aria-label={`${cases.readLabel}: ${item.title}`}>
                   {artifact ? (
                     <Image
-                      src={artifact.src}
+                      src={artifact.poster ?? artifact.src}
                       alt=""
-                      width={artifact.layout === "square" ? 1208 : 1200}
-                      height={artifact.layout === "square" ? 1236 : 674}
+                      width={artifact.poster ? 1600 : artifact.layout === "square" ? 1208 : 1200}
+                      height={artifact.poster ? 1000 : artifact.layout === "square" ? 1236 : 674}
                       sizes="(max-width: 767px) 78vw, (max-width: 1023px) 45vw, 22vw"
                       className={styles.image}
+                      style={artifact.posterPosition ? { objectPosition: artifact.posterPosition } : undefined}
                     />
                   ) : null}
                   <span className={styles.copy}>

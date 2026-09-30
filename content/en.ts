@@ -150,10 +150,10 @@ export const en = {
           "Started from an API integration and turned site-data lookups into a tool, improving it while using it.",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7469732610550976512/",
         image: {
-          src: "/linkedin-posts/post-1.jpg",
-          alt: "Site-tool interface with 218 commits",
-          width: 800,
-          height: 819,
+          src: "/portfolio-artifacts/ecofirst-hvac-platform.webp",
+          alt: "Site data lookup tool interface",
+          width: 1208,
+          height: 1236,
         },
       },
       {
@@ -181,8 +181,8 @@ export const en = {
         image: {
           src: "/portfolio-wall/film-7.webp",
           alt: "Control-strategy tuning cut from 1 week to 2 hours",
-          width: 480,
-          height: 300,
+          width: 1600,
+          height: 1000,
         },
       },
       {

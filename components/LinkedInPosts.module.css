@@ -43,6 +43,8 @@
 .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, color-mix(in oklch, var(--surface) 85%, transparent)); pointer-events: none; }
 
 .tile[data-tile="0"] .media { flex: 1 1 18rem; min-height: 18rem; }
+/* The lead artifact is a post card: its headline repeats the stat below, so frame the product screenshots under it. */
+.tile[data-tile="0"] .image { object-position: center 88%; }
 .tile[data-tile="1"] .media,
 .tile[data-tile="2"] .media { height: 9.5rem; }
 

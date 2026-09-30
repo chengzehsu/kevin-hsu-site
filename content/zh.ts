@@ -136,10 +136,10 @@ export const zh = {
         description: "從串接 API 開始，把案場資料查詢流程做成工具，邊用邊改。",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7469732610550976512/",
         image: {
-          src: "/linkedin-posts/post-1.jpg",
-          alt: "218 次提交的案場工具介面",
-          width: 800,
-          height: 819,
+          src: "/portfolio-artifacts/ecofirst-hvac-platform.webp",
+          alt: "案場資料查詢工具的介面",
+          width: 1208,
+          height: 1236,
         },
       },
       {
@@ -166,8 +166,8 @@ export const zh = {
         image: {
           src: "/portfolio-wall/film-7.webp",
           alt: "控制策略調整從 1 週縮短到 2 小時",
-          width: 480,
-          height: 300,
+          width: 1600,
+          height: 1000,
         },
       },
       {
