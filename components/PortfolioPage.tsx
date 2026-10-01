@@ -11,7 +11,7 @@ import styles from "./PortfolioPage.module.css";
 
 const portfolioCopy = {
   zh: {
-    positioning: "Senior Product Manager｜AI、資料產品與複雜營運系統",
+    positioning: "Product Manager｜AI、資料產品與複雜營運系統",
     experienceLabel: "查看完整經歷",
     contactLabel: "聯絡我",
     // Phrases never break internally, so 瓶頸 cannot split across lines.
@@ -20,8 +20,8 @@ const portfolioCopy = {
       "涵蓋 B2C 重構、資料產品與 AI 工具；負責問題定義、優先排序與成果驗證。",
     facts: [
       ["5+ 年", "產品相關經驗"],
-      ["NT$12M+", "管理專案組合"],
-      ["10+", "跨產業專案"],
+      ["NT$1,200 萬+", "管理專案組合"],
+      ["6 段", "跨產業經歷（4 個精選案例）"],
       ["12 人", "帶領團隊（工程 10、PM 2）"],
     ],
     modelTitle: "我負責的不只是一張 Roadmap",
@@ -33,7 +33,7 @@ const portfolioCopy = {
     ],
   },
   en: {
-    positioning: "Senior Product Manager · AI, data, and operational products",
+    positioning: "Product Manager · AI, data, and operational products",
     experienceLabel: "View full experience",
     contactLabel: "Contact me",
     title: ["Four cases,", "from bottleneck", "to shipped result."],
@@ -42,10 +42,10 @@ const portfolioCopy = {
     facts: [
       ["5+ yrs", "product experience"],
       ["NT$12M+", "project portfolio managed"],
-      ["10+", "cross-industry projects"],
+      ["6", "roles across industries (4 case studies)"],
       ["12", "people led (10 engineers, 2 PMs)"],
     ],
-    modelTitle: "My remit goes beyond a roadmap",
+    modelTitle: "My scope goes beyond a roadmap",
     model: [
       [
         "Find the constraint",
@@ -53,10 +53,10 @@ const portfolioCopy = {
       ],
       [
         "Make the decision",
-        "Prioritise against business, user, and technical constraints.",
+        "Prioritize against business, user, and technical constraints.",
       ],
       [
-        "Move delivery",
+        "Drive delivery",
         "Use shared requirements and decision records across functions.",
       ],
       [

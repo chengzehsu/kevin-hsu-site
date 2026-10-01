@@ -23,7 +23,7 @@ export const flowExperience: Record<Locale, FlowExperienceCopy> = {
     },
     stages: ["釐清需求", "製作", "等確認", "驗收", "交付"],
     redesignedStages: ["對齊需求", "AI 協作", "即時回饋", "工具輔助驗收", "交付"],
-    total: "整批交付時間", waiting: "平均等待", completed: "已交付", minute: "分", compared: "原本",
+    total: "整批交付時間", waiting: "平均等待", completed: "已交付", minute: "分鐘", compared: "原本",
     controls: "選擇流程改善方式", pause: "暫停模擬", play: "播放模擬", replay: "重播", progress: "模擬時間", queued: "排隊",
     loading: "正在準備互動場景", fallback: "流程比較模式",
     note: "流程示意，時間為模型推算，非專案實測。",
@@ -37,7 +37,7 @@ export const flowExperience: Record<Locale, FlowExperienceCopy> = {
     options: {
       baseline: { label: "Original flow", title: "Work queues up before review.", detail: "Every request needs the same reviewer. Finishing the build is only part of delivery." },
       accelerate: { label: "Build faster", title: "Faster builds. Almost the same delivery time.", detail: "AI reduces build time, but review capacity stays the same. The queue remains." },
-      redesign: { label: "Redesign the flow", title: "Agree acceptance early. Automate repeat checks.", detail: "Less waiting and back-and-forth. In this model, the constraint moves to clarification." },
+      redesign: { label: "Redesign the flow", title: "Agree on acceptance criteria early. Automate repeat checks.", detail: "Less waiting and back-and-forth. In this model, the constraint moves to clarification." },
     },
     stages: ["Clarify", "Build", "Handoff", "Review", "Deliver"],
     redesignedStages: ["Align scope", "AI-assisted build", "Fast feedback", "Tool-assisted review", "Deliver"],
@@ -46,7 +46,7 @@ export const flowExperience: Record<Locale, FlowExperienceCopy> = {
     loading: "Preparing the interactive scene", fallback: "Workflow comparison",
     note: "Illustrative model. Times are calculated, not measured project results.",
     assumptions: "Model assumptions",
-    assumptionsBody: "12 requests arrive at time zero. Clarify, build, review, and delivery each have one FIFO server. Handoff is a concurrent delay. Original times: 2 / 3 / 4 / 4 / 1 minutes per request. Build faster reduces build to 1 minute. Redesign retains this improvement and assumes acceptance can be aligned within the existing clarification time, with tools helping routine checks. Handoff becomes 0.5 minutes; review becomes 1 minute. Rework and quality losses are not modeled. Average wait includes queues and handoff; batch time is the final completion. Animations use the same time scale.",
+    assumptionsBody: "12 requests arrive at time zero. Clarify, build, review, and delivery each handle one request at a time, first in, first out. Handoff is a concurrent delay. Original times: 2 / 3 / 4 / 4 / 1 minutes per request. Build faster reduces build to 1 minute. Redesign retains this improvement and assumes acceptance can be aligned within the existing clarification time, with tools helping routine checks. Handoff becomes 0.5 minutes; review becomes 1 minute. Rework and quality losses are not modeled. Average wait includes queues and handoff; batch time is the final completion. Animations use the same time scale.",
     connection: "See how I work at Ecofirst",
   },
 };

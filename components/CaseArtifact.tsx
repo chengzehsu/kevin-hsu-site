@@ -14,7 +14,7 @@ const LABELS = {
   en: {
     anonymised: {
       eyebrow: "REAL WORK ARTIFACT",
-      privacy: "DETAILS ANONYMISED",
+      privacy: "DETAILS ANONYMIZED",
     },
     published: { eyebrow: "PUBLISHED WORK", privacy: "PUBLIC SOURCE" },
     reconstructed: {

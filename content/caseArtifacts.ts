@@ -70,9 +70,9 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
     },
     cdp: {
       src: "/portfolio-artifacts/cdp-market-validation.svg",
-      alt: "CDP 市場切入驗證資訊圖，呈現三十個目標名單、跨部門訪談、MVP 收斂及一千萬筆資料整合成果",
+      alt: "CDP 市場切入驗證資訊圖，呈現 30 個目標名單、跨部門訪談、MVP 收斂及 1,000 萬筆資料整合成果",
       title: "從 30 個目標名單到 MVP",
-      context: "用市場證據縮小切入點，再串起五個資料來源",
+      context: "用市場證據縮小切入點，再串起 5 個通路",
       treatment: "reconstructed",
       headline: {
         value: "1,000 萬筆",
@@ -89,8 +89,8 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
     },
     ecofirst: {
       src: "/portfolio-artifacts/ecofirst-hvac-platform.webp",
-      alt: "EcoFirst HVAC 內部平台成果圖，顯示兩個月 218 次提交，以及案場點位、資料匯出與互動查詢整合畫面",
-      title: "EcoFirst HVAC 內部平台",
+      alt: "Ecofirst HVAC 內部平台成果圖，顯示兩個月 218 次提交，以及案場點位、資料匯出與互動查詢整合畫面",
+      title: "Ecofirst HVAC 內部平台",
       context: "218 次提交，把三段資料流程整合成一個查詢工具",
       layout: "square",
       treatment: "published",
@@ -120,7 +120,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
   en: {
     grocery: {
       src: "/portfolio-artifacts/grocery-system.en.svg",
-      alt: "Grocery programme information system: the timeline, release, billable-hours, and past-decision questions clients, the build team, and colleagues asked every week, gathered into an information-flow map, a project overview, and project detail pages",
+      alt: "Grocery program information system: the timeline, release, billable-hours, and past-decision questions clients, the build team, and colleagues asked every week, gathered into an information-flow map, a project overview, and project detail pages",
       title: "Information-flow map, project overview, and details",
       treatment: "reconstructed",
       context: "Turning fragmented updates into a traceable delivery system",
@@ -133,7 +133,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       stills: [
         {
           src: "/portfolio-wall/film-2.webp",
-          alt: "Film still: 2021 at Fable, picking capacity 300 → 1,000 orders per day (+233%)",
+          alt: "Film still: 2021 at Fable, picking capacity 300 → 1,000 orders/day (+233%)",
           caption: "Launch film | 2021 at Fable",
           ...FILM,
         },
@@ -176,15 +176,15 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
     },
     ecofirst: {
       src: "/portfolio-artifacts/ecofirst-hvac-platform.webp",
-      alt: "EcoFirst HVAC internal-platform result showing 218 commits in two months and an integrated site-point, data-export, and interactive-query workflow",
-      title: "EcoFirst HVAC internal platform",
+      alt: "Ecofirst HVAC internal-platform result showing 218 commits in two months and an integrated site-point, data-export, and interactive-query workflow",
+      title: "Ecofirst HVAC internal platform",
       context: "218 commits turned three data workflows into one query tool",
       layout: "square",
       treatment: "published",
       headline: {
         value: "+50%",
         label: "Delivery efficiency",
-        also: "Site operations +20%",
+        also: "Site-ops efficiency +20%",
       },
       stills: [
         {

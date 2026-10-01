@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { getContent } from "@/content";
 
-export const alt = "Kevin Hsu | AI Product Manager: Product thinking. Working software.";
+export const alt = "Kevin Hsu | Product Manager | Find the bottleneck. Build the fix. Prove it in numbers.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-static";

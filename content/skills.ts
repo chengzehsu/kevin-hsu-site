@@ -54,10 +54,10 @@ export interface SkillsContent {
 export const skillsContent: Record<Locale, SkillsContent> = {
   zh: {
     title: "能力",
-    intro: "以下整理我在專案中實際負責過的能力，以及對應的工作經驗。",
+    intro: "以下整理我在專案中實際用過的能力，以及對應的工作經驗。",
     totalLabel: "共 20 項能力，來自 6 段經歷與 4 個案例",
-    featuredTitle: "核心技能",
-    libraryTitle: "完整技能庫",
+    featuredTitle: "核心能力",
+    libraryTitle: "完整能力清單",
     expandLibraryLabel: "看完整能力清單",
     collapseLibraryLabel: "收合能力清單",
     evidenceLabel: "相關經歷",
@@ -195,7 +195,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         name: "Product strategy",
         statement: "Turn business problems into a roadmap that ships.",
         summary: "Use business goals, user needs, and delivery constraints to decide what comes first and what waits.",
-        proof: "Planned 0-to-1 AI energy and rental-management SaaS products",
+        proof: "Planned a 0-to-1 AI energy-saving product and a rental property-management SaaS",
         references: [
           { label: "Ecofirst", href: "/en/cases/ecofirst/" },
           { label: "Independent consulting", href: "#experience-consulting" },
@@ -205,7 +205,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         id: "systems",
         name: "Data and systems",
         statement: "Connect scattered data into one flow.",
-        summary: "Plan front and back offices, cross-channel data, IoT, and legacy systems as one complete product flow.",
+        summary: "Plan customer-facing apps, back-office systems, cross-channel data, IoT, and legacy systems as one complete product flow.",
         proof: "Integrated 10M cross-channel customer records",
         references: [
           { label: "Oakda", href: "/en/cases/cdp/" },
@@ -233,7 +233,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
           { name: "Internal tool planning", href: "#experience-ecofirst" },
           { name: "Workflow automation", href: "/en/cases/ecofirst/" },
           { name: "Prototyping and validation", href: "#experience-zhongshuo" },
-          { name: "PRDs and acceptance", href: "#experience-oakda" },
+          { name: "PRDs and acceptance criteria", href: "#experience-oakda" },
         ],
       },
       {
@@ -252,9 +252,9 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         title: "Delivery and leadership",
         items: [
           { name: "Cross-functional delivery", href: "#experience-ecofirst" },
-          { name: "Process and constraint analysis", href: "/en/cases/grocery/" },
+          { name: "Process and bottleneck analysis", href: "/en/cases/grocery/" },
           { name: "Platform rebuilds and data migration", href: "/en/cases/health-app/" },
-          { name: "Team leadership and PM development", href: "#experience-fable" },
+          { name: "Team leadership and PM mentoring", href: "#experience-fable" },
           { name: "Commercial and market validation", href: "#experience-consulting" },
         ],
       },

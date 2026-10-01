@@ -18,7 +18,7 @@
 <circle cx="394" cy="264" r="19" fill="#FFFFFF" stroke="#2D61A6" stroke-width="2"/>
 <text x="394" y="270" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">02</text>
 <text x="434" y="262" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start">提案初稿</text>
-<text x="434" y="287" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14.5" font-weight="400" text-anchor="start">從待辦長出初稿，隔天 5 分鐘 review</text>
+<text x="434" y="287" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14.5" font-weight="400" text-anchor="start">從待辦長出初稿，隔天花 5 分鐘確認</text>
 <rect x="938" y="247" width="102" height="28" rx="8" fill="#EEF4FC"/>
 <text x="989" y="266" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Cowork 排程</text>
 <circle cx="394" cy="332" r="19" fill="#FFFFFF" stroke="#2D61A6" stroke-width="2"/>

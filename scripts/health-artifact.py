@@ -64,7 +64,7 @@ COPY = {
             ("Parameter map", "Old, new, and IoT fields mapped"),
             ("Translation map", "Copy aligned for every locale"),
         ],
-        "result": ("Programme result", "DAU 12,000 → 20,000 in a year (+66%)"),
+        "result": ("Program result", "DAU 12,000 → 20,000 in a year (+66%)"),
         "head_size": 36,
     },
 }
@@ -129,7 +129,7 @@ def render(lang: str) -> str:
     o.append(text(x0 + 22, 586, c["result"][0], 14, "#52627A", 700))
     o.append(text(x0 + width - 22, 587, c["result"][1], 17, BLUE, 700, anchor="end"))
 
-    o.append(text(1104, 638, "Kevin Hsu / Product Manager", 13, "#7C899B", anchor="end"))
+    o.append(text(1104, 638, "Kevin Hsu", 13, "#7C899B", anchor="end"))
     o.append("</svg>")
     return "\n".join(o) + "\n"
 

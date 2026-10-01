@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { getContent } from "@/content";
 
-export const alt = "許承澤 Kevin Hsu｜AI 產品經理：拆解問題，把產品做出來。";
+export const alt = "許承澤 Kevin Hsu｜Product Manager｜找出卡點，做出解法，量出成果。";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-static";

@@ -148,8 +148,8 @@ export function FlowPreview({ locale }: { locale: Locale }) {
   return <>
     <section ref={preview} className={styles.preview} aria-label={zh ? "流程重組作品預覽" : "Workflow redesign preview"}>
       <header className={styles.header}>
-        <div className={styles.heading}><span>{zh ? "流程重組" : "Workflow redesign"}</span><span>{zh ? "8 秒示意" : "8-second study"}</span></div>
-        <h2 className={styles.title}>{zh ? "需求卡住時，我怎麼處理？" : "When work gets stuck."}</h2>
+        <div className={styles.heading}><span>{zh ? "流程重組" : "Workflow redesign"}</span><span>{zh ? "8 秒示意" : "8-second preview"}</span></div>
+        <h2 className={styles.title}>{zh ? "需求卡住時，我怎麼處理？" : "When work gets stuck, what do I do?"}</h2>
       </header>
       <div className={styles.film} data-film-ready={videoReady} data-film-failed={filmFailed}>
         <img src="/flow-preview.webp" srcSet="/flow-preview-small.webp 600w, /flow-preview.webp 960w" sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 720px, 520px" width={960} height={600} alt="" className={styles.image} fetchPriority="high" decoding="async" />

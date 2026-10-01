@@ -4,9 +4,9 @@ export const zh = {
   locale: "zh",
 
   meta: {
-    title: "許承澤 Kevin Hsu｜Product Manager｜先讓它能跑，再讓它上線",
+    title: "許承澤 Kevin Hsu｜Product Manager｜找出卡點，做出解法，量出成果",
     description:
-      "具 5 年以上產品相關經驗的 Product Manager。曾主導 B2C 電商重構、參與健康 App 重構，並負責跨團隊交付與資料產品規劃；帶領過 10 人工程團隊與 2 位初階 PM。",
+      "具 5 年以上產品相關經驗的 Product Manager。曾主導 B2C 電商重構、負責健康 App 重構的需求訪談與驗收，並負責跨團隊交付與資料產品規劃；帶領過 10 人工程團隊與 2 位初階 PM。",
   },
 
   nav: {
@@ -26,7 +26,7 @@ export const zh = {
   hero: {
     eyebrow: "許承澤 Kevin Hsu｜Product Manager",
     kicker: "規格寫完了，會議開完了，東西還沒跑起來？",
-    headline: "先讓它能【跑】，再讓它【上線】。",
+    headline: "找出【卡點】，做出【解法】，量出【成果】。",
     traits: [
       {
         label: "好奇",
@@ -64,7 +64,7 @@ export const zh = {
       seekLabel: "影片進度",
       chapters: [{ at: 0, label: "開場" }, { at: 12, label: "六項能力" }, { at: 35.4, label: "三個習慣" }, { at: 50, label: "收尾" }],
       summary:
-        "60 秒影片：規格寫完了，會議開完了，東西還沒跑起來。AI 時代的 PM，做出東西不再是門檻，要看的是六項能力：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；每一段經歷，都讓這張能力圖再大一圈。接著是三個工作習慣。好奇：看到新工具，我先動手試，Claude Code、Cursor、Gemini、Notion AI；用 Cursor 與 Gemini 自己做出 AI 名片管理助手，從 OCR 辨識失敗、重建版控到部署上線，流程是拍名片、Gemini 辨識、Notion 建檔。勇於嘗試：程式經驗不多的產品經理，用 Claude Code 做出內部平台，2 個月 218 次提交。追求效率：控制策略模擬工具把策略調整從 1 週縮短到 2 小時；把 AI 放進開發流程後，交付效率 +50%。先讓它能跑，再讓它上線。許承澤 Kevin Hsu，Product Manager · AI · B2C 平台 · 跨團隊交付。",
+        "60 秒影片：規格寫完了，會議開完了，東西還沒跑起來。AI 時代的 PM，做出東西不再是門檻，要看的是六項能力：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；每一段經歷，都讓這張能力圖再大一圈。接著是三個工作習慣。好奇：看到新工具，我先動手試，Claude Code、Cursor、Gemini、Notion AI；用 Cursor 與 Gemini 自己做出 AI 名片管理助手，從 OCR 辨識失敗、重建版控到部署上線，流程是拍名片、Gemini 辨識、Notion 建檔。勇於嘗試：程式經驗不多的產品經理，用 Claude Code 做出內部平台，2 個月 218 次提交。追求效率：控制策略模擬工具把策略調整從 1 週縮短到 2 小時；把 AI 放進開發流程後，交付效率 +50%。找出卡點，做出解法，量出成果。許承澤 Kevin Hsu，Product Manager · AI · B2C 平台 · 跨團隊交付。",
     },
     builderLoop: {
       label: "從現場到產品",
@@ -84,21 +84,21 @@ export const zh = {
         featured: true,
         suffix: "%",
         label: "愛淨的產品交付效率",
-        detail: "把 AI 工具放進開發流程後",
+        detail: "AI 導入需求到開發協作，交付週期前後比較",
       },
       {
         value: 1000,
         featured: true,
         suffix: " 單／日",
-        label: "生鮮電商的每日履約產能",
-        detail: "系統重整後，300 → 1,000 單／日",
+        label: "蔬果電商的揀貨日產能",
+        detail: "系統重構後，300 → 1,000 單／日 (+233%)",
       },
       {
         prefix: "+",
         value: 120,
         suffix: "%",
-        label: "平台重整期間的營收成長",
-        detail: "客戶年營收規模約 NT$2 億",
+        label: "重構期間的平台營收成長",
+        detail: "團隊成果；客戶年營收約 NT$2 億",
       },
       {
         prefix: "+",
@@ -106,7 +106,7 @@ export const zh = {
         featured: true,
         suffix: "%",
         label: "健康 App 的每日活躍使用者",
-        detail: "新版上線後一年內，12,000 → 20,000／日",
+        detail: "新版上線一年內，DAU 12,000 → 20,000",
       },
       {
         value: 1000,
@@ -115,10 +115,11 @@ export const zh = {
         detail: "把電商和實體 POS 的資料接起來",
       },
       {
-        value: 100,
-        suffix: " 棟",
-        label: "協助規劃的房源規模",
-        detail: "先把多住戶管理的流程理清楚",
+        prefix: "NT$",
+        value: 1200,
+        suffix: " 萬+",
+        label: "管理的 B2C 專案組合",
+        detail: "Fable 寓意科技，帶領 10 人工程團隊與 2 位初階 PM",
       },
     ],
   },
@@ -178,7 +179,7 @@ export const zh = {
         statLabel: "產品交付效率",
         title: "用 Claude 把產品管理流程自動化",
         description:
-          "從會議追蹤、提案初稿、需求釐清、規格到 mock data 驗證，每一段交接都交給 Claude。會議這段由 Claude Cowork 每天 17:00 自動讀 Notion 紀錄，排好待辦與提案初稿；隔天早上 5 分鐘 review 完，就能交給團隊。",
+          "從會議追蹤、提案初稿、需求釐清、規格到 mock data 驗證，每一段都先由 Claude 起草，我負責判斷與定稿。會議這段由 Claude Cowork 每天 17:00 自動讀 Notion 紀錄，排好待辦與提案初稿；隔天早上花 5 分鐘確認，就能交給團隊。",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
         image: {
           src: "/linkedin-posts/ai-product-workflow.zh.svg",
@@ -207,12 +208,12 @@ export const zh = {
       {
         id: "aws",
         kind: "feature",
-        category: "專案期間",
+        category: "案例收錄",
         caseId: "grocery",
         title: "AWS 數位轉型案例",
         distinction: "放心初蔬果網",
         description:
-          "在寓意科技主導放心初的系統重構與上雲，後續由 AWS 提供內容、刊登於關鍵評論網。",
+          "在寓意科技主導放心初的系統重構與上雲；AWS 將此案列為數位轉型案例，刊登於關鍵評論網。",
         link: {
           label: "閱讀案例報導",
           href: "https://www.thenewslens.com/feature/aws/250301",
@@ -244,8 +245,8 @@ export const zh = {
     capabilitiesTitle: "我的核心能力",
     capabilities: [
       {
-        name: "AI 驅動的交付加速",
-        text: "將 AI 導入需求釐清、規格、製作與驗收流程，縮短從想法到交付成果的距離。",
+        name: "用 AI 加快交付",
+        text: "將 AI 導入需求釐清、規格撰寫、mock data 驗證與開發協作，讓想法更快變成團隊能用的成果。",
       },
       {
         name: "從產品規劃到實際交付",
@@ -260,7 +261,7 @@ export const zh = {
 
   cases: {
     title: "精選案例",
-    intro: "四案採相同結構：範圍、取捨、成果、證據。",
+    intro: "四個案例，同一套結構：情境、瓶頸、取捨、成果。",
     copyLabel: "複製案例連結",
     copiedLabel: "已複製連結",
     copyFallback: "請選取並複製下方連結。",
@@ -323,7 +324,7 @@ export const zh = {
         role: "Senior Project Manager",
         scope: "健康 App｜IoT 體重計｜資料遷移｜多國語系",
         collaboration: "客戶產品、工程、資料遷移、IoT 與在地化夥伴",
-        impact: "DAU 12,000 → 20,000（1 年 +66%）",
+        impact: "DAU 12,000 → 20,000 (1 年 +66%)",
         ownership: "主導訪談、競品分析、工作坊、優先排序與 QA 驗收。",
         situation:
           "年營收約 NT$8 億的健康 App 需要重構，並整合 IoT 體重計、活動報名、多國語系與舊資料。",
@@ -335,7 +336,7 @@ export const zh = {
         hypothesis:
           "以訪談、競品研究與客戶工作坊排優先序，再依使用情境設計測試與驗收。",
         result:
-          "新平台上線並完成資料遷移；DAU 一年內由約 12,000 增至 20,000（+66%）。",
+          "新平台上線並完成資料遷移；DAU 一年內由約 12,000 增至 20,000 (+66%)。",
         artifacts: [
           "使用者訪談",
           "Wireframe",
@@ -370,7 +371,7 @@ export const zh = {
         hypothesis:
           "以雙週節奏推進 CDP、Chatbot、埋點與儀表板需求，對齊產品與資料團隊。",
         result:
-          "串接 5 個通路，整合零售、電商與不動產共 1,000 萬筆資料，建立 Customer 360。",
+          "串接 5 個通路，整合零售、電商與不動產共 1,000 萬筆資料，建立 Customer 360 客戶輪廓。",
         artifacts: [
           "Product Roadmap",
           "MVP 訪談計畫",
@@ -419,7 +420,7 @@ export const zh = {
 
   experience: {
     title: "經歷速覽",
-    intro: "六段經歷，練成同一個習慣。",
+    intro: "六段經歷，都在做同一件事：讓東西真的跑起來。",
     currentLabel: "現在",
     expandLabel: "工作內容",
     collapseLabel: "收合經歷",
@@ -467,7 +468,7 @@ export const zh = {
         skillSignal:
           "將商業目標、使用者流程與交付限制收斂成 Roadmap，讓工程、設計與需求方按同一套優先順序協作。",
         summary:
-          "職涯空窗期間，我承接產品策略、SaaS 與募資顧問案。每個案子都必須從商業問題一路拆解到團隊協作方式。",
+          "2023 年以獨立顧問身分，承接產品策略、SaaS 與募資顧問案。每個案子都必須從商業問題一路拆解到團隊協作方式。",
         bullets: [
           "包租代管 SaaS：協助管理約 100 棟房源的業者，從商業問題定義多住戶管理軟體的需求與產品管理流程",
           "協作流程：從商業策略展開產品策略與 Roadmap，優化工程師、設計師與需求方的協作流程",
@@ -485,8 +486,8 @@ export const zh = {
         summary:
           "管理 NT$1,200 萬以上的 B2C 專案組合，帶領 10 人工程團隊與 2 位初階 PM；負責電商、倉儲、App 與 IoT 整合，獲 2022 PMI 專案管理標竿獎卓越獎。",
         bullets: [
-          "蔬果電商（客戶年營收約 NT$2 億）：在訂單暴增期間主導全端與 AWS 架構重構，揀貨 300 → 1,000 單／日 (+233%)；重構期間平台營收成長 120%",
-          "健康管理 App（年營收約 NT$8 億）：以使用者訪談、競品研究與客戶工作坊定義優先順序，重構平台、轉移資料並整合 IoT 體重計；每日活躍使用者一年內由 12,000 成長至 20,000（+66%）",
+          "蔬果電商（客戶年營收約 NT$2 億）：在訂單暴增期間主導訂單到交付的流程盤點，協調全端與 AWS 架構重構，揀貨 300 → 1,000 單／日 (+233%)；重構期間平台營收成長 120%",
+          "健康管理 App（年營收約 NT$8 億）：以使用者訪談、競品研究與客戶工作坊定義優先順序，重構平台、轉移資料並整合 IoT 體重計；每日活躍使用者一年內由 12,000 成長至 20,000(+66%)",
         ],
       },
       {
@@ -502,7 +503,7 @@ export const zh = {
         bullets: [
           "整合零售、電商與不動產領域 1,000 萬筆客戶資料，串接 LINE、Facebook、官網、電商與 POS 資料",
           "主導 CDP、LINE 與 Facebook Chatbot、網站埋點與資料儀表板的 PRD 撰寫與功能設計",
-          "為客戶制定資料策略，建立客戶 360 度輪廓",
+          "為客戶制定資料策略，建立 Customer 360 客戶輪廓",
         ],
       },
       {
@@ -524,9 +525,9 @@ export const zh = {
   },
 
   contact: {
-    kicker: "先讓它能跑，再讓它上線。",
+    kicker: "找出卡點，做出解法，量出成果。",
     title: "聊聊下一個產品機會。",
-    text: "正在尋找能把 AI 推進真實工作的產品團隊。歡迎聊聊職缺、產品方向，或你們正在解決的問題。",
+    text: "正在尋找面向全球市場的 B2C 平台與成長期產品團隊，尤其是想把 AI 放進日常工作的團隊。歡迎聊聊職缺、產品方向，或你們正在解決的問題。",
     cta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
     links: [
       {

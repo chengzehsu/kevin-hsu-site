@@ -4,9 +4,9 @@ export const en = {
   locale: "en",
 
   meta: {
-    title: "Kevin Hsu | Product Manager | Make it run, then ship it",
+    title: "Kevin Hsu | Product Manager | Find the bottleneck, build the fix, prove it",
     description:
-      "Product Manager with 5+ years of product-related experience. Led B2C e-commerce re-platforming, contributed to health-app re-platforming, and owned cross-functional delivery and data-product planning; led a 10-person engineering team and two junior PMs.",
+      "Product Manager with 5+ years of product-related experience. Led B2C e-commerce re-platforming, led discovery and QA for a health-app re-platforming, and owned cross-functional delivery and data-product planning; led a 10-person engineering team and two junior PMs.",
   },
 
   nav: {
@@ -26,7 +26,7 @@ export const en = {
   hero: {
     eyebrow: "Kevin Hsu | Product Manager",
     kicker: "The spec is written. The meeting is over. Nothing runs yet?",
-    headline: "Make it 【run】. Then 【ship】 it.",
+    headline: "Find the 【bottleneck】. Build the 【fix】. Prove it in 【numbers】.",
     traits: [
       {
         label: "Curious",
@@ -35,7 +35,7 @@ export const en = {
       },
       {
         label: "Experimental",
-        text: "Little coding background, still built an internal platform.",
+        text: "Limited coding background; built an internal platform anyway.",
         proof: "218 commits in 2 months with Claude Code",
       },
       {
@@ -52,7 +52,7 @@ export const en = {
           "Product Manager · B2C re-platforming, cross-functional delivery, and AI workflows",
       },
       {
-        label: "Product environments",
+        label: "Domains",
         value:
           "B2C e-commerce, health apps, B2B enterprise learning, and cross-channel customer-data platforms",
       },
@@ -62,25 +62,25 @@ export const en = {
       },
     ],
     film: {
-      caption: "AI energy product: delivery efficiency +50%",
+      caption: "AI energy-saving HVAC: delivery efficiency +50%",
       caseId: "ecofirst",
       pauseLabel: "Pause film",
       playLabel: "Play film",
       seekLabel: "Film progress",
       chapters: [{ at: 0, label: "Intro" }, { at: 12, label: "Six skills" }, { at: 35.4, label: "Three habits" }, { at: 50, label: "Sign-off" }],
       summary:
-        "60-second film: The spec is written, the meeting is over, and nothing runs yet. For a PM in the AI era, building something is no longer the bar; six skills are: problem framing, fast experiments, prototyping, process redesign, cross-team delivery, and reading data, and each role grows that chart. Then three working habits. Curious: when a new tool appears, I try it hands-on, from Claude Code and Cursor to Gemini and Notion AI; I built an AI business-card assistant with Cursor and Gemini, from failed OCR and rebuilt version control to deployment: snap a card, Gemini reads it, Notion files it. Experimental: a PM with little coding background built an internal platform with Claude Code, 218 commits in 2 months. Efficient: a control-strategy simulator cut strategy tuning from 1 week to 2 hours, and putting AI into the delivery workflow raised delivery efficiency by 50%. Make it run, then ship it. Kevin Hsu, Product Manager · AI · B2C platforms · cross-team delivery.",
+        "60-second film. The spec is written, the meeting is over, and nothing runs yet. For a PM in the AI era, building something is no longer the bar. The bar is six skills: problem framing, fast experiments, prototyping, workflow redesign, cross-team delivery, and data judgment; each role widened that chart. Then three working habits. Curious: when a new tool appears, I try it hands-on, from Claude Code and Cursor to Gemini and Notion AI. I built an AI business-card assistant with Cursor and Gemini, through failed OCR and a rebuilt Git setup to deployment: snap a card, Gemini reads it, Notion files it. Experimental: with limited coding background, I built an internal platform with Claude Code, 218 commits in 2 months. Efficient: a control-strategy simulator cut tuning from 1 week to 2 hours, and putting AI into the delivery workflow raised delivery efficiency by 50%. Find the bottleneck. Build the fix. Prove it in numbers. Kevin Hsu, Product Manager · AI · B2C platforms · cross-team delivery.",
     },
     builderLoop: {
       label: "From fieldwork to product",
       steps: [
-        "Map work",
-        "Find the issue",
-        "Set a hypothesis",
+        "Map the flow",
+        "Find the constraint",
+        "Form a hypothesis",
         "Build a tool",
         "Check impact",
       ],
-      result: "Ecofirst: delivery +50%, site operations +20%",
+      result: "Ecofirst: delivery efficiency +50%, site-ops efficiency +20%",
     },
     primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "See portfolio", href: "/en/portfolio/" },
@@ -94,22 +94,22 @@ export const en = {
         value: 50,
         featured: true,
         suffix: "%",
-        label: "Current product delivery efficiency",
-        detail: "Introduced AI tools and development workflows",
+        label: "Ecofirst product delivery efficiency",
+        detail: "AI from specs to dev handoff; delivery cycle, before vs after",
       },
       {
         value: 1000,
         featured: true,
         suffix: " orders/day",
         label: "Fresh-produce picking capacity",
-        detail: "After AWS re-platforming: 300 to 1,000 orders/day",
+        detail: "After AWS re-platforming: 300 → 1,000 orders/day (+233%)",
       },
       {
         prefix: "+",
         value: 120,
         suffix: "%",
-        label: "Fresh-produce platform revenue growth",
-        detail: "During re-platforming; client annual revenue: about NT$200M",
+        label: "Platform revenue growth during re-platforming",
+        detail: "Team outcome; client annual revenue about NT$200M",
       },
       {
         prefix: "+",
@@ -117,7 +117,7 @@ export const en = {
         featured: true,
         suffix: "%",
         label: "Health app daily active users",
-        detail: "Within one year of launch: 12,000 to 20,000/day",
+        detail: "Within a year of launch: DAU 12,000 → 20,000",
       },
       {
         value: 10,
@@ -126,10 +126,11 @@ export const en = {
         detail: "Connected online e-commerce and offline POS data",
       },
       {
-        value: 100,
-        suffix: " properties",
-        label: "Rental-management SaaS portfolio",
-        detail: "Clarified multi-tenant management needs and product flow",
+        prefix: "NT$",
+        value: 12,
+        suffix: "M+",
+        label: "B2C project portfolio managed",
+        detail: "At Fable, leading 10 engineers and 2 junior PMs",
       },
     ],
   },
@@ -146,8 +147,7 @@ export const en = {
         trait: "Experimental",
         stat: "218",
         statLabel: "commits in 2 months",
-        title:
-          "Little coding background, an internal platform built with Claude Code",
+        title: "An internal platform built with Claude Code",
         description:
           "Started from an API integration and turned site-data lookups into a tool, improving it while using it.",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7469732610550976512/",
@@ -179,7 +179,7 @@ export const en = {
         statLabel: "control-strategy tuning",
         title: "Control-strategy simulator",
         description:
-          "Turned trial runs across 100,000+ control combinations into a tool instead of tuning one set at a time.",
+          "Built a simulator that tests 100,000+ control combinations, replacing manual one-at-a-time tuning.",
         image: {
           src: "/portfolio-wall/film-7.webp",
           alt: "Control-strategy tuning cut from 1 week to 2 hours",
@@ -188,12 +188,12 @@ export const en = {
         },
       },
       {
-        trait: "Every day",
+        trait: "Daily practice",
         stat: "+50%",
         statLabel: "product delivery efficiency",
         title: "Automating product management with Claude",
         description:
-          "Meeting follow-up, proposal drafts, discovery, specs, and mock-data checks: every hand-off runs through Claude. At 5 pm each day Claude Cowork reads the day's Notion meeting notes on a schedule and lines up the action items and a first-draft proposal; a 5-minute review the next morning and it goes to the team.",
+          "Meeting follow-up, proposal drafts, requirements, specs, and mock-data checks: Claude drafts each step, and I make the calls. For meetings, Claude Cowork reads the day's Notion notes at 5 pm and lines up action items and a first-draft proposal; after a 5-minute review the next morning, it goes to the team.",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
         image: {
           src: "/linkedin-posts/ai-product-workflow.en.svg",
@@ -214,7 +214,7 @@ export const en = {
         category: "Award",
         year: "2022",
         title: "PMI Taiwan Project Management Benchmark Award",
-        distinction: "Excellence",
+        distinction: "Excellence Award",
         description:
           "Project work at Fable, spanning process mapping, system re-platforming, and cross-team delivery.",
         link: { label: "See the experience", href: "#experience" },
@@ -222,12 +222,12 @@ export const en = {
       {
         id: "aws",
         kind: "feature",
-        category: "Project period",
+        category: "Case feature",
         caseId: "grocery",
         title: "AWS digital transformation case",
         distinction: "Fresh-produce commerce",
         description:
-          "Led the e-commerce rebuild and AWS migration at Fable. The project was later featured by The News Lens, with content provided by AWS.",
+          "Led the e-commerce rebuild and AWS migration at Fable; AWS featured it as a digital-transformation case on The News Lens.",
         link: {
           label: "Read the article (Chinese)",
           href: "https://www.thenewslens.com/feature/aws/250301",
@@ -259,8 +259,8 @@ export const en = {
     capabilitiesTitle: "Core capabilities",
     capabilities: [
       {
-        name: "AI-accelerated delivery",
-        text: "Use AI to reshape the workflow from clarification and specification through making and acceptance, shortening the path from idea to a shippable outcome.",
+        name: "Faster delivery with AI",
+        text: "Bring AI into requirements, specs, mock-data checks, and dev handoff, so ideas become something the team can use sooner.",
       },
       {
         name: "From product planning to building",
@@ -275,7 +275,7 @@ export const en = {
 
   cases: {
     title: "Selected case studies",
-    intro: "Four cases, one structure: scope, decision, outcome, evidence.",
+    intro: "Four cases, one structure: situation, bottleneck, decision, result.",
     copyLabel: "Copy case link",
     copiedLabel: "Link copied",
     copyFallback: "Select and copy the link below.",
@@ -286,7 +286,7 @@ export const en = {
     roleLabel: "Role",
     scopeLabel: "Scope",
     collaborationLabel: "Collaboration",
-    artifactsLabel: "Work products",
+    artifactsLabel: "Deliverables",
     measurementLabel: "How it was measured",
     ownershipLabel: "What I drove",
     columns: {
@@ -300,7 +300,7 @@ export const en = {
       {
         id: "grocery",
         org: "Fable (寓意科技)",
-        period: "2021/3 - 2022/7",
+        period: "Mar 2021 - Jul 2022",
         rank: 1,
         title: "Fresh-produce commerce, rebuilt",
         role: "Senior Project Manager",
@@ -321,7 +321,7 @@ export const en = {
         hypothesis:
           "Used one priority sequence across product, engineering, warehouse, and operations to phase peak-season fixes and re-platforming.",
         result:
-          "Picking capacity rose from 300 to 1,000 orders per day (+233%). Revenue grew 120% during the programme, which AWS later featured.",
+          "Picking capacity rose from 300 → 1,000 orders/day (+233%). Platform revenue grew 120% during the program, and AWS later featured the project.",
         artifacts: [
           "Project overview",
           "Order-flow map",
@@ -330,32 +330,32 @@ export const en = {
           "Project knowledge base",
         ],
         measurement:
-          "Compared daily picking capacity before and after the rebuild. The AWS digital-transformation feature provides public evidence; revenue growth was a team outcome during the programme.",
+          "Compared daily picking capacity before and after the rebuild. The AWS digital-transformation feature provides public evidence; revenue growth was a team outcome during the program.",
         measurementSummary: "Daily picking capacity: before vs after",
       },
       {
         id: "health-app",
         org: "Fable (寓意科技)",
-        period: "2021/3 - 2022/7",
+        period: "Mar 2021 - Jul 2022",
         rank: 3,
         title: "Health app and IoT integration",
         role: "Senior Project Manager",
         scope: "Health app | IoT scales | Data migration | Localisation",
         collaboration:
-          "Client product, engineering, data migration, IoT, and localisation partners",
+          "Client product, engineering, data migration, IoT, and localization partners",
         impact: "DAU: 12,000 → 20,000 in one year (+66%)",
         ownership:
-          "Led interviews, competitor analysis, workshops, prioritisation, and QA acceptance.",
+          "Led interviews, competitor analysis, workshops, prioritization, and QA acceptance.",
         situation:
-          "A health app with about NT$800M in annual revenue needed re-platforming, IoT scales, event registration, localisation, and legacy-data migration.",
+          "A health app with about NT$800M in annual revenue needed re-platforming, IoT scales, event registration, localization, and legacy-data migration.",
         bottleneck:
           "Legacy fields, IoT data, and new feature flows were inconsistent, blocking safe migration and use.",
         decision:
           "Turned interview scenarios into wireframes, user stories, and PRDs; aligned parameter and translation tables before development.",
         decisionSummary:
-          "Specified real user situations first, then reduced migration and localisation risk.",
+          "Specified real user situations first, then reduced migration and localization risk.",
         hypothesis:
-          "Used interviews, competitor research, and client workshops to prioritise work, then designed QA around real use cases.",
+          "Used interviews, competitor research, and client workshops to prioritize work, then designed QA around real use cases.",
         result:
           "Launched the new platform and completed migration. DAU grew from about 12,000 to 20,000 within one year (+66%).",
         artifacts: [
@@ -372,17 +372,17 @@ export const en = {
       {
         id: "cdp",
         org: "Oakda (歐可達數據科技有限公司)",
-        period: "2020/6 - 2020/12",
+        period: "Jun 2020 - Dec 2020",
         rank: 4,
         title: "Connecting customer data",
         role: "Product Manager",
         scope: "CDP | Chatbots | Web tracking | Dashboards | POS",
-        collaboration: "UX, Sales, Marketing, product, and data teams",
+        collaboration: "UX, sales, marketing, product, and data teams",
         impact: "3 industries × 5 channels | 10M records integrated",
         ownership:
           "Planned the CDP, chatbots, tracking, and dashboards; led biweekly product-data delivery.",
         situation:
-          "LINE, Facebook, website, e-commerce, and POS data were fragmented, hiding each customer's source and purchase behaviour.",
+          "LINE, Facebook, website, e-commerce, and POS data were fragmented, hiding each customer's source and purchase behavior.",
         bottleneck:
           "Channel formats and identity rules differed; the data needed structuring and matching before it could form Customer 360 views.",
         decision:
@@ -408,22 +408,22 @@ export const en = {
       {
         id: "ecofirst",
         org: "Ecofirst (台灣愛淨)",
-        period: "2025/3 - Present",
+        period: "Mar 2025 - Present",
         rank: 2,
         title: "AI energy: from planning to delivery",
         role: "Product Manager",
         scope:
           "Roadmap | AI development | Internal tools | Deployment, site ops",
         collaboration: "Software, project, sales, and site-operations teams",
-        impact: "Delivery efficiency +50% | Site operations +20%",
+        impact: "Delivery efficiency +50% | Site-ops efficiency +20%",
         ownership:
           "Product roadmap, AI development workflows, internal tools, and cross-functional deployment handoffs.",
         situation:
-          "The early-stage AI HVAC product relied on project-led delivery without reusable back-office systems or internal tools.",
+          "The early-stage AI energy-saving HVAC product relied on project-led delivery without reusable back-office systems or internal tools.",
         bottleneck:
           "Development, deployment, and site handoffs lacked a shared process, concentrating knowledge and delaying delivery.",
         decision:
-          "Standardised development, deployment, and site handoffs before turning frequent operating work into internal tools.",
+          "Standardized development, deployment, and site handoffs before turning frequent operating work into internal tools.",
         decisionSummary:
           "Made development, deployment, and site handoffs repeatable before expanding the feature set.",
         hypothesis:
@@ -447,7 +447,7 @@ export const en = {
 
   experience: {
     title: "Experience",
-    intro: "Six chapters, one habit.",
+    intro: "Six roles, one job: make things actually run.",
     currentLabel: "Now",
     expandLabel: "View role details",
     collapseLabel: "Collapse role",
@@ -457,13 +457,13 @@ export const en = {
         id: "ecofirst",
         org: "Ecofirst Taiwan (台灣愛淨股份有限公司)",
         role: "Product Manager",
-        period: "2025/3 - Present",
+        period: "Mar 2025 - Present",
         focus:
-          "AI energy products, internal tools, and cross-functional delivery",
+          "AI energy-saving HVAC, internal tools, and cross-functional delivery",
         skillSignal:
-          "Turning field practice into roadmaps, AI tools, and delivery workflows that give cross-functional teams a shared way to move work forward.",
+          "Turning field practice into a roadmap, AI tools, and one delivery workflow that software, project, and sales teams all use.",
         summary:
-          "Own the roadmap and feature strategy for a 0-to-1 AI energy-saving air-conditioning product. Build internal tools with AI and move a fast-changing, project-led environment toward repeatable product operations.",
+          "Own the roadmap, requirements, and specs for a 0-to-1 AI energy-saving HVAC product, and turn practices that lived in individual experience into tools and processes.",
         bullets: [
           "Introduced AI tools and development workflows into product delivery, raising delivery efficiency by 50%",
           "Coordinated software, project, and sales teams around one product-development and deployment flow",
@@ -474,7 +474,7 @@ export const en = {
         id: "sat",
         org: "SAT. KNOWLEDGE",
         role: "Senior Product Manager",
-        period: "2023/11 - 2024/8",
+        period: "Nov 2023 - Aug 2024",
         focus: "B2B learning, learning analytics, and market validation",
         skillSignal:
           "Clarifying priorities across the differing needs of buyers, administrators, and end users, then testing market opportunities.",
@@ -484,19 +484,19 @@ export const en = {
           "Enterprise training: interviewed HR teams at companies of different sizes and defined post-purchase course assignment, new-hire onboarding, and learning-management workflows",
           "Learning analytics: planned dashboards and in-class assessments to help HR teams understand employee progress and capability growth",
           "Hong Kong market: partnered with marketing and used a third-party platform to test an entry approach in three weeks",
-          "Growth and operations: explored affiliate and group-buying features, and planned tools for internal leave, time-off-in-lieu, and payment-request flows",
+          "Growth and operations: explored affiliate and group-buying features, and planned tools for internal leave, time-off-in-lieu, and expense-claim flows",
         ],
       },
       {
         id: "consulting",
         org: "Freelance",
-        role: "Independent consultant",
-        period: "2023/5 - 2023/11",
+        role: "Independent Consultant",
+        period: "May 2023 - Nov 2023",
         focus: "Product strategy, rental SaaS, and fundraising advisory",
         skillSignal:
-          "Turning ambiguous business problems into aligned product strategy, roadmaps, and cross-functional operating rhythm.",
+          "Distilling business goals, user flows, and delivery constraints into one roadmap, so engineering, design, and requesters share the same priorities.",
         summary:
-          "During a career transition, took on product strategy, SaaS, and fundraising-advisory work, building practical experience from business strategy and product management through cross-functional collaboration.",
+          "In 2023, took on product-strategy, SaaS, and fundraising-advisory engagements as an independent consultant; each one ran from the business problem down to how the team would work.",
         bullets: [
           "Rental-management SaaS: helped an operator managing about 100 properties define a multi-tenant management product, its requirements, and its product-management flow",
           "Collaboration flow: translated business strategy into product strategy and roadmaps, improving collaboration among engineers, designers, and requesters",
@@ -507,14 +507,14 @@ export const en = {
         id: "fable",
         org: "Fable (寓意科技)",
         role: "Senior Project Manager",
-        period: "2021/3 - 2022/7",
+        period: "Mar 2021 - Jul 2022",
         focus: "E-commerce and health app rebuilds, cross-functional delivery",
         skillSignal:
-          "Developing systems product sense under delivery pressure: connecting user flow, technical re-platforming, and operating outcomes.",
+          "Building systems-level product judgment under delivery pressure: user flows, technical re-platforming, and operating results tied into one decision.",
         summary:
-          "Managed an NT$12M+ B2C project portfolio with Agile, led a 10-person engineering team and two junior PMs, and was responsible for storefront, back-office, and app re-platforming across e-commerce, warehouse operations, and IoT. Received the 2022 PMI Taiwan Project Management Benchmark Award, Excellence.",
+          "Managed an NT$12M+ B2C project portfolio with Agile, led a 10-person engineering team and two junior PMs, and was responsible for storefront, back-office, and app re-platforming across e-commerce, warehouse operations, and IoT. Received the 2022 PMI Taiwan Project Management Benchmark Award (Excellence Award).",
         bullets: [
-          "Fresh-produce e-commerce (about NT$200M annual revenue): during rapid order growth, led full-stack and AWS re-platforming; picking went from 300 → 1,000 orders/day (+233%); platform revenue grew 120% during the re-platforming period",
+          "Fresh-produce e-commerce (about NT$200M annual revenue): during rapid order growth, led order-to-delivery mapping and coordinated full-stack and AWS re-platforming; picking went from 300 → 1,000 orders/day (+233%); platform revenue grew 120% during the re-platforming period",
           "Health-management app (about NT$800M annual revenue): used interviews, competitor research, and client workshops to set priorities; rebuilt the platform, migrated user data, and integrated IoT smart scales; daily active users grew from 12,000 to 20,000 within a year (+66%)",
         ],
       },
@@ -522,38 +522,38 @@ export const en = {
         id: "oakda",
         org: "Oakda (歐可達數據科技有限公司)",
         role: "Product Manager",
-        period: "2020/6 - 2020/12",
+        period: "Jun 2020 - Dec 2020",
         focus: "Customer data platforms, chatbots, and dashboards",
         skillSignal:
-          "Using data definitions and cross-channel behaviour to turn fragmented information into useful services and decisions.",
+          "Using data definitions and cross-channel behavior to turn fragmented information into useful services and decisions.",
         summary:
-          "Managed product and data teams, owning the roadmap and biweekly Scrum sprints for a cross-channel customer data platform.",
+          "Managed product and data teams, owning the roadmap and biweekly sprints for a cross-channel customer data platform.",
         bullets: [
           "Integrated 10M customer records across retail, e-commerce, and real estate by connecting LINE, Facebook, websites, e-commerce, and POS data",
-          "Led PRDs and feature design for the CDP, LINE and Facebook chatbots, web tracking and data dashboards",
-          "Defined client data strategies and built 360-degree customer views",
+          "Led PRDs and feature design for the CDP, LINE and Facebook chatbots, web tracking, and data dashboards",
+          "Defined client data strategies and built Customer 360 views",
         ],
       },
       {
         id: "zhongshuo",
         org: "Zhongshuo Investment Consulting",
         role: "Product Associate",
-        period: "2019/2 - 2020/6",
+        period: "Feb 2019 - Jun 2020",
         focus: "Market research, prototyping, and early product validation",
         skillSignal:
           "Building product instinct through market exploration, prototyping, and competitor research: validate the problem before delivery.",
         summary:
-          "In a venture studio that took equity through technology investment, helped traditional businesses move from product exploration to market validation through research, prototyping, requirements work, and outsourced delivery.",
+          "At a venture studio that contributed technology in exchange for equity, helped traditional businesses move from product exploration to market validation through research, prototyping, requirements work, and outsourced delivery.",
         bullets: [
           "Worked on e-commerce, fan-community, and video-learning products: created wireframes and prototypes, ran competitive research, mapped flows, and coordinated engineering and design partners",
-          "Incubated two early-stage companies outside the existing corporate structure and helped take their products to market validation",
+          "Supported two early-stage companies incubated through the tech-for-equity model, taking their products to market validation",
         ],
       },
     ],
   },
 
   contact: {
-    kicker: "Make it run. Then ship it.",
+    kicker: "Find the bottleneck. Build the fix. Prove it in numbers.",
     title: "Let's talk about the next product.",
     text: "Looking for a product team ready to put AI into real work. Happy to discuss a role, your product direction, or the problems you are working on.",
     cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
@@ -579,15 +579,15 @@ export const en = {
     },
     bottleneckLabel: "Bottleneck",
     hypothesis:
-      "Rebuilt the storefront, back office, app & AWS\naround one order-to-delivery flow",
+      "Rebuilt the storefront, back office, app, and AWS\naround one order-to-delivery flow",
     throughputLabel: "300 → 1,000 orders/day",
     captions: [
-      "Orders queue at picking: 300 orders per day.",
+      "Orders queue at picking: 300 orders/day.",
       "Rebuilt storefront, back office, app, and AWS architecture around the delivery flow.",
-      "Picking reached 1,000 orders per day, while platform revenue grew 120%.",
+      "Picking reached 1,000 orders/day, while platform revenue grew 120%.",
     ],
     replay: "Replay",
     ariaLabel:
-      "Animated diagram: orders flow through intake, picking, packing and shipping; picking becomes the bottleneck, and after the AWS re-platform daily throughput rises from 300 to 1,000 orders.",
+      "Animated diagram: orders flow through intake, picking, packing, and shipping; picking becomes the bottleneck, and after AWS re-platforming, throughput rises from 300 → 1,000 orders/day.",
   },
 } satisfies SiteContent;

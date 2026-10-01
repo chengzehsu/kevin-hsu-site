@@ -29,7 +29,7 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
   zh: {
     grocery: {
       kind: "comparison",
-      eyebrow: "流程證據 01",
+      eyebrow: "流程證據",
       title: "從訂單到交付，重畫整條營運流程",
       measure: "揀貨日產能",
       before: { label: "重構前", value: "300 單／日", width: 30 },
@@ -37,7 +37,7 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
     "health-app": {
       kind: "comparison",
-      eyebrow: "流程證據 02",
+      eyebrow: "流程證據",
       title: "先對齊資料定義，再讓新功能可持續使用",
       measure: "每日活躍使用者",
       before: { label: "新平台上線時", value: "12,000", width: 60 },
@@ -45,24 +45,24 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
     cdp: {
       kind: "sources",
-      eyebrow: "資料證據 03",
+      eyebrow: "資料證據",
       title: "將分散接觸點整理成同一位客戶的視圖",
       inputs: ["LINE", "Facebook", "官網", "電商", "POS"],
-      output: "客戶 360 度視圖",
+      output: "Customer 360 客戶輪廓",
       measure: "1,000 萬筆資料整合",
     },
     ecofirst: {
       kind: "loop",
-      eyebrow: "交付證據 04",
+      eyebrow: "交付證據",
       title: "把專案導向的協作，變成可複製的產品交付",
       steps: ["產品", "軟體", "專案", "業務", "案場"],
-      measure: "交付效率 +50% · 案場營運 +20%",
+      measure: "交付效率 +50%｜案場營運效率 +20%",
     },
   },
   en: {
     grocery: {
       kind: "comparison",
-      eyebrow: "Evidence 01",
+      eyebrow: "Evidence",
       title: "Redesigned the operating flow from order to delivery",
       measure: "Daily picking capacity",
       before: { label: "Before", value: "300 orders/day", width: 30 },
@@ -70,7 +70,7 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
     "health-app": {
       kind: "comparison",
-      eyebrow: "Evidence 02",
+      eyebrow: "Evidence",
       title: "Aligned data definitions before scaling the new experience",
       measure: "Daily active users",
       before: { label: "At launch", value: "12,000", width: 60 },
@@ -78,7 +78,7 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
     cdp: {
       kind: "sources",
-      eyebrow: "Evidence 03",
+      eyebrow: "Evidence",
       title: "Turned fragmented touchpoints into one customer view",
       inputs: ["LINE", "Facebook", "Website", "E-commerce", "POS"],
       output: "Customer 360 view",
@@ -86,10 +86,10 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
     ecofirst: {
       kind: "loop",
-      eyebrow: "Evidence 04",
+      eyebrow: "Evidence",
       title: "Turned project-led collaboration into repeatable delivery",
       steps: ["Product", "Software", "Project", "Sales", "Site"],
-      measure: "Delivery +50% · Site operations +20%",
+      measure: "Delivery efficiency +50% | Site-ops efficiency +20%",
     },
   },
 };

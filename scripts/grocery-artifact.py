@@ -36,8 +36,8 @@ COPY = {
         "head_size": 44,
     },
     "en": {
-        "title": "Project information system for the grocery programme",
-        "desc": "Clients, the engineering and design team, and colleagues asked the same questions about timeline, release scope, billable hours, and past decisions every week; the answers became three modules: an information-flow map, a project overview, and project detail pages. Picking capacity rose from 300 to 1,000 orders per day (+233%) during the programme.",
+        "title": "Project information system for the grocery program",
+        "desc": "Clients, the engineering and design team, and colleagues asked the same questions about timeline, release scope, billable hours, and past decisions every week; the answers became three modules: an information-flow map, a project overview, and project detail pages. Picking capacity rose from 300 → 1,000 orders/day (+233%) during the program.",
         "kicker": "PROJECT OPERATIONS / GROCERY E-COMMERCE",
         "head": "Make the work visible, and the questions stop",
         "sub": "What clients, the team, and colleagues asked every week now lives in one project system.",
@@ -53,7 +53,7 @@ COPY = {
             ("Project overview", "Timeline, release scope, and test plan on one page"),
             ("Project details", "Hours, access, and past decisions, findable any time"),
         ],
-        "result": ("Programme result", "Picking 300 → 1,000 orders/day (+233%)"),
+        "result": ("Program result", "Picking 300 → 1,000 orders/day (+233%)"),
         "head_size": 38,
     },
 }
@@ -111,7 +111,7 @@ def render(lang: str) -> str:
     o.append(text(x0 + 22, 586, c["result"][0], 14, "#52627A", 700))
     o.append(text(x0 + 542, 587, c["result"][1], 17, BLUE, 700, anchor="end"))
 
-    o.append(text(1104, 638, "Kevin Hsu / Product Manager", 13, "#7C899B", anchor="end"))
+    o.append(text(1104, 638, "Kevin Hsu", 13, "#7C899B", anchor="end"))
     o.append("</svg>")
     return "\n".join(o) + "\n"
 
