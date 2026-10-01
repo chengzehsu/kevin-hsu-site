@@ -25,7 +25,8 @@ export function ProofStack({ content, locale }: SectionProps) {
           {items.map((item) => {
             const artifact = caseArtifacts[locale][item.id];
             // The first clause is the headline outcome; the rest stays on the case page.
-            const outcome = item.impact.split("｜")[0];
+            // zh separates clauses with "｜", en with " | ".
+            const outcome = item.impact.split(/\s*[｜|]\s*/)[0];
             return (
               <li key={item.id} className={`${styles.poster} scroll-rise`}>
                 <a className={styles.link} href={casePath(locale, item.id)} aria-label={`${cases.readLabel}: ${item.title}`}>

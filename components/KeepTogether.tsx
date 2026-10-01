@@ -7,10 +7,18 @@ const BAR = /(?<=｜)|(?<=\s\|)\s/;
 // Titles also break after their colon: "蔬果電商：重整訂單到交付", "AI energy: from planning to delivery".
 // Outcomes do not, or "DAU:" would be stranded on its own line.
 const BAR_OR_COLON = /(?<=[｜：])|(?<=\s\||:)\s/;
+// A full-width-slash unit such as "單／日" is one word; the browser may otherwise break after the slash.
+const SLASH_UNIT = /([^\s／]+／[^\s／(（]+)/;
+
+function Units({ text }: { text: string }) {
+  return text.split(SLASH_UNIT).map((part, index) =>
+    index % 2 === 1 ? <span key={index} className="whitespace-nowrap">{part}</span> : <Fragment key={index}>{part}</Fragment>,
+  );
+}
 
 function Figures({ text }: { text: string }) {
   return text.split(TRANSITION).map((part, index) =>
-    index % 2 === 1 ? <span key={index} className="whitespace-nowrap">{part}</span> : <Fragment key={index}>{part}</Fragment>,
+    index % 2 === 1 ? <span key={index} className="whitespace-nowrap">{part}</span> : <Units key={index} text={part} />,
   );
 }
 

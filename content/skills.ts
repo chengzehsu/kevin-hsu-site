@@ -84,7 +84,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         statement: "先找到卡住產能的那一步。",
         summary: "走進現場拆流程，用規則、系統或工具解開瓶頸，再回頭確認營運結果。",
         proof: "揀貨 300 → 1,000 單／日 (+233%)",
-        references: [{ label: "Fable 寓意科技", href: "#grocery" }],
+        references: [{ label: "Fable 寓意科技", href: "/cases/grocery/" }],
       },
       {
         id: "product-strategy",
@@ -93,7 +93,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         summary: "依商業目標、使用者需求與交付限制，決定先做什麼、暫時不做什麼。",
         proof: "從 0 到 1 規劃 AI 節能產品與包租代管 SaaS",
         references: [
-          { label: "台灣愛淨", href: "#ecofirst" },
+          { label: "台灣愛淨", href: "/cases/ecofirst/" },
           { label: "獨立顧問", href: "#experience-consulting" },
         ],
       },
@@ -104,8 +104,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         summary: "前後台、跨通路資料、IoT 與既有系統放在一起規劃，支援完整使用流程。",
         proof: "整合 1,000 萬筆跨通路客戶資料",
         references: [
-          { label: "歐可達數據科技", href: "#cdp" },
-          { label: "Fable 寓意科技", href: "#health-app" },
+          { label: "歐可達數據科技", href: "/cases/cdp/" },
+          { label: "Fable 寓意科技", href: "/cases/health-app/" },
         ],
       },
     ],
@@ -114,11 +114,11 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         kind: "product",
         title: "產品管理",
         items: [
-          { name: "產品策略", href: "#ecofirst" },
-          { name: "Roadmap 規劃", href: "#ecofirst" },
+          { name: "產品策略", href: "/cases/ecofirst/" },
+          { name: "Roadmap 規劃", href: "/cases/ecofirst/" },
           { name: "需求探索", href: "#experience-sat" },
-          { name: "使用者訪談", href: "#health-app" },
-          { name: "競品研究", href: "#health-app" },
+          { name: "使用者訪談", href: "/cases/health-app/" },
+          { name: "競品研究", href: "/cases/health-app/" },
         ],
       },
       {
@@ -127,7 +127,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         items: [
           { name: "AI 輔助開發流程", href: "#experience-ecofirst" },
           { name: "內部工具規劃", href: "#experience-ecofirst" },
-          { name: "工作流程自動化", href: "#ecofirst" },
+          { name: "工作流程自動化", href: "/cases/ecofirst/" },
           { name: "原型與功能驗證", href: "#experience-zhongshuo" },
           { name: "PRD 與驗收", href: "#experience-oakda" },
         ],
@@ -138,9 +138,9 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         items: [
           { name: "0 到 1 產品", href: "#experience-ecofirst" },
           { name: "B2B SaaS", href: "#experience-sat" },
-          { name: "資料產品與 CDP", href: "#cdp" },
-          { name: "B2C App 與電商", href: "#health-app" },
-          { name: "IoT 與舊系統整合", href: "#health-app" },
+          { name: "資料產品與 CDP", href: "/cases/cdp/" },
+          { name: "B2C App 與電商", href: "/cases/health-app/" },
+          { name: "IoT 與舊系統整合", href: "/cases/health-app/" },
         ],
       },
       {
@@ -148,8 +148,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         title: "交付與帶領",
         items: [
           { name: "跨部門協作", href: "#experience-ecofirst" },
-          { name: "流程與瓶頸分析", href: "#grocery" },
-          { name: "平台重構與資料遷移", href: "#health-app" },
+          { name: "流程與瓶頸分析", href: "/cases/grocery/" },
+          { name: "平台重構與資料遷移", href: "/cases/health-app/" },
           { name: "團隊帶領與 PM 培育", href: "#experience-fable" },
           { name: "商業與市場驗證", href: "#experience-consulting" },
         ],
@@ -188,7 +188,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         statement: "Find the step that caps throughput.",
         summary: "Walk the floor, map the flow, clear the bottleneck with rules, systems, or tools, then check the operating result.",
         proof: "Picking 300 → 1,000 orders/day (+233%)",
-        references: [{ label: "Fable", href: "#grocery" }],
+        references: [{ label: "Fable", href: "/en/cases/grocery/" }],
       },
       {
         id: "product-strategy",
@@ -197,7 +197,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         summary: "Use business goals, user needs, and delivery constraints to decide what comes first and what waits.",
         proof: "Planned 0-to-1 AI energy and rental-management SaaS products",
         references: [
-          { label: "Ecofirst", href: "#ecofirst" },
+          { label: "Ecofirst", href: "/en/cases/ecofirst/" },
           { label: "Independent consulting", href: "#experience-consulting" },
         ],
       },
@@ -208,8 +208,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         summary: "Plan front and back offices, cross-channel data, IoT, and legacy systems as one complete product flow.",
         proof: "Integrated 10M cross-channel customer records",
         references: [
-          { label: "Oakda", href: "#cdp" },
-          { label: "Fable", href: "#health-app" },
+          { label: "Oakda", href: "/en/cases/cdp/" },
+          { label: "Fable", href: "/en/cases/health-app/" },
         ],
       },
     ],
@@ -218,11 +218,11 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         kind: "product",
         title: "Product management",
         items: [
-          { name: "Product strategy", href: "#ecofirst" },
-          { name: "Roadmap planning", href: "#ecofirst" },
+          { name: "Product strategy", href: "/en/cases/ecofirst/" },
+          { name: "Roadmap planning", href: "/en/cases/ecofirst/" },
           { name: "Product discovery", href: "#experience-sat" },
-          { name: "User interviews", href: "#health-app" },
-          { name: "Competitor research", href: "#health-app" },
+          { name: "User interviews", href: "/en/cases/health-app/" },
+          { name: "Competitor research", href: "/en/cases/health-app/" },
         ],
       },
       {
@@ -231,7 +231,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         items: [
           { name: "AI-assisted development workflows", href: "#experience-ecofirst" },
           { name: "Internal tool planning", href: "#experience-ecofirst" },
-          { name: "Workflow automation", href: "#ecofirst" },
+          { name: "Workflow automation", href: "/en/cases/ecofirst/" },
           { name: "Prototyping and validation", href: "#experience-zhongshuo" },
           { name: "PRDs and acceptance", href: "#experience-oakda" },
         ],
@@ -242,9 +242,9 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         items: [
           { name: "0-to-1 products", href: "#experience-ecofirst" },
           { name: "B2B SaaS", href: "#experience-sat" },
-          { name: "Data products and CDP", href: "#cdp" },
-          { name: "B2C apps and e-commerce", href: "#health-app" },
-          { name: "IoT and legacy integration", href: "#health-app" },
+          { name: "Data products and CDP", href: "/en/cases/cdp/" },
+          { name: "B2C apps and e-commerce", href: "/en/cases/health-app/" },
+          { name: "IoT and legacy integration", href: "/en/cases/health-app/" },
         ],
       },
       {
@@ -252,8 +252,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         title: "Delivery and leadership",
         items: [
           { name: "Cross-functional delivery", href: "#experience-ecofirst" },
-          { name: "Process and constraint analysis", href: "#grocery" },
-          { name: "Platform rebuilds and data migration", href: "#health-app" },
+          { name: "Process and constraint analysis", href: "/en/cases/grocery/" },
+          { name: "Platform rebuilds and data migration", href: "/en/cases/health-app/" },
           { name: "Team leadership and PM development", href: "#experience-fable" },
           { name: "Commercial and market validation", href: "#experience-consulting" },
         ],
