@@ -553,7 +553,7 @@
       .slam {
         position: absolute;
         left: 140px;
-        font-size: 190px;
+        font-size: 168px;
         font-weight: 900;
         letter-spacing: -0.04em;
         line-height: 1;
@@ -561,19 +561,22 @@
         opacity: 0;
       }
       #p1 {
-        top: 250px;
+        top: 200px;
       }
       #p2 {
-        top: 520px;
+        top: 420px;
       }
-      #p2 .hl {
+      #p3 {
+        top: 640px;
+      }
+      #p3 .hl {
         position: relative;
         display: inline-block;
       }
-      #p2-mark {
+      #p3-mark {
         position: absolute;
         left: 0;
-        right: 190px;
+        right: 0;
         bottom: -8px;
         height: 16px;
         border-radius: 8px;
@@ -682,10 +685,16 @@
         font-size: 32px;
       }
       #root.en .slam {
-        font-size: 180px;
+        font-size: 135px;
       }
-      #root.en #p2-mark {
-        right: 0;
+      #root.en #p1 {
+        top: 225px;
+      }
+      #root.en #p2 {
+        top: 430px;
+      }
+      #root.en #p3 {
+        top: 620px;
       }
       #root.en #end-name {
         font-size: 140px;
@@ -801,8 +810,9 @@
 
       <!-- S5 tagline: 50–54.5 -->
       <div id="s5" class="scene clip" data-start="50" data-duration="4.5" data-track-index="1">
-        <div id="p1" class="slam">先讓它能<span class="hl">跑。</span></div>
-        <div id="p2" class="slam">再讓它<span class="hl"><span id="p2-mark"></span>上線。</span></div>
+        <div id="p1" class="slam">找出<span class="hl">卡點</span>，</div>
+        <div id="p2" class="slam">做出<span class="hl">解法</span>，</div>
+        <div id="p3" class="slam">量出<span class="hl"><span id="p3-mark"></span>成果</span>。</div>
       </div>
 
       <!-- S6 end: 54.5–60 -->
@@ -812,7 +822,7 @@
           <div id="end-en">Kevin Hsu</div>
           <div id="end-rule"></div>
           <div id="end-role">Product Manager · AI · B2C 平台 · 跨團隊交付</div>
-          <div id="end-line">先讓它能跑，再讓它上線。</div>
+          <div id="end-line">找出卡點，做出解法，量出成果。</div>
         </div>
         <div id="end-radar"></div>
       </div>
@@ -861,14 +871,15 @@
           "#end-name": "Kevin Hsu",
           "#end-en": "許承澤",
           "#end-role": "Product Manager · AI · B2C · Cross-team delivery",
-          "#end-line": "Make it run. Then ship it.",
+          "#end-line": "Find the bottleneck. Build the fix. Prove it in numbers.",
         };
         Object.entries(T).forEach(([sel, txt]) => ($(sel).textContent = txt));
         const H = {
           "#a0-l2": 'I <span class="hl">try it first</span>.',
           "#a2-body": "<div>A PM with little coding background</div><div>built an internal platform</div><div>with Claude Code.</div>",
-          "#p1": 'Make it <span class="hl">run.</span>',
-          "#p2": 'Then <span class="hl"><span id="p2-mark"></span>ship</span> it.',
+          "#p1": 'Find the <span class="hl">bottleneck</span>.',
+          "#p2": 'Build the <span class="hl">fix</span>.',
+          "#p3": 'Prove it in <span class="hl"><span id="p3-mark"></span>numbers</span>.',
         };
         Object.entries(H).forEach(([sel, html]) => ($(sel).innerHTML = html));
         ["Curious", "Willing to try", "Chasing efficiency"].forEach((t, i) => ($$("#traits span")[i].textContent = t));
@@ -1075,9 +1086,10 @@
 
       // ── S5 tagline ──
       tl.fromTo("#p1", { opacity: 0, scale: 1.45, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power4.out", transformOrigin: "0 50%" }, 50.3);
-      tl.fromTo("#p2", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 51.9);
-      tl.fromTo("#p2-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 52.5);
-      tl.to("#p1, #p2", { scale: 1.015, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0 50%" }, 52.8);
+      tl.fromTo("#p2", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 51.2);
+      tl.fromTo("#p3", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 52.0);
+      tl.fromTo("#p3-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 52.6);
+      tl.to("#p1, #p2, #p3", { scale: 1.015, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0 50%" }, 52.8);
 
       // ── S6 end: name beside the finished radar, then clear for the loop ──
       tl.fromTo("#end-name", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.7);
