@@ -77,6 +77,8 @@
   .tile[data-tile="0"] .media { flex: none; min-height: 0; height: 13rem; }
   .tile[data-tile="3"] { display: flex; }
   .tile[data-tile="3"] .media { order: 0; min-height: 0; height: 10rem; }
+  /* Stacked, the image sits above the text like the other tiles, so it fades downward instead of from the left. */
+  .tile[data-tile="3"] .media::after { background: linear-gradient(to bottom, transparent 55%, color-mix(in oklch, var(--surface) 85%, transparent)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

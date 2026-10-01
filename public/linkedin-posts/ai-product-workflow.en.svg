@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+<title id="title">Automating product management with Claude</title><desc id="desc">From meeting follow-up, proposal drafts, discovery, and specs to mock-data validation and engineering hand-off, every step is automated with Claude; meeting follow-up runs on a Claude Cowork schedule at 5 pm daily. Product delivery efficiency rose 50%.</desc>
+<defs>
+  <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#132033" flood-opacity=".13"/></filter>
+</defs>
+<g filter="url(#shadow)"><rect x="330" y="52" width="750" height="638" rx="26" fill="#FFFFFF"/></g>
+<text x="370" y="96" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="start" letter-spacing="2">PRODUCT WORKFLOW × CLAUDE</text>
+<text x="370" y="134" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="26" font-weight="700" text-anchor="start">The daily product workflow</text>
+<rect x="920" y="110" width="120" height="30" rx="15" fill="#DCE8F7"/>
+<text x="980" y="131" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">Daily 5 pm</text>
+<line x1="394" y1="196" x2="394" y2="536" stroke="#DCE8F7" stroke-width="3"/>
+<circle cx="394" cy="196" r="19" fill="#2D61A6" stroke="#2D61A6" stroke-width="2"/>
+<text x="394" y="202" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">01</text>
+<text x="434" y="194" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start">Meeting follow-up</text>
+<text x="434" y="219" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14.5" font-weight="400" text-anchor="start">Reads the day's notes, ranks P0/P1/P2</text>
+<rect x="938" y="179" width="102" height="28" rx="8" fill="#EEF4FC"/>
+<text x="989" y="198" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Notion AI</text>
+<circle cx="394" cy="264" r="19" fill="#FFFFFF" stroke="#2D61A6" stroke-width="2"/>
+<text x="394" y="270" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">02</text>
+<text x="434" y="262" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start">Proposal draft</text>
+<text x="434" y="287" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14.5" font-weight="400" text-anchor="start">Drafted at 5 pm, 5-minute review next day</text>
+<rect x="964" y="247" width="76" height="28" rx="8" fill="#EEF4FC"/>
+<text x="1002" y="266" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Cowork</text>
+<circle cx="394" cy="332" r="19" fill="#FFFFFF" stroke="#2D61A6" stroke-width="2"/>
+<text x="394" y="338" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">03</text>
+<text x="434" y="330" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start">Discovery</text>
+<text x="434" y="355" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14.5" font-weight="400" text-anchor="start">Turns decisions into questions and bets</text>
+<rect x="964" y="315" width="76" height="28" rx="8" fill="#EEF4FC"/>
+<text x="1002" y="334" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Claude</text>
+<circle cx="394" cy="400" r="19" fill="#FFFFFF" stroke="#2D61A6" stroke-width="2"/>
+<text x="394" y="406" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">04</text>
+<text x="434" y="398" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start">Spec</text>
+<text x="434" y="423" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14.5" font-weight="400" text-anchor="start">Writes the spec and acceptance criteria</text>
+<rect x="964" y="383" width="76" height="28" rx="8" fill="#EEF4FC"/>
+<text x="1002" y="402" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Claude</text>
+<circle cx="394" cy="468" r="19" fill="#FFFFFF" stroke="#2D61A6" stroke-width="2"/>
+<text x="394" y="474" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">05</text>
+<text x="434" y="466" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start">Mock-data check</text>
+<text x="434" y="491" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14.5" font-weight="400" text-anchor="start">Runs the flow on fake data before build</text>
+<rect x="964" y="451" width="76" height="28" rx="8" fill="#EEF4FC"/>
+<text x="1002" y="470" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Claude</text>
+<circle cx="394" cy="536" r="19" fill="#FFFFFF" stroke="#2D61A6" stroke-width="2"/>
+<text x="394" y="542" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="middle">06</text>
+<text x="434" y="534" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start">Hand-off</text>
+<text x="434" y="559" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14.5" font-weight="400" text-anchor="start">Spec, data, and prototype ship together</text>
+<rect x="964" y="519" width="76" height="28" rx="8" fill="#EEF4FC"/>
+<text x="1002" y="538" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Claude</text>
+<rect x="366" y="602" width="678" height="62" rx="16" fill="#2D61A6"/>
+<text x="392" y="641" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="600" text-anchor="start">Product delivery efficiency</text>
+<text x="1018" y="644" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="end">+50%</text>
+<text x="1080" y="718" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="400" text-anchor="end">Kevin Hsu / Product Manager</text>
+</svg>

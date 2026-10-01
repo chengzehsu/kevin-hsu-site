@@ -5,10 +5,10 @@ import styles from "./PortfolioWall.module.css";
 const TILES = [
   "/portfolio-artifacts/ecofirst-hvac-platform.webp",
   "/portfolio-wall/film-5.webp",
-  "/portfolio-artifacts/grocery-system.webp",
+  "/portfolio-artifacts/grocery-system.zh.svg",
   "/linkedin-posts/post-1.jpg",
   "/portfolio-wall/film-7.webp",
-  "/portfolio-artifacts/health-spec.webp",
+  "/portfolio-artifacts/health-spec.zh.svg",
   "/portfolio-wall/film-2.webp",
   "/linkedin-posts/post-2.jpg",
   "/portfolio-wall/film-4.webp",
@@ -16,7 +16,7 @@ const TILES = [
   "/portfolio-wall/film-6.webp",
   "/flow-preview-small.webp",
   "/portfolio-wall/film-1.webp",
-  "/linkedin-posts/post-3.jpg",
+  "/linkedin-posts/ai-product-workflow.zh.svg",
   "/portfolio-wall/film-8.webp",
   "/portfolio-wall/film-3.webp",
 ];

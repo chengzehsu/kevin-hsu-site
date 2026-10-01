@@ -175,16 +175,16 @@ export const zh = {
       {
         trait: "每天都在用",
         stat: "+50%",
-        statLabel: "把 AI 放進開發流程後的交付效率",
-        title: "把 AI 放進每天的工作流程",
+        statLabel: "產品交付效率",
+        title: "用 Claude 把產品管理流程自動化",
         description:
-          "需求釐清、規格、驗收都用 AI 加速；連會議也交給 Notion AI 與 Claude Cowork 整理待辦和提案初稿。",
+          "從會議追蹤、提案初稿、需求釐清、規格到 mock data 驗證，每一段交接都交給 Claude。會議這段由 Claude Cowork 每天 17:00 自動讀 Notion 紀錄，排好待辦與提案初稿；隔天早上 5 分鐘 review 完，就能交給團隊。",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
         image: {
-          src: "/linkedin-posts/post-3.jpg",
-          alt: "PM 每日會議追蹤流程優化圖",
-          width: 856,
-          height: 838,
+          src: "/linkedin-posts/ai-product-workflow.zh.svg",
+          alt: "產品管理流程圖：會議追蹤、提案初稿、需求釐清、規格撰寫、mock data 驗證到開發協作，各段由 Claude 自動化，產品交付效率 +50%",
+          width: 1200,
+          height: 750,
         },
       },
     ],

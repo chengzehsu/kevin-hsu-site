@@ -39,10 +39,11 @@ const FILM = { width: 1600, height: 1000 } as const;
 export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
   zh: {
     grocery: {
-      src: "/portfolio-artifacts/grocery-system.webp",
-      alt: "蔬果電商專案的資訊流盤點、專案總覽與詳細資訊畫面，內容已模糊處理",
-      title: "專案總覽、資訊流與知識庫",
+      src: "/portfolio-artifacts/grocery-system.zh.svg",
+      alt: "蔬果電商專案資訊系統：客戶、工程與設計團隊、同事每週重複問的進度、上版、時數與過往做法，收進資訊流盤點、專案總覽與專案詳細資訊三個模組",
+      title: "資訊流盤點、專案總覽與詳細資訊",
       context: "從分散資訊到可追蹤的交付系統",
+      treatment: "reconstructed",
       headline: {
         value: "300 → 1,000",
         unit: "單／日",
@@ -59,10 +60,11 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       ],
     },
     "health-app": {
-      src: "/portfolio-artifacts/health-spec.webp",
-      alt: "健康 App 專案由 Wireframe、User Story 到 PRD 的工作畫面，內容已模糊處理",
-      title: "Wireframe、User Story 與 PRD",
+      src: "/portfolio-artifacts/health-spec.zh.svg",
+      alt: "健康 App 情境規格化：訪談還原 IoT 體重計、活動報名、多國語系與舊資料的情境，整理成 Wireframe、User Story、PRD、參數對照表與翻譯對照表",
+      title: "Wireframe、User Story、PRD 與對照表",
       context: "把跨裝置情境轉成工程可執行規格",
+      treatment: "reconstructed",
       headline: {
         value: "12,000 → 20,000",
         unit: "DAU",
@@ -124,9 +126,10 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
   },
   en: {
     grocery: {
-      src: "/portfolio-artifacts/grocery-system.webp",
-      alt: "An anonymised work-in-progress view of the grocery programme's information map, project overview, and detail system",
-      title: "Programme overview, information flow, and knowledge base",
+      src: "/portfolio-artifacts/grocery-system.en.svg",
+      alt: "Grocery programme information system: the timeline, release, billable-hours, and past-decision questions clients, the build team, and colleagues asked every week, gathered into an information-flow map, a project overview, and project detail pages",
+      title: "Information-flow map, project overview, and details",
+      treatment: "reconstructed",
       context: "Turning fragmented updates into a traceable delivery system",
       headline: {
         value: "300 → 1,000",
@@ -144,9 +147,10 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       ],
     },
     "health-app": {
-      src: "/portfolio-artifacts/health-spec.webp",
-      alt: "An anonymised work-in-progress view spanning wireframes, user stories, and the health-app PRD",
-      title: "Wireframes, user stories, and PRD",
+      src: "/portfolio-artifacts/health-spec.en.svg",
+      alt: "Health-app situations into specs: interviews recovered the IoT scale, event sign-up, language, and legacy-data situations, which became a wireframe, user stories, a PRD, a parameter map, and a translation map",
+      title: "Wireframe, user stories, PRD, and mapping tables",
+      treatment: "reconstructed",
       context:
         "Translating cross-device situations into buildable specifications",
       headline: {
@@ -157,7 +161,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       },
     },
     cdp: {
-      src: "/portfolio-artifacts/cdp-market-validation.svg",
+      src: "/portfolio-artifacts/cdp-market-validation.en.svg",
       alt: "CDP market-entry validation graphic showing 30 target accounts, cross-functional interviews, MVP convergence, and 10 million integrated records",
       title: "From 30 target accounts to an MVP",
       context:
@@ -217,9 +221,9 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
 
 /** Decorative tiles for the case-page backdrop, echoing the portfolio wall. */
 export const CASE_WALL_TILES = [
-  "/portfolio-artifacts/grocery-system.webp",
+  "/portfolio-artifacts/grocery-system.zh.svg",
   "/portfolio-wall/film-5.webp",
-  "/portfolio-artifacts/health-spec.webp",
+  "/portfolio-artifacts/health-spec.zh.svg",
   "/portfolio-wall/film-6.webp",
   "/portfolio-artifacts/cdp-market-validation.svg",
   "/portfolio-wall/film-2.webp",

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="674" viewBox="0 0 1200 674" role="img" aria-labelledby="title desc">
+<title id="title">Project information system for the grocery programme</title>
+<desc id="desc">Clients, the engineering and design team, and colleagues asked the same questions about timeline, release scope, billable hours, and past decisions every week; the answers became three modules: an information-flow map, a project overview, and project detail pages. Picking capacity rose from 300 to 1,000 orders per day (+233%) during the programme.</desc>
+<defs>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1200" height="674" fill="#F5F7FB"/>
+<rect width="1200" height="674" fill="url(#grid)" opacity=".48"/>
+<text x="96" y="66" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2.4">PROJECT OPERATIONS / GROCERY E-COMMERCE</text>
+<text x="96" y="122" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="38" font-weight="700" text-anchor="start">Make the work visible, and the questions stop</text>
+<text x="96" y="160" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">What clients, the team, and colleagues asked every week now lives in one project system.</text>
+<g filter="url(#shadow)"><rect x="96" y="196" width="380" height="404" rx="26" fill="#152236"/></g>
+<text x="128" y="240" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start" letter-spacing="2">ASKED EVERY WEEK</text>
+<text x="128" y="288" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Client</text>
+<text x="128" y="318" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="600" text-anchor="start">What's next on the timeline?</text>
+<text x="128" y="346" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">What's in this release?</text>
+<text x="128" y="400" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Engineering &amp; design</text>
+<text x="128" y="430" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="600" text-anchor="start">Can these hours be billed yet?</text>
+<text x="128" y="458" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">What leads the next sprint?</text>
+<text x="128" y="512" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Colleagues</text>
+<text x="128" y="542" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="600" text-anchor="start">How did we build that last time?</text>
+<text x="128" y="570" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Can I get access to that project?</text>
+<path d="M490 398h28m-10-9 10 9-10 9" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<text x="540" y="222" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2">ONE PROJECT SYSTEM</text>
+<g filter="url(#shadow)"><rect x="540" y="244" width="564" height="88" rx="18" fill="#FFFFFF"/></g>
+<circle cx="586" cy="288" r="22" fill="#2D61A6"/>
+<text x="586" y="295" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">01</text>
+<text x="630" y="282" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="23" font-weight="700" text-anchor="start">Information-flow map</text>
+<text x="630" y="310" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="400" text-anchor="start">How order-to-delivery data moves, on one map</text>
+<g filter="url(#shadow)"><rect x="540" y="348" width="564" height="88" rx="18" fill="#FFFFFF"/></g>
+<circle cx="586" cy="392" r="22" fill="#DCE8F7"/>
+<text x="586" y="399" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">02</text>
+<text x="630" y="386" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="23" font-weight="700" text-anchor="start">Project overview</text>
+<text x="630" y="414" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="400" text-anchor="start">Timeline, release scope, and test plan on one page</text>
+<g filter="url(#shadow)"><rect x="540" y="452" width="564" height="88" rx="18" fill="#FFFFFF"/></g>
+<circle cx="586" cy="496" r="22" fill="#DCE8F7"/>
+<text x="586" y="503" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">03</text>
+<text x="630" y="490" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="23" font-weight="700" text-anchor="start">Project details</text>
+<text x="630" y="518" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="400" text-anchor="start">Hours, access, and past decisions, findable any time</text>
+<rect x="540" y="560" width="564" height="40" rx="12" fill="#E8EEF7"/>
+<text x="562" y="586" fill="#52627A" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start">Programme result</text>
+<text x="1082" y="587" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="end">Picking 300 → 1,000 orders/day (+233%)</text>
+<text x="1104" y="638" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="400" text-anchor="end">Kevin Hsu / Product Manager</text>
+</svg>

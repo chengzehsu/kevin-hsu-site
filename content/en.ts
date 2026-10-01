@@ -190,16 +190,16 @@ export const en = {
       {
         trait: "Every day",
         stat: "+50%",
-        statLabel: "delivery efficiency after AI joined the workflow",
-        title: "AI in the everyday workflow",
+        statLabel: "product delivery efficiency",
+        title: "Automating product management with Claude",
         description:
-          "Requirements, specs, and acceptance all run faster with AI; even meeting notes become to-dos and first-draft proposals via Notion AI and Claude Cowork.",
+          "Meeting follow-up, proposal drafts, discovery, specs, and mock-data checks: every hand-off runs through Claude. At 5 pm each day Claude Cowork reads the day's Notion meeting notes on a schedule and lines up the action items and a first-draft proposal; a 5-minute review the next morning and it goes to the team.",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
         image: {
-          src: "/linkedin-posts/post-3.jpg",
-          alt: "Daily PM meeting follow-up flow diagram",
-          width: 856,
-          height: 838,
+          src: "/linkedin-posts/ai-product-workflow.en.svg",
+          alt: "Product workflow diagram: meeting follow-up, proposal draft, discovery, spec, mock-data check, and hand-off, each automated with Claude; product delivery efficiency +50%",
+          width: 1200,
+          height: 750,
         },
       },
     ],
