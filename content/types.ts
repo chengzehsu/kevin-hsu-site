@@ -52,6 +52,10 @@ export interface HeroContent {
     caseId: string;
     pauseLabel: string;
     playLabel: string;
+    /** Accessible name of the scrubber. */
+    seekLabel: string;
+    /** Chapter starts (seconds) of the launch film, shown as jump points on the timeline. */
+    chapters: Array<{ at: number; label: string }>;
     /** Screen-reader narration of the on-screen film text; the film is burned-in per locale. */
     summary: string;
   };

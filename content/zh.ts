@@ -61,6 +61,8 @@ export const zh = {
       caseId: "ecofirst",
       pauseLabel: "暫停影片",
       playLabel: "播放影片",
+      seekLabel: "影片進度",
+      chapters: [{ at: 0, label: "開場" }, { at: 12, label: "六項能力" }, { at: 35.4, label: "三個習慣" }, { at: 50, label: "收尾" }],
       summary:
         "60 秒影片：規格寫完了，會議開完了，東西還沒跑起來。AI 時代的 PM，做出東西不再是門檻，要看的是六項能力：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；每一段經歷，都讓這張能力圖再大一圈。接著是三個工作習慣。好奇：看到新工具，我先動手試，Claude Code、Cursor、Gemini、Notion AI；用 Cursor 與 Gemini 自己做出 AI 名片管理助手，從 OCR 辨識失敗、重建版控到部署上線，流程是拍名片、Gemini 辨識、Notion 建檔。勇於嘗試：程式經驗不多的產品經理，用 Claude Code 做出內部平台，2 個月 218 次提交。追求效率：控制策略模擬工具把策略調整從 1 週縮短到 2 小時；把 AI 放進開發流程後，交付效率 +50%。先讓它能跑，再讓它上線。許承澤 Kevin Hsu，Product Manager · AI · B2C 平台 · 跨團隊交付。",
     },

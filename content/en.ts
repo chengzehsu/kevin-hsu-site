@@ -66,6 +66,8 @@ export const en = {
       caseId: "ecofirst",
       pauseLabel: "Pause film",
       playLabel: "Play film",
+      seekLabel: "Film progress",
+      chapters: [{ at: 0, label: "Intro" }, { at: 12, label: "Six skills" }, { at: 35.4, label: "Three habits" }, { at: 50, label: "Sign-off" }],
       summary:
         "60-second film: The spec is written, the meeting is over, and nothing runs yet. For a PM in the AI era, building something is no longer the bar; six skills are: problem framing, fast experiments, prototyping, process redesign, cross-team delivery, and reading data, and each role grows that chart. Then three working habits. Curious: when a new tool appears, I try it hands-on, from Claude Code and Cursor to Gemini and Notion AI; I built an AI business-card assistant with Cursor and Gemini, from failed OCR and rebuilt version control to deployment: snap a card, Gemini reads it, Notion files it. Experimental: a PM with little coding background built an internal platform with Claude Code, 218 commits in 2 months. Efficient: a control-strategy simulator cut strategy tuning from 1 week to 2 hours, and putting AI into the delivery workflow raised delivery efficiency by 50%. Make it run, then ship it. Kevin Hsu, Product Manager · AI · B2C platforms · cross-team delivery.",
     },
@@ -498,7 +500,7 @@ export const en = {
         bullets: [
           "Rental-management SaaS: helped an operator managing about 100 properties define a multi-tenant management product, its requirements, and its product-management flow",
           "Collaboration flow: translated business strategy into product strategy and roadmaps, improving collaboration among engineers, designers, and requesters",
-          "Fundraising advisory: helped energy and aluminum-plastics businesses map operations, refine pitch decks, and connect with investors",
+          "Fundraising advisory: helped energy and hospitality businesses map operations, refine pitch decks, and connect with investors",
         ],
       },
       {

@@ -19,12 +19,16 @@ export function HeroFilm({
   locale,
   pauseLabel,
   playLabel,
+  seekLabel,
+  chapters,
   summary,
   link,
 }: {
   locale: string;
   pauseLabel: string;
   playLabel: string;
+  seekLabel: string;
+  chapters: Array<{ at: number; label: string }>;
   /** What the film says, for screen readers: the video itself is aria-hidden. */
   summary: string;
   link: ReactNode;
@@ -36,6 +40,11 @@ export function HeroFilm({
   const [sources, setSources] = useState(false);
   const [ready, setReady] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const scrubber = useRef<HTMLInputElement>(null);
+  const clock = useRef<HTMLSpanElement>(null);
+  const pendingSeek = useRef<number | null>(null);
+  // The film is a fixed 60s cut; the real duration takes over once metadata loads.
+  const [duration, setDuration] = useState(60);
 
   useEffect(() => {
     const element = root.current,
@@ -99,6 +108,30 @@ export function HeroFilm({
     syncRef.current();
   }, [sources]);
 
+  // Progress is written straight to the DOM: timeupdate fires several times a second and must not re-render React.
+  function paintProgress() {
+    const film = video.current;
+    if (!film || !scrubber.current || !clock.current) return;
+    const total = film.duration || duration;
+    scrubber.current.value = String(film.currentTime);
+    scrubber.current.style.setProperty("--progress", `${(film.currentTime / total) * 100}%`);
+    clock.current.textContent = `${formatTime(film.currentTime)} / ${formatTime(total)}`;
+  }
+
+  function seek(seconds: number) {
+    const film = video.current;
+    if (!film) return;
+    // Seeking is an explicit request to watch: attach the sources if the film never started.
+    if (!film.querySelector("source")) {
+      pendingSeek.current = seconds;
+      choice.current = "play";
+      setSources(true);
+      return;
+    }
+    film.currentTime = seconds;
+    paintProgress();
+  }
+
   function toggle() {
     // Read the element, not state: a buffering film is already "playing" as far as the visitor is concerned.
     const running = video.current ? !video.current.paused : playing;
@@ -109,7 +142,7 @@ export function HeroFilm({
 
   return (
     <>
-    <div ref={root} className={styles.film} data-ready={ready}>
+    <div ref={root} className={styles.film} data-ready={ready} data-playing={playing}>
       <img
         className={styles.poster}
         src={`/hero-reel-poster.${locale}.webp`}
@@ -133,7 +166,16 @@ export function HeroFilm({
         aria-hidden="true"
         tabIndex={-1}
         disablePictureInPicture
-        onLoadedData={() => setReady(true)}
+        onLoadedData={() => {
+          setReady(true);
+          if (pendingSeek.current !== null && video.current) {
+            video.current.currentTime = pendingSeek.current;
+            pendingSeek.current = null;
+          }
+        }}
+        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration || 60)}
+        onTimeUpdate={paintProgress}
+        onSeeked={paintProgress}
         onPlaying={() => {
           setReady(true);
           setPlaying(true);
@@ -160,6 +202,35 @@ export function HeroFilm({
           <PlayIcon size={16} weight="fill" aria-hidden="true" />
         )}
       </button>
+      <div className={styles.timeline}>
+        <div className={styles.track}>
+          <input
+            ref={scrubber}
+            className={styles.scrubber}
+            type="range"
+            min={0}
+            max={duration}
+            step={0.1}
+            defaultValue={0}
+            aria-label={seekLabel}
+            onInput={(event) => seek(Number(event.currentTarget.value))}
+          />
+          {chapters.map((chapter) => (
+            <button
+              key={chapter.at}
+              type="button"
+              className={styles.chapter}
+              style={{ left: `${(chapter.at / duration) * 100}%` }}
+              onClick={() => seek(chapter.at)}
+            >
+              <span>{chapter.label}</span>
+            </button>
+          ))}
+        </div>
+        <span ref={clock} className={styles.clock} aria-hidden="true">
+          {`0:00 / ${formatTime(duration)}`}
+        </span>
+      </div>
     </div>
     <figcaption className={styles.figcaption}>
       <span className="sr-only">{summary}</span>
@@ -167,4 +238,9 @@ export function HeroFilm({
     </figcaption>
     </>
   );
+}
+
+function formatTime(seconds: number) {
+  const whole = Math.max(0, Math.floor(seconds));
+  return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, "0")}`;
 }

@@ -44,6 +44,98 @@
   .film { border-right: 1px solid var(--line); border-radius: var(--radius-panel) var(--radius-ui) var(--radius-ui) var(--radius-tip); }
 }
 
+/* Timeline: the film is always light, so the controls sit on their own dark scrim in both themes. */
+.timeline {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: 1.6rem .95rem .85rem 4.25rem;
+  background: linear-gradient(to bottom, transparent, rgb(20 30 44 / .62));
+  color: #f4f7fb;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+/* Always visible until the film plays, then on hover or keyboard focus, so it never covers the story. */
+.film:not([data-playing="true"]) .timeline,
+.film:hover .timeline,
+.film:focus-within .timeline { opacity: 1; }
+@media (hover: none) { .timeline { opacity: 1; } }
+
+.track { position: relative; flex: 1; min-width: 0; height: 2.75rem; }
+
+.scrubber {
+  --progress: 0%;
+  position: absolute;
+  inset: auto 0 .55rem;
+  width: 100%;
+  height: 1.25rem;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+.scrubber::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #f4f7fb var(--progress), rgb(244 247 251 / .32) var(--progress));
+}
+.scrubber::-moz-range-track { height: 4px; border-radius: 999px; background: rgb(244 247 251 / .32); }
+.scrubber::-moz-range-progress { height: 4px; border-radius: 999px; background: #f4f7fb; }
+.scrubber::-webkit-slider-thumb {
+  width: 14px;
+  height: 14px;
+  margin-top: -5px;
+  border: 0;
+  border-radius: 50%;
+  background: #f4f7fb;
+  box-shadow: 0 1px 4px rgb(0 0 0 / .35);
+  appearance: none;
+}
+.scrubber::-moz-range-thumb { width: 14px; height: 14px; border: 0; border-radius: 50%; background: #f4f7fb; }
+.scrubber:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: var(--radius-tip); }
+
+/* Chapter jumps: a tick on the track with its name above; the hit area is 44px tall. */
+.chapter {
+  position: absolute;
+  top: 0;
+  display: grid;
+  justify-items: start;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  background: transparent;
+  color: rgb(244 247 251 / .82);
+  font-size: .7rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateX(-1px);
+}
+.chapter::after { content: ""; position: absolute; left: 0; bottom: .55rem; width: 2px; height: 10px; border-radius: 1px; background: rgb(244 247 251 / .7); }
+.chapter span { padding-top: .1rem; transition: color 200ms ease; }
+.chapter:hover span, .chapter:focus-visible span { color: #fff; text-decoration: underline; text-underline-offset: .25em; }
+.chapter:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-tip); }
+
+.clock { flex: none; font-size: .78rem; font-variant-numeric: tabular-nums; color: rgb(244 247 251 / .9); }
+
+/* The play button sits on the same scrim row as the timeline. */
+.toggle { z-index: 2; }
+
+@media (max-width: 767px) {
+  .chapter span { display: none; }
+  .clock { font-size: .72rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline { transition: none; }
+}
+
 @media (max-width: 1023px) {
   .film { border-radius: var(--radius-panel) 0 0 var(--radius-tip); }
 }

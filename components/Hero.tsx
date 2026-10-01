@@ -42,6 +42,8 @@ export function Hero({ content, locale }: SectionProps) {
           <HeroFilm
             pauseLabel={film.pauseLabel}
             playLabel={film.playLabel}
+            seekLabel={film.seekLabel}
+            chapters={film.chapters}
             locale={locale}
             summary={film.summary}
             link={
