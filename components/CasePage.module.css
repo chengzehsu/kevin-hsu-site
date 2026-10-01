@@ -4,7 +4,9 @@
 .hero {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
+  /* clip, not hidden: hidden makes the hero a scroll container, which freezes the headline figure's
+     view() wipe part-way because that timeline then tracks this unscrollable box instead of the page. */
+  overflow: clip;
   padding-block: clamp(1.75rem, 3vw, 2.5rem) clamp(4.5rem, 8vw, 7rem);
 }
 

@@ -109,6 +109,8 @@
   column-gap: clamp(2rem, 6vw, 6rem);
 }
 .row[data-layout="panorama"] .visual { grid-row: 2; }
+/* The ghost number rises ~.45em above the poster; in panorama the figure sits right above it, so open the gap. */
+@media (min-width: 861px) { .row[data-layout="panorama"] { row-gap: 5rem; } }
 .row[data-layout="panorama"] .body { grid-row: 1; }
 .row[data-layout="feature"] .body > :is(.meta, .title, .figure),
 .row[data-layout="panorama"] .body > :is(.meta, .title, .figure) { grid-column: 1; }

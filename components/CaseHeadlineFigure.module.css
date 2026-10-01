@@ -32,6 +32,10 @@
   letter-spacing: -.055em;
   line-height: .95;
   white-space: nowrap;
+  /* Negative tracking ends the box inside the last glyph, and the wipe's clip-path clips to the box:
+     pad the right edge so the final digit stays whole, and pull the margin back so layout is unchanged. */
+  padding-right: .12em;
+  margin-right: -.12em;
 }
 
 .unit,
@@ -60,7 +64,8 @@
     .value {
       animation: figure-wipe linear both;
       animation-timeline: view();
-      animation-range: entry 10% cover 35%;
+      /* Finish by the time the whole figure is on screen: a reader who stops scrolling never sees a cut number. */
+      animation-range: entry 0% entry 100%;
     }
   }
 }
