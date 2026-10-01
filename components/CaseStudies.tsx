@@ -1,6 +1,7 @@
 import type { SectionProps } from "@/content/types";
 import { caseArtifacts } from "@/content/caseArtifacts";
 import { casePath } from "@/lib/locale";
+import { thumb } from "@/lib/thumb";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { CaseArtifact } from "./CaseArtifact";
 import { CaseHeadlineFigure } from "./CaseHeadlineFigure";
@@ -105,7 +106,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
                       {stills.slice(0, 2).map((still) => (
                         <img
                           key={still.src}
-                          src={still.src}
+                          src={thumb(still.src)}
                           alt=""
                           width={still.width}
                           height={still.height}

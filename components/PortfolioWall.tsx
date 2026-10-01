@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { thumb } from "@/lib/thumb";
 import styles from "./PortfolioWall.module.css";
 
 // Every tile is a real, already-public artifact: case deliverables, LinkedIn build notes, and launch-film frames.
@@ -19,7 +20,7 @@ const TILES = [
   "/linkedin-posts/ai-product-workflow.zh.svg",
   "/portfolio-wall/film-8.webp",
   "/portfolio-wall/film-3.webp",
-];
+].map(thumb);
 const ROWS = 5;
 const PER_ROW = 9;
 
