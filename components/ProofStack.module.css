@@ -3,7 +3,7 @@
 .header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; }
 .all { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; color: var(--accent); font-weight: 600; }
 
-/* Four posters in a row, like a catalogue shelf: the artifact is the poster, the outcome is the title card. */
+/* Four posters in a row, like a catalogue shelf: a text-free poster per case, the outcome is the title card. */
 .row {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -38,18 +38,19 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Landscape artifacts crop to portrait here; centring keeps the content, not a dark corner, in frame. */
-  object-position: center 35%;
+  /* Posters are drawn at 3:4 with their motif in the top half, above the scrim and the copy. */
+  object-position: center top;
   transition: transform 800ms cubic-bezier(.16, 1, .3, 1);
 }
 .link:hover .image { transform: scale(1.06); }
 
-/* The scrim is dark in both themes, so the overlay text is always light. */
+/* The scrim is dark in both themes, so the overlay text is always light. The posters are already dark,
+   so it stays clear over their motif and only deepens behind the copy. */
 .link::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgb(14 20 30 / .1) 0%, rgb(14 20 30 / .45) 32%, rgb(14 20 30 / .88) 58%, rgb(14 20 30 / .96) 100%);
+  background: linear-gradient(to bottom, rgb(14 20 30 / 0) 38%, rgb(14 20 30 / .82) 62%, rgb(14 20 30 / .96) 100%);
   pointer-events: none;
 }
 

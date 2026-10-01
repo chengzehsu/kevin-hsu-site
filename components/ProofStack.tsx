@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
-import { caseArtifacts } from "@/content/caseArtifacts";
+import { CASE_POSTERS, CASE_POSTER_SIZE } from "@/content/caseArtifacts";
 import { casePath } from "@/lib/locale";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./ProofStack.module.css";
@@ -23,22 +23,20 @@ export function ProofStack({ content, locale }: SectionProps) {
         </div>
         <ol className={styles.row}>
           {items.map((item) => {
-            const artifact = caseArtifacts[locale][item.id];
+            const poster = CASE_POSTERS[item.id];
             // The first clause is the headline outcome; the rest stays on the case page.
             // zh separates clauses with "｜", en with " | ".
             const outcome = item.impact.split(/\s*[｜|]\s*/)[0];
             return (
               <li key={item.id} className={`${styles.poster} scroll-rise`}>
                 <a className={styles.link} href={casePath(locale, item.id)} aria-label={`${cases.readLabel}: ${item.title}`}>
-                  {artifact ? (
+                  {poster ? (
                     <Image
-                      src={artifact.poster ?? artifact.src}
+                      src={poster}
                       alt=""
-                      width={artifact.poster ? 1600 : artifact.layout === "square" ? 1208 : 1200}
-                      height={artifact.poster ? 1000 : artifact.layout === "square" ? 1236 : 674}
+                      {...CASE_POSTER_SIZE}
                       sizes="(max-width: 767px) 78vw, (max-width: 1023px) 45vw, 22vw"
                       className={styles.image}
-                      style={artifact.posterPosition ? { objectPosition: artifact.posterPosition } : undefined}
                     />
                   ) : null}
                   <span className={styles.copy}>

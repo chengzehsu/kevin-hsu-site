@@ -28,10 +28,6 @@ export interface CaseArtifact {
   treatment?: "anonymised" | "published" | "reconstructed";
   headline: CaseHeadline;
   stills?: CaseStill[];
-  /** Home-shelf poster when the artifact is already the lead image elsewhere on the home page. */
-  poster?: string;
-  /** CSS object-position for the poster crop, when the default centre misses the product. */
-  posterPosition?: string;
 }
 
 const FILM = { width: 1600, height: 1000 } as const;
@@ -98,9 +94,6 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "218 次提交，把三段資料流程整合成一個查詢工具",
       layout: "square",
       treatment: "published",
-      // The AI-builds bento already leads with this artifact, so the shelf uses the film's 218-commits frame.
-      poster: "/portfolio-wall/film-218.webp",
-      posterPosition: "76% 50%",
       headline: { value: "+50%", label: "交付效率", also: "案場營運效率 +20%" },
       stills: [
         {
@@ -188,8 +181,6 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "218 commits turned three data workflows into one query tool",
       layout: "square",
       treatment: "published",
-      poster: "/portfolio-wall/film-218.webp",
-      posterPosition: "76% 50%",
       headline: {
         value: "+50%",
         label: "Delivery efficiency",
@@ -218,6 +209,18 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
     },
   },
 };
+
+/**
+ * Home-shelf posters: portrait and text-free, so the card's outcome reads alone over its scrim.
+ * The landscape artifacts lose their headlines when cropped to 3:4. No words, so both locales share them.
+ */
+export const CASE_POSTERS: Record<string, string> = {
+  grocery: "/case-posters/grocery.svg",
+  ecofirst: "/case-posters/ecofirst.svg",
+  "health-app": "/case-posters/health-app.svg",
+  cdp: "/case-posters/cdp.svg",
+};
+export const CASE_POSTER_SIZE = { width: 600, height: 800 } as const;
 
 /** Decorative tiles for the case-page backdrop, echoing the portfolio wall. */
 export const CASE_WALL_TILES = [
