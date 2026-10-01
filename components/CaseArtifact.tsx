@@ -46,13 +46,28 @@ export function CaseArtifact({
 
   const labels = LABELS[locale][artifact.treatment ?? "anonymised"];
   const square = artifact.layout === "square";
+  // Raster sources top out at ~1,200px. On a wide cover they sit at a sharp size over a blurred
+  // copy of themselves, so the row still reads full-bleed without upscaling the real pixels.
+  const ambient = variant === "cover" && !artifact.src.endsWith(".svg");
 
   return (
     <figure
       className={`${styles.figure} ${variant === "cover" ? styles.cover : styles.full}`}
       data-shape={square ? "square" : "wide"}
     >
-      <div className={styles.frame}>
+      <div className={styles.frame} data-ambient={ambient ? "" : undefined}>
+        {ambient ? (
+          <Image
+            className={styles.backdrop}
+            src={artifact.src}
+            alt=""
+            aria-hidden="true"
+            width={square ? 1208 : 1200}
+            height={square ? 1236 : 674}
+            sizes="10vw"
+            loading="lazy"
+          />
+        ) : null}
         <Image
           className={styles.image}
           src={artifact.src}

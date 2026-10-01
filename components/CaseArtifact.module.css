@@ -44,7 +44,7 @@
   position: absolute;
   right: .75rem;
   bottom: .7rem;
-  z-index: 1;
+  z-index: 2;
   padding: .3rem .5rem;
   border: 1px solid rgb(255 255 255 / .24);
   border-radius: var(--radius-tip);
@@ -83,3 +83,27 @@
   .caption > span { grid-row: auto; }
   .privacy { right: .5rem; bottom: .5rem; font-size: .6rem; }
 }
+
+/* Ambient cover: the sharp artifact is capped at a size its pixels can carry, floating over a
+   blurred, darkened copy that fills the rest of the frame. Blur needs no resolution. */
+.backdrop {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  filter: blur(42px) saturate(1.1) brightness(.55);
+  transform: scale(1.05);
+}
+.frame[data-ambient] { display: grid; place-items: center; aspect-ratio: 2 / 1; }
+.frame[data-ambient] .image {
+  position: relative;
+  z-index: 1;
+  width: min(88%, 40rem);
+  height: auto;
+  max-height: 86%;
+  object-fit: contain;
+  border-radius: var(--radius-ui);
+  box-shadow: 0 1.5rem 4rem rgb(5 13 24 / .45);
+}
+.frame[data-ambient]::after { z-index: 1; }

@@ -141,7 +141,7 @@
 
 /* ---------- Artifact plate and facts ---------- */
 /* Capped so the 1,200px source artifacts are never upscaled past what a Retina screen can show sharply. */
-.plate { position: relative; z-index: 1; max-width: 52rem; margin: clamp(-3.5rem, -4vw, -1.5rem) auto 0; }
+.plate { position: relative; z-index: 1; max-width: 46rem; margin: clamp(-3.5rem, -4vw, -1.5rem) auto 0; }
 
 .facts {
   display: grid;
