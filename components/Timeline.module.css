@@ -230,3 +230,11 @@
     transition: none;
   }
 }
+
+/* A break between roles: no node, no card, just the dates and the reason on the rail. */
+.gap {
+  padding: 0.35rem 0 0.35rem 2.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}

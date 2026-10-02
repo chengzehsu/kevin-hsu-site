@@ -24,7 +24,7 @@ export const en = {
   },
 
   hero: {
-    eyebrow: "Kevin Hsu | Product Manager",
+    eyebrow: "Kevin Hsu | Product Manager · 5+ years in product",
     kicker: "The spec is written. The meeting is over. Nothing runs yet?",
     headline: "Find the 【bottleneck】. Build the 【fix】. Prove it in 【numbers】.",
     traits: [
@@ -340,7 +340,7 @@ export const en = {
         rank: 3,
         title: "Health app and IoT integration",
         role: "Senior Project Manager",
-        scope: "Health app | IoT scales | Data migration | Localisation",
+        scope: "Health app | IoT scales | Data migration | Localization",
         collaboration:
           "Client product, engineering, data migration, IoT, and localization partners",
         impact: "DAU: 12,000 → 20,000 in one year (+66%)",
@@ -413,7 +413,7 @@ export const en = {
         title: "AI energy: from planning to delivery",
         role: "Product Manager",
         scope:
-          "Roadmap | AI development | Internal tools | Deployment, site ops",
+          "4 engineers | 50 sites | About NT$100M in projects | Roadmap, AI development, internal tools",
         collaboration: "Software, project, sales, and site-operations teams",
         impact: "Delivery efficiency +50% | Site-ops efficiency +20%",
         ownership:
@@ -447,7 +447,7 @@ export const en = {
 
   experience: {
     title: "Experience",
-    intro: "Six roles, one job: make things actually run.",
+    intro: "Seven roles, each starting with the same question: where is it stuck?",
     currentLabel: "Now",
     expandLabel: "View role details",
     collapseLabel: "Collapse role",
@@ -463,7 +463,8 @@ export const en = {
         skillSignal:
           "Turning field practice into a roadmap, AI tools, and one delivery workflow that software, project, and sales teams all use.",
         summary:
-          "Own the roadmap, requirements, and specs for a 0-to-1 AI energy-saving HVAC product, and turn practices that lived in individual experience into tools and processes.",
+          "Own the roadmap, requirements, and specs for a 0-to-1 AI energy-saving HVAC product, leading 4 engineers across 50 deployed sites and about NT$100M in projects, and turn practices that lived in individual experience into tools and processes.",
+        gapAfter: "Sep 2024 - Feb 2025 | Break and freelance work",
         bullets: [
           "Introduced AI tools and development workflows into product delivery, raising delivery efficiency by 50%",
           "Coordinated software, project, and sales teams around one product-development and deployment flow",
@@ -491,7 +492,7 @@ export const en = {
         id: "consulting",
         org: "Freelance",
         role: "Independent Consultant",
-        period: "May 2023 - Nov 2023",
+        period: "Jun 2023 - Nov 2023",
         focus: "Product strategy, rental SaaS, and fundraising advisory",
         skillSignal:
           "Distilling business goals, user flows, and delivery constraints into one roadmap, so engineering, design, and requesters share the same priorities.",
@@ -501,6 +502,22 @@ export const en = {
           "Rental-management SaaS: helped an operator managing about 100 properties define a multi-tenant management product, its requirements, and its product-management flow",
           "Collaboration flow: translated business strategy into product strategy and roadmaps, improving collaboration among engineers, designers, and requesters",
           "Fundraising advisory: helped energy and hospitality businesses map operations, refine pitch decks, and connect with investors",
+        ],
+      },
+      {
+        id: "huayao",
+        org: "Hua Yao Industrial (華曜興業有限公司)",
+        role: "Senior Operations Manager",
+        period: "Nov 2022 - May 2023",
+        focus: "Supply-chain and warehouse operations",
+        skillSignal:
+          "Applying product practice to operations: get the data and the flow straight first, then improve shipping speed and cost.",
+        summary: "A short operations-management role focused on supply-chain and warehouse flows.",
+        gapAfter: "Aug 2022 - Oct 2022 | Break and freelance work",
+        bullets: [
+          "Built a product database joining customer, shipping, and purchasing data, cutting coordination overhead and order errors",
+          "Redesigned warehouse slotting and product categories to speed up shipping",
+          "Analyzed historical financials and proposed cost-structure hypotheses and strategy options",
         ],
       },
       {
@@ -546,7 +563,7 @@ export const en = {
           "At a venture studio that contributed technology in exchange for equity, helped traditional businesses move from product exploration to market validation through research, prototyping, requirements work, and outsourced delivery.",
         bullets: [
           "Worked on e-commerce, fan-community, and video-learning products: created wireframes and prototypes, ran competitive research, mapped flows, and coordinated engineering and design partners",
-          "Supported two early-stage companies incubated through the tech-for-equity model, taking their products to market validation",
+          "Drove product strategy and market validation for two early-stage companies incubated through the tech-for-equity model; both reached NT$1M+ in revenue",
         ],
       },
     ],
@@ -555,7 +572,7 @@ export const en = {
   contact: {
     kicker: "Find the bottleneck. Build the fix. Prove it in numbers.",
     title: "Let's talk about the next product.",
-    text: "Looking for a product team ready to put AI into real work. Happy to discuss a role, your product direction, or the problems you are working on.",
+    text: "Looking for a global B2C platform or a growth-stage product team, especially one that wants AI in everyday work. Happy to discuss a role, your product direction, or the problems you are working on.",
     cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     links: [
       {

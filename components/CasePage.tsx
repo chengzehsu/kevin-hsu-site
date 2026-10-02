@@ -104,7 +104,7 @@ export function CasePage({
               </div>
               <div>
                 <dt>{cases.scopeLabel}</dt>
-                <dd>{item.scope}</dd>
+                <dd><KeepTogether text={item.scope} /></dd>
               </div>
               <div>
                 <dt>{cases.collaborationLabel}</dt>

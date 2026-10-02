@@ -229,6 +229,8 @@ export interface ExperienceItem {
   summary: string | null;
   /** Short bullets, max 4; empty array when none. */
   bullets: string[];
+  /** Explains the break between this role and the previous (older) one, e.g. "2024/9 - 2025/2｜休息與接案". */
+  gapAfter?: string;
 }
 
 export interface ExperienceContent {

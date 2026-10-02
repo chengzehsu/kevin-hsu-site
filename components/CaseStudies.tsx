@@ -149,7 +149,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
                   <p className={styles.role}>
                     {item.role}
                     <span aria-hidden="true"> · </span>
-                    {item.scope}
+                    <KeepTogether text={item.scope} />
                   </p>
                   <a
                     className={styles.cta}

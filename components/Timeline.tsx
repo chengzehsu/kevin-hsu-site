@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { SectionProps } from "@/content/types";
 import { Highlight } from "./Highlight";
 import { Disclosure } from "./Disclosure";
@@ -26,16 +27,25 @@ export function Timeline({ content }: SectionProps) {
           <h2 id="experience-heading" className="section-title">
             {title}
           </h2>
-          {intro ? <p className={styles.intro}>{intro}</p> : null}
+          {intro ? (
+            <p className={styles.intro}>
+              {/* A Chinese line breaks only after the full-width colon, never inside the question. */}
+              {intro.split(/(?<=：)/).map((clause) => (
+                <span key={clause} className="inline-block">
+                  {clause}
+                </span>
+              ))}
+            </p>
+          ) : null}
         </header>
 
         <ol className={styles.rail}>
           {items.map((item, index) => {
             const current = index === 0;
             return (
+              <Fragment key={item.id}>
               <li
                 id={`experience-${item.id}`}
-                key={item.id}
                 className={`${styles.entry} scroll-rise`}
               >
                 <span className={styles.node} aria-hidden="true" />
@@ -80,6 +90,10 @@ export function Timeline({ content }: SectionProps) {
                   </div>
                 </Disclosure>
               </li>
+              {item.gapAfter ? (
+                <li className={styles.gap}>{item.gapAfter}</li>
+              ) : null}
+              </Fragment>
             );
           })}
         </ol>

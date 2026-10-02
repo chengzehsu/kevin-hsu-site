@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { SITE_ORIGIN } from "@/lib/locale";
+import { personJsonLd } from "@/lib/personJsonLd";
 import "../globals.css";
 
 export const metadata: Metadata = { metadataBase: new URL(SITE_ORIGIN) };
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/noto-sans-tc-portfolio.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: personJsonLd("zh") }} />
         <script dangerouslySetInnerHTML={{ __html: REDIRECT_SCRIPT }} />
         <noscript>
           <style dangerouslySetInnerHTML={{ __html: NOSCRIPT_CSS }} />

@@ -55,7 +55,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
   zh: {
     title: "能力",
     intro: "以下整理我在專案中實際用過的能力，以及對應的工作經驗。",
-    totalLabel: "共 20 項能力，來自 6 段經歷與 4 個案例",
+    totalLabel: "共 20 項能力，來自 7 段經歷與 4 個案例",
     featuredTitle: "核心能力",
     libraryTitle: "完整能力清單",
     expandLibraryLabel: "看完整能力清單",
@@ -159,7 +159,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
   en: {
     title: "Skills",
     intro: "A record of the work I have owned in projects, with the related experience for each area.",
-    totalLabel: "20 capabilities across 6 roles and 4 cases",
+    totalLabel: "20 capabilities across 7 roles and 4 cases",
     featuredTitle: "Core skills",
     libraryTitle: "Full skill set",
     expandLibraryLabel: "See full skills list",

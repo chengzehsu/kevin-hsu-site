@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react";
+import { Fragment, type CSSProperties, type ReactNode } from "react";
 import type { HeroContent } from "@/content/types";
 
 interface HeroStatementProps {
@@ -24,10 +24,15 @@ function clauses(text: string, chinese: boolean) {
   return text.split(/(?<=[，？])/).map((clause) => <span key={clause} className="inline-block">{clause}</span>);
 }
 
+/** Name and years stay on one line each; a narrow screen wraps only after the " · ". */
+function eyebrowParts(text: string) {
+  return text.split(/(?<= ·) /).map((part, index) => <Fragment key={part}>{index > 0 ? " " : null}<span className="inline-block">{part}</span></Fragment>);
+}
+
 /** Essential copy is server-rendered and visible before JavaScript runs. */
 export function HeroStatement({ eyebrow, kicker, headline, traits, actions, chinese }: HeroStatementProps) {
   return <div className="hero-statement">
-    <p className="hero-eyebrow">{eyebrow}</p>
+    <p className="hero-eyebrow">{eyebrowParts(eyebrow)}</p>
     <p className="hero-kicker">{clauses(kicker, chinese)}</p>
     <h1 className={chinese ? "hero-title hero-title-zh" : "hero-title"}>
       {headlineLines(headline, chinese).map((line, index) => (
