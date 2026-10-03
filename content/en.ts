@@ -476,16 +476,16 @@ export const en = {
         org: "SAT. KNOWLEDGE",
         role: "Senior Product Manager",
         period: "Nov 2023 - Aug 2024",
-        focus: "B2B learning, learning analytics, and market validation",
+        focus: "Enterprise training, online learning, and Hong Kong market entry",
         skillSignal:
-          "Clarifying priorities across the differing needs of buyers, administrators, and end users, then testing market opportunities.",
+          "Clarifying priorities across the differing needs of buyers, administrators, and end users, then testing markets with the smallest viable step.",
         summary:
-          "Planned a B2B enterprise-training platform for HR buyers, administrators, and employees, alongside learning-analytics work and market validation.",
+          "Covered two markets at once: enterprise training, starting from HR interviews and learning data, and online learning, owning new-market entry and the course experience.",
         bullets: [
-          "Enterprise training: interviewed HR teams at companies of different sizes and defined post-purchase course assignment, new-hire onboarding, and learning-management workflows",
-          "Learning analytics: planned dashboards and in-class assessments to help HR teams understand employee progress and capability growth",
-          "Hong Kong market: partnered with marketing and used a third-party platform to test an entry approach in three weeks",
-          "Growth and operations: explored affiliate and group-buying features, and planned tools for internal leave, time-off-in-lieu, and expense-claim flows",
+          "Hong Kong market: partnered with marketing on a third-party platform to enter Hong Kong in three weeks with a minimal launch; first-week revenue passed NT$1M",
+          "Internal operations: mapped and redesigned HR leave, expense-claim, and customer-service flows, raising operational efficiency by 20%",
+          "Enterprise training: interviewed HR teams at companies of different sizes to learn how training actually runs, then planned a learning-data dashboard so companies could tune training plans with data",
+          "Learning outcomes: designed in-course quizzes so learners could check their own progress as they studied",
         ],
       },
       {
