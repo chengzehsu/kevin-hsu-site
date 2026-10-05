@@ -53,10 +53,10 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
     ecofirst: {
       kind: "loop",
-      eyebrow: "交付證據",
-      title: "把專案導向的協作，變成可複製的產品交付",
-      steps: ["產品", "軟體", "專案", "業務", "案場"],
-      measure: "交付效率 +50%｜案場營運效率 +20%",
+      eyebrow: "架構證據",
+      title: "業務到 RD 的六層營運架構",
+      steps: ["資料層", "關聯層", "計算層", "檢視層", "規則層", "AI 層"],
+      measure: "17 個資料庫｜42 條關聯｜70 多個自動計算欄位",
     },
   },
   en: {
@@ -86,10 +86,10 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
     ecofirst: {
       kind: "loop",
-      eyebrow: "Evidence",
-      title: "Turned project-led collaboration into repeatable delivery",
-      steps: ["Product", "Software", "Project", "Sales", "Site"],
-      measure: "Delivery efficiency +50% | Site-ops efficiency +20%",
+      eyebrow: "Architecture",
+      title: "A six-layer operating architecture from sales to RD",
+      steps: ["Data", "Relations", "Computation", "Views", "Rules", "AI"],
+      measure: "17 databases | 42 relations | 70+ computed fields",
     },
   },
 };

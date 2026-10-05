@@ -421,29 +421,30 @@ export const en = {
         collaboration: "Software, project, sales, and site-operations teams",
         impact: "Delivery efficiency +50% | Site-ops efficiency +20%",
         ownership:
-          "Designed the Notion operating system from sales to RD, the requirements flow, and the AI development workflow.",
+          "Planned and maintain the Notion operating architecture for sales and software: 17 databases, 42 relations, 70+ computed fields, plus requirements and pre-sales rules.",
         situation:
           "The AI HVAC product was early, and site information lived in LINE, email, and personal laptops; sales asked about timelines and RD asked about requirements by chasing people.",
         bottleneck:
-          "Sales promised delivery dates from a capacity sheet, requirements reached development half written, and nobody could say who caused a rush job or a delay.",
+          "Sales promised dates on gut feel, requirements reached development half written, and rush jobs, overload, and who was waiting on whom had no numbers.",
         decision:
-          "Link cards, accounts, projects, and sales updates in Notion to software projects and the requirements queue; delivery dates start when data is complete and the requirements doc is signed, and nothing is scheduled before it is written.",
+          "Split sales-to-RD into six layers: data, relations, computation, views, rules, and AI; delivery dates start at requirements sign-off.",
         decisionSummary:
-          "One data chain from sales to RD; delivery dates start at requirements sign-off.",
+          "Sales to RD as a six-layer architecture; delivery dates start at requirements sign-off.",
         hypothesis:
-          "Recording the PM's wanted date apart from RD's estimate lets the system flag rush jobs; AI sits on the flow to handle meetings, requirements, and specs.",
+          "17 databases hold cards, accounts, projects, sales updates, and RD tasks; one account card shows the owner, stage, and decision maker; formulas compute sales cycle days, rush jobs, delays, and weekly capacity; sales, PMs, and RD each get a workspace; requirement templates, a ticket calendar, and pre-sales sizing set the rules; AI drafts the FAQ, glossary, and requirements.",
         result:
-          "AI across requirements, specs, and dev handoff raised delivery efficiency by 50%, and site operations by 20%. The system holds 1,639 sales updates and 1,829 RD tasks, and 59 delivery projects link to software projects.",
+          "AI across requirements, specs, and dev handoff raised delivery efficiency by 50%, and site operations by 20%. The system holds 1,639 sales updates and 1,829 RD tasks, and 1,500+ sales records have been distilled into an FAQ.",
         artifacts: [
-          "Sales-to-RD Notion data model",
-          "Pre-sales sizing and gates",
-          "Requirements queue with rush-job flags",
+          "Operating data model across 17 databases",
+          "Formulas for rush jobs, delays, and capacity",
+          "Workspaces for sales, PMs, and RD",
+          "Requirement templates, ticket calendar, and pre-sales rules",
+          "AI for FAQ, glossary, and requirements",
           "Internal data platform (218 commits in 2 months)",
           "Control-strategy simulator",
-          "Standard operating procedures",
         ],
         measurement:
-          "Efficiency compares delivery cycle and site operating time before and after; database counts come from the company Notion (Oct 2026), with no client names or amounts.",
+          "Efficiency compares delivery cycle and site operating time before and after; architecture and counts come from the company Notion (Oct 2026), with no client names or amounts.",
         measurementSummary:
           "Delivery cycle and site operating time: before vs after",
       },
