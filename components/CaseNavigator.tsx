@@ -10,7 +10,8 @@ interface CaseNavigatorProps {
 
 /**
  * Sticky chapter navigator for a case page. Plain anchors work without JavaScript; once hydrated,
- * the chapter in view is marked with aria-current and a CSS scroll-linked bar shows reading progress.
+ * the chapter in view is marked with aria-current. Reading progress lives only in the site header,
+ * so the rail never shows a second indicator that disagrees with the current chapter.
  */
 export function CaseNavigator({ label, links }: CaseNavigatorProps) {
   const [active, setActive] = useState<string>(links[0]?.href ?? "");
@@ -51,7 +52,6 @@ export function CaseNavigator({ label, links }: CaseNavigatorProps) {
           </li>
         ))}
       </ol>
-      <span className={styles.progress} aria-hidden="true" />
     </nav>
   );
 }

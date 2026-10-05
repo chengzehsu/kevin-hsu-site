@@ -43,25 +43,6 @@
 .link[aria-current] { background: var(--accent); color: var(--accent-fg); }
 .number { font-size: .68rem; font-variant-numeric: tabular-nums; opacity: .7; }
 
-/* Reading progress along the bottom edge; scroll-driven, so it costs no JavaScript. */
-.progress {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .progress { animation: case-progress linear both; animation-timeline: scroll(root); }
-  }
-}
-@keyframes case-progress { to { transform: scaleX(1); } }
-
 @media (max-width: 767px) {
   .navigator { top: 4rem; margin-inline: -.25rem; }
   .list li { flex: 0 0 auto; }

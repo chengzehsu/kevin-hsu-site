@@ -527,6 +527,30 @@ body::after {
 }
 .site-nav a[aria-current="page"] { color: var(--fg); font-weight: 600; background-size: 100% 1px; }
 
+/* Brand mark: the flow mark replaces the hover underline, so the gradient one is switched off here. */
+.site-nav a.site-brand { display: inline-flex; align-items: center; min-height: 2.75rem; background-image: none; }
+.brand-signature { display: inline-flex; align-items: center; gap: 0.6rem; white-space: nowrap; }
+.brand-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 650; letter-spacing: -0.025em; line-height: 1; }
+.brand-flow { display: block; width: 2.4rem; height: auto; overflow: visible; }
+.brand-flow rect { fill: var(--fg); }
+.brand-flow rect[data-bottleneck] { fill: var(--accent); }
+.brand-flow g, .brand-flow rect { transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .brand-flow .brand-flow-off rect { animation: brand-fix 820ms cubic-bezier(0.34, 1.4, 0.64, 1) 380ms both; }
+  .brand-flow .brand-flow-off + .brand-flow-off rect { animation-delay: 460ms; }
+  .brand-flow .brand-flow-off rect[data-bottleneck] { animation-name: brand-fix-accent; }
+  .site-brand:hover .brand-flow-off { animation: brand-refix 900ms cubic-bezier(0.34, 1.4, 0.64, 1) both; }
+  .site-brand:hover .brand-flow-off + .brand-flow-off { animation-delay: 70ms; }
+}
+/* Start state mirrors the hero's baseline layout: two stations knocked off the line. */
+@keyframes brand-fix { from { transform: translateY(5px); fill: var(--muted); } }
+@keyframes brand-fix-accent { from { transform: translateY(5px); fill: var(--muted); } 60% { fill: var(--accent); } }
+@keyframes brand-refix {
+  0% { transform: none; }
+  35% { transform: translateY(5px) rotate(-8deg); }
+  100% { transform: none; }
+}
+
 .contact-panel {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.65fr);

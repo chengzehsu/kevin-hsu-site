@@ -1,5 +1,6 @@
 import type { SectionProps } from "@/content/types";
 import { localePath } from "@/lib/locale";
+import { BrandSignature } from "./BrandSignature";
 import { LocaleSwitch } from "./LocaleSwitch";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { ScrollProgress } from "./motion/ScrollProgress";
@@ -15,8 +16,8 @@ export function Nav({ content, locale, caseId, page }: SectionProps & { caseId?:
       <a className="skip-link" href="#main-content">{content.nav.skipLabel}</a>
       <ScrollProgress />
       <div className="mx-auto flex h-full w-full max-w-site items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <a href={home} className="font-display text-xl leading-none whitespace-nowrap text-fg">
-          {brand}
+        <a href={home} className="site-brand text-fg">
+          <BrandSignature label={brand} />
         </a>
 
         <div className="flex items-center gap-3 sm:gap-6">
