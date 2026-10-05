@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Ecofirst 營運系統：把業務到 RD 接成一條資料鏈</title>
+<desc id="desc">在 Ecofirst 用 Notion 搭的營運系統。業務線：利害關係人（名片）連到客戶，再連到專案總表；業務推進分 8 階段（BD、拜訪、場勘、方案、報價、議價、擬約、簽約），每筆都連到專案總表。通過售前閘門（工期分級 S／M／L／XL；交期從 T=0 起算：資料交齊＋需求文件簽核）後進入 RD 線：軟體部專案連到需求池（RDD → 排程 → 開發 → RD 測試 → PM／業務驗收），並用 PM 期待日對比 RD 預計日自動判斷插單。資料庫筆數：業務推進 1,639 筆、RD 任務 1,829 筆、59 個交付專案連到軟體部專案（公司 Notion，2026-10），不含客戶與金額。</desc>
+<defs>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-.15" y="-.15" width="1.3" height="1.4"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#F5F7FB"/>
+<rect width="1600" height="1000" fill="url(#grid)" opacity=".48"/>
+<text x="96" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start" letter-spacing="2.8">營運系統 / 業務到 RD</text>
+<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">把業務到 RD 接成一條資料鏈</text>
+<text x="96" y="214" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="26" font-weight="400" text-anchor="start">從拿到一張名片到需求驗收上線，每一步都是一張互相連結的資料庫。</text>
+<text x="96" y="264" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2">業務線</text>
+<g filter="url(#shadow)"><rect x="96" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
+<circle cx="136" cy="320" r="18" fill="#2D61A6"/>
+<text x="136" y="326" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">01</text>
+<text x="166" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">利害關係人（名片）</text>
+<text x="124" y="378" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">每張名片一筆，</text>
+<text x="124" y="406" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">連到所屬客戶</text>
+<g filter="url(#shadow)"><rect x="460" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
+<circle cx="500" cy="320" r="18" fill="#DCE8F7"/>
+<text x="500" y="326" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">02</text>
+<text x="530" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">客戶</text>
+<text x="488" y="378" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">客戶與案場資料，</text>
+<text x="488" y="406" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">集中在一處維護</text>
+<g filter="url(#shadow)"><rect x="824" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
+<circle cx="864" cy="320" r="18" fill="#DCE8F7"/>
+<text x="864" y="326" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">03</text>
+<text x="894" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">專案總表</text>
+<text x="852" y="378" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">每個案子只有一個</text>
+<text x="852" y="406" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">事實來源</text>
+<path d="M420 378.0H452m-10-8 10 8-10 8" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<path d="M784 378.0H816m-10-8 10 8-10 8" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<path d="M1180 378.0H1148m10-8 -10 8--10 8" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<g filter="url(#shadow)"><rect x="1188" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
+<circle cx="1228" cy="320" r="18" fill="#DCE8F7"/>
+<text x="1228" y="326" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">04</text>
+<text x="1258" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">業務推進</text>
+<text x="1216" y="366" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start">8 個階段，每筆連到專案總表</text>
+<rect x="1212" y="378" width="34" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1229.0" y="394.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">BD</text>
+<rect x="1252" y="378" width="44" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1274.0" y="394.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">拜訪</text>
+<rect x="1302" y="378" width="44" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1324.0" y="394.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">場勘</text>
+<rect x="1352" y="378" width="44" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1374.0" y="394.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">方案</text>
+<rect x="1402" y="378" width="44" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1424.0" y="394.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">報價</text>
+<rect x="1212" y="409" width="44" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1234.0" y="425.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">議價</text>
+<rect x="1262" y="409" width="44" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1284.0" y="425.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">擬約</text>
+<rect x="1312" y="409" width="44" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1334.0" y="425.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">簽約</text>
+<path d="M982.0 482V502m-8-10 8 10 8-10" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<g filter="url(#shadow)"><rect x="96" y="506" width="1408" height="84" rx="20" fill="#152236"/></g>
+<text x="136.0" y="540" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start" letter-spacing="1.6">售前閘門</text>
+<text x="136.0" y="570" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" text-anchor="start">工期分級 S／M／L／XL</text>
+<text x="840.0" y="540" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start" letter-spacing="1.6">交期從 T=0 起算</text>
+<text x="840.0" y="570" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" text-anchor="start">資料交齊＋需求文件簽核</text>
+<path d="M800.0 524V572" stroke="#2F4362" stroke-width="2"/>
+<path d="M254.0 594V624m-8-10 8 10 8-10" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<text x="460" y="614" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2">RD 線</text>
+<g filter="url(#shadow)"><rect x="96" y="628" width="316" height="176" rx="20" fill="#FFFFFF"/></g>
+<circle cx="136" cy="670" r="18" fill="#DCE8F7"/>
+<text x="136" y="676" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">05</text>
+<text x="166" y="678" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">軟體部專案</text>
+<text x="124" y="728" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">從專案總表接過來的</text>
+<text x="124" y="756" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">交付案</text>
+<path d="M420 716.0H452m-10-8 10 8-10 8" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<g filter="url(#shadow)"><rect x="460" y="628" width="1044" height="176" rx="20" fill="#FFFFFF"/></g>
+<circle cx="500" cy="670" r="18" fill="#DCE8F7"/>
+<text x="500" y="676" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">06</text>
+<text x="530" y="678" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">需求池</text>
+<text x="1476" y="678" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="end">每個需求從 RDD 走到驗收</text>
+<rect x="488" y="704" width="48" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="512.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">RDD</text>
+<path d="M543 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="566" y="704" width="52" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="592.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">排程</text>
+<path d="M625 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="648" y="704" width="52" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="674.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">開發</text>
+<path d="M707 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="730" y="704" width="80" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="770.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">RD 測試</text>
+<path d="M817 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="840" y="704" width="119" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="899.5" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">PM／業務驗收</text>
+<rect x="488" y="750" width="988" height="38" rx="12" fill="#E8EEF7"/>
+<rect x="488" y="750" width="6" height="38" rx="3" fill="#2D61A6"/>
+<text x="510" y="775" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="start">PM 期待日 vs RD 預計日 → 自動判斷插單</text>
+<rect x="96" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
+<text x="124" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">1,639</text>
+<text x="256" y="881" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">筆業務推進</text>
+<rect x="573" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
+<text x="601" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">1,829</text>
+<text x="733" y="881" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">筆 RD 任務</text>
+<rect x="1050" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
+<text x="1078" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">59</text>
+<text x="1140" y="868" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">個交付專案</text>
+<text x="1140" y="894" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">連到軟體部專案</text>
+<text x="96" y="952" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="400" text-anchor="start">資料庫筆數取自公司 Notion（2026-10），不含客戶與金額</text>
+<text x="1504" y="952" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="400" text-anchor="end">Kevin Hsu</text>
+</svg>

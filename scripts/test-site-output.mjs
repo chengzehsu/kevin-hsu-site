@@ -68,10 +68,20 @@ for (const [locale, file, heading] of [
     const cases = portfolio.match(/<section id="cases"[\s\S]*?<\/section>/)?.[0];
     assert.ok(cases);
     assert.ok(portfolio.includes(locale === "zh" ? "Product Manager｜AI、資料產品與複雜營運系統" : "Product Manager · AI, data, and operational products"));
-    assert.equal((cases.match(/data-case-card=/g) ?? []).length, 4);
-    assert.equal((cases.match(/data-case-card="ledger"/g) ?? []).length, 4);
+    // Four work cases plus two after-hours projects, which come last under their own heading.
+    assert.equal((cases.match(/data-case-card=/g) ?? []).length, 6);
+    assert.equal((cases.match(/data-case-card="ledger"/g) ?? []).length, 6);
+    const sideTitle = locale === "zh" ? "工作之餘" : "After hours";
+    assert.ok(cases.indexOf(sideTitle) < cases.indexOf('<article id="namecard"'), "Side projects sit under their own heading");
+    assert.ok(cases.indexOf('<article id="cdp"') < cases.indexOf(sideTitle), "Work cases come before side projects");
+    const shelf = html.match(/<section id="work"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(shelf, "The home case shelf must render");
+    for (const id of ["namecard", "podcast-stock"]) {
+      assert.ok(!shelf.includes(`/cases/${id}/`), "The home shelf keeps the four work cases only");
+    }
     assert.equal((cases.match(/data-case-card="featured"/g) ?? []).length, 0);
-    assert.equal((html.match(/data-disclosure="experience"/g) ?? []).length, 6);
+    // Seven roles since 華曜興業 joined the timeline to match LinkedIn (2026-10-02).
+    assert.equal((html.match(/data-disclosure="experience"/g) ?? []).length, 7);
     // Every role, the current one included, starts as one compact line of equal weight (user decision, 2026-10-01).
     const openDetails = html.match(/<details[^>]*\sopen(?:[\s=>])[^>]*>/g) ?? [];
     assert.equal(openDetails.length, 0, "No experience entry opens by default");
@@ -81,7 +91,7 @@ for (const [locale, file, heading] of [
     assert.equal((html.match(/<video/g) ?? []).length, 1, "Only the hero film mounts on the home page");
     assert.ok(/<video[^>]*preload="none"/.test(hero), "The hero film must not preload");
     assert.ok(!html.includes("<source"), "Film sources attach after load, never in the server HTML");
-    for (const id of ["ecofirst", "grocery", "health-app", "cdp"]) {
+    for (const id of ["ecofirst", "grocery", "health-app", "cdp", "namecard", "podcast-stock"]) {
       const article = cases.match(new RegExp(`<article id="${id}"[\\s\\S]*?<\\/article>`))?.[0];
       assert.ok(article?.includes(locale === "zh" ? "查看案例詳情" : "View case details"));
       const path = `${locale === "en" ? "/en" : ""}/cases/${id}/`;

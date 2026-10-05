@@ -1,6 +1,7 @@
 import type { CaseStudy, SectionProps } from "@/content/types";
 import type { Locale } from "@/lib/locale";
 import { caseArtifacts } from "@/content/caseArtifacts";
+import { caseEvidence } from "@/content/caseEvidence";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Highlight } from "./Highlight";
 import { CaseEvidence } from "./CaseEvidence";
@@ -132,6 +133,18 @@ export function CaseDetails({
               ))}
             </ul>
           ) : null}
+          {item.source ? (
+            <a
+              className={styles.feature}
+              href={item.source}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{item.title}</span>
+              <strong>{content.cases.sourceLabel}</strong>
+              <ArrowUpRightIcon size={18} weight="bold" aria-hidden="true" />
+            </a>
+          ) : null}
           {features.map((award) => (
             <a
               key={award.id}
@@ -158,9 +171,11 @@ export function CaseDetails({
               <Highlight>{item.result}</Highlight>
             </p>
           </div>
-          <div id="evidence" className={`${styles.evidence} scroll-rise`}>
-            <CaseEvidence caseId={item.id} locale={locale} />
-          </div>
+          {caseEvidence[locale][item.id] ? (
+            <div id="evidence" className={`${styles.evidence} scroll-rise`}>
+              <CaseEvidence caseId={item.id} locale={locale} />
+            </div>
+          ) : null}
           <div id="measurement" className={styles.measurement}>
             <h3 className={styles.label}>{content.cases.measurementLabel}</h3>
             <p>{item.measurement}</p>

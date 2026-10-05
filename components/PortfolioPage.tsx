@@ -15,13 +15,13 @@ const portfolioCopy = {
     experienceLabel: "查看完整經歷",
     contactLabel: "聯絡我",
     // Phrases never break internally, so 瓶頸 cannot split across lines.
-    title: ["四個案例，", "從瓶頸", "到上線成果。"],
+    title: ["六個案例，", "從瓶頸", "到上線成果。"],
     intro:
-      "涵蓋 B2C 重構、資料產品與 AI 工具；負責問題定義、優先排序與成果驗證。",
+      "四個工作案例與兩個個人作品；我負責問題定義、優先排序與成果驗證。",
     facts: [
       ["5+ 年", "產品相關經驗"],
       ["NT$1,200 萬+", "管理專案組合"],
-      ["7 段", "跨產業經歷（4 個精選案例）"],
+      ["7 段", "跨產業經歷"],
       ["12 人", "帶領團隊（工程 10、PM 2）"],
     ],
     modelTitle: "我負責的不只是一張 Roadmap",
@@ -36,13 +36,13 @@ const portfolioCopy = {
     positioning: "Product Manager · AI, data, and operational products",
     experienceLabel: "View full experience",
     contactLabel: "Contact me",
-    title: ["Four cases,", "from bottleneck", "to shipped result."],
+    title: ["Six cases,", "from bottleneck", "to shipped result."],
     intro:
-      "B2C re-platforming, data products, and AI tools. I own problem definition, priorities, and outcome validation.",
+      "Four work cases and two side projects. I own problem definition, priorities, and outcome validation.",
     facts: [
       ["5+ yrs", "product experience"],
       ["NT$12M+", "project portfolio managed"],
-      ["7", "roles across industries (4 case studies)"],
+      ["7", "roles across industries"],
       ["12", "people led (10 engineers, 2 PMs)"],
     ],
     modelTitle: "My scope goes beyond a roadmap",

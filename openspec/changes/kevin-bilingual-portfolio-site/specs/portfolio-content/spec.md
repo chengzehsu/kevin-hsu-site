@@ -30,7 +30,7 @@ The page SHALL render, in order, a sticky single-line navigation, a hero, an imp
 
 ### Requirement: Metric traceability
 
-Every number displayed on the page SHALL equal a value stated in Kevin's résumé or LinkedIn profile. The picking improvement MUST be rendered as the raw figures "300 → 1,000 orders/day" with "+233%" (Chinese: 「300 → 1,000 單／日（+233%）」), and MUST NOT be rendered as "×2.33" or "2.33 倍".
+Every number displayed on the page SHALL equal a value stated in Kevin's résumé or LinkedIn profile, or, for an after-hours project, a value verifiable in the public repository that the case page links to as its source, or a count from an internal system of record that Kevin has approved for publication, with its source and date stated in the case's measurement note. The picking improvement MUST be rendered as the raw figures "300 → 1,000 orders/day" with "+233%" (Chinese: 「300 → 1,000 單／日（+233%）」), and MUST NOT be rendered as "×2.33" or "2.33 倍".
 
 #### Scenario: Picking metric wording
 

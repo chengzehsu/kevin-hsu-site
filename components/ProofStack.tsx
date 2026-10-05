@@ -1,22 +1,39 @@
 import Image from "next/image";
-import { ArrowRightIcon, ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
 import { CASE_POSTERS, CASE_POSTER_SIZE } from "@/content/caseArtifacts";
 import { casePath } from "@/lib/locale";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./ProofStack.module.css";
 
-/** Home case index: four posters, one artifact and one outcome each. The full cases live on /portfolio/. */
+/**
+ * Home case index: the four work cases as posters, one artifact and one outcome each. Side projects
+ * and the full cases live on /portfolio/.
+ */
 export function ProofStack({ content, locale }: SectionProps) {
   const { cases, hero } = content;
-  const items = [...cases.items].sort((a, b) => a.rank - b.rank);
+  const items = cases.items
+    .filter((item) => item.kind !== "side")
+    .sort((a, b) => a.rank - b.rank);
 
   return (
-    <section id="work" className={`content-section ${styles.section}`} aria-labelledby="work-heading">
+    <section
+      id="work"
+      className={`content-section ${styles.section}`}
+      aria-labelledby="work-heading"
+    >
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <div className={`${styles.header} scroll-rise`}>
-          <h2 id="work-heading" className="section-title">{cases.title}</h2>
-          <a className={`${styles.all} action-link`} href={hero.secondaryCta.href}>
+          <h2 id="work-heading" className="section-title">
+            {cases.title}
+          </h2>
+          <a
+            className={`${styles.all} action-link`}
+            href={hero.secondaryCta.href}
+          >
             {hero.secondaryCta.label}
             <ArrowRightIcon size={18} aria-hidden="true" />
           </a>
@@ -29,7 +46,11 @@ export function ProofStack({ content, locale }: SectionProps) {
             const outcome = item.impact.split(/\s*[｜|]\s*/)[0];
             return (
               <li key={item.id} className={`${styles.poster} scroll-rise`}>
-                <a className={styles.link} href={casePath(locale, item.id)} aria-label={`${cases.readLabel}: ${item.title}`}>
+                <a
+                  className={styles.link}
+                  href={casePath(locale, item.id)}
+                  aria-label={`${cases.readLabel}: ${item.title}`}
+                >
                   {poster ? (
                     <Image
                       src={poster}
@@ -41,9 +62,17 @@ export function ProofStack({ content, locale }: SectionProps) {
                   ) : null}
                   <span className={styles.copy}>
                     <span className={styles.meta}>{item.org}</span>
-                    <span className={styles.outcome}><KeepTogether text={outcome} /></span>
-                    <span className={styles.title}><KeepTogether text={item.title} title /></span>
-                    <ArrowUpRightIcon className={styles.arrow} size={20} aria-hidden="true" />
+                    <span className={styles.outcome}>
+                      <KeepTogether text={outcome} />
+                    </span>
+                    <span className={styles.title}>
+                      <KeepTogether text={item.title} title />
+                    </span>
+                    <ArrowUpRightIcon
+                      className={styles.arrow}
+                      size={20}
+                      aria-hidden="true"
+                    />
                   </span>
                 </a>
               </li>

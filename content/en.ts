@@ -12,8 +12,8 @@ export const en = {
   nav: {
     brand: "Kevin Hsu",
     links: [
-      { label: "AI builds", href: "#linkedin-posts" },
       { label: "Portfolio", href: "/en/portfolio/" },
+      { label: "AI builds", href: "#linkedin-posts" },
       { label: "Skills", href: "#skills" },
       { label: "Experience", href: "#experience" },
       { label: "Contact", href: "#contact" },
@@ -54,7 +54,7 @@ export const en = {
       {
         label: "Domains",
         value:
-          "B2C e-commerce, health apps, B2B enterprise learning, and cross-channel customer-data platforms",
+          "AI energy savings (B2B), B2C e-commerce, health apps, enterprise learning, and cross-channel customer-data platforms",
       },
       {
         label: "Looking for",
@@ -162,9 +162,9 @@ export const en = {
         trait: "Curious",
         stat: "0 → 1",
         statLabel: "built it myself",
-        title: "An AI business-card assistant with Cursor and Gemini",
+        title: "An AI business-card assistant that feeds the CRM",
         description:
-          "From failed OCR and rebuilt version control to deployment.",
+          "Fields match the company Notion CRM, so a scanned card becomes an account record and reps add only the judgment.",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7412468258705944576/",
         image: {
           src: "/linkedin-posts/post-2.jpg",
@@ -188,12 +188,12 @@ export const en = {
         },
       },
       {
-        trait: "Daily practice",
+        trait: "Efficient",
         stat: "+50%",
         statLabel: "product delivery efficiency",
         title: "Automating product management with Claude",
         description:
-          "Meeting follow-up, proposal drafts, requirements, specs, and mock-data checks: Claude drafts each step, and I make the calls. For meetings, Claude Cowork reads the day's Notion notes at 5 pm and lines up action items and a first-draft proposal; after a 5-minute review the next morning, it goes to the team.",
+          "Meetings, proposals, requirements, specs, and mock-data checks: AI drafts, I make the calls. A 5 pm job turns the day's meetings into follow-ups, 102 reports so far.",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
         image: {
           src: "/linkedin-posts/ai-product-workflow.en.svg",
@@ -275,7 +275,7 @@ export const en = {
 
   cases: {
     title: "Selected case studies",
-    intro: "Four cases, one structure: situation, bottleneck, decision, result.",
+    intro: "Six cases, one structure: problem, decision, what got built, result.",
     copyLabel: "Copy case link",
     copiedLabel: "Link copied",
     copyFallback: "Select and copy the link below.",
@@ -289,6 +289,10 @@ export const en = {
     artifactsLabel: "Deliverables",
     measurementLabel: "How it was measured",
     ownershipLabel: "What I drove",
+    sideTitle: "After hours: vibe coding fixes for real problems",
+    sideIntro:
+      "Problems at work and in my own life, turned into products with AI after hours.",
+    sourceLabel: "View public source",
     columns: {
       situation: "Situation",
       bottleneck: "Bottleneck",
@@ -410,37 +414,108 @@ export const en = {
         org: "Ecofirst (台灣愛淨)",
         period: "Mar 2025 - Present",
         rank: 2,
-        title: "AI energy: from planning to delivery",
+        title: "AI energy product: sales to RD on one line",
         role: "Product Manager",
         scope:
           "4 engineers | 50 sites | About NT$100M in projects | Roadmap, AI development, internal tools",
         collaboration: "Software, project, sales, and site-operations teams",
         impact: "Delivery efficiency +50% | Site-ops efficiency +20%",
         ownership:
-          "Product roadmap, AI development workflows, internal tools, and cross-functional deployment handoffs.",
+          "Designed the Notion operating system from sales to RD, the requirements flow, and the AI development workflow.",
         situation:
-          "The early-stage AI energy-saving HVAC product relied on project-led delivery without reusable back-office systems or internal tools.",
+          "The AI HVAC product was early, and site information lived in LINE, email, and personal laptops; sales asked about timelines and RD asked about requirements by chasing people.",
         bottleneck:
-          "Development, deployment, and site handoffs lacked a shared process, concentrating knowledge and delaying delivery.",
+          "Sales promised delivery dates from a capacity sheet, requirements reached development half written, and nobody could say who caused a rush job or a delay.",
         decision:
-          "Standardized development, deployment, and site handoffs before turning frequent operating work into internal tools.",
+          "Link cards, accounts, projects, and sales updates in Notion to software projects and the requirements queue; delivery dates start when data is complete and the requirements doc is signed, and nothing is scheduled before it is written.",
         decisionSummary:
-          "Made development, deployment, and site handoffs repeatable before expanding the feature set.",
+          "One data chain from sales to RD; delivery dates start at requirements sign-off.",
         hypothesis:
-          "Used the roadmap to align priorities and built one delivery flow with software, project, and sales teams.",
+          "Recording the PM's wanted date apart from RD's estimate lets the system flag rush jobs; AI sits on the flow to handle meetings, requirements, and specs.",
         result:
-          "Put a cross-functional development and deployment flow in place. AI workflows raised delivery efficiency by 50%, while standard operating procedures improved site operations efficiency by 20%.",
+          "AI across requirements, specs, and dev handoff raised delivery efficiency by 50%, and site operations by 20%. The system holds 1,639 sales updates and 1,829 RD tasks, and 59 delivery projects link to software projects.",
         artifacts: [
-          "Product roadmap",
-          "AI development workflow",
-          "Internal operations tools",
-          "Deployment handoff",
+          "Sales-to-RD Notion data model",
+          "Pre-sales sizing and gates",
+          "Requirements queue with rush-job flags",
+          "Internal data platform (218 commits in 2 months)",
+          "Control-strategy simulator",
           "Standard operating procedures",
         ],
         measurement:
-          "Compared internal delivery cycles and site operating time before and after adoption; figures come from team operating records, with client data kept private.",
+          "Efficiency compares delivery cycle and site operating time before and after; database counts come from the company Notion (Oct 2026), with no client names or amounts.",
         measurementSummary:
           "Delivery cycle and site operating time: before vs after",
+      },
+      {
+        id: "namecard",
+        kind: "side",
+        org: "Side project",
+        period: "Jul 2025 - Jul 2026",
+        rank: 5,
+        title: "AI business-card assistant: from card to CRM",
+        role: "Product owner and builder",
+        scope: "Snap a card in LINE → AI reads it → it lands in the company Notion",
+        collaboration: "Used by the sales team and a few friends; built with Cursor and Claude Code, with Gemini reading the cards",
+        impact: "Photo-to-record time −99% | Judgment stays with sales",
+        ownership:
+          "Built on my own time; every call, from the problem to the teardown, was mine.",
+        situation:
+          "Sales reps typed business cards into the company Notion by hand, so records were patchy and managers could not track accounts, decision influence, or contact KPIs.",
+        bottleneck:
+          "A card shows name and phone; the CRM needs judgment calls. Letting AI fill them means a model judges for the rep.",
+        decision:
+          "Match the company CRM fields; leave judgment fields to sales and keep AI guesses in notes. When an audit showed usage was small, remove the infrastructure built for scale.",
+        decisionSummary: "Fields follow sales; infrastructure follows usage.",
+        hypothesis:
+          "If cards land already mapped to CRM fields and reps add only the judgment, account management keeps up.",
+        result:
+          "Reps add a contact with a photo; card details land in the CRM account and contact fields, reps fill in the decision fields, and managers track accounts in Notion. The teardown left the main flow intact.",
+        artifacts: [
+          "LINE business-card assistant",
+          "Company CRM field map",
+          "Multi-tenant admin with subscription plans",
+          "Infrastructure audit report",
+          "Single-service architecture after the cut",
+        ],
+        measurement:
+          "Photo-to-record time, comparing manual entry with a photo. The build history backs the rest: field mapping (Aug 2025), judgment handed to sales (Sep 2025), audit (Jul 2026).",
+        measurementSummary: "Photo-to-record time: manual entry vs a photo",
+      },
+      {
+        id: "podcast-stock",
+        kind: "side",
+        org: "Side project",
+        period: "Jun 2026 - Sep 2026",
+        rank: 6,
+        title: "Stock Gods Fight: bull vs bear before you buy",
+        role: "Product owner (solo build)",
+        scope: "Web product | AI claim extraction | Bull vs bear view",
+        collaboration: "Built solo with Claude Code; every feature merged through a reviewed PR",
+        impact: "One stock, bull and bear cases side by side, every line quoted",
+        ownership: "Problem definition, scope, and trust rules.",
+        situation:
+          "Before buying a stock I want to know what finance podcasters think, but I have no time to listen, and summaries never say who is bullish or bearish.",
+        bottleneck:
+          "AI-extracted claims could not be checked: in 90 real claims, 86% of strength scores sat between 0.6 and 0.9, so the score said nothing.",
+        decision:
+          "No majority vote, bulls and bears side by side; every argument traces to a verbatim quote; arguments only, never a buy or sell call.",
+        decisionSummary: "Bulls and bears side by side, every line quoted, no buy or sell calls.",
+        hypothesis:
+          "I need the arguments on one stock side by side, not a summary; the call stays mine.",
+        result:
+          "424 commits and 59 PRs, live. Claims that miss the transcript are not scored; thin evidence means abstain.",
+        artifacts: [
+          "Product specs (OpenSpec)",
+          "Claim-extraction evals",
+          "Backtest anti-leakage rules",
+          "Bull vs bear debate design doc",
+          "Public GitHub repo",
+        ],
+        measurement:
+          "Score spread from 90 real claims (2026-07-22); commit and PR counts from the public repo.",
+        measurementSummary: "Strength-score spread across 90 real claims",
+        source: "https://github.com/chengzehsu/podcast-stock",
       },
     ],
   },
@@ -455,7 +530,7 @@ export const en = {
     items: [
       {
         id: "ecofirst",
-        org: "Ecofirst Taiwan (台灣愛淨股份有限公司)",
+        org: "Ecofirst Taiwan (台灣愛淨節能科技股份有限公司)",
         role: "Product Manager",
         period: "Mar 2025 - Present",
         focus:

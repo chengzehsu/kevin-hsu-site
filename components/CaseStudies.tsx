@@ -1,5 +1,6 @@
-import type { SectionProps } from "@/content/types";
+import type { CaseStudy, SectionProps } from "@/content/types";
 import { caseArtifacts } from "@/content/caseArtifacts";
+import { orderCases } from "@/lib/cases";
 import { casePath } from "@/lib/locale";
 import { thumb } from "@/lib/thumb";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
@@ -12,17 +13,20 @@ import styles from "./CaseStudies.module.css";
 const LAYOUTS = ["feature", "split", "reverse", "panorama"] as const;
 
 const COPY = {
-  zh: { kicker: "作品集", decision: "我的關鍵判斷", index: "案例索引" },
+  zh: { kicker: "作品集", decision: "關鍵取捨", index: "案例索引" },
   en: {
     kicker: "Portfolio",
-    decision: "Key product judgment",
+    decision: "Key decision",
     index: "Case index",
   },
 } as const;
 
 export function CaseStudies({ content, locale }: SectionProps) {
   const cases = content.cases;
-  const items = [...cases.items].sort((a, b) => a.rank - b.rank);
+  // Work cases first, then the after-hours projects under their own heading; numbering runs on.
+  const items = orderCases(cases.items);
+  const work = items.filter((item) => item.kind !== "side");
+  const side = items.filter((item) => item.kind === "side");
   const copy = COPY[locale];
   const total = String(items.length).padStart(2, "0");
 
@@ -74,7 +78,25 @@ export function CaseStudies({ content, locale }: SectionProps) {
         </nav>
 
         <div className={styles.list}>
-          {items.map((item, index) => {
+          {work.map((item, index) => renderRow(item, index))}
+        </div>
+
+        {side.length ? (
+          <>
+            <header className={`${styles.sideHead} scroll-rise`}>
+              <h2 className={styles.sideTitle}>{cases.sideTitle}</h2>
+              <p className={styles.lede}>{cases.sideIntro}</p>
+            </header>
+            <div className={styles.list}>
+              {side.map((item, index) => renderRow(item, work.length + index))}
+            </div>
+          </>
+        ) : null}
+      </div>
+    </section>
+  );
+
+  function renderRow(item: CaseStudy, index: number) {
             const artifact = caseArtifacts[locale][item.id];
             const path = casePath(locale, item.id);
             const stills = artifact?.stills ?? [];
@@ -166,9 +188,5 @@ export function CaseStudies({ content, locale }: SectionProps) {
                 </div>
               </article>
             );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+  }
 }

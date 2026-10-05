@@ -98,10 +98,8 @@ interface RecognitionDetails {
 }
 
 /** Features inherit the execution period from their case, never the article publication date. */
-export type RecognitionItem = RecognitionDetails & (
-  | { kind: "award"; year: string }
-  | { kind: "feature"; caseId: string }
-);
+export type RecognitionItem = RecognitionDetails &
+  ({ kind: "award"; year: string } | { kind: "feature"; caseId: string });
 
 export interface AwardsContent {
   title: string;
@@ -187,6 +185,13 @@ export interface CaseStudy {
   measurement: string;
   /** Short measurement basis shown in the portfolio index. */
   measurementSummary: string;
+  /**
+   * "side" marks after-hours projects: kept off the home shelf and grouped after the work cases on
+   * /portfolio/. Omitted means a work case.
+   */
+  kind?: "side";
+  /** URL of a public source readers can check the case against, linked from the case page. */
+  source?: string;
 }
 
 export interface CasesContent {
@@ -213,6 +218,11 @@ export interface CasesContent {
     result: string;
   };
   ownershipLabel: string;
+  /** Heading and intro for the after-hours group on /portfolio/. */
+  sideTitle: string;
+  sideIntro: string;
+  /** Label for a case's public source link. */
+  sourceLabel: string;
   items: CaseStudy[];
 }
 

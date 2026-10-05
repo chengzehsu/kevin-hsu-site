@@ -12,8 +12,8 @@ export const zh = {
   nav: {
     brand: "Kevin Hsu",
     links: [
-      { label: "AI 實作", href: "#linkedin-posts" },
       { label: "作品集", href: "/portfolio/" },
+      { label: "AI 實作", href: "#linkedin-posts" },
       { label: "能力", href: "#skills" },
       { label: "經歷", href: "#experience" },
       { label: "聯絡", href: "#contact" },
@@ -52,7 +52,7 @@ export const zh = {
       },
       {
         label: "產品領域",
-        value: "B2C 電商、健康 App、B2B 企業培訓與跨通路資料平台",
+        value: "AI 節能（B2B）、B2C 電商、健康 App、企業培訓與跨通路資料平台",
       },
       { label: "求職目標", value: "面向全球市場的 B2C 平台與成長期產品團隊" },
     ],
@@ -149,8 +149,9 @@ export const zh = {
         trait: "好奇",
         stat: "0 → 1",
         statLabel: "自己做出來",
-        title: "用 Cursor 與 Gemini 做 AI 名片管理助手",
-        description: "從 OCR 辨識失敗、重建版控，到部署上線。",
+        title: "AI 名片管理助手，掃完直接進 CRM",
+        description:
+          "欄位對齊公司 Notion CRM，名片掃完直接成為客戶資料，業務只補判斷。",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7412468258705944576/",
         image: {
           src: "/linkedin-posts/post-2.jpg",
@@ -174,12 +175,12 @@ export const zh = {
         },
       },
       {
-        trait: "每天都在用",
+        trait: "追求效率",
         stat: "+50%",
         statLabel: "產品交付效率",
         title: "用 Claude 把產品管理流程自動化",
         description:
-          "從會議追蹤、提案初稿、需求釐清、規格到 mock data 驗證，每一段都先由 Claude 起草，我負責判斷與定稿。會議這段由 Claude Cowork 每天 17:00 自動讀 Notion 紀錄，排好待辦與提案初稿；隔天早上花 5 分鐘確認，就能交給團隊。",
+          "會議、提案、需求、規格到 mock data 驗證，都先由 AI 起草，我判斷定稿。每天 17:00 自動整理會議待辦，已累積 102 份。",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
         image: {
           src: "/linkedin-posts/ai-product-workflow.zh.svg",
@@ -199,7 +200,7 @@ export const zh = {
         kind: "award",
         category: "獲獎紀錄",
         year: "2022",
-        title: "PMI 專案管理標竿獎",
+        title: "PMI 台灣分會專案管理標竿獎",
         distinction: "卓越獎",
         description:
           "Fable 寓意科技期間的專案成果，從流程盤點、系統重構到跨團隊交付。",
@@ -211,9 +212,9 @@ export const zh = {
         category: "案例收錄",
         caseId: "grocery",
         title: "AWS 數位轉型案例",
-        distinction: "放心初蔬果網",
+        distinction: "生鮮電商",
         description:
-          "在寓意科技主導放心初的系統重構與上雲；AWS 將此案列為數位轉型案例，刊登於關鍵評論網。",
+          "在寓意科技主導生鮮電商的系統重構與上雲；AWS 將此案列為數位轉型案例，刊登於關鍵評論網。",
         link: {
           label: "閱讀案例報導",
           href: "https://www.thenewslens.com/feature/aws/250301",
@@ -261,7 +262,7 @@ export const zh = {
 
   cases: {
     title: "精選案例",
-    intro: "四個案例，同一套結構：情境、瓶頸、取捨、成果。",
+    intro: "六個案例，同一套結構：問題、決策、做出來的東西、成果。",
     copyLabel: "複製案例連結",
     copiedLabel: "已複製連結",
     copyFallback: "請選取並複製下方連結。",
@@ -275,6 +276,10 @@ export const zh = {
     artifactsLabel: "實際產出",
     measurementLabel: "成果量測",
     ownershipLabel: "我實際主導",
+    sideTitle: "工作之餘：用 vibe coding 解決身邊的困擾",
+    sideIntro:
+      "公司和自己卡住的地方，下班後用 AI 做成產品。",
+    sourceLabel: "看公開原始碼",
     columns: {
       situation: "情境",
       bottleneck: "瓶頸",
@@ -388,32 +393,103 @@ export const zh = {
         org: "台灣愛淨 Ecofirst",
         period: "2025/3 - 現在",
         rank: 2,
-        title: "AI 節能產品：從規劃到交付",
+        title: "AI 節能產品：把業務到 RD 接成一條線",
         role: "Product Manager",
         scope: "4 位 RD｜50 個案場｜專案規模約 NT$1 億｜Roadmap、AI 開發、內部工具",
         collaboration: "軟體、專案、業務與案場營運團隊",
         impact: "交付效率 +50%｜案場營運效率 +20%",
-        ownership: "產品 Roadmap、AI 開發工作流程、內部工具與跨部門部署交接。",
+        ownership: "設計業務到 RD 的 Notion 營運系統、需求流程與 AI 開發工作流程。",
         situation:
-          "AI 空調節能產品仍在早期階段，專案式推進缺少可重用的後台與內部工具。",
+          "AI 空調節能產品還在早期，案場資訊散在 LINE、Email 和個人電腦；業務問交期、RD 問需求，都靠問人。",
         bottleneck:
-          "開發、部署與案場交接沒有共通流程，需求容易卡在單點經驗與跨部門交接。",
-        decision: "先把開發、部署與案場交接標準化，再將高頻作業做成內部工具。",
-        decisionSummary: "先把開發、部署與案場交接做成可重複流程，再擴充功能。",
+          "業務憑產能表口頭承諾交期，需求沒寫清楚就進開發，插單和延遲說不清是誰的。",
+        decision: "用 Notion 把名片、客戶、專案與業務推進接到軟體部專案和需求池；交期從資料交齊、需求文件簽核那天起算，需求寫清楚才能排程。",
+        decisionSummary: "業務到 RD 接成一條資料鏈，交期從需求確認那天起算。",
         hypothesis:
-          "以 Roadmap 對齊優先序，並與軟體、專案、業務共同建立交付流程。",
+          "PM 的期待日和 RD 的預計日分開記，系統就能自動判斷插單；AI 接在流程上，整理會議、需求與規格。",
         result:
-          "建立跨部門的開發與部署流程，交付效率提升 50%，案場營運效率提升 20%。",
+          "AI 導入需求、規格與開發交接，交付效率 +50%；案場營運效率 +20%。系統累積 1,639 筆業務推進、1,829 筆 RD 任務，59 個交付專案已連到軟體部專案。",
         artifacts: [
-          "產品 Roadmap",
-          "AI 開發工作流程",
-          "內部營運工具",
-          "部署交接流程",
+          "業務到 RD 的 Notion 資料模型",
+          "售前工期分級與閘門",
+          "需求池與插單判斷",
+          "內部資料平台（2 個月 218 次提交）",
+          "控制策略模擬工具",
           "標準作業程序",
         ],
         measurement:
-          "比較導入前後的內部交付週期與案場作業時間；數據來自團隊營運紀錄，不公開客戶資料。",
+          "效率以導入前後的交付週期與案場作業時間比較；資料庫筆數取自公司 Notion（2026-10），不含客戶與金額。",
         measurementSummary: "交付週期與案場作業時間：導入前後比較",
+      },
+      {
+        id: "namecard",
+        kind: "side",
+        org: "個人作品",
+        period: "2025/7 - 2026/7",
+        rank: 5,
+        title: "AI 名片管理助手：從名片到客戶管理",
+        role: "產品負責人兼開發者",
+        scope: "LINE 拍名片 → AI 辨識 → 寫進公司 Notion",
+        collaboration: "使用者是公司業務與幾位朋友；用 Cursor 與 Claude Code 開發，Gemini 辨識名片",
+        impact: "拍照到建檔時間 −99%｜判斷留給業務",
+        ownership:
+          "下班時間自己做，從定題到拆架構的判斷都由我負責。",
+        situation:
+          "業務拿到名片要人工輸入公司 Notion，資料不齊，主管很難追客戶進度、決策影響力與窗口的 KPI。",
+        bottleneck:
+          "名片只有姓名電話，CRM 要的判斷欄位得靠人。讓 AI 填，等於替業務下判斷。",
+        decision:
+          "欄位對齊公司 CRM；判斷欄位留給業務，AI 推測只放備註。盤點後發現用量很小，就拆掉為大規模準備的架構。",
+        decisionSummary: "欄位跟著業務走，架構跟著用量走。",
+        hypothesis:
+          "名片進來就對齊 CRM 欄位，業務只補判斷，客戶管理才跟得上。",
+        result:
+          "業務拍照就能建檔，名片資料進 CRM 的客戶與聯絡欄位，決策欄位由業務補，主管在 Notion 就能追客戶。拆掉多餘架構後主流程不受影響。",
+        artifacts: [
+          "LINE 名片 Bot",
+          "公司 CRM 欄位對照",
+          "多租戶與訂閱方案後台",
+          "架構盤點報告",
+          "瘦身後的單一服務架構",
+        ],
+        measurement:
+          "拍照到建檔時間：比較手動輸入與拍照建檔。另有開發紀錄佐證：欄位對齊（2025/8）、判斷改由業務填（2025/9）、架構盤點（2026/7）。",
+        measurementSummary: "拍照到建檔時間：手動輸入與拍照比較",
+      },
+      {
+        id: "podcast-stock",
+        kind: "side",
+        org: "個人作品",
+        period: "2026/6 - 2026/9",
+        rank: 6,
+        title: "股神打架：買股前，先看多空",
+        role: "產品負責人（獨立開發）",
+        scope: "Web 產品｜AI 觀點抽取｜多空並排",
+        collaboration: "獨立開發，與 Claude Code 協作，每個功能經 PR 審查",
+        impact: "同一檔股票，多空論點並排，每句附原話",
+        ownership: "問題定義、產品範圍與可信度規則。",
+        situation:
+          "買股前想知道財經 podcaster 怎麼看，但沒空一集一集聽，摘要也說不出誰看多、誰看空。",
+        bottleneck:
+          "AI 抽出的觀點無法驗證：90 筆實測中，86% 的強度分數擠在 0.6 到 0.9，沒有鑑別力。",
+        decision:
+          "不做多數決，多空並排；每個論點都要找得到原話；只攤開論點，不給買賣建議。",
+        decisionSummary: "多空並排、每句附原話，不給買賣建議。",
+        hypothesis:
+          "我要的不是摘要，是同一檔股票的論點對照；判斷還是自己下。",
+        result:
+          "424 次 commit、59 個 PR，已上線。對不上原文不計分，證據不足就棄權。",
+        artifacts: [
+          "產品規格（OpenSpec）",
+          "觀點抽取評測",
+          "回測防前視偏誤規則",
+          "多空辯論設計文件",
+          "公開 GitHub repo",
+        ],
+        measurement:
+          "強度分數取自 90 筆實際觀點（2026-07-22）；commit 與 PR 數取自公開 repo。",
+        measurementSummary: "90 筆實際觀點的強度分數分布",
+        source: "https://github.com/chengzehsu/podcast-stock",
       },
     ],
   },
@@ -428,7 +504,7 @@ export const zh = {
     items: [
       {
         id: "ecofirst",
-        org: "台灣愛淨股份有限公司 Ecofirst",
+        org: "台灣愛淨節能科技股份有限公司 Ecofirst",
         role: "Product Manager",
         period: "2025/3 - 現在",
         focus: "AI 節能產品、內部工具與跨團隊交付",
@@ -501,7 +577,7 @@ export const zh = {
         skillSignal:
           "在高壓交付裡練出系統產品觀：從使用者流程、技術重構到營運結果，串成同一個決策。",
         summary:
-          "管理 NT$1,200 萬以上的 B2C 專案組合，帶領 10 人工程團隊與 2 位初階 PM；負責電商、倉儲、App 與 IoT 整合，獲 2022 PMI 專案管理標竿獎卓越獎。",
+          "管理 NT$1,200 萬以上的 B2C 專案組合，帶領 10 人工程團隊與 2 位初階 PM；負責電商、倉儲、App 與 IoT 整合，獲 2022 PMI 台灣分會專案管理標竿獎卓越獎。",
         bullets: [
           "蔬果電商（客戶年營收約 NT$2 億）：在訂單暴增期間主導訂單到交付的流程盤點，協調全端與 AWS 架構重構，揀貨 300 → 1,000 單／日 (+233%)；重構期間平台營收成長 120%",
           "健康管理 App（年營收約 NT$8 億）：以使用者訪談、競品研究與客戶工作坊定義優先順序，重構平台、轉移資料並整合 IoT 體重計；每日活躍使用者一年內由 12,000 成長至 20,000(+66%)",

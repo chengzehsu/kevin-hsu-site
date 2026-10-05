@@ -1,4 +1,4 @@
-/* Portfolio case list: four artifact-led launches, each with its own composition. */
+/* Portfolio case list: artifact-led launches, each with its own composition; after-hours projects follow. */
 .section { padding-block: clamp(5rem, 9vw, 8.5rem); }
 
 /* Heading and intro stack: one message per header, the intro reads directly under its title. */
@@ -27,6 +27,22 @@
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.8;
+}
+
+/* After-hours group: a second, quieter header that splits the list without restarting it. */
+.sideHead {
+  display: grid;
+  gap: .75rem;
+  margin-top: clamp(4rem, 8vw, 6.5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.sideTitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.25;
+  text-wrap: balance;
 }
 
 /* Index: a table of contents that already states the outcome of each case. */

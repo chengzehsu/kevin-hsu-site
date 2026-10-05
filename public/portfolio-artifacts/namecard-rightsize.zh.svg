@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">名片管理助手的架構盤點：盤點前與盤點後</title>
+<desc id="desc">2026/7 的架構盤點確認實際用量很小，只有公司業務與幾位朋友。盤點前為分散式多租戶準備的 Redis、RQ、SocketIO 全部移除；盤點後保留 LINE 到 Gemini 到 Notion 的主流程、SQLite 單一資料庫、憑證加密與 Gemini 備用金鑰，並修好原本擋不住超量的配額檢查。範例名片為虛構人物。</desc>
+<defs>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#F5F7FB"/>
+<rect width="1600" height="1000" fill="url(#grid)" opacity=".48"/>
+<text x="120" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start" letter-spacing="2.6">架構盤點 / 2026 年 7 月</text>
+<text x="120" y="160" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="50" font-weight="700" text-anchor="start">先量出實際用量，再決定留下什麼</text>
+<text x="120" y="208" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="23" font-weight="400" text-anchor="start">盤點結論：實際用量很小，公司業務與幾位朋友。</text>
+<g filter="url(#shadow)"><rect x="120" y="252" width="600" height="500" rx="28" fill="#152236"/></g>
+<text x="160" y="314" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="start">盤點前</text>
+<text x="160" y="350" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">為分散式多租戶準備的元件</text>
+<text x="160" y="434" fill="#8DA0BC" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="30" font-weight="700" text-anchor="start">Redis</text>
+<path d="M156 424H242" stroke="#8FB8EF" stroke-width="3"/>
+<text x="160" y="472" fill="#E4ECF8" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="400" text-anchor="start">每日限額與批次狀態改存 SQLite</text>
+<text x="160" y="546" fill="#8DA0BC" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="30" font-weight="700" text-anchor="start">RQ 佇列與獨立 worker</text>
+<path d="M156 536H470" stroke="#8FB8EF" stroke-width="3"/>
+<text x="160" y="584" fill="#E4ECF8" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="400" text-anchor="start">上傳收斂成一條背景執行緒</text>
+<text x="160" y="658" fill="#8DA0BC" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="30" font-weight="700" text-anchor="start">SocketIO 即時推播</text>
+<path d="M156 648H424" stroke="#8FB8EF" stroke-width="3"/>
+<text x="160" y="696" fill="#E4ECF8" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="400" text-anchor="start">進度改用輪詢，功能不變</text>
+<path d="M738 502h48m-14-13 14 13-14 13" fill="none" stroke="#2D61A6" stroke-width="3"/>
+<g filter="url(#shadow)"><rect x="804" y="252" width="676" height="500" rx="28" fill="#FFFFFF"/></g>
+<text x="844" y="314" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="start">盤點後</text>
+<text x="844" y="350" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">主流程不動，留下真正用得到的</text>
+<rect x="844" y="380" width="250" height="146" rx="10" fill="#FBFCFE" stroke="#C9D6EA" stroke-width="1.5" transform="rotate(-3 969.0 453.0)"/>
+<g transform="rotate(-3 969.0 453.0)">
+<rect x="864" y="402" width="26" height="26" rx="6" fill="#2D61A6"/>
+<text x="902" y="422" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">範例科技</text>
+<text x="864" y="466" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="24" font-weight="700" text-anchor="start">王小明</text>
+<text x="864" y="492" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">業務經理</text>
+<text x="864" y="512" fill="#8A97AA" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="400" text-anchor="start">sales@example.com</text>
+</g>
+<path d="M1108 454h34m-11-10 11 10-11 10" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<rect x="1156" y="380" width="284" height="150" rx="12" fill="#F3F6FB" stroke="#DCE8F7" stroke-width="1.5"/>
+<text x="1174" y="408" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start">Notion 聯絡人</text>
+<text x="1174" y="436" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">姓名</text>
+<text x="1292" y="436" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">王小明</text>
+<text x="1174" y="462" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">公司</text>
+<text x="1292" y="462" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">範例科技</text>
+<text x="1174" y="488" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">職稱</text>
+<text x="1292" y="488" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">業務經理</text>
+<text x="1174" y="514" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">決策影響力</text>
+<text x="1292" y="514" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">由業務自填</text>
+<circle cx="856" cy="575" r="12" fill="#DCE8F7"/>
+<path d="M850 575l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
+<text x="880" y="582" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">SQLite 單一資料庫：租戶、配額、補傳紀錄</text>
+<circle cx="856" cy="615" r="12" fill="#DCE8F7"/>
+<path d="M850 615l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
+<text x="880" y="622" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">LINE 與 Notion 憑證維持加密</text>
+<circle cx="856" cy="655" r="12" fill="#DCE8F7"/>
+<path d="M850 655l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
+<text x="880" y="662" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">Gemini 主備金鑰自動切換</text>
+<circle cx="856" cy="695" r="12" fill="#DCE8F7"/>
+<path d="M850 695l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
+<text x="880" y="702" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">單一服務、單一 worker，對齊實際部署</text>
+<rect x="120" y="790" width="1360" height="104" rx="20" fill="#E8EEF7"/>
+<text x="156" y="852" fill="#52627A" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">盤點結果</text>
+<text x="290" y="854" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="30" font-weight="700" text-anchor="start">主流程不動，修好原本擋不住超量的配額檢查</text>
+<text x="1480" y="950" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="end">Kevin Hsu</text>
+</svg>

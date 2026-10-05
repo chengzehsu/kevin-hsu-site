@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Business-card assistant infra audit: before and after</title>
+<desc id="desc">The July 2026 audit found real usage was small: the company's sales team and a few friends. Redis, RQ, and SocketIO, built for a distributed multi-tenant service, were removed; the LINE to Gemini to Notion flow, one SQLite database, encrypted credentials, and the Gemini backup key stayed, and the quota check now actually blocks overuse. The sample card is a made-up person.</desc>
+<defs>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#F5F7FB"/>
+<rect width="1600" height="1000" fill="url(#grid)" opacity=".48"/>
+<text x="120" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start" letter-spacing="2.6">INFRA AUDIT / JULY 2026</text>
+<text x="120" y="160" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="46" font-weight="700" text-anchor="start">Measure the real scale, then decide what stays</text>
+<text x="120" y="208" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="23" font-weight="400" text-anchor="start">Audit finding: real usage was small, the company's sales team and a few friends.</text>
+<g filter="url(#shadow)"><rect x="120" y="252" width="600" height="500" rx="28" fill="#152236"/></g>
+<text x="160" y="314" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="start">Before the audit</text>
+<text x="160" y="350" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Built for a distributed multi-tenant service</text>
+<text x="160" y="434" fill="#8DA0BC" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="30" font-weight="700" text-anchor="start">Redis</text>
+<path d="M156 424H242" stroke="#8FB8EF" stroke-width="3"/>
+<text x="160" y="472" fill="#E4ECF8" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="400" text-anchor="start">Quota and batch state moved to SQLite</text>
+<text x="160" y="546" fill="#8DA0BC" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="30" font-weight="700" text-anchor="start">RQ queue and worker</text>
+<path d="M156 536H460" stroke="#8FB8EF" stroke-width="3"/>
+<text x="160" y="584" fill="#E4ECF8" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="400" text-anchor="start">Uploads run on one background thread</text>
+<text x="160" y="658" fill="#8DA0BC" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="30" font-weight="700" text-anchor="start">SocketIO live push</text>
+<path d="M156 648H445" stroke="#8FB8EF" stroke-width="3"/>
+<text x="160" y="696" fill="#E4ECF8" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="400" text-anchor="start">Progress now polls; same feature</text>
+<path d="M738 502h48m-14-13 14 13-14 13" fill="none" stroke="#2D61A6" stroke-width="3"/>
+<g filter="url(#shadow)"><rect x="804" y="252" width="676" height="500" rx="28" fill="#FFFFFF"/></g>
+<text x="844" y="314" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="start">After the audit</text>
+<text x="844" y="350" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Main flow untouched; only what is used stays</text>
+<rect x="844" y="380" width="250" height="146" rx="10" fill="#FBFCFE" stroke="#C9D6EA" stroke-width="1.5" transform="rotate(-3 969.0 453.0)"/>
+<g transform="rotate(-3 969.0 453.0)">
+<rect x="864" y="402" width="26" height="26" rx="6" fill="#2D61A6"/>
+<text x="902" y="422" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Sample Tech</text>
+<text x="864" y="466" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="24" font-weight="700" text-anchor="start">Alex Wang</text>
+<text x="864" y="492" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">Sales Manager</text>
+<text x="864" y="512" fill="#8A97AA" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="400" text-anchor="start">sales@example.com</text>
+</g>
+<path d="M1108 454h34m-11-10 11 10-11 10" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<rect x="1156" y="380" width="284" height="150" rx="12" fill="#F3F6FB" stroke="#DCE8F7" stroke-width="1.5"/>
+<text x="1174" y="408" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start">Notion contact</text>
+<text x="1174" y="436" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">Name</text>
+<text x="1292" y="436" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">Alex Wang</text>
+<text x="1174" y="462" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">Company</text>
+<text x="1292" y="462" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">Sample Tech</text>
+<text x="1174" y="488" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">Title</text>
+<text x="1292" y="488" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">Sales Manager</text>
+<text x="1174" y="514" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="start">Influence</text>
+<text x="1292" y="514" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Set by the rep</text>
+<circle cx="856" cy="575" r="12" fill="#DCE8F7"/>
+<path d="M850 575l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
+<text x="880" y="582" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">One SQLite database: tenants, quotas, retries</text>
+<circle cx="856" cy="615" r="12" fill="#DCE8F7"/>
+<path d="M850 615l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
+<text x="880" y="622" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">LINE and Notion credentials stay encrypted</text>
+<circle cx="856" cy="655" r="12" fill="#DCE8F7"/>
+<path d="M850 655l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
+<text x="880" y="662" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">Gemini backup key switches over automatically</text>
+<circle cx="856" cy="695" r="12" fill="#DCE8F7"/>
+<path d="M850 695l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
+<text x="880" y="702" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">One service, one worker, matching the real deploy</text>
+<rect x="120" y="790" width="1360" height="104" rx="20" fill="#E8EEF7"/>
+<text x="156" y="852" fill="#52627A" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">Outcome</text>
+<text x="290" y="854" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="start">Main flow untouched; the quota check now actually blocks overuse</text>
+<text x="1480" y="950" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="end">Kevin Hsu</text>
+</svg>

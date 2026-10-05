@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Abstain rather than guess</title>
+<desc id="desc">Three honesty rules: no match, no score (claims are checked against the transcript and unmatched claims are excluded); no side, no win or loss (neutral discussion is stored as evidence only); too few claims shows “Not enough data” instead of 0%. A data panel: measured on 90 real claims, 86% of strength scores sat between 0.6 and 0.9 and could not tell claims apart, so the unit of judgment became one episode × one ticker with an evidence chain (2026-07-22). The histogram is schematic.</desc>
+<defs>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-.15" y="-.15" width="1.3" height="1.4"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#F5F7FB"/>
+<rect width="1600" height="1000" fill="url(#grid)" opacity=".48"/>
+<text x="96" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start" letter-spacing="2.8">PRODUCT DECISION / HONEST SCORING RULES</text>
+<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">Abstain rather than guess</text>
+<text x="96" y="214" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="24" font-weight="400" text-anchor="start">Make every score defensible before asking whether it is accurate.</text>
+<g filter="url(#shadow)"><rect x="96" y="254" width="448" height="286" rx="22" fill="#FFFFFF"/></g>
+<circle cx="148" cy="306" r="22" fill="#2D61A6"/>
+<text x="148" y="313" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">01</text>
+<text x="186" y="315" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">No match, no score</text>
+<text x="128" y="359" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Every claim is checked against</text>
+<text x="128" y="389" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">the transcript. Unmatched</text>
+<text x="128" y="419" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">claims are left out.</text>
+<rect x="128" y="482" width="180" height="32" rx="16" fill="#DCE8F7"/>
+<text x="218.0" y="504" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">Transcript check</text>
+<g filter="url(#shadow)"><rect x="576" y="254" width="448" height="286" rx="22" fill="#FFFFFF"/></g>
+<circle cx="628" cy="306" r="22" fill="#DCE8F7"/>
+<text x="628" y="313" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">02</text>
+<text x="666" y="315" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">No side, no win or loss</text>
+<text x="608" y="359" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Neutral discussion is kept as</text>
+<text x="608" y="389" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">evidence only, never scored</text>
+<text x="608" y="419" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">for accuracy.</text>
+<rect x="608" y="482" width="153" height="32" rx="16" fill="#DCE8F7"/>
+<text x="684.5" y="504" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">Evidence only</text>
+<g filter="url(#shadow)"><rect x="1056" y="254" width="448" height="286" rx="22" fill="#FFFFFF"/></g>
+<circle cx="1108" cy="306" r="22" fill="#DCE8F7"/>
+<text x="1108" y="313" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="middle">03</text>
+<text x="1146" y="315" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Too few claims shows</text>
+<text x="1146" y="349" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">“Not enough data,” not 0%</text>
+<text x="1088" y="393" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">No score until there are enough</text>
+<text x="1088" y="423" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">claims, so missing data never</text>
+<text x="1088" y="453" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">reads as a wrong call.</text>
+<rect x="1088" y="482" width="171" height="32" rx="16" fill="#DCE8F7"/>
+<text x="1173.5" y="504" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">Not enough data</text>
+<g filter="url(#shadow)"><rect x="96" y="572" width="1408" height="336" rx="26" fill="#FFFFFF"/></g>
+<text x="136" y="622" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="start" letter-spacing="1.8">MEASURED ON 90 REAL CLAIMS (2026-07-22)</text>
+<rect x="140.0" y="836" width="52.0" height="2" rx="4" fill="#DCE8F7"/>
+<rect x="200.0" y="833" width="52.0" height="5" rx="4" fill="#DCE8F7"/>
+<rect x="260.0" y="833" width="52.0" height="5" rx="4" fill="#DCE8F7"/>
+<rect x="320.0" y="829" width="52.0" height="9" rx="4" fill="#DCE8F7"/>
+<rect x="380.0" y="824" width="52.0" height="14" rx="4" fill="#DCE8F7"/>
+<rect x="440.0" y="815" width="52.0" height="23" rx="4" fill="#DCE8F7"/>
+<rect x="500.0" y="726" width="52.0" height="112" rx="4" fill="#2D61A6"/>
+<rect x="560.0" y="698" width="52.0" height="140" rx="4" fill="#2D61A6"/>
+<rect x="620.0" y="731" width="52.0" height="107" rx="4" fill="#2D61A6"/>
+<rect x="680.0" y="833" width="52.0" height="5" rx="4" fill="#DCE8F7"/>
+<path d="M136 838H736" stroke="#A9B4C4" stroke-width="2"/>
+<text x="136" y="866" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="middle">0</text>
+<text x="736" y="866" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="middle">1</text>
+<text x="436.0" y="866" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="middle">Strength score</text>
+<path d="M500.0 692V682H672.0V692" fill="none" stroke="#172234" stroke-width="2"/>
+<text x="586.0" y="672" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="middle">86%</text>
+<text x="800" y="684" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="64" font-weight="700" text-anchor="start">86%</text>
+<text x="950" y="647" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="23" font-weight="700" text-anchor="start">of strength scores sat between</text>
+<text x="950" y="681" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="23" font-weight="700" text-anchor="start">0.6 and 0.9: no way to tell</text>
+<text x="950" y="715" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="23" font-weight="700" text-anchor="start">claims apart.</text>
+<path d="M800 742H1464" stroke="#DCE4EF" stroke-width="2"/>
+<text x="800" y="784" fill="#52627A" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="1.6">SO THE UNIT OF JUDGMENT CHANGED</text>
+<rect x="800" y="804" width="664" height="96" rx="16" fill="#E8EEF7"/>
+<text x="824" y="844" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">→</text>
+<text x="860" y="844" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Judge one episode × one ticker,</text>
+<text x="860" y="878" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">with an evidence chain attached.</text>
+<text x="1504" y="948" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="400" text-anchor="end">Kevin Hsu</text>
+</svg>

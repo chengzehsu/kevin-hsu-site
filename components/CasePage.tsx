@@ -1,3 +1,4 @@
+import { orderCases } from "@/lib/cases";
 import type { CaseStudy, SectionProps } from "@/content/types";
 import { caseArtifacts } from "@/content/caseArtifacts";
 import { casePath, portfolioPath } from "@/lib/locale";
@@ -27,7 +28,7 @@ export function CasePage({
 }: SectionProps & { item: CaseStudy }) {
   const cases = content.cases;
   const copy = COPY[locale];
-  const ordered = [...cases.items].sort((a, b) => a.rank - b.rank);
+  const ordered = orderCases(cases.items);
   const position = ordered.findIndex((entry) => entry.id === item.id);
   const next = ordered[(position + 1) % ordered.length];
   const artifact = caseArtifacts[locale][item.id];

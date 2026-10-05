@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="674" viewBox="0 0 1200 674" role="img" aria-labelledby="title desc">
+<title id="title">AI business-card assistant: from prototype to right-sized</title>
+<desc id="desc">An after-hours tool: snap a business card in LINE, Gemini reads it, and the contact lands in the company's Notion database. Jul 2025 personal prototype; Aug to Sep 2025 fields matched to the company CRM, with judgment fields left to the sales rep and AI guesses kept in the notes; Dec 2025 to Feb 2026 a multi-tenant SaaS with subscription plans; Jul 2026 a self-initiated infrastructure audit found real usage was small, the company's sales team and a few friends, so Redis, RQ, and SocketIO were removed.</desc>
+<defs>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1200" height="674" fill="#F5F7FB"/>
+<rect width="1200" height="674" fill="url(#grid)" opacity=".48"/>
+<text x="96" y="66" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2.4">AFTER HOURS / A COMPANY PAIN</text>
+<text x="96" y="122" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="34" font-weight="700" text-anchor="start">Ship it, fit it to sales, then cut it to real scale</text>
+<text x="96" y="160" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Snap a card in LINE; AI reads it straight into the company's Notion contacts.</text>
+<path d="M216 234H984" stroke="#DCE8F7" stroke-width="2"/>
+<g filter="url(#shadow)"><rect x="96" y="200" width="240" height="318" rx="20" fill="#FFFFFF"/></g>
+<circle cx="130" cy="234" r="16" fill="#DCE8F7"/>
+<text x="130" y="239" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">01</text>
+<text x="156" y="239" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Jul 2025</text>
+<text x="118" y="288" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">Personal prototype</text>
+<text x="118" y="329" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Snap a card in LINE,</text>
+<text x="118" y="356" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Gemini reads it into</text>
+<text x="118" y="383" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Notion. Tried Telegram,</text>
+<text x="118" y="410" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">then settled on LINE</text>
+<g filter="url(#shadow)"><rect x="352" y="200" width="240" height="318" rx="20" fill="#FFFFFF"/></g>
+<circle cx="386" cy="234" r="16" fill="#DCE8F7"/>
+<text x="386" y="239" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">02</text>
+<text x="412" y="239" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Aug to Sep 2025</text>
+<text x="374" y="288" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">Matched the</text>
+<text x="374" y="315" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">company CRM fields</text>
+<text x="374" y="356" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Mapped to the company</text>
+<text x="374" y="383" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">database's fields</text>
+<text x="374" y="410" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Judgment fields left</text>
+<text x="374" y="437" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">to the sales rep;</text>
+<text x="374" y="464" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">AI guesses go in notes</text>
+<g filter="url(#shadow)"><rect x="608" y="200" width="240" height="318" rx="20" fill="#FFFFFF"/></g>
+<circle cx="642" cy="234" r="16" fill="#DCE8F7"/>
+<text x="642" y="239" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">03</text>
+<text x="668" y="239" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Dec 2025 to Feb 2026</text>
+<text x="630" y="288" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">Tried multi-tenant</text>
+<text x="630" y="315" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">SaaS with plans</text>
+<text x="630" y="356" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Free, Starter,</text>
+<text x="630" y="383" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Business, Enterprise</text>
+<text x="630" y="410" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">A quota for each plan,</text>
+<text x="630" y="437" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">admin for tenants</text>
+<g filter="url(#shadow)"><rect x="864" y="200" width="240" height="318" rx="20" fill="#152236"/></g>
+<circle cx="898" cy="234" r="16" fill="#2D61A6"/>
+<text x="898" y="239" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="700" text-anchor="middle">04</text>
+<text x="924" y="239" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Jul 2026</text>
+<text x="886" y="288" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="700" text-anchor="start">Cut to real scale</text>
+<text x="886" y="329" fill="#C9D6EA" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Self-initiated audit:</text>
+<text x="886" y="356" fill="#C9D6EA" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">real usage was small,</text>
+<text x="886" y="383" fill="#C9D6EA" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">the sales team and</text>
+<text x="886" y="410" fill="#C9D6EA" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">a few friends. Removed</text>
+<text x="886" y="437" fill="#C9D6EA" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="start">Redis, RQ, SocketIO</text>
+<rect x="96" y="540" width="1008" height="60" rx="14" fill="#E8EEF7"/>
+<text x="124" y="576" fill="#52627A" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start">Key call</text>
+<text x="1076" y="578" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" text-anchor="end">Small real usage does not need a distributed stack</text>
+<text x="1104" y="638" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="13" font-weight="400" text-anchor="end">Kevin Hsu</text>
+</svg>

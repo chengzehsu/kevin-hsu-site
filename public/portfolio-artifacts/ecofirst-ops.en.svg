@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Ecofirst operating system: sales to RD on one data chain</title>
+<desc id="desc">The Notion operating system built at Ecofirst. Sales lane: stakeholders (business cards) link to clients, then to the project master; sales updates move through 8 stages (BD, visit, site survey, proposal, quote, negotiation, draft contract, signed) and each one links to the project master. After the presales gate (effort tiers S / M / L / XL; the delivery clock starts at T=0 once data is complete and the requirements doc is signed), work enters the RD lane: software projects link to a requirement pool (RDD → scheduling → development → RD testing → PM / sales sign-off), where the PM's target date is compared with RD's estimate to flag rush insertions automatically. Database counts: 1,639 sales updates, 1,829 RD tasks, and 59 delivery projects linked to software projects (company Notion, Oct 2026); no client names or amounts.</desc>
+<defs>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-.15" y="-.15" width="1.3" height="1.4"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#F5F7FB"/>
+<rect width="1600" height="1000" fill="url(#grid)" opacity=".48"/>
+<text x="96" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start" letter-spacing="2.8">OPERATING SYSTEM / SALES TO RD</text>
+<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">Sales to RD on one data chain</text>
+<text x="96" y="214" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="24" font-weight="400" text-anchor="start">From the first business card to a signed-off requirement, every step is a linked database.</text>
+<text x="96" y="264" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2">SALES LANE</text>
+<g filter="url(#shadow)"><rect x="96" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
+<circle cx="136" cy="320" r="18" fill="#2D61A6"/>
+<text x="136" y="326" fill="#FFFFFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">01</text>
+<text x="166" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Stakeholders</text>
+<text x="124" y="378" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">One row per business</text>
+<text x="124" y="406" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">card, linked to its client</text>
+<g filter="url(#shadow)"><rect x="460" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
+<circle cx="500" cy="320" r="18" fill="#DCE8F7"/>
+<text x="500" y="326" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">02</text>
+<text x="530" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Clients</text>
+<text x="488" y="378" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Client and site details,</text>
+<text x="488" y="406" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">kept in one place</text>
+<g filter="url(#shadow)"><rect x="824" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
+<circle cx="864" cy="320" r="18" fill="#DCE8F7"/>
+<text x="864" y="326" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">03</text>
+<text x="894" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Project master</text>
+<text x="852" y="378" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">One source of truth</text>
+<text x="852" y="406" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">for every project</text>
+<path d="M420 378.0H452m-10-8 10 8-10 8" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<path d="M784 378.0H816m-10-8 10 8-10 8" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<path d="M1180 378.0H1148m10-8 -10 8--10 8" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<g filter="url(#shadow)"><rect x="1188" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
+<circle cx="1228" cy="320" r="18" fill="#DCE8F7"/>
+<text x="1228" y="326" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">04</text>
+<text x="1258" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Sales updates</text>
+<text x="1216" y="366" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start">8 stages, each linked to it</text>
+<rect x="1212" y="378" width="34" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1229.0" y="394.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">BD</text>
+<rect x="1252" y="378" width="55" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1279.5" y="394.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">Visit</text>
+<rect x="1313" y="378" width="97" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1361.5" y="394.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">Site survey</text>
+<rect x="1212" y="409" width="76" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1250.0" y="425.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">Proposal</text>
+<rect x="1294" y="409" width="55" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1321.5" y="425.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">Quote</text>
+<rect x="1355" y="409" width="97" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1403.5" y="425.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">Negotiation</text>
+<rect x="1212" y="440" width="117" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1270.5" y="456.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">Draft contract</text>
+<rect x="1335" y="440" width="62" height="25" rx="12.5" fill="#DCE8F7"/>
+<text x="1366.0" y="456.82" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="12" font-weight="700" text-anchor="middle">Signed</text>
+<path d="M982.0 482V502m-8-10 8 10 8-10" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<g filter="url(#shadow)"><rect x="96" y="506" width="1408" height="84" rx="20" fill="#152236"/></g>
+<text x="136.0" y="540" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start" letter-spacing="1.6">PRESALES GATE</text>
+<text x="136.0" y="570" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" text-anchor="start">Effort tiers S / M / L / XL</text>
+<text x="840.0" y="540" fill="#8FB8EF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="14" font-weight="700" text-anchor="start" letter-spacing="1.6">DELIVERY CLOCK STARTS AT T=0</text>
+<text x="840.0" y="570" fill="#F7FAFF" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="21" font-weight="700" text-anchor="start">Data complete + requirements doc signed</text>
+<path d="M800.0 524V572" stroke="#2F4362" stroke-width="2"/>
+<path d="M254.0 594V624m-8-10 8 10 8-10" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<text x="460" y="614" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2">RD LANE</text>
+<g filter="url(#shadow)"><rect x="96" y="628" width="316" height="176" rx="20" fill="#FFFFFF"/></g>
+<circle cx="136" cy="670" r="18" fill="#DCE8F7"/>
+<text x="136" y="676" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">05</text>
+<text x="166" y="678" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Software projects</text>
+<text x="124" y="728" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Delivery projects handed</text>
+<text x="124" y="756" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">over from Project master</text>
+<path d="M420 716.0H452m-10-8 10 8-10 8" fill="none" stroke="#2D61A6" stroke-width="2.5"/>
+<g filter="url(#shadow)"><rect x="460" y="628" width="1044" height="176" rx="20" fill="#FFFFFF"/></g>
+<circle cx="500" cy="670" r="18" fill="#DCE8F7"/>
+<text x="500" y="676" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">06</text>
+<text x="530" y="678" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Requirement pool</text>
+<text x="1476" y="678" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="400" text-anchor="end">Every requirement runs from RDD to sign-off</text>
+<rect x="488" y="704" width="48" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="512.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">RDD</text>
+<path d="M543 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="566" y="704" width="113" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="622.5" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">Scheduling</text>
+<path d="M686 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="709" y="704" width="122" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="770.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">Development</text>
+<path d="M838 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="861" y="704" width="113" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="917.5" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">RD testing</text>
+<path d="M981 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="1004" y="704" width="196" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="1102.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">PM / sales sign-off</text>
+<rect x="488" y="750" width="988" height="38" rx="12" fill="#E8EEF7"/>
+<rect x="488" y="750" width="6" height="38" rx="3" fill="#2D61A6"/>
+<text x="510" y="775" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="start">PM target date vs RD estimate → rush insertions flagged automatically</text>
+<rect x="96" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
+<text x="124" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">1,639</text>
+<text x="256" y="880" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">sales updates</text>
+<rect x="573" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
+<text x="601" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">1,829</text>
+<text x="733" y="880" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">RD tasks</text>
+<rect x="1050" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
+<text x="1078" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">59</text>
+<text x="1140" y="868" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">delivery projects linked</text>
+<text x="1140" y="892" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">to software projects</text>
+<text x="96" y="952" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="400" text-anchor="start">Counts from the company Notion (Oct 2026); no client names or amounts</text>
+<text x="1504" y="952" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="400" text-anchor="end">Kevin Hsu</text>
+</svg>
