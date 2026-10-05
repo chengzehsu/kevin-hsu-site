@@ -125,7 +125,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       headline: {
         value: "−99%",
         label: "拍照到建檔時間",
-        also: "名片直接進 CRM，判斷留給業務",
+        also: "內部工具與 SaaS，兩種架構都親手做過",
       },
       stills: [
         {
@@ -261,7 +261,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       headline: {
         value: "−99%",
         label: "Photo-to-record time",
-        also: "Cards land in the CRM; judgment stays with sales",
+        also: "Built it both as an internal tool and as a SaaS",
       },
       stills: [
         {

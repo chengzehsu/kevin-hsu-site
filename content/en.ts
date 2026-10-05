@@ -453,24 +453,24 @@ export const en = {
         org: "Side project",
         period: "Jul 2025 - Jul 2026",
         rank: 5,
-        title: "AI business-card assistant: from card to CRM",
+        title: "AI business-card assistant: architecture follows the business model",
         role: "Product owner and builder",
         scope: "Snap a card in LINE → AI reads it → it lands in the company Notion",
         collaboration: "Used by the sales team and a few friends; built with Cursor and Claude Code, with Gemini reading the cards",
-        impact: "Photo-to-record time −99% | Judgment stays with sales",
+        impact: "Photo-to-record time −99% | Built both an internal tool and a SaaS",
         ownership:
-          "Built on my own time; every call, from the problem to the teardown, was mine.",
+          "I planned the business models and the product architecture, and built each one: an internal tool, a multi-tenant SaaS, then a lean version sized to real usage.",
         situation:
           "Sales reps typed business cards into the company Notion by hand, so records were patchy and managers could not track accounts, decision influence, or contact KPIs.",
         bottleneck:
           "A card shows name and phone; the CRM needs judgment calls. Letting AI fill them means a model judges for the rep.",
         decision:
-          "Match the company CRM fields; leave judgment fields to sales and keep AI guesses in notes. When an audit showed usage was small, remove the infrastructure built for scale.",
-        decisionSummary: "Fields follow sales; infrastructure follows usage.",
+          "Start as an internal tool matched to the company CRM, with judgment fields left to sales; then test it as a SaaS with multi-tenancy and subscription plans; when usage showed no need, fold back to a lean architecture.",
+        decisionSummary: "Settle the business model first; the architecture follows it.",
         hypothesis:
-          "If cards land already mapped to CRM fields and reps add only the judgment, account management keeps up.",
+          "PMs used to write specs and wait for engineering; now I can turn each business model into a working architecture and let real usage pick the one to keep.",
         result:
-          "Reps add a contact with a photo; card details land in the CRM account and contact fields, reps fill in the decision fields, and managers track accounts in Notion. The teardown left the main flow intact.",
+          "Reps add a contact with a photo, and managers track accounts in Notion. The SaaS bet was tested against real usage before folding it back.",
         artifacts: [
           "LINE business-card assistant",
           "Company CRM field map",
