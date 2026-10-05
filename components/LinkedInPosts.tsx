@@ -75,7 +75,9 @@ export function LinkedInPosts({ content, locale }: SectionProps) {
                   >
                     {posts.readLabel}
                     <span className="sr-only">
-                      ：{post.title}（{posts.platform}）
+                      {locale === "zh"
+                        ? `：${post.title}（${posts.platform}）`
+                        : `: ${post.title} (${posts.platform})`}
                     </span>
                     <ArrowUpRightIcon size={18} aria-hidden="true" />
                   </a>
