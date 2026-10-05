@@ -58,6 +58,7 @@ export function buildMetadata(locale: Locale, item?: CaseStudy): Metadata {
 export function buildPortfolioMetadata(locale: Locale): Metadata {
   const content = getContent(locale);
   const title = `${content.cases.title} | ${content.nav.brand}`;
+  const description = `${content.cases.inventory}${locale === "zh" ? "。" : ". "}${content.cases.intro}`;
   const url = portfolioPath(locale);
   const zhPath = portfolioPath("zh");
   const enPath = portfolioPath("en");
@@ -65,7 +66,7 @@ export function buildPortfolioMetadata(locale: Locale): Metadata {
 
   return {
     title,
-    description: content.cases.intro,
+    description,
     metadataBase: new URL(SITE_ORIGIN),
     alternates: {
       canonical: url,
@@ -73,7 +74,7 @@ export function buildPortfolioMetadata(locale: Locale): Metadata {
     },
     openGraph: {
       title,
-      description: content.cases.intro,
+      description,
       url,
       locale: locale === "zh" ? "zh_TW" : "en_US",
       type: "website",
@@ -83,7 +84,7 @@ export function buildPortfolioMetadata(locale: Locale): Metadata {
     twitter: {
       card: "summary_large_image",
       title,
-      description: content.cases.intro,
+      description,
       images: [socialImage],
     },
   };

@@ -116,6 +116,8 @@ export interface LinkedInPost {
   description: string;
   /** LinkedIn build note; omitted when the work has no public post. */
   href?: string;
+  /** The case page this build belongs to; the habit tile is evidence, the case is the work. */
+  caseId: string;
   image: {
     src: string;
     alt: string;
@@ -130,6 +132,8 @@ export interface LinkedInPostsContent {
   author: string;
   platform: string;
   readLabel: string;
+  /** Prefix for the link back to the case a build belongs to. */
+  caseLabel: string;
   /** Order is the bento order: lead tile, two stacked tiles, one wide tile. */
   items: [LinkedInPost, LinkedInPost, LinkedInPost, LinkedInPost];
 }
@@ -195,8 +199,15 @@ export interface CaseStudy {
 }
 
 export interface CasesContent {
+  /** Portfolio page name; also the /portfolio/ meta title. */
   title: string;
+  /** The one phrase that states what the portfolio holds, identical on home and /portfolio/. */
+  inventory: string;
   intro: string;
+  /** Heading for the work-case group: the home shelf and the first group on /portfolio/. */
+  workTitle: string;
+  /** Home shelf link to /portfolio/, naming what the shelf leaves out. */
+  allLabel: string;
   copyLabel: string;
   copiedLabel: string;
   copyFallback: string;

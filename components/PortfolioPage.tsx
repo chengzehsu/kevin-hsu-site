@@ -15,9 +15,9 @@ const portfolioCopy = {
     experienceLabel: "查看完整經歷",
     contactLabel: "聯絡我",
     // Phrases never break internally, so 瓶頸 cannot split across lines.
-    title: ["六個案例，", "從瓶頸", "到上線成果。"],
+    title: ["每個案例，", "從瓶頸", "到上線成果。"],
     intro:
-      "四個工作案例與兩個個人作品；我負責問題定義、優先排序與成果驗證。",
+      "4 個工作案例＋2 個個人專案；我負責問題定義、優先排序與成果驗證。",
     facts: [
       ["5+ 年", "產品相關經驗"],
       ["NT$1,200 萬+", "管理專案組合"],
@@ -36,9 +36,9 @@ const portfolioCopy = {
     positioning: "Product Manager · AI, data, and operational products",
     experienceLabel: "View full experience",
     contactLabel: "Contact me",
-    title: ["Six cases,", "from bottleneck", "to shipped result."],
+    title: ["Every case,", "from bottleneck", "to shipped result."],
     intro:
-      "Four work cases and two side projects. I own problem definition, priorities, and outcome validation.",
+      "4 work cases + 2 side projects. I own problem definition, priorities, and outcome validation.",
     facts: [
       ["5+ yrs", "product experience"],
       ["NT$12M+", "project portfolio managed"],

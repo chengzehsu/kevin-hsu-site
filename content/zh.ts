@@ -13,7 +13,7 @@ export const zh = {
     brand: "Kevin Hsu",
     links: [
       { label: "作品集", href: "/portfolio/" },
-      { label: "AI 實作", href: "#linkedin-posts" },
+      { label: "AI 習慣", href: "#linkedin-posts" },
       { label: "能力", href: "#skills" },
       { label: "經歷", href: "#experience" },
       { label: "聯絡", href: "#contact" },
@@ -125,13 +125,15 @@ export const zh = {
   },
 
   linkedinPosts: {
-    title: "三個習慣，四個作品",
+    title: "三個 AI 工作習慣",
     intro: "每次卡住，就換一種 AI 工具親手試，做到團隊能用為止。",
     author: "許承澤 Kevin Hsu",
     platform: "LinkedIn",
     readLabel: "看實作紀錄",
+    caseLabel: "出自案例",
     items: [
       {
+        caseId: "ecofirst",
         trait: "勇於嘗試",
         stat: "218",
         statLabel: "次提交，2 個月",
@@ -146,6 +148,7 @@ export const zh = {
         },
       },
       {
+        caseId: "namecard",
         trait: "好奇",
         stat: "0 → 1",
         statLabel: "自己做出來",
@@ -161,6 +164,7 @@ export const zh = {
         },
       },
       {
+        caseId: "ecofirst",
         trait: "追求效率",
         stat: "1 週 → 2 小時",
         statLabel: "控制策略調整",
@@ -175,6 +179,7 @@ export const zh = {
         },
       },
       {
+        caseId: "ecofirst",
         trait: "追求效率",
         stat: "+50%",
         statLabel: "產品交付效率",
@@ -261,8 +266,11 @@ export const zh = {
   },
 
   cases: {
-    title: "精選案例",
-    intro: "六個案例，同一套結構：問題、決策、做出來的東西、成果。",
+    title: "作品集",
+    inventory: "4 個工作案例＋2 個個人專案",
+    intro: "每個案例同一套結構：問題、決策、做出來的東西、成果。",
+    workTitle: "工作案例",
+    allLabel: "看完整作品集（另有 2 個個人專案）",
     copyLabel: "複製案例連結",
     copiedLabel: "已複製連結",
     copyFallback: "請選取並複製下方連結。",
@@ -276,7 +284,7 @@ export const zh = {
     artifactsLabel: "實際產出",
     measurementLabel: "成果量測",
     ownershipLabel: "我實際主導",
-    sideTitle: "工作之餘：用 vibe coding 解決身邊的困擾",
+    sideTitle: "個人專案：工作之餘用 vibe coding 解決身邊的困擾",
     sideIntro:
       "公司和自己卡住的地方，下班後用 AI 做成產品。",
     sourceLabel: "看公開原始碼",
@@ -425,7 +433,7 @@ export const zh = {
       {
         id: "namecard",
         kind: "side",
-        org: "個人作品",
+        org: "個人專案",
         period: "2025/7 - 2026/7",
         rank: 5,
         title: "AI 名片管理助手：架構跟著商業模式走",
@@ -460,7 +468,7 @@ export const zh = {
       {
         id: "podcast-stock",
         kind: "side",
-        org: "個人作品",
+        org: "個人專案",
         period: "2026/6 - 2026/9",
         rank: 6,
         title: "股神打架：買股前，先看多空",

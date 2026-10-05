@@ -71,7 +71,7 @@ for (const [locale, file, heading] of [
     // Four work cases plus two after-hours projects, which come last under their own heading.
     assert.equal((cases.match(/data-case-card=/g) ?? []).length, 6);
     assert.equal((cases.match(/data-case-card="ledger"/g) ?? []).length, 6);
-    const sideTitle = locale === "zh" ? "工作之餘" : "After hours";
+    const sideTitle = locale === "zh" ? "個人專案：" : "Side projects:";
     assert.ok(cases.indexOf(sideTitle) < cases.indexOf('<article id="namecard"'), "Side projects sit under their own heading");
     assert.ok(cases.indexOf('<article id="cdp"') < cases.indexOf(sideTitle), "Work cases come before side projects");
     const shelf = html.match(/<section id="work"[\s\S]*?<\/section>/)?.[0];

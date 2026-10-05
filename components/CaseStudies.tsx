@@ -44,7 +44,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
             {total}
           </p>
           <h2 id="cases-heading" className={`section-title ${styles.heading}`}>
-            {cases.title}
+            {cases.inventory}
           </h2>
           <p className={styles.lede}>{cases.intro}</p>
         </header>
@@ -77,6 +77,10 @@ export function CaseStudies({ content, locale }: SectionProps) {
           </ol>
         </nav>
 
+        {/* Both groups get the same kind of heading, so 4 + 2 reads as one portfolio in two parts. */}
+        <header className={`${styles.sideHead} scroll-rise`}>
+          <h2 className={styles.sideTitle}>{cases.workTitle}</h2>
+        </header>
         <div className={styles.list}>
           {work.map((item, index) => renderRow(item, index))}
         </div>

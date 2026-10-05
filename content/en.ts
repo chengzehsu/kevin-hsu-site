@@ -13,7 +13,7 @@ export const en = {
     brand: "Kevin Hsu",
     links: [
       { label: "Portfolio", href: "/en/portfolio/" },
-      { label: "AI builds", href: "#linkedin-posts" },
+      { label: "AI habits", href: "#linkedin-posts" },
       { label: "Skills", href: "#skills" },
       { label: "Experience", href: "#experience" },
       { label: "Contact", href: "#contact" },
@@ -136,14 +136,16 @@ export const en = {
   },
 
   linkedinPosts: {
-    title: "Three habits, four builds",
+    title: "Three AI work habits",
     intro:
       "When something is stuck, I try a different AI tool hands-on until the team can use the result.",
     author: "Kevin Hsu",
     platform: "LinkedIn",
     readLabel: "Read the build note",
+    caseLabel: "From the case",
     items: [
       {
+        caseId: "ecofirst",
         trait: "Experimental",
         stat: "218",
         statLabel: "commits in 2 months",
@@ -159,6 +161,7 @@ export const en = {
         },
       },
       {
+        caseId: "namecard",
         trait: "Curious",
         stat: "0 → 1",
         statLabel: "built it myself",
@@ -174,6 +177,7 @@ export const en = {
         },
       },
       {
+        caseId: "ecofirst",
         trait: "Efficient",
         stat: "1 wk → 2 hr",
         statLabel: "control-strategy tuning",
@@ -188,6 +192,7 @@ export const en = {
         },
       },
       {
+        caseId: "ecofirst",
         trait: "Efficient",
         stat: "+50%",
         statLabel: "product delivery efficiency",
@@ -274,8 +279,11 @@ export const en = {
   },
 
   cases: {
-    title: "Selected case studies",
-    intro: "Six cases, one structure: problem, decision, what got built, result.",
+    title: "Portfolio",
+    inventory: "4 work cases + 2 side projects",
+    intro: "Every case follows one structure: problem, decision, what got built, result.",
+    workTitle: "Work cases",
+    allLabel: "See the full portfolio (plus 2 side projects)",
     copyLabel: "Copy case link",
     copiedLabel: "Link copied",
     copyFallback: "Select and copy the link below.",
@@ -289,7 +297,7 @@ export const en = {
     artifactsLabel: "Deliverables",
     measurementLabel: "How it was measured",
     ownershipLabel: "What I drove",
-    sideTitle: "After hours: vibe coding fixes for real problems",
+    sideTitle: "Side projects: after-hours vibe coding fixes for real problems",
     sideIntro:
       "Problems at work and in my own life, turned into products with AI after hours.",
     sourceLabel: "View public source",

@@ -5,16 +5,16 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
 import { CASE_POSTERS, CASE_POSTER_SIZE } from "@/content/caseArtifacts";
-import { casePath } from "@/lib/locale";
+import { casePath, portfolioPath } from "@/lib/locale";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./ProofStack.module.css";
 
 /**
- * Home case index: the four work cases as posters, one artifact and one outcome each. Side projects
- * and the full cases live on /portfolio/.
+ * Home case index: the four work cases as posters, one artifact and one outcome each. The side projects
+ * and the full cases live on /portfolio/, and the link says so, so the home count never reads as the total.
  */
 export function ProofStack({ content, locale }: SectionProps) {
-  const { cases, hero } = content;
+  const { cases } = content;
   const items = cases.items
     .filter((item) => item.kind !== "side")
     .sort((a, b) => a.rank - b.rank);
@@ -28,13 +28,13 @@ export function ProofStack({ content, locale }: SectionProps) {
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <div className={`${styles.header} scroll-rise`}>
           <h2 id="work-heading" className="section-title">
-            {cases.title}
+            {cases.workTitle}
           </h2>
           <a
             className={`${styles.all} action-link`}
-            href={hero.secondaryCta.href}
+            href={portfolioPath(locale)}
           >
-            {hero.secondaryCta.label}
+            {cases.allLabel}
             <ArrowRightIcon size={18} aria-hidden="true" />
           </a>
         </div>
