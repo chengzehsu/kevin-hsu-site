@@ -21,7 +21,7 @@ const portfolioCopy = {
     facts: [
       ["5+ 年", "產品相關經驗"],
       ["NT$1,200 萬+", "管理專案組合"],
-      ["7 段", "跨產業經歷"],
+      ["8 段", "跨產業經歷"],
       ["12 人", "帶領團隊（工程 10、PM 2）"],
     ],
     modelTitle: "我負責的不只是一張 Roadmap",
@@ -42,7 +42,7 @@ const portfolioCopy = {
     facts: [
       ["5+ yrs", "product experience"],
       ["NT$12M+", "project portfolio managed"],
-      ["7", "roles across industries"],
+      ["8", "roles across industries"],
       ["12", "people led (10 engineers, 2 PMs)"],
     ],
     modelTitle: "My scope goes beyond a roadmap",

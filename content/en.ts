@@ -522,7 +522,7 @@ export const en = {
 
   experience: {
     title: "Experience",
-    intro: "Seven roles, each starting with the same question: where is it stuck?",
+    intro: "Eight roles, each starting with the same question: where is it stuck?",
     currentLabel: "Now",
     expandLabel: "View role details",
     collapseLabel: "Collapse role",
@@ -539,11 +539,25 @@ export const en = {
           "Turning field practice into a roadmap, AI tools, and one delivery workflow that software, project, and sales teams all use.",
         summary:
           "Own the roadmap, requirements, and specs for a 0-to-1 AI energy-saving HVAC product, leading 4 engineers across 50 deployed sites and about NT$100M in projects, and turn practices that lived in individual experience into tools and processes.",
-        gapAfter: "Sep 2024 - Feb 2025 | Break and freelance work",
         bullets: [
           "Introduced AI tools and development workflows into product delivery, raising delivery efficiency by 50%",
           "Coordinated software, project, and sales teams around one product-development and deployment flow",
           "Streamlined internal operations with standard operating procedures, raising site operations efficiency by 20%",
+        ],
+      },
+      {
+        id: "advisory",
+        org: "Freelance",
+        role: "Independent Consultant | Operations Transformation and Fundraising",
+        period: "Sep 2024 - Feb 2025",
+        focus: "Operations redesign and fundraising in energy and hospitality",
+        skillSignal: "Starting from operating data and turning the improvement into a story investors can follow.",
+        summary:
+          "Led two engagements in energy and hospitality, from operations redesign through fundraising; together they moved about NT$170M in raises into substantive investor talks.",
+        bullets: [
+          "Energy: mapped workflows across 3 departments and rolled out Asana, giving leadership real-time visibility into each department; that foundation supported a ~NT$100M raise into substantive investor talks",
+          "Hospitality: analyzed occupancy by room type across 106 Airbnb units and found 3-bedroom family units were rare in Taipei; they hit 90% occupancy at launch against a 65% Taipei average, which positioned 2 hotels and moved a ~NT$70M raise into substantive talks",
+          "Fundraising craft: built the DD room, ran valuation models, and turned operating data into an investor-ready narrative",
         ],
       },
       {
@@ -576,7 +590,7 @@ export const en = {
         bullets: [
           "Rental-management SaaS: helped an operator managing about 100 properties define a multi-tenant management product, its requirements, and its product-management flow",
           "Collaboration flow: translated business strategy into product strategy and roadmaps, improving collaboration among engineers, designers, and requesters",
-          "Fundraising advisory: helped energy and hospitality businesses map operations, refine pitch decks, and connect with investors",
+          "Fundraising advisory: helped energy and hospitality businesses map operations, refine pitch decks, and start connecting with investors",
         ],
       },
       {

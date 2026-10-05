@@ -28,6 +28,24 @@ AI 產品經理｜產品管理・產品策略｜B2C 平台・B2B SaaS・AI 自�
 - 建立控制策略模擬工具，處理超過 10 萬種控制組合，將策略調整從一週縮短到 2 小時（20×）。
 - 梳理現場流程並以標準作業程序與工具優化營運，案場營運效率提升 20%。
 
+## 經歷：獨立顧問｜營運數位轉型與募資策略（2024/9 – 2025/2・自由接案）
+
+以獨立顧問身分承接能源與旅宿兩個案子，從營運改造一路做到募資，兩案合計推動約 NT$1.7 億的募資進入投資人實質洽談。
+
+- 能源產業｜營運透明化，支撐 NT$1 億募資：盤點 3 個部門的營運流程，導入 Asana 統一管理專案與任務，讓管理階層能即時、透明地掌握各部門進度。以此為基礎協助推進約 NT$1 億的募資，進入投資人實質洽談。
+- 旅宿業｜用 Airbnb 當 MVP，撐起 NT$7,000 萬募資故事：分析 106 間 Airbnb 各房型的住房率，發現台北 3 房家庭式房型供給稀少；這類房型推出時住房率達 90%，遠高於台北平均 65%。以這個驗證結果定位 2 棟旅館，串成有數據支撐的投資故事，推動約 NT$7,000 萬的募資進入實質洽談。
+- 募資實務：兩案都從零走過完整的募資準備，包括建置 DD room（盡職調查資料室）、試算估值模型，以及把營運數據寫成投資人願意買單的商業故事。
+
+English 語言檔案版本：
+
+**Independent Consultant | Operations Transformation & Fundraising**（Sep 2024 – Feb 2025 · Freelance）
+
+Led two consulting engagements in energy and hospitality, from operations redesign through fundraising. Together they moved ~NT$170M in raises into substantive investor talks.
+
+- Energy | Operational visibility for a NT$100M raise: Mapped workflows across 3 departments and rolled out Asana, giving leadership real-time visibility into each department's progress. On that foundation, supported a ~NT$100M raise into substantive investor talks.
+- Hospitality | Airbnb as an MVP for a NT$70M raise: Analyzed occupancy by room type across 106 Airbnb units and found 3-bedroom family units were rare in Taipei. They hit 90% occupancy at launch, against a 65% Taipei average. Used this validation to position 2 hotels and build a data-backed investor story, moving a ~NT$70M raise into substantive talks.
+- Fundraising craft: Ran the full raise prep on both deals: building the DD room, valuation modeling, and turning operating data into an investor-ready narrative.
+
 ## 建議置頂技能
 
 1. Product Management

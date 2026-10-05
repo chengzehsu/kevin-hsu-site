@@ -80,8 +80,8 @@ for (const [locale, file, heading] of [
       assert.ok(!shelf.includes(`/cases/${id}/`), "The home shelf keeps the four work cases only");
     }
     assert.equal((cases.match(/data-case-card="featured"/g) ?? []).length, 0);
-    // Seven roles since 華曜興業 joined the timeline to match LinkedIn (2026-10-02).
-    assert.equal((html.match(/data-disclosure="experience"/g) ?? []).length, 7);
+    // Eight roles: 華曜興業 joined on 2026-10-02 and the 2024/9 - 2025/2 consulting role on 2026-10-05.
+    assert.equal((html.match(/data-disclosure="experience"/g) ?? []).length, 8);
     // Every role, the current one included, starts as one compact line of equal weight (user decision, 2026-10-01).
     const openDetails = html.match(/<details[^>]*\sopen(?:[\s=>])[^>]*>/g) ?? [];
     assert.equal(openDetails.length, 0, "No experience entry opens by default");
