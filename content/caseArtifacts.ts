@@ -130,7 +130,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       stills: [
         {
           src: "/portfolio-artifacts/namecard-rightsize.zh.svg",
-          alt: "架構盤點前後對照：為分散式多租戶準備的佇列、快取與即時推播元件被拆掉，LINE 到 AI 辨識到 Notion 的主流程保留；範例名片為虛構人物",
+          alt: "架構盤點前後對照：為分散式多租戶準備的佇列、快取與即時推播元件被拆掉，LINE 到 AI 辨識到 Notion 的流程保留；範例名片為虛構人物",
           caption: "架構盤點｜依實際用量拆掉多餘元件",
           ...FILM,
         },

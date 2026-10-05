@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
 <title id="title">Business-card assistant infra audit: before and after</title>
-<desc id="desc">The July 2026 audit found real usage was small: the company's sales team and a few friends. Redis, RQ, and SocketIO, built for a distributed multi-tenant service, were removed; the LINE to Gemini to Notion flow, one SQLite database, encrypted credentials, and the Gemini backup key stayed, and the quota check now actually blocks overuse. The sample card is a made-up person.</desc>
+<desc id="desc">The July 2026 audit found real usage was small: the company's sales team and a few friends. Redis, RQ, and SocketIO, built for a distributed multi-tenant service, were removed; the LINE to Gemini to Notion flow, one SQLite database, encrypted credentials, and the Gemini backup key stayed. Both the internal tool and the SaaS were built, and real usage picked the lean one. The sample card is a made-up person.</desc>
 <defs>
   <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
   <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
@@ -25,7 +25,7 @@
 <path d="M738 502h48m-14-13 14 13-14 13" fill="none" stroke="#2D61A6" stroke-width="3"/>
 <g filter="url(#shadow)"><rect x="804" y="252" width="676" height="500" rx="28" fill="#FFFFFF"/></g>
 <text x="844" y="314" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="start">After the audit</text>
-<text x="844" y="350" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Main flow untouched; only what is used stays</text>
+<text x="844" y="350" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Only what is used stays</text>
 <rect x="844" y="380" width="250" height="146" rx="10" fill="#FBFCFE" stroke="#C9D6EA" stroke-width="1.5" transform="rotate(-3 969.0 453.0)"/>
 <g transform="rotate(-3 969.0 453.0)">
 <rect x="864" y="402" width="26" height="26" rx="6" fill="#2D61A6"/>
@@ -58,7 +58,7 @@
 <path d="M850 695l4 4 8-8" fill="none" stroke="#2D61A6" stroke-width="2.4"/>
 <text x="880" y="702" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">One service, one worker, matching the real deploy</text>
 <rect x="120" y="790" width="1360" height="104" rx="20" fill="#E8EEF7"/>
-<text x="156" y="852" fill="#52627A" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">Outcome</text>
-<text x="290" y="854" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="start">Main flow untouched; the quota check now actually blocks overuse</text>
+<text x="156" y="852" fill="#52627A" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">Business call</text>
+<text x="290" y="854" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="28" font-weight="700" text-anchor="start">Built both the internal tool and the SaaS; usage picked the lean one</text>
 <text x="1480" y="950" fill="#7C899B" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="400" text-anchor="end">Kevin Hsu</text>
 </svg>
