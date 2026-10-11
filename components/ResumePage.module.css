@@ -1,0 +1,349 @@
+/* One column, read top to bottom: no motion, no cards, one accent. Prints to A4 as the PDF résumé. */
+.page {
+  padding: clamp(2rem, 5vw, 4rem) 1rem clamp(3rem, 6vw, 5rem);
+}
+
+.sheet {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--fg);
+}
+
+.kicker {
+  margin: 0 0 .5rem;
+  color: var(--accent);
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.header h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.headline {
+  margin: .5rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.25rem;
+  margin: .9rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: .9rem;
+}
+
+.contacts a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: .25em;
+}
+
+.contacts a:hover { color: var(--fg); }
+
+.printOnly { display: none; }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: .6rem 1rem;
+  border-radius: var(--radius-ui);
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease;
+}
+
+.primary {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.secondary {
+  border: 1px solid var(--line);
+  color: var(--fg);
+}
+
+.primary:hover { background: color-mix(in oklch, var(--accent) 88%, var(--fg)); }
+.secondary:hover { background: var(--surface); }
+.primary:active,
+.secondary:active { transform: scale(.98); }
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.facts > div {
+  padding: 1rem .75rem 1rem 0;
+}
+
+.facts > div + div {
+  padding-left: .9rem;
+  border-left: 1px solid var(--line);
+}
+
+.facts dt {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.facts dd {
+  margin: .15rem 0 0;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding-block: 1.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.section h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 650;
+  line-height: 1.6;
+}
+
+.summary {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.keywords {
+  margin: .6rem 0 0;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.7;
+}
+
+.muted {
+  margin: .2rem 0 0;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+.highlights,
+.list {
+  display: grid;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlights > li {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.list > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.figure {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+
+.highlightTitle {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.detail {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: .3rem;
+  color: var(--accent);
+  font-size: .85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.detail:hover { text-decoration: underline; text-underline-offset: .25em; }
+
+.roles {
+  display: grid;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.role {
+  display: grid;
+  gap: .2rem;
+}
+
+.period {
+  margin: 0;
+  color: var(--muted);
+  font-size: .85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.role h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .1rem .6rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.org {
+  color: var(--fg);
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+.highlightTitle .org { margin-left: .6rem; color: var(--muted); }
+
+.bullets {
+  display: grid;
+  gap: .35rem;
+  margin: .55rem 0 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+  font-size: .92rem;
+  line-height: 1.7;
+}
+
+.bullets li::marker { color: var(--muted); }
+
+.roleLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin: .2rem 0 0;
+}
+
+.gap {
+  padding: .5rem .75rem;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.skills {
+  display: grid;
+  gap: .75rem;
+  margin: 0;
+}
+
+.skills dt {
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.skills dd {
+  margin: .1rem 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1rem;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+@media (max-width: 40rem) {
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .facts > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .section { grid-template-columns: minmax(0, 1fr); gap: .9rem; }
+  .highlights { gap: 1.75rem; }
+  .highlights > li { grid-template-columns: minmax(0, 1fr) auto; row-gap: .1rem; }
+  .highlights .figure { grid-column: 1 / -1; }
+}
+
+/* The PDF résumé: A4, black on white, no site chrome, contact details written out. */
+@media print {
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+
+  .page { padding: 0; }
+  .page ~ :global(footer) { display: none; }
+  .sheet { max-width: none; font-size: 10pt; }
+  .actions,
+  .detail,
+  .roleLinks,
+  .more { display: none !important; }
+  .printOnly { display: inline; }
+  .contacts a { min-height: 0; color: var(--fg); text-decoration: none; }
+  .header { padding-bottom: 10pt; }
+  .header h1 { font-size: 20pt; }
+  .facts > div { padding-block: 8pt; }
+  .section { grid-template-columns: 26mm minmax(0, 1fr); gap: 6mm; padding-block: 10pt; }
+  .highlights > li { grid-template-columns: 24mm minmax(0, 1fr); }
+  .figure { font-size: 13pt; }
+  .roles { gap: 9pt; }
+  .role,
+  .highlights > li,
+  .list > li { break-inside: avoid; }
+  .section h2 { break-after: avoid; }
+}

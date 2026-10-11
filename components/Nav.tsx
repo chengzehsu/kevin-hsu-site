@@ -5,7 +5,7 @@ import { LocaleSwitch } from "./LocaleSwitch";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { ScrollProgress } from "./motion/ScrollProgress";
 
-export function Nav({ content, locale, caseId, page }: SectionProps & { caseId?: string; page?: "portfolio" }) {
+export function Nav({ content, locale, caseId, page }: SectionProps & { caseId?: string; page?: "portfolio" | "resume" }) {
   const { brand, links, switchLabel, switchAria } = content.nav;
   const home = localePath(locale, caseId && locale === "zh" ? "?lang=zh" : "");
   const portfolioLink = links.find((link) => link.href.includes("/portfolio/"));
@@ -36,8 +36,8 @@ export function Nav({ content, locale, caseId, page }: SectionProps & { caseId?:
                 {links.map((link) => (
                   <li key={link.href}>
                     <a
-                      href={(caseId || page === "portfolio") && link.href.startsWith("#") && link.href !== "#contact" ? `${home}${link.href}` : link.href}
-                      aria-current={portfolioActive && link.href.includes("/portfolio/") ? "page" : undefined}
+                      href={(caseId || page) && link.href.startsWith("#") && (link.href !== "#contact" || page === "resume") ? `${home}${link.href}` : link.href}
+                      aria-current={(portfolioActive && link.href.includes("/portfolio/")) || (page === "resume" && link.href.includes("/resume/")) ? "page" : undefined}
                       className="text-sm whitespace-nowrap text-muted transition-colors hover:text-fg"
                     >
                       {link.label}

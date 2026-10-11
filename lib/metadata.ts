@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { getContent } from "@/content";
 import type { CaseStudy } from "@/content/types";
-import { casePath, localePath, portfolioPath, SITE_ORIGIN, type Locale } from "@/lib/locale";
+import { resumeContent } from "@/content/resume";
+import { casePath, localePath, portfolioPath, resumePath, SITE_ORIGIN, type Locale } from "@/lib/locale";
 
 /**
  * Page metadata per locale. Consumed by app/(zh)/page.tsx and app/en/page.tsx.
@@ -59,9 +60,20 @@ export function buildPortfolioMetadata(locale: Locale): Metadata {
   const content = getContent(locale);
   const title = `${content.cases.title} | ${content.nav.brand}`;
   const description = `${content.cases.inventory}${locale === "zh" ? "。" : ". "}${content.cases.intro}`;
-  const url = portfolioPath(locale);
-  const zhPath = portfolioPath("zh");
-  const enPath = portfolioPath("en");
+  return pageMetadata(locale, title, description, portfolioPath);
+}
+
+export function buildResumeMetadata(locale: Locale): Metadata {
+  const resume = resumeContent[locale];
+  const title = `${resume.title} | ${resume.name}`;
+  return pageMetadata(locale, title, resume.summary, resumePath);
+}
+
+function pageMetadata(locale: Locale, title: string, description: string, path: (locale: Locale) => string): Metadata {
+  const content = getContent(locale);
+  const url = path(locale);
+  const zhPath = path("zh");
+  const enPath = path("en");
   const socialImage = `${SITE_ORIGIN}${locale === "zh" ? "/opengraph-image" : "/en/opengraph-image"}?v=20260915`;
 
   return {
