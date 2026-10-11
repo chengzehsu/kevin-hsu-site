@@ -1,0 +1,6 @@
+{
+  "$comment": "Short-link channels: the code before the first '-' picks utm_medium. Read by lib/analytics.ts (site) and scripts/share-link.mjs (CLI), so the two never disagree. Anything not listed is a person or company code and becomes 'direct'.",
+  "social": ["threads", "ig", "instagram", "fb", "facebook", "linkedin", "x", "twitter", "dcard", "medium"],
+  "job-board": ["104", "1111", "cake", "cakeresume", "yourator", "meetjob", "glints"],
+  "message": ["line", "email", "mail", "messenger", "telegram"]
+}

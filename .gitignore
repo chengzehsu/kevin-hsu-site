@@ -26,6 +26,8 @@ CLAUDE.local.md
 
 # Private job-search notes (salary, recruiter details): never commit
 talktoheadhunter.md
+# Who each share-link code was sent to (scripts/share-link.mjs)
+.share-links.local.csv
 
 # Launch film: renders and review snapshots are regenerated from videos/*/index.html;
 # the site ships the compressed copies in public/hero-reel.*

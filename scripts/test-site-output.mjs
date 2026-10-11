@@ -24,6 +24,35 @@ test("analytics loads only on the production host and keeps UTM parameters", asy
   assert.match(html, /data-umami-event="resume-print"/);
 });
 
+test("short share links become UTM parameters before the tracker loads", async () => {
+  const { runInNewContext } = await import("node:vm");
+  const html = await readFile(new URL("../out/index.html", import.meta.url), "utf8");
+  const loader = html.match(/<script>(\(function\(\)\{try\{var q=new URLSearchParams[\s\S]*?)<\/script>/)?.[1];
+  assert.ok(loader, "The loader with the short-link rewrite must be inline in the page");
+  const visit = (href, hostname = "localhost") => {
+    const url = new URL(href, "https://chengzeresume.zeabur.app");
+    const appended = [];
+    const sandbox = {
+      URLSearchParams,
+      location: { hostname, pathname: url.pathname, search: url.search, hash: url.hash },
+      history: { state: null, replaceState: (_s, _t, next) => { const n = new URL(next, url); sandbox.location.search = n.search; sandbox.location.hash = n.hash; } },
+      document: { createElement: () => ({ dataset: {} }), head: { appendChild: (el) => appended.push(el) } },
+    };
+    runInNewContext(loader, sandbox);
+    return { query: Object.fromEntries(new URLSearchParams(sandbox.location.search)), hash: sandbox.location.hash, loaded: appended.length };
+  };
+  assert.deepEqual(visit("/?s=threads").query, { utm_source: "threads", utm_medium: "social" });
+  assert.deepEqual(visit("/resume/?s=Acme").query, { utm_source: "acme", utm_medium: "direct" });
+  assert.deepEqual(visit("/?s=104-pm&c=autumn").query, { utm_source: "104-pm", utm_medium: "job-board", utm_campaign: "autumn" });
+  assert.deepEqual(visit("/?s=acme&m=linkedin").query, { utm_source: "acme", utm_medium: "linkedin" });
+  assert.equal(visit("/?s=threads#experience").hash, "#experience", "The hash survives the rewrite");
+  // Explicit UTM links win, and anything that is not a slug is left alone.
+  assert.deepEqual(visit("/?s=threads&utm_source=x").query, { s: "threads", utm_source: "x" });
+  assert.deepEqual(visit("/?s=<script>").query, { s: "<script>" });
+  assert.equal(visit("/?s=threads").loaded, 0, "localhost never loads the tracker");
+  assert.equal(visit("/?s=threads", "chengzeresume.zeabur.app").loaded, 1, "production loads it once");
+});
+
 for (const [locale, file, heading] of [
   ["zh", "../out/index.html", "獎項與案例收錄"],
   ["en", "../out/en/index.html", "Awards &amp; case features"],
