@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1600, height=1000" />
-    <title>許承澤 Kevin Hsu · 60s</title>
+    <title>許承澤 Kevin Hsu · 67s</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
       @font-face {
@@ -188,7 +188,7 @@
         color: #526173;
       }
 
-      /* ── Radar (persistent 6.0–35.4) ───────────────────── */
+      /* ── Radar (persistent 6.0–42.2) ───────────────────── */
       #radar-box {
         position: absolute;
         left: 800px;
@@ -705,8 +705,8 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1600" data-height="1000">
-      <div id="bg" class="scene clip" data-start="0" data-duration="60" data-track-index="0">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="66.8" data-width="1600" data-height="1000">
+      <div id="bg" class="scene clip" data-start="0" data-duration="66.8" data-track-index="0">
         <div id="bg-dots"></div>
         <div id="bg-glow"></div>
         <svg id="bg-grain" width="1600" height="1000" viewBox="0 0 1600 1000" aria-hidden="true">
@@ -741,20 +741,20 @@
         </div>
       </div>
 
-      <!-- S3 chapters: 12–35.4 (cards built by script) -->
-      <div id="s3" class="scene clip" data-start="12" data-duration="23.4" data-track-index="1">
+      <!-- S3 chapters: 12–42.2 (cards built by script) -->
+      <div id="s3" class="scene clip" data-start="12" data-duration="30.2" data-track-index="1">
         <div id="chapters"></div>
         <div id="rail"><div id="rail-fill"></div></div>
       </div>
 
-      <!-- Radar: one continuous shape from 6.0 to 35.4, so the growth reads as accumulation. -->
-      <div id="radar" class="scene clip" data-start="6" data-duration="29.4" data-track-index="2">
+      <!-- Radar: one continuous shape from 6.0 to 42.2, so the growth reads as accumulation. -->
+      <div id="radar" class="scene clip" data-start="6" data-duration="36.2" data-track-index="2">
         <div id="radar-cap">每一段經歷，都讓這張圖再大一圈。</div>
         <div id="radar-box"></div>
       </div>
 
-      <!-- S4 AI way of working: 35.4–50 -->
-      <div id="s4" class="scene clip" data-start="35.4" data-duration="14.6" data-track-index="1">
+      <!-- S4 AI way of working: 42.2–56.8 -->
+      <div id="s4" class="scene clip" data-start="42.2" data-duration="14.6" data-track-index="1">
         <div id="traits"><span>好奇</span><span>勇於嘗試</span><span>追求效率</span></div>
         <div id="a0">
           <div id="a0-l1">看到新工具，</div>
@@ -809,25 +809,25 @@
       </div>
 
       <!-- S5 tagline: 50–54.5 -->
-      <div id="s5" class="scene clip" data-start="50" data-duration="4.5" data-track-index="1">
+      <div id="s5" class="scene clip" data-start="56.8" data-duration="4.5" data-track-index="1">
         <div id="p1" class="slam">找出<span class="hl">卡點</span>，</div>
         <div id="p2" class="slam">做出<span class="hl">解法</span>，</div>
         <div id="p3" class="slam">量出<span class="hl"><span id="p3-mark"></span>成果</span>。</div>
       </div>
 
       <!-- S6 end: 54.5–60 -->
-      <div id="s6" class="scene clip" data-start="54.5" data-duration="5.5" data-track-index="1">
+      <div id="s6" class="scene clip" data-start="61.3" data-duration="5.5" data-track-index="1">
         <div id="end">
           <div id="end-name">許承澤</div>
           <div id="end-en">Kevin Hsu</div>
           <div id="end-rule"></div>
-          <div id="end-role">Product Manager · AI · B2C 平台 · 跨團隊交付</div>
+          <div id="end-role">Product Manager · AI、資料產品與複雜營運系統</div>
           <div id="end-line">找出卡點，做出解法，量出成果。</div>
         </div>
         <div id="end-radar"></div>
       </div>
 
-      <div id="chrome" class="scene clip" data-start="0" data-duration="60" data-track-index="4">
+      <div id="chrome" class="scene clip" data-start="0" data-duration="66.8" data-track-index="4">
         <div id="chrome-row">
           <div>Kevin Hsu</div>
           <div id="chrome-count">
@@ -870,7 +870,7 @@
           "#a3-plus span": "delivery speed after putting AI into the dev workflow",
           "#end-name": "Kevin Hsu",
           "#end-en": "許承澤",
-          "#end-role": "Product Manager · AI · B2C · Cross-team delivery",
+          "#end-role": "Product Manager · AI, data, and operational products",
           "#end-line": "Find the bottleneck. Build the fix. Prove it in numbers.",
         };
         Object.entries(T).forEach(([sel, txt]) => ($(sel).textContent = txt));
@@ -892,21 +892,25 @@
         : ["問題定義", "快速實驗", "原型實作", "流程重構", "跨團隊交付", "資料判讀"];
       const BASE = [0.1, 0.1, 0.08, 0.1, 0.1, 0.1];
       const CHAPTERS = [
-        { year: "2019", org: "眾碩投資", role: "產品助理", title: "先驗證，再動手。", metric: "陪 2 家早期公司走到市場驗證", grow: [0, 2], shape: [0.36, 0.2, 0.3, 0.12, 0.15, 0.12] },
+        { year: "2019", org: "眾碩投資", role: "產品助理", title: "先驗證，再動手。", metric: "孵化 2 家公司，營收皆破 NT$100 萬", grow: [0, 2], shape: [0.36, 0.2, 0.3, 0.12, 0.15, 0.12] },
         { year: "2020", org: "歐可達數據", role: "Product Manager", title: "讓資料說話。", metric: "5 個通路 · 1,000 萬筆客戶資料", grow: [5, 4], shape: [0.42, 0.25, 0.32, 0.2, 0.46, 0.72] },
         { year: "2021", org: "Fable 寓意科技", role: "Senior Project Manager", title: "在壓力下規模化。", metric: "300 → 1,000 單／日 (+233%)", grow: [3, 4], shape: [0.48, 0.3, 0.34, 0.8, 0.84, 0.76] },
-        { year: "2023", org: "獨立顧問", role: "包租代管 SaaS", title: "從商業策略拆到 Roadmap。", metric: "協助約 100 棟房源的 SaaS 產品化", grow: [0, 3], shape: [0.82, 0.38, 0.36, 0.86, 0.86, 0.76] },
-        { year: "2024", org: "知識衛星", role: "Senior Product Manager", title: "三種使用者，一份優先序。", metric: "3 週驗證香港市場", grow: [1, 0], shape: [0.88, 0.72, 0.38, 0.87, 0.87, 0.78] },
+        { year: "2022", org: "華曜興業", role: "Senior Operations Manager", title: "把產品方法帶進倉庫。", metric: "客戶、出貨與採購資料整合成一庫", grow: [3, 5], shape: [0.52, 0.32, 0.34, 0.84, 0.84, 0.78] },
+        { year: "2023", org: "獨立顧問", role: "包租代管 SaaS", title: "從商業策略拆到 Roadmap。", metric: "協助約 100 棟房源的 SaaS 產品化", grow: [0, 3], shape: [0.82, 0.38, 0.36, 0.86, 0.86, 0.78] },
+        { year: "2023", org: "知識衛星", role: "Senior Product Manager", title: "三種使用者，一份優先序。", metric: "3 週切入香港，首週破 NT$100 萬", grow: [1, 0], shape: [0.88, 0.72, 0.38, 0.87, 0.87, 0.78] },
+        { year: "2024", org: "獨立顧問", role: "營運數位轉型與募資", title: "把營運數據寫成投資故事。", metric: "約 NT$1.7 億募資進入實質洽談", grow: [0, 5], shape: [0.9, 0.74, 0.4, 0.88, 0.87, 0.8] },
         { year: "2025", org: "台灣愛淨", role: "Product Manager", title: "把 AI 放進真實工作。", metric: "交付效率 +50% · 案場營運 +20%", grow: [2, 1], shape: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
       ];
 
       if (EN) {
         const E = [
-          ["Zhongshuo Investment", "Product Assistant", "Validate first, then build.", "2 early ventures taken to market tests"],
+          ["Zhongshuo Investment", "Product Assistant", "Validate first, then build.", "2 incubated ventures, each past NT$1M revenue"],
           ["Oakda Data", "Product Manager", "Make data speak.", "5 channels · 10M customer records"],
           ["Fable", "Senior Project Manager", "Scale under pressure.", "300 → 1,000 orders/day (+233%)"],
+          ["Hua Yao Industrial", "Senior Operations Manager", "Product thinking on the warehouse floor.", "Customer, shipping, and purchasing data in one base"],
           ["Independent consultant", "Property-management SaaS", "From business strategy to roadmap.", "Productizing a SaaS for ~100 buildings"],
-          ["SAT. Knowledge", "Senior Product Manager", "Three users, one priority list.", "Hong Kong market validated in 3 weeks"],
+          ["SAT. Knowledge", "Senior Product Manager", "Three users, one priority list.", "Into Hong Kong in 3 weeks, NT$1M+ in week one"],
+          ["Independent consultant", "Operations transformation & fundraising", "Turn operating data into an investor story.", "~NT$170M in raises reached investor talks"],
           ["Ecofirst", "Product Manager", "Put AI into real work.", "Delivery +50% · Site operations +20%"],
         ];
         CHAPTERS.forEach((c, i) => ([c.org, c.role, c.title, c.metric] = E[i]));
@@ -949,7 +953,7 @@
         });
       }
       drawShape("rd", BASE, R, CX);
-      drawShape("er", CHAPTERS[5].shape, 200, 310);
+      drawShape("er", CHAPTERS[CHAPTERS.length - 1].shape, 200, 310);
 
       // ── Build chapter cards ──
       CHAPTERS.forEach((c, i) => {
@@ -963,18 +967,18 @@
       });
 
       const tl = gsap.timeline({ paused: true });
-      function count(sel, from, to, at, dur, fmt) {
+      function count(sel, from, to, at, dur, fmt, on = tl) {
         const box = { v: from };
         const el = $(sel);
         el.textContent = fmt(from);
-        tl.fromTo(box, { v: from }, { v: to, duration: dur, ease: "power2.out", immediateRender: false, onUpdate: () => (el.textContent = fmt(box.v)) }, at);
+        on.fromTo(box, { v: from }, { v: to, duration: dur, ease: "power2.out", immediateRender: false, onUpdate: () => (el.textContent = fmt(box.v)) }, at);
       }
       const int = (v) => Math.round(v).toLocaleString("en-US");
 
       // ── Background + chrome ──
-      tl.fromTo("#bg-glow", { x: 0, y: 0 }, { x: -260, y: 120, duration: 60, ease: "sine.inOut" }, 0);
-      tl.fromTo("#bg-dots", { x: 0, y: 0 }, { x: -40, y: -40, duration: 60, ease: "none" }, 0);
-      const SCENES = [0, 6, 12, 35.4, 50, 54.5];
+      tl.fromTo("#bg-glow", { x: 0, y: 0 }, { x: -260, y: 120, duration: 66.8, ease: "sine.inOut" }, 0);
+      tl.fromTo("#bg-dots", { x: 0, y: 0 }, { x: -40, y: -40, duration: 66.8, ease: "none" }, 0);
+      const SCENES = [0, 6, 12, 42.2, 56.8, 61.3];
       const counts = $$("#chrome-count span");
       SCENES.forEach((t, i) => {
         tl.set(counts, { opacity: 0 }, t);
@@ -1027,79 +1031,84 @@
           return cur.map((v, a) => v + (c.shape[a] - v) * k);
         }, BASE.slice());
       const clock = { t: 6 };
-      tl.fromTo(clock, { t: 6 }, { t: 35.4, duration: 29.4, ease: "none", immediateRender: false, onUpdate: () => drawShape("rd", shapeAt(clock.t), R, CX) }, 6);
-      tl.fromTo("#rail-fill", { scaleX: 0 }, { scaleX: 1, duration: 20.4, ease: "none" }, 12.2);
+      tl.fromTo(clock, { t: 6 }, { t: 42.2, duration: 36.2, ease: "none", immediateRender: false, onUpdate: () => drawShape("rd", shapeAt(clock.t), R, CX) }, 6);
+      tl.fromTo("#rail-fill", { scaleX: 0 }, { scaleX: 1, duration: 27.2, ease: "none" }, 12.2);
 
-      // Recap 32.4–35.4: the finished shape takes the centre.
-      tl.to(`#ch5, #rail`, { opacity: 0, x: -80, duration: 0.4, ease: "power3.in" }, 32.2);
-      tl.to("#radar-box", { x: -360, y: 40, scale: 1.08, duration: 0.9, ease: "power3.inOut" }, 32.4);
-      tl.fromTo("#radar-cap", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 33.0);
-      tl.fromTo("#rd-poly", { attr: { "fill-opacity": 0.22 } }, { attr: { "fill-opacity": 0.4 }, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 33.3);
-      tl.to("#radar-box, #radar-cap", { opacity: 0, duration: 0.3, ease: "power2.in" }, 35.05);
+      // Recap 39.2–42.2: the finished shape takes the centre.
+      tl.to(`#ch${CHAPTERS.length - 1}, #rail`, { opacity: 0, x: -80, duration: 0.4, ease: "power3.in" }, 39);
+      tl.to("#radar-box", { x: -360, y: 40, scale: 1.08, duration: 0.9, ease: "power3.inOut" }, 39.2);
+      tl.fromTo("#radar-cap", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 39.8);
+      tl.fromTo("#rd-poly", { attr: { "fill-opacity": 0.22 } }, { attr: { "fill-opacity": 0.4 }, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 40.1);
+      tl.to("#radar-box, #radar-cap", { opacity: 0, duration: 0.3, ease: "power2.in" }, 41.85);
 
+      // Six roles became eight; everything from S4 on keeps its original 60s timing on a child
+      // timeline placed 6.8s later (positions below are pre-shift; add 6.8 for the film clock).
+      const tail = gsap.timeline();
       // ── S4 AI way of working: 35.4–50 ──
       const traits = $$("#traits span");
       const lightTrait = (i, at) => {
-        tl.set(traits, { backgroundColor: "#fcfcfd", color: "#526173", borderColor: "#d7dfe8" }, at);
-        tl.set(traits[i], { backgroundColor: ACCENT, color: "#f5f8fc", borderColor: ACCENT }, at);
+        tail.set(traits, { backgroundColor: "#fcfcfd", color: "#526173", borderColor: "#d7dfe8" }, at);
+        tail.set(traits[i], { backgroundColor: ACCENT, color: "#f5f8fc", borderColor: ACCENT }, at);
       };
-      tl.fromTo("#traits", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 35.6);
+      tail.fromTo("#traits", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 35.6);
       // A0 35.4–38.6: the stance, then the tools.
-      tl.fromTo("#a0-l1", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 35.6);
-      tl.fromTo("#a0-l2", { opacity: 0, scale: 1.2, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out", transformOrigin: "0 50%" }, 36.4);
-      tl.fromTo("#tools span", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", stagger: 0.14 }, 37.1);
-      tl.to("#a0", { opacity: 0, y: -40, duration: 0.3, ease: "power3.in" }, 38.4);
+      tail.fromTo("#a0-l1", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 35.6);
+      tail.fromTo("#a0-l2", { opacity: 0, scale: 1.2, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out", transformOrigin: "0 50%" }, 36.4);
+      tail.fromTo("#tools span", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", stagger: 0.14 }, 37.1);
+      tail.to("#a0", { opacity: 0, y: -40, duration: 0.3, ease: "power3.in" }, 38.4);
       // A1 38.7–41.9: 好奇.
       lightTrait(0, 38.7);
-      tl.fromTo("#a1", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 38.7);
-      $$("#flow .node").forEach((n, i) => tl.fromTo(n, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 39.5 + i * 0.45));
-      $$("#flow .arrow").forEach((a, i) => tl.fromTo(a, { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 39.75 + i * 0.45));
-      tl.to("#a1", { opacity: 0, x: -120, duration: 0.3, ease: "power3.in" }, 41.7);
+      tail.fromTo("#a1", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 38.7);
+      $$("#flow .node").forEach((n, i) => tail.fromTo(n, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 39.5 + i * 0.45));
+      $$("#flow .arrow").forEach((a, i) => tail.fromTo(a, { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 39.75 + i * 0.45));
+      tail.to("#a1", { opacity: 0, x: -120, duration: 0.3, ease: "power3.in" }, 41.7);
       // A2 42.0–45.8: 勇於嘗試, the real internal platform.
       lightTrait(1, 42.0);
-      tl.fromTo("#a2-left", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 42.0);
-      count("#a2-count", 0, 218, 42.2, 1.5, int);
-      tl.fromTo("#a2-count", { scale: 0.7 }, { scale: 1, duration: 1.5, ease: "power2.out", transformOrigin: "0 80%" }, 42.2);
-      tl.fromTo("#win", { opacity: 0, y: 60, rotationX: 8 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.8, ease: "power3.out", transformPerspective: 1600 }, 42.1);
-      tl.fromTo("#cursor", { opacity: 0, x: 560, y: 400 }, { opacity: 1, x: 560, y: 400, duration: 0.1 }, 42.9);
-      tl.to("#cursor", { x: 762, y: 58, duration: 0.6, ease: "power2.inOut" }, 43.0);
-      tl.to("#cursor", { scale: 0.82, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, 43.62);
-      tl.fromTo("#ripple", { opacity: 0.9, scale: 0.3 }, { opacity: 0, scale: 2.4, duration: 0.6, ease: "power2.out" }, 43.62);
-      tl.to("#cursor", { opacity: 0, duration: 0.25 }, 44.1);
-      tl.fromTo("#app", { scale: 1 }, { scale: 1.5, duration: 1.2, ease: "power3.inOut" }, 44.2);
-      tl.to("#win", { x: 980, duration: 0.4, ease: "power3.in" }, 45.5);
-      tl.to("#a2-left", { x: -120, opacity: 0, duration: 0.3, ease: "power3.in" }, 45.6);
+      tail.fromTo("#a2-left", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 42.0);
+      count("#a2-count", 0, 218, 42.2, 1.5, int, tail);
+      tail.fromTo("#a2-count", { scale: 0.7 }, { scale: 1, duration: 1.5, ease: "power2.out", transformOrigin: "0 80%" }, 42.2);
+      tail.fromTo("#win", { opacity: 0, y: 60, rotationX: 8 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.8, ease: "power3.out", transformPerspective: 1600 }, 42.1);
+      tail.fromTo("#cursor", { opacity: 0, x: 560, y: 400 }, { opacity: 1, x: 560, y: 400, duration: 0.1 }, 42.9);
+      tail.to("#cursor", { x: 762, y: 58, duration: 0.6, ease: "power2.inOut" }, 43.0);
+      tail.to("#cursor", { scale: 0.82, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, 43.62);
+      tail.fromTo("#ripple", { opacity: 0.9, scale: 0.3 }, { opacity: 0, scale: 2.4, duration: 0.6, ease: "power2.out" }, 43.62);
+      tail.to("#cursor", { opacity: 0, duration: 0.25 }, 44.1);
+      tail.fromTo("#app", { scale: 1 }, { scale: 1.5, duration: 1.2, ease: "power3.inOut" }, 44.2);
+      tail.to("#win", { x: 980, duration: 0.4, ease: "power3.in" }, 45.5);
+      tail.to("#a2-left", { x: -120, opacity: 0, duration: 0.3, ease: "power3.in" }, 45.6);
       // A3 45.9–50: 追求效率, 1 週 → 2 小時, then +50%.
       lightTrait(2, 45.9);
-      tl.fromTo("#a3", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 45.9);
+      tail.fromTo("#a3", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 45.9);
       const typed = $("#a3-text");
       const TYPE = EN
         ? [[46.8, "1 wee"], [46.87, "1 we"], [46.94, "1 w"], [47.01, "1 "], [47.08, "1"], [47.15, ""], [47.3, "2"], [47.37, "2 "], [47.44, "2 h"], [47.51, "2 ho"], [47.58, "2 hou"], [47.65, "2 hour"], [47.72, "2 hours"]]
         : [[46.85, "1 "], [46.97, "1"], [47.09, ""], [47.3, "2"], [47.4, "2 "], [47.5, "2 小"], [47.6, "2 小時"]];
-      TYPE.forEach(([t, txt]) => tl.set(typed, { textContent: txt }, t));
-      tl.set(typed, { color: ACCENT }, 47.3);
-      tl.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 5, repeatDelay: 0.28 }, 46.2);
-      tl.set("#a3-caret", { opacity: 1 }, TYPE[0][0]);
-      tl.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 3, repeatDelay: 0.3 }, 47.9);
-      tl.fromTo("#a3-plus", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 48.3);
-      tl.to("#traits", { opacity: 0, duration: 0.3 }, 49.7);
+      TYPE.forEach(([t, txt]) => tail.set(typed, { textContent: txt }, t));
+      tail.set(typed, { color: ACCENT }, 47.3);
+      tail.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 5, repeatDelay: 0.28 }, 46.2);
+      tail.set("#a3-caret", { opacity: 1 }, TYPE[0][0]);
+      tail.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 3, repeatDelay: 0.3 }, 47.9);
+      tail.fromTo("#a3-plus", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 48.3);
+      tail.to("#traits", { opacity: 0, duration: 0.3 }, 49.7);
 
       // ── S5 tagline ──
-      tl.fromTo("#p1", { opacity: 0, scale: 1.45, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power4.out", transformOrigin: "0 50%" }, 50.3);
-      tl.fromTo("#p2", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 51.2);
-      tl.fromTo("#p3", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 52.0);
-      tl.fromTo("#p3-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 52.6);
-      tl.to("#p1, #p2, #p3", { scale: 1.015, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0 50%" }, 52.8);
+      tail.fromTo("#p1", { opacity: 0, scale: 1.45, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power4.out", transformOrigin: "0 50%" }, 50.3);
+      tail.fromTo("#p2", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 51.2);
+      tail.fromTo("#p3", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 52.0);
+      tail.fromTo("#p3-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 52.6);
+      tail.to("#p1, #p2, #p3", { scale: 1.015, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0 50%" }, 52.8);
 
       // ── S6 end: name beside the finished radar, then clear for the loop ──
-      tl.fromTo("#end-name", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.7);
-      tl.fromTo("#end-en", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.95);
-      tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.inOut" }, 55.3);
-      tl.fromTo("#end-role", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 55.5);
-      tl.fromTo("#end-line", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 55.8);
-      tl.fromTo("#end-radar", { opacity: 0, scale: 0.85, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.9, ease: "power3.out", transformOrigin: "50% 50%" }, 55.0);
-      tl.to("#end, #end-radar", { opacity: 0, duration: 0.45, ease: "power2.in" }, 59.4);
-      tl.to("#chrome-row, #chrome-rule", { opacity: 0, duration: 0.45, ease: "power2.in" }, 59.4);
+      tail.fromTo("#end-name", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.7);
+      tail.fromTo("#end-en", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.95);
+      tail.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.inOut" }, 55.3);
+      tail.fromTo("#end-role", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 55.5);
+      tail.fromTo("#end-line", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 55.8);
+      tail.fromTo("#end-radar", { opacity: 0, scale: 0.85, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.9, ease: "power3.out", transformOrigin: "50% 50%" }, 55.0);
+      tail.to("#end, #end-radar", { opacity: 0, duration: 0.45, ease: "power2.in" }, 59.4);
+      tail.to("#chrome-row, #chrome-rule", { opacity: 0, duration: 0.45, ease: "power2.in" }, 59.4);
+
+      tl.add(tail, 6.8);
 
       window.__timelines["main"] = tl;
     </script>
