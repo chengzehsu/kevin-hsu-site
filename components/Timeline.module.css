@@ -14,6 +14,50 @@
   text-wrap: pretty;
 }
 
+/* Title block on the left, the list-wide control on the right, both resting on the same baseline above the rail. */
+.headerRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+/* Opens or closes every role at once; same quiet weight as the per-role close button. */
+.expandAll {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-left: auto;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-ui);
+  color: var(--fg);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.expandAll[hidden] {
+  display: none;
+}
+
+.expandAll:hover {
+  background: var(--surface);
+}
+
+.expandAll:active {
+  transform: scale(0.98);
+}
+
+.expandAll:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .rail {
   --rail-x: 0.6rem;
   position: relative;
@@ -237,4 +281,10 @@
   color: var(--muted);
   font-size: 0.85rem;
   font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  .expandAll {
+    display: none;
+  }
 }

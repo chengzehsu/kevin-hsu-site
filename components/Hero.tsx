@@ -12,7 +12,7 @@ const SECONDARY_CTA =
   "inline-flex items-center gap-2 whitespace-nowrap rounded-ui border border-line px-5 py-3 transition-transform hover:bg-surface active:scale-[0.98]";
 
 export function Hero({ content, locale }: SectionProps) {
-  const { eyebrow, kicker, headline, traits, primaryCta, secondaryCta, film } = content.hero;
+  const { eyebrow, kicker, headline, traits, primaryCta, secondaryCta, resumeCta, film } = content.hero;
 
   return (
     <section id="hero" className={styles.hero}>
@@ -33,6 +33,9 @@ export function Hero({ content, locale }: SectionProps) {
                 <a href={secondaryCta.href} className={SECONDARY_CTA}>
                   {secondaryCta.label}
                 </a>
+                <a href={resumeCta.href} className={SECONDARY_CTA}>
+                  {resumeCta.label}
+                </a>
               </>
             }
           />
@@ -43,6 +46,8 @@ export function Hero({ content, locale }: SectionProps) {
             pauseLabel={film.pauseLabel}
             playLabel={film.playLabel}
             seekLabel={film.seekLabel}
+            fullscreenLabel={film.fullscreenLabel}
+            exitFullscreenLabel={film.exitFullscreenLabel}
             chapters={film.chapters}
             locale={locale}
             summary={film.summary}

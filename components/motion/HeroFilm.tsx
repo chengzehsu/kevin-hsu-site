@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { PauseIcon, PlayIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  CornersInIcon,
+  CornersOutIcon,
+  PauseIcon,
+  PlayIcon,
+} from "@phosphor-icons/react/dist/ssr";
+import { EVENTS } from "@/lib/analytics";
 import styles from "./HeroFilm.module.css";
 
 interface ConnectionPreference extends EventTarget {
@@ -20,6 +26,8 @@ export function HeroFilm({
   pauseLabel,
   playLabel,
   seekLabel,
+  fullscreenLabel,
+  exitFullscreenLabel,
   chapters,
   summary,
   link,
@@ -28,6 +36,8 @@ export function HeroFilm({
   pauseLabel: string;
   playLabel: string;
   seekLabel: string;
+  fullscreenLabel: string;
+  exitFullscreenLabel: string;
   chapters: Array<{ at: number; label: string }>;
   /** What the film says, for screen readers: the video itself is aria-hidden. */
   summary: string;
@@ -43,8 +53,16 @@ export function HeroFilm({
   const scrubber = useRef<HTMLInputElement>(null);
   const clock = useRef<HTMLSpanElement>(null);
   const pendingSeek = useRef<number | null>(null);
-  // The film is a fixed 60s cut; the real duration takes over once metadata loads.
-  const [duration, setDuration] = useState(60);
+  // The film is a fixed 66.8s cut; the real duration takes over once metadata loads.
+  const [duration, setDuration] = useState(66.8);
+  const [fullscreen, setFullscreen] = useState(false);
+
+  useEffect(() => {
+    const onChange = () =>
+      setFullscreen(document.fullscreenElement === root.current);
+    document.addEventListener("fullscreenchange", onChange);
+    return () => document.removeEventListener("fullscreenchange", onChange);
+  }, []);
 
   useEffect(() => {
     const element = root.current,
@@ -114,7 +132,10 @@ export function HeroFilm({
     if (!film || !scrubber.current || !clock.current) return;
     const total = film.duration || duration;
     scrubber.current.value = String(film.currentTime);
-    scrubber.current.style.setProperty("--progress", `${(film.currentTime / total) * 100}%`);
+    scrubber.current.style.setProperty(
+      "--progress",
+      `${(film.currentTime / total) * 100}%`,
+    );
     clock.current.textContent = `${formatTime(film.currentTime)} / ${formatTime(total)}`;
   }
 
@@ -140,102 +161,147 @@ export function HeroFilm({
     syncRef.current();
   }
 
+  function toggleFullscreen() {
+    const element = root.current,
+      film = video.current;
+    if (!element || !film) return;
+    if (document.fullscreenElement) {
+      void document.exitFullscreen();
+      return;
+    }
+    // Enlarging is an explicit request to watch, like seeking.
+    choice.current = "play";
+    syncRef.current();
+    if (element.requestFullscreen) {
+      // The whole panel goes full screen so the chapter timeline comes along.
+      void element.requestFullscreen().catch(() => {});
+      return;
+    }
+    // iPhone Safari only lets the video element itself go full screen, with the native player.
+    const native = film as HTMLVideoElement & {
+      webkitEnterFullscreen?: () => void;
+    };
+    if (!film.querySelector("source")) setSources(true);
+    native.webkitEnterFullscreen?.();
+  }
+
   return (
     <>
-    <div ref={root} className={styles.film} data-ready={ready} data-playing={playing}>
-      <img
-        className={styles.poster}
-        src={`/hero-reel-poster.${locale}.webp`}
-        srcSet={`/hero-reel-poster-small.${locale}.webp 600w, /hero-reel-poster.${locale}.webp 960w`}
-        sizes="(max-width: 1023px) 92vw, 46vw"
-        width={960}
-        height={600}
-        alt=""
-        fetchPriority="high"
-        decoding="async"
-      />
-      <video
-        ref={video}
-        className={styles.video}
-        width={960}
-        height={600}
-        muted
-        loop
-        playsInline
-        preload="none"
-        aria-hidden="true"
-        tabIndex={-1}
-        disablePictureInPicture
-        onLoadedData={() => {
-          setReady(true);
-          if (pendingSeek.current !== null && video.current) {
-            video.current.currentTime = pendingSeek.current;
-            pendingSeek.current = null;
+      <div
+        ref={root}
+        className={styles.film}
+        data-ready={ready}
+        data-playing={playing}
+      >
+        <img
+          className={styles.poster}
+          src={`/hero-reel-poster.${locale}.webp`}
+          srcSet={`/hero-reel-poster-small.${locale}.webp 600w, /hero-reel-poster.${locale}.webp 960w`}
+          sizes="(max-width: 1023px) 92vw, 46vw"
+          width={960}
+          height={600}
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+        />
+        <video
+          ref={video}
+          className={styles.video}
+          width={960}
+          height={600}
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-hidden="true"
+          tabIndex={-1}
+          disablePictureInPicture
+          onLoadedData={() => {
+            setReady(true);
+            if (pendingSeek.current !== null && video.current) {
+              video.current.currentTime = pendingSeek.current;
+              pendingSeek.current = null;
+            }
+          }}
+          onLoadedMetadata={(event) =>
+            setDuration(event.currentTarget.duration || 66.8)
           }
-        }}
-        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration || 60)}
-        onTimeUpdate={paintProgress}
-        onSeeked={paintProgress}
-        onPlaying={() => {
-          setReady(true);
-          setPlaying(true);
-        }}
-        onPause={() => setPlaying(false)}
-      >
-        {sources ? (
-          <>
-            <source src={`/hero-reel.${locale}.webm`} type="video/webm" />
-            <source src={`/hero-reel.${locale}.mp4`} type="video/mp4" />
-          </>
-        ) : null}
-      </video>
-      <button
-        type="button"
-        className={styles.toggle}
-        onClick={toggle}
-        aria-label={playing ? pauseLabel : playLabel}
-        aria-pressed={playing}
-      >
-        {playing ? (
-          <PauseIcon size={16} weight="fill" aria-hidden="true" />
-        ) : (
-          <PlayIcon size={16} weight="fill" aria-hidden="true" />
-        )}
-      </button>
-      <div className={styles.timeline}>
-        <div className={styles.track}>
-          <input
-            ref={scrubber}
-            className={styles.scrubber}
-            type="range"
-            min={0}
-            max={duration}
-            step={0.1}
-            defaultValue={0}
-            aria-label={seekLabel}
-            onInput={(event) => seek(Number(event.currentTarget.value))}
-          />
-          {chapters.map((chapter) => (
-            <button
-              key={chapter.at}
-              type="button"
-              className={styles.chapter}
-              style={{ left: `${(chapter.at / duration) * 100}%` }}
-              onClick={() => seek(chapter.at)}
-            >
-              <span>{chapter.label}</span>
-            </button>
-          ))}
+          onTimeUpdate={paintProgress}
+          onSeeked={paintProgress}
+          onPlaying={() => {
+            setReady(true);
+            setPlaying(true);
+          }}
+          onPause={() => setPlaying(false)}
+        >
+          {sources ? (
+            <>
+              <source src={`/hero-reel.${locale}.webm`} type="video/webm" />
+              <source src={`/hero-reel.${locale}.mp4`} type="video/mp4" />
+            </>
+          ) : null}
+        </video>
+        <button
+          type="button"
+          className={styles.toggle}
+          onClick={toggle}
+          aria-label={playing ? pauseLabel : playLabel}
+          aria-pressed={playing}
+        >
+          {playing ? (
+            <PauseIcon size={16} weight="fill" aria-hidden="true" />
+          ) : (
+            <PlayIcon size={16} weight="fill" aria-hidden="true" />
+          )}
+        </button>
+        <div className={styles.timeline}>
+          <div className={styles.track}>
+            <input
+              ref={scrubber}
+              className={styles.scrubber}
+              type="range"
+              min={0}
+              max={duration}
+              step={0.1}
+              defaultValue={0}
+              aria-label={seekLabel}
+              onInput={(event) => seek(Number(event.currentTarget.value))}
+            />
+            {chapters.map((chapter) => (
+              <button
+                key={chapter.at}
+                type="button"
+                className={styles.chapter}
+                style={{ left: `${(chapter.at / duration) * 100}%` }}
+                onClick={() => seek(chapter.at)}
+              >
+                <span>{chapter.label}</span>
+              </button>
+            ))}
+          </div>
+          <span ref={clock} className={styles.clock} aria-hidden="true">
+            {`0:00 / ${formatTime(duration)}`}
+          </span>
+          <button
+            type="button"
+            className={styles.expand}
+          data-umami-event={fullscreen ? undefined : EVENTS.filmFullscreen}
+            onClick={toggleFullscreen}
+            aria-label={fullscreen ? exitFullscreenLabel : fullscreenLabel}
+            title={fullscreen ? exitFullscreenLabel : fullscreenLabel}
+          >
+            {fullscreen ? (
+              <CornersInIcon size={18} weight="bold" aria-hidden="true" />
+            ) : (
+              <CornersOutIcon size={18} weight="bold" aria-hidden="true" />
+            )}
+          </button>
         </div>
-        <span ref={clock} className={styles.clock} aria-hidden="true">
-          {`0:00 / ${formatTime(duration)}`}
-        </span>
       </div>
-    </div>
-    <figcaption className={styles.figcaption}>
-      <span className="sr-only">{summary}</span>
-      {link}
-    </figcaption>
+      <figcaption className={styles.figcaption}>
+        <span className="sr-only">{summary}</span>
+        {link}
+      </figcaption>
     </>
   );
 }

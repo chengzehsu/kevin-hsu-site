@@ -124,6 +124,28 @@
 
 .clock { flex: none; font-size: .78rem; font-variant-numeric: tabular-nums; color: rgb(244 247 251 / .9); }
 
+/* Full screen sits at the right end of the bar, where every video player keeps it. */
+.expand {
+  display: grid;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: -.6rem;
+  place-items: center;
+  border-radius: var(--radius-ui);
+  color: #f4f7fb;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+.expand:hover { background: rgb(244 247 251 / .14); }
+.expand:active { transform: scale(.96); }
+.expand:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Full screen: the film letterboxes on black instead of cropping, and the panel drops its page framing. */
+.film:fullscreen { aspect-ratio: auto; border: 0; border-radius: 0; background: #000; box-shadow: none; }
+.film:fullscreen .poster,
+.film:fullscreen .video { object-fit: contain; }
+
 /* The play button sits on the same scrim row as the timeline. */
 .toggle { z-index: 2; }
 

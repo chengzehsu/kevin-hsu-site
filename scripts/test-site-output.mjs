@@ -12,6 +12,18 @@ test("skills library keeps native details out of the section grid", () => {
   assert.match(skillsStyles, /\.library\s*\{\s*display: block;/);
 });
 
+test("analytics loads only on the production host and keeps UTM parameters", async () => {
+  const html = await readFile(new URL("../out/resume/index.html", import.meta.url), "utf8");
+  assert.doesNotMatch(html, /<script[^>]*src="[^"]*umami[^"]*"/, "No static tracker tag: localhost must not load it");
+  const loader = html.match(/<script>\(function\(\)\{if\(location\.hostname!==[^<]*umami[^<]*<\/script>/)?.[0];
+  if (loader) {
+    assert.match(loader, /location\.hostname!=="chengzeresume\.zeabur\.app"/);
+    assert.match(loader, /websiteId="[0-9a-f-]{36}"/);
+    assert.doesNotMatch(loader, /excludeSearch/, "UTM parameters must reach Umami");
+  }
+  assert.match(html, /data-umami-event="resume-print"/);
+});
+
 for (const [locale, file, heading] of [
   ["zh", "../out/index.html", "獎項與案例收錄"],
   ["en", "../out/en/index.html", "Awards &amp; case features"],
@@ -107,6 +119,16 @@ for (const [locale, file, heading] of [
       assert.ok(detail.includes(locale === "zh" ? "協作範圍" : "Collaboration"));
       assert.ok(detail.includes('href="#decision"'));
       assert.ok(detail.includes('href="#measurement"'));
+      // Interviewers asked which product calls were made and on what data; only Ecofirst carries a log.
+      const log = detail.match(/<div id="decision-log"[\s\S]*?<\/ol>/)?.[0];
+      if (id === "ecofirst") {
+        assert.ok(log, "The Ecofirst case lists its decisions, server rendered");
+        assert.equal((log.match(/<li/g) ?? []).length, 6);
+        assert.ok(log.includes(locale === "zh" ? "看的數據" : "Data watched"));
+        assert.ok(detail.includes('href="#decision-log"'));
+      } else {
+        assert.ok(!log && !detail.includes('href="#decision-log"'));
+      }
     }
   });
 
@@ -127,5 +149,24 @@ for (const [locale, file, heading] of [
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     assert.ok(html.includes("portfolio-theme"), "Inline theme script must prevent a colour flash");
     assert.ok(html.includes(locale === "zh" ? "切換為深色模式" : "Switch to dark mode"));
+  });
+}
+
+for (const [locale, file, home] of [
+  ["zh", "../out/resume/index.html", "../out/index.html"],
+  ["en", "../out/en/resume/index.html", "../out/en/index.html"],
+]) {
+  test(`${locale}: one-page résumé is reachable and links every result to its case`, async () => {
+    const html = await readFile(new URL(file, import.meta.url), "utf8");
+    const homeHtml = await readFile(new URL(home, import.meta.url), "utf8");
+    const prefix = locale === "en" ? "/en/" : "/";
+    assert.ok(homeHtml.includes(`href="${prefix}resume/"`), "Hero and nav link to the résumé");
+    for (const id of ["grocery", "health-app", "cdp", "ecofirst", "namecard", "podcast-stock"]) {
+      assert.ok(html.includes(`href="${prefix}cases/${id}/"`), `Résumé links to the ${id} case`);
+    }
+    assert.ok(html.includes("+233%") && html.includes("+66%"), "Canonical figures appear on the résumé");
+    assert.ok(html.includes("mailto:kevin492625@gmail.com"));
+    assert.ok(!/href="#(experience|contact)"/.test(html), "No in-page anchors that only exist on home");
+    assert.ok(!/\b0\d{1,2}-?\d{3,4}-?\d{3,4}\b/.test(html.replace(/<script[\s\S]*?<\/script>/g, "")), "No phone number");
   });
 }
