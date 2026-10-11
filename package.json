@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "typecheck": "tsc --noEmit",
-    "preview": "pnpm dlx serve out"
+    "preview": "pnpm dlx serve out",
+    "hr-link": "node scripts/hr-link.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

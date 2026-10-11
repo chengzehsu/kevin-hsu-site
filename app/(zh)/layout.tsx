@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { SITE_ORIGIN } from "@/lib/locale";
 import { personJsonLd } from "@/lib/personJsonLd";
+import { Analytics } from "@/components/Analytics";
 import "../globals.css";
 
 export const metadata: Metadata = { metadataBase: new URL(SITE_ORIGIN) };
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <noscript>
           <style dangerouslySetInnerHTML={{ __html: NOSCRIPT_CSS }} />
         </noscript>
+        <Analytics />
       </head>
       <body id="top">{children}</body>
     </html>
