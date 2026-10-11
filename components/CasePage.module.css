@@ -243,6 +243,41 @@
 .quote:lang(zh-Hant) { letter-spacing: -.005em; line-height: 1.45; }
 .execution p { max-width: 60ch; margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.85; }
 
+/* Decision log: one row per call, the data that drove it, and what changed. */
+.decisionLog {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.decisionLog li {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+.decisionIndex { padding-top: .2rem; color: var(--accent); font-size: .76rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.decisionLog dl {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: .55rem 1.25rem;
+  max-width: 52rem;
+  margin: 0;
+}
+.decisionLog dt { padding-top: .15rem; color: var(--muted); font-size: .76rem; font-weight: 700; letter-spacing: .04em; }
+.decisionLog dd { margin: 0; color: var(--muted); font-size: .98rem; line-height: 1.75; }
+.decisionLog .decisionCall {
+  grid-column: 1 / -1;
+  margin-bottom: .35rem;
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+  font-weight: 650;
+  line-height: 1.5;
+}
+
 /* What was built: deliverables as numbered tiles, then the frames. */
 .deliverables {
   display: grid;
@@ -464,6 +499,9 @@
 }
 
 @media (max-width: 767px) {
+  .decisionLog li { grid-template-columns: 1fr; gap: .6rem; }
+  .decisionLog dl { grid-template-columns: 1fr; gap: .2rem; }
+  .decisionLog dt:not(.sr-only) { margin-top: .6rem; }
   .hero { padding-bottom: 4rem; }
   .backdrop { opacity: .4; }
   .backdropRow img { width: 10rem; }

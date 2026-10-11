@@ -156,7 +156,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
         {
           src: "/portfolio-artifacts/podcast-honesty.zh.svg",
           alt: "三條誠實規則：對不上原文不計分、沒選邊不算輸贏、樣本不足顯示資料不足；另有 90 筆實際觀點中 86% 強度分數擠在 0.6 到 0.9 的示意直方圖",
-          caption: "誠實規則｜寧可棄權，也不硬判",
+          caption: "誠實規則｜證據不夠，就不給分",
           ...FILM,
         },
       ],

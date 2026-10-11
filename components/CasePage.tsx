@@ -105,7 +105,9 @@ export function CasePage({
               </div>
               <div>
                 <dt>{cases.scopeLabel}</dt>
-                <dd><KeepTogether text={item.scope} /></dd>
+                <dd>
+                  <KeepTogether text={item.scope} />
+                </dd>
               </div>
               <div>
                 <dt>{cases.collaborationLabel}</dt>
@@ -118,6 +120,14 @@ export function CasePage({
               links={[
                 { href: "#situation", label: chapters.problem },
                 { href: "#decision", label: chapters.decision },
+                ...(item.decisionLog?.length
+                  ? [
+                      {
+                        href: "#decision-log" as const,
+                        label: cases.decisionLog.title,
+                      },
+                    ]
+                  : []),
                 { href: "#artifacts", label: chapters.built },
                 { href: "#result", label: chapters.result },
                 { href: "#measurement", label: cases.measurementLabel },

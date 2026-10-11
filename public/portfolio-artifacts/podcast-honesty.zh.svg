@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-<title id="title">寧可棄權，也不硬判</title>
+<title id="title">證據不夠，就不給分</title>
 <desc id="desc">三條誠實規則：對不上原文就不計分（觀點要和逐字稿比對，對不上的不計分）；沒選邊就不算輸贏（中立討論只存成證據）；樣本不足顯示「資料不足」，不顯示 0%。另一張資料圖：量測 90 筆實際觀點，86% 的強度分數擠在 0.6 到 0.9，沒有鑑別力，因此判斷單位改成「一集 × 一檔」並附證據鏈（2026-07-22）。直方圖為示意。</desc>
 <defs>
   <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
@@ -8,7 +8,7 @@
 <rect width="1600" height="1000" fill="#F5F7FB"/>
 <rect width="1600" height="1000" fill="url(#grid)" opacity=".48"/>
 <text x="96" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start" letter-spacing="2.8">產品決策 / 計分的誠實規則</text>
-<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">寧可棄權，也不硬判</text>
+<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">證據不夠，就不給分</text>
 <text x="96" y="214" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="26" font-weight="400" text-anchor="start">先確保每一個分數都有根據，再談準不準。</text>
 <g filter="url(#shadow)"><rect x="96" y="254" width="448" height="286" rx="22" fill="#FFFFFF"/></g>
 <circle cx="148" cy="306" r="22" fill="#2D61A6"/>

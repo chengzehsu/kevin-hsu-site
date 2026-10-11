@@ -91,6 +91,36 @@ export function CaseDetails({
               <Highlight>{item.hypothesis}</Highlight>
             </p>
           </div>
+          {item.decisionLog?.length ? (
+            <div id="decision-log" className={styles.block}>
+              <h3 className={styles.label}>
+                {content.cases.decisionLog.title}
+              </h3>
+              <ol className={styles.decisionLog}>
+                {item.decisionLog.map((entry, index) => (
+                  <li key={entry.call} className="scroll-rise">
+                    <span className={styles.decisionIndex}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <dl>
+                      <dt className="sr-only">
+                        {content.cases.decisionLog.call}
+                      </dt>
+                      <dd className={styles.decisionCall}>{entry.call}</dd>
+                      <dt>{content.cases.decisionLog.signal}</dt>
+                      <dd>
+                        <Highlight>{entry.signal}</Highlight>
+                      </dd>
+                      <dt>{content.cases.decisionLog.outcome}</dt>
+                      <dd>
+                        <Highlight>{entry.outcome}</Highlight>
+                      </dd>
+                    </dl>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ) : null}
         </div>
       </div>
 
