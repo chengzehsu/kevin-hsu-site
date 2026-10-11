@@ -13,6 +13,7 @@ export const zh = {
     brand: "Kevin Hsu",
     links: [
       { label: "作品集", href: "/portfolio/" },
+      { label: "履歷", href: "/resume/" },
       { label: "AI 習慣", href: "#linkedin-posts" },
       { label: "能力", href: "#skills" },
       { label: "經歷", href: "#experience" },
@@ -62,9 +63,16 @@ export const zh = {
       pauseLabel: "暫停影片",
       playLabel: "播放影片",
       seekLabel: "影片進度",
-      chapters: [{ at: 0, label: "開場" }, { at: 12, label: "六項能力" }, { at: 35.4, label: "三個習慣" }, { at: 50, label: "收尾" }],
+      fullscreenLabel: "全螢幕觀看",
+      exitFullscreenLabel: "離開全螢幕",
+      chapters: [
+        { at: 0, label: "開場" },
+        { at: 12, label: "六項能力" },
+        { at: 42.2, label: "三個習慣" },
+        { at: 56.8, label: "收尾" },
+      ],
       summary:
-        "60 秒影片：規格寫完了，會議開完了，東西還沒跑起來。AI 時代的 PM，做出東西不再是門檻，要看的是六項能力：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；每一段經歷，都讓這張能力圖再大一圈。接著是三個工作習慣。好奇：看到新工具，我先動手試，Claude Code、Cursor、Gemini、Notion AI；用 Cursor 與 Gemini 自己做出 AI 名片管理助手，從 OCR 辨識失敗、重建版控到部署上線，流程是拍名片、Gemini 辨識、Notion 建檔。勇於嘗試：程式經驗不多的產品經理，用 Claude Code 做出內部平台，2 個月 218 次提交。追求效率：控制策略模擬工具把策略調整從 1 週縮短到 2 小時；把 AI 放進開發流程後，交付效率 +50%。找出卡點，做出解法，量出成果。許承澤 Kevin Hsu，Product Manager · AI · B2C 平台 · 跨團隊交付。",
+        "67 秒影片：規格寫完了，會議開完了，東西還沒跑起來。AI 時代的 PM，做出東西不再是門檻，要看的是六項能力：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；每一段經歷，都讓這張能力圖再大一圈。接著是三個工作習慣。好奇：看到新工具，我先動手試，Claude Code、Cursor、Gemini、Notion AI；用 Cursor 與 Gemini 自己做出 AI 名片管理助手，從 OCR 辨識失敗、重建版控到部署上線，流程是拍名片、Gemini 辨識、Notion 建檔。勇於嘗試：程式經驗不多的產品經理，用 Claude Code 做出內部平台，2 個月 218 次提交。追求效率：控制策略模擬工具把策略調整從 1 週縮短到 2 小時；把 AI 放進開發流程後，交付效率 +50%。找出卡點，做出解法，量出成果。許承澤 Kevin Hsu，Product Manager · AI、資料產品與複雜營運系統。",
     },
     builderLoop: {
       label: "從現場到產品",
@@ -73,6 +81,7 @@ export const zh = {
     },
     primaryCta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "看作品集", href: "/portfolio/" },
+    resumeCta: { label: "一頁履歷", href: "/resume/" },
   },
 
   metrics: {
@@ -284,9 +293,14 @@ export const zh = {
     artifactsLabel: "實際產出",
     measurementLabel: "成果量測",
     ownershipLabel: "我實際主導",
+    decisionLog: {
+      title: "決策紀錄",
+      call: "決策",
+      signal: "看的數據",
+      outcome: "結果",
+    },
     sideTitle: "個人專案：工作之餘用 vibe coding 解決身邊的困擾",
-    sideIntro:
-      "公司和自己卡住的地方，下班後用 AI 做成產品。",
+    sideIntro: "公司和自己卡住的地方，下班後用 AI 做成產品。",
     sourceLabel: "看公開原始碼",
     columns: {
       situation: "情境",
@@ -403,18 +417,59 @@ export const zh = {
         rank: 2,
         title: "AI 節能產品：把業務到 RD 接成一條線",
         role: "Product Manager",
-        scope: "4 位 RD｜50 個案場｜專案規模約 NT$1 億｜Roadmap、AI 開發、內部工具",
+        scope:
+          "4 位 RD｜50 個案場｜專案規模約 NT$1 億｜Roadmap、AI 開發、內部工具",
         collaboration: "軟體、專案、業務與案場營運團隊",
         impact: "交付效率 +50%｜案場營運效率 +20%",
-        ownership: "規劃並維護業務部與軟體部的 Notion 營運架構：17 個資料庫、42 條關聯、70 多個自動計算欄位，以及需求與售前規範。",
+        ownership:
+          "規劃並維護業務部與軟體部的 Notion 營運架構：17 個資料庫、42 條關聯、70 多個自動計算欄位，以及需求與售前規範。",
         situation:
           "AI 空調節能產品還在早期，案場資訊散在 LINE、Email 和個人電腦；業務問交期、RD 問需求，都靠問人。",
         bottleneck:
           "業務憑感覺承諾交期，需求沒寫清楚就進開發；插單、超載、誰在等誰，都沒有數字。",
-        decision: "把業務到 RD 拆成六層架構：資料、關聯、計算、檢視、規則、AI；交期從需求確認那天起算。",
+        decision:
+          "把業務到 RD 拆成六層架構：資料、關聯、計算、檢視、規則、AI；交期從需求確認那天起算。",
         decisionSummary: "業務到 RD 拆成六層架構，交期從需求確認那天起算。",
         hypothesis:
           "17 個資料庫放名片、客戶、專案、業務推進與 RD 任務；一張客戶卡看得到負責業務、階段與決策者；公式自動算出推進天數、插單、延遲與每週產能；業務、PM、RD 各有工作台；需求模板、開票時程與售前工期分級訂規則；AI 整理 FAQ、名詞與需求。",
+        decisionLog: [
+          {
+            call: "收值監控改成「零設定優先」：預設跑不用人設門檻的檢查，人工門檻只當例外。",
+            signal:
+              "一個飯店案場的稽核，26 條規則 × 8,129 筆：要人設門檻的 18 條，抓到 0 個異常。真正的問題全是零設定檢查抓到的，例如主機狀態與耗電矛盾（8,129 筆全中）、單台主機耗電缺值 97.3%。",
+            outcome:
+              "寫進收值管理提案：規則優先序倒過來。樣本只有單站六天，所以不是砍掉門檻，而是把它降為防呆網。",
+          },
+          {
+            call: "交期從 T=0 起算，不從簽約日：T=0 是資料到齊、PM 簽核需求文件那天。",
+            signal:
+              "每個專案的資料到齊日、需求簽核日、RD 預計完成日，以及業務推進 8 個階段各停留幾天。",
+            outcome:
+              "交期有了共同起點；延遲可以分清楚是卡在資料、需求，還是開發。",
+          },
+          {
+            call: "PM 期待日與 RD 預計日分開記，不合成一個截止日。",
+            signal: "兩個日期的差距、插單筆數、4 位 RD 的每週產能。",
+            outcome: "插單由公式自動標出，排程衝突帶著數字談，不靠記憶。",
+          },
+          {
+            call: "售前工期分 S、M、L、XL 四級，搭配 G0、G1、G2 三道關卡。",
+            signal: "需求從提出到確認，來回了幾輪。",
+            outcome: "需求確認從 4 到 5 輪降到 1 到 2 輪（內部估算）。",
+          },
+          {
+            call: "記錄每筆需求的首次回覆時間，訂 24 小時回覆標準。",
+            signal: "每筆需求的首次回覆時間。",
+            outcome: "業務等 RD 回覆的時間，從靠催變成可以追的數字。",
+          },
+          {
+            call: "AI 排程只起草，人來定稿；失敗就回報，不補假結果，單次最多 20 項。",
+            signal:
+              "排程是否天天產出：每日會議追蹤自 2026/4 起 102 份，產品化週報自 2026/5 起 20 份。",
+            outcome:
+              "會議追蹤與給執行長的週報持續在跑，每份都由人確認後才送出。",
+          },
+        ],
         result:
           "AI 導入需求、規格與開發交接，交付效率 +50%；案場營運效率 +20%。系統累積 1,639 筆業務推進、1,829 筆 RD 任務，其中 1,500 筆以上的業務紀錄已整理成 FAQ。",
         artifacts: [
@@ -439,7 +494,8 @@ export const zh = {
         title: "AI 名片管理助手：架構跟著商業模式走",
         role: "產品負責人兼開發者",
         scope: "LINE 拍名片 → AI 辨識 → 寫進公司 Notion",
-        collaboration: "使用者是公司業務與幾位朋友；用 Cursor 與 Claude Code 開發，Gemini 辨識名片",
+        collaboration:
+          "使用者是公司業務與幾位朋友；用 Cursor 與 Claude Code 開發，Gemini 辨識名片",
         impact: "拍照到建檔時間 −99%｜內部工具與 SaaS 兩種架構都親手做過",
         ownership:
           "商業模式和產品架構都由我規劃，也親手做出來：內部工具、多租戶 SaaS，到依實際用量收斂。",
@@ -484,8 +540,7 @@ export const zh = {
         decision:
           "不做多數決，多空並排；每個論點都要找得到原話；只攤開論點，不給買賣建議。",
         decisionSummary: "多空並排、每句附原話，不給買賣建議。",
-        hypothesis:
-          "我要的不是摘要，是同一檔股票的論點對照；判斷還是自己下。",
+        hypothesis: "我要的不是摘要，是同一檔股票的論點對照；判斷還是自己下。",
         result:
           "424 次 commit、59 個 PR，已上線。對不上原文不計分，證據不足就棄權。",
         artifacts: [
@@ -509,6 +564,8 @@ export const zh = {
     currentLabel: "現在",
     expandLabel: "工作內容",
     collapseLabel: "收合經歷",
+    expandAllLabel: "全部展開",
+    collapseAllLabel: "全部收合",
     skillLabel: "這段經歷讓我累積",
     items: [
       {
@@ -554,9 +611,9 @@ export const zh = {
           "同時負責企業端與線上學習兩個市場：企業端從人資訪談與學習數據切入，線上學習端負責新市場驗證與課程體驗。",
         bullets: [
           "香港市場：與行銷夥伴利用第三方平台，以最小可行方式在 3 週內切入香港市場，首週營業額突破 NT$100 萬",
-          "內部流程：盤點人資請假補休、請款與客服流程並重新規劃，營運效率提升 20%",
-          "企業培訓：訪談不同規模企業的人資，釐清培訓實際的運作方式；規劃學習數據儀表板，讓企業依數據優化培訓計畫",
-          "學習成效：在課程中設計測驗，讓學員在學習過程中自行驗證學習成效",
+          "內部流程優化：盤點人資請假補休、請款與客服流程並重新規劃，營運效率提升 20%",
+          "企業培訓產品：訪談不同規模企業的人資，釐清培訓實際的運作方式；規劃學習數據儀表板，讓企業依數據優化培訓計畫",
+          "學習體驗設計：在課程中設計測驗，讓學員在學習過程中自行驗證學習成效",
         ],
       },
       {
@@ -568,7 +625,7 @@ export const zh = {
         skillSignal:
           "將商業目標、使用者流程與交付限制收斂成 Roadmap，讓工程、設計與需求方按同一套優先順序協作。",
         summary:
-          "2023 年以獨立顧問身分，承接產品策略、SaaS 與募資顧問案。每個案子都必須從商業問題一路拆解到團隊協作方式。",
+          "以產品策略、SaaS 與募資顧問三種專案型態，協助客戶從商業問題拆解到團隊協作方式與產品交付流程。",
         bullets: [
           "包租代管 SaaS：協助管理約 100 棟房源的業者，從商業問題定義多住戶管理軟體的需求與產品管理流程",
           "協作流程：從商業策略展開產品策略與 Roadmap，優化工程師、設計師與需求方的協作流程",
@@ -619,7 +676,7 @@ export const zh = {
         bullets: [
           "整合零售、電商與不動產領域 1,000 萬筆客戶資料，串接 LINE、Facebook、官網、電商與 POS 資料",
           "主導 CDP、LINE 與 Facebook Chatbot、網站埋點與資料儀表板的 PRD 撰寫與功能設計",
-          "為客戶制定資料策略，建立 Customer 360 客戶輪廓",
+          "為客戶制定資料策略，建立 Customer 360 客戶輪廓，將資料轉化為可用的產品服務與決策依據",
         ],
       },
       {

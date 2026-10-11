@@ -54,6 +54,9 @@ export interface HeroContent {
     playLabel: string;
     /** Accessible name of the scrubber. */
     seekLabel: string;
+    /** Fullscreen toggle: the film is 1600×1000 at source, so it holds up at full size. */
+    fullscreenLabel: string;
+    exitFullscreenLabel: string;
     /** Chapter starts (seconds) of the launch film, shown as jump points on the timeline. */
     chapters: Array<{ at: number; label: string }>;
     /** Screen-reader narration of the on-screen film text; the film is burned-in per locale. */
@@ -67,6 +70,8 @@ export interface HeroContent {
   };
   primaryCta: Cta;
   secondaryCta: Cta;
+  /** Link to the one-page résumé for HR readers. */
+  resumeCta: Cta;
 }
 
 /**
@@ -182,6 +187,11 @@ export interface CaseStudy {
   /** One-line version of the decision for the portfolio index. */
   decisionSummary: string;
   hypothesis: string;
+  /**
+   * The individual product calls behind the case, each with the data that drove it and what changed.
+   * Optional: only cases with verifiable signals carry one. Self-reported figures say so in-line.
+   */
+  decisionLog?: Array<{ call: string; signal: string; outcome: string }>;
   result: string;
   /** Concrete work products that support the narrative without exposing private files. */
   artifacts: string[];
@@ -229,6 +239,13 @@ export interface CasesContent {
     result: string;
   };
   ownershipLabel: string;
+  /** Heading and row labels for a case's decision log. */
+  decisionLog: {
+    title: string;
+    call: string;
+    signal: string;
+    outcome: string;
+  };
   /** Heading and intro for the after-hours group on /portfolio/. */
   sideTitle: string;
   sideIntro: string;
@@ -258,6 +275,9 @@ export interface ExperienceContent {
   title: string;
   expandLabel: string;
   collapseLabel: string;
+  /** Section-level button that opens or closes every role at once. */
+  expandAllLabel: string;
+  collapseAllLabel: string;
   skillLabel: string;
   /** Optional one-line lead under the section title. */
   intro?: string;

@@ -4,7 +4,8 @@ export const en = {
   locale: "en",
 
   meta: {
-    title: "Kevin Hsu | Product Manager | Find the bottleneck, build the fix, prove it",
+    title:
+      "Kevin Hsu | Product Manager | Find the bottleneck, build the fix, prove it",
     description:
       "Product Manager with 5+ years of product-related experience. Led B2C e-commerce re-platforming, led discovery and QA for a health-app re-platforming, and owned cross-functional delivery and data-product planning; led a 10-person engineering team and two junior PMs.",
   },
@@ -13,6 +14,7 @@ export const en = {
     brand: "Kevin Hsu",
     links: [
       { label: "Portfolio", href: "/en/portfolio/" },
+      { label: "Résumé", href: "/en/resume/" },
       { label: "AI habits", href: "#linkedin-posts" },
       { label: "Skills", href: "#skills" },
       { label: "Experience", href: "#experience" },
@@ -26,7 +28,8 @@ export const en = {
   hero: {
     eyebrow: "Kevin Hsu | Product Manager · 5+ years in product",
     kicker: "The spec is written. The meeting is over. Nothing runs yet?",
-    headline: "Find the 【bottleneck】. Build the 【fix】. Prove it in 【numbers】.",
+    headline:
+      "Find the 【bottleneck】. Build the 【fix】. Prove it in 【numbers】.",
     traits: [
       {
         label: "Curious",
@@ -67,9 +70,16 @@ export const en = {
       pauseLabel: "Pause film",
       playLabel: "Play film",
       seekLabel: "Film progress",
-      chapters: [{ at: 0, label: "Intro" }, { at: 12, label: "Six skills" }, { at: 35.4, label: "Three habits" }, { at: 50, label: "Sign-off" }],
+      fullscreenLabel: "Watch full screen",
+      exitFullscreenLabel: "Exit full screen",
+      chapters: [
+        { at: 0, label: "Intro" },
+        { at: 12, label: "Six skills" },
+        { at: 42.2, label: "Three habits" },
+        { at: 56.8, label: "Sign-off" },
+      ],
       summary:
-        "60-second film. The spec is written, the meeting is over, and nothing runs yet. For a PM in the AI era, building something is no longer the bar. The bar is six skills: problem framing, fast experiments, prototyping, workflow redesign, cross-team delivery, and data judgment; each role widened that chart. Then three working habits. Curious: when a new tool appears, I try it hands-on, from Claude Code and Cursor to Gemini and Notion AI. I built an AI business-card assistant with Cursor and Gemini, through failed OCR and a rebuilt Git setup to deployment: snap a card, Gemini reads it, Notion files it. Experimental: with limited coding background, I built an internal platform with Claude Code, 218 commits in 2 months. Efficient: a control-strategy simulator cut tuning from 1 week to 2 hours, and putting AI into the delivery workflow raised delivery efficiency by 50%. Find the bottleneck. Build the fix. Prove it in numbers. Kevin Hsu, Product Manager · AI · B2C platforms · cross-team delivery.",
+        "67-second film. The spec is written, the meeting is over, and nothing runs yet. For a PM in the AI era, building something is no longer the bar. The bar is six skills: problem framing, fast experiments, prototyping, workflow redesign, cross-team delivery, and data judgment; each role widened that chart. Then three working habits. Curious: when a new tool appears, I try it hands-on, from Claude Code and Cursor to Gemini and Notion AI. I built an AI business-card assistant with Cursor and Gemini, through failed OCR and a rebuilt Git setup to deployment: snap a card, Gemini reads it, Notion files it. Experimental: with limited coding background, I built an internal platform with Claude Code, 218 commits in 2 months. Efficient: a control-strategy simulator cut tuning from 1 week to 2 hours, and putting AI into the delivery workflow raised delivery efficiency by 50%. Find the bottleneck. Build the fix. Prove it in numbers. Kevin Hsu, Product Manager · AI, data, and operational products.",
     },
     builderLoop: {
       label: "From fieldwork to product",
@@ -84,6 +94,7 @@ export const en = {
     },
     primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     secondaryCta: { label: "See portfolio", href: "/en/portfolio/" },
+    resumeCta: { label: "One-page résumé", href: "/en/resume/" },
   },
 
   metrics: {
@@ -281,7 +292,8 @@ export const en = {
   cases: {
     title: "Portfolio",
     inventory: "4 work cases + 2 side projects",
-    intro: "Every case follows one structure: problem, decision, what got built, result.",
+    intro:
+      "Every case follows one structure: problem, decision, what got built, result.",
     workTitle: "Work cases",
     allLabel: "See the full portfolio (plus 2 side projects)",
     copyLabel: "Copy case link",
@@ -297,6 +309,12 @@ export const en = {
     artifactsLabel: "Deliverables",
     measurementLabel: "How it was measured",
     ownershipLabel: "What I drove",
+    decisionLog: {
+      title: "Decision log",
+      call: "Call",
+      signal: "Data watched",
+      outcome: "Outcome",
+    },
     sideTitle: "Side projects: after-hours vibe coding fixes for real problems",
     sideIntro:
       "Problems at work and in my own life, turned into products with AI after hours.",
@@ -440,6 +458,49 @@ export const en = {
           "Sales to RD as a six-layer architecture; delivery dates start at requirements sign-off.",
         hypothesis:
           "17 databases hold cards, accounts, projects, sales updates, and RD tasks; one account card shows the owner, stage, and decision maker; formulas compute sales cycle days, rush jobs, delays, and weekly capacity; sales, PMs, and RD each get a workspace; requirement templates, a ticket calendar, and pre-sales sizing set the rules; AI drafts the FAQ, glossary, and requirements.",
+        decisionLog: [
+          {
+            call: "Data-quality monitoring goes zero-config first: checks that need no human threshold run by default, and hand-set thresholds become the exception.",
+            signal:
+              "An audit at one hotel site, 26 rules × 8,129 rows: the 18 rules that need a human threshold caught 0 anomalies. Every real issue came from zero-config checks, such as chiller state contradicting power draw (all 8,129 rows) and one chiller missing 97.3% of its power readings.",
+            outcome:
+              "Written into the monitoring proposal: rule priority flipped. The sample is one site over six days, so thresholds stay as a safety net rather than being cut.",
+          },
+          {
+            call: "Delivery dates start at T=0, not the contract date: T=0 is the day data is complete and the PM signs off the requirements doc.",
+            signal:
+              "Each project's data-complete date, requirements sign-off date, and RD estimate, plus days spent in each of the 8 sales stages.",
+            outcome:
+              "Delivery dates share one starting point, and a delay can be traced to data, requirements, or development.",
+          },
+          {
+            call: "PM target date and RD estimate are recorded separately instead of merged into one deadline.",
+            signal:
+              "The gap between the two dates, the rush-job count, and weekly capacity across 4 engineers.",
+            outcome:
+              "Formulas flag rush jobs automatically, so schedule conflicts are argued with numbers, not memory.",
+          },
+          {
+            call: "Pre-sales work is sized S, M, L, or XL, with three gates: G0, G1, G2.",
+            signal:
+              "How many back-and-forth rounds a requirement takes before sign-off.",
+            outcome:
+              "Requirement sign-off dropped from 4 to 5 rounds to 1 to 2 (internal estimate).",
+          },
+          {
+            call: "Every request records its first-reply time, against a 24-hour reply standard.",
+            signal: "First-reply time per request.",
+            outcome:
+              "How long sales waits on RD went from chasing people to a number anyone can track.",
+          },
+          {
+            call: "Scheduled AI only drafts and a person finalizes; on failure it reports instead of faking results, capped at 20 items per run.",
+            signal:
+              "Whether the schedules actually produce: 102 daily meeting follow-ups since Apr 2026, and 20 productization weekly reports since May 2026.",
+            outcome:
+              "Meeting follow-ups and the weekly report to the CEO keep running, and a person checks each one before it goes out.",
+          },
+        ],
         result:
           "AI across requirements, specs, and dev handoff raised delivery efficiency by 50%, and site operations by 20%. The system holds 1,639 sales updates and 1,829 RD tasks, and 1,500+ sales records have been distilled into an FAQ.",
         artifacts: [
@@ -462,11 +523,15 @@ export const en = {
         org: "Side project",
         period: "Jul 2025 - Jul 2026",
         rank: 5,
-        title: "AI business-card assistant: architecture follows the business model",
+        title:
+          "AI business-card assistant: architecture follows the business model",
         role: "Product owner and builder",
-        scope: "Snap a card in LINE → AI reads it → it lands in the company Notion",
-        collaboration: "Used by the sales team and a few friends; built with Cursor and Claude Code, with Gemini reading the cards",
-        impact: "Photo-to-record time −99% | Built both an internal tool and a SaaS",
+        scope:
+          "Snap a card in LINE → AI reads it → it lands in the company Notion",
+        collaboration:
+          "Used by the sales team and a few friends; built with Cursor and Claude Code, with Gemini reading the cards",
+        impact:
+          "Photo-to-record time −99% | Built both an internal tool and a SaaS",
         ownership:
           "I planned the business models and the product architecture, and built each one: an internal tool, a multi-tenant SaaS, then a lean version sized to real usage.",
         situation:
@@ -475,7 +540,8 @@ export const en = {
           "A card shows name and phone; the CRM needs judgment calls. Letting AI fill them means a model judges for the rep.",
         decision:
           "Start as an internal tool matched to the company CRM, with judgment fields left to sales; then test it as a SaaS with multi-tenancy and subscription plans; when usage showed no need, fold back to a lean architecture.",
-        decisionSummary: "Settle the business model first; the architecture follows it.",
+        decisionSummary:
+          "Settle the business model first; the architecture follows it.",
         hypothesis:
           "PMs used to write specs and wait for engineering; now I can turn each business model into a working architecture and let real usage pick the one to keep.",
         result:
@@ -500,8 +566,10 @@ export const en = {
         title: "Stock Gods Fight: bull vs bear before you buy",
         role: "Product owner (solo build)",
         scope: "Web product | AI claim extraction | Bull vs bear view",
-        collaboration: "Built solo with Claude Code; every feature merged through a reviewed PR",
-        impact: "One stock, bull and bear cases side by side, every line quoted",
+        collaboration:
+          "Built solo with Claude Code; every feature merged through a reviewed PR",
+        impact:
+          "One stock, bull and bear cases side by side, every line quoted",
         ownership: "Problem definition, scope, and trust rules.",
         situation:
           "Before buying a stock I want to know what finance podcasters think, but I have no time to listen, and summaries never say who is bullish or bearish.",
@@ -509,7 +577,8 @@ export const en = {
           "AI-extracted claims could not be checked: in 90 real claims, 86% of strength scores sat between 0.6 and 0.9, so the score said nothing.",
         decision:
           "No majority vote, bulls and bears side by side; every argument traces to a verbatim quote; arguments only, never a buy or sell call.",
-        decisionSummary: "Bulls and bears side by side, every line quoted, no buy or sell calls.",
+        decisionSummary:
+          "Bulls and bears side by side, every line quoted, no buy or sell calls.",
         hypothesis:
           "I need the arguments on one stock side by side, not a summary; the call stays mine.",
         result:
@@ -531,10 +600,13 @@ export const en = {
 
   experience: {
     title: "Experience",
-    intro: "Eight roles, each starting with the same question: where is it stuck?",
+    intro:
+      "Eight roles, each starting with the same question: where is it stuck?",
     currentLabel: "Now",
     expandLabel: "View role details",
     collapseLabel: "Collapse role",
+    expandAllLabel: "Expand all",
+    collapseAllLabel: "Collapse all",
     skillLabel: "What this chapter added",
     items: [
       {
@@ -560,7 +632,8 @@ export const en = {
         role: "Independent Consultant | Operations Transformation and Fundraising",
         period: "Sep 2024 - Feb 2025",
         focus: "Operations redesign and fundraising in energy and hospitality",
-        skillSignal: "Starting from operating data and turning the improvement into a story investors can follow.",
+        skillSignal:
+          "Starting from operating data and turning the improvement into a story investors can follow.",
         summary:
           "Led two engagements in energy and hospitality, from operations redesign through fundraising; together they moved about NT$170M in raises into substantive investor talks.",
         bullets: [
@@ -574,16 +647,17 @@ export const en = {
         org: "SAT. KNOWLEDGE",
         role: "Senior Product Manager",
         period: "Nov 2023 - Aug 2024",
-        focus: "Enterprise training, online learning, and Hong Kong market entry",
+        focus:
+          "Enterprise training, online learning, and Hong Kong market entry",
         skillSignal:
           "Clarifying priorities across the differing needs of buyers, administrators, and end users, then testing markets with the smallest viable step.",
         summary:
           "Covered two markets at once: enterprise training, starting from HR interviews and learning data, and online learning, owning new-market entry and the course experience.",
         bullets: [
           "Hong Kong market: partnered with marketing on a third-party platform to enter Hong Kong in three weeks with a minimal launch; first-week revenue passed NT$1M",
-          "Internal operations: mapped and redesigned HR leave, expense-claim, and customer-service flows, raising operational efficiency by 20%",
-          "Enterprise training: interviewed HR teams at companies of different sizes to learn how training actually runs, then planned a learning-data dashboard so companies could tune training plans with data",
-          "Learning outcomes: designed in-course quizzes so learners could check their own progress as they studied",
+          "Internal process optimization: mapped and redesigned HR leave, expense-claim, and customer-service flows, raising operational efficiency by 20%",
+          "Enterprise training product: interviewed HR teams at companies of different sizes to learn how training actually runs, then planned a learning-data dashboard so companies could tune training plans with data",
+          "Learning experience design: designed in-course quizzes so learners could check their own progress as they studied",
         ],
       },
       {
@@ -595,7 +669,7 @@ export const en = {
         skillSignal:
           "Distilling business goals, user flows, and delivery constraints into one roadmap, so engineering, design, and requesters share the same priorities.",
         summary:
-          "In 2023, took on product-strategy, SaaS, and fundraising-advisory engagements as an independent consultant; each one ran from the business problem down to how the team would work.",
+          "Across three engagement types (product strategy, SaaS, and fundraising advisory), helped clients break business problems down into how the team works and how the product ships.",
         bullets: [
           "Rental-management SaaS: helped an operator managing about 100 properties define a multi-tenant management product, its requirements, and its product-management flow",
           "Collaboration flow: translated business strategy into product strategy and roadmaps, improving collaboration among engineers, designers, and requesters",
@@ -610,7 +684,8 @@ export const en = {
         focus: "Supply-chain and warehouse operations",
         skillSignal:
           "Applying product practice to operations: get the data and the flow straight first, then improve shipping speed and cost.",
-        summary: "A short operations-management role focused on supply-chain and warehouse flows.",
+        summary:
+          "A short operations-management role focused on supply-chain and warehouse flows.",
         gapAfter: "Aug 2022 - Oct 2022 | Break and freelance work",
         bullets: [
           "Built a product database joining customer, shipping, and purchasing data, cutting coordination overhead and order errors",
@@ -646,7 +721,7 @@ export const en = {
         bullets: [
           "Integrated 10M customer records across retail, e-commerce, and real estate by connecting LINE, Facebook, websites, e-commerce, and POS data",
           "Led PRDs and feature design for the CDP, LINE and Facebook chatbots, web tracking, and data dashboards",
-          "Defined client data strategies and built Customer 360 views",
+          "Defined client data strategies and built Customer 360 views, turning data into usable product services and a basis for decisions",
         ],
       },
       {

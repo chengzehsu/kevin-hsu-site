@@ -25,7 +25,7 @@ export interface SkillGroup {
 
 /**
  * The same six axes and shapes the hero launch film draws (videos/kevin-launch-film/index.html,
- * AXES and CHAPTERS[0] / CHAPTERS[5]). Values are relative depth across roles, never shown as scores.
+ * AXES and the first / last of CHAPTERS). Values are relative depth across roles, never shown as scores.
  */
 export interface SkillsRadarContent {
   label: string;

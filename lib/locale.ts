@@ -51,3 +51,8 @@ export function casePath(locale: Locale, id: string): string {
 export function portfolioPath(locale: Locale): string {
   return `${localePath(locale)}portfolio/`;
 }
+
+/** One-page, print-ready résumé for HR readers. */
+export function resumePath(locale: Locale): string {
+  return `${localePath(locale)}resume/`;
+}
