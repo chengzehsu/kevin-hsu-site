@@ -12,11 +12,11 @@ export const zh = {
   nav: {
     brand: "Kevin Hsu",
     links: [
+      { label: "工作案例", href: "#work" },
       { label: "經歷", href: "#experience" },
-      { label: "成果", href: "#work" },
-      { label: "履歷", href: "/resume/" },
+      { label: "AI 工作習慣", href: "#linkedin-posts" },
+      { label: "履歷", href: "/resume/", depth: true },
       { label: "作品集", href: "/portfolio/", depth: true },
-      { label: "AI 工作法", href: "#linkedin-posts", depth: true },
     ],
     contact: { label: "聯絡我", href: "#contact" },
     menuLabel: "選單",
@@ -80,9 +80,8 @@ export const zh = {
       steps: ["看流程", "找問題", "定假設", "做工具", "看成效"],
       result: "愛淨：交付效率 +50%，案場營運效率 +20%",
     },
-    primaryCta: { label: "聯絡我", href: "mailto:kevin492625@gmail.com" },
-    secondaryCta: { label: "看作品集", href: "/portfolio/" },
-    resumeCta: { label: "一頁履歷", href: "/resume/" },
+    primaryCta: { label: "一頁履歷", href: "/resume/" },
+    secondaryCta: { label: "看工作案例", href: "#work" },
   },
 
   metrics: {
@@ -560,7 +559,7 @@ export const zh = {
   },
 
   experience: {
-    title: "經歷速覽",
+    title: "經歷",
     intro: "八段經歷，每段都從同一個問題開始：卡在哪裡？",
     currentLabel: "現在",
     expandLabel: "工作內容",

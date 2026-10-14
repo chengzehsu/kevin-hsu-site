@@ -2,11 +2,12 @@ import { orderCases } from "@/lib/cases";
 import type { CaseStudy, SectionProps } from "@/content/types";
 import { caseArtifacts } from "@/content/caseArtifacts";
 import { casePath, portfolioPath } from "@/lib/locale";
-import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Contact } from "./Contact";
 import { CaseArtifact } from "./CaseArtifact";
+import { CaseBack } from "./CaseBack";
 import { CaseBackdrop } from "./CaseBackdrop";
 import { CaseDetails, CASE_CHAPTERS } from "./CaseDetails";
 import { CaseHeadlineFigure } from "./CaseHeadlineFigure";
@@ -50,10 +51,7 @@ export function CasePage({
               ]}
             />
             <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-              <a href={back} className={styles.back}>
-                <ArrowLeftIcon size={16} weight="bold" aria-hidden="true" />
-                {cases.backLabel}
-              </a>
+              <CaseBack href={back} label={cases.backLabel} locale={locale} className={styles.back} />
               <div className={styles.heroGrid}>
                 <div className={styles.heroCopy}>
                   <p className={styles.eyebrow}>
@@ -85,6 +83,23 @@ export function CasePage({
                   <p className={styles.impact}>{item.impact}</p>
                 )}
               </div>
+              {/* Role, scope, and team sit beside the headline: a hiring manager's first question. */}
+              <dl className={styles.facts}>
+                <div>
+                  <dt>{cases.roleLabel}</dt>
+                  <dd>{item.role}</dd>
+                </div>
+                <div>
+                  <dt>{cases.scopeLabel}</dt>
+                  <dd>
+                    <KeepTogether text={item.scope} />
+                  </dd>
+                </div>
+                <div>
+                  <dt>{cases.collaborationLabel}</dt>
+                  <dd>{item.collaboration}</dd>
+                </div>
+              </dl>
             </div>
           </header>
 
@@ -97,23 +112,6 @@ export function CasePage({
                 sizes="(max-width: 767px) 92vw, (max-width: 1200px) 90vw, 74rem"
               />
             </div>
-
-            <dl className={`${styles.facts} scroll-rise`}>
-              <div>
-                <dt>{cases.roleLabel}</dt>
-                <dd>{item.role}</dd>
-              </div>
-              <div>
-                <dt>{cases.scopeLabel}</dt>
-                <dd>
-                  <KeepTogether text={item.scope} />
-                </dd>
-              </div>
-              <div>
-                <dt>{cases.collaborationLabel}</dt>
-                <dd>{item.collaboration}</dd>
-              </div>
-            </dl>
 
             <CaseNavigator
               label={item.title}
@@ -172,10 +170,7 @@ export function CasePage({
             </a>
 
             <div className={styles.pageFooter}>
-              <a href={back} className={styles.textLink}>
-                <ArrowLeftIcon size={16} weight="bold" aria-hidden="true" />
-                {cases.backLabel}
-              </a>
+              <CaseBack href={back} label={cases.backLabel} locale={locale} className={styles.textLink} />
               <CaseShare href={casePath(locale, item.id)} labels={cases} />
             </div>
           </div>

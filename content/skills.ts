@@ -45,6 +45,8 @@ export interface SkillsContent {
   expandLibraryLabel: string;
   collapseLibraryLabel: string;
   evidenceLabel: string;
+  /** Summary of each core-skill card's collapsed explanation and related roles. */
+  moreLabel: string;
   radar: SkillsRadarContent;
   featured: FeaturedSkill[];
   groups: SkillGroup[];
@@ -61,6 +63,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
     expandLibraryLabel: "看完整能力清單",
     collapseLibraryLabel: "收合能力清單",
     evidenceLabel: "相關經歷",
+    moreLabel: "看說明與相關經歷",
     radar: {
       label: "能力圖",
       caption: "每一段經歷，都讓這張圖再大一圈。",
@@ -165,6 +168,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
     expandLibraryLabel: "See full skills list",
     collapseLibraryLabel: "Hide skills list",
     evidenceLabel: "Related experience",
+    moreLabel: "How and where",
     radar: {
       label: "Capability map",
       caption: "Every chapter made the shape bigger.",

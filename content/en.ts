@@ -13,11 +13,11 @@ export const en = {
   nav: {
     brand: "Kevin Hsu",
     links: [
+      { label: "Work cases", href: "#work" },
       { label: "Experience", href: "#experience" },
-      { label: "Results", href: "#work" },
-      { label: "Résumé", href: "/en/resume/" },
+      { label: "AI work habits", href: "#linkedin-posts" },
+      { label: "Résumé", href: "/en/resume/", depth: true },
       { label: "Portfolio", href: "/en/portfolio/", depth: true },
-      { label: "AI workflow", href: "#linkedin-posts", depth: true },
     ],
     contact: { label: "Contact me", href: "#contact" },
     menuLabel: "Menu",
@@ -93,9 +93,8 @@ export const en = {
       ],
       result: "Ecofirst: delivery efficiency +50%, site-ops efficiency +20%",
     },
-    primaryCta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
-    secondaryCta: { label: "See portfolio", href: "/en/portfolio/" },
-    resumeCta: { label: "One-page résumé", href: "/en/resume/" },
+    primaryCta: { label: "One-page résumé", href: "/en/resume/" },
+    secondaryCta: { label: "See work cases", href: "#work" },
   },
 
   metrics: {

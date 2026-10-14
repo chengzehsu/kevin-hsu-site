@@ -139,17 +139,24 @@ export function SkillsRadar({ content }: { content: SkillsContent }) {
                     {skill.name}
                   </p>
                   <h4 className={styles.statement}>{skill.statement}</h4>
-                  <p className={styles.summary}>{skill.summary}</p>
                   <p className={styles.proof}>{skill.proof}</p>
-                  <p className={styles.references}>
-                    <span>{content.evidenceLabel}</span>
-                    {skill.references.map((reference) => (
-                      <a key={reference.href} href={reference.href}>
-                        {reference.label}
-                        <ArrowUpRightIcon size={14} aria-hidden="true" />
-                      </a>
-                    ))}
-                  </p>
+                  {/* Statement and proof are the scan; the explanation is on demand so the section stays short. */}
+                  <details className={styles.more}>
+                    <summary>
+                      <PlusIcon className={styles.libraryIcon} size={14} weight="bold" aria-hidden="true" />
+                      {content.moreLabel}
+                    </summary>
+                    <p className={styles.summary}>{skill.summary}</p>
+                    <p className={styles.references}>
+                      <span>{content.evidenceLabel}</span>
+                      {skill.references.map((reference) => (
+                        <a key={reference.href} href={reference.href}>
+                          {reference.label}
+                          <ArrowUpRightIcon size={14} aria-hidden="true" />
+                        </a>
+                      ))}
+                    </p>
+                  </details>
                 </li>
               ))}
             </ol>

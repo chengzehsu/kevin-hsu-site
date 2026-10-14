@@ -10,8 +10,8 @@ const CONTACT_BUTTON =
   "nav-contact inline-flex min-h-11 items-center whitespace-nowrap rounded-ui bg-accent px-3 text-sm sm:px-4 font-medium text-accent-fg transition-transform hover:bg-accent/90 active:scale-[0.98]";
 
 /**
- * Ordered by what a recruiter checks first (experience, results, résumé), then the hiring manager's depth
- * (portfolio, AI workflow), then the one action that matters: contact. Phones keep the résumé and the
+ * Home sections in page order, then the separate pages (résumé, portfolio) after a divider, then the one
+ * action that matters: contact. Phones keep the résumé and the
  * contact button in the bar; everything else, theme and language included, sits in the menu.
  */
 export function Nav({

@@ -3,6 +3,8 @@
 //   pnpm utm threads                         → https://chengzeresume.zeabur.app/?s=threads
 //   pnpm utm acme --note "Acme 招募 PM 職缺"  → https://chengzeresume.zeabur.app/resume/?s=acme
 //   pnpm utm acme --en --page portfolio       → English portfolio page
+//   pnpm utm acme --page ecofirst --m manager → a case page for the hiring manager (same code keeps the
+//                                               tailored version; the medium tells the two readers apart)
 //   pnpm utm threads-launch --c launch-post   → adds a campaign
 //   pnpm utm --list                           → every link made so far
 // The site rewrites ?s= into utm_source / utm_medium before Umami loads (components/Analytics.tsx), so the
@@ -18,7 +20,14 @@ const MEDIUM = Object.fromEntries(
   ["social", "job-board", "message"].flatMap((medium) => channels[medium].map((code) => [code, medium])),
 );
 const PATTERN = /^[a-z0-9][a-z0-9_-]{0,39}$/;
-const PAGES = { home: "/", resume: "/resume/", portfolio: "/portfolio/" };
+// Recruiters get the résumé (the default for people); hiring managers get the case closest to the role.
+const CASES = ["ecofirst", "grocery", "health-app", "cdp", "namecard", "podcast-stock"];
+const PAGES = {
+  home: "/",
+  resume: "/resume/",
+  portfolio: "/portfolio/",
+  ...Object.fromEntries(CASES.map((id) => [id, `/cases/${id}/`])),
+};
 const VALUED = ["--page", "--note", "--c", "--m"];
 
 const args = process.argv.slice(2);
@@ -41,7 +50,8 @@ if (args.includes("--list")) {
 const raw = args.find((arg, i) => !arg.startsWith("--") && !VALUED.includes(args[i - 1]));
 const code = (raw ?? "").trim().toLowerCase().replace(/\s+/g, "-");
 if (!PATTERN.test(code)) {
-  console.error("用法：pnpm utm <代碼> [--page home|resume|portfolio] [--en] [--note 備註] [--c 活動名] [--m medium]");
+  console.error(`用法：pnpm utm <代碼> [--page home|resume|portfolio|${CASES.join("|")}] [--en] [--note 備註] [--c 活動名] [--m medium]`);
+  console.error("給人資用預設的履歷頁；給主管用 --page 加案例代號並加 --m manager，同一個代碼保留客製版本，Umami 也分得開兩人。");
   console.error("代碼只能用英文小寫、數字、- 或 _，最長 40 字，例如 threads、acme、acme-pm。");
   process.exit(1);
 }
@@ -62,8 +72,9 @@ if (option("c")) url.searchParams.set("c", option("c"));
 const link = url.toString();
 const note = (option("note") ?? "").replace(/[\t\n]/g, " ");
 
-// One code per recipient: reusing it would merge two people's visits into one row in Umami.
-const previous = readLog().filter((row) => row[1] === code);
+// One code per recipient: reusing it would merge two people's visits into one row in Umami. A recruiter
+// (direct) and a hiring manager (manager) at the same company share the code on purpose.
+const previous = readLog().filter((row) => row[1] === code && row[2] === medium);
 if (previous.length && medium === "direct") {
   console.warn(`⚠️ 代碼「${code}」用過了（${previous.map((row) => `${row[0]} ${row[4] || "無備註"}`).join("；")}）。`);
   console.warn(`   如果是給不同的人，請換一個，例如 ${code}-2，否則兩人的瀏覽會算在一起。`);

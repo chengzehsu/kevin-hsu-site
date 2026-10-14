@@ -16,8 +16,8 @@ export interface MetaContent {
 export interface NavContent {
   brand: string;
   /**
-   * Ordered by what a recruiter checks first: experience, results, résumé. Links marked `depth` (portfolio,
-   * AI workflow) are for the hiring manager and sit after a divider. `#…` links are home-page sections.
+   * Home-page sections (`#…`) first, in the order they appear on the page and named as their headings; links
+   * marked `depth` are separate pages (résumé, portfolio) and sit after a divider.
    */
   links: Array<Cta & { depth?: boolean }>;
   /** The one action the site exists for; a button on every page and width. */
@@ -75,10 +75,10 @@ export interface HeroContent {
     steps: [string, string, string, string, string];
     result: string;
   };
+  /** The one-page résumé: what a recruiter opens first. Contact stays in the nav, not the hero. */
   primaryCta: Cta;
+  /** Jumps to the work cases on the same page. */
   secondaryCta: Cta;
-  /** Link to the one-page résumé for HR readers. */
-  resumeCta: Cta;
 }
 
 /**
@@ -298,7 +298,7 @@ export interface ContactContent {
   kicker?: string;
   title: string;
   text: string;
-  /** Same label as hero.primaryCta (single contact intent per locale); null until the email is supplied. */
+  /** Same label as nav.contact (single contact intent per locale); null until the email is supplied. */
   cta: Cta | null;
   /** Optional external links (LinkedIn, Heptabase). Omit entries whose URL is not yet supplied. */
   links: Cta[];

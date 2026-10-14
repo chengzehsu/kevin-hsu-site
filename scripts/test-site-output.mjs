@@ -161,7 +161,7 @@ for (const [locale, file, heading] of [
     }
   });
 
-  test(`${locale}: the skills index is evidence-led, server rendered, and precedes work history`, async () => {
+  test(`${locale}: the skills index is evidence-led, server rendered, and follows work history`, async () => {
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     const skills = html.match(/<section id="skills"[\s\S]*?<\/section>/)?.[0];
     assert.ok(skills, "Skills must remain visible before hydration");
@@ -171,7 +171,12 @@ for (const [locale, file, heading] of [
     assert.ok(skills.includes(locale === "zh" ? "以下整理我在專案中實際用過的能力" : "A record of the work I have owned in projects"));
     // The radar mirrors the launch film: shape only, never scores.
     assert.ok(!/<text[^>]*>\s*\d/.test(skills), "The skills radar must not print numeric scores");
-    assert.ok(html.indexOf('<section id="skills"') < html.indexOf('<section id="experience"'));
+    // Recruiter reading order: cases → experience → skills → AI habits, and the nav lists them in that order.
+    const order = ["work", "experience", "skills", "linkedin-posts"].map((id) => html.indexOf(`<section id="${id}"`));
+    assert.ok(order.every((at, i) => at > 0 && (i === 0 || at > order[i - 1])), `Home section order: ${order}`);
+    const nav = html.match(/<nav[^>]*>[\s\S]*?<\/nav>/)?.[0] ?? "";
+    const anchors = [...nav.matchAll(/href="#([a-z-]+)"/g)].map((m) => m[1]);
+    assert.deepEqual(anchors, ["work", "experience", "linkedin-posts"]);
   });
 
   test(`${locale}: theme choice is available before and after hydration`, async () => {

@@ -174,7 +174,7 @@
 
 .featured {
   display: grid;
-  gap: clamp(2.5rem, 5vw, 3.75rem);
+  gap: clamp(1.75rem, 3.5vw, 2.5rem);
   margin: 1.5rem 0 0;
   padding: 0;
   list-style: none;
@@ -242,6 +242,29 @@
   background: var(--accent);
   color: var(--accent-fg);
 }
+
+.more {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.more > summary {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 550;
+  cursor: pointer;
+  list-style: none;
+  transition: color 160ms ease;
+}
+
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary:hover { color: var(--fg); }
+.more > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-ui); }
+.more[open] > summary .libraryIcon { transform: rotate(45deg); }
 
 .references {
   display: flex;
