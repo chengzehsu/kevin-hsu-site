@@ -230,7 +230,6 @@ export interface CasesContent {
   copyFallback: string;
   linkLabel: string;
   backLabel: string;
-  filmLabel: string;
   readLabel: string;
   roleLabel: string;
   scopeLabel: string;

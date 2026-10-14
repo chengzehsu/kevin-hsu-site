@@ -5,7 +5,6 @@ import { caseEvidence } from "@/content/caseEvidence";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Highlight } from "./Highlight";
 import { CaseEvidence } from "./CaseEvidence";
-import { CaseFilm } from "./CaseFilm";
 import styles from "./CasePage.module.css";
 
 export const CASE_CHAPTERS: Record<
@@ -139,11 +138,6 @@ export function CaseDetails({
               ))}
             </ol>
           </div>
-          {item.id === "grocery" ? (
-            <div className="scroll-rise">
-              <CaseFilm locale={locale} label={content.cases.filmLabel} />
-            </div>
-          ) : null}
           {stills.length ? (
             <ul className={styles.stills} data-count={stills.length}>
               {stills.map((still) => (

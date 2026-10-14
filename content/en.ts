@@ -301,7 +301,6 @@ export const en = {
     copyFallback: "Select and copy the link below.",
     linkLabel: "Open case link",
     backLabel: "Back to portfolio",
-    filmLabel: "Watch the workflow",
     readLabel: "View case details",
     roleLabel: "Role",
     scopeLabel: "Scope",
