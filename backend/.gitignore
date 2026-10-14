@@ -1,0 +1,6 @@
+pb_data/
+# Local binary and the files that ship in its zip
+pocketbase
+*.zip
+CHANGELOG.md
+LICENSE.md
