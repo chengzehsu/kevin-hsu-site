@@ -15,8 +15,15 @@ export interface MetaContent {
 
 export interface NavContent {
   brand: string;
-  /** Anchor links, e.g. { label: "案例", href: "#cases" }. */
-  links: Cta[];
+  /**
+   * Ordered by what a recruiter checks first: experience, results, résumé. Links marked `depth` (portfolio,
+   * AI workflow) are for the hiring manager and sit after a divider. `#…` links are home-page sections.
+   */
+  links: Array<Cta & { depth?: boolean }>;
+  /** The one action the site exists for; a button on every page and width. */
+  contact: Cta;
+  /** Mobile menu button: accessible name and visible text. */
+  menuLabel: string;
   /** Text shown on the language switch, e.g. "EN" on the zh page, "中" on the en page. */
   switchLabel: string;
   /** Accessible name of the switch, e.g. "Switch to English". */

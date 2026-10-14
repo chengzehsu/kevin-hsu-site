@@ -28,7 +28,7 @@
   --accent: #2b5896;
   --accent-fg: #fcfcfd;
   --glow: rgb(118 155 201 / 0.12);
-  --font-body: "Geist Portfolio", "Noto Sans TC Portfolio", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-body: "Geist Portfolio", "Noto Sans TC Portfolio", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
 
 /* Expose tokens as Tailwind utilities: bg-bg, text-fg, text-muted, border-line, bg-surface,
@@ -721,3 +721,38 @@ html[data-theme="dark"] { color-scheme: dark; }
   html:not([data-theme]) { color-scheme: dark; }
 }
 @media print { :root { --bg: #fff; --fg: #202a36; --muted: #526173; --line: #d7dfe8; --surface: #fff; --surface-strong: #f0f3f8; --accent: #2b5896; --accent-fg: #fff; } }
+
+/* Nav: recruiter links, then a hairline before the hiring manager's depth links (Nav.tsx). */
+.site-nav .nav-depth-start { padding-left: 1rem; border-left: 1px solid var(--line); }
+@media (min-width: 1024px) { .site-nav .nav-depth-start { padding-left: 1.5rem; } }
+.site-nav a.nav-contact { background-image: none; }
+
+/* Phone menu: a <details> whose panel drops below the bar, full width. */
+.mobile-menu > summary::-webkit-details-marker { display: none; }
+.mobile-menu[open] > summary { background: var(--surface); color: var(--fg); }
+.mobile-menu-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem max(16px, env(safe-area-inset-right, 0px)) 1.25rem max(16px, env(safe-area-inset-left, 0px));
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  box-shadow: 0 18px 32px -28px color-mix(in oklch, var(--fg) 40%, transparent);
+}
+.mobile-menu-links { display: grid; margin: 0; padding: 0; list-style: none; }
+.mobile-menu-links a {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: var(--fg);
+  font-size: 1rem;
+  background-image: none !important;
+}
+.mobile-menu-links a[aria-current="page"] { color: var(--accent); }
+.mobile-menu-links .nav-depth-start { margin-top: 0.5rem; padding-top: 0.5rem; padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+.mobile-menu-switches { display: flex; gap: 0.75rem; }
+/* Narrowest phones (375 px and below): the flow mark gives way so the English bar keeps the menu on screen. */
+@media (max-width: 380px) { .site-nav .brand-flow { display: none; } }

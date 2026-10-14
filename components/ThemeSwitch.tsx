@@ -25,7 +25,15 @@ export function ThemeSwitch({ locale }: { locale: Locale }) {
     };
     sync();
     media.addEventListener("change", sync);
-    return () => media.removeEventListener("change", sync);
+    // The nav renders one switch on desktop and one in the mobile menu; keep both labels in step.
+    const observer = new MutationObserver(() => {
+      setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => {
+      media.removeEventListener("change", sync);
+      observer.disconnect();
+    };
   }, []);
 
   const next: Theme = theme === "dark" ? "light" : "dark";
@@ -34,9 +42,10 @@ export function ThemeSwitch({ locale }: { locale: Locale }) {
     : `Switch to ${next} mode`;
 
   function toggle() {
-    applyTheme(next);
-    setTheme(next);
-    try { window.localStorage.setItem(STORAGE_KEY, next); } catch {}
+    const target: Theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(target);
+    setTheme(target);
+    try { window.localStorage.setItem(STORAGE_KEY, target); } catch {}
   }
 
   return (
