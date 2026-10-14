@@ -621,7 +621,8 @@ export const en = {
         summary:
           "Own the roadmap, requirements, and specs for a 0-to-1 AI energy-saving HVAC product, leading 4 engineers across 50 deployed sites and about NT$100M in projects, and turn practices that lived in individual experience into tools and processes.",
         bullets: [
-          "Introduced AI tools and development workflows into product delivery, raising delivery efficiency by 50%",
+          "Consolidated account and site information scattered across LINE, email, and personal laptops into one sales-to-RD operating system in Notion (17 databases, 42 relations), with delivery dates starting at requirements sign-off",
+          "Brought AI into requirements, specs, mock-data checks, and dev handoff, raising delivery efficiency by 50% measured as delivery cycle before vs. after",
           "Coordinated software, project, and sales teams around one product-development and deployment flow",
           "Streamlined internal operations with standard operating procedures, raising site operations efficiency by 20%",
         ],
