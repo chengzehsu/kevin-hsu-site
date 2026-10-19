@@ -21,7 +21,7 @@ OUTPUT.mkdir(parents=True, exist_ok=True)
 
 copy = "".join(
     path.read_text(encoding="utf-8")
-    for directory in ("app", "components", "content")
+    for directory in ("app", "components", "content", "lib")
     for path in (ROOT / directory).rglob("*")
     if path.suffix in (".tsx", ".ts")
 )

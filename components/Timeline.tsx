@@ -4,9 +4,10 @@ import { Highlight } from "./Highlight";
 import { Disclosure } from "./Disclosure";
 import { ExpandAll } from "./ExpandAll";
 import styles from "./Timeline.module.css";
+import { TBullets } from "./Tailored";
 
 /** A vertical rail: every role folds to one line of the same weight; the current one only carries a small "now" tag. */
-export function Timeline({ content }: SectionProps) {
+export function Timeline({ content, locale }: SectionProps) {
   const {
     title,
     intro,
@@ -87,12 +88,8 @@ export function Timeline({ content }: SectionProps) {
                           <Highlight>{item.summary}</Highlight>
                         </p>
                       )}
-                      <ul className={styles.evidence}>
-                        {item.bullets.map((bullet) => (
-                          <li key={bullet}>
-                            <Highlight>{bullet}</Highlight>
-                          </li>
-                        ))}
+                      <ul className={styles.evidence} data-v="">
+                        <TBullets id={item.id} bullets={item.bullets} locale={locale} highlight />
                       </ul>
                       <p className={styles.skillSignal}>
                         <span>{skillLabel}</span>

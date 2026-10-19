@@ -7,7 +7,9 @@ import {
   UsersThreeIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import type { SkillsContent, SkillsRadarContent } from "@/content/skills";
+import type { Locale } from "@/lib/locale";
 import styles from "./SkillsRadar.module.css";
+import { TCard, TOrder } from "./Tailored";
 
 const GROUP_ICONS = {
   product: <StrategyIcon size={18} weight="regular" aria-hidden="true" />,
@@ -103,7 +105,7 @@ function Radar({ radar }: { radar: SkillsRadarContent }) {
   );
 }
 
-export function SkillsRadar({ content }: { content: SkillsContent }) {
+export function SkillsRadar({ content, locale }: { content: SkillsContent; locale: Locale }) {
   return (
     <section
       id="skills"
@@ -125,20 +127,22 @@ export function SkillsRadar({ content }: { content: SkillsContent }) {
 
           <div>
             <h3 className={styles.featuredTitle}>{content.featuredTitle}</h3>
-            <ol className={styles.featured}>
-              {content.featured.map((skill, index) => (
+            <ol className={styles.featured} data-v="">
+              <TOrder list="skills" ids={content.featured.map((skill) => skill.id)} locale={locale}>
+              {content.featured.map((skill) => (
                 <li
                   key={skill.id}
                   data-featured-skill={skill.id}
                   className="scroll-rise"
                 >
                   <p className={styles.skillLabel}>
-                    <span aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                    {/* Numbered by a CSS counter, so a tailored order keeps 01, 02, … in display order. */}
+                    <span aria-hidden="true" />
                     {skill.name}
                   </p>
-                  <h4 className={styles.statement}>{skill.statement}</h4>
+                  <h4 className={styles.statement}>
+                    <TCard id={skill.id} field="statement" locale={locale}>{skill.statement}</TCard>
+                  </h4>
                   <p className={styles.proof}>{skill.proof}</p>
                   {/* Statement and proof are the scan; the explanation is on demand so the section stays short. */}
                   <details className={styles.more}>
@@ -146,7 +150,9 @@ export function SkillsRadar({ content }: { content: SkillsContent }) {
                       <PlusIcon className={styles.libraryIcon} size={14} weight="bold" aria-hidden="true" />
                       {content.moreLabel}
                     </summary>
-                    <p className={styles.summary}>{skill.summary}</p>
+                    <p className={styles.summary}>
+                      <TCard id={skill.id} field="summary" locale={locale}>{skill.summary}</TCard>
+                    </p>
                     <p className={styles.references}>
                       <span>{content.evidenceLabel}</span>
                       {skill.references.map((reference) => (
@@ -159,6 +165,7 @@ export function SkillsRadar({ content }: { content: SkillsContent }) {
                   </details>
                 </li>
               ))}
+              </TOrder>
             </ol>
           </div>
         </div>

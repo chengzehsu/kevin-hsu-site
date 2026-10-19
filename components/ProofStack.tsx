@@ -8,6 +8,7 @@ import { CASE_POSTERS, CASE_POSTER_SIZE } from "@/content/caseArtifacts";
 import { casePath, portfolioPath } from "@/lib/locale";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./ProofStack.module.css";
+import { TOrder } from "./Tailored";
 
 /**
  * Home case index: the four work cases as posters, one artifact and one outcome each. The side projects
@@ -38,7 +39,8 @@ export function ProofStack({ content, locale }: SectionProps) {
             <ArrowRightIcon size={18} aria-hidden="true" />
           </a>
         </div>
-        <ol className={styles.row}>
+        <ol className={styles.row} data-v="">
+          <TOrder list="cases" ids={items.map((item) => item.id)} locale={locale}>
           {items.map((item) => {
             const poster = CASE_POSTERS[item.id];
             // The first clause is the headline outcome; the rest stays on the case page.
@@ -78,6 +80,7 @@ export function ProofStack({ content, locale }: SectionProps) {
               </li>
             );
           })}
+          </TOrder>
         </ol>
       </div>
     </section>

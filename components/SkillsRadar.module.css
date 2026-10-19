@@ -193,6 +193,18 @@
   font-weight: 600;
 }
 
+.featured {
+  counter-reset: featured-skill;
+}
+
+.featured > li {
+  counter-increment: featured-skill;
+}
+
+.skillLabel > span::before {
+  content: counter(featured-skill, decimal-leading-zero);
+}
+
 .skillLabel > span {
   color: var(--accent);
   font-variant-numeric: tabular-nums;

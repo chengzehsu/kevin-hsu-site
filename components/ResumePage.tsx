@@ -14,6 +14,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { PrintButton } from "./PrintButton";
 import styles from "./ResumePage.module.css";
+import { TBullets, TOrder, TText } from "./Tailored";
 
 /**
  * A plain, one-column résumé an HR reader can scan top to bottom; every result links to the case page
@@ -59,7 +60,9 @@ export function ResumePage({ locale }: { locale: Locale }) {
             <div>
               <p className={styles.kicker}>{resume.title}</p>
               <h1 id="resume-name">{resume.name}</h1>
-              <p className={styles.headline}>{resume.headline}</p>
+              <p className={styles.headline} data-v="">
+                <TText k="resume.headline" locale={locale}>{resume.headline}</TText>
+              </p>
               <ul className={styles.contacts}>
                 {email ? (
                   <li>
@@ -116,8 +119,12 @@ export function ResumePage({ locale }: { locale: Locale }) {
           <section className={styles.section} aria-labelledby="resume-summary">
             <h2 id="resume-summary">{resume.sections.summary}</h2>
             <div>
-              <p className={styles.summary}>{resume.summary}</p>
-              <p className={styles.keywords}>{resume.keywords}</p>
+              <p className={styles.summary} data-v="">
+                <TText k="resume.summary" locale={locale}>{resume.summary}</TText>
+              </p>
+              <p className={styles.keywords} data-v="">
+                <TText k="resume.keywords" locale={locale}>{resume.keywords}</TText>
+              </p>
             </div>
           </section>
 
@@ -126,7 +133,8 @@ export function ResumePage({ locale }: { locale: Locale }) {
             aria-labelledby="resume-highlights"
           >
             <h2 id="resume-highlights">{resume.sections.highlights}</h2>
-            <ul className={styles.highlights}>
+            <ul className={styles.highlights} data-v="">
+              <TOrder list="cases" ids={work.map((item) => item.id)} locale={locale}>
               {work.map((item) => (
                 <li key={item.id}>
                   <strong className={styles.figure}>
@@ -145,6 +153,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
                   {detailLink(item.id, false)}
                 </li>
               ))}
+              </TOrder>
             </ul>
           </section>
 
@@ -165,10 +174,8 @@ export function ResumePage({ locale }: { locale: Locale }) {
                       </h3>
                       <p className={styles.muted}>{role.summary ?? role.focus}</p>
                       {role.bullets.length > 0 ? (
-                        <ul className={styles.bullets}>
-                          {role.bullets.map((bullet) => (
-                            <li key={bullet}>{bullet}</li>
-                          ))}
+                        <ul className={styles.bullets} data-v="">
+                          <TBullets id={role.id} bullets={role.bullets} locale={locale} />
                         </ul>
                       ) : null}
                       {resume.roleCases[role.id] ? (

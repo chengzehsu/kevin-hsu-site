@@ -23,7 +23,7 @@ export function Site({ locale }: { locale: Locale }) {
         {/* A recruiter's reading order: outcomes, then where and how long, then skills; AI habits are depth. */}
         <ProofStack {...props} />
         <Timeline {...props} />
-        <SkillsRadar content={skillsContent[locale]} />
+        <SkillsRadar content={skillsContent[locale]} locale={locale} />
         <LinkedInPosts {...props} />
         <Awards {...props} />
         <Contact {...props} />
