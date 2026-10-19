@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SITE_ORIGIN } from "@/lib/locale";
 import { personJsonLd } from "@/lib/personJsonLd";
 import { Analytics } from "@/components/Analytics";
+import { TailoredBoot, TailoredStart } from "@/components/TailoredBoot";
 import "../globals.css";
 
 export const metadata: Metadata = { metadataBase: new URL(SITE_ORIGIN) };
@@ -32,8 +33,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <style dangerouslySetInnerHTML={{ __html: NOSCRIPT_CSS }} />
         </noscript>
         <Analytics />
+        <TailoredBoot />
       </head>
-      <body id="top">{children}</body>
+      <body id="top">
+        {children}
+        <TailoredStart />
+      </body>
     </html>
   );
 }

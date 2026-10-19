@@ -722,6 +722,10 @@ html[data-theme="dark"] { color-scheme: dark; }
 }
 @media print { :root { --bg: #fff; --fg: #202a36; --muted: #526173; --line: #d7dfe8; --surface: #fff; --surface-strong: #f0f3f8; --accent: #2b5896; --accent-fg: #fff; } }
 
+/* Tailored links (lib/variantStore.ts): while a visitor's variant loads, overridable fields keep their
+   space but stay invisible, so the copy never visibly swaps. The head script clears this within 1.2 s. */
+html[data-variant="pending"] [data-v] { visibility: hidden; }
+
 /* Nav: recruiter links, then a hairline before the hiring manager's depth links (Nav.tsx). */
 .site-nav .nav-depth-start { padding-left: 1rem; border-left: 1px solid var(--line); }
 @media (min-width: 1024px) { .site-nav .nav-depth-start { padding-left: 1.5rem; } }

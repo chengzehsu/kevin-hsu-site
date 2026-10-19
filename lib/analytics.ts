@@ -19,13 +19,8 @@ export const EVENTS = {
   filmFullscreen: "film-fullscreen",
 } as const;
 
-/**
- * Short share links: `/?s=threads` instead of a full UTM string. The code must look like a slug;
- * its first segment (before "-") picks the medium, so `threads-launch` and `threads` both read as social.
- * Optional `m=` overrides the medium and `c=` sets a campaign.
- */
-export const SHORT_PARAM = "s";
-export const SHORT_CODE_PATTERN = "^[a-z0-9][a-z0-9_-]{0,39}$";
+/** Optional `m=` overrides a short link's medium and `c=` sets a campaign (see lib/shortCode.ts). */
+export { SHORT_PARAM, SHORT_CODE_PATTERN } from "./shortCode";
 export const DEFAULT_MEDIUM = "direct";
 
 /** Channel code → utm_medium, flattened from share-channels.json. */

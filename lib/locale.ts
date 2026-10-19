@@ -13,14 +13,21 @@ const DEFAULT_ORIGIN = "https://chengzeresume.zeabur.app";
  */
 export const SITE_ORIGIN = normaliseOrigin(process.env.NEXT_PUBLIC_SITE_ORIGIN);
 
-function normaliseOrigin(raw: string | undefined): string {
+/**
+ * Origin of the PocketBase backend (backend/) that serves tailored-link overlays and the /admin/ data.
+ * Set NEXT_PUBLIC_BACKEND_ORIGIN at build time; empty turns tailored links and the admin off, and every
+ * visitor sees the main copy. Same normalising as SITE_ORIGIN.
+ */
+export const BACKEND_ORIGIN = normaliseOrigin(process.env.NEXT_PUBLIC_BACKEND_ORIGIN, "");
+
+function normaliseOrigin(raw: string | undefined, fallback = DEFAULT_ORIGIN): string {
   const value = (raw ?? "").trim().replace(/\/+$/, "");
-  if (!value) return DEFAULT_ORIGIN;
+  if (!value) return fallback;
   const withScheme = /^https?:\/\//i.test(value) ? value : `https://${value}`;
   try {
     return new URL(withScheme).origin;
   } catch {
-    return DEFAULT_ORIGIN;
+    return fallback;
   }
 }
 
