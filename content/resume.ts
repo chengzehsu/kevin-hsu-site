@@ -51,8 +51,9 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "許承澤 Kevin Hsu",
     headline: "Product Manager｜AI、資料產品與複雜營運系統",
     summary:
-      "5 年以上產品相關經驗，做過 AI 節能、電商、健康 App、跨通路資料平台與企業培訓。習慣先訪談使用者、畫出現有流程，找出重複作業與資料斷點；再排定範圍與優先順序，帶跨部門團隊導入，用改善前後的數字驗證成果。帶領過 10 人工程團隊與 2 位初階 PM，管理 NT$1,200 萬以上的專案組合。",
-    keywords: "熟悉流程盤點、內部營運系統與資料整合（Notion、Asana、CDP）、AI 與自動化工具導入、SaaS、Chatbot、儀表板、App 與電商產品場景。",
+      "5 年以上產品相關經驗，做過 AI 節能、電商、健康 App、跨通路資料平台與企業培訓。進新產業先讀現場資料、訪談第一線，畫出跨部門的現有流程，找出等待、重複作業與資料斷點；再排定範圍與優先順序，帶跨部門團隊導入，用改善前後的數字驗證成果。帶領過 10 人工程團隊與 2 位初階 PM，管理 NT$1,200 萬以上的專案組合。",
+    keywords:
+      "熟悉流程盤點、內部營運系統與資料整合（Notion、Asana、CDP）、AI 與自動化工具導入、SaaS、Chatbot、儀表板、App 與電商產品場景。",
     facts: [
       ["5+ 年", "產品相關經驗"],
       ["8 段", "跨產業經歷"],
@@ -87,7 +88,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "Kevin Hsu (許承澤)",
     headline: "Product Manager · AI, data, and operational products",
     summary:
-      "5+ years of product-related experience across AI energy products, e-commerce, a health app, a cross-channel data platform, and corporate learning. I interview users and map the current flow to find repeated work and data breaks, then set scope and priorities, drive cross-functional rollout, and prove the result against a before-and-after baseline. Led a 10-person engineering team and two junior PMs, and managed a project portfolio of NT$12M+.",
+      "5+ years of product-related experience across AI energy products, e-commerce, a health app, a cross-channel data platform, and corporate learning. In a new industry I start with field data and frontline interviews, then map the cross-team flow to find waiting, repeated work, and data breaks, then set scope and priorities, drive cross-functional rollout, and prove the result against a before-and-after baseline. Led a 10-person engineering team and two junior PMs, and managed a project portfolio of NT$12M+.",
     keywords:
       "Hands-on with process mapping, internal operations systems and data integration (Notion, Asana, CDP), AI and automation adoption, SaaS, chatbots, dashboards, apps, and e-commerce products.",
     facts: [
