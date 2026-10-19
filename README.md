@@ -25,9 +25,14 @@ node --experimental-strip-types --test scripts/test-flow-simulation.mjs
 
 ## Deploy
 
-Zeabur hosts `out/` as a static site via `zbpack.json` (`build_command` + `output_dir`).
+Zeabur hosts `out/` as a static site via `zbpack.json` (`build_command` + `output_dir`). Cloudflare Pages runs the same build in parallel as a trial (Git integration: build command `pnpm build`, output directory `out`, variable `NODE_VERSION=24`). `public/_headers` sets the Open Graph image type and caches hashed assets there; other hosts ignore it.
 
-`NEXT_PUBLIC_SITE_ORIGIN` can override the default `https://chengzeresume.zeabur.app` used for canonical and hreflang URLs.
+Build variables:
+
+- `NEXT_PUBLIC_SITE_ORIGIN`: the host for canonical and hreflang URLs, Umami counting, and `pnpm utm` links (default `https://chengzeresume.zeabur.app`). During the trial, set Cloudflare's to the Zeabur origin too: the mirror then points every canonical and tracking link at Zeabur and never loads Umami, so test visits stay out of the counts.
+- `NEXT_PUBLIC_BACKEND_ORIGIN`: the PocketBase service; empty turns tailored links and `/admin/` off. A host only reaches it once its origin is listed in the backend's `PB_ORIGINS`.
+
+A Cloudflare build of `main` fails when either variable is missing. To cut over, point Cloudflare's `NEXT_PUBLIC_SITE_ORIGIN` at its own domain and keep Zeabur serving links already sent on `chengzeresume.zeabur.app` until those applications close.
 
 ## Media and accessibility
 
