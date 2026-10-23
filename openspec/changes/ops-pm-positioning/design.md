@@ -119,6 +119,87 @@ Raw captures (1568 px wide, anonymised in the browser by replacing every site na
 
 The Ecofirst role and case period switch from 「現在」 to 「2025/3 - 2026/10」 in a separate commit deployed on or after 2026-10-30.
 
+### 「用 AI 解決問題」 replaces the AI habits section
+
+Added 2026-10-23 after the user found the five-card version "太少了". Evidence comes from three read-only sweeps the same day: AI-built products, AI-improved processes, and AI life automation. Facts and their sources are below, and each claim keeps the qualifier given here.
+
+**Placement.** Home order becomes hero → 工作案例 (`#work`) → 用 AI 解決問題 (`#linkedin-posts`, id kept so sent links still work) → 經歷 → 能力 → 獎項 → 聯絡. Nav: 工作案例, 用 AI 解決問題, 經歷 (en: Work, AI in practice, Experience). The three traits 好奇／勇於嘗試／追求效率 stay only in the hero rows; the film is unchanged, so its 「三個習慣」 chapter label is not a contradiction.
+
+**Shape.** Section title 「用 AI 解決問題」 / "AI in practice"; intro 「AI 先提案、人來拍板，準了才放手。」. Three chapters, each with an anchor (`ai-build`, `ai-process`, `ai-life`), a title, a one-line intro, one lead item, and two to four compact items. Every item has the same fields: `stuck` (who was stuck and where), `ai` (what AI did), `human` (what a person decided or guarded), `result` (one figure or outcome), `source` (where the figure comes from, shown small), an optional `caseId` link, an optional `href`, and an optional image (lead items only). The shared shape lets a reader learn it once.
+
+```ts
+interface AiPracticeItem {
+  title: string;
+  stuck: string;
+  ai: string;
+  human: string;
+  stat?: { value: string; label: string };
+  result: string;
+  source: string;
+  caseId?: string;
+  href?: string;
+  image?: { src: string; alt: string; width: number; height: number };
+}
+interface AiPracticeChapter {
+  id: "ai-build" | "ai-process" | "ai-life";
+  title: string;
+  intro: string;
+  lead: AiPracticeItem;
+  items: AiPracticeItem[]; // 2–4
+}
+interface AiPracticeContent {
+  title: string;
+  intro: string;
+  labels: {
+    stuck: string;
+    ai: string;
+    human: string;
+    source: string;
+    caseLink: string;
+    read: string;
+  };
+  chapters: [AiPracticeChapter, AiPracticeChapter, AiPracticeChapter];
+}
+```
+
+`linkedinPosts` is replaced by this shape (same content key renamed to `aiPractice`); LinkedIn posts survive as an item's `href`.
+
+**Chapter 1｜我如何用 AI 打造產品**
+
+- Lead: 內部後台. Problem: a client asks how their AC is doing; the PM asks an engineer, who digs through Excel. AI: Claude Code built it, and another model reviews every change. Person: Kevin defines the data and the screens, and a person presses deploy. Result: 34 sites on one screen (2026/10), and 244 missing-data alerts merged into 12. Image: `internal-backend-overview.webp`. → internal-backend
+- 控制策略模擬工具 (user confirmed it was built with AI): 100,000+ control combinations used to be tried one by one; strategy tuning went from 1 週 to 2 小時. → ecofirst
+- AI 名片管理助手: Gemini reads the card, and judgement fields stay with sales; photo-to-record time −99% (LinkedIn-sourced), 80 cards entered within 4 days. → namecard
+- 後台可點原型: a clickable prototype of 19 screens built in 2 days, used as the spec handed to RD. Do not claim RD built from it.
+- 股神打架 (side project): AI-extracted conviction scores bunched at 0.6–0.9 across 90 real claims, so the judgement unit was redesigned; long/short side by side, every claim quoted. 364 commits, 42 merged PRs. → podcast-stock
+- Excluded on purpose: the Kyushu dashboard (user, 2026-10-23), the code-review scan of company repos (vulnerability details are the employer's), unshipped prototypes (KM bot, meeting-notes app).
+
+**Chapter 2｜我如何用 AI 改善流程**
+
+- Lead: 點位命名系統 (user-picked). Problem: every vendor sends sensor lists in a different format, so PMs map them by hand, and the 10–20% the machine misses sits unresolved. AI: one shared naming program maps names and checks values only while equipment runs. Person: when the machine is unsure it asks one question at a time; when nobody knows, it writes a question to forward to the integrator instead of guessing; physical facts (shared or separate piping, unit counts) are always asked. Gate: a rule change needs a test question first, and a release needs zero high-confidence wrong answers. Results: a walk-through of 72 points from real sites where 93% were right first time with 0 confident-but-wrong; inventory of 31 sites, 4,491 rows (2026-09-01). Say 「十套回歸測試」 or no count. No before/after hours (none recorded). No site names.
+- Sales FAQ 知識流程: questions scattered across 1,500+ meeting notes; AI drafts weekly with sources and flags pricing or warranty items; two human gates (sales lead picks, an owner writes the official answer); Claude cites only authorized entries. Result: 185 entries, 51 authorized (2026-09-30), and the bottleneck is human review, not AI. Never name the coworkers.
+- AI 起草 PM 文件: requirements, specs, mock-data checks, and dev handoff drafted by AI and finalized by Kevin; delivery efficiency +50% (delivery cycle before vs after). Daily meeting follow-ups: 110 since 2026-04 (to 2026-10-21).
+- 給執行長的產品化週報: AI scans commits and Notion and proposes two or three decisions with options; the CEO decides; decisions tracked to D-059; when data was unreachable the report said so (a 63-day commit blind spot) instead of filling in numbers. 26 issues (2026-04 to 2026-10).
+- 把踩過的坑變成檢查: each incident becomes a test that checks AI does not repeat it; 21 cases, run by hand, not in CI.
+
+**Chapter 3｜我如何用 AI 自動化我的生活**
+
+- Lead: 生活中控台 (life-hub; repo private). Problem: bills and statements arrive as PDFs in email, and due dates and renewals are easy to miss. AI: built with Claude Code from specs; every morning it fetches bills, sorts spending, and flags reminders; everyday logging in plain words. Person: Kevin sets the rules (e.g. never log in to online banking) and fixes categorization rules. Result: 117 commits since 2026/3, running daily. No screenshot, no repo link, no amounts, accounts, institution names, transaction counts, or category shares; never the README's 「虛擬家族辦公室」.
+- Podcast 知識庫 (Zebrain): multi-hour interviews distilled by Claude into 3,500+ notes on people, companies, and ideas. Never mention the imported work pages.
+- 財經頻道追蹤 (user: include): every morning new videos from followed finance channels are transcribed, summarized, and pushed to Discord, with a weekly digest on Sundays. Framed as information-curation automation; no holdings, tickers, positions, or asset classes.
+- 自己做的 Claude Code 工具: an agent board and a routing toggle; Kevin ran a comparison group over 839 logged turns, found skill suggestions barely helped, and changed the threshold from the data.
+
+**Privacy rules for chapter 3.** No money in any form (amounts, assets, savings rate, premiums, budgets, transaction or account counts), no health, family, or investment details, no screenshots or links to life-hub or the finance tracker.
+
+Alternatives considered: keeping the habits section beside the new one (rejected: it repeats the same figures a third time), and tabs per chapter (rejected: hides two thirds of the evidence from a scanning reader; anchors give the same jump).
+
+**Revision after the first local review (2026-10-23).** The user found the first build far below the old section's quality ("一堆字有夠冗長"): every item showed nine fields, the same figure appeared three times, and only one item had a picture. A ui-first-principles pass (handoff in the session scratchpad, validator ✅ Ready) set the home card to four fields: cover, title, one figure, and a one-line label. Problem, AI half, human half, result, source, and links move behind 「看做法」. Chapter intros and the chapter index are dropped as redundant. Chapters now sit behind three tabs, so a reader sees one chapter, about two rows of covers, at a time; the tab names are the table of contents, and `#ai-build`, `#ai-process`, and `#ai-life` open their tab. Every item has a cover. Real screens and existing artwork are reused where they exist; the other nine get text-free covers from `scripts/ai-covers.py` in the case-poster palette. Life covers show the kind of chore, never a number. The earlier rejection of tabs is reversed: length, not hidden evidence, was what lost the reader.
+
+### Number corrections found by the sweep
+
+- Ecofirst case result: 「其中 1,500 筆以上的業務紀錄已整理成 FAQ」 → 1,500 多份會議紀錄由 AI 每週整理成 FAQ 草稿；目前 185 題，51 題通過業務授權（2026/9）. Only 44 notes have been processed, so the old line overstated.
+- Meeting follow-ups 102 → 110; CEO weekly reports 20 → 26 issues, wherever they appear (case decision log, experience, AI section).
+- podcast-stock 「424 次 commit、59 個 PR」 → 「364 次 commit、42 個 PR」 (main, non-merge; merged PRs).
+
 ## Implementation Contract
 
 - **Behavior**: `/` and `/en/` show the new hero profile, five capability cards with working case links, the AI habits evidence line, the Ecofirst add-on block, and the new contact text. `/cases/internal-backend/` and `/en/cases/internal-backend/` render the article with five figures and captions, plus the usual header, decision log, and back links. `/portfolio/`, the home shelf, and `/resume/` list five work cases in rank order; the inventory line reads 5＋2 everywhere.

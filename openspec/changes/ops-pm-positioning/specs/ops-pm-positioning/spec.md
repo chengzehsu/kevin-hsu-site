@@ -6,7 +6,7 @@ Positions Kevin on the public site as a product manager for operations digitisat
 
 ### Requirement: Positioning copy names the PM core
 
-The hero profile, meta description, contact text, and one-page résumé headline, summary, and keywords SHALL describe Kevin as a Product Manager for operations process digitisation, internal systems, and AI adoption, in both zh and en. The hero tagline 「找出卡點，做出解法，量出成果。」 / its en counterpart, the hero kicker, the three trait rows, and the launch film MUST stay unchanged. No copy SHALL describe the job target as global B2C platforms only.
+The hero profile, meta description, contact text, and one-page résumé headline, summary, and keywords SHALL describe Kevin as a Product Manager for operations process digitisation, internal systems, and AI adoption, in both zh and en. The hero tagline 「找出痛點，做出解法，量出成果。」 / its en counterpart, the hero kicker, the three trait rows, and the launch film MUST stay unchanged. No copy SHALL describe the job target as global B2C platforms only.
 
 #### Scenario: Hero profile on the home page
 
@@ -29,7 +29,7 @@ The capability block SHALL show exactly five cards, in this order: 流程梳理,
 
 ### Requirement: AI adoption evidence states the guardrail
 
-The AI adoption card and the AI habits section SHALL describe AI as proposing while a person decides, with autonomy granted only after measured accuracy, citing that Notion AI schedules only propose until three consecutive rounds reach at least 90% adoption.
+The AI adoption card and the AI section 「用 AI 解決問題」 SHALL describe AI as proposing while a person decides, with autonomy granted only after measured accuracy, citing that Notion AI schedules only propose until three consecutive rounds reach at least 90% adoption.
 
 #### Scenario: Guardrail wording present
 
@@ -57,6 +57,13 @@ The Ecofirst case decision log SHALL include an entry whose signal states 735 ta
 ### Requirement: Claims stay within evidence
 
 Site copy MUST NOT claim that Kevin built the whole organisational system, MUST NOT attach outcome numbers to the org systems, MUST NOT claim ERP implementation, MUST NOT state a before/after speed gain for the internal back office, and MUST NOT name or quote any hiring company. Commit counts SHALL read as a continuation (218 in the first two months, 748 by 2026/10).
+
+Counts SHALL match the 2026-10-23 sweep. The Sales FAQ reads 185 entries with 51 authorized, never "1,500 records turned into FAQ". Daily meeting follow-ups read 110. CEO weekly reports read 26 issues. podcast-stock reads 364 commits and 42 PRs.
+
+#### Scenario: Corrected counts
+
+- **WHEN** zh and en content are searched for 「1,500 筆以上的業務紀錄已整理成 FAQ」, "1,500+ sales records have been distilled", 「102 份」, 「424 次」, and 「59 個 PR」
+- **THEN** no match is found
 
 #### Scenario: Copy check
 

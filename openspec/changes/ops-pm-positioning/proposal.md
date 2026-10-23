@@ -5,7 +5,7 @@ Kevin is job hunting, and the roles that fit him best are companies in digital t
 ## What Changes
 
 - Reposition the site copy (zh and en) around a PM core: process mapping, systems and data, business judgement, AI adoption (AI proposes, a person decides, autonomy only after it proves accurate), and measured results. Building prototypes himself counts as PM work. B2C results stay as proof but stop being the headline.
-  - Hero profile: positioning and job target rewritten; the tagline 「找出卡點，做出解法，量出成果。」 stays.
+  - Hero profile: positioning and job target rewritten; the tagline 「找出痛點，做出解法，量出成果。」 stays.
   - Core capabilities: three items become five, one per core trait, each with one piece of evidence and a link to its case.
   - AI habits: the three traits stay; the evidence adds "AI proposes, a person decides".
   - Contact: the job target is rewritten without a vendor-pitch ending and without a "first 90 days" promise.
@@ -14,6 +14,8 @@ Kevin is job hunting, and the roles that fit him best are companies in digital t
 - Add one Ecofirst decision-log entry: 735 tasks, about 920 hours, 51% single-site customisation, so presales quotes moved to S/M/L/XL tiers and contracts count from "data complete", not from signing.
 - Add a fifth work case, an illustrated article about the Ecofirst collection-monitoring back office, always called 「內部後台」 / "internal back office" on the site. It walks five real, anonymised screens in one usage scenario. **BREAKING** for the site vocabulary: the inventory becomes 「5 個工作案例＋2 個個人專案」 / "5 work cases + 2 side projects", and the home shelf shows five posters.
 - After 2026-10-30 the Ecofirst period reads 2025/3 - 2026/10 instead of "now".
+- Replace the home section 「三個 AI 工作習慣」 with 「用 AI 解決問題」, three chapters that show real problems solved with AI: 我如何用 AI 打造產品, 我如何用 AI 改善流程, 我如何用 AI 自動化我的生活. Each item states who was stuck, what AI did and what a person decided, and the result with its source. The section moves to right after the work cases; the three traits stay only in the hero rows. Added 2026-10-23 because the user found the five-card version "太少了" and wanted AI evidence that reads as solved problems, not personality habits. **BREAKING** for the home order and nav label (the `#linkedin-posts` anchor is kept so sent links still work).
+- Correct numbers that do not survive follow-up: the Sales FAQ line (185 entries, 51 authorized, not "1,500 records turned into FAQ"), meeting follow-ups 110 (was 102), CEO weekly reports 26 issues (was 20), podcast-stock 364 commits and 42 merged PRs (was 424 and 59).
 
 ## Non-Goals (optional)
 
@@ -25,6 +27,7 @@ See design.md.
 
 - `ops-pm-positioning`: the site-wide positioning copy, the five core capabilities, the operations-optimisation add-on, and the honesty limits every claim must respect.
 - `internal-backend-case`: the fifth work case as an illustrated article, its anonymised screenshots, and how it joins the case inventory, posters, and ordering.
+- `ai-in-practice`: the home section 「用 AI 解決問題」 with its three chapters, the shared problem → AI/person → result shape, its place in the home order, and the privacy limits for life automation.
 
 ### Modified Capabilities
 
@@ -32,7 +35,8 @@ See design.md.
 
 ## Impact
 
-- Affected specs: `ops-pm-positioning`, `internal-backend-case` (both new).
+- Affected specs: `ops-pm-positioning`, `internal-backend-case`, `ai-in-practice` (all new).
+- AI section: `content/types.ts` (replace `LinkedInPostsContent` with the chapter shape), `components/LinkedInPosts.tsx` and its CSS (rewritten for three chapters), `components/Site.tsx` (order), nav links in `content/zh.ts` / `content/en.ts`, `scripts/test-site-output.mjs` (order, nav, chapter assertions), `components/PortfolioWall.tsx` and `lib/thumb.ts` only if an image path they list is removed.
 - Affected code:
   - Content: `content/zh.ts`, `content/en.ts`, `content/types.ts` (optional article sections on a case), `content/caseArtifacts.ts`, `content/caseEvidence.ts`, `content/resume.ts`.
   - Components: `components/CasePage.tsx` (render article sections and figures), possibly `components/CaseStudies.tsx` and `components/PortfolioWall.tsx` for five posters.
