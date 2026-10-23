@@ -50,7 +50,7 @@ status: outline
 src: index.html#s6-tagline
 time: 27.6–31.6
 rules: kinetic-beat-slam, css-marker-patterns
-beat: 「找出卡點，」重擊，「做出解法，」「量出成果。」依序側滑；「卡點」「解法」「成果」強調色，「成果」底線掃過。（2026-10-01 改標語）
+beat: 「找出痛點，」重擊，「做出解法，」「量出成果。」依序側滑；「痛點」「解法」「成果」強調色，「成果」底線掃過。（2026-10-01 改標語）
 
 ## Frame 7
 
@@ -58,4 +58,4 @@ status: outline
 src: index.html#s7-end
 time: 31.6–35.0
 rules: spring-pop-entrance (smooth settle)
-beat: 許承澤 Kevin Hsu／Product Manager · AI · B2C 平台 · 跨團隊交付／「找出卡點，做出解法，量出成果。」小字收尾。
+beat: 許承澤 Kevin Hsu／Product Manager · AI · B2C 平台 · 跨團隊交付／「找出痛點，做出解法，量出成果。」小字收尾。

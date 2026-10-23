@@ -18,7 +18,9 @@ export function ProofStack({ content, locale }: SectionProps) {
   const { cases } = content;
   const items = cases.items
     .filter((item) => item.kind !== "side")
-    .sort((a, b) => a.rank - b.rank);
+    .sort((a, b) => a.rank - b.rank)
+    // Five headline cases; the rest are reached from the AI section and /portfolio/, as the link says.
+    .slice(0, 5);
 
   return (
     <section

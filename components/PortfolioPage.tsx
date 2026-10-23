@@ -17,7 +17,7 @@ const portfolioCopy = {
     // Phrases never break internally, so 瓶頸 cannot split across lines.
     title: ["每個案例，", "從瓶頸", "到上線成果。"],
     intro:
-      "5 個工作案例＋2 個個人專案；我負責問題定義、優先排序與成果驗證。",
+      "7 個工作案例＋3 個個人專案；我負責問題定義、優先排序與成果驗證。",
     facts: [
       ["5+ 年", "產品相關經驗"],
       ["NT$1,200 萬+", "管理專案組合"],
@@ -38,7 +38,7 @@ const portfolioCopy = {
     contactLabel: "Contact me",
     title: ["Every case,", "from bottleneck", "to shipped result."],
     intro:
-      "5 work cases + 2 side projects. I own problem definition, priorities, and outcome validation.",
+      "7 work cases + 3 side projects. I own problem definition, priorities, and outcome validation.",
     facts: [
       ["5+ yrs", "product experience"],
       ["NT$12M+", "project portfolio managed"],

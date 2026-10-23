@@ -21,7 +21,7 @@ const TEXT_LABELS: Record<
 > = {
   "hero.headline": {
     label: "首頁標題",
-    hint: "用【】標出要強調的字，例如：找出【卡點】，做出【解法】。",
+    hint: "用【】標出要強調的字，例如：找出【痛點】，做出【解法】。",
     rows: 2,
   },
   "resume.headline": { label: "履歷標題", rows: 2 },

@@ -51,9 +51,9 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "許承澤 Kevin Hsu",
     headline: "Product Manager｜營運流程數位化、內部系統與 AI 導入",
     summary:
-      "5 年以上產品相關經驗，做過 AI 節能、電商、健康 App、跨通路資料平台與企業培訓。進新產業先讀現場資料、訪談第一線，畫出跨部門的現有流程，找出等待、重複作業與資料斷點；把資料定義講清楚，再排定範圍與優先順序，帶跨部門團隊導入，用改善前後的數字驗證成果。原型與內部工具自己用 AI 做：AI 先提案、人來拍板，準了才放手。帶領過 10 人工程團隊與 2 位初階 PM，管理 NT$1,200 萬以上的專案組合。",
+      "5 年以上產品相關經驗，做過 AI 節能、電商、健康 App、跨通路資料平台與企業培訓。進新產業先讀現場資料、訪談第一線，畫出跨部門流程，找出等待、重複作業與資料斷點；接著定清楚資料、排好範圍與優先順序，帶團隊導入，再用改善前後的數字驗證。原型與內部工具用 AI 自己做：AI 先提案、人來拍板，準了才放手。帶領過 10 人工程團隊與 2 位初階 PM，管理 NT$1,200 萬以上的專案組合。",
     keywords:
-      "熟悉流程盤點、內部營運系統與資料整合（Notion、Asana、CDP）、POS 與電商資料串接、AI 與自動化工具導入（Claude Code、Notion AI）、SaaS、Chatbot、儀表板、App 與電商產品場景。",
+      "熟悉流程盤點、內部營運系統與資料整合（Notion、Asana、CDP）、POS 與電商資料串接、AI 與自動化工具導入（Claude Code、Notion AI）、SaaS、Chatbot、儀表板、App 與電商產品。",
     facts: [
       ["5+ 年", "產品相關經驗"],
       ["8 段", "跨產業經歷"],
@@ -82,7 +82,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       cdp: "1,000 萬筆",
     },
     roleCases,
-    moreText: "每個成果背後的卡點、決策與量測方式，都寫在作品集的案例頁。",
+    moreText: "每個成果背後的痛點、決策與量測方式，都寫在作品集的案例頁。",
   },
   en: {
     title: "One-page résumé",

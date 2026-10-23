@@ -118,36 +118,51 @@ export interface AwardsContent {
   items: RecognitionItem[];
 }
 
-export interface LinkedInPost {
-  /** Which of the hero traits this build proves (好奇 / 勇於嘗試 / 追求效率). */
-  trait: string;
-  /** The one figure a reader should remember; public facts only. */
-  stat: string;
-  statLabel: string;
+/** One problem solved with AI: who was stuck, what AI did, what a person decided, and the result. */
+export interface AiPracticeItem {
   title: string;
-  description: string;
-  /** LinkedIn build note; omitted when the work has no public post. */
+  /** Who was stuck and where, in one sentence. */
+  stuck: string;
+  ai: string;
+  /** What a person decided or guarded; the reason the item belongs here. */
+  human: string;
+  /** The one figure a reader should remember; public facts only. */
+  stat?: { value: string; label: string };
+  result: string;
+  /** Where the figure comes from, shown small. */
+  source: string;
+  caseId?: string;
+  /** Public build note, e.g. a LinkedIn post. */
   href?: string;
-  /** The case page this build belongs to; the habit tile is evidence, the case is the work. */
-  caseId: string;
-  image: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
+  /** Cover shown on the home card; items without a public screen use a text-free cover from scripts/ai-covers.py. */
+  image: { src: string; alt: string; width: number; height: number };
 }
 
-export interface LinkedInPostsContent {
+export interface AiPracticeChapter {
+  id: "ai-build" | "ai-process" | "ai-life";
+  title: string;
+  lead: AiPracticeItem;
+  /** Three or four; the lead widens so the grid has no empty cell. */
+  items: AiPracticeItem[];
+}
+
+export interface AiPracticeContent {
   title: string;
   intro: string;
-  author: string;
-  platform: string;
-  readLabel: string;
-  /** Prefix for the link back to the case a build belongs to. */
-  caseLabel: string;
-  /** Order is the bento order: lead tile, two stacked tiles, one wide tile. */
-  items: [LinkedInPost, LinkedInPost, LinkedInPost, LinkedInPost];
+  labels: {
+    stuck: string;
+    ai: string;
+    human: string;
+    result: string;
+    source: string;
+    /** Prefix for the link back to the case an item belongs to. */
+    caseLink: string;
+    read: string;
+    /** Disclosure on compact items. */
+    expand: string;
+    collapse: string;
+  };
+  chapters: [AiPracticeChapter, AiPracticeChapter, AiPracticeChapter];
 }
 
 export interface MethodStep {
@@ -370,7 +385,7 @@ export interface SiteContent {
   nav: NavContent;
   hero: HeroContent;
   metrics: MetricsContent;
-  linkedinPosts: LinkedInPostsContent;
+  aiPractice: AiPracticeContent;
   awards: AwardsContent;
   method: MethodContent;
   cases: CasesContent;

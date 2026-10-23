@@ -88,7 +88,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         id: "systems",
         name: "系統與資料",
         statement: "先把資料講清楚，系統才判得準。",
-        summary: "釐清資料在 LINE、Email、Excel 與各系統之間怎麼流動，定義清楚每個數字怎麼算，再和工程夥伴對齊串接。內部後台先定義什麼叫「資料到齊」，再把「無法判斷」和「缺資料」分開，就是從這一步開始。",
+        summary: "釐清資料在 LINE、Email、Excel 與各系統之間怎麼流動，定義清楚每個數字怎麼算，再和工程夥伴對齊串接。以內部後台為例：先定義什麼叫「資料到齊」，再把「無法判斷」和「缺資料」分開。",
         proof: "34 個案場一個畫面看完；整合 1,000 萬筆跨通路資料",
         references: [
           { label: "內部後台", href: "/cases/internal-backend/" },
@@ -99,8 +99,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         id: "product-strategy",
         name: "商業判斷",
         statement: "用數據決定先做什麼、不做什麼。",
-        summary: "依商業目標、使用者需求與交付限制排出 Roadmap。在愛淨分析 735 張任務、約 920 小時，發現 51% 花在單一案場客製，於是售前改報 S/M/L/XL 等級，合約從資料齊備那天起算。",
-        proof: "18 條人設門檻規則抓到 0 個異常，監控改成零設定優先",
+        summary: "依商業目標、使用者需求與交付限制排出 Roadmap。在愛淨分析 735 張任務、約 920 小時，發現 51% 花在單一案場客製，於是售前改用 S/M/L/XL 四種規模報價，合約從資料齊備那天起算。",
+        proof: "18 條要人工設定門檻的規則抓到 0 個異常，監控改以免設定的檢查優先",
         references: [
           { label: "台灣愛淨", href: "/cases/ecofirst/" },
           { label: "內部後台", href: "/cases/internal-backend/" },
@@ -110,7 +110,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         id: "ai-delivery",
         name: "AI 導入",
         statement: "AI 先提案、人來拍板，準了才放手。",
-        summary: "找出 AI 幫得上的環節：需求、規格、測試用的假資料驗證到開發交接，都先由 AI 起草。Notion 上的 AI 排程先只提案，連續 3 輪採納率 90% 以上才開放自動寫入；原型則用 Claude Code 自己做。",
+        summary: "找出 AI 幫得上的環節：從需求、規格、用假資料驗證，到開發交接，都先讓 AI 寫初稿。Notion 上的 AI 排程一開始只提建議，連續 3 輪有 90% 以上被採納，才讓它自動寫入；原型則用 Claude Code 自己做。",
         proof: "交付效率 +50%；內部後台 748 次提交，由我獨立完成",
         references: [
           { label: "內部後台", href: "/cases/internal-backend/" },

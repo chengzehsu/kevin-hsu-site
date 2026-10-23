@@ -20,11 +20,11 @@ export function Site({ locale }: { locale: Locale }) {
       <Nav {...props} />
       <main id="main-content">
         <Hero {...props} />
-        {/* A recruiter's reading order: outcomes, then where and how long, then skills; AI habits are depth. */}
+        {/* Reading order: outcomes, then real problems solved with AI, then where and how long, then skills. */}
         <ProofStack {...props} />
+        <LinkedInPosts {...props} />
         <Timeline {...props} />
         <SkillsRadar content={skillsContent[locale]} locale={locale} />
-        <LinkedInPosts {...props} />
         <Awards {...props} />
         <Contact {...props} />
       </main>
