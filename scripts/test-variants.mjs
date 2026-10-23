@@ -114,9 +114,9 @@ test("numeric tokens as the site writes them", () => {
 
 test("tracked URLs match pnpm utm", async () => {
   const { trackedUrl } = await import("../lib/trackedLink.ts");
-  const origin = "https://chengzeresume.zeabur.app";
-  assert.equal(trackedUrl(origin, "acme", "resume", false), "https://chengzeresume.zeabur.app/resume/?s=acme");
-  assert.equal(trackedUrl(origin, "acme", "home", true), "https://chengzeresume.zeabur.app/en/?s=acme");
-  assert.equal(trackedUrl(origin, "acme", "portfolio", true), "https://chengzeresume.zeabur.app/en/portfolio/?s=acme");
-  assert.equal(trackedUrl(origin, "acme", "case-ecofirst", false), "https://chengzeresume.zeabur.app/cases/ecofirst/?s=acme&m=manager");
+  const origin = "https://chengzeresume.kevin492625.workers.dev";
+  assert.equal(trackedUrl(origin, "acme", "resume", false), "https://chengzeresume.kevin492625.workers.dev/resume/?s=acme");
+  assert.equal(trackedUrl(origin, "acme", "home", true), "https://chengzeresume.kevin492625.workers.dev/en/?s=acme");
+  assert.equal(trackedUrl(origin, "acme", "portfolio", true), "https://chengzeresume.kevin492625.workers.dev/en/portfolio/?s=acme");
+  assert.equal(trackedUrl(origin, "acme", "case-ecofirst", false), "https://chengzeresume.kevin492625.workers.dev/cases/ecofirst/?s=acme&m=manager");
 });

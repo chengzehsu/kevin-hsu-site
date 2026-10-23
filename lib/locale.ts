@@ -3,12 +3,12 @@ export type Locale = "zh" | "en";
 export const LOCALES: readonly Locale[] = ["zh", "en"];
 export const DEFAULT_LOCALE: Locale = "zh";
 
-const DEFAULT_ORIGIN = "https://chengzeresume.zeabur.app";
+const DEFAULT_ORIGIN = "https://chengzeresume.kevin492625.workers.dev";
 
 /**
  * Absolute origin used for canonical / hreflang URLs.
  * Override with NEXT_PUBLIC_SITE_ORIGIN at build time; a value without a scheme
- * (e.g. "chengzeresume.zeabur.app") is accepted and normalised, so a dashboard
+ * (e.g. "chengzeresume.kevin492625.workers.dev") is accepted and normalised, so a dashboard
  * typo cannot fail the build with "Invalid URL".
  */
 export const SITE_ORIGIN = normaliseOrigin(process.env.NEXT_PUBLIC_SITE_ORIGIN);

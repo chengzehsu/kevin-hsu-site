@@ -1,6 +1,6 @@
 #!/bin/sh
 # Starts PocketBase. On the first boot, PB_ADMIN_EMAIL and PB_ADMIN_PASSWORD create the only superuser;
-# delete both variables in Zeabur afterwards (an existing account is never overwritten).
+# delete both variables from the host afterwards (an existing account is never overwritten).
 set -eu
 cd /pb
 
@@ -25,7 +25,7 @@ if [ -n "${PB_ADMIN_EMAIL:-}" ] && [ -n "${PB_ADMIN_PASSWORD:-}" ]; then
 fi
 
 # Browsers may call the API only from the site (variant overlays) and its admin page; comma-separated.
-ORIGINS="${PB_ORIGINS:-https://chengzeresume.zeabur.app}"
+ORIGINS="${PB_ORIGINS:-https://chengzeresume.kevin492625.workers.dev}"
 
 # shellcheck disable=SC2086
 exec ./pocketbase serve --http=0.0.0.0:8080 --dir=/pb/pb_data --migrationsDir=/pb/pb_migrations \

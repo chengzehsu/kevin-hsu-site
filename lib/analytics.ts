@@ -10,7 +10,7 @@ export const UMAMI_WEBSITE_ID = "43329ffa-00ef-4c70-afef-7150de6ed1ae";
 
 export const UMAMI_SCRIPT = "https://cloud.umami.is/script.js";
 
-/** Only the production host is counted, so local previews and Zeabur build checks never show up as visits. */
+/** Only the production host is counted, so local previews and build checks never show up as visits. */
 export const ANALYTICS_DOMAIN = new URL(SITE_ORIGIN).hostname;
 
 /** Custom event names, as they appear under Events in Umami. */

@@ -17,7 +17,7 @@ test("analytics loads only on the production host and keeps UTM parameters", asy
   assert.doesNotMatch(html, /<script[^>]*src="[^"]*umami[^"]*"/, "No static tracker tag: localhost must not load it");
   const loader = html.match(/<script>\(function\(\)\{if\(location\.hostname!==[^<]*umami[^<]*<\/script>/)?.[0];
   if (loader) {
-    assert.match(loader, /location\.hostname!=="chengzeresume\.zeabur\.app"/);
+    assert.match(loader, /location\.hostname!=="chengzeresume\.kevin492625\.workers\.dev"/);
     assert.match(loader, /websiteId="[0-9a-f-]{36}"/);
     assert.doesNotMatch(loader, /excludeSearch/, "UTM parameters must reach Umami");
   }
@@ -30,7 +30,7 @@ test("short share links become UTM parameters before the tracker loads", async (
   const loader = html.match(/<script>(\(function\(\)\{try\{var q=new URLSearchParams[\s\S]*?)<\/script>/)?.[1];
   assert.ok(loader, "The loader with the short-link rewrite must be inline in the page");
   const visit = (href, hostname = "localhost") => {
-    const url = new URL(href, "https://chengzeresume.zeabur.app");
+    const url = new URL(href, "https://chengzeresume.kevin492625.workers.dev");
     const appended = [];
     const sandbox = {
       URLSearchParams,
@@ -50,7 +50,7 @@ test("short share links become UTM parameters before the tracker loads", async (
   assert.deepEqual(visit("/?s=threads&utm_source=x").query, { s: "threads", utm_source: "x" });
   assert.deepEqual(visit("/?s=<script>").query, { s: "<script>" });
   assert.equal(visit("/?s=threads").loaded, 0, "localhost never loads the tracker");
-  assert.equal(visit("/?s=threads", "chengzeresume.zeabur.app").loaded, 1, "production loads it once");
+  assert.equal(visit("/?s=threads", "chengzeresume.kevin492625.workers.dev").loaded, 1, "production loads it once");
 });
 
 for (const [locale, file, heading] of [
@@ -86,7 +86,7 @@ for (const [locale, file, heading] of [
   test(`${locale}: social previews have production URLs and a large-image card`, async () => {
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     assert.match(html, /name="twitter:card" content="summary_large_image"/);
-    assert.match(html, /property="og:image" content="https:\/\/chengzeresume\.zeabur\.app\/(en\/)?opengraph-image\?v=20260915"/);
+    assert.match(html, /property="og:image" content="https:\/\/chengzeresume\.kevin492625\.workers\.dev\/(en\/)?opengraph-image\?v=20260915"/);
     assert.match(html, /property="og:image:width" content="1200"/);
     assert.match(html, /property="og:image:height" content="630"/);
   });
@@ -139,7 +139,7 @@ for (const [locale, file, heading] of [
       assert.ok(article.includes(`href="${path}"`), "No-JS sharing must be a working link");
       const detail = await readFile(new URL(`../out${path}index.html`, import.meta.url), "utf8");
       assert.ok(detail.includes("<h1"));
-      assert.ok(detail.includes(`rel="canonical" href="https://chengzeresume.zeabur.app${path}"`));
+      assert.ok(detail.includes(`rel="canonical" href="https://chengzeresume.kevin492625.workers.dev${path}"`));
       assert.ok(detail.includes(`href="/cases/${id}/"`) || locale === "zh");
       assert.ok(detail.includes(`href="/en/cases/${id}/"`) || locale === "en");
       assert.ok(detail.includes(`href="${locale === "en" ? "/en/portfolio/" : "/portfolio/"}#${id}"`));

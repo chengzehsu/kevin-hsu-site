@@ -1,4 +1,4 @@
-# Private job-application dashboard (PocketBase). Deployed as its own Zeabur service with Root Directory
+# Private job-application dashboard (PocketBase). Deployed as its own service with Root Directory
 # set to `backend`; the site itself stays a static export and never talks to it.
 FROM alpine:3.24
 
@@ -14,7 +14,7 @@ COPY pb_hooks /pb/pb_hooks
 COPY entrypoint.sh /pb/entrypoint.sh
 RUN chmod +x /pb/entrypoint.sh
 
-# Data lives in /pb/pb_data: mount a Zeabur volume there, or every redeploy starts with an empty database.
+# Data lives in /pb/pb_data: mount a persistent volume there, or every redeploy starts with an empty database.
 EXPOSE 8080
 
 ENTRYPOINT ["/pb/entrypoint.sh"]

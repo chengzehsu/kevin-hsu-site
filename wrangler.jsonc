@@ -5,10 +5,9 @@
   "name": "chengzeresume",
   "compatibility_date": "2026-10-19",
   // Build variables live here rather than in the dashboard, so a build can't silently miss them.
-  // Trial mirror: canonicals and tracking links point at Zeabur, so Umami never loads here.
-  // NEXT_PUBLIC_BACKEND_ORIGIN stays unset (tailored links and /admin/ off), matching Zeabur today.
+  // NEXT_PUBLIC_BACKEND_ORIGIN stays unset (tailored links and /admin/ off) until the backend has a new host.
   "build": {
-    "command": "NEXT_PUBLIC_SITE_ORIGIN=https://chengzeresume.zeabur.app pnpm build"
+    "command": "NEXT_PUBLIC_SITE_ORIGIN=https://chengzeresume.kevin492625.workers.dev pnpm build"
   },
   "assets": {
     "directory": "./out",

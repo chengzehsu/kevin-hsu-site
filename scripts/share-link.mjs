@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Short tracked link for one channel or one recipient, PicSee-style but on the site's own domain.
-//   pnpm utm threads                         → https://chengzeresume.zeabur.app/?s=threads
-//   pnpm utm acme --note "Acme 招募 PM 職缺"  → https://chengzeresume.zeabur.app/resume/?s=acme
+//   pnpm utm threads                         → https://chengzeresume.kevin492625.workers.dev/?s=threads
+//   pnpm utm acme --note "Acme 招募 PM 職缺"  → https://chengzeresume.kevin492625.workers.dev/resume/?s=acme
 //   pnpm utm acme --en --page portfolio       → English portfolio page
 //   pnpm utm acme --page ecofirst --m manager → a case page for the hiring manager (same code keeps the
 //                                               tailored version; the medium tells the two readers apart)
@@ -64,7 +64,7 @@ if (!(page in PAGES)) {
   process.exit(1);
 }
 
-const origin = (process.env.NEXT_PUBLIC_SITE_ORIGIN || "https://chengzeresume.zeabur.app").replace(/\/+$/, "");
+const origin = (process.env.NEXT_PUBLIC_SITE_ORIGIN || "https://chengzeresume.kevin492625.workers.dev").replace(/\/+$/, "");
 const url = new URL(`${args.includes("--en") ? "/en" : ""}${PAGES[page]}`.replace("//", "/"), origin);
 url.searchParams.set("s", code);
 if (option("m")) url.searchParams.set("m", medium);
