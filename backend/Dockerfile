@@ -1,8 +1,8 @@
 # Private job-application dashboard (PocketBase). Deployed as its own Zeabur service with Root Directory
 # set to `backend`; the site itself stays a static export and never talks to it.
-FROM alpine:3.20
+FROM alpine:3.24
 
-ARG PB_VERSION=0.40.4
+ARG PB_VERSION=0.40.5
 ARG TARGETARCH=amd64
 
 RUN apk add --no-cache ca-certificates unzip
