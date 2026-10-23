@@ -1,0 +1,20 @@
+// Cloudflare Workers static-assets site: Workers Builds runs `npx wrangler deploy` on each push to main,
+// which runs the build below and uploads out/. Without this file wrangler guesses a server-rendered
+// Next.js app and the deploy fails.
+{
+  "name": "chengzeresume",
+  "compatibility_date": "2026-10-19",
+  // Build variables live here rather than in the dashboard, so a build can't silently miss them.
+  // Trial mirror: canonicals and tracking links point at Zeabur, so Umami never loads here.
+  // NEXT_PUBLIC_BACKEND_ORIGIN stays unset (tailored links and /admin/ off), matching Zeabur today.
+  "build": {
+    "command": "NEXT_PUBLIC_SITE_ORIGIN=https://chengzeresume.zeabur.app pnpm build"
+  },
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "workers_dev": true,
+  "preview_urls": false
+}

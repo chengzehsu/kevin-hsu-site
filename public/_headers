@@ -1,4 +1,4 @@
-# Cloudflare Pages response headers (ignored by other hosts).
+# Cloudflare static-assets response headers (ignored by other hosts).
 
 # The Open Graph images are exported without an extension; crawlers need the real type.
 /opengraph-image

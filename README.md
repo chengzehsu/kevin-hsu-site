@@ -25,14 +25,14 @@ node --experimental-strip-types --test scripts/test-flow-simulation.mjs
 
 ## Deploy
 
-Zeabur hosts `out/` as a static site via `zbpack.json` (`build_command` + `output_dir`). Cloudflare Pages runs the same build in parallel as a trial (Git integration: build command `pnpm build`, output directory `out`, variable `NODE_VERSION=24`). `public/_headers` sets the Open Graph image type and caches hashed assets there; other hosts ignore it.
+Zeabur hosts `out/` as a static site via `zbpack.json` (`build_command` + `output_dir`). A Cloudflare Worker named `chengzeresume` serves the same build in parallel as a trial: Workers Builds runs `npx wrangler deploy` on each push to `main`, and `wrangler.jsonc` sets the build command, its variables, and `out/` as static assets (`https://chengzeresume.kevin492625.workers.dev`). `public/_headers` sets the Open Graph image type and caches hashed assets there; other hosts ignore it.
 
 Build variables:
 
-- `NEXT_PUBLIC_SITE_ORIGIN`: the host for canonical and hreflang URLs, Umami counting, and `pnpm utm` links (default `https://chengzeresume.zeabur.app`). During the trial, set Cloudflare's to the Zeabur origin too: the mirror then points every canonical and tracking link at Zeabur and never loads Umami, so test visits stay out of the counts.
+- `NEXT_PUBLIC_SITE_ORIGIN`: the host for canonical and hreflang URLs, Umami counting, and `pnpm utm` links (default `https://chengzeresume.zeabur.app`). The Cloudflare build pins it to the Zeabur origin in `wrangler.jsonc`, so the mirror points every canonical and tracking link at Zeabur and never loads Umami.
 - `NEXT_PUBLIC_BACKEND_ORIGIN`: the PocketBase service; empty turns tailored links and `/admin/` off. A host only reaches it once its origin is listed in the backend's `PB_ORIGINS`.
 
-A Cloudflare build of `main` fails when either variable is missing. To cut over, point Cloudflare's `NEXT_PUBLIC_SITE_ORIGIN` at its own domain and keep Zeabur serving links already sent on `chengzeresume.zeabur.app` until those applications close.
+Cloudflare build variables belong in `wrangler.jsonc`, not the dashboard: dashboard variables under Variables & Secrets are runtime-only and never reach `pnpm build`. To cut over, point the Cloudflare `NEXT_PUBLIC_SITE_ORIGIN` at its own domain and keep Zeabur serving links already sent on `chengzeresume.zeabur.app` until those applications close.
 
 ## Media and accessibility
 
