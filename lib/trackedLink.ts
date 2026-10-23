@@ -5,6 +5,7 @@
 export const LINK_PAGES = {
   // Recruiters land on the résumé; a hiring manager gets the case closest to the role.
   resume: { path: "/resume/", label: "一頁履歷（給人資）" },
+  "case-internal-backend": { path: "/cases/internal-backend/", label: "案例：內部後台（給主管）", medium: "manager" },
   "case-ecofirst": { path: "/cases/ecofirst/", label: "案例：AI 節能產品（給主管）", medium: "manager" },
   "case-grocery": { path: "/cases/grocery/", label: "案例：蔬果電商（給主管）", medium: "manager" },
   "case-health-app": { path: "/cases/health-app/", label: "案例：健康 App（給主管）", medium: "manager" },

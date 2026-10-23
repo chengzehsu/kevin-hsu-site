@@ -77,7 +77,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
           </ol>
         </nav>
 
-        {/* Both groups get the same kind of heading, so 4 + 2 reads as one portfolio in two parts. */}
+        {/* Both groups get the same kind of heading, so 5 + 2 reads as one portfolio in two parts. */}
         <header className={`${styles.sideHead} scroll-rise`}>
           <h2 className={styles.sideTitle}>{cases.workTitle}</h2>
         </header>

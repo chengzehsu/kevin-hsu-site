@@ -7,7 +7,7 @@ export const en = {
     title:
       "Kevin Hsu | Product Manager | Find the bottleneck, build the fix, prove it",
     description:
-      "Product Manager with 5+ years of product-related experience. Led B2C e-commerce re-platforming, led discovery and QA for a health-app re-platforming, and owned cross-functional delivery and data-product planning; led a 10-person engineering team and two junior PMs.",
+      "Product Manager with 5+ years of product-related experience, focused on digitizing operations, internal systems, and AI adoption: map the process on site, define the data, build the internal tool with AI, and prove the result in numbers. Led B2C e-commerce re-platforming and a 10-person engineering team with two junior PMs.",
   },
 
   nav: {
@@ -53,16 +53,17 @@ export const en = {
       {
         label: "Positioning",
         value:
-          "Product Manager · B2C re-platforming, cross-functional delivery, and AI workflows",
+          "Product Manager · Operations digitization, internal systems, and AI adoption",
       },
       {
         label: "Domains",
         value:
-          "AI energy savings (B2B), B2C e-commerce, health apps, enterprise learning, and cross-channel customer-data platforms",
+          "AI energy savings (B2B), e-commerce order-to-delivery, health apps, cross-channel customer-data platforms, and enterprise learning",
       },
       {
         label: "Looking for",
-        value: "Global B2C platforms and growth-stage product teams",
+        value:
+          "Companies in digital transformation and growth-stage product teams: turn field processes into systems and bring AI into daily operations",
       },
     ],
     film: {
@@ -149,20 +150,20 @@ export const en = {
   linkedinPosts: {
     title: "Three AI work habits",
     intro:
-      "When something is stuck, I try a different AI tool hands-on until the team can use the result.",
+      "When something is stuck, I try a different AI tool hands-on until the team can use the result. AI proposes, a person decides, and it earns autonomy only once it proves accurate.",
     author: "Kevin Hsu",
     platform: "LinkedIn",
     readLabel: "Read the build note",
     caseLabel: "From the case",
     items: [
       {
-        caseId: "ecofirst",
+        caseId: "internal-backend",
         trait: "Experimental",
         stat: "218",
         statLabel: "commits in 2 months",
         title: "An internal platform built with Claude Code",
         description:
-          "Started from an API integration and turned site-data lookups into a tool, improving it while using it.",
+          "Started from an API integration and turned site-data lookups into a tool, improving it while using it; 748 commits by Oct 2026.",
         href: "https://www.linkedin.com/feed/update/urn:li:activity:7469732610550976512/",
         image: {
           src: "/portfolio-artifacts/ecofirst-hvac-platform.webp",
@@ -291,7 +292,7 @@ export const en = {
 
   cases: {
     title: "Portfolio",
-    inventory: "4 work cases + 2 side projects",
+    inventory: "5 work cases + 2 side projects",
     intro:
       "Every case follows one structure: problem, decision, what got built, result.",
     workTitle: "Work cases",
@@ -327,10 +328,153 @@ export const en = {
     },
     items: [
       {
+        id: "internal-backend",
+        org: "Ecofirst (台灣愛淨)",
+        period: "Apr 2026 - Oct 2026",
+        rank: 1,
+        title: "Internal back office: see where the problem is at a glance",
+        role: "Product Manager (planning and build)",
+        scope: "34 sites | Equipment-data monitoring, value checks, monitoring rules, energy savings",
+        collaboration: "Project PMs, data-collection engineers, and the software team",
+        impact: "34 sites on one screen | 748 code commits, built on my own",
+        ownership:
+          "I owned the problem definition, the data definitions, the screens, and the code: a requirements brief and spec first, then implementation with Claude Code, merged only after a second AI model reviewed it.",
+        situation:
+          "When a client asked how a site's cooling was doing, the PM asked an engineer, who then dug through Excel. Each site's list of sensor points sat in different files and versions, and when the person who knew it left, no one could pick it up.",
+        bottleneck:
+          "No one could say right away whether a site's equipment data was coming in. Missing data, dropped connections, and wrong settings looked the same, and clients often noticed first.",
+        decision:
+          "Define what \"all the data arrived\" means first, then let each screen lead with the conclusion and keep the detail one level down. Anything the system can judge on its own never asks a PM to set a threshold.",
+        decisionSummary:
+          "Define what complete data means, lead with the conclusion, and never ask people for a threshold the system can work out.",
+        hypothesis:
+          "One register of sensor points is the single source of truth. For every site and time window, the system counts how many readings should arrive and how many did; \"cannot tell\" is shown apart from \"missing data\"; every issue states the actual value, the normal range, and who should take it; monitoring rules are edited in plain language and run a 7-day trial before going live.",
+        decisionLog: [
+          {
+            call: "The overview counts device by device, and merges missing-data alerts that share a cause into one.",
+            signal:
+              "At one hotel, counting by rule gave \"37 rules checked, 4 violated, 73 not tested\"; counting by device gave \"17 units checked, 4 with problems\". 244 \"often missing\" alerts merged into 12.",
+            outcome: "PMs see at a glance which units need work, and 4 value problems that had been buried move to the top.",
+          },
+          {
+            call: "The system works out which sensor points energy savings should use from their names, instead of asking PMs to set up every site, but its guesses are never pre-checked in a form.",
+            signal: "Names alone were enough at 28 of 34 sites; once, a PM took a pre-checked option as a confirmed fact.",
+            outcome: "People fill in only contract figures such as targets and baselines; system guesses are labeled for a person to confirm.",
+          },
+          {
+            call: "Energy savings moved to total power ÷ total refrigeration tons, even though it no longer matches how past reports were calculated.",
+            signal: "A simple average gives a low-load night and a full-load afternoon one vote each and pushes the figure up; dividing totals is what matches the power bill.",
+            outcome: "The old method stayed until there was a clear reason to change it, and both decisions are on record; the jump in the switchover week was explained to the people affected in advance.",
+          },
+          {
+            call: "Figures already sent to clients are never changed: a new baseline takes effect the next day.",
+            signal: "Applying the baseline every time data was read meant one edit would also change figures that had already been reported.",
+            outcome: "Baselines now live in a history that only adds and never edits, and a rule change only recalculates the most recent full day.",
+          },
+          {
+            call: "Going live is always a person pressing a button; passing the automated tests never ships anything on its own.",
+            signal: "The team had been burned before by shipping automatically as soon as tests passed.",
+            outcome: "Even after merge, tests, and design checks pass, a person decides when it goes live.",
+          },
+        ],
+        result:
+          "34 sites (Oct 2026) show their data status on one screen, and every issue states the actual value, the normal range, and who should take it. I built the whole back office: 218 code commits in the first two months, 748 by Oct 2026, plus 317 test files.",
+        artifacts: [
+          "Collection overview: one conclusion per site",
+          "Collection health page: every issue names who takes it",
+          "Plain-language rule editor with a 7-day trial",
+          "Energy-savings report that says what is missing when it cannot calculate",
+          "AI development flow: requirements brief, spec, AI cross-review, manual go-live",
+          "21 checks drawn from past incidents",
+        ],
+        measurement:
+          "Site, commit, and test-file counts come from the back office and git (Oct 23, 2026). There is no before-and-after speed comparison, so no efficiency percentage is claimed. Screens show real data with site names anonymized.",
+        measurementSummary: "Site and commit counts: from the back office and git (Oct 2026)",
+        article: {
+          lead: "A client asks, \"Is our cooling running normally?\" The PM asks an engineer, who goes digging through Excel. The data was always there; no single screen could answer which site had a problem, and what it was.",
+          sections: [
+            {
+              id: "verdict",
+              trait: "Systems and data",
+              heading: "Define complete data first, so the screen can lead with the conclusion",
+              stat: { value: "244 → 12", label: "missing-data alerts, after merging those with the same cause" },
+              paragraphs: [
+                "I defined how many readings each sensor point should send per time window and counted how many arrived: under 5% missing counts as complete, and anything that cannot be told is labeled as such. The overview also counts device by device, so PMs see at a glance which units to fix.",
+              ],
+              figure: {
+                src: "/portfolio-artifacts/internal-backend-overview.webp",
+                alt: "Collection overview: one row per site, with the actual value and normal range for any problem, data completeness, and the number of units with problems; sites shown by code name",
+                caption: "Collection overview | One conclusion per site; problems state the actual value and the normal range. Site names anonymized.",
+                width: 1648,
+                height: 686,
+              },
+            },
+            {
+              id: "handoff",
+              trait: "Process mapping",
+              heading: "Every issue goes to the right person",
+              paragraphs: [
+                "Open a site and the first line is the conclusion. Each issue states the actual value and whether it goes to the data-collection engineer (the person who keeps equipment data flowing in) or to the site, and whoever presses \"I'll take it\" owns it to the end.",
+              ],
+              figure: {
+                src: "/portfolio-artifacts/internal-backend-site-health.webp",
+                alt: "Collection health page: the first line reads 7 units with problems and 22 units checked; issues below include negative cooling output, power, and flow readings, each assigned to the data-collection engineer",
+                caption: "Collection health page | Conclusion first, then the issues, such as CHL03 cooling output reading −16.56 RT.",
+                width: 1648,
+                height: 549,
+              },
+            },
+            {
+              id: "disprove",
+              trait: "Measured results",
+              heading: "Let the data overturn my own assumption",
+              stat: { value: "18 rules → 0", label: "anomalies caught by the rules that needed a hand-set threshold" },
+              paragraphs: [
+                "An audit of one hotel, 26 rules over 8,129 readings, showed all 5 real problems came from checks that need no setup. So those checks now run by default, and hand-set thresholds are only a last safety net.",
+              ],
+            },
+            {
+              id: "judgement",
+              trait: "Business judgment",
+              heading: "Let the system judge what it can, and keep people for the real decisions",
+              stat: { value: "28 / 34", label: "sites where sensor-point names alone were enough" },
+              paragraphs: [
+                "The system picks the points energy savings should use, and people enter only the contract figures. Monitoring rules are edited as four plain-language conditions, so PMs adjust them without reading code.",
+              ],
+              figure: {
+                src: "/portfolio-artifacts/internal-backend-rule-editor.webp",
+                alt: "Rule editor with four parts: which units, when to check, what counts as abnormal, and how long it must last, followed by a plain-language summary",
+                caption: "Rule editor | Four conditions and one plain-language sentence.",
+                width: 1480,
+                height: 969,
+              },
+            },
+            {
+              id: "ai-workflow",
+              trait: "AI adoption",
+              heading: "Build the back office with AI, and keep AI in check with process",
+              stat: { value: "748", label: "code commits, built on my own" },
+              paragraphs: [
+                "Every feature starts as a requirements brief, AI implements it, and another AI model reviews it before it merges; going live is always a person pressing a button. Every mistake becomes a check, 21 so far.",
+              ],
+              figure: {
+                src: "/portfolio-artifacts/internal-backend-timeseries.webp",
+                alt: "Time series: power draw of 4 chillers over 3.5 days, with data completeness of 98.5% shown above the chart",
+                caption: "Time series | Power draw of 4 chillers over 3.5 days, with 98.5% data completeness stated above the chart.",
+                width: 1536,
+                height: 936,
+              },
+            },
+          ],
+          closing:
+            "I built this back office from data definitions to code, and it now covers 34 sites (Oct 2026). If you want to talk through the trade-offs behind it, get in touch.",
+        },
+      },
+      {
         id: "grocery",
         org: "Fable (寓意科技)",
         period: "Mar 2021 - Jul 2022",
-        rank: 1,
+        rank: 2,
         title: "Fresh-produce commerce, rebuilt",
         role: "Senior Project Manager",
         scope: "NT$6.2M | Web/app | Orders, warehouse, AWS",
@@ -366,7 +510,7 @@ export const en = {
         id: "health-app",
         org: "Fable (寓意科技)",
         period: "Mar 2021 - Jul 2022",
-        rank: 3,
+        rank: 4,
         title: "Health app and IoT integration",
         role: "Senior Project Manager",
         scope: "Health app | IoT scales | Data migration | Localization",
@@ -402,7 +546,7 @@ export const en = {
         id: "cdp",
         org: "Oakda (歐可達數據科技有限公司)",
         period: "Jun 2020 - Dec 2020",
-        rank: 4,
+        rank: 5,
         title: "Connecting customer data",
         role: "Product Manager",
         scope: "CDP | Chatbots | Web tracking | Dashboards | POS",
@@ -438,7 +582,7 @@ export const en = {
         id: "ecofirst",
         org: "Ecofirst (台灣愛淨)",
         period: "Mar 2025 - Present",
-        rank: 2,
+        rank: 3,
         title: "AI energy product: sales to RD on one line",
         role: "Product Manager",
         scope:
@@ -464,6 +608,12 @@ export const en = {
               "An audit at one hotel site, 26 rules × 8,129 rows: the 18 rules that need a human threshold caught 0 anomalies. Every real issue came from zero-config checks, such as chiller state contradicting power draw (all 8,129 rows) and one chiller missing 97.3% of its power readings.",
             outcome:
               "Written into the monitoring proposal: rule priority flipped. The sample is one site over six days, so thresholds stay as a safety net rather than being cut.",
+          },
+          {
+            call: "Presales quotes a tier, not person-days: S/M/L/XL, and contracts say \"N weeks after specs and data are complete\", never \"N weeks after signing\".",
+            signal: "From Jan to Jul 2026, 735 tasks took about 920 hours, and 51% of them went to single-site customization.",
+            outcome:
+              "No date until scope is locked, and XL starts with a paid assessment. These figures are the pre-change baseline behind the decision, not a result.",
           },
           {
             call: "Delivery dates start at T=0, not the contract date: T=0 is the day data is complete and the PM signs off the requirements doc.",
@@ -521,7 +671,7 @@ export const en = {
         kind: "side",
         org: "Side project",
         period: "Jul 2025 - Jul 2026",
-        rank: 5,
+        rank: 6,
         title:
           "AI business-card assistant: architecture follows the business model",
         role: "Product owner and builder",
@@ -561,7 +711,7 @@ export const en = {
         kind: "side",
         org: "Side project",
         period: "Jun 2026 - Sep 2026",
-        rank: 6,
+        rank: 7,
         title: "Stock Gods Fight: bull vs bear before you buy",
         role: "Product owner (solo build)",
         scope: "Web product | AI claim extraction | Bull vs bear view",
@@ -627,6 +777,14 @@ export const en = {
           "AI tools in daily use: sales logged 80 business cards in 4 days with the AI business-card assistant, and a daily meeting follow-up schedule produced 100+ reports in six months",
           "Streamlined internal operations with standard operating procedures, raising site operations efficiency by 20%",
         ],
+        extras: {
+          title: "Also improved how the company runs",
+          bullets: [
+            "Maintained the software team's grading and review system and designed its skill tree: every skill is verified on the spot, and a skill counts as covered only with one expert and two people who can do it, so no skill rests on one person",
+            "AI drafts an FAQ from sales meetings every week, and only answers sales has confirmed can be cited; pricing and contract topics are flagged as sensitive",
+            "Turned account access for joiners and leavers into a process; before leaving, completed an asset inventory, handed over access, and named an owner for every item",
+          ],
+        },
       },
       {
         id: "advisory",
@@ -747,7 +905,7 @@ export const en = {
   contact: {
     kicker: "Find the bottleneck. Build the fix. Prove it in numbers.",
     title: "Let's talk about the next product.",
-    text: "Looking for a global B2C platform or a growth-stage product team, especially one that wants AI in everyday work. Happy to discuss a role, your product direction, or the problems you are working on.",
+    text: "Looking for a company in digital transformation or a growth-stage product team, especially one that wants AI working in daily operations. Happy to talk about a role or the digital transformation you are driving.",
     cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     links: [
       {

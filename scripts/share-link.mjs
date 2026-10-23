@@ -21,7 +21,7 @@ const MEDIUM = Object.fromEntries(
 );
 const PATTERN = /^[a-z0-9][a-z0-9_-]{0,39}$/;
 // Recruiters get the résumé (the default for people); hiring managers get the case closest to the role.
-const CASES = ["ecofirst", "grocery", "health-app", "cdp", "namecard", "podcast-stock"];
+const CASES = ["internal-backend", "ecofirst", "grocery", "health-app", "cdp", "namecard", "podcast-stock"];
 const PAGES = {
   home: "/",
   resume: "/resume/",

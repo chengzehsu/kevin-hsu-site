@@ -11,13 +11,13 @@ import styles from "./PortfolioPage.module.css";
 
 const portfolioCopy = {
   zh: {
-    positioning: "Product Manager｜AI、資料產品與複雜營運系統",
+    positioning: "Product Manager｜營運流程數位化、內部系統與 AI 導入",
     experienceLabel: "查看完整經歷",
     contactLabel: "聯絡我",
     // Phrases never break internally, so 瓶頸 cannot split across lines.
     title: ["每個案例，", "從瓶頸", "到上線成果。"],
     intro:
-      "4 個工作案例＋2 個個人專案；我負責問題定義、優先排序與成果驗證。",
+      "5 個工作案例＋2 個個人專案；我負責問題定義、優先排序與成果驗證。",
     facts: [
       ["5+ 年", "產品相關經驗"],
       ["NT$1,200 萬+", "管理專案組合"],
@@ -33,12 +33,12 @@ const portfolioCopy = {
     ],
   },
   en: {
-    positioning: "Product Manager · AI, data, and operational products",
+    positioning: "Product Manager · Operations digitization, internal systems, and AI adoption",
     experienceLabel: "View full experience",
     contactLabel: "Contact me",
     title: ["Every case,", "from bottleneck", "to shipped result."],
     intro:
-      "4 work cases + 2 side projects. I own problem definition, priorities, and outcome validation.",
+      "5 work cases + 2 side projects. I own problem definition, priorities, and outcome validation.",
     facts: [
       ["5+ yrs", "product experience"],
       ["NT$12M+", "project portfolio managed"],

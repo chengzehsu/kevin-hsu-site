@@ -48,7 +48,7 @@ export function CaseArtifact({
   const square = artifact.layout === "square";
   // Raster sources top out at ~1,200px. On a wide cover they sit at a sharp size over a blurred
   // copy of themselves, so the row still reads full-bleed without upscaling the real pixels.
-  const ambient = variant === "cover" && !artifact.src.endsWith(".svg");
+  const ambient = variant === "cover" && !artifact.src.endsWith(".svg") && !artifact.sharp;
 
   return (
     <figure

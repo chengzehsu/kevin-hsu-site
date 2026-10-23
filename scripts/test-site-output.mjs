@@ -108,18 +108,29 @@ for (const [locale, file, heading] of [
     const portfolio = await readFile(new URL(portfolioFile, import.meta.url), "utf8");
     const cases = portfolio.match(/<section id="cases"[\s\S]*?<\/section>/)?.[0];
     assert.ok(cases);
-    assert.ok(portfolio.includes(locale === "zh" ? "Product Manager｜AI、資料產品與複雜營運系統" : "Product Manager · AI, data, and operational products"));
-    // Four work cases plus two after-hours projects, which come last under their own heading.
-    assert.equal((cases.match(/data-case-card=/g) ?? []).length, 6);
-    assert.equal((cases.match(/data-case-card="ledger"/g) ?? []).length, 6);
+    assert.ok(portfolio.includes(locale === "zh" ? "Product Manager｜營運流程數位化、內部系統與 AI 導入" : "Product Manager · Operations digitization, internal systems, and AI adoption"));
+    // Five work cases plus two after-hours projects, which come last under their own heading.
+    assert.equal((cases.match(/data-case-card=/g) ?? []).length, 7);
+    assert.equal((cases.match(/data-case-card="ledger"/g) ?? []).length, 7);
+    assert.ok(cases.includes(locale === "zh" ? "5 個工作案例＋2 個個人專案" : "5 work cases + 2 side projects"));
     const sideTitle = locale === "zh" ? "個人專案：" : "Side projects:";
     assert.ok(cases.indexOf(sideTitle) < cases.indexOf('<article id="namecard"'), "Side projects sit under their own heading");
     assert.ok(cases.indexOf('<article id="cdp"') < cases.indexOf(sideTitle), "Work cases come before side projects");
     const shelf = html.match(/<section id="work"[\s\S]*?<\/section>/)?.[0];
     assert.ok(shelf, "The home case shelf must render");
     for (const id of ["namecard", "podcast-stock"]) {
-      assert.ok(!shelf.includes(`/cases/${id}/`), "The home shelf keeps the four work cases only");
+      assert.ok(!shelf.includes(`/cases/${id}/`), "The home shelf keeps the five work cases only");
     }
+    // Five work cases: the internal back office leads with its real screen, the other four keep their text-free posters.
+    const posters = [...shelf.matchAll(/\/case-posters\/([a-z-]+)\.svg/g)].map((m) => m[1]);
+    assert.deepEqual([...new Set(posters)], ["grocery", "ecofirst", "health-app", "cdp"]);
+    assert.ok(shelf.indexOf("internal-backend-overview.webp") < shelf.indexOf("/case-posters/grocery.svg"), "The lead card shows the overview screen first");
+    // Work outside the product role shows only as the Ecofirst add-on block.
+    const extrasTitle = locale === "zh" ? "另外協助公司營運優化" : "Also improved how the company runs";
+    const experience = html.match(/<section id="experience"[\s\S]*?<\/section>/)?.[0] ?? "";
+    assert.equal(experience.split(extrasTitle).length - 1, 1, "Only one role carries the add-on");
+    const ecofirstRole = experience.match(/<li id="experience-ecofirst"[\s\S]*?<\/li>\s*(?=<li id="experience-)/)?.[0] ?? "";
+    assert.ok(ecofirstRole.includes(extrasTitle), "The add-on sits on the Ecofirst role");
     assert.equal((cases.match(/data-case-card="featured"/g) ?? []).length, 0);
     // Eight roles: 華曜興業 joined on 2026-10-02 and the 2024/9 - 2025/2 consulting role on 2026-10-05.
     assert.equal((html.match(/data-disclosure="experience"/g) ?? []).length, 8);
@@ -132,7 +143,7 @@ for (const [locale, file, heading] of [
     assert.equal((html.match(/<video/g) ?? []).length, 1, "Only the hero film mounts on the home page");
     assert.ok(/<video[^>]*preload="none"/.test(hero), "The hero film must not preload");
     assert.ok(!html.includes("<source"), "Film sources attach after load, never in the server HTML");
-    for (const id of ["ecofirst", "grocery", "health-app", "cdp", "namecard", "podcast-stock"]) {
+    for (const id of ["internal-backend", "ecofirst", "grocery", "health-app", "cdp", "namecard", "podcast-stock"]) {
       const article = cases.match(new RegExp(`<article id="${id}"[\\s\\S]*?<\\/article>`))?.[0];
       assert.ok(article?.includes(locale === "zh" ? "查看案例詳情" : "View case details"));
       const path = `${locale === "en" ? "/en" : ""}/cases/${id}/`;
@@ -146,13 +157,15 @@ for (const [locale, file, heading] of [
       assert.ok(detail.includes(locale === "zh" ? "實際產出" : "Deliverables"));
       assert.ok(detail.includes(locale === "zh" ? "成果量測" : "How it was measured"));
       assert.ok(detail.includes(locale === "zh" ? "協作範圍" : "Collaboration"));
-      assert.ok(detail.includes('href="#decision"'));
+      // The illustrated article replaces the problem and decision chapters, so it has no #decision anchor.
+      assert.equal(detail.includes('href="#decision"'), id !== "internal-backend");
       assert.ok(detail.includes('href="#measurement"'));
-      // Interviewers asked which product calls were made and on what data; only Ecofirst carries a log.
+      // Interviewers asked which product calls were made and on what data; only Ecofirst carries a log on its page.
       const log = detail.match(/<div id="decision-log"[\s\S]*?<\/ol>/)?.[0];
-      if (id === "ecofirst") {
-        assert.ok(log, "The Ecofirst case lists its decisions, server rendered");
-        assert.equal((log.match(/<li/g) ?? []).length, 6);
+      const logSizes = { ecofirst: 7 };
+      if (id in logSizes) {
+        assert.ok(log, `The ${id} case lists its decisions, server rendered`);
+        assert.equal((log.match(/<li/g) ?? []).length, logSizes[id]);
         assert.ok(log.includes(locale === "zh" ? "看的數據" : "Data watched"));
         assert.ok(detail.includes('href="#decision-log"'));
       } else {
@@ -161,11 +174,37 @@ for (const [locale, file, heading] of [
     }
   });
 
+  test(`${locale}: the internal back office case is an illustrated article`, async () => {
+    const path = `${locale === "en" ? "/en" : ""}/cases/internal-backend/`;
+    const detail = await readFile(new URL(`../out${path}index.html`, import.meta.url), "utf8");
+    assert.ok(detail.includes('href="#story"'), "The case rail links to the article");
+    // Only the article: the page header carries its own figure (the case artifact).
+    const story = detail.slice(detail.indexOf('<section id="story"'));
+    const figures = [...story.matchAll(/<figure[^>]*>[\s\S]*?<img[^>]*src="([^"]+)"[\s\S]*?<figcaption[^>]*>[^<]+/g)].map((m) => m[1]);
+    assert.deepEqual(
+      figures.slice(0, 4).map((src) => src.replace(/^.*internal-backend-|\.webp$/g, "")),
+      ["overview", "site-health", "rule-editor", "timeseries"],
+      "Four screens in scenario order, each with a caption",
+    );
+    for (const src of figures.slice(0, 4)) await readFile(new URL(`../out${src}`, import.meta.url));
+    assert.ok(detail.includes('<section id="story"'), "The article renders without JavaScript");
+    // Visitor copy names the product only as the internal back office.
+    assert.ok(!/point table|點位表管理/i.test(detail));
+    assert.ok(!/27 小時[^。]*上線/.test(detail), "27 hours is proposal to archive, never time to production");
+  });
+
   test(`${locale}: the skills index is evidence-led, server rendered, and follows work history`, async () => {
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     const skills = html.match(/<section id="skills"[\s\S]*?<\/section>/)?.[0];
     assert.ok(skills, "Skills must remain visible before hydration");
-    assert.equal((skills.match(/data-featured-skill=/g) ?? []).length, 4);
+    assert.equal((skills.match(/data-featured-skill=/g) ?? []).length, 5);
+    // Every core-skill card links to case pages that exist in the same locale.
+    for (const card of skills.match(/<li[^>]*data-featured-skill=[\s\S]*?<\/li>/g) ?? []) {
+      for (const [, href] of card.matchAll(/href="((?:\/en)?\/cases\/[a-z-]+\/)"/g)) {
+        assert.equal(href.startsWith("/en/"), locale === "en", `Card link ${href} stays in its locale`);
+        await readFile(new URL(`../out${href}index.html`, import.meta.url));
+      }
+    }
     assert.equal((skills.match(/data-skill=/g) ?? []).length, 20);
     assert.ok(skills.includes(locale === "zh" ? "完整能力清單" : "Full skill set"));
     assert.ok(skills.includes(locale === "zh" ? "以下整理我在專案中實際用過的能力" : "A record of the work I have owned in projects"));
@@ -195,7 +234,7 @@ for (const [locale, file, home] of [
     const homeHtml = await readFile(new URL(home, import.meta.url), "utf8");
     const prefix = locale === "en" ? "/en/" : "/";
     assert.ok(homeHtml.includes(`href="${prefix}resume/"`), "Hero and nav link to the résumé");
-    for (const id of ["grocery", "health-app", "cdp", "ecofirst", "namecard", "podcast-stock"]) {
+    for (const id of ["internal-backend", "grocery", "health-app", "cdp", "ecofirst", "namecard", "podcast-stock"]) {
       assert.ok(html.includes(`href="${prefix}cases/${id}/"`), `Résumé links to the ${id} case`);
     }
     assert.ok(html.includes("+233%") && html.includes("+66%"), "Canonical figures appear on the résumé");

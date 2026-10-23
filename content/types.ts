@@ -213,6 +213,38 @@ export interface CaseStudy {
   kind?: "side";
   /** URL of a public source readers can check the case against, linked from the case page. */
   source?: string;
+  /**
+   * Long-form, illustrated version of the case. When present the case page renders it as the main
+   * chapter; every other case keeps the column layout.
+   */
+  article?: CaseArticle;
+}
+
+/** A figure inside a case article. Captions live in content so both locales share one image. */
+export interface ArticleFigure {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+}
+
+export interface CaseArticle {
+  /** The opening scene a reader recognises from their own company. */
+  lead: string;
+  sections: Array<{
+    /** Anchor id on the case page. */
+    id: string;
+    /** The trait this section proves, e.g. 「流程梳理」. */
+    trait: string;
+    heading: string;
+    /** The one number this section is about, set large so the point lands before the prose. */
+    stat?: { value: string; label: string };
+    paragraphs: string[];
+    figure?: ArticleFigure;
+  }>;
+  /** Evidence plus a plain invitation to talk; never a pitch. */
+  closing: string;
 }
 
 export interface CasesContent {
@@ -275,6 +307,8 @@ export interface ExperienceItem {
   bullets: string[];
   /** Explains the break between this role and the previous (older) one, e.g. "2024/9 - 2025/2｜休息與接案". */
   gapAfter?: string;
+  /** Add-on work outside the product role, shown after the bullets under its own title. */
+  extras?: { title: string; bullets: string[] };
 }
 
 export interface ExperienceContent {

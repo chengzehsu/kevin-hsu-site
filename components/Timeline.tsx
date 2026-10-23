@@ -91,6 +91,18 @@ export function Timeline({ content, locale }: SectionProps) {
                       <ul className={styles.evidence} data-v="">
                         <TBullets id={item.id} bullets={item.bullets} locale={locale} highlight />
                       </ul>
+                      {item.extras ? (
+                        <div className={styles.extras}>
+                          <p className={styles.extrasTitle}>{item.extras.title}</p>
+                          <ul className={styles.evidence}>
+                            {item.extras.bullets.map((bullet) => (
+                              <li key={bullet}>
+                                <Highlight>{bullet}</Highlight>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null}
                       <p className={styles.skillSignal}>
                         <span>{skillLabel}</span>
                         {item.skillSignal}

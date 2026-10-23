@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Contact } from "./Contact";
+import { CaseArticle } from "./CaseArticle";
 import { CaseArtifact } from "./CaseArtifact";
 import { CaseBack } from "./CaseBack";
 import { CaseBackdrop } from "./CaseBackdrop";
@@ -20,6 +21,8 @@ const COPY = {
   zh: { caseLabel: "案例", next: "下一個案例", read: "繼續看" },
   en: { caseLabel: "Case", next: "Next case", read: "Read next" },
 } as const;
+
+const STORY_LABEL = { zh: "完整故事", en: "The full story" } as const;
 
 /** A case told as a launch: outcome first, then problem, decision, what was built, and how it was measured. */
 export function CasePage({
@@ -116,9 +119,16 @@ export function CasePage({
             <CaseNavigator
               label={item.title}
               links={[
-                { href: "#situation", label: chapters.problem },
-                { href: "#decision", label: chapters.decision },
-                ...(item.decisionLog?.length
+                ...(item.article
+                  ? [{ href: "#story" as const, label: STORY_LABEL[locale] }]
+                  : []),
+                ...(item.article
+                  ? []
+                  : [
+                      { href: "#situation" as const, label: chapters.problem },
+                      { href: "#decision" as const, label: chapters.decision },
+                    ]),
+                ...(!item.article && item.decisionLog?.length
                   ? [
                       {
                         href: "#decision-log" as const,
@@ -131,6 +141,8 @@ export function CasePage({
                 { href: "#measurement", label: cases.measurementLabel },
               ]}
             />
+
+            {item.article ? <CaseArticle article={item.article} locale={locale} /> : null}
 
             <CaseDetails item={item} content={content} locale={locale} />
 

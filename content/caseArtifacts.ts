@@ -26,6 +26,8 @@ export interface CaseArtifact {
   context: string;
   layout?: "square";
   treatment?: "anonymised" | "published" | "reconstructed";
+  /** A raster sharp enough to fill the cover; without it a raster floats small over a blurred copy. */
+  sharp?: boolean;
   headline: CaseHeadline;
   stills?: CaseStill[];
 }
@@ -34,6 +36,20 @@ const FILM = { width: 1600, height: 1000 } as const;
 
 export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
   zh: {
+    "internal-backend": {
+      src: "/portfolio-artifacts/internal-backend-plate.webp",
+      sharp: true,
+      alt: "內部後台的兩個畫面：收值總覽每個案場一行結論；收值健康頁第一行寫出 339 個感測點常常缺資料、22 台設備已檢查，下方每個問題寫出實際值和正常範圍，並標明交給收值工程師或現場",
+      title: "收值健康頁：先講結論，再給細節",
+      context: "34 個案場，一個畫面看完",
+      treatment: "anonymised",
+      headline: {
+        value: "34",
+        unit: "個案場",
+        label: "在同一個畫面看資料狀態（2026/10）",
+        also: "748 次提交，由我獨立完成",
+      },
+    },
     grocery: {
       src: "/portfolio-artifacts/grocery-system.zh.svg",
       alt: "蔬果電商專案資訊系統：客戶、工程與設計團隊、同事每週重複問的進度、上版、時數與過往做法，收進資訊流盤點、專案總覽與專案詳細資訊三個模組",
@@ -163,6 +179,20 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
     },
   },
   en: {
+    "internal-backend": {
+      src: "/portfolio-artifacts/internal-backend-plate.webp",
+      sharp: true,
+      alt: "Two internal back office screens: the collection overview with one conclusion per site, and the collection health page, whose first line reads 339 sensor points often missing data and 22 units checked; each issue below states the actual value and the normal range and is assigned to the data-collection engineer or the site",
+      title: "Collection health page: conclusion first, detail second",
+      context: "34 sites on one screen",
+      treatment: "anonymised",
+      headline: {
+        value: "34",
+        unit: "sites",
+        label: "data status on one screen (Oct 2026)",
+        also: "748 commits, built on my own",
+      },
+    },
     grocery: {
       src: "/portfolio-artifacts/grocery-system.en.svg",
       alt: "Grocery program information system: the timeline, release, billable-hours, and past-decision questions clients, the build team, and colleagues asked every week, gathered into an information-flow map, a project overview, and project detail pages",
@@ -311,6 +341,14 @@ export const CASE_POSTERS: Record<string, string> = {
   cdp: "/case-posters/cdp.svg",
 };
 export const CASE_POSTER_SIZE = { width: 600, height: 800 } as const;
+
+/**
+ * A real screen for the lead shelf card, which spans two columns: a portrait poster leaves most of a
+ * wide card empty. The screen sits above the copy, never behind it, so its words do not fight the card text.
+ */
+export const CASE_SHELF_SHOTS: Record<string, { src: string; width: number; height: number }> = {
+  "internal-backend": { src: "/portfolio-artifacts/internal-backend-overview.webp", width: 1648, height: 686 },
+};
 
 /** Decorative tiles for the case-page backdrop, echoing the portfolio wall. */
 export const CASE_WALL_TILES = [

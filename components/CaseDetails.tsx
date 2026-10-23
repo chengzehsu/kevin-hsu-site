@@ -55,6 +55,9 @@ export function CaseDetails({
 
   return (
     <div className={styles.story}>
+      {/* An illustrated article already tells the problem and the decisions; skip them so nothing repeats. */}
+      {item.article ? null : (
+        <>
       {/* 01 Problem: the situation reads as one statement; the constraint is called out beside it. */}
       <div className={`${styles.chapter} ${styles.problem}`}>
         <ChapterHead number="01" title={chapters.problem} />
@@ -122,10 +125,12 @@ export function CaseDetails({
           ) : null}
         </div>
       </div>
+        </>
+      )}
 
       {/* 03 What was built: the work products, then the frames that show them. */}
       <div className={`${styles.chapter} ${styles.built}`}>
-        <ChapterHead number="03" title={chapters.built} />
+        <ChapterHead number={item.article ? "01" : "03"} title={chapters.built} />
         <div className={styles.chapterBody}>
           <div id="artifacts" className={`${styles.block} scroll-rise`}>
             <h3 className={styles.label}>{content.cases.artifactsLabel}</h3>
@@ -187,7 +192,7 @@ export function CaseDetails({
 
       {/* 04 Result: the claim, the chart that proves it, and how it was measured. */}
       <div className={`${styles.chapter} ${styles.resultChapter}`}>
-        <ChapterHead number="04" title={chapters.result} />
+        <ChapterHead number={item.article ? "02" : "04"} title={chapters.result} />
         <div className={styles.chapterBody}>
           <div id="result" className={`${styles.block} scroll-rise`}>
             <h3 className={styles.label}>{columns.result}</h3>

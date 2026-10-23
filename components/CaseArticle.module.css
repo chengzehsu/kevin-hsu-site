@@ -1,0 +1,120 @@
+/* The illustrated article: copy column beside its screen, one trait per section. */
+.article {
+  display: grid;
+  gap: clamp(4rem, 8vw, 7rem);
+  margin-top: clamp(4.5rem, 9vw, 8rem);
+  scroll-margin-top: 9.5rem;
+}
+
+.title {
+  margin: 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.lead {
+  max-width: 46rem;
+  margin: calc(clamp(4rem, 8vw, 7rem) * -1 + 1.5rem) 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.6vw, 2.3rem);
+  font-weight: 560;
+  letter-spacing: -.025em;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+.lead:lang(zh-Hant) { letter-spacing: 0; line-height: 1.6; }
+
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  min-width: 0;
+  scroll-margin-top: 9.5rem;
+}
+
+/* Copy reads first at a comfortable measure; the screen below gets the full width so its numbers stay legible. */
+.copy { display: grid; gap: 1rem; max-width: 46rem; min-width: 0; }
+
+.trait {
+  display: flex;
+  align-items: baseline;
+  gap: .75rem;
+  margin: 0;
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+.trait span {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.06em;
+  line-height: .9;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 650;
+  letter-spacing: -.02em;
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+.heading:lang(zh-Hant) { letter-spacing: 0; line-height: 1.5; }
+
+/* The section's one number: large, accent, read before the prose. */
+.stat { display: grid; gap: .35rem; margin: .25rem 0 .25rem; }
+.stat strong {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.04em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.stat span { color: var(--fg); font-size: .95rem; font-weight: 600; line-height: 1.5; }
+
+.paragraph {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.figure { margin: 0; min-width: 0; justify-self: start; }
+.zoom { display: block; cursor: zoom-in; border-radius: var(--radius-panel); }
+.zoom:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-panel);
+  box-shadow: 0 1px 2px rgb(32 42 54 / 6%), 0 18px 48px -18px rgb(32 42 54 / 28%);
+}
+.figure figcaption {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: .86rem;
+  font-weight: 550;
+  line-height: 1.6;
+}
+
+.closing {
+  max-width: 46rem;
+  margin: 0;
+  padding-left: clamp(1rem, 2.5vw, 2rem);
+  border-left: 3px solid var(--accent);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.7;
+}

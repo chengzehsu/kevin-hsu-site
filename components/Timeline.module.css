@@ -200,6 +200,23 @@
   color: var(--accent);
 }
 
+/* Add-on work outside the product role: same list, set apart by a quiet title. */
+.extras {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line);
+}
+
+.extrasTitle {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.extras .evidence {
+  margin-top: 0.5rem;
+}
+
 .skillSignal {
   margin-top: 1.1rem;
   color: var(--fg);

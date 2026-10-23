@@ -141,7 +141,14 @@ export function SkillsRadar({ content, locale }: { content: SkillsContent; local
                     {skill.name}
                   </p>
                   <h4 className={styles.statement}>
-                    <TCard id={skill.id} field="statement" locale={locale}>{skill.statement}</TCard>
+                    <TCard id={skill.id} field="statement" locale={locale}>
+                      {/* Break after a comma or 、 only, so 「先做什麼」 never splits across lines. */}
+                      {skill.statement.split(/(?<=[，、])/).map((clause) => (
+                        <span key={clause} className="inline-block">
+                          {clause}
+                        </span>
+                      ))}
+                    </TCard>
                   </h4>
                   <p className={styles.proof}>{skill.proof}</p>
                   {/* Statement and proof are the scan; the explanation is on demand so the section stays short. */}

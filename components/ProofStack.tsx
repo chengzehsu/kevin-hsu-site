@@ -4,14 +4,14 @@ import {
   ArrowUpRightIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
-import { CASE_POSTERS, CASE_POSTER_SIZE } from "@/content/caseArtifacts";
+import { CASE_POSTERS, CASE_POSTER_SIZE, CASE_SHELF_SHOTS } from "@/content/caseArtifacts";
 import { casePath, portfolioPath } from "@/lib/locale";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./ProofStack.module.css";
 import { TOrder } from "./Tailored";
 
 /**
- * Home case index: the four work cases as posters, one artifact and one outcome each. The side projects
+ * Home case index: the five work cases as posters, one artifact and one outcome each. The side projects
  * and the full cases live on /portfolio/, and the link says so, so the home count never reads as the total.
  */
 export function ProofStack({ content, locale }: SectionProps) {
@@ -43,17 +43,27 @@ export function ProofStack({ content, locale }: SectionProps) {
           <TOrder list="cases" ids={items.map((item) => item.id)} locale={locale}>
           {items.map((item) => {
             const poster = CASE_POSTERS[item.id];
+            const shot = CASE_SHELF_SHOTS[item.id];
             // The first clause is the headline outcome; the rest stays on the case page.
             // zh separates clauses with "｜", en with " | ".
             const outcome = item.impact.split(/\s*[｜|]\s*/)[0];
             return (
-              <li key={item.id} className={`${styles.poster} scroll-rise`}>
+              <li key={item.id} className={`${styles.poster} ${shot ? styles.lead : ""} scroll-rise`}>
                 <a
                   className={styles.link}
                   href={casePath(locale, item.id)}
                   aria-label={`${cases.readLabel}: ${item.title}`}
                 >
-                  {poster ? (
+                  {shot ? (
+                    <Image
+                      src={shot.src}
+                      alt=""
+                      width={shot.width}
+                      height={shot.height}
+                      sizes="(max-width: 767px) 78vw, (max-width: 1023px) 90vw, 46vw"
+                      className={styles.shot}
+                    />
+                  ) : poster ? (
                     <Image
                       src={poster}
                       alt=""

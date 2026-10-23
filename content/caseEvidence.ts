@@ -27,6 +27,13 @@ export type CaseEvidence =
 
 export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
   zh: {
+    "internal-backend": {
+      kind: "loop",
+      eyebrow: "流程證據",
+      title: "用 AI 做，也用流程管住 AI",
+      steps: ["寫需求說明", "寫規格", "AI 實作", "交叉審查", "手動上線", "事故變檢查"],
+      measure: "前 2 個月 218 次提交｜到 2026/10 累積 748 次｜21 個檢查",
+    },
     grocery: {
       kind: "comparison",
       eyebrow: "流程證據",
@@ -60,6 +67,13 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
   },
   en: {
+    "internal-backend": {
+      kind: "loop",
+      eyebrow: "Process",
+      title: "Built with AI, kept in check by process",
+      steps: ["Requirements brief", "Spec", "AI build", "Cross-review", "Manual deploy", "Incident to check"],
+      measure: "218 commits in two months | 748 by Oct 2026 | 21 checks",
+    },
     grocery: {
       kind: "comparison",
       eyebrow: "Evidence",
