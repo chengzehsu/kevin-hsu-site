@@ -63,7 +63,7 @@ export const en = {
       {
         label: "Looking for",
         value:
-          "Companies in digital transformation and growth-stage product teams: turn field processes into systems and bring AI into daily operations",
+          "A company with a complete team, product decisions driven by data, and an active effort to redesign how people work with AI",
       },
     ],
     film: {
@@ -1317,7 +1317,7 @@ export const en = {
   contact: {
     kicker: "Find the bottleneck. Build the fix. Prove it in numbers.",
     title: "Let's talk about the next product.",
-    text: "Looking for a company in digital transformation or a growth-stage product team, especially one that wants AI working in daily operations. Happy to talk about a role or the digital transformation you are driving.",
+    text: "Looking for a company with a complete team, product decisions driven by data, and an active effort to redesign how people work with AI. Happy to talk about a role or the changes you are making to how your team works.",
     cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
     links: [
       {
