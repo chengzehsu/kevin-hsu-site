@@ -217,6 +217,11 @@ export interface CaseStudy {
   result: string;
   /** Concrete work products that support the narrative without exposing private files. */
   artifacts: string[];
+  /**
+   * Optional data story shown in place of the artifacts grid: which data sources are combined,
+   * and what each combination tells the owner. Sources and insights stay free of private figures.
+   */
+  dataMap?: Array<{ sources: string; insight: string }>;
   /** Baseline, period, or source used to interpret the outcome. */
   measurement: string;
   /** Short measurement basis shown in the portfolio index. */
@@ -282,6 +287,8 @@ export interface CasesContent {
   scopeLabel: string;
   collaborationLabel: string;
   artifactsLabel: string;
+  /** Heading and row labels for a case's data story. */
+  dataMap: { title: string; sources: string; insight: string };
   measurementLabel: string;
   /** Column headings shared by all cases. */
   columns: {
@@ -324,6 +331,8 @@ export interface ExperienceItem {
   gapAfter?: string;
   /** Add-on work outside the product role, shown after the bullets under its own title. */
   extras?: { title: string; bullets: string[] };
+  /** True only for a role held today; the timeline shows the current-role badge from this, never from list order. */
+  current?: boolean;
 }
 
 export interface ExperienceContent {

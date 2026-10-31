@@ -300,6 +300,28 @@
 .deliverables span { color: var(--accent); font-size: .72rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .deliverables strong { font-size: 1.02rem; font-weight: 620; line-height: 1.45; }
 
+.dataMap { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.dataMap li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-ui);
+  background: var(--surface);
+}
+.dataIndex { color: var(--accent); font-size: .72rem; font-weight: 700; font-variant-numeric: tabular-nums; padding-top: .2rem; }
+.dataMap dl {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: .35rem 1.75rem;
+  margin: 0;
+}
+.dataMap dt { grid-row: 1; color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
+.dataMap dd { grid-row: 2; margin: 0; line-height: 1.6; }
+.dataSources { color: var(--muted); font-size: .92rem; font-weight: 550; }
+.dataInsight { font-size: 1.02rem; font-weight: 620; }
+
 .stills {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -481,6 +503,11 @@
   .deliverables { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .deliverables li { min-height: 7rem; padding: .9rem; }
   .deliverables strong { font-size: .92rem; }
+  .dataMap li { grid-template-columns: minmax(0, 1fr); gap: .6rem; padding: .95rem; }
+  .dataMap dl { grid-template-columns: minmax(0, 1fr); }
+  .dataMap dt, .dataMap dd { grid-row: auto; }
+  .dataMap dd + dt { margin-top: .5rem; }
+  .dataInsight { font-size: .95rem; }
   .next { min-height: 0; }
   .nextVisual img { transform: translate(1rem, 1.5rem) rotate(-3deg); }
 }

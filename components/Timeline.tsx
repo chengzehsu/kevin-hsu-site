@@ -52,8 +52,8 @@ export function Timeline({ content, locale }: SectionProps) {
         </div>
 
         <ol className={styles.rail}>
-          {items.map((item, index) => {
-            const current = index === 0;
+          {items.map((item) => {
+            const current = item.current === true;
             return (
               <Fragment key={item.id}>
                 <li

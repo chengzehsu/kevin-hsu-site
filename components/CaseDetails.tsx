@@ -58,91 +58,121 @@ export function CaseDetails({
       {/* An illustrated article already tells the problem and the decisions; skip them so nothing repeats. */}
       {item.article ? null : (
         <>
-      {/* 01 Problem: the situation reads as one statement; the constraint is called out beside it. */}
-      <div className={`${styles.chapter} ${styles.problem}`}>
-        <ChapterHead number="01" title={chapters.problem} />
-        <div className={styles.chapterBody}>
-          <div id="situation" className={`${styles.block} scroll-rise`}>
-            <h3 className={styles.label}>{columns.situation}</h3>
-            <p className={styles.statement}>
-              <Highlight>{item.situation}</Highlight>
-            </p>
-          </div>
-          <div id="bottleneck" className={`${styles.bottleneck} scroll-rise`}>
-            <h3 className={styles.label}>{columns.bottleneck}</h3>
-            <p>
-              <Highlight>{item.bottleneck}</Highlight>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* 02 Decision: one idea, set large. */}
-      <div className={`${styles.chapter} ${styles.decisionChapter}`}>
-        <ChapterHead number="02" title={chapters.decision} />
-        <div className={styles.chapterBody}>
-          <div id="decision" className={`${styles.block} scroll-rise`}>
-            <h3 className={styles.label}>{columns.decision}</h3>
-            <p className={styles.quote}>
-              <Highlight>{item.decision}</Highlight>
-            </p>
-          </div>
-          <div id="hypothesis" className={`${styles.execution} scroll-rise`}>
-            <h3 className={styles.label}>{columns.hypothesis}</h3>
-            <p>
-              <Highlight>{item.hypothesis}</Highlight>
-            </p>
-          </div>
-          {item.decisionLog?.length ? (
-            <div id="decision-log" className={styles.block}>
-              <h3 className={styles.label}>
-                {content.cases.decisionLog.title}
-              </h3>
-              <ol className={styles.decisionLog}>
-                {item.decisionLog.map((entry, index) => (
-                  <li key={entry.call} className="scroll-rise">
-                    <span className={styles.decisionIndex}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <dl>
-                      <dt className="sr-only">
-                        {content.cases.decisionLog.call}
-                      </dt>
-                      <dd className={styles.decisionCall}>{entry.call}</dd>
-                      <dt>{content.cases.decisionLog.signal}</dt>
-                      <dd>
-                        <Highlight>{entry.signal}</Highlight>
-                      </dd>
-                      <dt>{content.cases.decisionLog.outcome}</dt>
-                      <dd>
-                        <Highlight>{entry.outcome}</Highlight>
-                      </dd>
-                    </dl>
-                  </li>
-                ))}
-              </ol>
+          {/* 01 Problem: the situation reads as one statement; the constraint is called out beside it. */}
+          <div className={`${styles.chapter} ${styles.problem}`}>
+            <ChapterHead number="01" title={chapters.problem} />
+            <div className={styles.chapterBody}>
+              <div id="situation" className={`${styles.block} scroll-rise`}>
+                <h3 className={styles.label}>{columns.situation}</h3>
+                <p className={styles.statement}>
+                  <Highlight>{item.situation}</Highlight>
+                </p>
+              </div>
+              <div
+                id="bottleneck"
+                className={`${styles.bottleneck} scroll-rise`}
+              >
+                <h3 className={styles.label}>{columns.bottleneck}</h3>
+                <p>
+                  <Highlight>{item.bottleneck}</Highlight>
+                </p>
+              </div>
             </div>
-          ) : null}
-        </div>
-      </div>
+          </div>
+
+          {/* 02 Decision: one idea, set large. */}
+          <div className={`${styles.chapter} ${styles.decisionChapter}`}>
+            <ChapterHead number="02" title={chapters.decision} />
+            <div className={styles.chapterBody}>
+              <div id="decision" className={`${styles.block} scroll-rise`}>
+                <h3 className={styles.label}>{columns.decision}</h3>
+                <p className={styles.quote}>
+                  <Highlight>{item.decision}</Highlight>
+                </p>
+              </div>
+              <div
+                id="hypothesis"
+                className={`${styles.execution} scroll-rise`}
+              >
+                <h3 className={styles.label}>{columns.hypothesis}</h3>
+                <p>
+                  <Highlight>{item.hypothesis}</Highlight>
+                </p>
+              </div>
+              {item.decisionLog?.length ? (
+                <div id="decision-log" className={styles.block}>
+                  <h3 className={styles.label}>
+                    {content.cases.decisionLog.title}
+                  </h3>
+                  <ol className={styles.decisionLog}>
+                    {item.decisionLog.map((entry, index) => (
+                      <li key={entry.call} className="scroll-rise">
+                        <span className={styles.decisionIndex}>
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <dl>
+                          <dt className="sr-only">
+                            {content.cases.decisionLog.call}
+                          </dt>
+                          <dd className={styles.decisionCall}>{entry.call}</dd>
+                          <dt>{content.cases.decisionLog.signal}</dt>
+                          <dd>
+                            <Highlight>{entry.signal}</Highlight>
+                          </dd>
+                          <dt>{content.cases.decisionLog.outcome}</dt>
+                          <dd>
+                            <Highlight>{entry.outcome}</Highlight>
+                          </dd>
+                        </dl>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ) : null}
+            </div>
+          </div>
         </>
       )}
 
       {/* 03 What was built: the work products, then the frames that show them. */}
       <div className={`${styles.chapter} ${styles.built}`}>
-        <ChapterHead number={item.article ? "01" : "03"} title={chapters.built} />
+        <ChapterHead
+          number={item.article ? "01" : "03"}
+          title={chapters.built}
+        />
         <div className={styles.chapterBody}>
-          <div id="artifacts" className={`${styles.block} scroll-rise`}>
-            <h3 className={styles.label}>{content.cases.artifactsLabel}</h3>
-            <ol className={styles.deliverables}>
-              {item.artifacts.map((entry, index) => (
-                <li key={entry}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <strong>{entry}</strong>
-                </li>
-              ))}
-            </ol>
-          </div>
+          {item.dataMap?.length ? (
+            <div id="artifacts" className={`${styles.block} scroll-rise`}>
+              <h3 className={styles.label}>{content.cases.dataMap.title}</h3>
+              <ol className={styles.dataMap}>
+                {item.dataMap.map((row, index) => (
+                  <li key={row.insight} className="scroll-rise">
+                    <span className={styles.dataIndex}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <dl>
+                      <dt>{content.cases.dataMap.sources}</dt>
+                      <dd className={styles.dataSources}>{row.sources}</dd>
+                      <dt>{content.cases.dataMap.insight}</dt>
+                      <dd className={styles.dataInsight}>{row.insight}</dd>
+                    </dl>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ) : (
+            <div id="artifacts" className={`${styles.block} scroll-rise`}>
+              <h3 className={styles.label}>{content.cases.artifactsLabel}</h3>
+              <ol className={styles.deliverables}>
+                {item.artifacts.map((entry, index) => (
+                  <li key={entry}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <strong>{entry}</strong>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
           {stills.length ? (
             <ul className={styles.stills} data-count={stills.length}>
               {stills.map((still) => (
@@ -192,7 +222,10 @@ export function CaseDetails({
 
       {/* 04 Result: the claim, the chart that proves it, and how it was measured. */}
       <div className={`${styles.chapter} ${styles.resultChapter}`}>
-        <ChapterHead number={item.article ? "02" : "04"} title={chapters.result} />
+        <ChapterHead
+          number={item.article ? "02" : "04"}
+          title={chapters.result}
+        />
         <div className={styles.chapterBody}>
           <div id="result" className={`${styles.block} scroll-rise`}>
             <h3 className={styles.label}>{columns.result}</h3>

@@ -19,7 +19,7 @@ const portfolioCopy = {
     intro:
       "7 個工作案例＋3 個個人專案；我負責問題定義、優先排序與成果驗證。",
     facts: [
-      ["5+ 年", "產品相關經驗"],
+      ["7+ 年", "產品相關經驗"],
       ["NT$1,200 萬+", "管理專案組合"],
       ["8 段", "跨產業經歷"],
       ["12 人", "帶領團隊（工程 10、PM 2）"],
@@ -40,7 +40,7 @@ const portfolioCopy = {
     intro:
       "7 work cases + 3 side projects. I own problem definition, priorities, and outcome validation.",
     facts: [
-      ["5+ yrs", "product experience"],
+      ["7+ yrs", "product experience"],
       ["NT$12M+", "project portfolio managed"],
       ["8", "roles across industries"],
       ["12", "people led (10 engineers, 2 PMs)"],
