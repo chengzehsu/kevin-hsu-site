@@ -85,7 +85,7 @@ export const zh = {
       steps: ["看流程", "找問題", "定假設", "做工具", "看成效"],
       result: "愛淨：交付效率 +50%，案場營運效率 +20%",
     },
-    primaryCta: { label: "一頁履歷", href: "/resume/" },
+    primaryCta: { label: "履歷", href: "/resume/" },
     secondaryCta: { label: "看工作案例", href: "#work" },
   },
 
@@ -997,7 +997,7 @@ export const zh = {
         role: "Product Manager（流程設計）",
         scope: "會議紀錄整理｜兩道人工關卡｜業務問答入口",
         collaboration: "業務部、業務主管與負責定答案的主管",
-        impact: "185 題 FAQ，51 題通過授權｜瓶頸在人工審核，不在 AI",
+        impact: "185 題 FAQ，51 題通過授權｜瓶頸在人工審核",
         ownership:
           "流程、關卡與 AI 的權限都由我設計；排程與問答入口的指令由我撰寫和維護。",
         situation:

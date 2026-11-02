@@ -26,7 +26,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
   const props = { content, locale };
   const caseById = new Map(content.cases.items.map((item) => [item.id, item]));
   const work = content.cases.items
-    .filter((item) => !item.kind)
+    .filter((item) => !item.kind && resume.figures[item.id])
     .sort((a, b) => a.rank - b.rank);
   const side = content.cases.items
     .filter((item) => item.kind === "side")
@@ -175,7 +175,14 @@ export function ResumePage({ locale }: { locale: Locale }) {
                       <p className={styles.muted}>{role.summary ?? role.focus}</p>
                       {role.bullets.length > 0 ? (
                         <ul className={styles.bullets} data-v="">
-                          <TBullets id={role.id} bullets={role.bullets} locale={locale} />
+                          <TBullets
+                            id={role.id}
+                            bullets={
+                              resume.roleBullets[role.id]?.map((index) => role.bullets[index]) ??
+                              role.bullets
+                            }
+                            locale={locale}
+                          />
                         </ul>
                       ) : null}
                       {resume.roleCases[role.id] ? (

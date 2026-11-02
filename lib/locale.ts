@@ -59,7 +59,7 @@ export function portfolioPath(locale: Locale): string {
   return `${localePath(locale)}portfolio/`;
 }
 
-/** One-page, print-ready résumé for HR readers. */
+/** Print-ready résumé for HR readers, two A4 pages at most. */
 export function resumePath(locale: Locale): string {
   return `${localePath(locale)}resume/`;
 }

@@ -94,7 +94,7 @@ export const en = {
       ],
       result: "Ecofirst: delivery efficiency +50%, site-ops efficiency +20%",
     },
-    primaryCta: { label: "One-page résumé", href: "/en/resume/" },
+    primaryCta: { label: "Résumé", href: "/en/resume/" },
     secondaryCta: { label: "See work cases", href: "#work" },
   },
 

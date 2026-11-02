@@ -75,7 +75,7 @@ export interface HeroContent {
     steps: [string, string, string, string, string];
     result: string;
   };
-  /** The one-page résumé: what a recruiter opens first. Contact stays in the nav, not the hero. */
+  /** The résumé: what a recruiter opens first. Contact stays in the nav, not the hero. */
   primaryCta: Cta;
   /** Jumps to the work cases on the same page. */
   secondaryCta: Cta;
