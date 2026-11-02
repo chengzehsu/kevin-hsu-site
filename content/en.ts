@@ -460,8 +460,8 @@ export const en = {
         kind: "award",
         category: "Award",
         year: "2022",
-        title: "PMI Taiwan Project Management Benchmark Award",
-        distinction: "Excellence Award",
+        title: "PMI Taiwan Benchmark Project Award",
+        distinction: "Merit Award",
         description:
           "Project work at Fable, spanning process mapping, system re-platforming, and cross-team delivery.",
         link: { label: "See the experience", href: "#experience" },
@@ -855,7 +855,7 @@ export const en = {
         collaboration: "Software, project, sales, and site-operations teams",
         impact: "Delivery efficiency +50% | Site-ops efficiency +20%",
         ownership:
-          "Planned and maintain the Notion operating architecture for sales and software: 17 databases, 42 relations, 70+ computed fields, plus requirements and pre-sales rules.",
+          "Planned and maintain the Notion operating architecture for sales and software, plus requirements and pre-sales rules.",
         situation:
           "The AI HVAC product was early, and site information lived in LINE, email, and personal laptops; sales asked about timelines and RD asked about requirements by chasing people.",
         bottleneck:
@@ -1397,7 +1397,7 @@ export const en = {
         summary:
           "Owned the roadmap, requirements, and specs for a 0-to-1 AI energy-saving HVAC product, leading 4 engineers across 50 deployed sites and about NT$100M in projects, and turned practices that lived in individual experience into tools and processes.",
         bullets: [
-          "Consolidated account and site information scattered across LINE, email, and personal laptops into one sales-to-RD operating system in Notion (17 databases, 42 relations), with delivery dates starting at requirements sign-off",
+          "Consolidated account and site information scattered across LINE, email, and personal laptops into one sales-to-RD operating system in Notion, with delivery dates starting at requirements sign-off",
           "Brought AI into requirements, specs, mock-data checks, and dev handoff, raising delivery efficiency by 50% measured as delivery cycle before vs. after; requirement handling went from about a month to about a week",
           "Learned the HVAC domain from field data: audited one hotel site, 26 rules × 8,129 readings, found the 18 rules that need a hand-set threshold caught 0 anomalies, and made zero-config checks the default for monitoring",
           "Coordinated software, project, and sales teams around one development and deployment flow, from requirements sign-off through engineering tests to PM and sales acceptance; turned common features into shared tools and modularized control strategies, cutting delivery time on related projects by about 30% (estimate)",
@@ -1452,15 +1452,16 @@ export const en = {
         org: "Freelance",
         role: "Independent Consultant",
         period: "Jun 2023 - Nov 2023",
-        focus: "Product strategy, rental SaaS, and fundraising advisory",
+        focus:
+          "Development workflows, product roadmaps, and a personal playbook",
         skillSignal:
           "Distilling business goals, user flows, and delivery constraints into one roadmap, so engineering, design, and requesters share the same priorities.",
         summary:
-          "Across three engagement types (product strategy, SaaS, and fundraising advisory), helped clients break business problems down into how the team works and how the product ships.",
+          "Used the gap between roles to take stock of my skills systematically and put them to work as a consultant.",
         bullets: [
-          "Rental-management SaaS: helped an operator managing about 100 properties define a multi-tenant management product, its requirements, and its product-management flow",
-          "Collaboration flow: translated business strategy into product strategy and roadmaps, improving collaboration among engineers, designers, and requesters",
-          "Fundraising advisory: helped energy and hospitality businesses map operations, refine pitch decks, and start connecting with investors",
+          "Mapped the development workflow for a 15-person software outsourcing team and rolled out Notion, making project management more efficient",
+          "Improved product workflows for a multinational SaaS company and helped draft a product roadmap tied to business metrics",
+          "Organized my past product and project management experience into a personal methodology knowledge base",
         ],
       },
       {
@@ -1489,7 +1490,7 @@ export const en = {
         skillSignal:
           "Building systems-level product judgment under delivery pressure: user flows, technical re-platforming, and operating results tied into one decision.",
         summary:
-          "Managed an NT$12M+ B2C project portfolio with Agile, led a 10-person engineering team and two junior PMs, and was responsible for storefront, back-office, and app re-platforming across e-commerce, warehouse operations, and IoT. Received the 2022 PMI Taiwan Project Management Benchmark Award (Excellence Award).",
+          "Managed an NT$12M+ B2C project portfolio with Agile, led a 10-person engineering team and two junior PMs, and was responsible for storefront, back-office, and app re-platforming across e-commerce, warehouse operations, and IoT. Received the 2022 PMI Taiwan Benchmark Project Merit Award.",
         bullets: [
           "Fresh-produce e-commerce (about NT$200M annual revenue): during rapid order growth, led order-to-delivery mapping and coordinated full-stack and AWS re-platforming; picking went from 300 → 1,000 orders/day (+233%); platform revenue grew 120% during the re-platforming period",
           "Health-management app (about NT$800M annual revenue): used interviews, competitor research, and client workshops to set priorities; rebuilt the platform, migrated user data, and integrated IoT smart scales; daily active users grew from 12,000 to 20,000 within a year (+66%)",
@@ -1537,7 +1538,7 @@ export const en = {
     links: [
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/cheng-ze-hsu-126611118/",
+        href: "https://www.linkedin.com/in/chengze-hsu/",
       },
     ],
   },

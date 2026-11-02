@@ -195,6 +195,21 @@ export function ResumePage({ locale }: { locale: Locale }) {
             </ol>
           </section>
 
+          <section className={styles.section} aria-labelledby="resume-education">
+            <h2 id="resume-education">{resume.sections.education}</h2>
+            <ul className={styles.list}>
+              <li>
+                <div>
+                  <p className={styles.highlightTitle}>
+                    {resume.education.school}
+                    <span className={styles.org}>{resume.education.detail}</span>
+                  </p>
+                  <p className={styles.muted}>{resume.education.period}</p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
           <section className={styles.section} aria-labelledby="resume-side">
             <h2 id="resume-side">{resume.sections.side}</h2>
             <ul className={styles.list}>

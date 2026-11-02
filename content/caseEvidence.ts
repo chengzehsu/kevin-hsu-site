@@ -63,7 +63,7 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
       eyebrow: "架構證據",
       title: "業務到 RD 的六層營運架構",
       steps: ["資料層", "關聯層", "計算層", "檢視層", "規則層", "AI 層"],
-      measure: "17 個資料庫｜42 條關聯｜70 多個自動計算欄位",
+      measure: "17 個資料庫｜70 多個自動計算欄位",
     },
   },
   en: {
@@ -103,7 +103,7 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
       eyebrow: "Architecture",
       title: "A six-layer operating architecture from sales to RD",
       steps: ["Data", "Relations", "Computation", "Views", "Rules", "AI"],
-      measure: "17 databases | 42 relations | 70+ computed fields",
+      measure: "17 databases | 70+ computed fields",
     },
   },
 };

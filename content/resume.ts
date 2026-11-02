@@ -25,6 +25,7 @@ export interface ResumeContent {
     summary: string;
     highlights: string;
     experience: string;
+    education: string;
     side: string;
     skills: string;
     awards: string;
@@ -33,6 +34,8 @@ export interface ResumeContent {
   detailLabel: string;
   /** Large figure shown for each case, keyed by case id; the case's impact line sits beside it. */
   figures: Record<string, string>;
+  /** Highest education, shown after the experience list. */
+  education: { school: string; detail: string; period: string };
   /** Case pages that hold the detail behind a role, keyed by experience id. */
   roleCases: Record<string, string[]>;
   /** Closing line pointing readers who want depth to the portfolio. */
@@ -69,11 +72,13 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       summary: "摘要",
       highlights: "代表成果",
       experience: "工作經歷",
+      education: "學歷",
       side: "個人專案",
       skills: "技能",
       awards: "獎項與收錄",
     },
     detailLabel: "看細節",
+    education: { school: "元智大學", detail: "資訊管理學系", period: "2014/9 - 2018/6" },
     figures: {
       "internal-backend": "34 個案場",
       grocery: "+233%",
@@ -107,11 +112,13 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       summary: "Summary",
       highlights: "Key results",
       experience: "Experience",
+      education: "Education",
       side: "Side projects",
       skills: "Skills",
       awards: "Awards & features",
     },
     detailLabel: "Details",
+    education: { school: "Yuan Ze University", detail: "B.S., Information Management", period: "Sep 2014 - Jun 2018" },
     figures: {
       "internal-backend": "34 sites",
       grocery: "+233%",
