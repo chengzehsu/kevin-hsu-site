@@ -324,24 +324,48 @@
 
 /* The PDF résumé: A4, black on white, no site chrome, contact details written out. */
 @media print {
-  @page { size: A4; margin: 14mm 14mm 16mm; }
+  /* Two A4 pages at most: single column, smaller type, no web-only blocks. */
+  @page { size: A4; margin: 10mm 13mm 10mm; }
 
   .page { padding: 0; }
   .page ~ :global(footer) { display: none; }
-  .sheet { max-width: none; font-size: 10pt; }
+  .sheet { max-width: none; font-size: 9.3pt; line-height: 1.38; }
   .actions,
   .detail,
   .roleLinks,
-  .more { display: none !important; }
+  .more,
+  .kicker,
+  .keywords,
+  .gap { display: none !important; }
   .printOnly { display: inline; }
+  .contacts { margin-top: 2pt; font-size: 8.5pt; }
   .contacts a { min-height: 0; color: var(--fg); text-decoration: none; }
-  .header { padding-bottom: 10pt; }
-  .header h1 { font-size: 20pt; }
-  .facts > div { padding-block: 8pt; }
-  .section { grid-template-columns: 26mm minmax(0, 1fr); gap: 6mm; padding-block: 10pt; }
-  .highlights > li { grid-template-columns: 24mm minmax(0, 1fr); }
-  .figure { font-size: 13pt; }
-  .roles { gap: 9pt; }
+  .header { padding-bottom: 4pt; }
+  .header h1 { margin: 0; font-size: 16pt; }
+  .headline { margin-top: 1pt; font-size: 9.8pt; }
+  .facts > div { padding-block: 3pt; }
+  .facts dt { font-size: 11pt; }
+  .facts dd { font-size: 8pt; }
+  .section { grid-template-columns: minmax(0, 1fr); gap: 2pt; padding-block: 4pt; }
+  .section h2 { margin: 0; font-size: 10.5pt; }
+  .summary { margin: 0; font-size: 9.3pt; line-height: 1.38; }
+  .highlights,
+  .list { gap: 1.5pt; }
+  .highlights > li { grid-template-columns: 19mm minmax(0, 1fr); gap: 2mm; }
+  .list > li { gap: 2mm; }
+  .figure { font-size: 10.5pt; line-height: 1.25; }
+  .highlightTitle { margin: 0; font-size: 9.3pt; line-height: 1.3; }
+  .muted { margin: 0; font-size: 8.6pt; line-height: 1.32; }
+  .roles { gap: 3pt; }
+  .role { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .period { margin: 0; font-size: 8.3pt; line-height: 1.25; }
+  .role h3 { margin: 0; font-size: 9.6pt; line-height: 1.3; }
+  .bullets { margin: 1pt 0 0; font-size: 8.8pt; line-height: 1.32; }
+  .bullets li { margin: 0; }
+  .skills { gap: 1pt; }
+  .skills > div { display: grid; grid-template-columns: 30mm minmax(0, 1fr); gap: 2mm; }
+  .skills dt,
+  .skills dd { margin: 0; font-size: 8.8pt; line-height: 1.32; }
   .role,
   .highlights > li,
   .list > li { break-inside: avoid; }

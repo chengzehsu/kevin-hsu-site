@@ -64,7 +64,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "產、審、用三段分工",
       context: "業務只拿得到確認過的答案",
       treatment: "reconstructed",
-      headline: { value: "51 / 185", label: "題通過授權，業務現在問得到（2026/9）", also: "瓶頸在人工審核，不在 AI" },
+      headline: { value: "51 / 185", label: "題通過授權，業務現在問得到（2026/9）", also: "瓶頸在人工審核" },
     },
     "life-hub": {
       src: "/ai-covers/life.svg",
@@ -231,7 +231,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "Draft, review, use",
       context: "Reps only get confirmed answers",
       treatment: "reconstructed",
-      headline: { value: "51 / 185", label: "entries authorized for reps (Sep 2026)", also: "The bottleneck is human review, not AI" },
+      headline: { value: "51 / 185", label: "entries authorized for reps (Sep 2026)", also: "Human review is the bottleneck" },
     },
     "life-hub": {
       src: "/ai-covers/life.svg",
