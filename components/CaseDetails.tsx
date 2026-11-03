@@ -5,6 +5,7 @@ import { caseEvidence } from "@/content/caseEvidence";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { aiStoryForCase } from "@/lib/aiPractice";
 import { casePath } from "@/lib/locale";
+import { srcSetFor } from "@/lib/responsive-image";
 import { Disclosure } from "./Disclosure";
 import { Highlight } from "./Highlight";
 import { CaseEvidence } from "./CaseEvidence";
@@ -117,7 +118,7 @@ export function CaseDetails({
               {item.decisionLog?.length ? (
                 <div id="decision-log" className={styles.block}>
                 <Disclosure
-                  kind="case"
+                  kind="log"
                   expandLabel={LOG_LABELS[locale].expand}
                   collapseLabel={LOG_LABELS[locale].collapse}
                   summary={<h3 className={styles.label}>{content.cases.decisionLog.title}</h3>}
@@ -240,6 +241,8 @@ export function CaseDetails({
                   <figure>
                     <img
                       src={still.src}
+                      srcSet={srcSetFor(still.src)}
+                      sizes={stills.length === 1 ? "(max-width: 767px) 92vw, 448px" : "(max-width: 1023px) 70vw, (max-width: 1215px) 30vw, 360px"}
                       alt={still.alt}
                       width={still.width}
                       height={still.height}

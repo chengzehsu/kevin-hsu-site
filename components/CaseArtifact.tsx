@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { caseArtifacts } from "@/content/caseArtifacts";
 import type { Locale } from "@/lib/locale";
+import { srcSetFor } from "@/lib/responsive-image";
 import styles from "./CaseArtifact.module.css";
 
 type Variant = "cover" | "full";
@@ -57,20 +57,24 @@ export function CaseArtifact({
     >
       <div className={styles.frame} data-ambient={ambient ? "" : undefined}>
         {ambient ? (
-          <Image
+          <img
             className={styles.backdrop}
             src={artifact.src}
+            srcSet={srcSetFor(artifact.src)}
             alt=""
             aria-hidden="true"
             width={square ? 1208 : 1200}
             height={square ? 1236 : 674}
             sizes="10vw"
-            loading="lazy"
+            loading={eager ? "eager" : "lazy"}
+            decoding="async"
           />
         ) : null}
-        <Image
+        {/* A plain <img>: the static export has no image optimiser, so next/image would write no srcset. */}
+        <img
           className={styles.image}
           src={artifact.src}
+          srcSet={srcSetFor(artifact.src)}
           alt={artifact.alt}
           width={square ? 1208 : 1200}
           height={square ? 1236 : 674}

@@ -2,6 +2,7 @@ import { orderCases } from "@/lib/cases";
 import type { CaseStudy, SectionProps } from "@/content/types";
 import { caseArtifacts } from "@/content/caseArtifacts";
 import { casePath, portfolioPath } from "@/lib/locale";
+import { srcSetFor } from "@/lib/responsive-image";
 import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
@@ -184,6 +185,8 @@ export function CasePage({
                 <span className={styles.nextVisual} aria-hidden="true">
                   <img
                     src={nextArtifact.src}
+                    srcSet={srcSetFor(nextArtifact.src)}
+                    sizes="(max-width: 1023px) 92vw, 560px"
                     alt=""
                     width={1200}
                     height={674}

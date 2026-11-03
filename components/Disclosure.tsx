@@ -12,7 +12,7 @@ interface DisclosureProps {
   summaryClassName?: string;
   className?: string;
   actions?: ReactNode;
-  kind: "case" | "experience" | "ai";
+  kind: "case" | "log" | "experience" | "ai";
   defaultOpen?: boolean;
 }
 

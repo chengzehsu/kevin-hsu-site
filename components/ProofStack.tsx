@@ -7,6 +7,7 @@ import type { SectionProps } from "@/content/types";
 import { CASE_POSTERS, CASE_POSTER_SIZE, CASE_SHELF_SHOTS } from "@/content/caseArtifacts";
 import { FEATURED_COUNT, fillCounts, orderCases } from "@/lib/cases";
 import { casePath, portfolioPath } from "@/lib/locale";
+import { srcSetFor } from "@/lib/responsive-image";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./ProofStack.module.css";
 import { TOrder } from "./Tailored";
@@ -53,12 +54,15 @@ export function ProofStack({ content, locale }: SectionProps) {
                   aria-label={`${cases.readLabel}: ${item.title}`}
                 >
                   {shot ? (
-                    <Image
+                    <img
                       src={shot.src}
+                      srcSet={srcSetFor(shot.src)}
                       alt=""
                       width={shot.width}
                       height={shot.height}
                       sizes="(max-width: 767px) 78vw, (max-width: 1023px) 90vw, 46vw"
+                      loading="lazy"
+                      decoding="async"
                       className={styles.shot}
                     />
                   ) : poster ? (

@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import type { CaseArticle as CaseArticleContent } from "@/content/types";
 import type { Locale } from "@/lib/locale";
+import { srcSetFor } from "@/lib/responsive-image";
 import styles from "./CaseArticle.module.css";
 
 const COPY = {
@@ -66,6 +67,8 @@ export function CaseArticle({
               <a href={section.figure.src} target="_blank" rel="noopener" className={styles.zoom}>
               <img
                 src={section.figure.src}
+                srcSet={srcSetFor(section.figure.src)}
+                sizes="(max-width: 1215px) 92vw, 1120px"
                 alt={section.figure.alt}
                 width={section.figure.width}
                 height={section.figure.height}

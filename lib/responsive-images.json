@@ -1,0 +1,11 @@
+{
+  "/portfolio-artifacts/internal-backend-plate.webp": { "width": 1200, "variants": [480, 800] },
+  "/portfolio-artifacts/ecofirst-hvac-platform.webp": { "width": 1208, "variants": [480, 800] },
+  "/portfolio-artifacts/internal-backend-overview.webp": { "width": 1648, "variants": [800, 1200] },
+  "/portfolio-artifacts/internal-backend-timeseries.webp": { "width": 1536, "variants": [800, 1200] },
+  "/portfolio-artifacts/internal-backend-site-health.webp": { "width": 1648, "variants": [800, 1200] },
+  "/portfolio-artifacts/internal-backend-warroom.webp": { "width": 1632, "variants": [800, 1200] },
+  "/portfolio-wall/film-1.webp": { "width": 1600, "variants": [480, 800] },
+  "/portfolio-wall/film-2.webp": { "width": 1600, "variants": [480, 800] },
+  "/portfolio-wall/film-7.webp": { "width": 1600, "variants": [480, 800] }
+}
