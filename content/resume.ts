@@ -84,7 +84,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "Kevin Hsu (許承澤)",
     headline: "Senior Product Manager | Platform rebuilds and internal systems",
     summary: "Senior Product Manager with 7+ years of product-related experience in B2B, AI, and e-commerce, focused on platform rebuilds and internal systems.",
-    summaryPoints: ["Cut customer onboarding from about 2 weeks to about 2 hours (excluding on-site wiring and control strategy), across 34 sites", "Scaled e-commerce picking from 300 to 1,000 orders a day, featured as an AWS case study", "Led 10 engineers across projects and directly managed 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award"],
+    summaryPoints: ["Cut customer onboarding from about 2 weeks to about 2 hours (excluding on-site wiring and control strategy), for all 34 sites", "Scaled e-commerce picking from 300 to 1,000 orders a day, featured as an AWS case study", "Led 10 engineers across projects and directly managed 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award"],
     entryLabel: "Résumé",
     printLabel: "Print / save as PDF",
     printHint: 'Choose "Save as PDF" in the print dialog to download.',

@@ -10,7 +10,7 @@ export const facts: Record<Locale, Metric[]> = {
     {
       value: "約 2 週 → 約 2 小時",
       label: "客戶導入時間",
-      detail: "從工程師開發改成 PM 後台設定，34 個案場（導入系統的現場）都適用（不含現場接線與控制策略）",
+      detail: "從等工程師處理改成 PM 後台設定，34 個案場（導入系統的現場）都適用（不含現場接線與控制策略）",
       caseId: "internal-backend",
       og: { value: "約 2 週到約 2 小時", label: "客戶導入時間" },
     },
@@ -33,7 +33,7 @@ export const facts: Record<Locale, Metric[]> = {
     {
       value: "~2 weeks → ~2 hours",
       label: "Customer onboarding",
-      detail: "From engineering work to PM setup in the internal platform, across 34 sites (excluding on-site wiring and control strategy)",
+      detail: "From waiting on engineers to PM setup in the internal platform; works for all 34 sites (excluding on-site wiring and control strategy)",
       caseId: "internal-backend",
       og: { value: "~2 weeks to ~2 hours", label: "Customer onboarding" },
     },

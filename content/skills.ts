@@ -99,11 +99,10 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         id: "product-strategy",
         name: "商業判斷",
         statement: "用數據決定先做什麼、不做什麼。",
-        summary: "依商業目標、使用者需求與交付限制排出 Roadmap。在愛淨分析 735 張任務、約 920 小時，發現 51% 花在單一案場客製，於是售前改用 S/M/L/XL 四種規模報價，合約從資料齊備那天起算。",
-        proof: "18 條要人工設定門檻的規則抓到 0 個異常，所以監控改成優先用不必設定的檢查",
+        summary: "依商業目標、使用者需求與交付限制排出 Roadmap。在愛淨分析 735 張任務、約 920 小時的去向，合約也改成從資料齊備那天起算。",
+        proof: "51% 的工作花在單一案場客製，所以售前改用 S/M/L/XL 四種規模報價",
         references: [
           { label: "台灣愛淨", href: "/cases/ecofirst/" },
-          { label: "內部後台", href: "/cases/internal-backend/" },
         ],
       },
       {
@@ -111,7 +110,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         name: "AI 導入",
         statement: "AI 先提案、人來拍板，準了才放手。",
         summary: "找出 AI 幫得上的環節：從需求、規格、用假資料驗證，到開發交接，都先讓 AI 寫初稿。Notion 上的 AI 排程一開始只提建議，連續 3 輪有 90% 以上被採納，才讓它自動寫入；原型則用 Claude Code 自己做。",
-        proof: "交付時間縮短 30%（估算）；PM 導入案場從約 2 週到約 2 小時",
+        proof: "交付時間縮短 30%（估算）；PM 導入案場從約 2 週到約 2 小時（不含現場接線與控制策略）",
         references: [
           { label: "內部後台", href: "/cases/internal-backend/" },
           { label: "台灣愛淨", href: "#experience-ecofirst" },
@@ -122,7 +121,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         name: "成效驗證",
         statement: "每個成果都寫明怎麼量。",
         summary: "改善前先定基準，上線後用同一把尺比較；沒有前後數字的，就只寫規模與做法，不寫百分比。",
-        proof: "+233%、+66%，都附量測方式",
+        proof: "+233%、+66%（團隊成果），都附量測方式",
         references: [
           { label: "蔬果電商", href: "/cases/grocery/" },
           { label: "健康 App", href: "/cases/health-app/" },
@@ -221,11 +220,10 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         id: "product-strategy",
         name: "Business judgment",
         statement: "Let data decide what to do first and what not to do.",
-        summary: "Build the roadmap from business goals, user needs, and delivery constraints. At Ecofirst, 735 tasks and about 920 hours showed 51% going to single-site customization, so presales moved to S/M/L/XL tiers and contract timelines start when the data is complete.",
-        proof: "18 threshold rules caught 0 anomalies, so monitoring now puts checks that need no configuration first",
+        summary: "Build the roadmap from business goals, user needs, and delivery constraints. At Ecofirst, I traced where 735 tasks and about 920 hours went, and contract timelines now start when the data is complete.",
+        proof: "51% of the work went to single-site customization, so presales moved to S/M/L/XL tiers",
         references: [
           { label: "Ecofirst", href: "/en/cases/ecofirst/" },
-          { label: "Internal platform", href: "/en/cases/internal-backend/" },
         ],
       },
       {
@@ -233,7 +231,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         name: "AI adoption",
         statement: "AI proposes, a person decides, and AI earns autonomy once it proves accurate.",
         summary: "Find where AI actually helps: requirements, specs, mock-data checks, and dev handoff start as AI drafts. Scheduled Notion AI jobs only make suggestions until at least 90% of them are accepted three rounds in a row, and only then write on their own. I build prototypes myself with Claude Code.",
-        proof: "Delivery time down 30% (estimate); PM site onboarding from about 2 weeks to about 2 hours",
+        proof: "Delivery time down 30% (estimate); PM site onboarding from about 2 weeks to about 2 hours (excluding on-site wiring and control strategy)",
         references: [
           { label: "Internal platform", href: "/en/cases/internal-backend/" },
           { label: "Ecofirst", href: "#experience-ecofirst" },
@@ -244,7 +242,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         name: "Measured results",
         statement: "Every result says how it was measured.",
         summary: "Set the baseline before the change and measure the same way after it. Without a before-and-after figure, I state scale and method, never a percentage.",
-        proof: "+233% and +66%, each with its measurement basis",
+        proof: "+233% and +66% (team result), each with its measurement basis",
         references: [
           { label: "Fresh-produce e-commerce", href: "/en/cases/grocery/" },
           { label: "Health app", href: "/en/cases/health-app/" },

@@ -264,7 +264,7 @@ for (const [locale, file, heading] of [
     const prefix = locale === "en" ? "en/" : "";
     const ids = ["internal-backend", "ecofirst", "grocery", "health-app", "cdp", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
     const pages = [file, portfolioFile, `../out/${prefix}resume/index.html`, ...ids.map((id) => `../out/${prefix}cases/${id}/index.html`)];
-    const stale = ["+50%", "交付效率", "elivery efficiency", "+20%", "案場營運效率", "ite-ops efficiency", "營運效率提升 20%", "operational efficiency by 20%", "股神打架", "Stock Gods Fight", "−99%", " -30%", "看工作案例", "查看案例詳情", "看細節", "See work cases", "View case details", "營運流程數位化", "Operations digitization, internal", "digitizing operations", "Product Manager（規劃與實作）", "vibe coding"];
+    const stale = ["一到兩成", "一成多", "10 to 20%", "10%-plus", "不必設定", "no-setup", "need no configuration", "18 條", "18 human-set", "18 threshold", "+50%", "交付效率", "elivery efficiency", "+20%", "案場營運效率", "ite-ops efficiency", "營運效率提升 20%", "operational efficiency by 20%", "股神打架", "Stock Gods Fight", "−99%", " -30%", "看工作案例", "查看案例詳情", "看細節", "See work cases", "View case details", "營運流程數位化", "Operations digitization, internal", "digitizing operations", "Product Manager（規劃與實作）", "vibe coding"];
     for (const page of pages) {
       const raw = await readFile(new URL(page, import.meta.url), "utf8");
       // These frames carry retired claims burned into the image until the film is re-rendered.

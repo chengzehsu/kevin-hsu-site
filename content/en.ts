@@ -194,7 +194,7 @@ export const en = {
         lead: {
           title: "Sensor naming without manual mapping",
           stuck:
-            "Every vendor sends sensor lists in a different format, and PMs mapped each line to the company's standard names by hand. The 10 to 20% automated matching could not handle often sat unresolved, so engineers got half-finished lists.",
+            "Every vendor sends sensor lists in a different format, and PMs mapped each line to the company's standard names by hand. The lines automated matching could not handle often sat unresolved, so engineers got half-finished lists.",
           ai: 'One shared naming tool maps vendor names to standard names, then checks whether values are plausible. It looks only at periods when equipment is running, and anything it cannot judge is marked "can\'t tell", never "normal".',
           human:
             "When the tool is unsure, it asks one question at a time. When nobody knows, it writes a question to forward to the system integrator instead of guessing. It always asks a person about site facts, such as shared or separate chilled-water piping and unit counts.",
@@ -531,9 +531,9 @@ export const en = {
               trait: "Workflow redesign",
               heading: "Download, upload, and check in one place",
               stat: {
-                value: "~2 weeks → ~2 hours",
+                value: "20+ uploads",
                 label:
-                  "PM self-serve onboarding (excludes on-site wiring and control strategy)",
+                  "by PMs on their own in about 1 month, each saving engineers about 1 hour (estimate)",
               },
               paragraphs: [
                 "Now a PM downloads the list, edits it, and uploads it; the system updates itself, and the PM checks the incoming data on the same page. If something is wrong, the PM repeats the loop. Engineers are freed from repetitive upkeep, and sites on the platform grew from 9 to 34 (May to Oct 2026).",
@@ -558,7 +558,6 @@ export const en = {
               },
               paragraphs: [
                 "PMs used to read site emails, pull data, and report errors to the software team, so problems often surfaced only when reports were being prepared. Data-collection tasks alone came to at least 64 tickets and 62.5 hours in six months. Now issues sit on one page, and PMs diagnose them first. I started by defining complete data: under 5% missing, with anything that can't be determined marked separately. Then I changed alerts from counting rules to counting equipment, and every issue now states the actual value and who should handle it.",
-                "I had planned to let PMs set thresholds. Then I audited 8,129 readings at one hotel and found that the 18 human-set rules had caught 0 anomalies; every real problem came from checks that need no setup. So I put the no-setup checks first.",
               ],
               figure: {
                 src: "/portfolio-artifacts/internal-backend-site-health.webp",
@@ -633,7 +632,7 @@ export const en = {
           "Used one shared priority list across product, engineering, warehouse, and operations to get through peak season first, then rebuild in phases.",
         result: [
           "Picking capacity: 300 → 1,000 orders/day (+233%)",
-          "Platform revenue grew 120% during the program",
+          "Platform revenue grew 120% during the program (team result)",
           "AWS later featured the project",
         ],
         artifacts: [
@@ -657,7 +656,7 @@ export const en = {
         scope: "Health app | IoT scales | Data migration | Localization",
         collaboration:
           "Client product, engineering, data migration, IoT, and localization partners",
-        impact: "DAU: 12,000 → 20,000 in one year (+66%)",
+        impact: "DAU: 12,000 → 20,000 in one year (+66%, team result)",
         capabilities: {
           used: ["User interviews", "Prioritization", "QA and acceptance testing"],
           grown: ["Data migration risk management", "IoT data integration"],
@@ -676,7 +675,7 @@ export const en = {
           "Used interviews, competitor research, and client workshops to prioritize work, then designed QA around real use cases.",
         result: [
           "Launched the new platform and completed migration",
-          "DAU: about 12,000 → 20,000 within one year (+66%)",
+          "DAU: about 12,000 → 20,000 within one year (+66%, team result)",
         ],
         artifacts: [
           "User interviews",
@@ -855,7 +854,7 @@ export const en = {
         situation:
           "Every vendor sends sensor lists in a different format, and PMs mapped each line to the company's standard names by hand. The same naming rule lived in three tool guides and drifted apart.",
         bottleneck:
-          "The 10 to 20% automated matching could not handle often sat unresolved, so engineers received half-finished lists, and data gaps showed up only after a 185 MB output file was built.",
+          "The lines automated matching could not handle often sat unresolved, so engineers received half-finished lists, and data gaps showed up only after a 185 MB output file was built.",
         decision:
           "Keep one naming tool for the whole company, called by both data collection and analysis. When the tool is unsure, it asks a person one question at a time, and it always asks a person about site facts.",
         decisionSummary:
@@ -880,7 +879,7 @@ export const en = {
         measurementSummary:
           "72-point walkthrough and site inventory (Sep 2026)",
         article: {
-          lead: 'A vendor sends a sensor list where "CH-1 chilled water supply temp", "Chiller1 outlet", and "CHL01_TCHS" are the same point. The PM maps each line to the company\'s standard name, and the 10%-plus that automated matching can\'t handle tends to sit unresolved.',
+          lead: 'A vendor sends a sensor list where "CH-1 chilled water supply temp", "Chiller1 outlet", and "CHL01_TCHS" are the same point. The PM maps each line to the company\'s standard name, and the lines automated matching can\'t handle tend to sit unresolved.',
           sections: [
             {
               id: "one-core",
@@ -1048,8 +1047,8 @@ export const en = {
               trait: "Measured results",
               heading: "The data shows human review is what needs to speed up",
               stat: {
-                value: "51 entries",
-                label: "approved answers reps can look up (AI drafted 185)",
+                value: "78 entries",
+                label: "already have answers written, waiting for sign-off",
               },
               paragraphs: [
                 "130 entries sit at the first approval step, and 78 of them already have answers waiting for sign-off. Instead of making AI run faster, I brought this to the general manager, along with how quickly meeting notes should be processed, as decisions with options.",
@@ -1190,7 +1189,7 @@ export const en = {
           },
         ],
         measurement:
-          "Commit count from personal git history (2026-10-23). No screenshots, code links, amounts, or counts, for privacy.",
+          "Commit count from personal git history (2026-10-23). No screenshots, code links, amounts, or transaction counts, for privacy.",
         measurementSummary: "Personal git history (Oct 2026)",
         article: {
           lead: "Bills arrive by email every month, and each one has to be opened, logged, and sorted, with due dates and renewals to remember. None of it is hard; it is just tedious enough to slip through the cracks.",
@@ -1240,10 +1239,6 @@ export const en = {
               id: "catchup",
               trait: "Measured results",
               heading: "When the schedule was blocked, it learned to catch up",
-              stat: {
-                value: "Daily use",
-                label: "sorting bills and sending reminders, since Mar 2026",
-              },
               paragraphs: [
                 "From late May 2026 a system permission started blocking the daily mail fetch, and the log filled with failures. Instead of switching the check off, I made it catch up every time Claude Code opens; next, I plan to move it to a cloud schedule so the computer doesn't need to be on.",
               ],
@@ -1327,7 +1322,7 @@ export const en = {
         summary:
           "Owned the B2B AI HVAC energy-saving product, roadmap, and internal platform, leading 4 engineers. Contracts totaled about NT$100M, and customers saved about 15% on energy on average.",
         bullets: [
-          "Cut customer onboarding from about 2 weeks to about 2 hours: 3 PMs now set up sensor points in the internal platform across 34 sites (excluding wiring and control strategy), and handoffs per round dropped from 4 to 0",
+          "Cut customer onboarding from about 2 weeks to about 2 hours: 3 PMs now set up sensor points in the internal platform, which works for all 34 sites (excluding wiring and control strategy), and handoffs per round dropped from 4 to 0",
           "20+ self-serve uploads in about 1 month: each saves engineers about 1 hour (estimate); led the work from requirements through build with Claude Code, across 748 commits",
           "Cut requirement handling from about 1 month to about 1 week: switched a data-management project from PRD-first to prototype-first to align on problems and solutions; built the second prospect's energy dashboard in 1 day",
           "Cut delivery time on related projects by 30% (estimate): built shared tools and modular control strategies instead of one-off internal tools",
@@ -1460,7 +1455,7 @@ export const en = {
     captions: [
       "Orders queue at picking: 300 orders/day.",
       "Rebuilt the storefront, back office, app, and AWS architecture around the delivery flow.",
-      "Picking reached 1,000 orders/day, while platform revenue grew 120%.",
+      "Picking reached 1,000 orders/day, while platform revenue grew 120% (team result).",
     ],
     replay: "Replay",
     ariaLabel:

@@ -1,6 +1,6 @@
 # LinkedIn 更新稿（2026/10 版）
 
-依網站目前的定位（營運流程數位化、內部系統與 AI 導入）與經歷整理，供手動貼上 LinkedIn；尚未寫入任何外部帳號。
+依網站目前的定位（平台重構與內部系統）與經歷整理，供手動貼上 LinkedIn；尚未寫入任何外部帳號。
 上一版仍寫「AI Product Manager」「目前在台灣愛淨」，已過時，整份取代。
 
 目標：求職。中文檔案為主，英文檔案用同一套內容（LinkedIn「新增其他語言的個人檔案」）。
@@ -16,34 +16,36 @@
 
 中文：
 
-Product Manager｜營運流程數位化・內部系統・AI 導入｜把散在 LINE、Email 的跨部門流程做成系統，再用數字驗證成效｜前 Ecofirst Senior PM・PMI 台灣標竿獎
+Senior Product Manager｜平台重構與內部系統｜把要等工程師的事，變成 PM 自己能完成的流程，再用數字驗證｜前 Ecofirst Senior PM・PMI 台灣標竿獎
 
 English：
 
-Product Manager | Operations Digitization, Internal Systems & AI Adoption | I turn scattered cross-team workflows into systems people use, and prove it with numbers | ex-Ecofirst Senior PM · PMI Taiwan Award
+Senior Product Manager | Platform Rebuilds & Internal Systems | I turn work that waits on engineers into workflows PMs can finish on their own, and prove it with numbers | ex-Ecofirst Senior PM · PMI Taiwan Award
 
 ## 2. About（關於）
 
-> 2026/10 比對結果：線上版已經跟網站一致、結構也對，**保留線上版**，只改兩處：
+> 2026/10 比對結果：線上版的結構對，但定位和數字已經跟網站不同，只改三處：
 >
-> 1. 數字對齊：About 寫「交付效率 +50%」，畢業貼文寫「需求處理效率約 75%」，兩個都對但招募方會以為打架；About 補一句「需求處理從約 1 個月縮短到約 1 週」。
-> 2. 結尾 CTA 加「作品集在精選區第一則」，讓手機讀者不用找網址。
+> 1. 定位：線上版寫「營運流程數位化、內部系統與 AI 導入」，改成網站現在的「平台重構與內部系統」。
+> 2. 數字：拿掉「交付效率 +50%」，網站已不再使用這個說法，沒有確認量測方式；換成網站現在的說法，「需求處理從約 1 個月縮短到約 1 週」。畢業貼文寫的「需求處理效率約 75%」也是同一件事的另一種算法，貼文不用動，About 以網站說法為準。
+> 3. 結尾 CTA 加「作品集在精選區第一則」，讓手機讀者不用找網址。
 >
 > 下面是備用改寫版，線上版之後要改再參考。
 
 規格寫完了，會議開完了，東西還沒跑起來？我的工作就是處理這一段。
 
-我是 Product Manager，有 7 年以上產品相關經驗，專注營運流程數位化、內部系統與 AI 導入：先走進現場看流程、找出卡點，再把解法做出來，最後用改善前後的數字證明有沒有用。
+我是 Senior Product Manager，有 7 年以上產品相關經驗，專注平台重構與內部系統：把要等工程師的事，變成 PM 自己能完成的流程，最後用改善前後的數字證明有沒有用。
 
 幾個例子：
-・台灣愛淨：把散在 LINE、Email 與個人電腦的客戶與案場資料，整合成業務到 RD 共用的 Notion 營運系統；AI 導入需求到開發流程後，交付效率 +50%，需求處理從約 1 個月縮短到約 1 週
+・台灣愛淨：自建內部後台，客戶導入從約 2 週縮短到約 2 小時（改由 PM 自己設定點位，34 個案場都適用，不含現場接線與控制策略）
+・台灣愛淨：把散在 LINE、Email 與個人電腦的客戶與案場資料，整合成業務到 RD 共用的 Notion 營運系統；需求處理從約 1 個月縮短到約 1 週
 ・控制策略模擬工具：調整一次策略，從 1 週縮短到 2 小時
-・Fable 寓意科技：主導蔬果電商訂單到交付的重構，揀貨 300 → 1,000 單／日；健康 App 重構後 DAU 一年 +66%
+・Fable 寓意科技：主導蔬果電商訂單到交付的重構，揀貨 300 → 1,000 單／日；健康 App 重構後 DAU 一年 +66%（團隊成果）
 ・帶過 10 人工程團隊與 2 位初階 PM，管理 NT$1,200 萬以上的專案組合
 
 程式經驗不多，但原型與內部工具我自己用 Claude Code 做，2 個月 218 次提交。我的原則是：AI 先提案，人來拍板，驗證準了才放手。
 
-專長：流程盤點、內部營運系統、資料整合（Notion、Asana、CDP、POS／電商）、AI 與自動化導入、B2B SaaS、電商、App
+專長：平台重構、內部營運系統、流程盤點、資料整合（Notion、Asana、CDP、POS／電商）、AI 與自動化導入、B2B SaaS、電商、App
 
 我在找團隊分工完整、產品決策靠數據，也正在重新設計大家怎麼用 AI 工作的公司。每個成果背後的痛點與量測方式都在作品集裡（精選區第一則），想聊職缺歡迎直接來信：kevin492625@gmail.com
 
@@ -53,18 +55,19 @@ English：
 
 Specs written, meetings held, and nothing is running yet? That gap is my job.
 
-I'm a Product Manager with 7+ years of product experience, focused on operations digitization, internal systems, and AI adoption. I start on the floor, find where work stalls, build the fix, and prove it against a before-and-after baseline.
+I'm a Senior Product Manager with 7+ years of product experience, focused on platform rebuilds and internal systems. I turn work that waits on engineers into workflows PMs can finish on their own, and prove it against a before-and-after baseline.
 
 A few results:
 
-- Ecofirst: merged customer and site data scattered across LINE, email, and laptops into one Notion operations system shared from sales to R&D. After bringing AI into the requirements-to-delivery flow, delivery efficiency rose 50% and requirement turnaround fell from ~1 month to ~1 week
+- Ecofirst: built an internal platform that cut customer onboarding from ~2 weeks to ~2 hours (PMs set up sensor points themselves, which works for all 34 sites, excluding on-site wiring and control strategy)
+- Ecofirst: merged customer and site data scattered across LINE, email, and laptops into one Notion operations system shared from sales to R&D; requirement handling fell from ~1 month to ~1 week
 - A control-strategy simulator cut each strategy tuning cycle from 1 week to 2 hours
-- Fable: led an order-to-delivery rebuild for a grocery e-commerce client, picking 300 → 1,000 orders/day; a health app rebuild grew DAU 66% in a year
+- Fable: led an order-to-delivery rebuild for a grocery e-commerce client, picking 300 → 1,000 orders/day; a health app rebuild grew DAU 66% in a year (team result)
 - Led a 10-person engineering team and two junior PMs across a NT$12M+ portfolio
 
 I'm not a career engineer, but I build my own prototypes and internal tools with Claude Code (218 commits in 2 months). My rule: AI proposes, a person decides, and it earns autonomy once it's proven right.
 
-Specialties: process mapping, internal operations systems, data integration (Notion, Asana, CDP, POS/e-commerce), AI and automation adoption, B2B SaaS, e-commerce, apps
+Specialties: platform rebuilds, internal operations systems, process mapping, data integration (Notion, Asana, CDP, POS/e-commerce), AI and automation adoption, B2B SaaS, e-commerce, apps
 
 I'm looking for a team with clear roles, data-driven product decisions, and an active redesign of how people work with AI. Case studies are in Featured; for roles, email kevin492625@gmail.com
 
@@ -83,7 +86,7 @@ I'm looking for a team with clear roles, data-driven product decisions, and an a
 
 > 2026/10 比對結果：線上經歷已經跟網站同步、日期正確（愛淨已寫到 2026/10），**大部分不用動**。只做這幾處：
 >
-> 1. **愛淨**：補兩條網站或貼文有、經歷沒有的成果：「需求處理時間由約 1 個月縮短到約 1 週」「常用功能做成共用工具、控制策略模組化，相關專案交付時間縮短約 30%」。最後一條的 SOP 跟營運效率 +20% 拆成獨立一條。
+> 1. **愛淨**：補兩條網站有、經歷沒有的成果：「需求處理時間由約 1 個月縮短到約 1 週」「常用功能做成共用工具、控制策略模組化，相關專案交付時間縮短約 30%（估算）」。線上若有「SOP 帶來營運效率 +20%」，整條拿掉：+20% 的量測方式還沒確認，網站也已移除。
 > 2. **獨立顧問（2023/6 – 2023/11）**：以 LinkedIn 版本為準，網站已同步（2026/10），LinkedIn 不用動。
 > 3. **華曜興業**三條都沒有數字。有任何量化結果（出貨時間、錯誤率、處理單量）就補上；沒有的話維持現狀，不要硬編。
 > 4. **獨立顧問（2024/9 – 2025/2）沒有勾技能**：加 Business Process Improvement、Asana、Fundraising、Financial Modeling、Data Analysis。
@@ -94,15 +97,15 @@ I'm looking for a team with clear roles, data-driven product decisions, and an a
 
 ### Senior Product Manager｜台灣愛淨節能科技 Ecofirst（2025/3 – 2026/10）
 
-負責早期階段的 AI 空調節能產品，帶領 4 位 RD，部署於 50 個案場、專案規模約 NT$1 億。
+負責 B2B AI 空調節能產品、Roadmap 與內部後台，帶領 4 位工程師，合約總額約 NT$1 億，客戶平均節能率約 15%。
 
-- 整合散在 LINE、Email 與個人電腦的客戶與案場資訊，建成業務到 RD 的 Notion 營運系統（17 個資料庫、42 條關聯）
-- 從需求、規格、假資料驗證到開發交接導入 AI 工作流程，交付效率 +50%，需求處理從約 1 個月縮短到約 1 週
+- 客戶導入 約 2 週 → 約 2 小時：改由 3 位 PM 在後台設定點位，34 個案場都適用（不含現場接線與控制策略）；每輪交接 4 次 → 0 次
+- 整合散在 LINE、Email 與個人電腦的客戶與案場資訊，建成業務到 RD 的 Notion 營運系統（17 個資料庫）
+- 需求處理 約 1 個月 → 約 1 週：數據管理專案從 PRD 改成先做 Prototype，對焦痛點與解法
 - 建立控制策略模擬工具，處理 10 萬種以上組合，策略調整從 1 週縮短到 2 小時
 - 用 Claude Code 自建內部後台，2 個月 218 次提交，涵蓋 34 個案場
-- 建立需求確認、RD 測試到 PM／業務驗收的開發部署流程，控制策略模組化，相關專案交付時間縮短約 30%
-- 推動 AI 工具實際採用：業務用 AI 名片助手 4 天建檔 80 筆名片；每日會議追蹤排程半年產出 100 多份報告
-- 制定標準作業程序，案場營運效率 +20%
+- 建立需求確認、RD 測試到 PM／業務驗收的開發部署流程，控制策略模組化，相關專案交付時間縮短約 30%（估算）
+- 推動 AI 工具實際採用：業務用 AI 名片助手 4 天建檔 80 筆名片；每日會議追蹤自 2026/4 起累積 110 份
 
 技能：Product Management、Process Improvement、Notion、AI Automation、Cross-functional Team Leadership
 
@@ -115,15 +118,15 @@ I'm looking for a team with clear roles, data-driven product decisions, and an a
 ### Senior Product Manager｜知識衛星 SAT. KNOWLEDGE（2023/11 – 2024/8）
 
 - 借第三方平台 3 週打進香港市場，首週營業額突破 NT$100 萬
-- 重新規劃請假補休、請款與客服流程，營運效率 +20%
+- 盤點並重新規劃人資請假補休、請款與客服流程
 - 訪談不同規模企業人資，規劃學習數據儀表板
 
 ### Senior Project Manager｜Fable 寓意科技（2021/3 – 2022/7）
 
-管理 NT$1,200 萬以上 B2C 專案組合，帶領 10 人工程團隊與 2 位初階 PM；獲 2022 PMI 台灣分會專案管理標竿獎卓越獎。
+管理 NT$1,200 萬以上 B2C 專案組合，帶領 10 人工程團隊與 2 位初階 PM；獲 2022 PMI 標竿專案獎優選。
 
-- 蔬果電商（客戶年營收約 NT$2 億）：主導訂單到交付流程盤點與 AWS 架構重構，揀貨 300 → 1,000 單／日（+233%），重構期間營收 +120%
-- 健康管理 App（年營收約 NT$8 億）：重構平台並整合 IoT 體重計，DAU 一年由 12,000 成長至 20,000（+66%）
+- 蔬果電商（客戶年營收約 NT$2 億）：主導訂單到交付流程盤點與 AWS 架構重構，揀貨 300 → 1,000 單／日（+233%），重構期間平台營收 +120%（團隊成果），獲 AWS 收錄為案例
+- 健康管理 App（年營收約 NT$8 億）：重構平台並整合 IoT 體重計，DAU 一年由 12,000 成長至 20,000（+66%，團隊成果）
 
 ### 其他經歷（照網站逐條貼）
 
