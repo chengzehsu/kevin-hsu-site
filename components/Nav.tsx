@@ -7,7 +7,7 @@ import { ThemeSwitch } from "./ThemeSwitch";
 import { ScrollProgress } from "./motion/ScrollProgress";
 
 const CONTACT_BUTTON =
-  "nav-contact inline-flex min-h-11 items-center whitespace-nowrap rounded-ui bg-accent px-3 text-sm sm:px-4 font-medium text-accent-fg transition-transform hover:bg-accent/90 active:scale-[0.98]";
+  "nav-contact inline-flex min-h-11 items-center whitespace-nowrap rounded-ui bg-accent px-3 text-sm sm:px-4 font-medium text-accent-fg transition-transform hover:bg-accent/90 focus-visible:bg-accent/90 active:scale-[0.98]";
 
 /**
  * Home sections in page order, then the separate pages (résumé, portfolio) after a divider, then the one
@@ -45,7 +45,7 @@ export function Nav({
   }));
 
   return (
-    <header className="site-nav sticky top-0 z-40 h-[4.5rem]">
+    <header className="site-nav sticky top-0 z-(--z-nav) h-[4.5rem]">
       <a className="skip-link" href="#main-content">
         {content.nav.skipLabel}
       </a>

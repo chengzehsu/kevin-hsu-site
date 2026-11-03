@@ -7,9 +7,9 @@ import { MagneticLink } from "./motion/MagneticLink";
 import styles from "./Hero.module.css";
 
 const PRIMARY_CTA =
-  "inline-flex items-center gap-2 whitespace-nowrap rounded-ui bg-accent px-5 py-3 font-medium text-accent-fg transition-transform hover:bg-accent/90 active:scale-[0.98]";
+  "inline-flex items-center gap-2 whitespace-nowrap rounded-ui bg-accent px-5 py-3 font-medium text-accent-fg transition-transform hover:bg-accent/90 focus-visible:bg-accent/90 active:scale-[0.98]";
 const SECONDARY_CTA =
-  "inline-flex items-center gap-2 whitespace-nowrap rounded-ui border border-line px-5 py-3 transition-transform hover:bg-surface active:scale-[0.98]";
+  "inline-flex items-center gap-2 whitespace-nowrap rounded-ui border border-line px-5 py-3 transition-transform hover:bg-surface focus-visible:bg-surface active:scale-[0.98]";
 
 export function Hero({ content, locale }: SectionProps) {
   const { eyebrow, kicker, headline, primaryCta, secondaryCta, film } =

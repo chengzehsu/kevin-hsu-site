@@ -61,7 +61,7 @@
   text-underline-offset: .25em;
 }
 
-.contacts a:hover { color: var(--fg); }
+.contacts a:is(:hover, :focus-visible) { color: var(--fg); }
 
 .printOnly { display: none; }
 
@@ -97,8 +97,8 @@
   color: var(--fg);
 }
 
-.primary:hover { background: color-mix(in oklch, var(--accent) 88%, var(--fg)); }
-.secondary:hover { background: var(--surface); }
+.primary:is(:hover, :focus-visible) { background: color-mix(in oklch, var(--accent) 88%, var(--fg)); }
+.secondary:is(:hover, :focus-visible) { background: var(--surface); }
 .primary:active,
 .secondary:active { transform: scale(.98); }
 
@@ -217,7 +217,7 @@
   white-space: nowrap;
 }
 
-.detail:hover { text-decoration: underline; text-underline-offset: .25em; }
+.detail:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: .25em; }
 
 .roles {
   display: grid;

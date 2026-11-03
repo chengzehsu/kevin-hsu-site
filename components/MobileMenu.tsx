@@ -47,7 +47,7 @@ export function MobileMenu({
     <details ref={ref} className="mobile-menu md:hidden">
       <summary
         aria-label={label}
-        className="inline-grid size-11 cursor-pointer list-none place-items-center rounded-ui border border-line text-muted transition-colors hover:bg-surface hover:text-fg"
+        className="inline-grid size-11 cursor-pointer list-none place-items-center rounded-ui border border-line text-muted transition-colors hover:bg-surface hover:text-fg focus-visible:bg-surface focus-visible:text-fg"
       >
         <ListIcon size={20} aria-hidden="true" />
       </summary>

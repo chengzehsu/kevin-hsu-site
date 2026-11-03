@@ -42,7 +42,7 @@ export function LocaleSwitch({ locale, label, ariaLabel, caseId, page }: LocaleS
       hrefLang={HTML_LANG[other]}
       aria-label={ariaLabel || undefined}
       onClick={onClick}
-      className="inline-flex min-h-11 items-center rounded-ui border border-line px-2.5 text-sm font-medium whitespace-nowrap transition-transform hover:bg-surface active:scale-[0.98]"
+      className="inline-flex min-h-11 items-center rounded-ui border border-line px-2.5 text-sm font-medium whitespace-nowrap transition-transform hover:bg-surface focus-visible:bg-surface active:scale-[0.98]"
     >
       {label}
     </a>
