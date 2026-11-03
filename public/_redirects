@@ -1,0 +1,5 @@
+# Cases that left the site keep their links: they land on the portfolio instead of a 404.
+/cases/podcast-stock/ /portfolio/ 301
+/cases/podcast-stock /portfolio/ 301
+/en/cases/podcast-stock/ /en/portfolio/ 301
+/en/cases/podcast-stock /en/portfolio/ 301

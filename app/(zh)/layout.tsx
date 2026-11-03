@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { SITE_ORIGIN } from "@/lib/locale";
 import { personJsonLd } from "@/lib/personJsonLd";
 import { Analytics } from "@/components/Analytics";
@@ -7,6 +7,14 @@ import { TailoredBoot, TailoredStart } from "@/components/TailoredBoot";
 import "../globals.css";
 
 export const metadata: Metadata = { metadataBase: new URL(SITE_ORIGIN) };
+
+// Matches --bg in globals.css, so the phone's browser bar blends into the page in either theme.
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f7fa" },
+    { media: "(prefers-color-scheme: dark)", color: "#171e28" },
+  ],
+};
 
 // First-visit language redirect. The web platform does not expose a dependable
 // operating-system locale, so use the device/browser preferred-language list.
