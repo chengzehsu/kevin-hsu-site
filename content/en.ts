@@ -1395,14 +1395,15 @@ export const en = {
         skillSignal:
           "Turning field practice into a roadmap, AI tools, and one delivery workflow that software, project, and sales teams all use.",
         summary:
-          "Owned the roadmap, requirements, and specs for a 0-to-1 AI energy-saving HVAC product, leading 4 engineers across 50 deployed sites and about NT$100M in projects, and turned practices that lived in individual experience into tools and processes.",
+          "Owned a 0-to-1 AI energy-saving HVAC product sold on its savings rate, leading 4 engineers across 50 deployed sites and about NT$100M in projects, and turned practices that lived in individual experience into tools and processes.",
         bullets: [
+          "Led the internal back office and built the platform where customers see data collection status, energy reporting, and savings dashboards: onboarding went from about two weeks waiting on engineers to about 2 hours done by a PM (excludes on-site wiring and control strategy); handoffs per round of sensor testing fell from 4 to 0, and coverage grew from 9 to 34 sites (May to Oct 2026)",
+          "Defined the customer war room: a hospital needed something the director could see before savings results existed, so I set the layout and metrics with a prototype and RD built it into a production feature; the second customer took one day on a config-driven layout, with every benefit labeled as an estimate",
+          "Centralized the savings-rate calculation in the platform: versioned parameters take effect the next day, and suspect data states what is missing instead of reporting on target, giving about 15 contracted sites numbers that can be recalculated",
+          "Let data overturn my own direction: an audit of 8,129 readings showed the 18 hand-set threshold rules caught 0 anomalies, so zero-config checks went first; merging same-cause alerts cut 244 down to 12",
+          "Brought AI into requirements through dev handoff for +50% delivery efficiency",
+          "Replaced person-day quotes in pre-sales with S/M/L/XL sizing and contracts that read N weeks after data is complete; requirement sign-off fell from 4-5 rounds to 1-2 (internal estimate)",
           "Consolidated account and site information scattered across LINE, email, and personal laptops into one sales-to-RD operating system in Notion, with delivery dates starting at requirements sign-off",
-          "Brought AI into requirements, specs, mock-data checks, and dev handoff, raising delivery efficiency by 50% measured as delivery cycle before vs. after; requirement handling went from about a month to about a week",
-          "Learned the HVAC domain from field data: audited one hotel site, 26 rules × 8,129 readings, found the 18 rules that need a hand-set threshold caught 0 anomalies, and made zero-config checks the default for monitoring",
-          "Coordinated software, project, and sales teams around one development and deployment flow, from requirements sign-off through engineering tests to PM and sales acceptance; turned common features into shared tools and modularized control strategies, cutting delivery time on related projects by about 30% (estimate)",
-          "AI tools in daily use: sales logged 80 business cards in 4 days with the AI business-card assistant, and a daily meeting follow-up schedule produced 100+ reports in six months",
-          "Streamlined internal operations with standard operating procedures, raising site operations efficiency by 20%",
         ],
         extras: {
           title: "Also improved how the company runs",

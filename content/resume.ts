@@ -45,7 +45,7 @@ export interface ResumeContent {
 }
 
 const roleBullets = {
-  ecofirst: [1, 3, 0],
+  ecofirst: [0, 1, 2, 3, 4],
   advisory: [0, 1],
   sat: [0, 2, 1],
   consulting: [0, 1],
@@ -66,7 +66,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "許承澤 Kevin Hsu",
     headline: "Product Manager｜營運流程數位化、內部系統與 AI 導入",
     summary:
-      "7 年以上產品經驗，專注營運流程數位化、內部系統與 AI 導入。把蔬果電商揀貨從 300 提升到 1,000 單／日，帶過 10 人工程團隊與 2 位初階 PM。近期把 AI 放進開發流程，交付效率 +50%，並用 Claude Code 自己做出管理 34 個案場的內部後台。",
+      "能自己把系統做出來的 PM，7 年以上產品經驗。主導內部後台，做出讓客戶看到收值狀況、能源申報與節能儀表板的平台，導入從等工程師約兩週縮短為 PM 約 2 小時；也定義客戶戰情室與節能率的產品邏輯。曾帶領 10 人工程團隊與 2 位初階 PM，把蔬果電商揀貨從 300 提升到 1,000 單／日。",
     keywords:
       "熟悉流程盤點、內部營運系統與資料整合（Notion、Asana、CDP）、POS 與電商資料串接、AI 與自動化工具導入（Claude Code、Notion AI）、SaaS、Chatbot、儀表板、App 與電商產品。",
     facts: [
@@ -107,7 +107,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "Kevin Hsu (許承澤)",
     headline: "Product Manager · Operations digitization, internal systems, and AI adoption",
     summary:
-      "Product Manager with 7+ years in product, focused on digitizing operations, internal systems, and AI adoption. Raised grocery e-commerce picking from 300 to 1,000 orders a day and led a 10-person engineering team with two junior PMs. Recently brought AI into the development flow for +50% delivery efficiency, and built an internal back office covering 34 sites with Claude Code.",
+      "Hands-on PM with 7+ years in product. Led an internal back office and built the platform where customers see data collection status, energy reporting, and savings dashboards, taking onboarding from about two weeks waiting on engineers to about 2 hours by a PM. Also defined the customer war room and savings-rate logic. Previously led a 10-person engineering team and two junior PMs, raising grocery picking from 300 to 1,000 orders a day.",
     keywords:
       "Hands-on with process mapping, internal operations systems and data integration (Notion, Asana, CDP), POS and e-commerce data integration, AI and automation adoption (Claude Code, Notion AI), SaaS, chatbots, dashboards, apps, and e-commerce products.",
     facts: [
