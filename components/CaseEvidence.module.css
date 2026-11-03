@@ -3,43 +3,43 @@
 
 .caption {
   display: grid;
-  gap: .45rem;
+  gap: var(--space-2);
   color: var(--fg);
   font-size: var(--text-h3);
-  font-weight: 620;
-  line-height: 1.45;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-heading);
 }
 .caption span:first-child {
   color: var(--accent);
   font-size: var(--text-caption);
-  font-weight: 700;
-  letter-spacing: .08em;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-normal);
 }
 
 /* Comparison: two bars, the after value in display size. */
-.comparison { display: grid; gap: 1.6rem; margin-top: 2rem; }
-.barRow { display: grid; gap: .6rem; }
+.comparison { display: grid; gap: var(--space-6); margin-top: var(--space-7); }
+.barRow { display: grid; gap: var(--space-2); }
 .barMeta {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: .25rem 1rem;
+  gap: var(--space-1) var(--space-4);
   color: var(--muted);
   font-size: var(--text-small);
-  font-weight: 550;
+  font-weight: var(--weight-medium);
 }
 .barMeta strong {
   color: var(--fg);
   font-family: var(--font-display);
   font-size: var(--text-h1);
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.045em;
-  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-none);
 }
 .barRow:last-child .barMeta strong { color: var(--accent); font-size: var(--text-h1); }
-.barTrack { height: .75rem; overflow: hidden; border-radius: 999px; background: var(--surface-strong); }
+.barTrack { height: .75rem; overflow: hidden; border-radius: var(--radius-full); background: var(--surface-strong); }
 .barFill { display: block; width: var(--bar-width); height: 100%; border-radius: inherit; background: color-mix(in oklch, var(--muted) 55%, var(--line)); }
 .barFillAccent { background: var(--accent); }
 
@@ -48,34 +48,34 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) 3rem minmax(0, 1fr);
   align-items: center;
-  margin-top: 2rem;
+  margin-top: var(--space-7);
 }
-.sourceList { display: grid; gap: .5rem; }
+.sourceList { display: grid; gap: var(--space-2); }
 .sourceList span {
-  padding: .6rem .85rem;
+  padding: var(--space-2) var(--space-3);
   border: 1px solid var(--line);
   border-radius: var(--radius-ui);
   background: var(--bg);
   color: var(--fg);
   font-size: var(--text-small);
-  font-weight: 550;
-  line-height: 1.35;
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-ui);
 }
-.sourceLink { height: 2px; margin-inline: .5rem; background: var(--accent); }
+.sourceLink { height: 2px; margin-inline: var(--space-2); background: var(--accent); }
 .output {
   display: grid;
   place-items: center;
   min-height: 9rem;
-  padding: 1.25rem;
+  padding: var(--space-5);
   border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
   border-radius: var(--radius-panel) var(--radius-panel) var(--radius-tip) var(--radius-panel);
   background: color-mix(in oklch, var(--accent) 10%, var(--surface));
   color: var(--accent);
   font-family: var(--font-display);
   font-size: var(--text-h2);
-  font-weight: 700;
-  letter-spacing: -.02em;
-  line-height: 1.3;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
   text-align: center;
 }
 
@@ -85,36 +85,36 @@
   /* One column per step, however many steps a case has. */
   grid-auto-flow: column;
   grid-auto-columns: minmax(0, 1fr);
-  gap: .6rem;
-  margin: 2rem 0 0;
+  gap: var(--space-2);
+  margin: var(--space-7) 0 0;
   padding: 0;
   list-style: none;
 }
 .loop li {
   min-width: 0;
-  padding: .9rem .75rem 1rem;
+  padding: var(--space-4) var(--space-3);
   border-top: 3px solid var(--line);
   background: color-mix(in oklch, var(--surface-strong) 55%, transparent);
   border-radius: 0 0 var(--radius-ui) var(--radius-ui);
 }
 .loop li:last-child { border-color: var(--accent); }
-.loop span { display: block; color: var(--accent); font-size: var(--text-caption); font-weight: 700; font-variant-numeric: tabular-nums; }
-.loop strong { display: block; margin-top: 1.25rem; overflow-wrap: break-word; font-size: var(--text-body); font-weight: 620; line-height: 1.4; }
+.loop span { display: block; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-bold); font-variant-numeric: tabular-nums; }
+.loop strong { display: block; margin-top: var(--space-5); overflow-wrap: break-word; font-size: var(--text-body); font-weight: var(--weight-semibold); line-height: var(--leading-ui); }
 
 .measure {
-  margin: 1.75rem 0 0;
-  padding-top: 1.1rem;
+  margin: var(--space-7) 0 0;
+  padding-top: var(--space-4);
   border-top: 1px solid var(--line);
   color: var(--accent);
   font-size: var(--text-body);
-  font-weight: 650;
-  line-height: 1.6;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .barFill { transform-origin: left; animation: grow 900ms cubic-bezier(.16, 1, .3, 1) both; }
+  .barFill { transform-origin: left; animation: grow var(--duration-slower) var(--ease-out) both; }
   .barFillAccent { animation-delay: 120ms; }
-  .loop li { transition: transform 300ms cubic-bezier(.16, 1, .3, 1); }
+  .loop li { transition: transform var(--duration-base) var(--ease-out); }
   .loop li:hover { transform: translateY(-3px); }
 
   @supports (animation-timeline: view()) {
@@ -126,10 +126,10 @@
 @media (max-width: 767px) {
   .sources { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .sourceList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .sourceLink { width: 2px; height: 1.5rem; margin: .5rem auto; }
+  .sourceLink { width: 2px; height: 1.5rem; margin: var(--space-2) auto; }
   .output { min-height: 6rem; }
-  .loop { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); gap: .4rem; }
-  .loop li { display: flex; align-items: baseline; gap: 1rem; padding: .7rem .8rem; border-top: 0; border-left: 3px solid var(--line); border-radius: 0 var(--radius-ui) var(--radius-ui) 0; }
+  .loop { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
+  .loop li { display: flex; align-items: baseline; gap: var(--space-4); padding: var(--space-3); border-top: 0; border-left: 3px solid var(--line); border-radius: 0 var(--radius-ui) var(--radius-ui) 0; }
   .loop li:last-child { border-color: var(--accent); }
   .loop strong { margin-top: 0; font-size: var(--text-body); }
 }

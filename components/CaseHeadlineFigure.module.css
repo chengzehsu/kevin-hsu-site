@@ -1,7 +1,7 @@
 .figure {
   --max: var(--text-h1);
   display: grid;
-  gap: .35rem;
+  gap: var(--space-1);
   margin: 0;
   container-type: inline-size;
 }
@@ -12,8 +12,9 @@
 .label {
   color: var(--muted);
   font-size: var(--text-small);
-  font-weight: 600;
-  letter-spacing: .02em;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-normal);
 }
 
 /* The labels are written to follow the number ("93%" then "of sensors right..."), so the number shows first. */
@@ -30,10 +31,10 @@
 .value {
   font-family: var(--font-display);
   font-size: min(var(--max), calc(160cqi / var(--chars)));
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.055em;
-  line-height: .95;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-none);
   white-space: nowrap;
   /* Negative tracking ends the box inside the last glyph, and the wipe's clip-path clips to the box:
      pad the right edge so the final digit stays whole, and pull the margin back so layout is unchanged. */
@@ -44,8 +45,8 @@
 .unit,
 .delta {
   font-size: var(--text-body);
-  font-weight: 650;
-  letter-spacing: -.01em;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-normal);
   white-space: nowrap;
 }
 
@@ -53,13 +54,14 @@
 
 .also {
   width: fit-content;
-  margin-top: .45rem;
-  padding: .3rem .6rem;
+  margin-top: var(--space-2);
+  padding: var(--space-1) var(--space-3);
   border: 1px solid color-mix(in oklch, var(--accent) 40%, var(--line));
   border-radius: var(--radius-ui);
   color: var(--fg);
   font-size: var(--text-small);
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
 }
 
 @supports (animation-timeline: view()) {

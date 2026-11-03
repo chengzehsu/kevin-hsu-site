@@ -8,7 +8,7 @@
     "build": "next build --webpack",
     "typecheck": "tsc --noEmit",
     "preview": "pnpm dlx serve out",
-    "test": "node --test scripts/test-site-output.mjs scripts/test-foundations.mjs",
+    "test": "node --test scripts/test-site-output.mjs scripts/test-foundations.mjs scripts/test-tokens.mjs scripts/test-images.mjs",
     "utm": "node scripts/share-link.mjs"
   },
   "dependencies": {

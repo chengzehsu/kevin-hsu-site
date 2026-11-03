@@ -1,94 +1,94 @@
 /* The illustrated article: copy column beside its screen, one trait per section. */
 .article {
   display: grid;
-  gap: clamp(2rem, 3.5vw, 3rem);
-  margin-top: clamp(2.5rem, 4vw, 3.5rem);
-  scroll-margin-top: 9.5rem;
+  gap: var(--space-section-md);
+  margin-top: var(--space-section-md);
+  scroll-margin-top: calc(4 * var(--space-8) - var(--space-2));
 }
 
 .title {
   margin: 0;
-  padding-top: 2rem;
+  padding-top: var(--space-7);
   border-top: 1px solid var(--line);
   color: var(--accent);
   font-size: var(--text-caption);
-  font-weight: 700;
-  letter-spacing: .06em;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-normal);
 }
 
 .lead {
   max-width: 46rem;
-  margin: calc(clamp(2rem, 3.5vw, 3rem) * -1 + 1rem) 0 0;
+  margin: calc(-1 * var(--space-section-md) + var(--space-4)) 0 0;
   font-family: var(--font-display);
   font-size: var(--text-lead);
-  font-weight: 560;
-  letter-spacing: -.025em;
-  line-height: 1.45;
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
   text-wrap: pretty;
 }
-.lead:lang(zh-Hant) { letter-spacing: 0; line-height: 1.6; }
+.lead:lang(zh-Hant) { letter-spacing: var(--tracking-normal); line-height: var(--leading-ui); }
 
 .section {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(1.75rem, 3vw, 2.5rem);
+  gap: var(--space-section-sm);
   min-width: 0;
-  scroll-margin-top: 9.5rem;
+  scroll-margin-top: calc(4 * var(--space-8) - var(--space-2));
 }
 
 /* Copy reads first at a comfortable measure; the screen below gets the full width so its numbers stay legible. */
-.copy { display: grid; gap: 1rem; max-width: 46rem; min-width: 0; }
+.copy { display: grid; gap: var(--space-4); max-width: 46rem; min-width: 0; }
 
 .trait {
   display: flex;
   align-items: baseline;
-  gap: .75rem;
+  gap: var(--space-3);
   margin: 0;
   color: var(--accent);
   font-size: var(--text-small);
-  font-weight: 700;
-  letter-spacing: .06em;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-normal);
 }
 .trait span {
   font-family: var(--font-display);
   font-size: var(--text-h1);
-  font-weight: 800;
+  font-weight: var(--weight-bold);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.06em;
-  line-height: .9;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-none);
 }
 
 .heading {
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-h2);
-  font-weight: 650;
-  letter-spacing: -.02em;
-  line-height: 1.35;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
   text-wrap: pretty;
 }
-.heading:lang(zh-Hant) { letter-spacing: 0; line-height: 1.5; }
+.heading:lang(zh-Hant) { letter-spacing: var(--tracking-normal); line-height: var(--leading-ui); }
 
 /* The section's one number: large, accent, read before the prose. */
-.stat { display: grid; gap: .35rem; margin: .25rem 0 .25rem; }
+.stat { display: grid; gap: var(--space-1); margin: var(--space-1) 0; }
 .stat strong {
   color: var(--accent);
   font-family: var(--font-display);
   font-size: var(--text-h1);
-  font-weight: 800;
+  font-weight: var(--weight-bold);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.04em;
-  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-none);
   white-space: nowrap;
 }
-.stat span { color: var(--fg); font-size: var(--text-body); font-weight: 600; line-height: 1.5; }
+.stat span { color: var(--fg); font-size: var(--text-body); font-weight: var(--weight-semibold); line-height: var(--leading-ui); }
 
 .paragraph {
   max-width: 60ch;
   margin: 0;
   color: var(--muted);
   font-size: var(--text-body);
-  line-height: 1.85;
+  line-height: var(--leading-body);
 }
 
 .figure { margin: 0; min-width: 0; justify-self: start; }
@@ -99,22 +99,22 @@
   width: 100%;
   height: auto;
   border-radius: var(--radius-panel);
-  box-shadow: 0 1px 2px rgb(32 42 54 / 6%), 0 18px 48px -18px rgb(32 42 54 / 28%);
+  box-shadow: var(--shadow-md);
 }
 .figure figcaption {
-  margin-top: 1rem;
+  margin-top: var(--space-4);
   color: var(--muted);
   font-size: var(--text-small);
-  font-weight: 550;
-  line-height: 1.6;
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-ui);
 }
 
 .closing {
   max-width: 46rem;
   margin: 0;
-  padding-left: clamp(1rem, 2.5vw, 2rem);
+  padding-left: var(--space-section-sm);
   border-left: 3px solid var(--accent);
   font-size: var(--text-body);
-  font-weight: 600;
-  line-height: 1.7;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-body);
 }
