@@ -1,6 +1,7 @@
 "use client";
 
 import { Children, type ReactNode } from "react";
+import { BULLET_LEAD } from "@/lib/bullets";
 import type { Locale } from "@/lib/locale";
 import { useOverlay } from "@/lib/variantStore";
 import {
@@ -70,20 +71,38 @@ export function TOrder({
   return applyOrder(ids, order).map((id) => byId.get(id));
 }
 
+
 /** One role's bullets: the variant's pick and extra line, or the main bullets. */
 export function TBullets({
   id,
   bullets,
   locale,
   highlight = false,
+  leadClassName,
 }: {
   id: string;
   bullets: string[];
   locale: Locale;
   highlight?: boolean;
+  /** Sets the result before the first colon apart, so a scan reads the outcomes first. */
+  leadClassName?: string;
 }) {
   const shown = applyBullets(bullets, useOverlay(locale).bullets[id]);
-  return shown.map((bullet) => (
-    <li key={bullet}>{highlight ? <Highlight>{bullet}</Highlight> : bullet}</li>
-  ));
+  return shown.map((bullet) => {
+    const lead = leadClassName ? bullet.match(BULLET_LEAD) : null;
+    return (
+      <li key={bullet}>
+        {lead ? (
+          <>
+            <strong className={leadClassName}>{lead[1]}</strong>
+            {lead[2]}
+          </>
+        ) : highlight ? (
+          <Highlight>{bullet}</Highlight>
+        ) : (
+          bullet
+        )}
+      </li>
+    );
+  });
 }

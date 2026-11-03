@@ -58,7 +58,7 @@ The Ecofirst case decision log SHALL include an entry whose signal states 735 ta
 
 Site copy MUST NOT claim that Kevin built the whole organisational system, MUST NOT attach outcome numbers to the org systems, MUST NOT claim ERP implementation, MUST NOT state a before/after speed gain for the internal back office, and MUST NOT name or quote any hiring company. Commit counts SHALL read as a continuation (218 in the first two months, 748 by 2026/10).
 
-Counts SHALL match the 2026-10-23 sweep. The Sales FAQ reads 185 entries with 51 authorized, never "1,500 records turned into FAQ". Daily meeting follow-ups read 110. CEO weekly reports read 26 issues. podcast-stock reads 364 commits and 42 PRs.
+Counts SHALL match the 2026-10-23 sweep. The Sales FAQ reads 185 entries with 51 authorized, never "1,500 records turned into FAQ". Daily meeting follow-ups read 110. podcast-stock reads 364 commits and 42 PRs.
 
 #### Scenario: Corrected counts
 

@@ -100,7 +100,7 @@ Article outline (zh; en mirrors it):
 - 流程梳理｜問題要交到對的人手上 — figure: 案場收值健康 (「339 個點位常常缺值 · 22 台已檢查」, cards like 「CHL01 流量出現負值 −126.67 LPM」 tagged 交給收值工程師／交給現場). One-visit collection plan for field PMs.
 - 成效驗證｜用數據推翻自己 — figure: 監控規則 (new rules trial for 7 days before going live). 26 rules × 8,129 rows; 18 threshold rules caught 0; the five-pillar overview Kevin built and then rejected after trying it.
 - 商業判斷｜系統能判斷的交給系統 — figure: 規則編輯器 (對誰／什麼時候判／什麼情況算異常／持續多久, plus a plain-language reading).
-- AI 導入｜用 AI 把後台做出來，也用流程管住 AI — figure: 時序圖 (4 chillers, 資料到齊 98.5%). intent → proposal → cross-model review → manual deploy → archive; 21 incidents turned into checks run by hand; one feature took about 27 hours from proposal to archive, with field acceptance honestly left unchecked; 218 commits in the first two months, 748 by 2026/10.
+- AI 導入｜用 AI 把後台做出來，也用流程管住 AI — figure: 時序圖 (4 chillers, 資料到齊 98.5%). intent → proposal → cross-model review → manual deploy → archive; one feature took about 27 hours from proposal to archive, with field acceptance honestly left unchecked; 218 commits in the first two months, 748 by 2026/10.
 - Closing: one line of evidence and an invitation to talk; no pitch, no 90-day plan.
 
 Headline artifact (`caseArtifacts`): value 「34」, unit 「個案場」, label 「一個畫面判讀收值（2026/10）」, also 「748 次提交，獨立完成」. Poster: a new text-free portrait poster from `scripts/case-posters.py`.
@@ -178,8 +178,6 @@ interface AiPracticeContent {
 - Lead: 點位命名系統 (user-picked). Problem: every vendor sends sensor lists in a different format, so PMs map them by hand, and the 10–20% the machine misses sits unresolved. AI: one shared naming program maps names and checks values only while equipment runs. Person: when the machine is unsure it asks one question at a time; when nobody knows, it writes a question to forward to the integrator instead of guessing; physical facts (shared or separate piping, unit counts) are always asked. Gate: a rule change needs a test question first, and a release needs zero high-confidence wrong answers. Results: a walk-through of 72 points from real sites where 93% were right first time with 0 confident-but-wrong; inventory of 31 sites, 4,491 rows (2026-09-01). Say 「十套回歸測試」 or no count. No before/after hours (none recorded). No site names.
 - Sales FAQ 知識流程: questions scattered across 1,500+ meeting notes; AI drafts weekly with sources and flags pricing or warranty items; two human gates (sales lead picks, an owner writes the official answer); Claude cites only authorized entries. Result: 185 entries, 51 authorized (2026-09-30), and the bottleneck is human review, not AI. Never name the coworkers.
 - AI 起草 PM 文件: requirements, specs, mock-data checks, and dev handoff drafted by AI and finalized by Kevin; delivery efficiency +50% (delivery cycle before vs after). Daily meeting follow-ups: 110 since 2026-04 (to 2026-10-21).
-- 給執行長的產品化週報: AI scans commits and Notion and proposes two or three decisions with options; the CEO decides; decisions tracked to D-059; when data was unreachable the report said so (a 63-day commit blind spot) instead of filling in numbers. 26 issues (2026-04 to 2026-10).
-- 把踩過的坑變成檢查: each incident becomes a test that checks AI does not repeat it; 21 cases, run by hand, not in CI.
 
 **Chapter 3｜我如何用 AI 自動化我的生活**
 
@@ -197,7 +195,7 @@ Alternatives considered: keeping the habits section beside the new one (rejected
 ### Number corrections found by the sweep
 
 - Ecofirst case result: 「其中 1,500 筆以上的業務紀錄已整理成 FAQ」 → 1,500 多份會議紀錄由 AI 每週整理成 FAQ 草稿；目前 185 題，51 題通過業務授權（2026/9）. Only 44 notes have been processed, so the old line overstated.
-- Meeting follow-ups 102 → 110; CEO weekly reports 20 → 26 issues, wherever they appear (case decision log, experience, AI section).
+- Meeting follow-ups 102 → 110 wherever they appear (case decision log, experience, AI section).
 - podcast-stock 「424 次 commit、59 個 PR」 → 「364 次 commit、42 個 PR」 (main, non-merge; merged PRs).
 
 ## Implementation Contract

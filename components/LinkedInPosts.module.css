@@ -1,95 +1,40 @@
-.heading { display: grid; gap: .8rem; }
-.heading > p { max-width: 46ch; color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.7; }
+/* The AI work without its own case: quiet rows under the case cards, each expanding in place. */
+.section { padding-block: 0 clamp(4.5rem, 8vw, 7rem); }
+.heading { display: grid; gap: .6rem; }
+.heading > p { max-width: 46ch; margin: 0; color: var(--muted); font-size: var(--text-body); line-height: 1.7; }
 
-/* Chapter tabs: the three chapter names are the section's table of contents. */
-.tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
-.tab {
-  display: inline-flex; align-items: center; gap: .55rem;
-  min-height: 2.75rem; padding: .5rem 1.05rem;
-  border: 1px solid var(--line); border-radius: 999px;
-  background: transparent; color: var(--muted);
-  font-size: .95rem; font-weight: 600; cursor: pointer;
-  transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease;
+.groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
-.tab:hover { color: var(--fg); border-color: color-mix(in oklch, var(--accent) 45%, var(--line)); }
-.tab[aria-selected="true"] { border-color: var(--accent); background: var(--accent); color: var(--accent-fg); }
-.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.tabCount { font-size: .78rem; font-weight: 600; opacity: .7; font-variant-numeric: tabular-nums; }
+.group { min-width: 0; scroll-margin-top: 6rem; }
+.groupTitle { margin: 0 0 .5rem; color: var(--muted); font-size: var(--text-small); font-weight: 600; line-height: 1.5; }
 
-.panel { margin-top: 1.25rem; scroll-margin-top: 6rem; }
-.panel[hidden] { display: none; }
+.rows { margin: 0; padding: 0; list-style: none; }
+.row { border-top: 1px solid var(--line); }
 
-/* Exactly as many cells as items: with four items the lead (2 columns) and one card fill the first row and
-   three cards the second; with three items the lead takes a full row of its own. */
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
-.card {
-  display: flex; flex-direction: column; overflow: hidden;
-  border: 1px solid var(--line); border-radius: var(--radius-panel);
-  background: var(--surface);
-  transition: border-color 250ms ease, transform 350ms cubic-bezier(.16, 1, .3, 1), box-shadow 350ms ease;
-}
-.card:hover {
-  border-color: color-mix(in oklch, var(--accent) 45%, var(--line));
-  box-shadow: 0 1.5rem 3.5rem -1.5rem color-mix(in oklch, var(--accent) 35%, transparent);
-  transform: translateY(-3px);
-}
-.card[data-ai-lead] { grid-column: span 2; }
-.grid[data-count="3"] .card[data-ai-lead] { grid-column: span 3; grid-row: auto; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+.rowSummary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 1rem; padding-block: .6rem; }
+.rowHead { display: grid; gap: .15rem; flex: 1 1 14rem; min-width: 0; }
+.rowTitle { font-size: var(--text-body); font-weight: 600; line-height: 1.45; }
+.rowSummary:hover .rowTitle { color: var(--accent); }
+.stat { color: var(--muted); font-size: var(--text-small); line-height: 1.5; }
+.stat b { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
 
-.cover { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface-strong); }
-.card[data-ai-lead] .cover { aspect-ratio: auto; flex: 1 1 auto; min-height: 14rem; }
-.grid[data-count="3"] .card[data-ai-lead] .cover { min-height: 18rem; }
-.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 600ms cubic-bezier(.16, 1, .3, 1); }
-.card:hover .cover img { transform: scale(1.03); }
-/* Drawn covers keep their motif centred; screenshots keep their top edge, where the conclusion sits. */
-.cover img[src*="/ai-covers/"] { object-position: center; }
-/* White-background screenshots glare on the dark theme; dim them slightly there. */
-:global(:root[data-theme="dark"]) .cover img { filter: brightness(.88); }
-@media (prefers-color-scheme: dark) { :global(:root:not([data-theme])) .cover img { filter: brightness(.88); } }
-
-.body { display: flex; flex-direction: column; gap: .5rem; padding: 1.1rem 1.25rem .35rem; }
-.card[data-ai-lead] .body { padding: 1.4rem 1.6rem .5rem; }
-.body h3 { font-size: 1.02rem; font-weight: 600; line-height: 1.45; letter-spacing: -.01em; text-wrap: pretty; }
-.card[data-ai-lead] .body h3 { font-size: clamp(1.15rem, 1.7vw, 1.35rem); }
-.titleLink:hover { color: var(--accent); }
-.titleLink:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--radius-tip); }
-
-.stat { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; margin: 0; }
-.statValue { color: var(--accent); font-family: var(--font-display); font-size: clamp(1.5rem, 2.2vw, 1.9rem); font-weight: 650; letter-spacing: -.035em; line-height: 1.1; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.card[data-ai-lead] .statValue { font-size: clamp(2.2rem, 4vw, 3.2rem); }
-.statLabel { color: var(--muted); font-size: .86rem; font-weight: 500; }
-
-.more { margin-top: auto; }
-.more > summary { display: inline-flex; }
-
-/* Inside 「看做法」: four short labelled lines, the person's line marked as the guardrail. */
+/* Four short labelled lines; the person's line is marked as the guardrail. */
 .detail { display: grid; gap: .7rem; margin: .25rem 0 0; }
 .detail > div { display: grid; gap: .15rem; }
-.detail dt { color: var(--muted); font-size: .76rem; font-weight: 600; letter-spacing: .02em; }
-.detail dd { margin: 0; font-size: .9rem; line-height: 1.7; }
+.detail dt { color: var(--muted); font-size: var(--text-caption); font-weight: 600; letter-spacing: .02em; }
+.detail dd { margin: 0; font-size: var(--text-small); line-height: 1.7; }
 .detail > div[data-role="human"] { padding-left: .75rem; box-shadow: inset 2px 0 0 var(--accent); }
 .detail > div[data-role="human"] dt { color: var(--accent); }
-.source { margin: .75rem 0 0; color: var(--muted); font-size: .76rem; line-height: 1.6; }
+.source { margin: .75rem 0 0; color: var(--muted); font-size: var(--text-caption); line-height: 1.6; }
 .links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: .25rem 0 0; }
-.link { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; color: var(--accent); font-size: .86rem; font-weight: 600; }
-.external { color: var(--muted); font-weight: 500; }
+.link { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; color: var(--accent); font-size: var(--text-small); font-weight: 600; }
 .link:hover { text-decoration: underline; text-underline-offset: .3em; }
 
-@media (max-width: 1023px) {
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .card[data-ai-lead], .grid[data-count="3"] .card[data-ai-lead] { grid-column: span 2; grid-row: auto; display: flex; }
-  .card[data-ai-lead] .cover, .grid[data-count="3"] .card[data-ai-lead] .cover { aspect-ratio: 16 / 9; min-height: 0; flex: none; }
-}
-
-@media (max-width: 767px) {
-  .tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -1rem; padding-inline: 1rem; }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab { flex: none; }
-  .grid { grid-template-columns: minmax(0, 1fr); gap: .85rem; }
-  .card[data-ai-lead], .grid[data-count="3"] .card[data-ai-lead] { grid-column: auto; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card, .cover img, .tab { transition: none; }
-  .card:hover, .card:hover .cover img { transform: none; }
+@media (max-width: 860px) {
+  .groups { grid-template-columns: minmax(0, 1fr); }
 }

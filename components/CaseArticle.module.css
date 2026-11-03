@@ -1,8 +1,8 @@
 /* The illustrated article: copy column beside its screen, one trait per section. */
 .article {
   display: grid;
-  gap: clamp(4rem, 8vw, 7rem);
-  margin-top: clamp(4.5rem, 9vw, 8rem);
+  gap: clamp(2rem, 3.5vw, 3rem);
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
   scroll-margin-top: 9.5rem;
 }
 
@@ -11,16 +11,16 @@
   padding-top: 2rem;
   border-top: 1px solid var(--line);
   color: var(--accent);
-  font-size: .76rem;
+  font-size: var(--text-caption);
   font-weight: 700;
   letter-spacing: .06em;
 }
 
 .lead {
   max-width: 46rem;
-  margin: calc(clamp(4rem, 8vw, 7rem) * -1 + 1.5rem) 0 0;
+  margin: calc(clamp(2rem, 3.5vw, 3rem) * -1 + 1rem) 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 2.6vw, 2.3rem);
+  font-size: var(--text-lead);
   font-weight: 560;
   letter-spacing: -.025em;
   line-height: 1.45;
@@ -45,13 +45,13 @@
   gap: .75rem;
   margin: 0;
   color: var(--accent);
-  font-size: .82rem;
+  font-size: var(--text-small);
   font-weight: 700;
   letter-spacing: .06em;
 }
 .trait span {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: var(--text-h1);
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   letter-spacing: -.06em;
@@ -61,7 +61,7 @@
 .heading {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-size: var(--text-h2);
   font-weight: 650;
   letter-spacing: -.02em;
   line-height: 1.35;
@@ -74,20 +74,20 @@
 .stat strong {
   color: var(--accent);
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: var(--text-h1);
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   letter-spacing: -.04em;
   line-height: 1;
   white-space: nowrap;
 }
-.stat span { color: var(--fg); font-size: .95rem; font-weight: 600; line-height: 1.5; }
+.stat span { color: var(--fg); font-size: var(--text-body); font-weight: 600; line-height: 1.5; }
 
 .paragraph {
   max-width: 60ch;
   margin: 0;
   color: var(--muted);
-  font-size: 1.02rem;
+  font-size: var(--text-body);
   line-height: 1.85;
 }
 
@@ -104,7 +104,7 @@
 .figure figcaption {
   margin-top: 1rem;
   color: var(--muted);
-  font-size: .86rem;
+  font-size: var(--text-small);
   font-weight: 550;
   line-height: 1.6;
 }
@@ -114,7 +114,7 @@
   margin: 0;
   padding-left: clamp(1rem, 2.5vw, 2rem);
   border-left: 3px solid var(--accent);
-  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-size: var(--text-body);
   font-weight: 600;
   line-height: 1.7;
 }

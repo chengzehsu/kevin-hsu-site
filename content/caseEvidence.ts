@@ -27,16 +27,9 @@ export type CaseEvidence =
 
 export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
   zh: {
-    "internal-backend": {
-      kind: "loop",
-      eyebrow: "流程證據",
-      title: "用 AI 做，也用流程管住 AI",
-      steps: ["寫需求說明", "寫規格", "AI 實作", "交叉審查", "手動上線", "事故變檢查"],
-      measure: "前 2 個月 218 次提交｜到 2026/10 累積 748 次｜21 個檢查",
-    },
     grocery: {
       kind: "comparison",
-      eyebrow: "流程證據",
+      eyebrow: "流程成果",
       title: "從訂單到交付，重畫整條營運流程",
       measure: "揀貨日產能",
       before: { label: "重構前", value: "300 單／日", width: 30 },
@@ -44,40 +37,33 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     },
     "health-app": {
       kind: "comparison",
-      eyebrow: "流程證據",
-      title: "先對齊資料定義，再讓新功能可持續使用",
+      eyebrow: "使用成果",
+      title: "先統一資料定義，新功能才能長期用下去",
       measure: "每日活躍使用者",
       before: { label: "新平台上線時", value: "12,000", width: 60 },
       after: { label: "一年後", value: "20,000", width: 100 },
     },
     cdp: {
       kind: "sources",
-      eyebrow: "資料證據",
-      title: "將分散接觸點整理成同一位客戶的視圖",
+      eyebrow: "資料成果",
+      title: "把散在各通路的資料，整理成同一位客戶的完整資料",
       inputs: ["LINE", "Facebook", "官網", "電商", "POS"],
       output: "Customer 360 客戶輪廓",
       measure: "1,000 萬筆資料整合",
     },
     ecofirst: {
       kind: "loop",
-      eyebrow: "架構證據",
+      eyebrow: "系統架構",
       title: "業務到 RD 的六層營運架構",
       steps: ["資料層", "關聯層", "計算層", "檢視層", "規則層", "AI 層"],
       measure: "17 個資料庫｜70 多個自動計算欄位",
     },
   },
   en: {
-    "internal-backend": {
-      kind: "loop",
-      eyebrow: "Process",
-      title: "Built with AI, kept in check by process",
-      steps: ["Requirements brief", "Spec", "AI build", "Cross-review", "Manual deploy", "Incident to check"],
-      measure: "218 commits in two months | 748 by Oct 2026 | 21 checks",
-    },
     grocery: {
       kind: "comparison",
       eyebrow: "Evidence",
-      title: "Redesigned the operating flow from order to delivery",
+      title: "Redesigned the operations flow from order to delivery",
       measure: "Daily picking capacity",
       before: { label: "Before", value: "300 orders/day", width: 30 },
       after: { label: "After", value: "1,000 orders/day", width: 100 },
@@ -85,7 +71,7 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     "health-app": {
       kind: "comparison",
       eyebrow: "Evidence",
-      title: "Aligned data definitions before scaling the new experience",
+      title: "Aligned data definitions first, so new features would stay usable",
       measure: "Daily active users",
       before: { label: "At launch", value: "12,000", width: 60 },
       after: { label: "After one year", value: "20,000", width: 100 },
@@ -101,7 +87,7 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
     ecofirst: {
       kind: "loop",
       eyebrow: "Architecture",
-      title: "A six-layer operating architecture from sales to RD",
+      title: "A six-layer operating model from sales to engineering",
       steps: ["Data", "Relations", "Computation", "Views", "Rules", "AI"],
       measure: "17 databases | 70+ computed fields",
     },

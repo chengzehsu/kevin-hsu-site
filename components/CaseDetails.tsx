@@ -3,6 +3,9 @@ import type { Locale } from "@/lib/locale";
 import { caseArtifacts } from "@/content/caseArtifacts";
 import { caseEvidence } from "@/content/caseEvidence";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import { aiStoryForCase } from "@/lib/aiPractice";
+import { casePath } from "@/lib/locale";
+import { Disclosure } from "./Disclosure";
 import { Highlight } from "./Highlight";
 import { CaseEvidence } from "./CaseEvidence";
 import styles from "./CasePage.module.css";
@@ -18,7 +21,7 @@ export const CASE_CHAPTERS: Record<
 > = {
   zh: {
     problem: "問題",
-    decision: "決策",
+    decision: "決定",
     built: "做出來的東西",
     result: "成果",
   },
@@ -30,16 +33,18 @@ export const CASE_CHAPTERS: Record<
   },
 };
 
-function ChapterHead({ number, title }: { number: string; title: string }) {
-  return (
-    <h2 className={styles.chapterHead}>
-      <span className={styles.chapterNumber}>{number}</span>
-      <span>{title}</span>
-    </h2>
-  );
+const LOG_LABELS = {
+  zh: { expand: "看決定紀錄", collapse: "收合" },
+  en: { expand: "See the decision log", collapse: "Collapse" },
+} as const;
+
+const RELATED_LABEL = { zh: "這個產品的其他案例", en: "Related case studies for this product" } as const;
+
+function ChapterHead({ title }: { title: string }) {
+  return <h2 className={styles.chapterHead}>{title}</h2>;
 }
 
-/** The case story in four chapters. Every block is server rendered; motion is CSS only. */
+/** Problem, decision, result, and what was built, the same order on every case. Every block is server rendered; motion is CSS only. */
 export function CaseDetails({
   item,
   content,
@@ -49,18 +54,20 @@ export function CaseDetails({
   const chapters = CASE_CHAPTERS[locale];
   const artifact = caseArtifacts[locale][item.id];
   const stills = artifact?.stills ?? [];
+  const aiStory = aiStoryForCase(content.aiPractice, item.id);
+  const { labels: aiLabels } = content.aiPractice;
+  const related = (item.relatedCases ?? []).flatMap((id) =>
+    content.cases.items.filter((entry) => entry.id === id),
+  );
   const features = content.awards.items.filter(
     (award) => award.kind === "feature" && award.caseId === item.id,
   );
 
   return (
     <div className={styles.story}>
-      {/* An illustrated article already tells the problem and the decisions; skip them so nothing repeats. */}
-      {item.article ? null : (
-        <>
-          {/* 01 Problem: the situation reads as one statement; the constraint is called out beside it. */}
+          {/* Problem: the situation reads as one statement; the constraint is called out beside it. */}
           <div className={`${styles.chapter} ${styles.problem}`}>
-            <ChapterHead number="01" title={chapters.problem} />
+            <ChapterHead title={chapters.problem} />
             <div className={styles.chapterBody}>
               <div id="situation" className={`${styles.block} scroll-rise`}>
                 <h3 className={styles.label}>{columns.situation}</h3>
@@ -80,9 +87,9 @@ export function CaseDetails({
             </div>
           </div>
 
-          {/* 02 Decision: one idea, set large. */}
+          {/* Decision: one idea, set large. */}
           <div className={`${styles.chapter} ${styles.decisionChapter}`}>
-            <ChapterHead number="02" title={chapters.decision} />
+            <ChapterHead title={chapters.decision} />
             <div className={styles.chapterBody}>
               <div id="decision" className={`${styles.block} scroll-rise`}>
                 <h3 className={styles.label}>{columns.decision}</h3>
@@ -99,11 +106,22 @@ export function CaseDetails({
                   <Highlight>{item.hypothesis}</Highlight>
                 </p>
               </div>
+              {aiStory ? (
+                <div id="ai-split" className={`${styles.execution} scroll-rise`} data-ai-split>
+                  <h3 className={styles.label}>{aiLabels.ai}</h3>
+                  <p>{aiStory.ai}</p>
+                  <h3 className={styles.label}>{aiLabels.human}</h3>
+                  <p>{aiStory.human}</p>
+                </div>
+              ) : null}
               {item.decisionLog?.length ? (
                 <div id="decision-log" className={styles.block}>
-                  <h3 className={styles.label}>
-                    {content.cases.decisionLog.title}
-                  </h3>
+                <Disclosure
+                  kind="case"
+                  expandLabel={LOG_LABELS[locale].expand}
+                  collapseLabel={LOG_LABELS[locale].collapse}
+                  summary={<h3 className={styles.label}>{content.cases.decisionLog.title}</h3>}
+                >
                   <ol className={styles.decisionLog}>
                     {item.decisionLog.map((entry, index) => (
                       <li key={entry.call} className="scroll-rise">
@@ -127,19 +145,51 @@ export function CaseDetails({
                       </li>
                     ))}
                   </ol>
-                </div>
+                </Disclosure>
+              </div>
               ) : null}
             </div>
           </div>
-        </>
-      )}
+      {/* Result: the claim, the chart that proves it, and how it was measured. */}
+      <div className={`${styles.chapter} ${styles.resultChapter}`}>
+        <ChapterHead title={chapters.result} />
+        <div className={styles.chapterBody}>
+          <div id="result" className={`${styles.block} scroll-rise`}>
+            <ul className={styles.resultList}>
+              {item.result.map((point) => (
+                <li key={point}>
+                  <Highlight>{point}</Highlight>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {related.length ? (
+            <div className={styles.block}>
+              <h3 className={styles.label}>{RELATED_LABEL[locale]}</h3>
+              {related.map((entry) => (
+                <a key={entry.id} className={styles.feature} href={casePath(locale, entry.id)}>
+                  <span>{entry.org}</span>
+                  <strong>{entry.title}</strong>
+                  <ArrowUpRightIcon size={18} weight="bold" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          ) : null}
+          {caseEvidence[locale][item.id] ? (
+            <div id="evidence" className={`${styles.evidence} scroll-rise`}>
+              <CaseEvidence caseId={item.id} locale={locale} />
+            </div>
+          ) : null}
+          <div id="measurement" className={styles.measurement}>
+            <h3 className={styles.label}>{content.cases.measurementLabel}</h3>
+            <p>{item.measurement}</p>
+          </div>
+        </div>
+      </div>
 
-      {/* 03 What was built: the work products, then the frames that show them. */}
+      {/* What was built: the work products, then the frames that show them. */}
       <div className={`${styles.chapter} ${styles.built}`}>
-        <ChapterHead
-          number={item.article ? "01" : "03"}
-          title={chapters.built}
-        />
+        <ChapterHead title={chapters.built} />
         <div className={styles.chapterBody}>
           {item.dataMap?.length ? (
             <div id="artifacts" className={`${styles.block} scroll-rise`}>
@@ -173,6 +223,16 @@ export function CaseDetails({
               </ol>
             </div>
           )}
+          {item.alsoDid ? (
+            <div className={styles.block}>
+              <h3 className={styles.label}>{item.alsoDid.title}</h3>
+              <ul className={styles.alsoDid}>
+                {item.alsoDid.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           {stills.length ? (
             <ul className={styles.stills} data-count={stills.length}>
               {stills.map((still) => (
@@ -217,31 +277,6 @@ export function CaseDetails({
               <ArrowUpRightIcon size={18} weight="bold" aria-hidden="true" />
             </a>
           ))}
-        </div>
-      </div>
-
-      {/* 04 Result: the claim, the chart that proves it, and how it was measured. */}
-      <div className={`${styles.chapter} ${styles.resultChapter}`}>
-        <ChapterHead
-          number={item.article ? "02" : "04"}
-          title={chapters.result}
-        />
-        <div className={styles.chapterBody}>
-          <div id="result" className={`${styles.block} scroll-rise`}>
-            <h3 className={styles.label}>{columns.result}</h3>
-            <p className={styles.statement}>
-              <Highlight>{item.result}</Highlight>
-            </p>
-          </div>
-          {caseEvidence[locale][item.id] ? (
-            <div id="evidence" className={`${styles.evidence} scroll-rise`}>
-              <CaseEvidence caseId={item.id} locale={locale} />
-            </div>
-          ) : null}
-          <div id="measurement" className={styles.measurement}>
-            <h3 className={styles.label}>{content.cases.measurementLabel}</h3>
-            <p>{item.measurement}</p>
-          </div>
         </div>
       </div>
     </div>

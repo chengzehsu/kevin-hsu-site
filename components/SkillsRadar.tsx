@@ -105,7 +105,49 @@ function Radar({ radar }: { radar: SkillsRadarContent }) {
   );
 }
 
-export function SkillsRadar({ content, locale }: { content: SkillsContent; locale: Locale }) {
+export function SkillsRadar({
+  content,
+  locale,
+  compact = false,
+}: {
+  content: SkillsContent;
+  locale: Locale;
+  /** Home: the chart beside how each skill works in one line, each linking to the case that proves it. */
+  compact?: boolean;
+}) {
+  if (compact) {
+    return (
+      <section id="skills" className="content-section" aria-labelledby="skills-heading">
+        <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
+          <header className={`${styles.header} scroll-rise`}>
+            <h2 id="skills-heading" className="section-title">
+              {content.title}
+            </h2>
+          </header>
+          <div className={styles.stage}>
+            <div className={`${styles.radarColumn} scroll-rise`}>
+              <Radar radar={content.radar} />
+            </div>
+            <ol className={styles.beliefs}>
+              {content.featured.map((skill) => {
+                const proof = skill.references.find((reference) => reference.href.includes("/cases/"));
+                return (
+                  <li key={skill.id} className="scroll-rise">
+                    <a href={proof?.href ?? "#experience"}>
+                      <span className={styles.beliefName}>{skill.name}</span>
+                      <strong>{skill.statement}</strong>
+                      <span className={styles.beliefCase}>{proof?.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="skills"

@@ -4,7 +4,7 @@ import type { Locale } from "@/lib/locale";
 import styles from "./CaseArticle.module.css";
 
 const COPY = {
-  zh: { title: "完整故事" },
+  zh: { title: "完整過程" },
   en: { title: "The full story" },
 } as const;
 

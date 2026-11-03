@@ -1,21 +1,24 @@
 .figure {
-  --max: 6.5rem;
+  --max: var(--text-h1);
   display: grid;
   gap: .35rem;
   margin: 0;
   container-type: inline-size;
 }
 
-.figure[data-size="hero"] { --max: 9.5rem; }
+.figure[data-size="hero"] { --max: var(--text-display); }
+.figure[data-size="compact"] { --max: var(--text-h2); }
 
 .label {
   color: var(--muted);
-  font-size: .82rem;
+  font-size: var(--text-small);
   font-weight: 600;
   letter-spacing: .02em;
 }
 
+/* The labels are written to follow the number ("93%" then "of sensors right..."), so the number shows first. */
 .line {
+  order: -1;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -40,7 +43,7 @@
 
 .unit,
 .delta {
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-size: var(--text-body);
   font-weight: 650;
   letter-spacing: -.01em;
   white-space: nowrap;
@@ -55,7 +58,7 @@
   border: 1px solid color-mix(in oklch, var(--accent) 40%, var(--line));
   border-radius: var(--radius-ui);
   color: var(--fg);
-  font-size: .86rem;
+  font-size: var(--text-small);
   font-weight: 600;
 }
 

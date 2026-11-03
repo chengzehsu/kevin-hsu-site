@@ -20,6 +20,10 @@ W, H = 512, 320
 SOURCES = [
     *(f"portfolio-wall/film-{n}.webp" for n in range(1, 9)),
     "portfolio-artifacts/ecofirst-hvac-platform.webp",
+    "portfolio-artifacts/internal-backend-overview.webp",
+    "portfolio-artifacts/internal-backend-site-health.webp",
+    "portfolio-artifacts/internal-backend-timeseries.webp",
+    "portfolio-artifacts/internal-backend-warroom.webp",
     "linkedin-posts/post-1.jpg",
     "linkedin-posts/post-2.jpg",
 ]

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-<title id="title">Ecofirst 營運系統：把業務到 RD 接成一條資料鏈</title>
+<title id="title">Ecofirst 營運系統：從業務到 RD，資料都串在一起</title>
 <desc id="desc">在 Ecofirst 用 Notion 搭的營運系統。業務線：利害關係人（名片）連到客戶，再連到專案總表；業務推進分 8 階段（BD、拜訪、場勘、方案、報價、議價、擬約、簽約），每筆都連到專案總表。通過售前閘門（工期分級 S／M／L／XL；交期從 T=0 起算：資料交齊＋需求文件簽核）後進入 RD 線：軟體部專案連到需求池（RDD → 排程 → 開發 → RD 測試 → PM／業務驗收），並用 PM 期待日對比 RD 預計日自動判斷插單。資料庫筆數：業務推進 1,639 筆、RD 任務 1,829 筆、59 個交付專案連到軟體部專案（公司 Notion，2026-10），不含客戶與金額。</desc>
 <defs>
   <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
@@ -8,7 +8,7 @@
 <rect width="1600" height="1000" fill="#F5F7FB"/>
 <rect width="1600" height="1000" fill="url(#grid)" opacity=".48"/>
 <text x="96" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start" letter-spacing="2.8">營運系統 / 業務到 RD</text>
-<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">把業務到 RD 接成一條資料鏈</text>
+<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">從業務到 RD，資料都串在一起</text>
 <text x="96" y="214" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="26" font-weight="400" text-anchor="start">從拿到一張名片到需求驗收上線，每一步都是一張互相連結的資料庫。</text>
 <text x="96" y="264" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2">業務線</text>
 <g filter="url(#shadow)"><rect x="96" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>

@@ -1,3 +1,4 @@
+import { facts } from "@/content/facts";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -20,11 +21,11 @@ export default async function OpenGraphImage() {
         {hero.headline.replace(/[【】]/g, "").split(/(?<=\.)\s+/).map((line) => <div key={line} style={{ display: "flex" }}>{line}</div>)}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-        <div style={{ display: "flex", color: "#536274", fontSize: 22 }}>Ecofirst Taiwan</div>
+        <div style={{ display: "flex", color: "#536274", fontSize: 22 }}>Key results</div>
         <div style={{ display: "flex", borderTop: "1px solid #cdd5de", paddingTop: 24 }}>
-          {[{ value: "+50%", label: "Delivery efficiency" }, { value: "+20%", label: "Site operations efficiency" }].map((item, index) => (
+          {facts.en.slice(0, 2).map(({ og: item }, index) => (
             <div key={item.value} style={{ display: "flex", flexDirection: "column", gap: 8, width: "50%", paddingLeft: index ? 40 : 0, borderLeft: index ? "1px solid #cdd5de" : "none" }}>
-              <div style={{ display: "flex", color: "#285cab", fontSize: 56, lineHeight: 1.1 }}>{item.value}</div>
+              <div style={{ display: "flex", color: "#285cab", fontSize: 36, lineHeight: 1.1 }}>{item.value}</div>
               <div style={{ display: "flex", color: "#536274", fontSize: 22 }}>{item.label}</div>
             </div>
           ))}

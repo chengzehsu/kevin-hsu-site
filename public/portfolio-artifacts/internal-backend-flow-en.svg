@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="760" viewBox="0 0 1480 760" role="img" aria-label="4 handoffs per round / 0 handoffs per round">
+<rect x="0" y="0" width="1480" height="760" rx="0" fill="#132036"/>
+<text x="48" y="58" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="32" fill="#F2F5FA" text-anchor="start" dominant-baseline="central" font-weight="700">Before</text>
+<text x="1432" y="58" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="28" fill="#F2F5FA" text-anchor="end" dominant-baseline="central" font-weight="700">4 handoffs per round</text>
+<text x="48" y="160" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#AEBBCE" text-anchor="start" dominant-baseline="central">PM</text>
+<text x="48" y="296" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#AEBBCE" text-anchor="start" dominant-baseline="central">Engineer</text>
+<polyline points="1290,122 1290,104 290,104 290,122" fill="none" stroke="#5F7391" stroke-width="2" stroke-dasharray="7 7"/>
+<polygon points="290,122 284,111 296,111" fill="#5F7391"/>
+<rect x="655" y="88" width="270" height="32" rx="0" fill="#132036"/>
+<text x="790" y="104" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="20" fill="#AEBBCE" text-anchor="middle" dominant-baseline="central">Wrong? Go around again</text>
+<rect x="180" y="122" width="220" height="76" rx="12" fill="#2D61A6"/>
+<text x="290" y="160" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Ask for current file</text>
+<rect x="430" y="258" width="220" height="76" rx="12" fill="#22324C"/>
+<text x="540" y="296" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Download, send to PM</text>
+<rect x="680" y="122" width="220" height="76" rx="12" fill="#2D61A6"/>
+<text x="790" y="160" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Edit and hand back</text>
+<rect x="930" y="258" width="220" height="76" rx="12" fill="#22324C"/>
+<text x="1040" y="296" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Upload, notify PM</text>
+<rect x="1180" y="122" width="220" height="76" rx="12" fill="#2D61A6"/>
+<text x="1290" y="160" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Check values</text>
+<polyline points="360,198 470,258" fill="none" stroke="#5F7391" stroke-width="2"/>
+<polygon points="470,258 457.47,258 463.216,247.465" fill="#5F7391"/>
+<circle cx="415" cy="228" r="17" fill="#F2F5FA"/>
+<text x="415" y="228" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="19" fill="#132036" text-anchor="middle" dominant-baseline="central" font-weight="700">1</text>
+<polyline points="610,258 720,198" fill="none" stroke="#5F7391" stroke-width="2"/>
+<polygon points="720,198 713.216,208.535 707.47,198" fill="#5F7391"/>
+<circle cx="665" cy="228" r="17" fill="#F2F5FA"/>
+<text x="665" y="228" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="19" fill="#132036" text-anchor="middle" dominant-baseline="central" font-weight="700">2</text>
+<polyline points="860,198 970,258" fill="none" stroke="#5F7391" stroke-width="2"/>
+<polygon points="970,258 957.47,258 963.216,247.465" fill="#5F7391"/>
+<circle cx="915" cy="228" r="17" fill="#F2F5FA"/>
+<text x="915" y="228" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="19" fill="#132036" text-anchor="middle" dominant-baseline="central" font-weight="700">3</text>
+<polyline points="1110,258 1220,198" fill="none" stroke="#5F7391" stroke-width="2"/>
+<polygon points="1220,198 1213.22,208.535 1207.47,198" fill="#5F7391"/>
+<circle cx="1165" cy="228" r="17" fill="#F2F5FA"/>
+<text x="1165" y="228" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="19" fill="#132036" text-anchor="middle" dominant-baseline="central" font-weight="700">4</text>
+<polyline points="48,384 1432,384" fill="none" stroke="#5F7391" stroke-width="2"/>
+<text x="48" y="438" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="32" fill="#F2F5FA" text-anchor="start" dominant-baseline="central" font-weight="700">Now</text>
+<text x="1432" y="438" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="28" fill="#F2F5FA" text-anchor="end" dominant-baseline="central" font-weight="700">0 handoffs per round</text>
+<text x="48" y="538" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#AEBBCE" text-anchor="start" dominant-baseline="central">PM</text>
+<text x="48" y="660" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#AEBBCE" text-anchor="start" dominant-baseline="central">Engineer</text>
+<polyline points="1290,500 1290,482 290,482 290,500" fill="none" stroke="#5F7391" stroke-width="2" stroke-dasharray="7 7"/>
+<polygon points="290,500 284,489 296,489" fill="#5F7391"/>
+<rect x="638.5" y="466" width="303" height="32" rx="0" fill="#132036"/>
+<text x="790" y="482" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="20" fill="#AEBBCE" text-anchor="middle" dominant-baseline="central">Wrong? The PM edits again</text>
+<rect x="180" y="500" width="220" height="76" rx="12" fill="#2D61A6"/>
+<text x="290" y="538" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Download list</text>
+<polyline points="400,538 513,538" fill="none" stroke="#5F7391" stroke-width="2"/>
+<polygon points="513,538 502,544 502,532" fill="#5F7391"/>
+<rect x="513" y="500" width="220" height="76" rx="12" fill="#2D61A6"/>
+<text x="623" y="538" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Edit</text>
+<polyline points="733,538 847,538" fill="none" stroke="#5F7391" stroke-width="2"/>
+<polygon points="847,538 836,544 836,532" fill="#5F7391"/>
+<rect x="847" y="500" width="220" height="76" rx="12" fill="#2D61A6"/>
+<text x="957" y="538" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Upload</text>
+<polyline points="1067,538 1180,538" fill="none" stroke="#5F7391" stroke-width="2"/>
+<polygon points="1180,538 1169,544 1169,532" fill="#5F7391"/>
+<rect x="1180" y="500" width="220" height="76" rx="12" fill="#2D61A6"/>
+<text x="1290" y="538" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="22" fill="#F2F5FA" text-anchor="middle" dominant-baseline="central">Check live data</text>
+<rect x="180" y="622" width="1220" height="76" rx="12" fill="none" stroke="#5F7391" stroke-width="1.5" stroke-dasharray="7 7"/>
+<text x="790" y="660" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="20" fill="#AEBBCE" text-anchor="middle" dominant-baseline="central">No engineer&#x27;s schedule to wait on; engineers return to product work</text>
+</svg>

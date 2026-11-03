@@ -24,7 +24,7 @@ COPY = {
             ("mock data 驗證", "先用假資料跑過流程，再交給工程", "Claude"),
             ("開發協作", "規格、資料與原型一起交棒", "Claude"),
         ],
-        "result": ["產品交付效率", "+50%"],
+        "result": ["每日會議追蹤", "110 份"],
     },
     "en": {
         "title": "Automating product management with Claude",
@@ -40,7 +40,7 @@ COPY = {
             ("Mock-data check", "Runs the flow on fake data before build", "Claude"),
             ("Hand-off", "Spec, data, and prototype ship together", "Claude"),
         ],
-        "result": ["Product delivery efficiency", "+50%"],
+        "result": ["Daily meeting follow-ups", "110"],
     },
 }
 

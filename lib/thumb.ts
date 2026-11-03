@@ -5,6 +5,10 @@ const THUMBED = new Set([
     (_, index) => `/portfolio-wall/film-${index + 1}.webp`,
   ),
   "/portfolio-artifacts/ecofirst-hvac-platform.webp",
+  "/portfolio-artifacts/internal-backend-overview.webp",
+  "/portfolio-artifacts/internal-backend-site-health.webp",
+  "/portfolio-artifacts/internal-backend-timeseries.webp",
+  "/portfolio-artifacts/internal-backend-warroom.webp",
   "/linkedin-posts/post-1.jpg",
   "/linkedin-posts/post-2.jpg",
 ]);

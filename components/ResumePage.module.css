@@ -268,7 +268,9 @@
   line-height: 1.7;
 }
 
+.bullets li { text-wrap: pretty; }
 .bullets li::marker { color: var(--muted); }
+.lead { font-weight: 600; color: var(--fg); }
 
 .roleLinks {
   display: flex;
@@ -278,6 +280,7 @@
 }
 
 .gap {
+  margin: .6rem 0 0;
   padding: .5rem .75rem;
   border-left: 2px solid var(--line);
   color: var(--muted);
@@ -290,13 +293,15 @@
   margin: 0;
 }
 
+.skills > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .75rem; }
 .skills dt {
   font-size: .88rem;
   font-weight: 600;
+  line-height: 1.7;
 }
 
 .skills dd {
-  margin: .1rem 0 0;
+  margin: 0;
   color: var(--muted);
   font-size: .9rem;
   line-height: 1.7;
@@ -325,7 +330,7 @@
 /* The PDF résumé: A4, black on white, no site chrome, contact details written out. */
 @media print {
   /* Two A4 pages at most: single column, smaller type, no web-only blocks. */
-  @page { size: A4; margin: 10mm 13mm 10mm; }
+  @page { size: A4; margin: 8mm 13mm; }
 
   .page { padding: 0; }
   .page ~ :global(footer) { display: none; }
@@ -335,8 +340,8 @@
   .roleLinks,
   .more,
   .kicker,
-  .keywords,
-  .gap { display: none !important; }
+  .keywords { display: none !important; }
+  .gap { margin: 1pt 0 0; padding: 0; border: 0; font-size: 8.3pt; }
   .printOnly { display: inline; }
   .contacts { margin-top: 2pt; font-size: 8.5pt; }
   .contacts a { min-height: 0; color: var(--fg); text-decoration: none; }
@@ -346,7 +351,7 @@
   .facts > div { padding-block: 3pt; }
   .facts dt { font-size: 11pt; }
   .facts dd { font-size: 8pt; }
-  .section { grid-template-columns: minmax(0, 1fr); gap: 2pt; padding-block: 4pt; }
+  .section { grid-template-columns: minmax(0, 1fr); gap: 1.5pt; padding-block: 3pt; }
   .section h2 { margin: 0; font-size: 10.5pt; }
   .summary { margin: 0; font-size: 9.3pt; line-height: 1.38; }
   .highlights,
@@ -356,18 +361,27 @@
   .figure { font-size: 10.5pt; line-height: 1.25; }
   .highlightTitle { margin: 0; font-size: 9.3pt; line-height: 1.3; }
   .muted { margin: 0; font-size: 8.6pt; line-height: 1.32; }
-  .roles { gap: 3pt; }
+  .roles { gap: 2pt; }
   .role { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .period { margin: 0; font-size: 8.3pt; line-height: 1.25; }
   .role h3 { margin: 0; font-size: 9.6pt; line-height: 1.3; }
-  .bullets { margin: 1pt 0 0; font-size: 8.8pt; line-height: 1.32; }
+  .bullets { gap: 0; margin: 1pt 0 0; font-size: 8.8pt; line-height: 1.3; }
+  .bullets:lang(en) { font-size: 8.6pt; }
+  .section:lang(en) { padding-block: 2pt; }
+  .roles:lang(en) { gap: 1.5pt; }
+  .muted:lang(en) { font-size: 8.3pt; }
+  .list > li > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6pt; }
   .bullets li { margin: 0; }
   .skills { gap: 1pt; }
   .skills > div { display: grid; grid-template-columns: 30mm minmax(0, 1fr); gap: 2mm; }
+  /* Rem sizes would make the company outrank the job title on paper. */
+  .org { font-size: 8.8pt; font-weight: 400; }
   .skills dt,
   .skills dd { margin: 0; font-size: 8.8pt; line-height: 1.32; }
   .role,
   .highlights > li,
   .list > li { break-inside: avoid; }
   .section h2 { break-after: avoid; }
+  /* A short section moves to the next page whole, so no stray lines are left behind. */
+  .keepWhole { break-inside: avoid; }
 }

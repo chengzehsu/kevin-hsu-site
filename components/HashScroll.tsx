@@ -10,6 +10,14 @@ function scrollToHash(behavior: ScrollBehavior) {
   if (!target) return;
   const details = target.querySelector<HTMLDetailsElement>(":scope > details[data-disclosure]");
   if (details) details.open = true;
+  // A target inside a closed disclosure can't be scrolled to until every disclosure around it opens.
+  let opened = false;
+  for (let open = target.closest("details"); open; open = open.parentElement?.closest("details") ?? null) {
+    if (!open.open) opened = true;
+    open.open = true;
+  }
+  // The disclosure animates open, so scroll again once its height has settled.
+  if (opened) window.setTimeout(() => target.scrollIntoView({ block: "start", behavior: "instant" }), 300);
   target.scrollIntoView({ block: "start", behavior });
 }
 

@@ -15,7 +15,7 @@ Kevin is job hunting, and the roles that fit him best are companies in digital t
 - Add a fifth work case, an illustrated article about the Ecofirst collection-monitoring back office, always called 「內部後台」 / "internal back office" on the site. It walks five real, anonymised screens in one usage scenario. **BREAKING** for the site vocabulary: the inventory becomes 「5 個工作案例＋2 個個人專案」 / "5 work cases + 2 side projects", and the home shelf shows five posters.
 - After 2026-10-30 the Ecofirst period reads 2025/3 - 2026/10 instead of "now".
 - Replace the home section 「三個 AI 工作習慣」 with 「用 AI 解決問題」, three chapters that show real problems solved with AI: 我如何用 AI 打造產品, 我如何用 AI 改善流程, 我如何用 AI 自動化我的生活. Each item states who was stuck, what AI did and what a person decided, and the result with its source. The section moves to right after the work cases; the three traits stay only in the hero rows. Added 2026-10-23 because the user found the five-card version "太少了" and wanted AI evidence that reads as solved problems, not personality habits. **BREAKING** for the home order and nav label (the `#linkedin-posts` anchor is kept so sent links still work).
-- Correct numbers that do not survive follow-up: the Sales FAQ line (185 entries, 51 authorized, not "1,500 records turned into FAQ"), meeting follow-ups 110 (was 102), CEO weekly reports 26 issues (was 20), podcast-stock 364 commits and 42 merged PRs (was 424 and 59).
+- Correct numbers that do not survive follow-up: the Sales FAQ line (185 entries, 51 authorized, not "1,500 records turned into FAQ"), meeting follow-ups 110 (was 102), podcast-stock 364 commits and 42 merged PRs (was 424 and 59).
 
 ## Non-Goals (optional)
 

@@ -29,6 +29,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
   );
   const website = `${SITE_ORIGIN}${localePath(locale)}`;
   const separator = locale === "zh" ? "：" : ": ";
+  const separatorList = locale === "zh" ? "、" : ", ";
 
   const detailLink = (id: string, withTitle: boolean) => {
     const item = caseById.get(id);
@@ -105,6 +106,11 @@ export function ResumePage({ locale }: { locale: Locale }) {
               <p className={styles.summary} data-v="">
                 <TText k="resume.summary" locale={locale}>{resume.summary}</TText>
               </p>
+              <ul className={styles.bullets}>
+                {resume.summaryPoints.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
             </div>
           </section>
 
@@ -115,19 +121,17 @@ export function ResumePage({ locale }: { locale: Locale }) {
             <h2 id="resume-experience">{resume.sections.experience}</h2>
             <ol className={styles.roles}>
               {content.experience.items.map((role) => {
-                const short = resume.roles[role.id];
-                const summary = short?.summary ?? role.summary ?? role.focus;
                 return (
                   <li key={role.id} className={styles.role}>
-                    <p className={styles.period}>{role.period}</p>
+                                        <p className={styles.period}>{role.period}</p>
                     <div>
                       <h3>
-                        {short?.role ?? role.role}
+                        {role.role}
                         <span className={styles.org}>{role.org}</span>
                       </h3>
-                      {summary ? <p className={styles.muted}>{summary}</p> : null}
+                      {role.summary ? <p className={styles.muted}>{role.summary}</p> : null}
                       <ul className={styles.bullets} data-v="">
-                        <TBullets id={role.id} bullets={short?.bullets ?? role.bullets} locale={locale} />
+                        <TBullets id={role.id} bullets={role.bullets} locale={locale} leadClassName={styles.lead} />
                       </ul>
                       {resume.roleCases[role.id] ? (
                         <p className={styles.roleLinks}>
@@ -136,6 +140,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
                           )}
                         </p>
                       ) : null}
+                      {role.gapAfter ? <p className={styles.gap}>{role.gapAfter}</p> : null}
                     </div>
                   </li>
                 );
@@ -143,14 +148,23 @@ export function ResumePage({ locale }: { locale: Locale }) {
             </ol>
           </section>
 
-          <section className={styles.section} aria-labelledby="resume-skills">
+          <section className={`${styles.section} ${styles.keepWhole}`} aria-labelledby="resume-skills">
             <h2 id="resume-skills">{resume.sections.skills}</h2>
-            <p className={styles.summary} data-v="">
-              <TText k="resume.keywords" locale={locale}>{resume.skills}</TText>
-            </p>
+            <div className={styles.summary} data-v="">
+              <TText k="resume.keywords" locale={locale}>
+                <dl className={styles.skills}>
+                  {resume.skills.map((group) => (
+                    <div key={group.label}>
+                      <dt>{group.label}</dt>
+                      <dd>{group.items.join(separatorList)}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </TText>
+            </div>
           </section>
 
-          <section className={styles.section} aria-labelledby="resume-education">
+          <section className={`${styles.section} ${styles.keepWhole}`} aria-labelledby="resume-education">
             <h2 id="resume-education">{resume.sections.education}</h2>
             <ul className={styles.list}>
               <li>

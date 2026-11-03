@@ -19,9 +19,13 @@ pnpm dev            # http://localhost:3000
 pnpm typecheck
 pnpm build          # static output in out/
 bash scripts/check-copy.sh
-node --test scripts/test-site-output.mjs
+pnpm test
 node --experimental-strip-types --test scripts/test-flow-simulation.mjs
 ```
+
+`.node-version` and `packageManager` in `package.json` pin Node and pnpm for local work and for Workers Builds. Without `packageManager`, Workers Builds falls back to its own default pnpm, so change these versions here rather than in the dashboard.
+
+The offline Python scripts pin their packages in `scripts/requirements.txt`. Run them with `uv run --no-project --python 3.13 --with-requirements scripts/requirements.txt scripts/<script>.py`. `render-hero-reel.py` also needs a Chromium from `playwright install chromium`; `internal-backend-figures.py` needs `cwebp` on the PATH.
 
 ## Deploy
 

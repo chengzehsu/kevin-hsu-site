@@ -1,34 +1,16 @@
 import type { CaseStudy, SectionProps } from "@/content/types";
 import { caseArtifacts } from "@/content/caseArtifacts";
-import { orderCases } from "@/lib/cases";
+import { caseName, fillCounts, orderCases, WIDE_CASES } from "@/lib/cases";
 import { casePath } from "@/lib/locale";
-import { thumb } from "@/lib/thumb";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { CaseArtifact } from "./CaseArtifact";
 import { CaseHeadlineFigure } from "./CaseHeadlineFigure";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./CaseStudies.module.css";
 
-// Four compositions so the list reads as a sequence of launches, not one card repeated.
-const LAYOUTS = ["feature", "split", "reverse", "panorama"] as const;
-
-const COPY = {
-  zh: { kicker: "作品集", decision: "關鍵取捨", index: "案例索引" },
-  en: {
-    kicker: "Portfolio",
-    decision: "Key decision",
-    index: "Case index",
-  },
-} as const;
-
+/** Every case as one card in rank order: what it is, what it achieved, and what it took. */
 export function CaseStudies({ content, locale }: SectionProps) {
   const cases = content.cases;
-  // Work cases first, then the after-hours projects under their own heading; numbering runs on.
-  const items = orderCases(cases.items);
-  const work = items.filter((item) => item.kind !== "side");
-  const side = items.filter((item) => item.kind === "side");
-  const copy = COPY[locale];
-  const total = String(items.length).padStart(2, "0");
 
   return (
     <section
@@ -37,160 +19,67 @@ export function CaseStudies({ content, locale }: SectionProps) {
       aria-labelledby="cases-heading"
     >
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-        <header className={`${styles.head} scroll-rise`}>
-          <p className={styles.kicker}>
-            {copy.kicker}
-            <span aria-hidden="true"> / </span>
-            {total}
-          </p>
+        <header className={styles.head}>
           <h2 id="cases-heading" className={`section-title ${styles.heading}`}>
-            {cases.inventory}
+            <KeepTogether text={fillCounts(cases.inventory, cases.items)} title />
           </h2>
           <p className={styles.lede}>{cases.intro}</p>
         </header>
-
-        <nav className={styles.index} aria-label={copy.index}>
-          <ol>
-            {items.map((item, index) => {
-              const headline = caseArtifacts[locale][item.id]?.headline;
-              return (
-                <li key={item.id}>
-                  <a href={`#${item.id}`}>
-                    <span className={styles.indexNumber}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className={styles.indexTitle}>{item.title}</span>
-                    {headline ? (
-                      <span className={styles.indexFigure}>
-                        <strong className={styles.indexValue}>{headline.value}</strong>
-                        {headline.unit || headline.delta ? (
-                          <span className={styles.indexUnit}>
-                            {[headline.unit, headline.delta].filter(Boolean).join(" ")}
-                          </span>
-                        ) : null}
-                      </span>
-                    ) : null}
-                  </a>
-                </li>
-              );
-            })}
-          </ol>
-        </nav>
-
-        {/* Both groups get the same kind of heading, so 5 + 2 reads as one portfolio in two parts. */}
-        <header className={`${styles.sideHead} scroll-rise`}>
-          <h2 className={styles.sideTitle}>{cases.workTitle}</h2>
-        </header>
-        <div className={styles.list}>
-          {work.map((item, index) => renderRow(item, index))}
-        </div>
-
-        {side.length ? (
-          <>
-            <header className={`${styles.sideHead} scroll-rise`}>
-              <h2 className={styles.sideTitle}>{cases.sideTitle}</h2>
-              <p className={styles.lede}>{cases.sideIntro}</p>
-            </header>
-            <div className={styles.list}>
-              {side.map((item, index) => renderRow(item, work.length + index))}
-            </div>
-          </>
-        ) : null}
+        <div className={styles.grid}>{orderCases(cases.items).map(renderCard)}</div>
       </div>
     </section>
   );
 
-  function renderRow(item: CaseStudy, index: number) {
-            const artifact = caseArtifacts[locale][item.id];
-            const path = casePath(locale, item.id);
-            const stills = artifact?.stills ?? [];
-            const number = String(index + 1).padStart(2, "0");
-            return (
-              <article
-                id={item.id}
-                key={item.id}
-                className={`${styles.row} scroll-rise`}
-                data-case-card="ledger"
-                data-layout={LAYOUTS[index % LAYOUTS.length]}
-              >
-                {/* The poster repeats the case link for pointer users; keyboard users get the labelled link below. */}
-                <a
-                  className={styles.visual}
-                  href={path}
-                  tabIndex={-1}
-                  aria-hidden="true"
-                >
-                  <span className={styles.ghostNumber}>{number}</span>
-                  <CaseArtifact
-                    caseId={item.id}
-                    locale={locale}
-                    variant="cover"
-                    sizes="(max-width: 767px) 92vw, (max-width: 1023px) 88vw, 62vw"
-                  />
-                  {stills.length ? (
-                    <span className={styles.stills}>
-                      {stills.slice(0, 2).map((still) => (
-                        <img
-                          key={still.src}
-                          src={thumb(still.src)}
-                          alt=""
-                          width={still.width}
-                          height={still.height}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ))}
-                    </span>
-                  ) : null}
-                </a>
-
-                <div className={styles.body}>
-                  <p className={styles.meta}>
-                    <span className={styles.number}>{number}</span>
-                    <span>
-                      {item.org}
-                      <span aria-hidden="true"> · </span>
-                      {item.period}
-                    </span>
-                  </p>
-                  <h3 className={styles.title}>
-                    <KeepTogether text={item.title} title />
-                  </h3>
-                  {artifact ? (
-                    <CaseHeadlineFigure
-                      headline={artifact.headline}
-                      className={styles.figure}
-                    />
-                  ) : (
-                    <p className={styles.impact}>{item.impact}</p>
-                  )}
-                  <p className={styles.decision}>
-                    <span>{copy.decision}</span>
-                    {item.decisionSummary}
-                  </p>
-                  <p className={styles.proof}>
-                    <span>{cases.measurementLabel}</span>
-                    {item.measurementSummary}
-                  </p>
-                  <p className={styles.role}>
-                    {item.role}
-                    <span aria-hidden="true"> · </span>
-                    <KeepTogether text={item.scope} />
-                  </p>
-                  <a
-                    className={styles.cta}
-                    href={path}
-                    aria-label={`${cases.readLabel}: ${item.title}`}
-                  >
-                    {cases.readLabel}
-                    <ArrowUpRightIcon
-                      size={18}
-                      weight="bold"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </div>
-              </article>
-            );
+  function renderCard(item: CaseStudy) {
+    const artifact = caseArtifacts[locale][item.id];
+    const wide = WIDE_CASES.includes(item.id);
+    const { used, grown } = item.capabilities;
+    return (
+      <article
+        id={item.id}
+        key={item.id}
+        className={styles.card}
+        data-case-card="card"
+        data-wide={wide ? "" : undefined}
+      >
+        <a
+          className={styles.link}
+          href={casePath(locale, item.id)}
+          aria-label={`${cases.readLabel}: ${item.title}`}
+        >
+          <div className={styles.visual}>
+            <CaseArtifact
+              caseId={item.id}
+              locale={locale}
+              variant="cover"
+              sizes="(max-width: 767px) 30vw, (max-width: 1023px) 50vw, 33vw"
+            />
+          </div>
+          <div className={styles.body}>
+            <div className={styles.nameRow}>
+              <strong className={styles.name}>{caseName(item)}</strong>
+              <ArrowUpRightIcon size={18} weight="bold" aria-hidden="true" />
+            </div>
+            {artifact ? (
+              <CaseHeadlineFigure
+                headline={{ ...artifact.headline, delta: undefined, also: undefined }}
+                size="compact"
+                className={styles.figure}
+              />
+            ) : null}
+            <div className={styles.capabilities}>
+              <span>
+                <b>{cases.capabilityLabels.cardUsed}</b>
+                {used.slice(0, 2).join(locale === "zh" ? "、" : ", ")}
+              </span>
+              <span>
+                <b>{cases.capabilityLabels.cardGrown}</b>
+                {grown[0]}
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+    );
   }
 }

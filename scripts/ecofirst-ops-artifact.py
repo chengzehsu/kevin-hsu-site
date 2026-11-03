@@ -19,10 +19,10 @@ NAVY, BLUE, LIGHT, MUTED = "#172234", "#2D61A6", "#DCE8F7", "#5A6980"
 
 COPY = {
     "zh": {
-        "title": "Ecofirst 營運系統：把業務到 RD 接成一條資料鏈",
+        "title": "Ecofirst 營運系統：從業務到 RD，資料都串在一起",
         "desc": "在 Ecofirst 用 Notion 搭的營運系統。業務線：利害關係人（名片）連到客戶，再連到專案總表；業務推進分 8 階段（BD、拜訪、場勘、方案、報價、議價、擬約、簽約），每筆都連到專案總表。通過售前閘門（工期分級 S／M／L／XL；交期從 T=0 起算：資料交齊＋需求文件簽核）後進入 RD 線：軟體部專案連到需求池（RDD → 排程 → 開發 → RD 測試 → PM／業務驗收），並用 PM 期待日對比 RD 預計日自動判斷插單。資料庫筆數：業務推進 1,639 筆、RD 任務 1,829 筆、59 個交付專案連到軟體部專案（公司 Notion，2026-10），不含客戶與金額。",
         "kicker": "營運系統 / 業務到 RD",
-        "head": "把業務到 RD 接成一條資料鏈",
+        "head": "從業務到 RD，資料都串在一起",
         "head_size": 56,
         "sub": "從拿到一張名片到需求驗收上線，每一步都是一張互相連結的資料庫。",
         "sub_size": 26,
@@ -46,10 +46,10 @@ COPY = {
         "note": "資料庫筆數取自公司 Notion（2026-10），不含客戶與金額",
     },
     "en": {
-        "title": "Ecofirst operating system: sales to RD on one data chain",
-        "desc": "The Notion operating system built at Ecofirst. Sales lane: stakeholders (business cards) link to clients, then to the project master; sales updates move through 8 stages (BD, visit, site survey, proposal, quote, negotiation, draft contract, signed) and each one links to the project master. After the presales gate (effort tiers S / M / L / XL; the delivery clock starts at T=0 once data is complete and the requirements doc is signed), work enters the RD lane: software projects link to a requirement pool (RDD → scheduling → development → RD testing → PM / sales sign-off), where the PM's target date is compared with RD's estimate to flag rush insertions automatically. Database counts: 1,639 sales updates, 1,829 RD tasks, and 59 delivery projects linked to software projects (company Notion, Oct 2026); no client names or amounts.",
-        "kicker": "OPERATING SYSTEM / SALES TO RD",
-        "head": "Sales to RD on one data chain",
+        "title": "Ecofirst operating system: sales to engineering in one connected system",
+        "desc": "The Notion operating system built at Ecofirst. Sales lane: stakeholders (business cards) link to customers, then to the project master; sales updates move through 8 stages (BD, visit, site survey, proposal, quote, negotiation, draft contract, signed) and each one links to the project master. After the presales gate (effort tiers S / M / L / XL; the delivery clock starts at T=0 once data is complete and the requirements doc is signed), work enters the Engineering lane: software projects link to a requirement pool (RDD → scheduling → development → Engineering testing → PM / sales sign-off), where the PM's target date is compared with RD's estimate to flag rush insertions automatically. Database counts: 1,639 sales updates, 1,829 engineering tasks, and 59 delivery projects linked to software projects (company Notion, Oct 2026); no client names or amounts.",
+        "kicker": "OPERATING SYSTEM / SALES TO ENGINEERING",
+        "head": "Sales to engineering on one data chain",
         "head_size": 56,
         "sub": "From the first business card to a signed-off requirement, every step is a linked database.",
         "sub_size": 24,
@@ -57,7 +57,7 @@ COPY = {
         "rd_lane": "RD LANE",
         "sales": [
             ("Stakeholders", ["One row per business", "card, linked to its client"]),
-            ("Clients", ["Client and site details,", "kept in one place"]),
+            ("Customers", ["Client and site details,", "kept in one place"]),
             ("Project master", ["One source of truth", "for every project"]),
         ],
         "pipeline": ("Sales updates", "8 stages, each linked to it",
@@ -66,9 +66,9 @@ COPY = {
                  ("DELIVERY CLOCK STARTS AT T=0", "Data complete + requirements doc signed")],
         "rd_project": ("Software projects", ["Delivery projects handed", "over from Project master"]),
         "pool": ("Requirement pool", "Every requirement runs from RDD to sign-off",
-                 ["RDD", "Scheduling", "Development", "RD testing", "PM / sales sign-off"]),
-        "callout": "PM target date vs RD estimate → rush insertions flagged automatically",
-        "stats": [("1,639", ["sales updates"]), ("1,829", ["RD tasks"]), ("59", ["delivery projects linked", "to software projects"])],
+                 ["RDD", "Scheduling", "Development", "Engineering testing", "PM / sales sign-off"]),
+        "callout": "PM target date vs engineering estimate → rush insertions flagged automatically",
+        "stats": [("1,639", ["sales updates"]), ("1,829", ["engineering tasks"]), ("59", ["delivery projects linked", "to software projects"])],
         "stat_size": 18,
         "note": "Counts from the company Notion (Oct 2026); no client names or amounts",
     },
@@ -175,7 +175,7 @@ def render(lang: str) -> str:
         o.append(text(x, gy + 64, value, 21, "#F7FAFF", 700, maxw=half - 80))
     o.append(f'<path d="M{96 + half} {gy + 18}V{gy + gh - 18}" stroke="#2F4362" stroke-width="2"/>')
 
-    # RD lane: software projects feed the requirement pool.
+    # Engineering lane: software projects feed the requirement pool.
     ry, rh = 628, 176
     arrow_v(o, col[0] + cw / 2, gy + gh + 4, ry - 4)
     o.append(text(col[1], ry - 14, c["rd_lane"], 15, BLUE, 700, spacing=2))

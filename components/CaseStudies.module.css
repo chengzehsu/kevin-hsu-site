@@ -1,319 +1,96 @@
-/* Portfolio case list: artifact-led launches, each with its own composition; after-hours projects follow. */
-.section { padding-block: clamp(5rem, 9vw, 8.5rem); }
+/* Portfolio: every case as one card, the same four things on each, so a reader can compare at a glance. */
+.section { padding-block: clamp(2rem, 3vw, 2.5rem) clamp(4rem, 6vw, 5.5rem); }
 
-/* Heading and intro stack: one message per header, the intro reads directly under its title. */
-.head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1rem;
-}
-
-.kicker {
-  grid-column: 1 / -1;
-  margin: 0;
-  color: var(--accent);
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  font-variant-numeric: tabular-nums;
-}
-
+.head { display: grid; gap: .35rem; }
 .heading { margin: 0; }
+.lede { max-width: 44ch; margin: 0; color: var(--muted); font-size: var(--text-body); line-height: 1.7; }
 
-.lede {
-  max-width: 44ch;
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
-
-/* After-hours group: a second, quieter header that splits the list without restarting it. */
-.sideHead {
+/* Two wide cards and eight single ones fill 3 by 4 and 2 by 6 with no empty cell. */
+.grid {
   display: grid;
-  gap: .75rem;
-  margin-top: clamp(4rem, 8vw, 6.5rem);
-  padding-top: clamp(2rem, 4vw, 3rem);
-  border-top: 1px solid var(--line);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 1.6vw, 1.5rem);
+  margin-top: clamp(1.25rem, 2vw, 1.75rem);
 }
 
-.sideTitle {
-  margin: 0;
-  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-  line-height: 1.25;
-  text-wrap: balance;
-}
-
-/* Index: a table of contents that already states the outcome of each case. */
-.index { margin-top: clamp(2.5rem, 5vw, 4rem); }
-.index ol {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.index a {
-  display: grid;
-  gap: .4rem;
-  height: 100%;
-  padding: 1rem 0 .25rem;
-  border-top: 2px solid var(--line);
-  color: var(--fg);
-  transition: border-color 200ms ease, color 200ms ease;
-}
-.index li:first-child a { border-color: var(--accent); }
-.index a:hover { border-color: var(--accent); }
-.index a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.indexNumber { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .1em; font-variant-numeric: tabular-nums; }
-.indexTitle { color: var(--muted); font-size: .86rem; font-weight: 550; line-height: 1.5; }
-.indexFigure { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .45rem; color: var(--fg); }
-.indexUnit { color: var(--muted); font-size: .78rem; font-weight: 600; white-space: nowrap; }
-.indexValue {
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2vw, 1.7rem);
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -.045em;
-  line-height: 1.1;
-  white-space: nowrap;
-}
-
-.list {
-  display: grid;
-  gap: clamp(6rem, 12vw, 11rem);
-  margin-top: clamp(4.5rem, 9vw, 8rem);
-}
-
-/* Row: a 12-column stage; data-layout decides where the poster and the argument sit. */
-.row {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 2.5rem clamp(1.5rem, 4vw, 4rem);
-  align-items: center;
+.card {
+  min-width: 0;
   scroll-margin-top: 6rem;
-}
-
-.visual {
-  position: relative;
-  display: block;
-  min-width: 0;
-  color: inherit;
-}
-
-.body {
-  display: grid;
-  align-content: start;
-  gap: 1.35rem;
-  min-width: 0;
-}
-
-.row[data-layout="split"] .visual { grid-column: 6 / -1; grid-row: 1; }
-.row[data-layout="split"] .body { grid-column: 1 / 6; grid-row: 1; }
-.row[data-layout="reverse"] .visual { grid-column: 1 / 8; grid-row: 1; }
-.row[data-layout="reverse"] .body { grid-column: 8 / -1; grid-row: 1; }
-
-/* Feature and panorama: the poster spans the stage, the argument splits into two columns. */
-.row[data-layout="feature"] .visual,
-.row[data-layout="panorama"] .visual { grid-column: 1 / -1; }
-.row[data-layout="feature"] .body,
-.row[data-layout="panorama"] .body {
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
-  column-gap: clamp(2rem, 6vw, 6rem);
-}
-.row[data-layout="panorama"] .visual { grid-row: 2; }
-/* The ghost number rises ~.45em above the poster; in panorama the figure sits right above it, so open the gap. */
-@media (min-width: 861px) { .row[data-layout="panorama"] { row-gap: 5rem; } }
-.row[data-layout="panorama"] .body { grid-row: 1; }
-.row[data-layout="feature"] .body > :is(.meta, .title, .figure),
-.row[data-layout="panorama"] .body > :is(.meta, .title, .figure) { grid-column: 1; }
-.row[data-layout="feature"] .body > :is(.decision, .proof, .role, .cta),
-.row[data-layout="panorama"] .body > :is(.decision, .proof, .role, .cta) { grid-column: 2; }
-.row[data-layout="feature"] .body > .decision,
-.row[data-layout="panorama"] .body > .decision { grid-row: 1 / span 2; align-self: end; }
-.row[data-layout="feature"] .body > .proof,
-.row[data-layout="panorama"] .body > .proof { grid-row: 3; align-self: start; }
-.row[data-layout="feature"] .body > .role,
-.row[data-layout="panorama"] .body > .role { grid-row: 4; }
-.row[data-layout="feature"] .body > .cta,
-.row[data-layout="panorama"] .body > .cta { grid-row: 5; }
-.row[data-layout="feature"] .body > .figure,
-.row[data-layout="panorama"] .body > .figure { grid-row: 3 / span 3; }
-
-/* Square artifacts are cropped from the top in a split so the row keeps its height in check. */
-.row[data-layout="split"] .visual :global(figure[data-shape="square"]) > div { aspect-ratio: 5 / 4; }
-
-.ghostNumber {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  color: transparent;
-  font-family: var(--font-display);
-  font-size: clamp(4.5rem, 10vw, 9rem);
-  font-weight: 800;
-  letter-spacing: -.08em;
-  line-height: .8;
-  transform: translate(-.08em, -.45em);
-  -webkit-text-stroke: 1.5px color-mix(in oklch, var(--accent) 55%, transparent);
-  pointer-events: none;
-}
-.row[data-layout="reverse"] .ghostNumber { right: 0; left: auto; transform: translate(.08em, -.45em); }
-
-/* Launch-film stills fanned over the poster corner, echoing the wall behind the hero. */
-.stills {
-  position: absolute;
-  right: -1rem;
-  bottom: -2rem;
-  z-index: 2;
-  width: min(34%, 16rem);
-  aspect-ratio: 8 / 5;
-  pointer-events: none;
-}
-.row[data-layout="reverse"] .stills { right: auto; left: -1rem; }
-.stills img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: .7rem .7rem var(--radius-tip) .7rem;
+  border-radius: var(--radius-panel);
   background: var(--surface);
-  box-shadow: 0 1.25rem 3rem rgb(8 19 34 / .22);
-  transform: rotate(-4deg);
 }
-.stills img:nth-child(2) { transform: translate(-18%, -26%) rotate(3deg); z-index: -1; }
+.card[data-wide] { grid-column: span 2; }
 
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: .4rem 1rem;
-  margin: 0;
-  color: var(--muted);
-  font-size: .86rem;
-  line-height: 1.5;
-}
-.number { color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .12em; font-variant-numeric: tabular-nums; }
+.link { display: flex; flex-direction: column; height: 100%; color: inherit; }
+.link:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: var(--radius-panel); }
+.card[data-wide] .link { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+/* Every cover is the same shape, so a square source can't stretch its whole row. */
+.card .visual :global(figure)[data-shape] > div { aspect-ratio: 16 / 10; }
+/* Beside the words the poster fills whatever height they take, instead of leaving a gap under it. */
+.card[data-wide] .visual { position: relative; min-height: 16rem; }
+.card[data-wide] .visual :global(figure)[data-shape] > div { position: absolute; inset: 0; width: 100%; aspect-ratio: auto; }
 
-.title {
-  max-width: 16ch;
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.6vw, 3.3rem);
-  font-weight: 650;
-  letter-spacing: -.045em;
-  line-height: 1.05;
-  text-wrap: balance;
+.visual { display: block; min-width: 0; }
+/* The card is the frame: the poster sits flush inside it, without its own border or shadow. */
+.visual :global(figure) { height: 100%; }
+.visual :global(figure) > div {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
-.title:lang(zh-Hant) { max-width: 14em; letter-spacing: -.01em; line-height: 1.22; }
 
-.figure { margin-top: .4rem; }
-.impact { margin: 0; color: var(--accent); font-size: 1.4rem; font-weight: 650; }
+.body { display: flex; flex: 1; flex-direction: column; gap: .85rem; min-width: 0; padding: 1.1rem 1.2rem 1.25rem; }
+.card[data-wide] .body { justify-content: center; padding: clamp(1.25rem, 2.4vw, 2.25rem); }
+.card[data-wide] .capabilities { margin-top: .25rem; }
+/* A tall crop keeps the left edge, where both wide covers carry their subject. */
+.card[data-wide] .visual :global(figure) img { object-position: left center; }
 
-.decision {
-  max-width: 44ch;
-  margin: 0;
-  padding-left: 1rem;
-  border-left: 2px solid var(--accent);
-  color: var(--fg);
-  font-size: 1.04rem;
-  line-height: 1.75;
-}
-.decision > span,
-.proof > span {
-  display: block;
-  margin-bottom: .3rem;
-  color: var(--accent);
-  font-size: .74rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-}
-.proof {
-  max-width: 44ch;
-  margin: 0;
-  padding-top: 1rem;
+.nameRow { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+.nameRow > svg { flex: none; margin-top: .2rem; color: var(--muted); }
+.name { font-size: var(--text-lead); font-weight: 650; line-height: 1.4; text-wrap: balance; }
+
+.figure { margin: 0; }
+
+/* The last thing on the card, pinned so the capability lines start level across a row. */
+.capabilities {
+  display: grid;
+  gap: .3rem;
+  margin-top: auto;
+  padding-top: .8rem;
   border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: .86rem;
-  line-height: 1.65;
+  color: var(--fg);
+  font-size: var(--text-small);
+  line-height: 1.55;
 }
-.proof > span { color: var(--fg); }
-.role { max-width: 48ch; margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.capabilities b { margin-right: .5rem; color: var(--accent); font-size: var(--text-caption); font-weight: 700; }
 
-.cta {
-  display: inline-flex;
-  align-items: center;
-  justify-self: start;
-  gap: 1rem;
-  min-height: 3rem;
-  margin-top: .35rem;
-  padding: .7rem .85rem .7rem 1.1rem;
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-ui);
-  background: var(--accent);
-  color: var(--accent-fg);
-  font-size: .9rem;
-  font-weight: 650;
-  white-space: nowrap;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
-}
-.cta:hover { border-color: var(--fg); background: var(--fg); color: var(--bg); }
-.cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.card:hover { border-color: color-mix(in oklch, var(--accent) 45%, var(--line)); }
+.card:hover .name, .card:hover .nameRow > svg { color: var(--accent); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .visual :global(figure) > div { transition: transform 600ms cubic-bezier(.16, 1, .3, 1), box-shadow 400ms ease; }
-  .row:hover .visual :global(figure) > div { transform: translateY(-.5rem); box-shadow: 0 2.75rem 6rem color-mix(in oklch, var(--accent) 18%, transparent); }
-  .stills img { transition: transform 600ms cubic-bezier(.16, 1, .3, 1); }
-  .row:hover .stills img { transform: translate(4%, -6%) rotate(-7deg); }
-  .row:hover .stills img:nth-child(2) { transform: translate(-32%, -34%) rotate(5deg); }
-  .cta { transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease; }
-  .cta:hover { transform: translateY(-2px); }
-  .cta:active { transform: scale(.98); }
-  .cta svg { transition: transform 180ms ease; }
-  .cta:hover svg { transform: translate(2px, -2px); }
+  .card { transition: border-color 200ms ease, transform 300ms cubic-bezier(.16, 1, .3, 1); }
+  .card:hover { transform: translateY(-3px); }
+  .card:active { transform: scale(.99); }
+  .nameRow > svg { transition: transform 180ms ease, color 180ms ease; }
+  .card:hover .nameRow > svg { transform: translate(2px, -2px); }
 }
 
 @media (max-width: 1023px) {
-  .head { grid-template-columns: minmax(0, 1fr); }
-  .index ol { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 1rem; }
-  .row[data-layout="split"] .visual { grid-column: 5 / -1; }
-  .row[data-layout="split"] .body { grid-column: 1 / 5; }
-  .row[data-layout="reverse"] .visual { grid-column: 1 / 9; }
-  .row[data-layout="reverse"] .body { grid-column: 9 / -1; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 860px) {
-  .row { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
-  .row .visual,
-  .row .body,
-  .row[data-layout] .visual,
-  .row[data-layout] .body { grid-column: 1; grid-row: auto; }
-  .row[data-layout] .body { grid-template-columns: minmax(0, 1fr); }
-  .row[data-layout] .body > :is(.meta, .title, .figure, .impact, .decision, .proof, .role, .cta) { grid-column: 1; grid-row: auto; align-self: auto; }
-  .row[data-layout] .visual { order: 0; }
-  .row[data-layout] .body { order: 1; }
-  .row[data-layout="split"] .visual :global(figure[data-shape="square"]) > div { aspect-ratio: 16 / 11; }
-}
-
+/* Phones: one compact row per card, poster beside the words, so ten cases stay a short scroll. */
 @media (max-width: 767px) {
-  .section { padding-block: 4.5rem; }
-  .lede { font-size: .98rem; }
-  .index a { padding-top: .8rem; }
-  .indexTitle { font-size: .8rem; }
-  .indexValue { font-size: clamp(.95rem, 4.6vw, 1.2rem); }
-  .list { gap: 5rem; margin-top: 3.5rem; }
-  .title { font-size: clamp(1.85rem, 8.5vw, 2.4rem); }
-  .ghostNumber { font-size: 4.25rem; }
-  .stills { right: -.35rem; bottom: -1.25rem; width: 40%; }
-  .row[data-layout="reverse"] .stills { right: -.35rem; left: auto; }
-  .row[data-layout="reverse"] .ghostNumber { right: auto; left: 0; transform: translate(-.08em, -.45em); }
-  .decision { font-size: .98rem; }
-  .cta { justify-self: stretch; justify-content: space-between; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .card[data-wide] { grid-column: auto; }
+  .link, .card[data-wide] .link { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); }
+  .visual, .card[data-wide] .visual { position: relative; min-height: 0; }
+  /* Doubled class: the artifact's own 16:10 rule would otherwise size the frame from its height and overflow. */
+  .card .visual :global(figure)[data-shape] > div { position: absolute; inset: 0; width: 100%; aspect-ratio: auto; }
+  .visual :global(figure) span { display: none; }
+  .body, .card[data-wide] .body { justify-content: flex-start; gap: .6rem; padding: .9rem 1rem 1rem; }
+  .capabilities { padding-top: .6rem; font-size: var(--text-small); }
 }
-
-@media print { .cta, .stills, .ghostNumber { display: none; } }

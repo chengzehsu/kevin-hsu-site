@@ -39,14 +39,6 @@ export interface HeroContent {
   kicker: string;
   /** Max two lines at desktop. Words wrapped in 【】 take the accent colour. */
   headline: string;
-  /** Curious / experimental / efficient, each backed by one public fact. */
-  traits: Array<{
-    label: string;
-    text: string;
-    proof: string;
-    /** Optional before → after pair; the before value is struck through, as in the film. */
-    shift?: { from: string; to: string };
-  }>;
   /** Three factual signals that help a hiring reader understand the profile quickly. */
   profile: Array<{
     label: string;
@@ -69,12 +61,6 @@ export interface HeroContent {
     /** Screen-reader narration of the on-screen film text; the film is burned-in per locale. */
     summary: string;
   };
-  /** The operating loop that differentiates this product practice. */
-  builderLoop: {
-    label: string;
-    steps: [string, string, string, string, string];
-    result: string;
-  };
   /** The résumé: what a recruiter opens first. Contact stays in the nav, not the hero. */
   primaryCta: Cta;
   /** Jumps to the work cases on the same page. */
@@ -87,12 +73,14 @@ export interface HeroContent {
  * Example (zh picking): prefix "300 → ", value 1000, suffix " 單／日", label "揀貨效率", detail "+233%".
  */
 export interface Metric {
-  featured?: boolean;
-  prefix?: string;
-  value: number;
-  suffix?: string;
+  /** A result as read aloud; strings because "about 2 weeks to about 2 hours" is not a number. */
+  value: string;
   label: string;
-  detail?: string;
+  detail: string;
+  /** The case that proves it. */
+  caseId: string;
+  /** Short forms for the social preview image. */
+  og: { value: string; label: string };
 }
 
 export interface MetricsContent {
@@ -162,7 +150,7 @@ export interface AiPracticeContent {
     expand: string;
     collapse: string;
   };
-  chapters: [AiPracticeChapter, AiPracticeChapter, AiPracticeChapter];
+  chapters: AiPracticeChapter[];
 }
 
 export interface MethodStep {
@@ -191,6 +179,10 @@ export interface CaseStudy {
   period: string;
   /** Display order; lower comes first. */
   rank: number;
+  /** Cases that go deeper on one part of this one. */
+  relatedCases?: string[];
+  /** Work beyond the product role, kept with the case rather than the experience list. */
+  alsoDid?: { title: string; bullets: string[] };
   title: string;
   /** Role held while making the decisions described in this case. */
   role: string;
@@ -200,6 +192,8 @@ export interface CaseStudy {
   collaboration: string;
   /** The outcome a hiring reader should understand before reading the full case. */
   impact: string;
+  /** What this project drew on and what it added, in project-specific words. */
+  capabilities: { used: string[]; grown: string[] };
   /** The work Kevin personally drove, separated from the overall outcome. */
   ownership: string;
   situation: string;
@@ -214,7 +208,8 @@ export interface CaseStudy {
    * Optional: only cases with verifiable signals carry one. Self-reported figures say so in-line.
    */
   decisionLog?: Array<{ call: string; signal: string; outcome: string }>;
-  result: string;
+  /** One outcome per line, so a reader can scan them. */
+  result: string[];
   /** Concrete work products that support the narrative without exposing private files. */
   artifacts: string[];
   /**
@@ -306,9 +301,11 @@ export interface CasesContent {
     signal: string;
     outcome: string;
   };
-  /** Heading and intro for the after-hours group on /portfolio/. */
-  sideTitle: string;
-  sideIntro: string;
+  /** Labels for a case's capabilities: full on the case page, short on its card. */
+  capabilityLabels: { used: string; grown: string; cardUsed: string; cardGrown: string };
+  decisionLabel: string;
+  fullProcessLabel: string;
+  fullProcessCollapse: string;
   /** Label for a case's public source link. */
   sourceLabel: string;
   items: CaseStudy[];
@@ -321,16 +318,12 @@ export interface ExperienceItem {
   period: string;
   /** Short scope visible before expanding the role. */
   focus: string;
-  /** The product judgement or practice accumulated in this chapter. */
-  skillSignal: string;
   /** One or two sentences; null when the facts are not yet supplied (both locales must declare it). */
   summary: string | null;
   /** Short bullets, max 4; empty array when none. */
   bullets: string[];
   /** Explains the break between this role and the previous (older) one, e.g. "2024/9 - 2025/2｜休息與接案". */
   gapAfter?: string;
-  /** Add-on work outside the product role, shown after the bullets under its own title. */
-  extras?: { title: string; bullets: string[] };
   /** True only for a role held today; the timeline shows the current-role badge from this, never from list order. */
   current?: boolean;
 }
@@ -342,7 +335,6 @@ export interface ExperienceContent {
   /** Section-level button that opens or closes every role at once. */
   expandAllLabel: string;
   collapseAllLabel: string;
-  skillLabel: string;
   /** Optional one-line lead under the section title. */
   intro?: string;
   /** Marker on the current role, e.g. 現在 / Now. */
@@ -396,7 +388,6 @@ export interface SiteContent {
   metrics: MetricsContent;
   aiPractice: AiPracticeContent;
   awards: AwardsContent;
-  method: MethodContent;
   cases: CasesContent;
   experience: ExperienceContent;
   contact: ContactContent;

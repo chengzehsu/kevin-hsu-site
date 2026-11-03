@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getContent } from "@/content";
 import type { CaseStudy } from "@/content/types";
 import { resumeContent } from "@/content/resume";
+import { fillCounts } from "@/lib/cases";
 import { casePath, localePath, portfolioPath, resumePath, SITE_ORIGIN, type Locale } from "@/lib/locale";
 
 /**
@@ -12,11 +13,13 @@ import { casePath, localePath, portfolioPath, resumePath, SITE_ORIGIN, type Loca
 export function buildMetadata(locale: Locale, item?: CaseStudy): Metadata {
   const content = getContent(locale);
   const title = item ? `${item.title} | ${content.nav.brand}` : content.meta.title;
-  const description = item ? `${item.impact}. ${item.ownership}` : content.meta.description;
+  const description = item
+    ? `${item.impact}${locale === "zh" ? "。" : ". "}${item.ownership}`
+    : content.meta.description;
   const url = item ? casePath(locale, item.id) : localePath(locale);
   const zhPath = item ? casePath("zh", item.id) : "/";
   const enPath = item ? casePath("en", item.id) : "/en/";
-  const socialImage = `${SITE_ORIGIN}${locale === "zh" ? "/opengraph-image" : "/en/opengraph-image"}?v=20260915`;
+  const socialImage = `${SITE_ORIGIN}${locale === "zh" ? "/opengraph-image" : "/en/opengraph-image"}?v=20261103`;
 
   return {
     title,
@@ -59,7 +62,7 @@ export function buildMetadata(locale: Locale, item?: CaseStudy): Metadata {
 export function buildPortfolioMetadata(locale: Locale): Metadata {
   const content = getContent(locale);
   const title = `${content.cases.title} | ${content.nav.brand}`;
-  const description = `${content.cases.inventory}${locale === "zh" ? "。" : ". "}${content.cases.intro}`;
+  const description = `${fillCounts(content.cases.inventory, content.cases.items)}${locale === "zh" ? "。" : ". "}${content.cases.intro}`;
   return pageMetadata(locale, title, description, portfolioPath);
 }
 
@@ -74,7 +77,7 @@ function pageMetadata(locale: Locale, title: string, description: string, path: 
   const url = path(locale);
   const zhPath = path("zh");
   const enPath = path("en");
-  const socialImage = `${SITE_ORIGIN}${locale === "zh" ? "/opengraph-image" : "/en/opengraph-image"}?v=20260915`;
+  const socialImage = `${SITE_ORIGIN}${locale === "zh" ? "/opengraph-image" : "/en/opengraph-image"}?v=20261103`;
 
   return {
     title,

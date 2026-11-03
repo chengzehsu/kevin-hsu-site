@@ -12,7 +12,7 @@ export function CaseHeadlineFigure({
   className = "",
 }: {
   headline: CaseHeadline;
-  size?: "list" | "hero";
+  size?: "list" | "hero" | "compact";
   className?: string;
 }) {
   // The CSS budget assumes ~.6em per glyph; a CJK glyph is a full 1em, so it counts as ~1.7.

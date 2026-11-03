@@ -5,22 +5,21 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
 import { CASE_POSTERS, CASE_POSTER_SIZE, CASE_SHELF_SHOTS } from "@/content/caseArtifacts";
+import { FEATURED_COUNT, fillCounts, orderCases } from "@/lib/cases";
 import { casePath, portfolioPath } from "@/lib/locale";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./ProofStack.module.css";
 import { TOrder } from "./Tailored";
 
 /**
- * Home case index: the five work cases as posters, one artifact and one outcome each. The side projects
+ * Home case index: the featured work cases as posters, named by what each one is; the results sit just above. The side projects
  * and the full cases live on /portfolio/, and the link says so, so the home count never reads as the total.
  */
 export function ProofStack({ content, locale }: SectionProps) {
   const { cases } = content;
-  const items = cases.items
+  const items = orderCases(cases.items)
     .filter((item) => item.kind !== "side")
-    .sort((a, b) => a.rank - b.rank)
-    // Five headline cases; the rest are reached from the AI section and /portfolio/, as the link says.
-    .slice(0, 5);
+    .slice(0, FEATURED_COUNT);
 
   return (
     <section
@@ -37,7 +36,7 @@ export function ProofStack({ content, locale }: SectionProps) {
             className={`${styles.all} action-link`}
             href={portfolioPath(locale)}
           >
-            {cases.allLabel}
+            {fillCounts(cases.allLabel, cases.items)}
             <ArrowRightIcon size={18} aria-hidden="true" />
           </a>
         </div>
@@ -46,9 +45,6 @@ export function ProofStack({ content, locale }: SectionProps) {
           {items.map((item) => {
             const poster = CASE_POSTERS[item.id];
             const shot = CASE_SHELF_SHOTS[item.id];
-            // The first clause is the headline outcome; the rest stays on the case page.
-            // zh separates clauses with "｜", en with " | ".
-            const outcome = item.impact.split(/\s*[｜|]\s*/)[0];
             return (
               <li key={item.id} className={`${styles.poster} ${shot ? styles.lead : ""} scroll-rise`}>
                 <a
@@ -76,9 +72,6 @@ export function ProofStack({ content, locale }: SectionProps) {
                   ) : null}
                   <span className={styles.copy}>
                     <span className={styles.meta}>{item.org}</span>
-                    <span className={styles.outcome}>
-                      <KeepTogether text={outcome} />
-                    </span>
                     <span className={styles.title}>
                       <KeepTogether text={item.title} title />
                     </span>

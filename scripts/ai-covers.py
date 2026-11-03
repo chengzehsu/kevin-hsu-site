@@ -112,40 +112,6 @@ def faq():
     return frame(m)
 
 
-def weekly():
-    # A weekly report proposes options; one is chosen, and an empty week is marked, not filled in.
-    m = [card(110, 70, 300, 360)]
-    m += lines(140, 104, (150,), height=12, color="#9DB6D8")
-    m += lines(140, 140, (240, 210, 230, 180), gap=18)
-    for i in range(3):
-        y = 240 + i * 52
-        m.append(f'<rect x="140" y="{y}" width="240" height="38" rx="12" fill="{"#DCE8F7" if i == 1 else "#FFFFFF"}" stroke="{ACCENT if i == 1 else FAINT}" stroke-width="2"/>')
-        m.append(check(162, y + 19, 10, i == 1))
-        m += lines(184, y + 15, (130 - i * 18,), color="#9DB6D8" if i == 1 else SKELETON)
-    for i in range(5):
-        x = 470 + (i % 3) * 82
-        y = 120 + (i // 3) * 130
-        m.append(card(x, y, 66, 100, PAPER if i != 3 else "transparent", 12))
-        if i == 3:
-            m.append(f'<rect x="{x}" y="{y}" width="66" height="100" rx="12" fill="none" stroke="{ACCENT_SOFT}" stroke-width="2.5" stroke-dasharray="7 7"/>')
-        else:
-            m += lines(x + 12, y + 18, (42, 30, 38), gap=14)
-    return frame(m)
-
-
-def checks():
-    # Each past incident becomes a test row; a shield sits over the list.
-    m = [card(150, 70, 380, 360)]
-    for i in range(6):
-        y = 104 + i * 52
-        m.append(check(186, y + 10, 12, i < 5))
-        m += lines(214, y + 6, (220 - (i % 3) * 40,), color="#9DB6D8" if i < 5 else SKELETON)
-    m.append('<g filter="url(#lift)"><path d="M610 130l90 34v80c0 70 -46 112 -90 132c-44 -20 -90 -62 -90 -132v-80z" fill="#DCE8F7"/></g>')
-    m.append(f'<path d="M610 160l62 24v60c0 50 -32 80 -62 96c-30 -16 -62 -46 -62 -96v-60z" fill="{ACCENT}"/>')
-    m.append('<path d="M584 250l18 18 36 -40" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>')
-    return frame(m)
-
-
 def life():
     # Mail turns into sorted receipts and a reminder on the calendar. No figures anywhere.
     m = [card(80, 120, 170, 120, PAPER, 14)]
@@ -331,7 +297,7 @@ def life_catchup():
 
 OUT.mkdir(parents=True, exist_ok=True)
 for name, draw in (
-    ("prototype", prototype), ("naming", naming), ("faq", faq), ("weekly", weekly), ("checks", checks),
+    ("prototype", prototype), ("naming", naming), ("faq", faq),
     ("life", life), ("knowledge", knowledge), ("digest", digest), ("tools", tools),
     ("naming-core", naming_core), ("naming-gate", naming_gate), ("faq-entry", faq_entry), ("faq-backlog", faq_backlog),
     ("life-roles", life_roles), ("life-pipeline", life_pipeline), ("life-catchup", life_catchup),

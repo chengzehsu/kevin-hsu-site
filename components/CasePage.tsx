@@ -8,23 +8,25 @@ import { Footer } from "./Footer";
 import { Contact } from "./Contact";
 import { CaseArticle } from "./CaseArticle";
 import { CaseArtifact } from "./CaseArtifact";
-import { CaseBack } from "./CaseBack";
 import { CaseBackdrop } from "./CaseBackdrop";
-import { CaseDetails, CASE_CHAPTERS } from "./CaseDetails";
+import { CaseBack } from "./CaseBack";
+import { CaseDetails } from "./CaseDetails";
 import { CaseHeadlineFigure } from "./CaseHeadlineFigure";
-import { CaseNavigator } from "./CaseNavigator";
 import { CaseShare } from "./CaseShare";
+import { Disclosure } from "./Disclosure";
+import { HashScroll } from "./HashScroll";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./CasePage.module.css";
 
 const COPY = {
-  zh: { caseLabel: "案例", next: "下一個案例", read: "繼續看" },
-  en: { caseLabel: "Case", next: "Next case", read: "Read next" },
+  zh: { next: "下一個案例", read: "繼續看" },
+  en: { next: "Next case study", read: "Read next" },
 } as const;
 
-const STORY_LABEL = { zh: "完整故事", en: "The full story" } as const;
-
-/** A case told as a launch: outcome first, then problem, decision, what was built, and how it was measured. */
+/**
+ * The first screen answers value and capability; one skeleton behind a single disclosure holds the rest:
+ * problem, decision, result, what was built, then the full story if any.
+ */
 export function CasePage({
   item,
   content,
@@ -38,8 +40,6 @@ export function CasePage({
   const artifact = caseArtifacts[locale][item.id];
   const nextArtifact = caseArtifacts[locale][next.id];
   const back = `${portfolioPath(locale)}#${item.id}`;
-  const pad = (value: number) => String(value).padStart(2, "0");
-  const chapters = CASE_CHAPTERS[locale];
 
   return (
     <>
@@ -54,37 +54,75 @@ export function CasePage({
               ]}
             />
             <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-              <CaseBack href={back} label={cases.backLabel} locale={locale} className={styles.back} />
+              <CaseBack
+                href={back}
+                label={cases.backLabel}
+                locale={locale}
+                className={styles.back}
+              />
               <div className={styles.heroGrid}>
                 <div className={styles.heroCopy}>
                   <p className={styles.eyebrow}>
-                    <span>
-                      {copy.caseLabel} {pad(position + 1)} /{" "}
-                      {pad(ordered.length)}
-                    </span>
                     <span>
                       {item.org}
                       <span aria-hidden="true"> · </span>
                       {item.period}
                     </span>
                   </p>
-                  <h1 className={styles.title}>
+                  <h1
+                    className={styles.title}
+                    data-long={
+                      item.title.length > (locale === "zh" ? 24 : 70)
+                        ? ""
+                        : undefined
+                    }
+                  >
                     <KeepTogether text={item.title} title />
                   </h1>
+                  {artifact ? (
+                    <CaseHeadlineFigure
+                      headline={artifact.headline}
+                      size="hero"
+                      className={styles.heroFigure}
+                    />
+                  ) : (
+                    <p className={styles.impact}>{item.impact}</p>
+                  )}
+                  <p className={styles.measureNote}>
+                    {item.measurementSummary}
+                  </p>
                   <p className={styles.ownership}>
-                    <span>{cases.ownershipLabel}</span>
-                    {item.ownership}
+                    <span>{cases.decisionLabel}</span>
+                    {item.decisionSummary}
                   </p>
                 </div>
-                {artifact ? (
-                  <CaseHeadlineFigure
-                    headline={artifact.headline}
-                    size="hero"
-                    className={styles.heroFigure}
+                <div className={styles.heroVisual}>
+                  <CaseArtifact
+                    caseId={item.id}
+                    locale={locale}
+                    variant="cover"
+                    eager
+                    sizes="(max-width: 1023px) 92vw, 46vw"
                   />
-                ) : (
-                  <p className={styles.impact}>{item.impact}</p>
-                )}
+                </div>
+              </div>
+              <div className={styles.capabilities}>
+                <div>
+                  <h2>{cases.capabilityLabels.used}</h2>
+                  <ul>
+                    {item.capabilities.used.map((entry) => (
+                      <li key={entry}>{entry}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div data-grown>
+                  <h2>{cases.capabilityLabels.grown}</h2>
+                  <ul>
+                    {item.capabilities.grown.map((entry) => (
+                      <li key={entry}>{entry}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
               {/* Role, scope, and team sit beside the headline: a hiring manager's first question. */}
               <dl className={styles.facts}>
@@ -107,55 +145,30 @@ export function CasePage({
           </header>
 
           <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-            <div className={styles.plate}>
-              <CaseArtifact
-                caseId={item.id}
-                locale={locale}
-                eager
-                sizes="(max-width: 767px) 92vw, (max-width: 1200px) 90vw, 74rem"
-              />
-            </div>
-
-            <CaseNavigator
-              label={item.title}
-              links={[
-                ...(item.article
-                  ? [{ href: "#story" as const, label: STORY_LABEL[locale] }]
-                  : []),
-                ...(item.article
-                  ? []
-                  : [
-                      { href: "#situation" as const, label: chapters.problem },
-                      { href: "#decision" as const, label: chapters.decision },
-                    ]),
-                ...(!item.article && item.decisionLog?.length
-                  ? [
-                      {
-                        href: "#decision-log" as const,
-                        label: cases.decisionLog.title,
-                      },
-                    ]
-                  : []),
-                { href: "#artifacts", label: chapters.built },
-                { href: "#result", label: chapters.result },
-                { href: "#measurement", label: cases.measurementLabel },
-              ]}
-            />
-
-            {item.article ? <CaseArticle article={item.article} locale={locale} /> : null}
-
-            <CaseDetails item={item} content={content} locale={locale} />
+            <Disclosure
+              kind="case"
+              className={styles.process}
+              summaryClassName={styles.processSummary}
+              summary={<span className="sr-only">{item.title}</span>}
+              expandLabel={cases.fullProcessLabel}
+              collapseLabel={cases.fullProcessCollapse}
+            >
+              <p className={styles.processOwnership}>
+                <span>{cases.ownershipLabel}</span>
+                {item.ownership}
+              </p>
+              <CaseDetails item={item} content={content} locale={locale} />
+              {item.article ? (
+                <CaseArticle article={item.article} locale={locale} />
+              ) : null}
+            </Disclosure>
 
             <a
               className={`${styles.next} scroll-rise`}
               href={casePath(locale, next.id)}
             >
               <span className={styles.nextCopy}>
-                <span className={styles.nextLabel}>
-                  {copy.next}
-                  <span aria-hidden="true"> · </span>
-                  {pad(ordered.indexOf(next) + 1)} / {pad(ordered.length)}
-                </span>
+                <span className={styles.nextLabel}>{copy.next}</span>
                 <strong className={styles.nextTitle}>
                   <KeepTogether text={next.title} title />
                 </strong>
@@ -182,7 +195,12 @@ export function CasePage({
             </a>
 
             <div className={styles.pageFooter}>
-              <CaseBack href={back} label={cases.backLabel} locale={locale} className={styles.textLink} />
+              <CaseBack
+                href={back}
+                label={cases.backLabel}
+                locale={locale}
+                className={styles.textLink}
+              />
               <CaseShare href={casePath(locale, item.id)} labels={cases} />
             </div>
           </div>
@@ -190,6 +208,7 @@ export function CasePage({
         <Contact content={content} locale={locale} />
       </main>
       <Footer content={content} locale={locale} />
+      <HashScroll />
     </>
   );
 }

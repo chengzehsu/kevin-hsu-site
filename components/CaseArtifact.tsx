@@ -7,19 +7,19 @@ type Variant = "cover" | "full";
 
 const LABELS = {
   zh: {
-    anonymised: { eyebrow: "真實工作產物", privacy: "細節已模糊" },
-    published: { eyebrow: "公開工作成果", privacy: "公開發表素材" },
-    reconstructed: { eyebrow: "案例資訊重製", privacy: "依工作內容重製" },
+    anonymised: { eyebrow: "實際工作畫面", privacy: "細節已匿名" },
+    published: { eyebrow: "公開發表的成果", privacy: "可公開查看" },
+    reconstructed: { eyebrow: "依案例重新製作", privacy: "非原始畫面" },
   },
   en: {
     anonymised: {
-      eyebrow: "REAL WORK ARTIFACT",
-      privacy: "DETAILS ANONYMIZED",
+      eyebrow: "REAL WORK SAMPLE",
+      privacy: "ANONYMIZED",
     },
-    published: { eyebrow: "PUBLISHED WORK", privacy: "PUBLIC SOURCE" },
+    published: { eyebrow: "PUBLISHED WORK", privacy: "PUBLIC" },
     reconstructed: {
-      eyebrow: "CASE RECONSTRUCTION",
-      privacy: "REBUILT FROM PROJECT FACTS",
+      eyebrow: "RECREATED CASE VISUAL",
+      privacy: "RECREATED",
     },
   },
 } as const;

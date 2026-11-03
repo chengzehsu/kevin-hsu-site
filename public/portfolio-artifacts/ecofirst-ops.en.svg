@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-<title id="title">Ecofirst operating system: sales to RD on one data chain</title>
-<desc id="desc">The Notion operating system built at Ecofirst. Sales lane: stakeholders (business cards) link to clients, then to the project master; sales updates move through 8 stages (BD, visit, site survey, proposal, quote, negotiation, draft contract, signed) and each one links to the project master. After the presales gate (effort tiers S / M / L / XL; the delivery clock starts at T=0 once data is complete and the requirements doc is signed), work enters the RD lane: software projects link to a requirement pool (RDD → scheduling → development → RD testing → PM / sales sign-off), where the PM's target date is compared with RD's estimate to flag rush insertions automatically. Database counts: 1,639 sales updates, 1,829 RD tasks, and 59 delivery projects linked to software projects (company Notion, Oct 2026); no client names or amounts.</desc>
+<title id="title">Ecofirst operating system: sales to engineering in one connected system</title>
+<desc id="desc">The Notion operating system built at Ecofirst. Sales lane: stakeholders (business cards) link to customers, then to the project master; sales updates move through 8 stages (BD, visit, site survey, proposal, quote, negotiation, draft contract, signed) and each one links to the project master. After the presales gate (effort tiers S / M / L / XL; the delivery clock starts at T=0 once data is complete and the requirements doc is signed), work enters the Engineering lane: software projects link to a requirement pool (RDD → scheduling → development → Engineering testing → PM / sales sign-off), where the PM's target date is compared with RD's estimate to flag rush insertions automatically. Database counts: 1,639 sales updates, 1,829 engineering tasks, and 59 delivery projects linked to software projects (company Notion, Oct 2026); no client names or amounts.</desc>
 <defs>
   <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
   <filter id="shadow" x="-.15" y="-.15" width="1.3" height="1.4"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#132033" flood-opacity=".10"/></filter>
 </defs>
 <rect width="1600" height="1000" fill="#F5F7FB"/>
 <rect width="1600" height="1000" fill="url(#grid)" opacity=".48"/>
-<text x="96" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start" letter-spacing="2.8">OPERATING SYSTEM / SALES TO RD</text>
-<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">Sales to RD on one data chain</text>
+<text x="96" y="92" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="19" font-weight="700" text-anchor="start" letter-spacing="2.8">OPERATING SYSTEM / SALES TO ENGINEERING</text>
+<text x="96" y="166" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="56" font-weight="700" text-anchor="start">Sales to engineering on one data chain</text>
 <text x="96" y="214" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="24" font-weight="400" text-anchor="start">From the first business card to a signed-off requirement, every step is a linked database.</text>
 <text x="96" y="264" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2">SALES LANE</text>
 <g filter="url(#shadow)"><rect x="96" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
@@ -20,7 +20,7 @@
 <g filter="url(#shadow)"><rect x="460" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
 <circle cx="500" cy="320" r="18" fill="#DCE8F7"/>
 <text x="500" y="326" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="middle">02</text>
-<text x="530" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Clients</text>
+<text x="530" y="328" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="22" font-weight="700" text-anchor="start">Customers</text>
 <text x="488" y="378" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">Client and site details,</text>
 <text x="488" y="406" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="400" text-anchor="start">kept in one place</text>
 <g filter="url(#shadow)"><rect x="824" y="278" width="316" height="200" rx="20" fill="#FFFFFF"/></g>
@@ -83,20 +83,20 @@
 <rect x="709" y="704" width="122" height="32" rx="16.0" fill="#DCE8F7"/>
 <text x="770.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">Development</text>
 <path d="M838 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
-<rect x="861" y="704" width="113" height="32" rx="16.0" fill="#DCE8F7"/>
-<text x="917.5" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">RD testing</text>
-<path d="M981 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
-<rect x="1004" y="704" width="196" height="32" rx="16.0" fill="#DCE8F7"/>
-<text x="1102.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">PM / sales sign-off</text>
+<rect x="861" y="704" width="196" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="959.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">Engineering testing</text>
+<path d="M1064 720.0h14m-5-5 5 5-5 5" fill="none" stroke="#5A6980" stroke-width="2"/>
+<rect x="1087" y="704" width="196" height="32" rx="16.0" fill="#DCE8F7"/>
+<text x="1185.0" y="725.76" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700" text-anchor="middle">PM / sales sign-off</text>
 <rect x="488" y="750" width="988" height="38" rx="12" fill="#E8EEF7"/>
 <rect x="488" y="750" width="6" height="38" rx="3" fill="#2D61A6"/>
-<text x="510" y="775" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="start">PM target date vs RD estimate → rush insertions flagged automatically</text>
+<text x="510" y="775" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="17" font-weight="700" text-anchor="start">PM target date vs engineering estimate → rush insertions flagged automatically</text>
 <rect x="96" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
 <text x="124" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">1,639</text>
 <text x="256" y="880" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">sales updates</text>
 <rect x="573" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
 <text x="601" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">1,829</text>
-<text x="733" y="880" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">RD tasks</text>
+<text x="733" y="880" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">engineering tasks</text>
 <rect x="1050" y="832" width="453" height="84" rx="18" fill="#FFFFFF" stroke="#DCE4EF"/>
 <text x="1078" y="890" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="40" font-weight="700" text-anchor="start">59</text>
 <text x="1140" y="868" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="18" font-weight="700" text-anchor="start">delivery projects linked</text>
