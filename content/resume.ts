@@ -107,7 +107,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "Kevin Hsu (許承澤)",
     headline: "Product Manager · Operations digitization, internal systems, and AI adoption",
     summary:
-      "Hands-on PM with 7+ years in product. Led an internal back office and built the platform where customers see data collection status, energy reporting, and savings dashboards, taking onboarding from about two weeks waiting on engineers to about 2 hours by a PM. Also defined the customer war room and savings-rate logic. Previously led a 10-person engineering team and two junior PMs, raising grocery picking from 300 to 1,000 orders a day.",
+      "Hands-on PM with 7+ years in product. Built the platform where customers see data status, energy reporting, and savings dashboards, taking onboarding from about two weeks waiting on engineers to about 2 hours by a PM. Previously led a 10-person engineering team and two junior PMs.",
     keywords:
       "Hands-on with process mapping, internal operations systems and data integration (Notion, Asana, CDP), POS and e-commerce data integration, AI and automation adoption (Claude Code, Notion AI), SaaS, chatbots, dashboards, apps, and e-commerce products.",
     facts: [
@@ -140,7 +140,8 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       cdp: "10M records",
     },
     roleCases,
-    roleBullets,
+    // English runs longer, so three roles keep fewer bullets to stay within two pages.
+    roleBullets: { ...roleBullets, sat: [0, 2], consulting: [0], huayao: [0] },
     moreText:
       "The bottleneck, decisions, and measurement behind every result are on the case pages.",
   },
