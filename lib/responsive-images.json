@@ -6,5 +6,7 @@
   "/portfolio-artifacts/internal-backend-warroom.webp": { "width": 1632, "variants": [800, 1200] },
   "/portfolio-wall/film-1.webp": { "width": 1600, "variants": [480, 800] },
   "/portfolio-wall/film-2.webp": { "width": 1600, "variants": [480, 800] },
-  "/portfolio-wall/film-7.webp": { "width": 1600, "variants": [480, 800] }
+  "/portfolio-wall/film-7.webp": { "width": 1600, "variants": [480, 800] },
+  "/portfolio-wall/film-8.webp": { "width": 1600, "variants": [480, 800] },
+  "/portfolio-wall/film-8.en.webp": { "width": 1600, "variants": [480, 800] }
 }

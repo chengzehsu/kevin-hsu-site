@@ -56,6 +56,8 @@ export const en = {
       seekLabel: "Film progress",
       fullscreenLabel: "Watch full screen",
       exitFullscreenLabel: "Exit full screen",
+      muteLabel: "Mute",
+      unmuteLabel: "Unmute",
       chapters: [
         { at: 0, label: "Intro" },
         { at: 12, label: "Six skills" },
@@ -63,7 +65,7 @@ export const en = {
         { at: 56.8, label: "Closing" },
       ],
       summary:
-        "67-second film. The spec is written, the meeting is over, and nothing runs yet. For a PM in the AI era, building is no longer the hard part. These six skills are: problem framing, rapid experimentation, prototyping, workflow redesign, cross-team delivery, and data interpretation; each role expanded that chart. Then three working habits. Curious: when a new tool appears, I try it hands-on, from Claude Code and Cursor to Gemini and Notion AI. I built an AI business-card assistant with Cursor and Gemini, working through failed OCR and a rebuilt Git setup all the way to deployment: snap a card, Gemini reads it, Notion files it. Willing to try: with limited coding background, I built an internal platform with Claude Code, 218 commits in 2 months. Chasing efficiency: a control-strategy simulator cut tuning from 1 week to 2 hours, and customer onboarding fell from about 2 weeks to about 2 hours, done by PMs themselves. Find the bottleneck. Build the fix. Prove it in numbers. Kevin Hsu, Senior Product Manager · Platform rebuilds and internal systems.",
+        "67-second film. The spec is written, the meeting is over, and nothing runs yet. For a PM in the AI era, building is no longer the hard part. These six skills are: problem framing, rapid experimentation, prototyping, workflow redesign, cross-team delivery, and data interpretation; each role expanded that chart. By 2025, customer onboarding fell from about 2 weeks to about 2 hours and works for all 34 sites (excluding on-site wiring and control strategy). Then three working habits. Curious: when a new tool appears, I try it hands-on, from Claude Code and Cursor to Gemini and Notion AI. Any vendor format, one standard name: the machine gets 93% right on the first try (72-sensor walkthrough), with 0 confident-but-wrong answers, and asks a person when unsure. Willing to try: with limited coding background, I built an internal platform with Claude Code, 748 commits in about 6 months. Chasing efficiency: a control-strategy simulator tests 100,000+ combinations at once and cut tuning from 1 week to 2 hours. Find the bottleneck. Build the fix. Prove it in numbers. Kevin Hsu, Senior Product Manager · Platform rebuilds and internal systems.",
     },
     primaryCta: { label: "Résumé", href: "/en/resume/" },
     secondaryCta: { label: "See case studies", href: "#work" },
@@ -152,10 +154,10 @@ export const en = {
             result: "Tuning a control strategy went from 1 week to 2 hours.",
             source: "Tuning time before vs after the tool",
             image: {
-              src: "/ai-covers/tools.svg",
-              alt: "Illustration: two sets of figures side by side, with settings adjusted from the result",
-              width: 800,
-              height: 500,
+              src: "/portfolio-wall/film-8.en.webp",
+              alt: "Launch film frame: tuning a strategy took 2 hours, with 100,000+ combinations tested at once with AI",
+              width: 1600,
+              height: 1000,
             },
           },
           {
@@ -1197,14 +1199,14 @@ export const en = {
         org: "Side project",
         period: "Sep 2026 - Nov 2026",
         rank: 11,
-        title: "This site: treating a job search as a product",
+        title: "Resume site: treating a job search as a product",
         role: "Product owner and developer",
         scope:
           "Bilingual site | Launch film | Animated wall | Printable résumé | Automatic deploys",
         collaboration:
           "Built solo with Claude Code; important changes start as a spec",
         impact:
-          "7 weeks, 86 commits | Every push to main deploys to Cloudflare",
+          "7 weeks, 90+ commits | Every push to main deploys to Cloudflare",
         capabilities: {
           used: [
             "Positioning and information architecture",
@@ -1228,7 +1230,7 @@ export const en = {
         hypothesis:
           "Readers use this site as they judge it, so the site is itself a work sample: motion, speed, and consistent content all show how I build products.",
         result: [
-          "86 commits in 7 weeks",
+          "90+ commits in 7 weeks",
           "Chinese and English versions, with a launch film, an animated wall, and a printable résumé",
           "Every push to main deploys to Cloudflare Workers",
           "The positioning changed several times and git keeps each version: evidence-led, AI builder, operations PM, and now platform rebuilds and internal systems",

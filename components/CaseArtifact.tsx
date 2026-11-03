@@ -34,21 +34,26 @@ export function CaseArtifact({
   variant = "full",
   eager = false,
   sizes = "(max-width: 767px) 92vw, (max-width: 1023px) 80vw, 60vw",
+  image,
 }: {
   caseId: string;
   locale: Locale;
   variant?: Variant;
   eager?: boolean;
   sizes?: string;
+  /** Shows this picture instead of the artifact's own, keeping its label. The portfolio grid uses it. */
+  image?: { src: string; alt: string };
 }) {
   const artifact = caseArtifacts[locale][caseId];
   if (!artifact) return null;
 
+  const { src, alt } = image ?? artifact;
   const labels = LABELS[locale][artifact.treatment ?? "anonymised"];
   const square = artifact.layout === "square";
   // Raster sources top out at ~1,200px. On a wide cover they sit at a sharp size over a blurred
   // copy of themselves, so the row still reads full-bleed without upscaling the real pixels.
-  const ambient = variant === "cover" && !artifact.src.endsWith(".svg") && !artifact.sharp;
+  const ambient =
+    variant === "cover" && !src.endsWith(".svg") && !artifact.sharp;
 
   return (
     <figure
@@ -59,8 +64,8 @@ export function CaseArtifact({
         {ambient ? (
           <img
             className={styles.backdrop}
-            src={artifact.src}
-            srcSet={srcSetFor(artifact.src)}
+            src={src}
+            srcSet={srcSetFor(src)}
             alt=""
             aria-hidden="true"
             width={square ? 1208 : 1200}
@@ -73,9 +78,9 @@ export function CaseArtifact({
         {/* A plain <img>: the static export has no image optimiser, so next/image would write no srcset. */}
         <img
           className={styles.image}
-          src={artifact.src}
-          srcSet={srcSetFor(artifact.src)}
-          alt={artifact.alt}
+          src={src}
+          srcSet={srcSetFor(src)}
+          alt={alt}
           width={square ? 1208 : 1200}
           height={square ? 1236 : 674}
           sizes={sizes}

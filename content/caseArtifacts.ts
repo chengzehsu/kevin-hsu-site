@@ -43,7 +43,12 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "從 HTML 產生，中英文各一版",
       treatment: "published",
       sharp: true,
-      headline: { value: "7 週", label: "一個人用 Claude Code 做出中英文網站和開場影片（86 次程式提交）", also: "程式更新後自動上線" },
+      headline: {
+        value: "7 週",
+        label:
+          "一個人用 Claude Code 做出中英文網站和開場影片（超過 90 次程式提交）",
+        also: "程式更新後自動上線",
+      },
     },
     "internal-backend": {
       src: "/portfolio-artifacts/internal-backend-plate.webp",
@@ -52,7 +57,12 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "收值健康頁（設備資料回傳狀況）：先講結論，再給細節",
       context: "PM 不用等工程師，自行導入案場",
       treatment: "anonymised",
-      headline: { value: "約 2 週 → 約 2 小時", label: "新舊案場都能導入，PM 自己完成，不用再等工程師（不含現場接線與控制策略）", also: "每輪點位測試的交接 4 → 0 次" },
+      headline: {
+        value: "約 2 週 → 約 2 小時",
+        label:
+          "新舊案場都能導入，PM 自己完成，不用再等工程師（不含現場接線與控制策略）",
+        also: "每輪點位測試的交接 4 → 0 次",
+      },
     },
     "sensor-naming": {
       src: "/ai-covers/naming.svg",
@@ -60,7 +70,11 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "各種廠商寫法，對成同一套標準名稱",
       context: "PM 自己把點位表轉成內部格式",
       treatment: "reconstructed",
-      headline: { value: "93%", label: "的廠商清單項目，機器一次對到標準名稱（抽 72 筆實測）", also: "「信心很高卻答錯」0 筆" },
+      headline: {
+        value: "93%",
+        label: "的廠商清單項目，機器一次對到標準名稱（抽 72 筆實測）",
+        also: "「信心很高卻答錯」0 筆",
+      },
     },
     "sales-faq": {
       src: "/ai-covers/faq.svg",
@@ -68,7 +82,11 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "產出、審核、使用，三段分工",
       context: "業務只拿得到確認過的答案",
       treatment: "reconstructed",
-      headline: { value: "51 題", label: "正式答案，業務可直接查（AI 整理 185 題，人工確認才開放）", also: "還有 130 題等主管審核" },
+      headline: {
+        value: "51 題",
+        label: "正式答案，業務可直接查（AI 整理 185 題，人工確認才開放）",
+        also: "還有 130 題等主管審核",
+      },
     },
     "life-hub": {
       src: "/ai-covers/life.svg",
@@ -76,7 +94,11 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "信件、帳單、提醒，在同一個流程處理",
       context: "帳單和提醒，一個地方管",
       treatment: "reconstructed",
-      headline: { value: "每天在用", label: "整理帳單並提醒繳費，從 2026/3 用到現在", also: "不登入網路銀行" },
+      headline: {
+        value: "每天在用",
+        label: "整理帳單並提醒繳費，從 2026/3 用到現在",
+        also: "不登入網路銀行",
+      },
     },
     grocery: {
       src: "/portfolio-artifacts/grocery-system.zh.svg",
@@ -84,7 +106,12 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "資訊流盤點、專案總覽與詳細資訊",
       context: "從分散資訊到可追蹤的交付系統",
       treatment: "reconstructed",
-      headline: { value: "300 → 1,000", unit: "單／日", delta: "（+233%）", label: "揀貨產能" },
+      headline: {
+        value: "300 → 1,000",
+        unit: "單／日",
+        delta: "（+233%）",
+        label: "揀貨產能",
+      },
       stills: [
         {
           src: "/portfolio-wall/film-2.webp",
@@ -100,7 +127,12 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "Wireframe、User Story、PRD 與對照表",
       context: "把跨裝置的使用情境，寫成工程師能照著做的規格",
       treatment: "reconstructed",
-      headline: { value: "12,000 → 20,000", unit: "DAU", delta: "（+66%）", label: "每日活躍使用者，新平台上線 1 年（團隊成果）" },
+      headline: {
+        value: "12,000 → 20,000",
+        unit: "DAU",
+        delta: "（+66%）",
+        label: "每日活躍使用者，新平台上線 1 年（團隊成果）",
+      },
     },
     cdp: {
       src: "/portfolio-artifacts/cdp-market-validation.svg",
@@ -108,7 +140,10 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "從 30 個目標名單到 MVP",
       context: "用市場驗證的結果縮小切入點，再串起 5 個通路",
       treatment: "reconstructed",
-      headline: { value: "1,000 萬筆", label: "跨 3 個產業、5 個通路的客戶資料，完成串接" },
+      headline: {
+        value: "1,000 萬筆",
+        label: "跨 3 個產業、5 個通路的客戶資料，完成串接",
+      },
       stills: [
         {
           src: "/portfolio-wall/film-1.webp",
@@ -124,7 +159,11 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "從原型、配合 CRM 欄位，到依用量精簡架構",
       context: "業務不用再手動輸入名片",
       treatment: "reconstructed",
-      headline: { value: "縮短 99%", label: "名片建檔時間：手動輸入改成 LINE 拍照", also: "內部工具與 SaaS，兩種架構都親手做過" },
+      headline: {
+        value: "縮短 99%",
+        label: "名片建檔時間：手動輸入改成 LINE 拍照",
+        also: "內部工具與 SaaS，兩種架構都親手做過",
+      },
       stills: [
         {
           src: "/portfolio-artifacts/namecard-rightsize.zh.svg",
@@ -143,7 +182,13 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "Generated from HTML, in Chinese and English",
       treatment: "published",
       sharp: true,
-      headline: { value: "7", unit: "weeks", label: "Built solo with Claude Code: a bilingual site and launch film (86 commits)", also: "Updates deploy automatically" },
+      headline: {
+        value: "7",
+        unit: "weeks",
+        label:
+          "Built solo with Claude Code: a bilingual site and launch film (90+ commits)",
+        also: "Updates deploy automatically",
+      },
     },
     "internal-backend": {
       src: "/portfolio-artifacts/internal-backend-plate.webp",
@@ -152,7 +197,12 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "Data-collection health page: conclusion first, detail second",
       context: "PMs onboard sites without waiting on engineers",
       treatment: "anonymised",
-      headline: { value: "~2 weeks → ~2 hours", label: "to onboard a new or existing site, done by PMs with no engineer wait (excluding on-site wiring and control strategy)", also: "4 → 0 handoffs per round of testing" },
+      headline: {
+        value: "~2 weeks → ~2 hours",
+        label:
+          "to onboard a new or existing site, done by PMs with no engineer wait (excluding on-site wiring and control strategy)",
+        also: "4 → 0 handoffs per round of testing",
+      },
     },
     "sensor-naming": {
       src: "/ai-covers/naming.svg",
@@ -160,7 +210,12 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "Every vendor spelling, one set of standard names",
       context: "PMs convert sensor lists to our format themselves",
       treatment: "reconstructed",
-      headline: { value: "93%", label: "of sensors matched correctly on the first try (72-sensor walkthrough)", also: "0 confident-but-wrong answers" },
+      headline: {
+        value: "93%",
+        label:
+          "of sensors matched correctly on the first try (72-sensor walkthrough)",
+        also: "0 confident-but-wrong answers",
+      },
     },
     "sales-faq": {
       src: "/ai-covers/faq.svg",
@@ -168,7 +223,13 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "Draft, review, use",
       context: "Reps only get confirmed answers",
       treatment: "reconstructed",
-      headline: { value: "51", unit: "entries", label: "of approved answers sales reps can look up (AI drafted 185; each needs human approval)", also: "130 more waiting on the sales lead" },
+      headline: {
+        value: "51",
+        unit: "entries",
+        label:
+          "of approved answers sales reps can look up (AI drafted 185; each needs human approval)",
+        also: "130 more waiting on the sales lead",
+      },
     },
     "life-hub": {
       src: "/ai-covers/life.svg",
@@ -176,7 +237,11 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "Mail, bills, reminders, one path",
       context: "Bills and reminders in one place",
       treatment: "reconstructed",
-      headline: { value: "Daily use", label: "sorting bills and sending payment reminders, since Mar 2026", also: "Never logs in to online banking" },
+      headline: {
+        value: "Daily use",
+        label: "sorting bills and sending payment reminders, since Mar 2026",
+        also: "Never logs in to online banking",
+      },
     },
     grocery: {
       src: "/portfolio-artifacts/grocery-system.en.svg",
@@ -184,7 +249,12 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "Information-flow map, project overview, and details",
       treatment: "reconstructed",
       context: "Turning fragmented updates into a traceable delivery system",
-      headline: { value: "300 → 1,000", unit: "orders/day", delta: "(+233%)", label: "Daily order-picking capacity" },
+      headline: {
+        value: "300 → 1,000",
+        unit: "orders/day",
+        delta: "(+233%)",
+        label: "Daily order-picking capacity",
+      },
       stills: [
         {
           src: "/portfolio-wall/film-2.webp",
@@ -201,7 +271,12 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       treatment: "reconstructed",
       context:
         "Turning cross-device scenarios into specs engineers can build from",
-      headline: { value: "12,000 → 20,000", unit: "DAU", delta: "(+66%)", label: "Daily active users, one year after launch (team result)" },
+      headline: {
+        value: "12,000 → 20,000",
+        unit: "DAU",
+        delta: "(+66%)",
+        label: "Daily active users, one year after launch (team result)",
+      },
     },
     cdp: {
       src: "/portfolio-artifacts/cdp-market-validation.en.svg",
@@ -210,7 +285,11 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context:
         "Narrowing the entry point with evidence before connecting five channels",
       treatment: "reconstructed",
-      headline: { value: "10M", unit: "customer records", label: "Connected across 3 industries × 5 channels" },
+      headline: {
+        value: "10M",
+        unit: "customer records",
+        label: "Connected across 3 industries × 5 channels",
+      },
       stills: [
         {
           src: "/portfolio-wall/film-1.webp",
@@ -226,12 +305,17 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       title: "From prototype to CRM fit to right-sized",
       context: "Fixing how sales files business cards",
       treatment: "reconstructed",
-      headline: { value: "99% less", label: "Time to log a business card, vs manual entry", also: "Built it both as an internal tool and as a SaaS product" },
+      headline: {
+        value: "99% less",
+        label: "Time to log a business card, vs manual entry",
+        also: "Built it both as an internal tool and as a SaaS product",
+      },
       stills: [
         {
           src: "/portfolio-artifacts/namecard-rightsize.en.svg",
           alt: "Infrastructure audit before and after: the queue, cache, and real-time push components built for a distributed multi-tenant service are removed, and the LINE to AI to Notion flow stays; the sample card is a made-up person",
-          caption: "Infrastructure audit | Extra components removed to match real usage",
+          caption:
+            "Infrastructure audit | Extra components removed to match real usage",
           ...FILM,
         },
       ],
@@ -251,11 +335,71 @@ export const CASE_POSTERS: Record<string, string> = {
 export const CASE_POSTER_SIZE = { width: 600, height: 800 } as const;
 
 /**
+ * What a card in the portfolio grid shows when its case page leads with something else: the same navy
+ * frame as the AI covers, no words, so every card reads as one set (see scripts/case-posters.py). The case
+ * page keeps the detailed infographic, and the back office keeps its real screens, only on navy.
+ */
+export const CASE_CARD_COVERS: Record<
+  string,
+  { src: string; alt: Record<Locale, string> }
+> = {
+  "internal-backend": {
+    src: "/case-covers/internal-backend.svg",
+    alt: {
+      zh: "內部後台的兩個實際畫面：資料回傳總覽與收值健康頁",
+      en: "Two real screens from the internal platform: the data-collection overview and the health page",
+    },
+  },
+  grocery: {
+    src: "/case-covers/grocery.svg",
+    alt: {
+      zh: "示意圖：一再重複的問題，收進三個查得到的模組",
+      en: "Illustration: questions asked again and again, gathered into three modules anyone can look up",
+    },
+  },
+  "health-app": {
+    src: "/case-covers/health-app.svg",
+    alt: {
+      zh: "示意圖：三份規格文件與兩張對照表",
+      en: "Illustration: three spec documents and two mapping tables",
+    },
+  },
+  cdp: {
+    src: "/case-covers/cdp.svg",
+    alt: {
+      zh: "示意圖：五個通路的資料匯成同一個客戶",
+      en: "Illustration: data from five channels converging on one customer",
+    },
+  },
+  namecard: {
+    src: "/case-covers/namecard.svg",
+    alt: {
+      zh: "示意圖：手機拍下名片後自動填好聯絡人欄位，最後一欄留給業務判斷",
+      en: "Illustration: a phone photo of a business card fills in a contact, with the last field left for the rep",
+    },
+  },
+  "resume-site": {
+    src: "/case-covers/resume-site.svg",
+    alt: {
+      zh: "示意圖：瀏覽器視窗裡的履歷網站，有姓名、工作經歷與能力雷達圖",
+      en: "Illustration: a resume site in a browser window, with a name, work history, and skills radar",
+    },
+  },
+};
+
+/**
  * A real screen for the lead shelf card, which spans two columns: a portrait poster leaves most of a
  * wide card empty. The screen sits above the copy, never behind it, so its words do not fight the card text.
  */
-export const CASE_SHELF_SHOTS: Record<string, { src: string; width: number; height: number }> = {
-  "internal-backend": { src: "/portfolio-artifacts/internal-backend-overview.webp", width: 1648, height: 686 },
+export const CASE_SHELF_SHOTS: Record<
+  string,
+  { src: string; width: number; height: number }
+> = {
+  "internal-backend": {
+    src: "/portfolio-artifacts/internal-backend-overview.webp",
+    width: 1648,
+    height: 686,
+  },
 };
 
 /** Decorative tiles for the case-page backdrop, echoing the portfolio wall. */

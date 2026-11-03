@@ -39,14 +39,17 @@
 
 ## 4. After all site content is final
 
-- [ ] 4.1 Re-check every film claim against the final site: positioning, title, the +20% and -30% decisions, and 218 versus 748 commits
-- [ ] 4.2 Run `hyperframes check`, then render zh and en from videos/kevin-launch-film with `--variables` lang (needs Chrome, so outside the sandbox)
-- [ ] 4.3 Check the changed frames: the efficiency beat, the 2025 chapter, and the end card, in both languages
-- [ ] 4.4 Encode public/hero-reel.{zh,en}.{mp4,webm} at 960x600 and refresh hero-reel-poster and its small version from the end card
-- [ ] 4.5 Re-extract portfolio-wall film-4 and film-8, then run scripts/wall-thumbs.py
-- [ ] 4.6 Put film-8 back on the control-strategy cover (it now shares tools.svg), allow both frames on the walls, and drop their guard in scripts/test-site-output.mjs
-- [ ] 4.8 Re-check the `resume-site` figure (7 weeks, 86 commits) against git at content freeze, and check its cover and wall tile show the new end card
-- [ ] 4.7 Match hero.film summary, caption, and chapters in zh.ts and en.ts to the final film, and update STORYBOARD.md
+- [x] 4.1 Re-check every film claim against the final site: Kevin chose 748 commits over about 6 months, the anonymised platform image, the 2023 row as on the site, and sensor naming in the curious beat (2026-11-03)
+- [x] 4.2 Render zh and en: the sandbox blocks the HyperFrames CLI's Chrome, so 2,004 frames per language were captured in Aside at 1600x1000 with the timeline seeked frame by frame; `hyperframes check` has not run
+- [x] 4.3 Check the changed frames: the efficiency beat, the 2025 chapter, and the end card, in both languages
+- [x] 4.4 Encode public/hero-reel.{zh,en}.{mp4,webm} at 960x600 and refresh hero-reel-poster and its small version from the end card
+- [x] 4.5 Re-extract all eight portfolio-wall film frames (film-6 and film-7 also showed retired content), then run scripts/wall-thumbs.py and scripts/responsive-images.py
+- [x] 4.6 Put film-8 back on the control-strategy cover with an English frame, drop the guard in scripts/test-site-output.mjs, and guard the film source against retired claims instead
+- [x] 4.8 Re-check the `resume-site` figure: 7 weeks holds, 86 commits became "over 90" (98 in git on 2026-11-03), and its cover uses the new end card
+- [x] 4.7 Match hero.film summary, caption, and chapters in zh.ts and en.ts to the final film, and update STORYBOARD.md
+- [x] 4.9 Film polish Kevin approved: motion in the curious, willing-to-try, and efficiency beats; six axes alone in the rubric scene; every chapter visibly grows its named axes; original music from scripts/film-bgm.py, muted until full screen
+- [x] 4.10 Fix the film scrubber: chapter buttons no longer cover it
+- [ ] 4.11 Check the live film on Safari and iPhone: Cloudflare static assets ignore Range requests, so seeking or mp4 playback may fail there
 
 ## 6. Design tokens (next)
 

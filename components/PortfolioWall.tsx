@@ -94,8 +94,8 @@ const TILES: Tile[] = [
   ),
   {
     caseId: "resume-site",
-    zh: { src: "/hero-reel-poster-small.zh.webp", label: "這個網站｜開場影片" },
-    en: { src: "/hero-reel-poster-small.en.webp", label: "This site | Launch film" },
+    zh: { src: "/hero-reel-poster-small.zh.webp", label: "履歷網站｜開場影片" },
+    en: { src: "/hero-reel-poster-small.en.webp", label: "Resume site | Launch film" },
   },
   same(
     "life-hub",

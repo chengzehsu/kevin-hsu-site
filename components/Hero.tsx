@@ -49,6 +49,8 @@ export function Hero({ content, locale }: SectionProps) {
             seekLabel={film.seekLabel}
             fullscreenLabel={film.fullscreenLabel}
             exitFullscreenLabel={film.exitFullscreenLabel}
+            muteLabel={film.muteLabel}
+            unmuteLabel={film.unmuteLabel}
             chapters={film.chapters}
             locale={locale}
             summary={film.summary}

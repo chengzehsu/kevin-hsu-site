@@ -1,54 +1,66 @@
-/* One column, read top to bottom: no motion, no cards, one accent. Prints to A4 as the PDF résumé. */
+/* The résumé in the site's language: as wide as the nav, the results strip from home, and a rail where the date
+   leads. Print keeps the same structure at A4 sizes, so screen and paper read as one document. */
 .page {
-  padding: clamp(2rem, 5vw, 4rem) 1rem clamp(3rem, 6vw, 5rem);
+  padding-block: var(--space-section-md) var(--space-section-lg);
 }
 
 .sheet {
+  --rail: 10rem;
+  --rail-gap: var(--space-7);
   width: 100%;
-  max-width: 50rem;
+  max-width: var(--site-width);
   margin: 0 auto;
+  padding-inline: var(--space-4);
 }
 
+/* ---- Header ---- */
 .header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid var(--fg);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "identity actions"
+    "contacts actions";
+  align-items: end;
+  gap: var(--space-2) var(--space-7);
 }
+
+.identity { grid-area: identity; }
+
+.mark { display: none; }
 
 .kicker {
-  margin: 0 0 .5rem;
-  color: var(--accent);
-  font-size: .85rem;
-  font-weight: 600;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
 }
 
 .header h1 {
-  margin: 0;
+  margin: var(--space-3) 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: var(--text-display);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-display);
 }
 
 .headline {
-  margin: .5rem 0 0;
-  font-size: 1.05rem;
-  font-weight: 500;
+  margin: var(--space-3) 0 0;
+  color: var(--muted);
+  font-size: var(--text-lead);
+  line-height: var(--leading-ui);
 }
 
 .contacts {
+  grid-area: contacts;
   display: flex;
   flex-wrap: wrap;
-  gap: .25rem 1.25rem;
-  margin: .9rem 0 0;
+  gap: 0 var(--space-5);
+  margin: 0;
   padding: 0;
   list-style: none;
-  font-size: .9rem;
+  font-size: var(--text-small);
 }
 
 .contacts a {
@@ -59,6 +71,7 @@
   text-decoration: underline;
   text-decoration-color: var(--line);
   text-underline-offset: .25em;
+  transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .contacts a:is(:hover, :focus-visible) { color: var(--fg); }
@@ -66,9 +79,11 @@
 .printOnly { display: none; }
 
 .actions {
+  grid-area: actions;
   display: flex;
   flex-wrap: wrap;
-  gap: .6rem;
+  justify-content: flex-end;
+  gap: var(--space-3);
 }
 
 .primary,
@@ -76,14 +91,14 @@
   display: inline-flex;
   min-height: 2.75rem;
   align-items: center;
-  padding: .6rem 1rem;
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-ui);
   font: inherit;
-  font-size: .9rem;
-  font-weight: 500;
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
   white-space: nowrap;
   cursor: pointer;
-  transition: transform .15s ease, background-color .15s ease;
+  transition: transform var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard);
 }
 
 .primary {
@@ -102,126 +117,70 @@
 .primary:active,
 .secondary:active { transform: scale(.98); }
 
-.facts {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.facts > div {
-  padding: 1rem .75rem 1rem 0;
-}
-
-.facts > div + div {
-  padding-left: .9rem;
-  border-left: 1px solid var(--line);
-}
-
-.facts dt {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 650;
-  font-variant-numeric: tabular-nums;
-}
-
-.facts dd {
-  margin: .15rem 0 0;
-  color: var(--muted);
-  font-size: .82rem;
-  line-height: 1.45;
-}
-
-.section {
-  display: grid;
-  grid-template-columns: 8.5rem minmax(0, 1fr);
-  gap: 1.5rem;
-  padding-block: 1.75rem;
-  border-bottom: 1px solid var(--line);
-}
+/* ---- Sections ---- */
+.section { margin-top: var(--space-section-md); }
 
 .section h2 {
   margin: 0;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--line);
   font-family: var(--font-display);
-  font-size: .95rem;
-  font-weight: 650;
-  line-height: 1.6;
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
 }
 
 .summary {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.8;
+  max-width: 68ch;
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-lead);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
 }
 
-.keywords {
-  margin: .6rem 0 0;
-  color: var(--muted);
-  font-size: .92rem;
-  line-height: 1.7;
-}
-
-.muted {
-  margin: .2rem 0 0;
-  color: var(--muted);
-  font-size: .88rem;
-  line-height: 1.6;
-}
-
-.highlights,
-.list {
+/* The results strip from home: open columns split by hairlines. */
+.results {
   display: grid;
-  gap: 1.1rem;
-  margin: 0;
-  padding: 0;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  gap: 0 var(--space-7);
+  margin: var(--space-6) 0 0;
+  padding: var(--space-6) 0;
+  border-block: 1px solid var(--line);
   list-style: none;
 }
 
-.highlights > li {
-  display: grid;
-  grid-template-columns: 7.5rem minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-.list > li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 1rem;
-}
+/* Subgrid keeps each label on one line across the columns when a figure wraps. */
+.results > li { display: grid; grid-row: span 3; grid-template-rows: subgrid; min-width: 0; }
+.results > li + li { padding-left: var(--space-7); border-left: 1px solid var(--line); }
 
 .figure {
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 650;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.3;
-}
-
-.highlightTitle {
   margin: 0;
-  font-weight: 600;
-  line-height: 1.55;
-}
-
-.detail {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  gap: .3rem;
   color: var(--accent);
-  font-size: .85rem;
-  font-weight: 500;
-  white-space: nowrap;
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
 }
 
-.detail:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: .25em; }
+.figureLabel {
+  margin: var(--space-3) 0 0;
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-ui);
+}
 
+.figureNote {
+  margin: var(--space-1) 0 0;
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: var(--leading-ui);
+  text-wrap: pretty;
+}
+
+/* ---- Experience: the home timeline's rail, with the results kept beside it ---- */
 .roles {
-  display: grid;
-  gap: 1.6rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -229,159 +188,291 @@
 
 .role {
   display: grid;
-  gap: .2rem;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: var(--rail-gap);
 }
 
 .period {
   margin: 0;
+  padding-top: var(--space-6);
   color: var(--muted);
-  font-size: .85rem;
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
   font-variant-numeric: tabular-nums;
+  line-height: var(--leading-heading);
 }
+
+.roleBody {
+  position: relative;
+  min-width: 0;
+  padding: var(--space-6) 0 var(--space-2) var(--rail-gap);
+  border-left: 1px solid var(--line);
+}
+
+/* A station from the brand mark. Drawn with a border, because browsers drop backgrounds when printing. */
+.roleBody::before {
+  position: absolute;
+  top: calc(var(--space-6) + .3rem);
+  left: -.3125rem;
+  width: 0;
+  height: 0;
+  border: .28rem solid var(--muted);
+  border-radius: .15rem;
+  content: "";
+}
+
+.role:first-child .roleBody::before { border-color: var(--accent); }
 
 .role h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: .1rem .6rem;
+  gap: var(--space-1) var(--space-3);
   margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.55;
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-heading);
 }
 
 .org {
-  color: var(--fg);
-  font-size: .9rem;
-  font-weight: 400;
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
 }
 
-.highlightTitle .org { margin-left: .6rem; color: var(--muted); }
+.muted {
+  max-width: 68ch;
+  margin: var(--space-2) 0 0;
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: var(--leading-ui);
+}
 
 .bullets {
   display: grid;
-  gap: .35rem;
-  margin: .55rem 0 0;
-  padding-left: 1.1rem;
+  gap: var(--space-2);
+  max-width: 68ch;
+  margin: var(--space-3) 0 0;
+  padding-left: var(--space-4);
   list-style: disc;
-  font-size: .92rem;
-  line-height: 1.7;
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: var(--leading-ui);
 }
 
 .bullets li { text-wrap: pretty; }
-.bullets li::marker { color: var(--muted); }
-.lead { font-weight: 600; color: var(--fg); }
+.bullets li::marker { color: var(--line); }
+.lead { color: var(--accent); font-weight: var(--weight-semibold); }
 
+/* The case links sit under the rail; from 1024 they move into their own column beside the results. */
 .roleLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.25rem;
-  margin: .2rem 0 0;
+  grid-column: 2;
+  display: grid;
+  justify-items: start;
+  margin: 0;
+  padding: 0 0 var(--space-2) var(--rail-gap);
+  border-left: 1px solid var(--line);
 }
+
+.detail {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--accent);
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-ui);
+}
+
+.detail svg { flex-shrink: 0; }
+.detail:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: .25em; }
 
 .gap {
-  margin: .6rem 0 0;
-  padding: .5rem .75rem;
-  border-left: 2px solid var(--line);
+  margin: var(--space-4) 0 0;
   color: var(--muted);
-  font-size: .85rem;
+  font-size: var(--text-small);
+  line-height: var(--leading-ui);
 }
 
-.skills {
+/* ---- Skills and education: the same rail, with the label or date on the left ---- */
+.skills { margin: 0; }
+
+.skills > div,
+.education {
   display: grid;
-  gap: .75rem;
-  margin: 0;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: var(--rail-gap);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--line);
 }
 
-.skills > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .75rem; }
 .skills dt {
-  font-size: .88rem;
-  font-weight: 600;
-  line-height: 1.7;
+  color: var(--fg);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
 }
 
 .skills dd {
   margin: 0;
+  padding-left: var(--rail-gap);
   color: var(--muted);
-  font-size: .9rem;
-  line-height: 1.7;
+  font-size: var(--text-small);
+  line-height: var(--leading-ui);
+}
+
+.education .period { padding-top: 0; line-height: var(--leading-ui); }
+
+.school {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-3);
+  margin: 0;
+  padding-left: var(--rail-gap);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
 }
 
 .more {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0 1rem;
-  margin: 1.5rem 0 0;
+  gap: 0 var(--space-4);
+  margin: var(--space-6) 0 0;
   color: var(--muted);
-  font-size: .9rem;
+  font-size: var(--text-small);
 }
 
-@media (max-width: 40rem) {
-  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .facts > div:nth-child(3) { padding-left: 0; border-left: 0; }
-  .facts > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
-  .section { grid-template-columns: minmax(0, 1fr); gap: .9rem; }
-  .highlights { gap: 1.75rem; }
-  .highlights > li { grid-template-columns: minmax(0, 1fr) auto; row-gap: .1rem; }
-  .highlights .figure { grid-column: 1 / -1; }
+@media (min-width: 640px) {
+  .sheet { padding-inline: var(--space-6); }
 }
 
-/* The PDF résumé: A4, black on white, no site chrome, contact details written out. */
+@media (min-width: 1024px) {
+  .sheet { padding-inline: var(--space-7); }
+  .role { grid-template-columns: var(--rail) minmax(0, 1fr) 14rem; }
+  .roleLinks {
+    grid-column: 3;
+    align-content: start;
+    padding: calc(var(--space-6) - var(--space-3)) 0 0;
+    border-left: 0;
+  }
+}
+
+/* Screen only: an A4 sheet is about 690 px wide, so a bare max-width would hand paper the phone layout. */
+@media screen and (max-width: 767px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "identity"
+      "contacts"
+      "actions";
+  }
+  .actions { justify-content: flex-start; }
+  .results { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: var(--space-5); }
+  .results > li { display: block; grid-row: auto; }
+  .results > li + li { padding-left: 0; border-left: 0; }
+  .role,
+  .skills > div,
+  .education { grid-template-columns: minmax(0, 1fr); }
+  .period { padding-top: var(--space-5); }
+  .roleBody { padding: var(--space-1) 0 var(--space-2); border-left: 0; }
+  .roleBody::before { display: none; }
+  .roleLinks { grid-column: 1; padding-left: 0; border-left: 0; }
+  .skills dd,
+  .school { padding-left: 0; }
+}
+
+/* ---- The PDF résumé: same structure, A4 sizes, ink on white. Colour comes from text and borders, so it survives
+   a print dialog with background graphics switched off. Two A4 pages at most. ---- */
 @media print {
-  /* Two A4 pages at most: single column, smaller type, no web-only blocks. */
-  @page { size: A4; margin: 8mm 13mm; }
+  @page {
+    size: A4;
+    margin: 13mm 14mm 14mm;
+    @bottom-right {
+      content: "Kevin Hsu  ·  " counter(page) " / " counter(pages);
+      color: #526173;
+      font-size: 7.5pt;
+    }
+  }
 
   .page { padding: 0; }
   .page ~ :global(footer) { display: none; }
-  .sheet { max-width: none; font-size: 9.3pt; line-height: 1.38; }
+
+  .sheet {
+    --rail: 27mm;
+    --rail-gap: 4mm;
+    max-width: none;
+    padding: 0;
+    font-size: 9.2pt;
+    line-height: 1.45;
+    print-color-adjust: exact;
+  }
+  .sheet:lang(en) { --rail: 31mm; }
+
   .actions,
   .detail,
   .roleLinks,
   .more,
   .kicker,
-  .keywords { display: none !important; }
-  .gap { margin: 1pt 0 0; padding: 0; border: 0; font-size: 8.3pt; }
+  .screenOnly { display: none !important; }
   .printOnly { display: inline; }
-  .contacts { margin-top: 2pt; font-size: 8.5pt; }
-  .contacts a { min-height: 0; color: var(--fg); text-decoration: none; }
-  .header { padding-bottom: 4pt; }
-  .header h1 { margin: 0; font-size: 16pt; }
-  .headline { margin-top: 1pt; font-size: 9.8pt; }
-  .facts > div { padding-block: 3pt; }
-  .facts dt { font-size: 11pt; }
-  .facts dd { font-size: 8pt; }
-  .section { grid-template-columns: minmax(0, 1fr); gap: 1.5pt; padding-block: 3pt; }
-  .section h2 { margin: 0; font-size: 10.5pt; }
-  .summary { margin: 0; font-size: 9.3pt; line-height: 1.38; }
-  .highlights,
-  .list { gap: 1.5pt; }
-  .highlights > li { grid-template-columns: 19mm minmax(0, 1fr); gap: 2mm; }
-  .list > li { gap: 2mm; }
-  .figure { font-size: 10.5pt; line-height: 1.25; }
-  .highlightTitle { margin: 0; font-size: 9.3pt; line-height: 1.3; }
-  .muted { margin: 0; font-size: 8.6pt; line-height: 1.32; }
-  .roles { gap: 2pt; }
-  .role { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .period { margin: 0; font-size: 8.3pt; line-height: 1.25; }
-  .role h3 { margin: 0; font-size: 9.6pt; line-height: 1.3; }
-  .bullets { gap: 0; margin: 1pt 0 0; font-size: 8.8pt; line-height: 1.3; }
-  .bullets:lang(en) { font-size: 8.6pt; }
-  .section:lang(en) { padding-block: 2pt; }
-  .roles:lang(en) { gap: 1.5pt; }
-  .muted:lang(en) { font-size: 8.3pt; }
-  .list > li > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6pt; }
-  .bullets li { margin: 0; }
-  .skills { gap: 1pt; }
-  .skills > div { display: grid; grid-template-columns: 30mm minmax(0, 1fr); gap: 2mm; }
-  /* Rem sizes would make the company outrank the job title on paper. */
-  .org { font-size: 8.8pt; font-weight: 400; }
+
+  /* Name on the left, contact details stacked on the right, the mark as the letterhead. */
+  .header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "identity contacts";
+    gap: 0 8mm;
+    padding-bottom: 4mm;
+  }
+  .mark { display: block; width: 11mm; margin-bottom: 2.5mm; }
+  .mark :global(rect) { animation: none !important; }
+  .header h1 { margin: 0; font-size: 21pt; line-height: 1.15; }
+  .headline { margin-top: 1mm; font-size: 10pt; line-height: 1.35; }
+  .contacts { display: grid; gap: .6mm; font-size: 8.4pt; line-height: 1.35; }
+  .contacts a { min-height: 0; color: var(--muted); text-decoration: none; }
+
+  .section { margin-top: 4.5mm; }
+  .section h2 {
+    padding-bottom: 1.2mm;
+    border-bottom: 1px solid var(--fg);
+    font-size: 10.5pt;
+    line-height: 1.25;
+    break-after: avoid;
+  }
+
+  .summary { max-width: none; margin-top: 2mm; font-size: 9.2pt; line-height: 1.5; }
+
+  .results { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 0; margin-top: 2.5mm; padding: 0 0 2.5mm; border-block: 0; border-bottom: 1px solid var(--line); }
+  .results > li { padding-right: 4mm; }
+  .results > li + li { padding-left: 4mm; }
+  .results > li:last-child { padding-right: 0; }
+  .figure { font-size: 12pt; line-height: 1.25; }
+  .figureLabel { margin-top: 1mm; font-size: 9pt; line-height: 1.3; }
+  .figureNote { margin-top: .4mm; font-size: 8.2pt; line-height: 1.35; }
+
+  .period { padding-top: 2.8mm; font-size: 8.4pt; line-height: 1.35; white-space: nowrap; }
+  .roleBody { padding: 2.8mm 0 .8mm var(--rail-gap); }
+  .roleBody::before { top: calc(2.8mm + 1.1mm); left: -1.05mm; border-width: 1mm; border-radius: .5mm; }
+  .role { break-inside: avoid; }
+  .role h3 { gap: 0 2.5mm; font-size: 10pt; line-height: 1.3; }
+  .org { font-size: 8.8pt; }
+  .muted { max-width: none; margin-top: .4mm; font-size: 8.6pt; line-height: 1.4; }
+  .bullets { gap: .8mm; max-width: none; margin-top: 1.2mm; padding-left: 3.4mm; font-size: 9pt; line-height: 1.42; }
+  .bullets li::marker { color: var(--muted); }
+  .bullets li { break-inside: avoid; }
+  .gap { margin-top: 1mm; font-size: 8.2pt; line-height: 1.35; }
+
+  .skills > div,
+  .education { padding-block: 1mm; }
+  .skills > div:last-child,
+  .education { border-bottom: 0; }
   .skills dt,
-  .skills dd { margin: 0; font-size: 8.8pt; line-height: 1.32; }
-  .role,
-  .highlights > li,
-  .list > li { break-inside: avoid; }
-  .section h2 { break-after: avoid; }
+  .skills dd { font-size: 8.8pt; line-height: 1.4; }
+  .education .period { font-size: 8.4pt; line-height: 1.4; }
+  .school { gap: 0 2.5mm; font-size: 9.4pt; line-height: 1.4; }
+
   /* A short section moves to the next page whole, so no stray lines are left behind. */
   .keepWhole { break-inside: avoid; }
 }

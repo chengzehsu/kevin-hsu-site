@@ -1,10 +1,12 @@
 # Offline asset scripts only (Python 3.13); the site build never installs these.
-# Direct: fonttools[woff] (font subsets), pillow (images), playwright (hero reel). The rest are their dependencies.
+# Direct: fonttools[woff] (font subsets), pillow (images), playwright (hero reel), numpy and scipy (film music). The rest are their dependencies.
 brotli==1.2.1
 fonttools==4.68.0
 greenlet==3.5.6
+numpy==2.5.4
 pillow==13.0.0
 playwright==1.64.1
 pyee==14.0.0
+scipy==1.18.1
 typing-extensions==4.16.0
 zopfli==0.4.3

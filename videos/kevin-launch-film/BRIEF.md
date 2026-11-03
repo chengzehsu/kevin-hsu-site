@@ -4,7 +4,7 @@ flow: companion
 storyboard: no
 format: 1600x1000 (16:10, site player 960x600)
 duration: 60s
-audio: none (silent; plays muted in the site hero)
+audio: original synthesized track (scripts/film-bgm.py); muted in the site hero, sound opens in full screen
 language: zh first, en after approval
 ---
 
@@ -24,8 +24,8 @@ YC／Linear／Notion 發表片：明亮乾淨、一個鏡頭一件事、大字�
 
 ## Assets
 
-- `assets/ecofirst-app.png`：從 `public/portfolio-artifacts/ecofirst-hvac-platform.webp` 裁出的真實案場工具介面（網站已公開）。
-- 字型：Geist（網站同款，OFL）＋ Noto Sans TC 影片用字子集（OFL，Google Fonts 官方檔裁切）。
+- `assets/internal-backend-view.webp`：從內部後台案例的 `internal-backend-overview` 和 `site-health` 原解析度裁切組合，案場已是代號，不要放大使用。
+- 字型：Geist（網站同款，OFL）＋ Noto Sans TC 影片用字子集（OFL，Google Fonts 官方檔裁切）；影片後來新增的字由 `noto-tc-extra.woff2`（網站子集）補上。
 
 ## Facts allowed
 
@@ -34,6 +34,8 @@ YC／Linear／Notion 發表片：明亮乾淨、一個鏡頭一件事、大字�
 
 ## Customizations
 
+- 2026-11-03（第三次）：加配樂。沿用 notion_training 的合成工具，改 120 BPM 對齊章節與標語；網站預設靜音，全螢幕才開聲音。雷達圖開場只亮六軸，形狀從 2019 才出現。
+- 2026-11-03（第二次）：提交數改 748／約 6 個月，標籤改內部後台；截圖換去識別化後台畫面；「好奇」段由名片助手換成點位命名；2023 卡片對齊網站；控制策略段的補充改為超過 10 萬種組合，客戶導入只留在 2025 卡片。
 - 2026-11-03：把已撤下的「交付效率 +50%」「案場營運 +20%」換成「客戶導入 約 2 週 → 約 2 小時」；愛淨職稱與片尾定位改為 Senior Product Manager · 平台重構與內部系統。
 - 使用者選擇：明亮乾淨基調、只做靜音版、素材可取自整個網站。
 - 2026-09-30：拉長到 60 秒（35 秒太趕）；加回能力雷達圖，六軸改為 AI 時代 PM 能力（問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；開場「AI 時代的 PM，做出東西不再是門檻，要看的是這六項。」2025 年往快速實驗、原型實作兩軸大幅撐開）；2023 副標「包租代管 SaaS」使用者確認可用，每段經歷讓面積長大；新增 AI 工作方式段落（好奇 → AI 名片助手、勇於嘗試 → 218 次提交、追求效率 → 1 週 → 2 小時與 +50%）。

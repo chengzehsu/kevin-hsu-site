@@ -135,6 +135,15 @@ for (const [locale, file, heading] of [
     const caseIds = ["internal-backend", "grocery", "health-app", "cdp", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
     assert.deepEqual([...cases.matchAll(/<article id="([a-z-]+)"/g)].map((m) => m[1]), caseIds);
     assert.equal((cases.match(/data-case-card="card"/g) ?? []).length, 9);
+    // Every card sits on the same navy: a light infographic or a pale plate here reads as a mistake.
+    for (const [, id, card] of cases.matchAll(/<article id="([a-z-]+)"([\s\S]*?)<\/article>/g)) {
+      const src = card.match(/<img[^>]*\ssrc="([^"]+)"/)?.[1];
+      assert.ok(src, `${id} shows a cover`);
+      assert.ok(src.endsWith(".svg"), `${id} uses a drawn cover, got ${src}`);
+      const cover = await readFile(new URL(`../public${src}`, import.meta.url), "utf8");
+      assert.ok(cover.includes('stop-color="#1F3354"'), `${id} cover ${src} is not on the navy frame`);
+      assert.ok(!/<text[\s>]/.test(cover), `${id} cover ${src} has words that fight the card's own title`);
+    }
     assert.deepEqual([...cases.matchAll(/<article id="([a-z-]+)"[^>]*data-wide/g)].map((m) => m[1]), ["internal-backend", "sales-faq", "resume-site"], "Three wide cards fill the grid");
     assert.ok(cases.replace(/<[^>]+>/g, "").includes(locale === "zh" ? "9 個案例：6 個工作專案、3 個個人專案" : "9 case studies: 6 from work, 3 from side projects"));
     assert.ok(!cases.includes(locale === "zh" ? "關鍵取捨" : "Key decision"), "Cards hold no decision text");
@@ -159,6 +168,7 @@ for (const [locale, file, heading] of [
     const hero = html.match(/<section id="hero"[\s\S]*?<\/section>/)?.[0] ?? "";
     assert.equal((html.match(/<video/g) ?? []).length, 1, "Only the hero film mounts on the home page");
     assert.ok(/<video[^>]*preload="none"/.test(hero), "The hero film must not preload");
+    assert.ok(/<video[^>]*\smuted/.test(hero), "The film has a music track, so it must start muted on the page");
     assert.ok(!html.includes("<source"), "Film sources attach after load, never in the server HTML");
     for (const id of caseIds) {
       const article = cases.match(new RegExp(`<article id="${id}"[\\s\\S]*?<\\/article>`))?.[0];
@@ -275,6 +285,27 @@ for (const [locale, file, heading] of [
     assert.ok(redirects.split("\n").includes(`${base}/cases/ecofirst/ ${base}/portfolio/ 301`), "The removed Ecofirst case lands on this language's portfolio");
   });
 
+  test(`${locale}: the film source carries no retired claim or customer name`, async () => {
+    const film = await readFile(new URL("../videos/kevin-launch-film/index.html", import.meta.url), "utf8");
+    for (const claim of ["+50%", "+20%", "ecofirst-hvac", "ecofirst-app", "218", "約 100 棟", "~100 buildings"]) assert.ok(!film.includes(claim), claim);
+  });
+
+  test(`${locale}: film chapter buttons leave the whole scrubber free to press and drag`, async () => {
+    const css = await readFile(new URL("../components/motion/HeroFilm.module.css", import.meta.url), "utf8");
+    const rule = (name) => css.match(new RegExp(`\\.${name} \\{([^}]*)\\}`))[1];
+    assert.match(rule("scrubber"), /z-index: 1/, "The scrubber must sit above the chapter buttons");
+    assert.match(rule("chapter"), /height: \.95rem/, "Chapter buttons must stop above the scrubber");
+  });
+
+  test(`${locale}: every film chapter visibly grows the radar axes its card names`, async () => {
+    const film = await readFile(new URL("../videos/kevin-launch-film/index.html", import.meta.url), "utf8");
+    const rows = [...film.matchAll(/grow: \[(\d), (\d)\], shape: \[([^\]]+)\]/g)].map((m) => ({ grow: [+m[1], +m[2]], shape: m[3].split(",").map(Number) }));
+    assert.equal(rows.length, 8);
+    rows.slice(1).forEach((row, i) => {
+      for (const axis of row.grow) assert.ok(row.shape[axis] - rows[i].shape[axis] >= 0.1, `chapter ${i + 1}, axis ${axis}`);
+    });
+  });
+
   test(`${locale}: unconfirmed claims and older positioning stay off every page`, async () => {
     const prefix = locale === "en" ? "en/" : "";
     const ids = ["internal-backend", "grocery", "health-app", "cdp", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
@@ -282,8 +313,6 @@ for (const [locale, file, heading] of [
     const stale = ["4,491", "31 個案場", "31 sites", "把業務到 RD 接成一條線", "AI 節能產品｜營運系統", "一到兩成", "一成多", "10 to 20%", "10%-plus", "不必設定", "no-setup", "need no configuration", "18 條", "18 human-set", "18 threshold", "+50%", "交付效率", "elivery efficiency", "+20%", "案場營運效率", "ite-ops efficiency", "營運效率提升 20%", "operational efficiency by 20%", "股神打架", "Stock Gods Fight", "−99%", " -30%", "看工作案例", "查看案例詳情", "看細節", "See work cases", "View case details", "營運流程數位化", "Operations digitization, internal", "digitizing operations", "Product Manager（規劃與實作）", "vibe coding"];
     for (const page of pages) {
       const raw = await readFile(new URL(page, import.meta.url), "utf8");
-      // These frames carry retired claims burned into the image until the film is re-rendered.
-      for (const frame of ["film-4", "film-8"]) assert.ok(!raw.includes(`/${frame}.webp`), `${page}: ${frame}`);
       const text = raw.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, "").replaceAll("Senior Product Manager（規劃與實作）", "");
       for (const claim of stale) assert.ok(!text.includes(claim), `${page}: ${claim}`);
     }
@@ -369,3 +398,21 @@ for (const [locale, file, home] of [
     assert.ok(!/\b0\d{1,2}-?\d{3,4}-?\d{3,4}\b/.test(html.replace(/<script[\s\S]*?<\/script>/g, "")), "No phone number");
   });
 }
+
+test("the résumé's phone layout never reaches paper", async () => {
+  // An A4 sheet is about 690 px wide, so a bare max-width query collapses the printed rail into one column.
+  const css = await readFile(new URL("../components/ResumePage.module.css", import.meta.url), "utf8");
+  assert.ok(!/@media \(max-width/.test(css), "Résumé max-width queries must be limited to screen");
+  assert.match(css, /@media screen and \(max-width: 767px\)/);
+  assert.match(css, /@media print[\s\S]*--rail: \d+mm/, "Paper keeps the date rail");
+});
+
+test("on screen and paper the accent marks results, not labels", async () => {
+  const css = await readFile(new URL("../components/ResumePage.module.css", import.meta.url), "utf8");
+  const rule = (selector) => css.match(new RegExp(`(?:^|\\n)${selector} \\{([^}]*)\\}`))?.[1] ?? "";
+  assert.match(rule("\\.figure"), /color: var\(--accent\)/, "All three figures carry the accent");
+  assert.match(rule("\\.lead"), /color: var\(--accent\)/, "Each bullet's result carries the accent");
+  assert.match(rule("\\.skills dt"), /color: var\(--fg\)/, "Skill labels stay ink");
+  assert.ok(!css.includes(".results > li:first-child .figure"), "No single figure is singled out");
+  assert.ok(!/@media print[\s\S]*\.(?:figure|lead|skills dt) \{[^}]*(?:^|[\s;])color:/.test(css), "Paper inherits the same colours");
+});

@@ -6,6 +6,8 @@ import {
   CornersOutIcon,
   PauseIcon,
   PlayIcon,
+  SpeakerHighIcon,
+  SpeakerSlashIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { EVENTS } from "@/lib/analytics";
 import styles from "./HeroFilm.module.css";
@@ -19,7 +21,7 @@ interface ConnectionPreference extends EventTarget {
  * The film carries its own on-screen text, so there is one render per locale. The poster is the sign-off frame (name plus
  * "make it run, then ship it"), legible even at thumbnail size; for visitors who never get motion the sr-only summary narrates the whole film.
  * The film attaches after load, plays only while visible, and never autoplays under reduced motion or data saving;
- * the button always wins.
+ * the button always wins. It stays muted on the page: sound opens only when a visitor enlarges it, and closes again on exit.
  */
 export function HeroFilm({
   locale,
@@ -28,6 +30,8 @@ export function HeroFilm({
   seekLabel,
   fullscreenLabel,
   exitFullscreenLabel,
+  muteLabel,
+  unmuteLabel,
   chapters,
   summary,
   link,
@@ -38,6 +42,8 @@ export function HeroFilm({
   seekLabel: string;
   fullscreenLabel: string;
   exitFullscreenLabel: string;
+  muteLabel: string;
+  unmuteLabel: string;
   chapters: Array<{ at: number; label: string }>;
   /** What the film says, for screen readers: the video itself is aria-hidden. */
   summary: string;
@@ -56,12 +62,29 @@ export function HeroFilm({
   // The film is a fixed 66.8s cut; the real duration takes over once metadata loads.
   const [duration, setDuration] = useState(66.8);
   const [fullscreen, setFullscreen] = useState(false);
+  const [sound, setSound] = useState(false);
+
+  // Muting is written to the element, not through React: browsers require it to change inside the click that asked for it.
+  function setFilmSound(on: boolean) {
+    if (video.current) video.current.muted = !on;
+    setSound(on);
+  }
 
   useEffect(() => {
-    const onChange = () =>
-      setFullscreen(document.fullscreenElement === root.current);
+    const film = video.current;
+    const onChange = () => {
+      const active = document.fullscreenElement === root.current;
+      setFullscreen(active);
+      if (!active) setFilmSound(false);
+    };
+    // iPhone's native player leaves full screen through its own event.
+    const onNativeEnd = () => setFilmSound(false);
     document.addEventListener("fullscreenchange", onChange);
-    return () => document.removeEventListener("fullscreenchange", onChange);
+    film?.addEventListener("webkitendfullscreen", onNativeEnd);
+    return () => {
+      document.removeEventListener("fullscreenchange", onChange);
+      film?.removeEventListener("webkitendfullscreen", onNativeEnd);
+    };
   }, []);
 
   useEffect(() => {
@@ -171,10 +194,11 @@ export function HeroFilm({
     }
     // Enlarging is an explicit request to watch, like seeking.
     choice.current = "play";
+    setFilmSound(true);
     syncRef.current();
     if (element.requestFullscreen) {
       // The whole panel goes full screen so the chapter timeline comes along.
-      void element.requestFullscreen().catch(() => {});
+      void element.requestFullscreen().catch(() => setFilmSound(false));
       return;
     }
     // iPhone Safari only lets the video element itself go full screen, with the native player.
@@ -282,6 +306,21 @@ export function HeroFilm({
           <span ref={clock} className={styles.clock} aria-hidden="true">
             {`0:00 / ${formatTime(duration)}`}
           </span>
+          {fullscreen ? (
+            <button
+              type="button"
+              className={styles.expand}
+              onClick={() => setFilmSound(!sound)}
+              aria-label={sound ? muteLabel : unmuteLabel}
+              title={sound ? muteLabel : unmuteLabel}
+            >
+              {sound ? (
+                <SpeakerHighIcon size={18} weight="bold" aria-hidden="true" />
+              ) : (
+                <SpeakerSlashIcon size={18} weight="bold" aria-hidden="true" />
+              )}
+            </button>
+          ) : null}
           <button
             type="button"
             className={styles.expand}

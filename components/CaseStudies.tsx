@@ -1,5 +1,5 @@
 import type { CaseStudy, SectionProps } from "@/content/types";
-import { caseArtifacts } from "@/content/caseArtifacts";
+import { CASE_CARD_COVERS, caseArtifacts } from "@/content/caseArtifacts";
 import { caseName, fillCounts, orderCases, WIDE_CASES } from "@/lib/cases";
 import { casePath } from "@/lib/locale";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
@@ -21,11 +21,16 @@ export function CaseStudies({ content, locale }: SectionProps) {
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <header className={styles.head}>
           <h2 id="cases-heading" className={`section-title ${styles.heading}`}>
-            <KeepTogether text={fillCounts(cases.inventory, cases.items)} title />
+            <KeepTogether
+              text={fillCounts(cases.inventory, cases.items)}
+              title
+            />
           </h2>
           <p className={styles.lede}>{cases.intro}</p>
         </header>
-        <div className={styles.grid}>{orderCases(cases.items).map(renderCard)}</div>
+        <div className={styles.grid}>
+          {orderCases(cases.items).map(renderCard)}
+        </div>
       </div>
     </section>
   );
@@ -34,6 +39,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
     const artifact = caseArtifacts[locale][item.id];
     const wide = WIDE_CASES.includes(item.id);
     const { used, grown } = item.capabilities;
+    const cardCover = CASE_CARD_COVERS[item.id];
     return (
       <article
         id={item.id}
@@ -52,6 +58,9 @@ export function CaseStudies({ content, locale }: SectionProps) {
               caseId={item.id}
               locale={locale}
               variant="cover"
+              image={
+                cardCover && { src: cardCover.src, alt: cardCover.alt[locale] }
+              }
               sizes="(max-width: 767px) 30vw, (max-width: 1023px) 50vw, 33vw"
             />
           </div>
@@ -62,7 +71,11 @@ export function CaseStudies({ content, locale }: SectionProps) {
             </div>
             {artifact ? (
               <CaseHeadlineFigure
-                headline={{ ...artifact.headline, delta: undefined, also: undefined }}
+                headline={{
+                  ...artifact.headline,
+                  delta: undefined,
+                  also: undefined,
+                }}
                 size="compact"
                 className={styles.figure}
               />

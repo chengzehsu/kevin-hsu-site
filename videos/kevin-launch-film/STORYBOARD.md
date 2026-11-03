@@ -1,61 +1,47 @@
 ---
-duration: 35
+duration: 66.8
 canvas: 1600x1000
 structure: monolithic index.html, one timeline, hard cuts (the cut is the exit)
 ---
 
 ## Frame 1
 
-status: outline
-src: index.html#s1-hook
-time: 0.0–4.4
-rules: kinetic-beat-slam, discrete-text-sequence
-beat: 「規格寫完了。」→ 硬切「會議開完了。」→「東西，還沒跑起來。」下方一條卡在 12% 的進度條。
+status: built
+src: index.html#s1
+time: 0.0–6.0
+beat: 「規格寫完了。」「會議開完了。」「東西，還沒跑起來。」下方一條卡在 12% 的進度條。
 
 ## Frame 2
 
-status: outline
-src: index.html#s2-turn
-time: 4.4–8.0
-rules: dynamic-content-sequencing, css-marker-patterns, cut-catalog zoom-through
-beat: 「如果 PM」「在開發之前」「就先讓它跑起來？」逐詞落在節拍上，「跑起來」強調色＋底線掃過；鏡頭穿進強調字接下一場。
+status: built
+src: index.html#s2
+time: 6.0–12.0
+beat: 「AI 時代的 PM，做出東西不再是門檻，要看的是這六項。」空的能力雷達圖逐軸亮起：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀。
 
 ## Frame 3
 
-status: outline
-src: index.html#s3-product
-time: 8.0–15.4
-rules: multi-phase-camera, coordinate-target-zoom, cursor-click-ripple, counting-dynamic-scale, discrete-text-sequence (backspace-and-retype)
-beat: 左邊「218 次提交 · 2 個月」計數，右邊真實案場工具介面，鏡頭推近、游標點「查詢」、圖表亮起。12.0 起換成控制策略模擬工具：「1 週」被刪掉改打成「2 小時」。
+status: built
+src: index.html#s3
+time: 12.0–42.2
+beat: 八張經歷卡，每張 3.4 秒，雷達圖跟著長大：眾碩投資、歐可達數據、Fable 寓意科技、華曜興業、獨立顧問（產品流程與 Roadmap）、知識衛星、獨立顧問（營運數位轉型與募資）、台灣愛淨（客戶導入 約 2 週 → 約 2 小時，34 個案場都適用）。39.2 起雷達圖移到中央收尾。
 
 ## Frame 4
 
-status: outline
-src: index.html#s4-proof
-time: 15.4–23.6
-rules: counting-dynamic-scale, stat-bars-and-fills
-beat: 五個數字硬切連發，一個 1.64 秒：+50% 交付效率（強調色滿版）→ 1,000 單／日（300 → 1,000 單／日 (+233%)）→ +66% 健康 App DAU → 1,000 萬筆跨通路資料 → 2022 PMI 卓越獎。
+status: built
+src: index.html#s4
+time: 42.2–56.8
+beat: 三個習慣。好奇：93% 大字計數，三種廠商寫法收斂成同一個標準名稱，看不出來的轉去問人。勇於嘗試：748 次提交 · 約 6 個月，游標點案場列，該列亮起，明細面板滑上來。追求效率：「1 週」刪掉改打「2 小時」，超過 10 萬種組合邊計數邊點亮方格，最後留下被挑中的一格。
 
 ## Frame 5
 
-status: outline
-src: index.html#s5-track
-time: 23.6–27.6
-rules: discrete-text-sequence (in-place token cycle)
-beat: 左邊年份 2019 → 2025 翻動，右邊公司名同步換：眾碩投資、歐可達數據、Fable 寓意科技、獨立顧問、知識衛星、台灣愛淨；收在「六段經歷，同一個習慣。」
+status: built
+src: index.html#s5
+time: 56.8–61.3
+beat: 「找出痛點，」「做出解法，」「量出成果。」依序出現，「成果」底線掃過。
 
 ## Frame 6
 
-status: outline
-src: index.html#s6-tagline
-time: 27.6–31.6
-rules: kinetic-beat-slam, css-marker-patterns
-beat: 「找出痛點，」重擊，「做出解法，」「量出成果。」依序側滑；「痛點」「解法」「成果」強調色，「成果」底線掃過。（2026-10-01 改標語）
-
-## Frame 7
-
-status: outline
-src: index.html#s7-end
-time: 31.6–35.0
-rules: spring-pop-entrance (smooth settle)
-beat: 許承澤 Kevin Hsu／Product Manager · AI · B2C 平台 · 跨團隊交付／「找出痛點，做出解法，量出成果。」小字收尾。
+status: built
+src: index.html#s6
+time: 61.3–66.8
+beat: 許承澤 Kevin Hsu／Senior Product Manager · 平台重構與內部系統／「找出痛點，做出解法，量出成果。」與完成的雷達圖，淡出接回開頭。

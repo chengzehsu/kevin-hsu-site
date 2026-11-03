@@ -12,8 +12,8 @@ export interface ResumeContent {
   headline: string;
   /** One sentence: years, domains, and focus. */
   summary: string;
-  /** Three results to scan, one line each. */
-  summaryPoints: string[];
+  /** Three results to scan, set like the results strip on home: the figure, what it measures, and its caveat or proof. */
+  summaryPoints: Array<{ figure: string; label: string; note: string }>;
   /** Hero / nav entry label pointing at this page. */
   entryLabel: string;
   printLabel: string;
@@ -55,9 +55,21 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     summary:
       "Senior Product Manager，7 年以上 B2B、AI 與電商產品相關經驗，專注平台重構與內部系統，能用 Claude Code 自建工具。",
     summaryPoints: [
-      "客戶導入 約 2 週 → 約 2 小時（不含現場接線與控制策略），34 個案場都適用",
-      "電商揀貨 300 → 1,000 單／日，獲 AWS 收錄為案例",
-      "專案帶領 10 位工程師、直屬管理 2 位初階 PM，獲 PMI 標竿專案獎優選",
+      {
+        figure: "約 2 週 → 約 2 小時",
+        label: "客戶導入",
+        note: "34 個案場都適用（不含現場接線與控制策略）",
+      },
+      {
+        figure: "300 → 1,000 單／日",
+        label: "電商揀貨",
+        note: "獲 AWS 收錄為案例",
+      },
+      {
+        figure: "專案帶領 10 位工程師",
+        label: "團隊規模",
+        note: "直屬管理 2 位初階 PM，獲 PMI 標竿專案獎優選",
+      },
     ],
     entryLabel: "履歷",
     printLabel: "列印／存成 PDF",
@@ -83,7 +95,14 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     skills: [
       {
         label: "產品規劃",
-        items: ["Product Roadmap", "PRD", "Prototype", "Wireframe", "User Story", "使用者研究"],
+        items: [
+          "Product Roadmap",
+          "PRD",
+          "Prototype",
+          "Wireframe",
+          "User Story",
+          "使用者研究",
+        ],
       },
       {
         label: "平台與資料",
@@ -93,12 +112,27 @@ export const resumeContent: Record<Locale, ResumeContent> = {
           "API 串接",
           "系統整合",
           "資料遷移",
-          "資料品質", "埋點規劃",
+          "資料品質",
+          "埋點規劃",
           "IoT 整合",
         ],
       },
-      { label: "流程與協作", items: ["流程優化", "專案管理", "跨部門協作", "QA 驗收"] },
-      { label: "AI 與工具", items: ["Claude Code", "Cursor", "Gemini", "AI 準確度評估", "人工審核流程設計", "Notion", "Asana"] },
+      {
+        label: "流程與協作",
+        items: ["流程優化", "專案管理", "跨部門協作", "QA 驗收"],
+      },
+      {
+        label: "AI 與工具",
+        items: [
+          "Claude Code",
+          "Cursor",
+          "Gemini",
+          "AI 準確度評估",
+          "人工審核流程設計",
+          "Notion",
+          "Asana",
+        ],
+      },
     ],
     moreText: "每個成果背後的痛點、決策與量測方式，都寫在作品集的案例頁。",
   },
@@ -109,9 +143,21 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     summary:
       "Senior Product Manager with 7+ years of product-related experience in B2B, AI, and e-commerce, focused on platform rebuilds and internal systems, who builds internal tools with Claude Code.",
     summaryPoints: [
-      "Cut customer onboarding from about 2 weeks to about 2 hours (excluding on-site wiring and control strategy), for all 34 sites",
-      "Scaled e-commerce picking from 300 to 1,000 orders a day, featured as an AWS case study",
-      "Led 10 engineers across projects and directly managed 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award",
+      {
+        figure: "~2 weeks → ~2 hours",
+        label: "Customer onboarding",
+        note: "For all 34 sites (excluding on-site wiring and control strategy)",
+      },
+      {
+        figure: "300 → 1,000 orders/day",
+        label: "E-commerce picking",
+        note: "Featured as an AWS case study",
+      },
+      {
+        figure: "Led 10 engineers across projects",
+        label: "Team size",
+        note: "Directly managed 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award",
+      },
     ],
     entryLabel: "Résumé",
     printLabel: "Print / save as PDF",
@@ -137,7 +183,14 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     skills: [
       {
         label: "Product planning",
-        items: ["Product Roadmap", "PRD", "Prototyping", "Wireframes", "User Stories", "User Research"],
+        items: [
+          "Product Roadmap",
+          "PRD",
+          "Prototyping",
+          "Wireframes",
+          "User Stories",
+          "User Research",
+        ],
       },
       {
         label: "Platforms and data",
@@ -147,7 +200,8 @@ export const resumeContent: Record<Locale, ResumeContent> = {
           "API Integration",
           "System Integration",
           "Data Migration",
-          "Data Quality", "Event Tracking",
+          "Data Quality",
+          "Event Tracking",
           "IoT Integration",
         ],
       },
@@ -156,10 +210,22 @@ export const resumeContent: Record<Locale, ResumeContent> = {
         items: [
           "Process Optimization",
           "Project Management",
-          "Cross-functional Collaboration", "QA",
+          "Cross-functional Collaboration",
+          "QA",
         ],
       },
-      { label: "AI and tools", items: ["Claude Code", "Cursor", "Gemini", "AI Accuracy Evaluation", "Human Review Workflows", "Notion", "Asana"] },
+      {
+        label: "AI and tools",
+        items: [
+          "Claude Code",
+          "Cursor",
+          "Gemini",
+          "AI Accuracy Evaluation",
+          "Human Review Workflows",
+          "Notion",
+          "Asana",
+        ],
+      },
     ],
     moreText:
       "The bottleneck, the decisions, and how each result was measured are on the case study pages.",

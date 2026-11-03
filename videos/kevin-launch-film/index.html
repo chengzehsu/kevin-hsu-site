@@ -19,6 +19,12 @@
         src: url("assets/noto-tc-film.woff2") format("woff2");
         font-weight: 100 900;
       }
+      /* Same typeface: the site's subset covers characters added to the film after noto-tc-film was cut. */
+      @font-face {
+        font-family: "Noto TC Extra";
+        src: url("assets/noto-tc-extra.woff2") format("woff2");
+        font-weight: 100 900;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -37,7 +43,7 @@
         height: 100%;
         overflow: hidden;
         color: #202a36;
-        font-family: "Geist Film", "Noto TC Film", sans-serif;
+        font-family: "Geist Film", "Noto TC Film", "Noto TC Extra", sans-serif;
         -webkit-font-smoothing: antialiased;
       }
       .scene {
@@ -354,48 +360,93 @@
         top: 260px;
         opacity: 0;
       }
-      .a-title {
-        margin-top: 18px;
-        white-space: nowrap;
-        font-size: 72px;
+      #a1-left {
+        width: 520px;
+      }
+      #a1-count {
+        margin-top: 12px;
+        font-size: 210px;
         font-weight: 800;
-        letter-spacing: -0.03em;
-        line-height: 1.15;
+        line-height: 1.12;
+        transform-origin: 0 80%;
+      }
+      .a-title {
+        margin-top: 6px;
+        font-size: 44px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
       }
       .a-sub {
         margin-top: 22px;
-        font-size: 36px;
-        font-weight: 600;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1.5;
         color: #526173;
       }
-      #flow {
-        margin-top: 70px;
+      #map {
+        position: absolute;
+        left: 520px;
+        top: 20px;
+        width: 800px;
+        height: 480px;
+      }
+      #map svg {
+        position: absolute;
+        inset: 0;
+      }
+      #map path {
+        fill: none;
+        stroke: #2b5896;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      #map .chip {
+        position: absolute;
+        left: 0;
+        width: 400px;
+        height: 72px;
         display: flex;
         align-items: center;
-        gap: 22px;
-      }
-      #flow .node {
-        padding: 22px 34px;
-        border-radius: 20px;
+        padding: 0 24px;
+        border-radius: 16px;
         background: #fcfcfd;
         border: 2px solid #d7dfe8;
-        font-size: 38px;
-        font-weight: 800;
-        box-shadow: 0 16px 36px rgba(32, 42, 54, 0.1);
+        font-size: 28px;
+        font-weight: 600;
+        white-space: nowrap;
+        box-shadow: 0 12px 28px rgba(32, 42, 54, 0.08);
         opacity: 0;
       }
-      #flow .node.on {
+      #map .chip.muted {
+        color: #526173;
+        border-style: dashed;
+      }
+      #map .out {
+        left: 540px;
+        width: 260px;
+        font-weight: 800;
+        white-space: normal;
+        line-height: 1.2;
+      }
+      #map .std {
+        height: 112px;
         background: #2b5896;
         border-color: #2b5896;
         color: #f5f8fc;
       }
-      #flow .arrow {
-        display: block;
-        width: 70px;
-        height: 4px;
-        border-radius: 2px;
-        background: #2b5896;
-        transform-origin: 0 50%;
+      #map .ask {
+        border-color: #2b5896;
+        color: #2b5896;
+      }
+      #map-label {
+        position: absolute;
+        left: 540px;
+        top: 62px;
+        font-size: 24px;
+        font-weight: 700;
+        color: #2b5896;
+        opacity: 0;
       }
       #a2-left {
         position: absolute;
@@ -427,9 +478,9 @@
       }
       #win {
         position: absolute;
-        left: 680px;
-        top: 250px;
-        width: 840px;
+        left: 636px;
+        top: 290px;
+        width: 884px;
         border-radius: 22px;
         background: #fcfcfd;
         border: 2px solid #d7dfe8;
@@ -454,35 +505,50 @@
         border-radius: 50%;
         background: #c9d4e2;
       }
-      #win-url {
-        margin-left: 18px;
-        font-size: 20px;
-        font-weight: 500;
-        color: #526173;
-      }
       #win-view {
         position: relative;
-        width: 840px;
-        height: 456px;
+        width: 880px;
+        height: 321px;
         overflow: hidden;
       }
       #app {
         position: absolute;
         left: 0;
         top: 0;
-        width: 840px;
-        height: 456px;
-        transform-origin: 632px 288px;
+        width: 880px;
+        height: 321px;
+        transform-origin: 0 321px;
       }
       #app img {
         display: block;
-        width: 840px;
-        height: 456px;
+        width: 880px;
+        height: auto;
+      }
+      #row-hl {
+        position: absolute;
+        left: 0;
+        top: 62px;
+        width: 880px;
+        height: 69px;
+        background: rgba(43, 88, 150, 0.1);
+        box-shadow: inset 0 0 0 3px #2b5896;
+        opacity: 0;
+      }
+      #detail {
+        position: absolute;
+        left: 0;
+        top: 131px;
+        width: 880px;
+        height: 190px;
+        overflow: hidden;
+        background: #fcfcfd;
+        border-top: 2px solid #2b5896;
+        box-shadow: 0 -18px 40px rgba(32, 42, 54, 0.16);
       }
       #ripple {
         position: absolute;
-        left: 740px;
-        top: 34px;
+        left: 765px;
+        top: 64px;
         width: 52px;
         height: 52px;
         border-radius: 50%;
@@ -547,6 +613,19 @@
       #a3-plus span {
         font-size: 36px;
         font-weight: 700;
+      }
+      #a3-count {
+        display: inline-block;
+        font-style: normal;
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+      }
+      #a3-grid {
+        position: absolute;
+        left: 960px;
+        top: 130px;
+        width: 360px;
+        height: 360px;
       }
 
       /* ── S5 tagline ────────────────────────────────────── */
@@ -669,8 +748,20 @@
       #root.en #a0-l2 {
         font-size: 110px;
       }
-      #root.en #flow .node {
-        font-size: 34px;
+      #root.en .a-title {
+        font-size: 40px;
+      }
+      #root.en #map .chip {
+        font-size: 24px;
+      }
+      #root.en #a3-count {
+        min-width: 3.4em;
+      }
+      #root.en #a3-grid {
+        left: 1016px;
+        top: 150px;
+        width: 304px;
+        height: 304px;
       }
       #root.en #a2-unit {
         font-size: 42px;
@@ -762,31 +853,44 @@
           <div id="tools"><span>Claude Code</span><span>Cursor</span><span>Gemini</span><span>Notion AI</span></div>
         </div>
         <div id="a1">
-          <div class="tag">AI 名片管理助手 · 0 到 1</div>
-          <div class="a-title">用 Cursor 與 Gemini，自己做出來。</div>
-          <div class="a-sub">從 OCR 辨識失敗、重建版控，到部署上線。</div>
-          <div id="flow">
-            <div class="node">拍名片</div>
-            <i class="arrow"></i>
-            <div class="node">Gemini 辨識</div>
-            <i class="arrow"></i>
-            <div class="node on">Notion 建檔</div>
+          <div id="a1-left">
+            <div class="tag">點位命名</div>
+            <div id="a1-count" class="num">0%</div>
+            <div class="a-title">機器一次對到標準名稱</div>
+            <div class="a-sub"><div>抽 72 筆實測</div><div>「信心很高卻答錯」0 筆</div></div>
+          </div>
+          <div id="map">
+            <svg width="800" height="480" viewBox="0 0 800 480" aria-hidden="true">
+              <path id="l0" pathLength="1" d="M400 56 C470 56 470 166 540 166" />
+              <path id="l1" pathLength="1" d="M400 166 L540 166" />
+              <path id="l2" pathLength="1" d="M400 276 C470 276 470 166 540 166" />
+              <path id="l3" pathLength="1" d="M400 416 L540 416" />
+            </svg>
+            <div class="chip v" style="top: 20px">CH-1 冰水出水溫度</div>
+            <div class="chip v" style="top: 130px">冰機1 出水溫</div>
+            <div class="chip v" style="top: 240px">CHL01_TCHS</div>
+            <div id="map-label">標準名稱</div>
+            <div class="chip out std" style="top: 110px">冰水出水溫</div>
+            <div class="chip muted" id="unclear" style="top: 380px">寫法看不出來</div>
+            <div class="chip out ask" style="top: 380px">問人確認</div>
           </div>
         </div>
         <div id="a2-left">
-          <div class="tag">案場資料查詢工具</div>
+          <div class="tag">內部後台</div>
           <div id="a2-count" class="num">0</div>
-          <div id="a2-unit">次提交 · 2 個月</div>
+          <div id="a2-unit">次提交 · 約 6 個月</div>
           <div id="a2-body">
             <div>程式經驗不多的產品經理，</div>
-            <div>用 Claude Code 做出內部平台。</div>
+            <div>用 Claude Code 做出內部後台。</div>
           </div>
         </div>
         <div id="win">
-          <div id="win-bar"><i></i><i></i><i></i><span id="win-url">ecofirst-hvac.app</span></div>
+          <div id="win-bar"><i></i><i></i><i></i></div>
           <div id="win-view">
             <div id="app">
-              <img src="assets/ecofirst-app.png" alt="" />
+              <img src="assets/internal-backend-table.webp" alt="" />
+              <div id="row-hl"></div>
+              <div id="detail"><img src="assets/internal-backend-detail.webp" alt="" /></div>
               <div id="ripple"></div>
             </div>
             <svg id="cursor" viewBox="0 0 34 40" aria-hidden="true">
@@ -804,7 +908,8 @@
           <div class="tag">控制策略模擬工具</div>
           <div id="a3-title">策略調整需要</div>
           <div id="a3-line"><span id="a3-text">1 週</span><span id="a3-caret"></span></div>
-          <div id="a3-plus"><b>約 2 週 → 約 2 小時</b><span>客戶導入，PM 自己完成</span></div>
+          <div id="a3-plus"><b>超過 <i id="a3-count">0</i> 萬種組合</b><span>用 AI 做模擬工具，一次試算</span></div>
+          <svg id="a3-grid" viewBox="0 0 360 360" aria-hidden="true"></svg>
         </div>
       </div>
 
@@ -826,6 +931,9 @@
         </div>
         <div id="end-radar"></div>
       </div>
+
+      <!-- Original track from scripts/film-bgm.py; the site player keeps it muted until full screen. -->
+      <audio id="bgm" src="assets/bgm.m4a" data-start="0" data-duration="66.8" data-track-index="5" data-volume="1"></audio>
 
       <div id="chrome" class="scene clip" data-start="0" data-duration="66.8" data-track-index="4">
         <div id="chrome-row">
@@ -859,16 +967,14 @@
           "#r3": "These six are.",
           "#radar-cap": "Every chapter made the shape bigger.",
           "#a0-l1": "See a new tool?",
-          "#a1 .tag": "AI business-card assistant · 0 to 1",
-          "#a1 .a-title": "Built it with Cursor + Gemini.",
-          "#a1 .a-sub": "From failed OCR and a rebuilt repo to a live deploy.",
-          "#a2-left .tag": "Field data query tool",
-          "#a2-unit": "commits · 2 months",
+          "#a1 .tag": "Sensor naming",
+          "#a1 .a-title": "matched to the standard name on the first try",
+                    "#a2-left .tag": "Internal platform",
+          "#a2-unit": "commits · ~6 months",
           "#a3 .tag": "Control-strategy simulator",
           "#a3-title": "Tuning a strategy took",
           "#a3-text": "1 week",
-          "#a3-plus b": "~2 weeks → ~2 hours",
-          "#a3-plus span": "customer onboarding, PM self-serve",
+                    "#a3-plus span": "tested at once with AI",
           "#end-name": "Kevin Hsu",
           "#end-en": "許承澤",
           "#end-role": "Senior Product Manager · Platform rebuilds and internal systems",
@@ -877,6 +983,8 @@
         Object.entries(T).forEach(([sel, txt]) => ($(sel).textContent = txt));
         const H = {
           "#a0-l2": 'I <span class="hl">try it first</span>.',
+          "#a3-plus b": '<i id="a3-count">0</i>+ combinations',
+          "#a1 .a-sub": "<div>72-sensor walkthrough</div><div>0 confident-but-wrong</div>",
           "#a2-body": "<div>A PM with little coding background</div><div>built an internal platform</div><div>with Claude Code.</div>",
           "#p1": 'Find the <span class="hl">bottleneck</span>.',
           "#p2": 'Build the <span class="hl">fix</span>.',
@@ -884,23 +992,24 @@
         };
         Object.entries(H).forEach(([sel, html]) => ($(sel).innerHTML = html));
         ["Curious", "Willing to try", "Chasing efficiency"].forEach((t, i) => ($$("#traits span")[i].textContent = t));
-        ["Snap a card", "Gemini reads it", "Saved to Notion"].forEach((t, i) => ($$("#flow .node")[i].textContent = t));
+        ["CH-1 chilled water supply temp", "Chiller1 outlet", "CHL01_TCHS", "Chilled-water supply temp", "Unclear name", "Ask a person"].forEach((t, i) => ($$("#map .chip")[i].textContent = t));
+        $("#map-label").textContent = "Standard name";
       }
 
       // ── Data: six AI-era PM axes and the six chapters that grew them (relative, never shown as scores) ──
       const AXES = EN
         ? ["Problem framing", "Fast experiments", "Prototyping", "Workflow redesign", "Cross-team delivery", "Data judgment"]
         : ["問題定義", "快速實驗", "原型實作", "流程重構", "跨團隊交付", "資料判讀"];
-      const BASE = [0.1, 0.1, 0.08, 0.1, 0.1, 0.1];
+      const BASE = [0, 0, 0, 0, 0, 0]; // Nothing is drawn until the first chapter: the rubric scene shows the axes alone.
       const CHAPTERS = [
         { year: "2019", org: "眾碩投資", role: "產品助理", title: "先驗證，再動手。", metric: "孵化 2 家公司，營收皆破 NT$100 萬", grow: [0, 2], shape: [0.36, 0.2, 0.3, 0.12, 0.15, 0.12] },
-        { year: "2020", org: "歐可達數據", role: "Product Manager", title: "讓資料說話。", metric: "5 個通路 · 1,000 萬筆客戶資料", grow: [5, 4], shape: [0.42, 0.25, 0.32, 0.2, 0.46, 0.72] },
-        { year: "2021", org: "Fable 寓意科技", role: "Senior Project Manager", title: "在壓力下規模化。", metric: "300 → 1,000 單／日 (+233%)", grow: [3, 4], shape: [0.48, 0.3, 0.34, 0.8, 0.84, 0.76] },
-        { year: "2022", org: "華曜興業", role: "Senior Operations Manager", title: "把產品方法帶進倉庫。", metric: "客戶、出貨與採購資料整合成一庫", grow: [3, 5], shape: [0.52, 0.32, 0.34, 0.84, 0.84, 0.78] },
-        { year: "2023", org: "獨立顧問", role: "包租代管 SaaS", title: "從商業策略拆到 Roadmap。", metric: "協助約 100 棟房源的 SaaS 產品化", grow: [0, 3], shape: [0.82, 0.38, 0.36, 0.86, 0.86, 0.78] },
-        { year: "2023", org: "知識衛星", role: "Senior Product Manager", title: "三種使用者，一份優先序。", metric: "3 週切入香港，首週破 NT$100 萬", grow: [1, 0], shape: [0.88, 0.72, 0.38, 0.87, 0.87, 0.78] },
-        { year: "2024", org: "獨立顧問", role: "營運數位轉型與募資", title: "把營運數據寫成投資故事。", metric: "約 NT$1.7 億募資進入實質洽談", grow: [0, 5], shape: [0.9, 0.74, 0.4, 0.88, 0.87, 0.8] },
-        { year: "2025", org: "台灣愛淨", role: "Senior Product Manager", title: "把 AI 放進真實工作。", metric: "客戶導入 約 2 週 → 約 2 小時 · 34 個案場", grow: [2, 1], shape: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
+        { year: "2020", org: "歐可達數據", role: "Product Manager", title: "讓資料說話。", metric: "5 個通路 · 1,000 萬筆客戶資料", grow: [5, 4], shape: [0.38, 0.25, 0.32, 0.2, 0.46, 0.5] },
+        { year: "2021", org: "Fable 寓意科技", role: "Senior Project Manager", title: "在壓力下規模化。", metric: "300 → 1,000 單／日 (+233%)", grow: [3, 4], shape: [0.4, 0.3, 0.34, 0.6, 0.84, 0.5] },
+        { year: "2022", org: "華曜興業", role: "Senior Operations Manager", title: "把產品方法帶進倉庫。", metric: "客戶、出貨與採購資料整合成一庫", grow: [3, 5], shape: [0.42, 0.32, 0.34, 0.76, 0.84, 0.64] },
+        { year: "2023", org: "獨立顧問", role: "產品流程與 Roadmap", title: "從商業策略拆到 Roadmap。", metric: "替跨國 SaaS 公司擬定 Roadmap，對應商業指標", grow: [0, 3], shape: [0.6, 0.38, 0.36, 0.9, 0.86, 0.64] },
+        { year: "2023", org: "知識衛星", role: "Senior Product Manager", title: "三種使用者，一份優先序。", metric: "3 週切入香港，首週破 NT$100 萬", grow: [1, 0], shape: [0.72, 0.72, 0.38, 0.9, 0.87, 0.64] },
+        { year: "2024", org: "獨立顧問", role: "營運數位轉型與募資", title: "把營運數據寫成投資故事。", metric: "約 NT$1.7 億募資進入實質洽談", grow: [0, 5], shape: [0.9, 0.74, 0.4, 0.9, 0.87, 0.8] },
+        { year: "2025", org: "台灣愛淨", role: "Senior Product Manager", title: "把 AI 放進真實工作。", metric: "客戶導入 約 2 週 → 約 2 小時，34 個案場都適用", grow: [2, 1], shape: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
       ];
 
       if (EN) {
@@ -909,10 +1018,10 @@
           ["Oakda Data", "Product Manager", "Make data speak.", "5 channels · 10M customer records"],
           ["Fable", "Senior Project Manager", "Scale under pressure.", "300 → 1,000 orders/day (+233%)"],
           ["Hua Yao Industrial", "Senior Operations Manager", "Product thinking on the warehouse floor.", "Customer, shipping, and purchasing data in one base"],
-          ["Independent consultant", "Property-management SaaS", "From business strategy to roadmap.", "Productizing a SaaS for ~100 buildings"],
+          ["Independent consultant", "Product workflows & roadmaps", "From business strategy to roadmap.", "Set a roadmap tied to business metrics for a multinational SaaS"],
           ["SAT. Knowledge", "Senior Product Manager", "Three users, one priority list.", "Into Hong Kong in 3 weeks, NT$1M+ in week one"],
           ["Independent consultant", "Operations transformation & fundraising", "Turn operating data into an investor story.", "~NT$170M in raises reached investor talks"],
-          ["Ecofirst", "Senior Product Manager", "Put AI into real work.", "Onboarding ~2 weeks → ~2 hours · 34 sites"],
+          ["Ecofirst", "Senior Product Manager", "Put AI into real work.", "Onboarding ~2 weeks → ~2 hours, works for all 34 sites"],
         ];
         CHAPTERS.forEach((c, i) => ([c.org, c.role, c.title, c.metric] = E[i]));
       }
@@ -943,6 +1052,23 @@
         el.style.top = `${y}px`;
         el.textContent = label;
         $("#radar-box").append(el);
+      });
+      // Rubric scene only: a spoke draws out to each axis as its label lights up.
+      const radarSvg = $("#radar-box svg");
+      AXES.forEach((_, k) => {
+        const [x, y] = pt(k, 1);
+        const spoke = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        spoke.setAttribute("class", "spoke");
+        spoke.setAttribute("id", `spoke${k}`);
+        spoke.setAttribute("x1", CX);
+        spoke.setAttribute("y1", CY);
+        spoke.setAttribute("x2", x);
+        spoke.setAttribute("y2", y);
+        spoke.setAttribute("pathLength", 1);
+        spoke.setAttribute("stroke", ACCENT);
+        spoke.setAttribute("stroke-width", 4);
+        spoke.setAttribute("stroke-linecap", "round");
+        radarSvg.append(spoke);
       });
       $("#end-radar").innerHTML = radarSVG("er", 620, 200);
       function drawShape(id, vals, r, c) {
@@ -1005,9 +1131,14 @@
       tl.fromTo("#radar-box svg", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", transformOrigin: "50% 50%" }, 6.6);
       AXES.forEach((_, k) => {
         const at = 8.4 + k * 0.32;
-        tl.fromTo(`#ax${k}`, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, at);
-        tl.fromTo(`#ax${k}`, { color: ACCENT }, { color: "#526173", duration: 0.5, immediateRender: false }, at + 0.35);
+        tl.fromTo(`#spoke${k}`, { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDasharray: 1, strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, at - 0.08);
+        tl.fromTo(`#ax${k}`, { opacity: 0, y: 12, scale: 0.9, color: ACCENT }, { opacity: 1, y: 0, scale: 1.16, color: ACCENT, duration: 0.35, ease: "back.out(1.8)" }, at);
+        // All six stay lit until the rubric copy clears, then settle before the first chapter.
+        tl.to(`#ax${k}`, { color: "#526173", scale: 1, duration: 0.4, ease: "power2.inOut" }, 11.5);
       });
+      tl.to(".spoke", { opacity: 0, duration: 0.35, ease: "power2.in" }, 11.5);
+      // The polygon first appears at the centre as the 2019 chapter starts to grow it.
+      tl.fromTo('#rd-poly, [id^="rd-v"]', { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 13.55);
       tl.to("#s2-copy", { opacity: 0, x: -60, duration: 0.35, ease: "power3.in" }, 11.6);
 
       // ── S3 chapters: 3.4s each; each chip lands, then the polygon grows toward that chapter's shape ──
@@ -1056,28 +1187,37 @@
       tail.fromTo("#a0-l1", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 35.6);
       tail.fromTo("#a0-l2", { opacity: 0, scale: 1.2, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out", transformOrigin: "0 50%" }, 36.4);
       tail.fromTo("#tools span", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", stagger: 0.14 }, 37.1);
-      tail.to("#a0", { opacity: 0, y: -40, duration: 0.3, ease: "power3.in" }, 38.4);
-      // A1 38.7–41.9: 好奇.
-      lightTrait(0, 38.7);
-      tail.fromTo("#a1", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 38.7);
-      $$("#flow .node").forEach((n, i) => tail.fromTo(n, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 39.5 + i * 0.45));
-      $$("#flow .arrow").forEach((a, i) => tail.fromTo(a, { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 39.75 + i * 0.45));
-      tail.to("#a1", { opacity: 0, x: -120, duration: 0.3, ease: "power3.in" }, 41.7);
-      // A2 42.0–45.8: 勇於嘗試, the real internal platform.
+      tail.to("#a0", { opacity: 0, y: -40, duration: 0.25, ease: "power3.in" }, 38.1);
+      // A1 38.4–41.7: 好奇. The figure lands first, then the writings resolve into one name and the unclear one goes to a person.
+      lightTrait(0, 38.4);
+      tail.fromTo("#a1", { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 38.4);
+      count("#a1-count", 0, 93, 38.5, 1.1, (v) => `${Math.round(v)}%`, tail);
+      tail.fromTo("#a1-count", { scale: 0.72 }, { scale: 1, duration: 1.1, ease: "expo.out" }, 38.5);
+      tail.fromTo("#map .chip.v", { opacity: 0, x: -36 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", stagger: 0.1 }, 38.7);
+      ["#l0", "#l1", "#l2"].forEach((l, i) => tail.fromTo(l, { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDasharray: 1, strokeDashoffset: 0, duration: 0.32, ease: "power2.inOut" }, 39.25 + i * 0.07));
+      tail.fromTo("#map .std", { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 39.62);
+      tail.fromTo("#map-label", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "none" }, 39.72);
+      tail.fromTo("#unclear", { opacity: 0, x: -36 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 40.1);
+      tail.fromTo("#l3", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDasharray: 1, strokeDashoffset: 0, duration: 0.24, ease: "power2.inOut" }, 40.4);
+      tail.fromTo("#map .ask", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 40.6);
+      tail.to("#a1", { opacity: 0, x: -120, duration: 0.25, ease: "power3.in" }, 41.7);
+      // A2 42.0–45.8: 勇於嘗試, the internal platform: click a site row, then zoom to its detail.
       lightTrait(1, 42.0);
       tail.fromTo("#a2-left", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 42.0);
-      count("#a2-count", 0, 218, 42.2, 1.5, int, tail);
+      count("#a2-count", 0, 748, 42.2, 1.5, int, tail);
       tail.fromTo("#a2-count", { scale: 0.7 }, { scale: 1, duration: 1.5, ease: "power2.out", transformOrigin: "0 80%" }, 42.2);
       tail.fromTo("#win", { opacity: 0, y: 60, rotationX: 8 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.8, ease: "power3.out", transformPerspective: 1600 }, 42.1);
-      tail.fromTo("#cursor", { opacity: 0, x: 560, y: 400 }, { opacity: 1, x: 560, y: 400, duration: 0.1 }, 42.9);
-      tail.to("#cursor", { x: 762, y: 58, duration: 0.6, ease: "power2.inOut" }, 43.0);
+      tail.fromTo("#cursor", { opacity: 0, x: 500, y: 270 }, { opacity: 1, x: 500, y: 270, duration: 0.1 }, 42.8);
+      tail.to("#cursor", { x: 787, y: 88, duration: 0.6, ease: "power2.inOut" }, 43.0);
       tail.to("#cursor", { scale: 0.82, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, 43.62);
       tail.fromTo("#ripple", { opacity: 0.9, scale: 0.3 }, { opacity: 0, scale: 2.4, duration: 0.6, ease: "power2.out" }, 43.62);
       tail.to("#cursor", { opacity: 0, duration: 0.25 }, 44.1);
-      tail.fromTo("#app", { scale: 1 }, { scale: 1.5, duration: 1.2, ease: "power3.inOut" }, 44.2);
+      tail.fromTo("#row-hl", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "power2.out" }, 43.64);
+      tail.fromTo("#detail", { y: 200 }, { y: 0, duration: 0.5, ease: "expo.out" }, 43.82);
+      tail.fromTo("#app", { scale: 1 }, { scale: 1.16, duration: 1.05, ease: "sine.inOut" }, 44.4);
       tail.to("#win", { x: 980, duration: 0.4, ease: "power3.in" }, 45.5);
       tail.to("#a2-left", { x: -120, opacity: 0, duration: 0.3, ease: "power3.in" }, 45.6);
-      // A3 45.9–50: 追求效率, 1 週 → 2 小時, then customer onboarding.
+      // A3 45.9–50: 追求效率, 1 週 → 2 小時, then what the simulator tests.
       lightTrait(2, 45.9);
       tail.fromTo("#a3", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 45.9);
       const typed = $("#a3-text");
@@ -1089,8 +1229,31 @@
       tail.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 5, repeatDelay: 0.28 }, 46.2);
       tail.set("#a3-caret", { opacity: 1 }, TYPE[0][0]);
       tail.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 3, repeatDelay: 0.3 }, 47.9);
-      tail.fromTo("#a3-plus", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 48.3);
-      tail.to("#traits", { opacity: 0, duration: 0.3 }, 49.7);
+      // The combinations are counted while they light up; the tool compares them all, and a person picks one.
+      tail.fromTo("#a3-plus", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 47.95);
+      if (EN) count("#a3-count", 0, 100000, 48.0, 1.15, int, tail);
+      else count("#a3-count", 0, 10, 48.0, 1.15, (v) => `${Math.round(v)}`, tail);
+      const GRID = 18;
+      const svgNS = "http://www.w3.org/2000/svg";
+      for (let i = 0; i < GRID * GRID; i++) {
+        const cell = document.createElementNS(svgNS, "rect");
+        cell.setAttribute("x", (i % GRID) * 20 + 2);
+        cell.setAttribute("y", Math.floor(i / GRID) * 20 + 2);
+        cell.setAttribute("width", 16);
+        cell.setAttribute("height", 16);
+        cell.setAttribute("rx", 3);
+        cell.setAttribute("fill", "#dde4ec");
+        $("#a3-grid").append(cell);
+        // Scattered, not random: the same order on every seek.
+        const at = 48.0 + (((i * 97) % (GRID * GRID)) / (GRID * GRID)) * 1.05;
+        tail.fromTo(cell, { attr: { fill: "#dde4ec" } }, { attr: { fill: "#2b5896" }, duration: 0.08, ease: "none" }, at);
+        tail.to(cell, { attr: { fill: "#c3d0e0" }, duration: 0.3, ease: "power2.out" }, 49.2);
+      }
+      const chosen = $("#a3-grid").children[6 * GRID + 11];
+      $("#a3-grid").append(chosen);
+      tail.to(chosen, { attr: { fill: "#2b5896" }, duration: 0.01 }, 49.5);
+      tail.fromTo(chosen, { scale: 1 }, { scale: 2.1, duration: 0.3, ease: "back.out(2)", svgOrigin: "232 132" }, 49.5);
+      tail.to("#traits", { opacity: 0, duration: 0.2 }, 49.8);
 
       // ── S5 tagline ──
       tail.fromTo("#p1", { opacity: 0, scale: 1.45, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power4.out", transformOrigin: "0 50%" }, 50.3);

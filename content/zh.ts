@@ -52,6 +52,8 @@ export const zh = {
       seekLabel: "影片進度",
       fullscreenLabel: "全螢幕觀看",
       exitFullscreenLabel: "離開全螢幕",
+      muteLabel: "關閉聲音",
+      unmuteLabel: "開啟聲音",
       chapters: [
         { at: 0, label: "開場" },
         { at: 12, label: "六項能力" },
@@ -59,7 +61,7 @@ export const zh = {
         { at: 56.8, label: "收尾" },
       ],
       summary:
-        "67 秒影片：規格寫完了，會議開完了，東西還沒跑起來。AI 時代的 PM，做出東西不再是門檻，要看的是六項能力：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；每一段經歷，都讓這張能力圖再大一圈。接著是三個工作習慣。好奇：看到新工具，我先動手試，Claude Code、Cursor、Gemini、Notion AI；用 Cursor 與 Gemini 自己做出 AI 名片管理助手，從 OCR 辨識失敗、重建版控到部署上線，流程是拍名片、Gemini 辨識、Notion 建檔。勇於嘗試：程式經驗不多的產品經理，用 Claude Code 做出內部平台，2 個月 218 次提交。追求效率：控制策略模擬工具把策略調整從 1 週縮短到 2 小時；客戶導入從約 2 週縮短到約 2 小時，由 PM 自己完成。找出痛點，做出解法，量出成果。許承澤 Kevin Hsu，Senior Product Manager · 平台重構與內部系統。",
+        "67 秒影片：規格寫完了，會議開完了，東西還沒跑起來。AI 時代的 PM，做出東西不再是門檻，要看的是六項能力：問題定義、快速實驗、原型實作、流程重構、跨團隊交付、資料判讀；每一段經歷，都讓這張能力圖再大一圈；到 2025 年，客戶導入從約 2 週縮短到約 2 小時，34 個案場都適用（不含現場接線與控制策略）。接著是三個工作習慣。好奇：看到新工具，我先動手試，Claude Code、Cursor、Gemini、Notion AI；各種廠商寫法，對成同一套標準名稱：機器一次對到 93%（抽 72 筆實測），「信心很高卻答錯」0 筆，沒把握就問人。勇於嘗試：程式經驗不多的產品經理，用 Claude Code 做出內部後台，約 6 個月 748 次提交。追求效率：控制策略模擬工具一次試算超過 10 萬種組合，把策略調整從 1 週縮短到 2 小時。找出痛點，做出解法，量出成果。許承澤 Kevin Hsu，Senior Product Manager · 平台重構與內部系統。",
     },
     primaryCta: { label: "看履歷", href: "/resume/" },
     secondaryCta: { label: "看案例", href: "#work" },
@@ -143,10 +145,10 @@ export const zh = {
             result: "調整一次控制策略的時間，從 1 週縮短到 2 小時。",
             source: "導入前後的策略調整時間比較",
             image: {
-              src: "/ai-covers/tools.svg",
-              alt: "示意圖：兩組數據並排比較，設定依結果調整",
-              width: 800,
-              height: 500,
+              src: "/portfolio-wall/film-8.webp",
+              alt: "開場影片畫面：策略調整需要 2 小時，超過 10 萬種組合用 AI 模擬工具一次試算",
+              width: 1600,
+              height: 1000,
             },
           },
           {
@@ -1112,11 +1114,11 @@ export const zh = {
         org: "個人專案",
         period: "2026/9 - 2026/11",
         rank: 11,
-        title: "這個網站：把求職當產品做",
+        title: "履歷網站：把求職當產品做",
         role: "產品負責人兼開發者",
         scope: "中英文網站｜開場影片｜動畫牆｜列印版履歷｜自動部署",
         collaboration: "獨立開發，與 Claude Code 協作；重要變更先寫規格再實作",
-        impact: "7 週、86 次程式提交｜程式更新後自動部署到 Cloudflare",
+        impact: "7 週、超過 90 次程式提交｜程式更新後自動部署到 Cloudflare",
         capabilities: {
           used: ["定位與資訊架構", "查核內容與數字"],
           grown: ["用程式做動畫和動畫牆", "Cloudflare 自動部署"],
@@ -1134,7 +1136,7 @@ export const zh = {
         hypothesis:
           "讀者會當場用到這個網站，所以它本身就是作品：動畫、效能和內容一致性，都在示範我怎麼做產品。",
         result: [
-          "7 週內完成 86 次程式提交",
+          "7 週內完成超過 90 次程式提交",
           "中英文各一版，含開場影片、動畫牆和可列印的履歷",
           "程式更新後自動部署到 Cloudflare Workers",
           "定位改過數次，git 紀錄都留著：從證據導向、AI builder、營運 PM 到現在的平台重構與內部系統",

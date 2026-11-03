@@ -56,6 +56,9 @@ export interface HeroContent {
     /** Fullscreen toggle: the film is 1600×1000 at source, so it holds up at full size. */
     fullscreenLabel: string;
     exitFullscreenLabel: string;
+    /** Sound control, shown only in full screen; the film stays muted on the page. */
+    muteLabel: string;
+    unmuteLabel: string;
     /** Chapter starts (seconds) of the launch film, shown as jump points on the timeline. */
     chapters: Array<{ at: number; label: string }>;
     /** Screen-reader narration of the on-screen film text; the film is burned-in per locale. */
