@@ -50,6 +50,8 @@
 - [x] 4.9 Film polish Kevin approved: motion in the curious, willing-to-try, and efficiency beats; six axes alone in the rubric scene; every chapter visibly grows its named axes; original music from scripts/film-bgm.py, muted until full screen
 - [x] 4.10 Fix the film scrubber: chapter buttons no longer cover it
 - [ ] 4.11 Check the live film on Safari and iPhone: Cloudflare static assets ignore Range requests, so seeking or mp4 playback may fail there
+- [ ] 4.12 On iPhone, the first press of full screen only starts the film when its sources are not attached yet (reduced motion, before page load); a second press enters. Attaching sources early there changes loading, so verify on a device first
+- [ ] 4.13 Ask Kevin: the film's 2025 card says onboarding "works for all 34 sites" without the site's "excluding on-site wiring and control strategy"
 
 ## 6. Design tokens (next)
 

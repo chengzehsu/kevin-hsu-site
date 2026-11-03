@@ -24,7 +24,7 @@ YC／Linear／Notion 發表片：明亮乾淨、一個鏡頭一件事、大字�
 
 ## Assets
 
-- `assets/internal-backend-view.webp`：從內部後台案例的 `internal-backend-overview` 和 `site-health` 原解析度裁切組合，案場已是代號，不要放大使用。
+- `assets/internal-backend-table.webp`、`assets/internal-backend-detail.webp`：從內部後台案例的 `internal-backend-overview` 和 `site-health` 原解析度裁切，案場已是代號，不要放大使用。
 - 字型：Geist（網站同款，OFL）＋ Noto Sans TC 影片用字子集（OFL，Google Fonts 官方檔裁切）；影片後來新增的字由 `noto-tc-extra.woff2`（網站子集）補上。
 
 ## Facts allowed

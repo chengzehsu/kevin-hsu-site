@@ -194,9 +194,9 @@ export function HeroFilm({
     }
     // Enlarging is an explicit request to watch, like seeking.
     choice.current = "play";
-    setFilmSound(true);
-    syncRef.current();
     if (element.requestFullscreen) {
+      setFilmSound(true);
+      syncRef.current();
       // The whole panel goes full screen so the chapter timeline comes along.
       void element.requestFullscreen().catch(() => setFilmSound(false));
       return;
@@ -205,8 +205,18 @@ export function HeroFilm({
     const native = film as HTMLVideoElement & {
       webkitEnterFullscreen?: () => void;
     };
-    if (!film.querySelector("source")) setSources(true);
-    native.webkitEnterFullscreen?.();
+    // The page has no mute button, so sound opens only once full screen can really start: it needs a loaded film.
+    if (!native.webkitEnterFullscreen || !film.querySelector("source")) {
+      syncRef.current();
+      return;
+    }
+    setFilmSound(true);
+    syncRef.current();
+    try {
+      native.webkitEnterFullscreen();
+    } catch {
+      setFilmSound(false);
+    }
   }
 
   return (
@@ -324,7 +334,7 @@ export function HeroFilm({
           <button
             type="button"
             className={styles.expand}
-          data-umami-event={fullscreen ? undefined : EVENTS.filmFullscreen}
+            data-umami-event={fullscreen ? undefined : EVENTS.filmFullscreen}
             onClick={toggleFullscreen}
             aria-label={fullscreen ? exitFullscreenLabel : fullscreenLabel}
             title={fullscreen ? exitFullscreenLabel : fullscreenLabel}
