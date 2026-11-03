@@ -1,40 +1,42 @@
 /* The AI work without its own case: quiet rows under the case cards, each expanding in place. */
-.section { padding-block: 0 clamp(4.5rem, 8vw, 7rem); }
-.heading { display: grid; gap: .6rem; }
-.heading > p { max-width: 46ch; margin: 0; color: var(--muted); font-size: var(--text-body); line-height: 1.7; }
+.section { padding-block: 0 var(--space-section-lg); }
+.heading { display: grid; gap: var(--space-2); }
+.heading > p { max-width: 46ch; margin: 0; color: var(--muted); font-size: var(--text-body); line-height: var(--leading-body); }
 
 .groups {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.5rem clamp(2rem, 5vw, 5rem);
+  gap: var(--space-8) var(--space-section-lg);
   align-items: start;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: var(--space-section-sm);
 }
-.group { min-width: 0; scroll-margin-top: 6rem; }
-.groupTitle { margin: 0 0 .5rem; color: var(--muted); font-size: var(--text-small); font-weight: 600; line-height: 1.5; }
+.group { min-width: 0; scroll-margin-top: calc(var(--space-8) * 2 + var(--space-4)); }
+.groupTitle { margin: 0 0 var(--space-2); color: var(--muted); font-size: var(--text-small); font-weight: var(--weight-semibold); line-height: var(--leading-ui); }
 
 .rows { margin: 0; padding: 0; list-style: none; }
 .row { border-top: 1px solid var(--line); }
 
-.rowSummary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 1rem; padding-block: .6rem; }
-.rowHead { display: grid; gap: .15rem; flex: 1 1 14rem; min-width: 0; }
-.rowTitle { font-size: var(--text-body); font-weight: 600; line-height: 1.45; }
-.rowSummary:hover .rowTitle { color: var(--accent); }
-.stat { color: var(--muted); font-size: var(--text-small); line-height: 1.5; }
-.stat b { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.rowSummary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-4); padding-block: var(--space-2); }
+.rowHead { display: grid; gap: var(--space-1); flex: 1 1 14rem; min-width: 0; }
+.rowTitle { font-size: var(--text-body); font-weight: var(--weight-semibold); line-height: var(--leading-ui); }
+.rowSummary:hover .rowTitle,
+.rowSummary:focus-visible .rowTitle { color: var(--accent); }
+.stat { color: var(--muted); font-size: var(--text-small); line-height: var(--leading-ui); }
+.stat b { color: var(--accent); font-weight: var(--weight-bold); font-variant-numeric: tabular-nums; }
 
 /* Four short labelled lines; the person's line is marked as the guardrail. */
-.detail { display: grid; gap: .7rem; margin: .25rem 0 0; }
-.detail > div { display: grid; gap: .15rem; }
-.detail dt { color: var(--muted); font-size: var(--text-caption); font-weight: 600; letter-spacing: .02em; }
-.detail dd { margin: 0; font-size: var(--text-small); line-height: 1.7; }
-.detail > div[data-role="human"] { padding-left: .75rem; box-shadow: inset 2px 0 0 var(--accent); }
+.detail { display: grid; gap: var(--space-3); margin: var(--space-1) 0 0; }
+.detail > div { display: grid; gap: var(--space-1); }
+.detail dt { color: var(--muted); font-size: var(--text-caption); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-normal); }
+.detail dd { margin: 0; font-size: var(--text-small); line-height: var(--leading-body); }
+.detail > div[data-role="human"] { padding-left: var(--space-3); box-shadow: inset 2px 0 0 var(--accent); }
 .detail > div[data-role="human"] dt { color: var(--accent); }
-.source { margin: .75rem 0 0; color: var(--muted); font-size: var(--text-caption); line-height: 1.6; }
-.links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: .25rem 0 0; }
-.link { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; color: var(--accent); font-size: var(--text-small); font-weight: 600; }
-.link:hover { text-decoration: underline; text-underline-offset: .3em; }
+.source { margin: var(--space-3) 0 0; color: var(--muted); font-size: var(--text-caption); line-height: var(--leading-ui); }
+.links { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin: var(--space-1) 0 0; }
+.link { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 2.75rem; color: var(--accent); font-size: var(--text-small); font-weight: var(--weight-semibold); }
+.link:hover,
+.link:focus-visible { text-decoration: underline; text-underline-offset: .3em; }
 
-@media (max-width: 860px) {
+@media (max-width: 767px) {
   .groups { grid-template-columns: minmax(0, 1fr); }
 }

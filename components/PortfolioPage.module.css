@@ -6,7 +6,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+  padding: var(--space-section-sm) 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -17,9 +17,9 @@
   /* The model panel moved to its own band below, so the hero is one column over the wall. */
   grid-template-columns: minmax(0, 1fr);
   align-items: end;
-  gap: clamp(3rem, 7vw, 7rem);
+  gap: var(--space-section-lg);
   width: 100%;
-  max-width: 74rem;
+  max-width: var(--site-width);
   margin: 0 auto;
 }
 
@@ -34,22 +34,22 @@
 .positioning {
   width: fit-content;
   margin: 0;
-  padding: .42rem .62rem;
+  padding: var(--space-2);
   border-left: 2px solid var(--accent);
   background: color-mix(in oklch, var(--accent) 8%, transparent);
   color: var(--fg);
   font-size: var(--text-small);
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
 }
 
 .copy h1 {
   max-width: 26ch;
-  margin: 1rem 0 0;
+  margin: var(--space-4) 0 0;
   font-size: var(--text-display);
-  font-weight: 620;
-  letter-spacing: -.035em;
-  line-height: 1.1;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-display);
   text-wrap: balance;
 }
 
@@ -60,8 +60,8 @@
   /* Two lines keep the far side of the hero open for the wall. */
   max-width: 14em;
   font-size: var(--text-display);
-  letter-spacing: -.02em;
-  line-height: 1.15;
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-display);
 }
 
 @media (max-width: 767px) {
@@ -70,35 +70,35 @@
 
 .intro {
   max-width: 40ch;
-  margin: .75rem 0 0;
+  margin: var(--space-3) 0 0;
   color: var(--muted);
   font-size: var(--text-body);
-  line-height: 1.85;
+  line-height: var(--leading-body);
 }
 
 /* Scale facts sit under the hero composition, not inside the headline stack. */
 .facts {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
+  gap: var(--space-6);
   width: 100%;
-  max-width: 74rem;
-  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+  max-width: var(--site-width);
+  margin: var(--space-section-md) auto 0;
 }
 
-.facts div { min-width: 0; padding-top: 1rem; border-top: 2px solid var(--line); }
+.facts div { min-width: 0; padding-top: var(--space-4); border-top: 2px solid var(--line); }
 .facts div:first-child { border-color: var(--accent); }
-.facts dt { font-family: var(--font-display); font-size: var(--text-h1); font-weight: 700; letter-spacing: -.055em; line-height: 1; font-variant-numeric: tabular-nums; }
+.facts dt { font-family: var(--font-display); font-size: var(--text-h1); font-weight: var(--weight-bold); letter-spacing: var(--tracking-display); line-height: var(--leading-none); font-variant-numeric: tabular-nums; }
 .facts div:first-child dt { color: var(--accent); }
-.facts dd { margin: .6rem 0 0; color: var(--muted); font-size: var(--text-small); line-height: 1.55; }
+.facts dd { margin: var(--space-2) 0 0; color: var(--muted); font-size: var(--text-small); line-height: var(--leading-ui); }
 
 
 .heroActions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: .75rem 1rem;
-  margin-top: 2.25rem;
+  gap: var(--space-3) var(--space-4);
+  margin-top: var(--space-7);
 }
 
 .primaryAction,
@@ -107,36 +107,38 @@
   min-height: 2.75rem;
   align-items: center;
   justify-content: center;
-  padding: .75rem 1.25rem;
+  padding: var(--space-3) var(--space-5);
   border: 1px solid var(--line);
   border-radius: var(--radius-ui);
   font-size: var(--text-body);
-  font-weight: 500;
-  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+  font-weight: var(--weight-medium);
+  transition: transform var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
 }
 .primaryAction { border-color: var(--accent); background: var(--accent); color: var(--accent-fg); }
 .secondaryAction { color: var(--fg); }
-.primaryAction:hover { background: color-mix(in srgb, var(--accent) 90%, transparent); }
-.secondaryAction:hover { background: var(--surface); }
+.primaryAction:hover,
+.primaryAction:focus-visible { background: color-mix(in srgb, var(--accent) 90%, transparent); }
+.secondaryAction:hover,
+.secondaryAction:focus-visible { background: var(--surface); }
 .primaryAction:active, .secondaryAction:active { transform: scale(.98); }
 
 
 /* Remit band: four moves, set in display numerals; each case page follows the same order. */
 
 @media (prefers-reduced-motion: no-preference) {
-  .copy h1 { animation: title-in .8s cubic-bezier(.16, 1, .3, 1) both; }
+  .copy h1 { animation: title-in var(--duration-slower) var(--ease-out) both; }
 }
 
 @keyframes title-in { from { opacity: 0; transform: translateY(1.5rem); } }
 
 @media (max-width: 1023px) {
   .hero { min-height: 0; }
-  .heroGrid { grid-template-columns: minmax(0, 1fr); max-width: 46rem; align-items: start; gap: 3.5rem; }
+  .heroGrid { grid-template-columns: minmax(0, 1fr); max-width: 46rem; align-items: start; gap: var(--space-section-md); }
 }
 
 @media (max-width: 767px) {
-  .hero { padding: 1.75rem 1rem 1.5rem; }
-  .copy h1 { margin-top: .75rem; }
+  .hero { padding: var(--space-6) var(--space-4); }
+  .copy h1 { margin-top: var(--space-3); }
   .intro { font-size: var(--text-body); }
   .heroActions { align-items: stretch; }
   .primaryAction, .secondaryAction { flex: 1 1 auto; }
