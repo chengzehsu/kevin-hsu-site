@@ -1268,13 +1268,13 @@ export const en = {
         summary:
           "Owned the B2B AI HVAC energy-saving product, roadmap, and internal platform, leading 4 engineers. Contracts totaled about NT$100M, and customers saved about 15% on energy on average.",
         bullets: [
-          "Cut customer onboarding from about 2 weeks to about 2 hours: 3 PMs set up sensor points themselves, for all 34 sites (excluding wiring and control strategy); handoffs per round from 4 to 0",
-          "Cut control-strategy tuning from 1 week to 2 hours: built a simulator with AI for 100,000+ combinations; modular strategies cut delivery time on related projects by 30% (estimate)",
-          "Cut requirement handling from about 1 month to about 1 week: switched a data-management project from PRD-first to prototype-first; built the second prospect's energy dashboard in 1 day",
-          "Led the platform build with Claude Code, 748 commits: PMs made 20+ self-serve uploads in about 1 month; each saves engineers about 1 hour (estimate)",
-          "Cut alerts at one site from 244 to 12: issues across 34 sites sit on one page, replacing email alerts and manual data pulls",
-          "Matched 93% of sensor names on the first try (72-sensor walkthrough): 0 confident-but-wrong answers, and unsure cases go to a person; 7,110 sensors inventoried",
-          "Got sales using AI: 51 FAQ answers cleared two human reviews; the business-card assistant logged 80 cards in 4 days",
+          "Cut customer onboarding to first equipment data from about 2 weeks to about 2 hours: built a data management platform to replace per-project customization, so PMs configure data points themselves",
+          "Cut control-strategy tuning from 1 week to 2 hours: built an AI simulator that tests 100,000+ combinations; modular strategies cut delivery time on related projects by about 30% (estimate)",
+          "Cut requirement handling from about 1 month to about 1 week: clarified needs with Claude Code and validated them with prototypes; built an energy dashboard for a second prospect in 1 day",
+          "Led the internal platform build with Claude Code (748 commits): in its first month, PMs uploaded point lists themselves 20+ times; each saves engineers about 1 hour (estimate)",
+          "Cut per-site issue handling from 30 minutes to 3 minutes: with detection rules in place, PMs see each morning which sites have problems and route them to the software team or the customer, instead of reading notifications and checking values by eye",
+          "Cut internal point-sheet creation from 1 hour to 5 minutes: turned mappings for 7,110 data points into rules and an AI skill, so PMs upload a list to convert it; in a 72-point sample, 93% were right the first time",
+          "Cut sales response time on customer questions from 1 hour to 1 minute: built an AI Q&A bot with Notion as the database and a Claude Project as the entry point, holding 51 official answers; also built an AI business-card assistant that logged 80 cards in 4 days",
         ],
       },
       {
@@ -1337,7 +1337,7 @@ export const en = {
           "Managed an NT$12M+ client project portfolio, leading 10 engineers across projects and directly managing 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award.",
         bullets: [
           "Scaled picking from 300 to 1,000 orders a day (+233%): mapped order-to-delivery during the pandemic surge and coordinated storefront, app, and AWS rebuilds; revenue grew 120% during the rebuild (team result), and AWS featured the project as a case study",
-          "Health app DAU from 12,000 to 20,000 (+66% in a year, team result): rebuilt an app with about NT$800M annual revenue, migrated data, and integrated IoT scales",
+          "Grew health app daily active users from 12,000 to 20,000 (+66% in a year, team result): rebuilt an app platform with about NT$800M annual revenue, migrated data, and integrated IoT scales",
         ],
       },
       {
@@ -1348,7 +1348,7 @@ export const en = {
         focus: "Customer data platforms, chatbots, and dashboards",
         summary: "",
         bullets: [
-          "10M customer records integrated across 3 industries: directly managed 12 people in data and product, and launched a CDP across 5 channels",
+          "Integrated 10M customer records across 3 industries: directly managed a 12-person data and product team, and launched a CDP connecting 5 channels",
         ],
       },
       {

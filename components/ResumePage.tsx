@@ -136,15 +136,15 @@ export function ResumePage({ locale }: { locale: Locale }) {
                       <ul className={styles.bullets} data-v="">
                         <TBullets id={role.id} bullets={role.bullets} locale={locale} leadClassName={styles.lead} />
                       </ul>
+                      {resume.roleCases[role.id] ? (
+                        <p className={styles.roleLinks}>
+                          {resume.roleCases[role.id].map((id) =>
+                            detailLink(id, true),
+                          )}
+                        </p>
+                      ) : null}
                       {role.gapAfter ? <p className={styles.gap}>{role.gapAfter}</p> : null}
                     </div>
-                    {resume.roleCases[role.id] ? (
-                      <p className={styles.roleLinks}>
-                        {resume.roleCases[role.id].map((id) =>
-                          detailLink(id, true),
-                        )}
-                      </p>
-                    ) : null}
                   </li>
                 );
               })}

@@ -264,14 +264,11 @@
 .bullets li::marker { color: var(--line); }
 .lead { color: var(--accent); font-weight: var(--weight-semibold); }
 
-/* The case links sit under the rail; from 1024 they move into their own column beside the results. */
+/* The case links follow the role's results they back up. */
 .roleLinks {
-  grid-column: 2;
   display: grid;
   justify-items: start;
-  margin: 0;
-  padding: 0 0 var(--space-2) var(--rail-gap);
-  border-left: 1px solid var(--line);
+  margin: var(--space-2) 0 0;
 }
 
 .detail {
@@ -351,13 +348,6 @@
 
 @media (min-width: 1024px) {
   .sheet { padding-inline: var(--space-7); }
-  .role { grid-template-columns: var(--rail) minmax(0, 1fr) 14rem; }
-  .roleLinks {
-    grid-column: 3;
-    align-content: start;
-    padding: calc(var(--space-6) - var(--space-3)) 0 0;
-    border-left: 0;
-  }
 }
 
 /* Screen only: an A4 sheet is about 690 px wide, so a bare max-width would hand paper the phone layout. */
@@ -379,7 +369,6 @@
   .period { padding-top: var(--space-5); }
   .roleBody { padding: var(--space-1) 0 var(--space-2); border-left: 0; }
   .roleBody::before { display: none; }
-  .roleLinks { grid-column: 1; padding-left: 0; border-left: 0; }
   .skills dd,
   .school { padding-left: 0; }
 }
