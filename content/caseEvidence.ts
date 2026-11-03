@@ -51,13 +51,6 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
       output: "Customer 360 客戶輪廓",
       measure: "1,000 萬筆資料整合",
     },
-    ecofirst: {
-      kind: "loop",
-      eyebrow: "系統架構",
-      title: "業務到 RD 的六層營運架構",
-      steps: ["資料層", "關聯層", "計算層", "檢視層", "規則層", "AI 層"],
-      measure: "17 個資料庫｜70 多個自動計算欄位",
-    },
   },
   en: {
     grocery: {
@@ -83,13 +76,6 @@ export const caseEvidence: Record<Locale, Record<string, CaseEvidence>> = {
       inputs: ["LINE", "Facebook", "Website", "E-commerce", "POS"],
       output: "Customer 360 view",
       measure: "10M customer records integrated",
-    },
-    ecofirst: {
-      kind: "loop",
-      eyebrow: "Architecture",
-      title: "A six-layer operating model from sales to engineering",
-      steps: ["Data", "Relations", "Computation", "Views", "Rules", "AI"],
-      measure: "17 databases | 70+ computed fields",
     },
   },
 };

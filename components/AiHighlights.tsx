@@ -2,8 +2,8 @@ import {
   ArrowRightIcon,
   ArrowUpRightIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import type { AiPracticeItem, SectionProps } from "@/content/types";
-import { aiOnlyPractice } from "@/lib/aiPractice";
+import type { SectionProps } from "@/content/types";
+import { aiOnlyCount } from "@/lib/aiPractice";
 import { casePath, portfolioPath } from "@/lib/locale";
 import styles from "./AiHighlights.module.css";
 
@@ -12,19 +12,13 @@ const MORE = {
   en: (count: number) => `See ${count} more AI projects`,
 } as const;
 
-/** Home keeps three AI projects that real teammates use; the full set lives on /portfolio/. */
+/** Home answers one question: which problems did AI solve? Each row leads with the problem; the full set lives on /portfolio/. */
 export function AiHighlights({ content, locale }: SectionProps) {
   const practice = content.aiPractice;
-  const [build, process] = practice.chapters;
-  const picks = [
-    build.items[0],
-    build.items.find((item) => item.caseId === "namecard"),
-    process.lead,
-  ].filter((item): item is AiPracticeItem => Boolean(item));
-  // "More" counts only what this section does not already show.
-  const total = aiOnlyPractice(practice)
-    .chapters.flatMap((chapter) => [chapter.lead, ...chapter.items])
-    .filter((item) => !picks.some((pick) => pick.title === item.title)).length;
+  const picks = practice.highlights;
+  // "More" counts the AI list on the portfolio, minus the rows here that come from it (those without a case).
+  const total =
+    aiOnlyCount(practice) - picks.filter((pick) => !pick.caseId).length;
 
   return (
     <section id="ai" className="content-section" aria-labelledby="ai-heading">
@@ -48,22 +42,22 @@ export function AiHighlights({ content, locale }: SectionProps) {
         </div>
         <ul className={styles.list}>
           {picks.map((item) => (
-            <li key={item.title} className="scroll-rise">
+            <li key={item.problem} className="scroll-rise">
               <a
                 href={
                   item.caseId
-                    ? casePath(locale, item.caseId)
-                    : portfolioPath(locale)
+                    ? `${casePath(locale, item.caseId)}${item.anchor ? `#${item.anchor}` : ""}`
+                    : `${portfolioPath(locale)}#ai-build`
                 }
                 className={styles.row}
               >
-                <span className={styles.stat}>
-                  <strong>{item.stat?.value}</strong>
-                  <span>{item.stat?.label}</span>
-                </span>
                 <span className={styles.copy}>
-                  <strong>{item.title}</strong>
-                  <span>{item.result}</span>
+                  <strong>{item.problem}</strong>
+                  <span>{item.solution}</span>
+                </span>
+                <span className={styles.stat}>
+                  <strong>{item.stat.value}</strong>
+                  <span>{item.stat.label}</span>
                 </span>
                 <ArrowUpRightIcon
                   className={styles.arrow}

@@ -4,7 +4,7 @@ The full artifacts are landscape infographics; cropped to a 3:4 card they lose t
 words fight the card's own title. Posters carry only the shape of each case, in the top half, so the
 outcome text over the bottom scrim reads alone. They have no words, so both locales share them.
 
-Usage: python3 scripts/case-posters.py  ->  public/case-posters/{grocery,ecofirst,health-app,cdp}.svg
+Usage: python3 scripts/case-posters.py  ->  public/case-posters/{grocery,health-app,cdp}.svg
 """
 from pathlib import Path
 
@@ -59,31 +59,6 @@ def grocery():
         m.append(f'<g filter="url(#lift)"><rect x="334" y="{y}" width="202" height="68" rx="14" fill="{PAPER}"/></g>')
         m.append(badge(362, y + 34, i == 0))
         m += lines(386, y + 22, (110, 78), gap=16, color=SKELETON if i else "#9DB6D8")
-    return frame(m)
-
-
-def ecofirst():
-    # One internal platform window: a site list on the left, a live trend on the right.
-    m = [f'<g filter="url(#lift)"><rect x="56" y="92" width="488" height="318" rx="18" fill="{PAPER}"/></g>']
-    m.append('<path d="M56 110a18 18 0 0 1 18-18h452a18 18 0 0 1 18 18v20H56z" fill="#E3EAF4"/>')
-    m += [f'<circle cx="{78 + i * 16}" cy="111" r="4.5" fill="{c}"/>' for i, c in enumerate(("#F2A7A0", "#F3D08A", "#A9D8A6"))]
-    m.append('<rect x="140" y="104" width="190" height="14" rx="7" fill="#F4F7FB"/>')
-    m.append('<rect x="56" y="130" width="112" height="280" fill="#EDF2F8"/>')
-    for i in range(6):
-        y = 152 + i * 34
-        m.append(f'<rect x="70" y="{y - 8}" width="84" height="22" rx="7" fill="{ACCENT if i == 1 else "transparent"}" opacity="{0.16 if i == 1 else 1}"/>')
-        m += lines(80, y, (54 - (i % 3) * 10,), color="#8FA9CC" if i == 1 else SKELETON)
-    m.append('<rect x="186" y="148" width="340" height="166" rx="12" fill="#FFFFFF" stroke="#E3EAF4"/>')
-    m += [f'<line x1="204" y1="{y}" x2="508" y2="{y}" stroke="#EEF2F7"/>' for y in (184, 220, 256, 292)]
-    pts = "204,282 236,270 262,276 290,252 318,258 344,232 372,238 400,210 428,216 456,188 482,194 508,170"
-    m.append(f'<polygon points="{pts} 508,300 204,300" fill="{ACCENT}" opacity=".12"/>')
-    m.append(f'<polyline points="{pts}" fill="none" stroke="{ACCENT}" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>')
-    m.append(f'<circle cx="508" cy="170" r="6" fill="{ACCENT}" stroke="#FFFFFF" stroke-width="2.5"/>')
-    for i in range(2):
-        y = 332 + i * 36
-        m.append(f'<rect x="186" y="{y}" width="340" height="26" rx="8" fill="#FFFFFF" stroke="#E3EAF4"/>')
-        m += lines(200, y + 10, (90,), color=SKELETON)
-        m.append(f'<rect x="452" y="{y + 7}" width="60" height="12" rx="6" fill="{ACCENT_SOFT}" opacity=".7"/>')
     return frame(m)
 
 
@@ -144,6 +119,6 @@ def cdp():
 
 
 OUT.mkdir(parents=True, exist_ok=True)
-for name, draw in (("grocery", grocery), ("ecofirst", ecofirst), ("health-app", health), ("cdp", cdp)):
+for name, draw in (("grocery", grocery), ("health-app", health), ("cdp", cdp)):
     (OUT / f"{name}.svg").write_text(draw(), encoding="utf-8")
     print("wrote", name)

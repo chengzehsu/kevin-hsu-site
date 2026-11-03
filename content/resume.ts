@@ -42,7 +42,7 @@ export interface ResumeContent {
 }
 
 const roleCases = {
-  ecofirst: ["internal-backend", "ecofirst"],
+  ecofirst: ["internal-backend", "sensor-naming", "sales-faq"],
   fable: ["grocery", "health-app"],
   oakda: ["cdp"],
 };
@@ -52,8 +52,13 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     title: "履歷",
     name: "許承澤 Kevin Hsu",
     headline: "資深產品經理 Senior Product Manager｜平台重構與內部系統",
-    summary: "Senior Product Manager，7 年以上 B2B、AI 與電商產品相關經驗，專注平台重構與內部系統。",
-    summaryPoints: ["客戶導入 約 2 週 → 約 2 小時（不含現場接線與控制策略），34 個案場都適用", "電商揀貨 300 → 1,000 單／日，獲 AWS 收錄為案例", "專案帶領 10 位工程師、直屬管理 2 位初階 PM，獲 PMI 標竿專案獎優選"],
+    summary:
+      "Senior Product Manager，7 年以上 B2B、AI 與電商產品相關經驗，專注平台重構與內部系統，能用 Claude Code 自建工具。",
+    summaryPoints: [
+      "客戶導入 約 2 週 → 約 2 小時（不含現場接線與控制策略），34 個案場都適用",
+      "電商揀貨 300 → 1,000 單／日，獲 AWS 收錄為案例",
+      "專案帶領 10 位工程師、直屬管理 2 位初階 PM，獲 PMI 標竿專案獎優選",
+    ],
     entryLabel: "履歷",
     printLabel: "列印／存成 PDF",
     printHint: "在列印視窗選「另存為 PDF」即可下載。",
@@ -69,13 +74,31 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       awards: "獎項與案例收錄",
     },
     detailLabel: "看案例",
-    education: { school: "元智大學", detail: "資訊管理學系", period: "2014/9 - 2018/6" },
+    education: {
+      school: "元智大學",
+      detail: "資訊管理學系",
+      period: "2014/9 - 2018/6",
+    },
     roleCases,
     skills: [
-      { label: "產品規劃", items: ["Product Roadmap", "PRD", "Prototype", "使用者研究"] },
-      { label: "平台與資料", items: ["內部系統規劃", "CDP 規劃", "API 串接", "系統整合", "資料遷移", "資料品質", "IoT 整合"] },
-      { label: "流程與協作", items: ["流程優化", "專案管理", "跨部門協作"] },
-      { label: "AI 與工具", items: ["Claude Code", "Notion"] },
+      {
+        label: "產品規劃",
+        items: ["Product Roadmap", "PRD", "Prototype", "Wireframe", "User Story", "使用者研究"],
+      },
+      {
+        label: "平台與資料",
+        items: [
+          "內部系統規劃",
+          "CDP 規劃",
+          "API 串接",
+          "系統整合",
+          "資料遷移",
+          "資料品質", "埋點規劃",
+          "IoT 整合",
+        ],
+      },
+      { label: "流程與協作", items: ["流程優化", "專案管理", "跨部門協作", "QA 驗收"] },
+      { label: "AI 與工具", items: ["Claude Code", "Cursor", "Gemini", "AI 準確度評估", "人工審核流程設計", "Notion", "Asana"] },
     ],
     moreText: "每個成果背後的痛點、決策與量測方式，都寫在作品集的案例頁。",
   },
@@ -83,8 +106,13 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     title: "Résumé",
     name: "Kevin Hsu (許承澤)",
     headline: "Senior Product Manager | Platform rebuilds and internal systems",
-    summary: "Senior Product Manager with 7+ years of product-related experience in B2B, AI, and e-commerce, focused on platform rebuilds and internal systems.",
-    summaryPoints: ["Cut customer onboarding from about 2 weeks to about 2 hours (excluding on-site wiring and control strategy), for all 34 sites", "Scaled e-commerce picking from 300 to 1,000 orders a day, featured as an AWS case study", "Led 10 engineers across projects and directly managed 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award"],
+    summary:
+      "Senior Product Manager with 7+ years of product-related experience in B2B, AI, and e-commerce, focused on platform rebuilds and internal systems, who builds internal tools with Claude Code.",
+    summaryPoints: [
+      "Cut customer onboarding from about 2 weeks to about 2 hours (excluding on-site wiring and control strategy), for all 34 sites",
+      "Scaled e-commerce picking from 300 to 1,000 orders a day, featured as an AWS case study",
+      "Led 10 engineers across projects and directly managed 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award",
+    ],
     entryLabel: "Résumé",
     printLabel: "Print / save as PDF",
     printHint: 'Choose "Save as PDF" in the print dialog to download.',
@@ -100,13 +128,38 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       awards: "Awards & features",
     },
     detailLabel: "Case study",
-    education: { school: "Yuan Ze University", detail: "B.S., Information Management", period: "Sep 2014 - Jun 2018" },
+    education: {
+      school: "Yuan Ze University",
+      detail: "B.S., Information Management",
+      period: "Sep 2014 - Jun 2018",
+    },
     roleCases,
     skills: [
-      { label: "Product planning", items: ["Product Roadmap", "PRD", "Prototyping", "User Research"] },
-      { label: "Platforms and data", items: ["Internal Systems", "CDP", "API Integration", "System Integration", "Data Migration", "Data Quality", "IoT Integration"] },
-      { label: "Process and teams", items: ["Process Optimization", "Project Management", "Cross-functional Collaboration"] },
-      { label: "AI and tools", items: ["Claude Code", "Notion"] },
+      {
+        label: "Product planning",
+        items: ["Product Roadmap", "PRD", "Prototyping", "Wireframes", "User Stories", "User Research"],
+      },
+      {
+        label: "Platforms and data",
+        items: [
+          "Internal Systems",
+          "CDP",
+          "API Integration",
+          "System Integration",
+          "Data Migration",
+          "Data Quality", "Event Tracking",
+          "IoT Integration",
+        ],
+      },
+      {
+        label: "Process and teams",
+        items: [
+          "Process Optimization",
+          "Project Management",
+          "Cross-functional Collaboration", "QA",
+        ],
+      },
+      { label: "AI and tools", items: ["Claude Code", "Cursor", "Gemini", "AI Accuracy Evaluation", "Human Review Workflows", "Notion", "Asana"] },
     ],
     moreText:
       "The bottleneck, the decisions, and how each result was measured are on the case study pages.",

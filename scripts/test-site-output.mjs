@@ -131,12 +131,12 @@ for (const [locale, file, heading] of [
     const wall = portfolio.slice(portfolio.indexOf('aria-hidden="true"'), portfolio.indexOf('id="portfolio-title"'));
     assert.ok(/<a[^>]*tabindex="-1"[^>]*href|<a[^>]*href="[^"]*\/cases\/[^"]*"[^>]*tabindex="-1"/i.test(wall), "Wall tiles link to their case");
     assert.ok(portfolio.includes(locale === "zh" ? "Senior Product Manager｜平台重構與內部系統" : "Senior Product Manager · Platform rebuilds and internal systems"));
-    // Every case is one card in one grid, in rank order: seven from work, then three side projects.
-    const caseIds = ["internal-backend", "grocery", "health-app", "cdp", "ecofirst", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
+    // Every case is one card in one grid, in rank order: six from work, then three side projects.
+    const caseIds = ["internal-backend", "grocery", "health-app", "cdp", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
     assert.deepEqual([...cases.matchAll(/<article id="([a-z-]+)"/g)].map((m) => m[1]), caseIds);
-    assert.equal((cases.match(/data-case-card="card"/g) ?? []).length, 10);
-    assert.deepEqual([...cases.matchAll(/<article id="([a-z-]+)"[^>]*data-wide/g)].map((m) => m[1]), ["internal-backend", "resume-site"], "Two wide cards fill the grid");
-    assert.ok(cases.replace(/<[^>]+>/g, "").includes(locale === "zh" ? "10 個案例：7 個工作專案、3 個個人專案" : "10 case studies: 7 from work, 3 from side projects"));
+    assert.equal((cases.match(/data-case-card="card"/g) ?? []).length, 9);
+    assert.deepEqual([...cases.matchAll(/<article id="([a-z-]+)"[^>]*data-wide/g)].map((m) => m[1]), ["internal-backend", "sales-faq", "resume-site"], "Three wide cards fill the grid");
+    assert.ok(cases.replace(/<[^>]+>/g, "").includes(locale === "zh" ? "9 個案例：6 個工作專案、3 個個人專案" : "9 case studies: 6 from work, 3 from side projects"));
     assert.ok(!cases.includes(locale === "zh" ? "關鍵取捨" : "Key decision"), "Cards hold no decision text");
     assert.ok(!portfolio.includes(locale === "zh" ? "管理專案組合" : "project portfolio managed"), "The hero has no facts strip");
     const shelf = html.match(/<section id="work"[\s\S]*?<\/section>/)?.[0];
@@ -150,8 +150,6 @@ for (const [locale, file, heading] of [
     const extrasTitle = locale === "zh" ? "其他協助公司營運的工作" : "Also improved how the company runs";
     const experience = html.match(/<section id="experience"[\s\S]*?<\/section>/)?.[0] ?? "";
     assert.ok(!experience.includes(extrasTitle));
-    const ecofirstCase = await readFile(new URL(`../out${locale === "en" ? "/en" : ""}/cases/ecofirst/index.html`, import.meta.url), "utf8");
-    assert.ok(ecofirstCase.includes(extrasTitle), "The add-on sits on the Ecofirst case");
     // Eight roles as one line each; results live on the résumé, so nothing expands here.
     assert.equal((experience.match(/<li[^>]*id="experience-/g) ?? []).length, 8);
     assert.ok(!experience.includes("<details"), "Experience rows do not expand");
@@ -180,7 +178,9 @@ for (const [locale, file, heading] of [
       assert.match(detail.slice(0, fold), /measureNote[^"]*">[^<]+</, `${id} shows how its figure was measured on the first screen`);
       for (const label of locale === "zh" ? ["用到的能力", "學到的能力", "我做的決定", "合作對象"] : ["Skills used", "Skills learned", "The decision I made", "Worked with"]) {
         const at = detail.indexOf(label);
-        assert.ok(at > 0 && at < fold, `${id} shows ${label} on the first screen`);
+        // A case with scenarios moves role, scope, and team behind the disclosure to keep its first screen short.
+        const behind = id === "internal-backend" && (label === "合作對象" || label === "Worked with");
+        assert.ok(at > 0 && (behind ? at > fold : at < fold), `${id} shows ${label} ${behind ? "behind the disclosure" : "on the first screen"}`);
       }
       // One skeleton on every case: problem, decision, result, what was built, then the full story.
       const order = ["situation", "decision", "result", "artifacts"].map((anchor) => detail.indexOf(`id="${anchor}"`));
@@ -192,7 +192,7 @@ for (const [locale, file, heading] of [
       assert.equal(detail.includes("data-ai-split"), ["internal-backend", "namecard", "sensor-naming", "sales-faq", "life-hub", "resume-site"].includes(id));
       // Interviewers ask which calls were made and on what data; the logs fold away until asked for.
       const log = detail.match(/<div id="decision-log"[\s\S]*?<\/ol>/)?.[0];
-      const logSizes = { ecofirst: 6, "internal-backend": 5 };
+      const logSizes = { "internal-backend": 2 };
       if (id in logSizes) {
         assert.ok(log, `The ${id} case lists its decisions, server rendered`);
         assert.equal((log.match(/<li/g) ?? []).length, logSizes[id]);
@@ -221,6 +221,17 @@ for (const [locale, file, heading] of [
     // Visitor copy names the product only as the internal back office.
     assert.ok(!/point table|點位表管理/i.test(detail));
     assert.ok(!/27 小時[^。]*上線/.test(detail), "27 hours is proposal to archive, never time to production");
+    // Three functions serve three situations: named on the first screen, one story section each.
+    const scenarios = detail.match(/<div id="scenarios"[\s\S]*?<\/ul>/)?.[0] ?? "";
+    assert.equal((scenarios.match(/<li/g) ?? []).length, 3, "Three situations on the first screen");
+    assert.ok(detail.indexOf('id="scenarios"') < detail.indexOf('id="situation"'));
+    assert.deepEqual([...story.matchAll(/<section id="([a-z-]+)"/g)].map((m) => m[1]).filter((id) => id !== "story" && id !== "contact"), ["site-management", "data-collection", "customer-view"]);
+    // The savings-rate statistics feature stays off this case; its completeness is too low to show.
+    // Only the case itself: the contact block names the industry, which is not the feature.
+    const text = detail.slice(0, detail.indexOf('<section id="contact"')).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, "");
+    for (const gone of ["節能率", "冷凍噸", "energy savings", "Energy-savings", "energy-savings", "refrigeration", "28 of 34"]) {
+      assert.ok(!text.includes(gone), `Savings-rate feature: ${gone}`);
+    }
   });
 
   test(`${locale}: the home page reads in decision order`, async () => {
@@ -237,6 +248,9 @@ for (const [locale, file, heading] of [
     assert.ok(!/<text[^>]*>\s*\d/.test(skills), "The skills radar must not print numeric scores");
     const ai = html.match(/<section id="ai"[\s\S]*?<\/section>/)?.[0] ?? "";
     assert.equal((ai.match(/<li/g) ?? []).length, 3, "Three AI picks");
+    assert.ok(ai.includes(locale === "zh" ? "這一年，我用 AI 解決的問題" : "Problems I solved with AI this year"), "The heading names the problems solved");
+    const firstRow = ai.match(/<li[\s\S]*?<\/li>/)?.[0] ?? "";
+    assert.ok(firstRow.indexOf(locale === "zh" ? "人工試算" : "tested by hand") < firstRow.indexOf(locale === "zh" ? "1 週" : "1 wk"), "Each row reads problem first, figure after");
     const nav = html.match(/<nav[^>]*>[\s\S]*?<\/nav>/)?.[0] ?? "";
     assert.deepEqual([...nav.matchAll(/href="#([a-z-]+)"/g)].map((m) => m[1]), ["ai"]);
     assert.ok(nav.includes(locale === "zh" ? "作品集" : "Portfolio"));
@@ -244,7 +258,7 @@ for (const [locale, file, heading] of [
 
   test(`${locale}: every page has unique ids, filled templates, and old links that still land`, async () => {
     const prefix = locale === "en" ? "en/" : "";
-    const ids = ["internal-backend", "ecofirst", "grocery", "health-app", "cdp", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
+    const ids = ["internal-backend", "grocery", "health-app", "cdp", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
     for (const page of [file, portfolioFile, ...ids.map((id) => `../out/${prefix}cases/${id}/index.html`)]) {
       const raw = (await readFile(new URL(page, import.meta.url), "utf8")).replace(/<script[\s\S]*?<\/script>/g, "");
       const found = [...raw.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
@@ -258,13 +272,14 @@ for (const [locale, file, heading] of [
     const redirects = await readFile(new URL("../out/_redirects", import.meta.url), "utf8");
     const base = locale === "en" ? "/en" : "";
     assert.ok(redirects.split("\n").includes(`${base}/cases/podcast-stock/ ${base}/portfolio/ 301`), "The retired case lands on this language's portfolio");
+    assert.ok(redirects.split("\n").includes(`${base}/cases/ecofirst/ ${base}/portfolio/ 301`), "The removed Ecofirst case lands on this language's portfolio");
   });
 
   test(`${locale}: unconfirmed claims and older positioning stay off every page`, async () => {
     const prefix = locale === "en" ? "en/" : "";
-    const ids = ["internal-backend", "ecofirst", "grocery", "health-app", "cdp", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
+    const ids = ["internal-backend", "grocery", "health-app", "cdp", "sensor-naming", "sales-faq", "namecard", "life-hub", "resume-site"];
     const pages = [file, portfolioFile, `../out/${prefix}resume/index.html`, ...ids.map((id) => `../out/${prefix}cases/${id}/index.html`)];
-    const stale = ["一到兩成", "一成多", "10 to 20%", "10%-plus", "不必設定", "no-setup", "need no configuration", "18 條", "18 human-set", "18 threshold", "+50%", "交付效率", "elivery efficiency", "+20%", "案場營運效率", "ite-ops efficiency", "營運效率提升 20%", "operational efficiency by 20%", "股神打架", "Stock Gods Fight", "−99%", " -30%", "看工作案例", "查看案例詳情", "看細節", "See work cases", "View case details", "營運流程數位化", "Operations digitization, internal", "digitizing operations", "Product Manager（規劃與實作）", "vibe coding"];
+    const stale = ["4,491", "31 個案場", "31 sites", "把業務到 RD 接成一條線", "AI 節能產品｜營運系統", "一到兩成", "一成多", "10 to 20%", "10%-plus", "不必設定", "no-setup", "need no configuration", "18 條", "18 human-set", "18 threshold", "+50%", "交付效率", "elivery efficiency", "+20%", "案場營運效率", "ite-ops efficiency", "營運效率提升 20%", "operational efficiency by 20%", "股神打架", "Stock Gods Fight", "−99%", " -30%", "看工作案例", "查看案例詳情", "看細節", "See work cases", "View case details", "營運流程數位化", "Operations digitization, internal", "digitizing operations", "Product Manager（規劃與實作）", "vibe coding"];
     for (const page of pages) {
       const raw = await readFile(new URL(page, import.meta.url), "utf8");
       // These frames carry retired claims burned into the image until the film is re-rendered.
@@ -311,7 +326,7 @@ for (const [locale, file, heading] of [
 
   test(`${locale}: corrected counts`, async () => {
     const prefix = locale === "en" ? "en/" : "";
-    const pages = [file, ...["ecofirst"].map((id) => `../out/${prefix}cases/${id}/index.html`)];
+    const pages = [file];
     const html = (await Promise.all(pages.map((page) => readFile(new URL(page, import.meta.url), "utf8")))).join("");
     for (const stale of ["1,500 筆以上的業務紀錄已整理成 FAQ", "1,500+ sales records have been distilled", "102 份", "102 reports", "102 daily", "20 份", "20 productization", "424 次", "424 commits", "59 個 PR", "59 PRs"]) {
       assert.ok(!html.includes(stale), `Stale count: ${stale}`);
@@ -334,7 +349,7 @@ for (const [locale, file, home] of [
     const homeHtml = await readFile(new URL(home, import.meta.url), "utf8");
     const prefix = locale === "en" ? "/en/" : "/";
     assert.ok(homeHtml.includes(`href="${prefix}resume/"`), "Hero and nav link to the résumé");
-    for (const id of ["internal-backend", "ecofirst", "grocery", "health-app", "cdp"]) {
+    for (const id of ["internal-backend", "grocery", "health-app", "cdp"]) {
       assert.ok(html.includes(`href="${prefix}cases/${id}/"`), `Résumé links to the ${id} case`);
     }
     assert.ok(html.includes("+233%") && html.includes("+66%"), "Canonical figures appear on the résumé");

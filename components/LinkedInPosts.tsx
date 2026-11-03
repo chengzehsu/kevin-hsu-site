@@ -2,12 +2,15 @@ import type { SectionProps } from "@/content/types";
 import { aiOnlyPractice } from "@/lib/aiPractice";
 import { caseName } from "@/lib/cases";
 import { casePath } from "@/lib/locale";
-import { ArrowRightIcon, ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import { Disclosure } from "./Disclosure";
 import styles from "./LinkedInPosts.module.css";
 
 /**
- * 「用 AI 解決問題」: the AI work without a case of its own, one row each below the case cards. A row holds
+ * The AI work without a case of its own, one row each below the case cards. A row holds
  * the title and one figure; the problem, the AI and human halves, and the source expand in place.
  * The anchor keeps its old id so links already sent still land here.
  */
@@ -15,7 +18,9 @@ export function LinkedInPosts({ content, locale }: SectionProps) {
   const practice = aiOnlyPractice(content.aiPractice);
   const { labels } = practice;
   const colon = locale === "zh" ? "：" : ": ";
-  const caseNames = Object.fromEntries(content.cases.items.map((item) => [item.id, caseName(item)]));
+  const caseNames = Object.fromEntries(
+    content.cases.items.map((item) => [item.id, caseName(item)]),
+  );
 
   return (
     <section
@@ -32,9 +37,16 @@ export function LinkedInPosts({ content, locale }: SectionProps) {
         </div>
         <div className={styles.groups}>
           {practice.chapters.map((chapter) => (
-            <div key={chapter.id} id={chapter.id} className={styles.group} data-ai-chapter={chapter.id}>
+            <div
+              key={chapter.id}
+              id={chapter.id}
+              className={styles.group}
+              data-ai-chapter={chapter.id}
+            >
               {/* The process chapter merged into the first group; links sent earlier still land on it. */}
-              {chapter.id === "ai-build" ? <span id="ai-process" aria-hidden="true" /> : null}
+              {chapter.id === "ai-build" ? (
+                <span id="ai-process" aria-hidden="true" />
+              ) : null}
               <h3 className={styles.groupTitle}>{chapter.title}</h3>
               <ul className={styles.rows}>
                 {[chapter.lead, ...chapter.items].map((item) => (
@@ -81,7 +93,10 @@ export function LinkedInPosts({ content, locale }: SectionProps) {
                       {item.caseId || item.href ? (
                         <p className={styles.links}>
                           {item.caseId ? (
-                            <a className={`${styles.link} action-link`} href={casePath(locale, item.caseId)}>
+                            <a
+                              className={`${styles.link} action-link`}
+                              href={casePath(locale, item.caseId)}
+                            >
                               {labels.caseLink}
                               {colon}
                               {caseNames[item.caseId]}
@@ -97,7 +112,9 @@ export function LinkedInPosts({ content, locale }: SectionProps) {
                             >
                               {labels.read}
                               <span className="sr-only">
-                                {locale === "zh" ? `：${item.title}（LinkedIn）` : `: ${item.title} (LinkedIn)`}
+                                {locale === "zh"
+                                  ? `：${item.title}（LinkedIn）`
+                                  : `: ${item.title} (LinkedIn)`}
                               </span>
                               <ArrowUpRightIcon size={18} aria-hidden="true" />
                             </a>

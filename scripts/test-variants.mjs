@@ -118,5 +118,5 @@ test("tracked URLs match pnpm utm", async () => {
   assert.equal(trackedUrl(origin, "acme", "resume", false), "https://chengzeresume.kevin492625.workers.dev/resume/?s=acme");
   assert.equal(trackedUrl(origin, "acme", "home", true), "https://chengzeresume.kevin492625.workers.dev/en/?s=acme");
   assert.equal(trackedUrl(origin, "acme", "portfolio", true), "https://chengzeresume.kevin492625.workers.dev/en/portfolio/?s=acme");
-  assert.equal(trackedUrl(origin, "acme", "case-ecofirst", false), "https://chengzeresume.kevin492625.workers.dev/cases/ecofirst/?s=acme&m=manager");
+  assert.equal(trackedUrl(origin, "acme", "case-grocery", false), "https://chengzeresume.kevin492625.workers.dev/cases/grocery/?s=acme&m=manager");
 });

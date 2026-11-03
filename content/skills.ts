@@ -81,7 +81,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         proof: "揀貨 300 → 1,000 單／日 (+233%)",
         references: [
           { label: "Fable 寓意科技", href: "/cases/grocery/" },
-          { label: "台灣愛淨", href: "/cases/ecofirst/" },
+          { label: "內部後台", href: "/cases/internal-backend/" },
         ],
       },
       {
@@ -102,7 +102,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         summary: "依商業目標、使用者需求與交付限制排出 Roadmap。在愛淨分析 735 張任務、約 920 小時的去向，合約也改成從資料齊備那天起算。",
         proof: "51% 的工作花在單一案場客製，所以售前改用 S/M/L/XL 四種規模報價",
         references: [
-          { label: "台灣愛淨", href: "/cases/ecofirst/" },
+          { label: "台灣愛淨", href: "#experience-ecofirst" },
         ],
       },
       {
@@ -133,8 +133,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         kind: "product",
         title: "產品管理",
         items: [
-          { name: "產品策略", href: "/cases/ecofirst/" },
-          { name: "Roadmap 規劃", href: "/cases/ecofirst/" },
+          { name: "產品策略", href: "#experience-ecofirst" },
+          { name: "Roadmap 規劃", href: "#experience-ecofirst" },
           { name: "需求探索", href: "#experience-sat" },
           { name: "使用者訪談", href: "/cases/health-app/" },
           { name: "競品研究", href: "/cases/health-app/" },
@@ -146,7 +146,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         items: [
           { name: "AI 輔助開發流程", href: "#experience-ecofirst" },
           { name: "內部工具規劃", href: "#experience-ecofirst" },
-          { name: "工作流程自動化", href: "/cases/ecofirst/" },
+          { name: "工作流程自動化", href: "/cases/sales-faq/" },
           { name: "原型與功能驗證", href: "#experience-zhongshuo" },
           { name: "PRD 與驗收", href: "/cases/health-app/" },
         ],
@@ -202,7 +202,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         proof: "Picking 300 → 1,000 orders/day (+233%)",
         references: [
           { label: "Fable", href: "/en/cases/grocery/" },
-          { label: "Ecofirst", href: "/en/cases/ecofirst/" },
+          { label: "Internal platform", href: "/en/cases/internal-backend/" },
         ],
       },
       {
@@ -223,7 +223,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         summary: "Build the roadmap from business goals, user needs, and delivery constraints. At Ecofirst, I traced where 735 tasks and about 920 hours went, and contract timelines now start when the data is complete.",
         proof: "51% of the work went to single-site customization, so presales moved to S/M/L/XL tiers",
         references: [
-          { label: "Ecofirst", href: "/en/cases/ecofirst/" },
+          { label: "Ecofirst", href: "#experience-ecofirst" },
         ],
       },
       {
@@ -254,8 +254,8 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         kind: "product",
         title: "Product management",
         items: [
-          { name: "Product strategy", href: "/en/cases/ecofirst/" },
-          { name: "Roadmap planning", href: "/en/cases/ecofirst/" },
+          { name: "Product strategy", href: "#experience-ecofirst" },
+          { name: "Roadmap planning", href: "#experience-ecofirst" },
           { name: "Product discovery", href: "#experience-sat" },
           { name: "User interviews", href: "/en/cases/health-app/" },
           { name: "Competitor research", href: "/en/cases/health-app/" },
@@ -267,7 +267,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         items: [
           { name: "AI-assisted development workflows", href: "#experience-ecofirst" },
           { name: "Internal tool planning", href: "#experience-ecofirst" },
-          { name: "Workflow automation", href: "/en/cases/ecofirst/" },
+          { name: "Workflow automation", href: "/en/cases/sales-faq/" },
           { name: "Prototyping and validation", href: "#experience-zhongshuo" },
           { name: "PRDs and acceptance criteria", href: "/en/cases/health-app/" },
         ],

@@ -144,6 +144,15 @@
 .measureNote { margin: var(--space-2) 0 0; color: var(--muted); font-size: var(--text-caption); line-height: var(--leading-ui); }
 
 /* What the project used and what it grew: the second thing a hiring manager wants after the result. */
+.scenarios { margin-top: var(--space-4); }
+.scenarios + .capabilities { margin-top: var(--space-4); }
+.scenarios h2 { margin: 0; color: var(--muted); font-size: var(--text-small); font-weight: var(--weight-semibold); }
+.scenarios ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); margin: var(--space-2) 0 0; padding: 0; list-style: none; }
+.scenarios li { display: grid; align-content: start; gap: var(--space-1); min-width: 0; padding-top: var(--space-2); border-top: 1px solid var(--line); }
+.scenarios strong { font-size: var(--text-body); font-weight: var(--weight-semibold); }
+.scenarios p { margin: 0; color: var(--muted); font-size: var(--text-small); line-height: var(--leading-ui); }
+.scenarios p[data-now] { color: var(--fg); font-weight: var(--weight-medium); }
+
 .capabilities {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -519,6 +528,7 @@
   .backdropRow img { width: 10rem; }
   .ownership { font-size: var(--text-body); }
   .capabilities { grid-template-columns: minmax(0, 1fr); }
+  .scenarios ul { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
   .facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
   .chapter { padding-top: var(--space-6); }
   .deliverables { grid-template-columns: minmax(0, 1fr); }

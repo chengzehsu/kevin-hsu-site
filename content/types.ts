@@ -134,9 +134,22 @@ export interface AiPracticeChapter {
   items: AiPracticeItem[];
 }
 
+/** A home-page row: the problem first, then the fix in one short line. */
+export interface AiHighlight {
+  problem: string;
+  solution: string;
+  stat: { value: string; label: string };
+  /** Case page the row opens; rows without one open the AI list on the portfolio. */
+  caseId?: string;
+  /** Chapter on the case page. */
+  anchor?: string;
+}
+
 export interface AiPracticeContent {
   title: string;
   intro: string;
+  /** The three problems the home page shows. */
+  highlights: AiHighlight[];
   labels: {
     stuck: string;
     ai: string;
@@ -193,6 +206,8 @@ export interface CaseStudy {
   /** The outcome a hiring reader should understand before reading the full case. */
   impact: string;
   /** What this project drew on and what it added, in project-specific words. */
+  /** When one product serves different situations: who is stuck on what, and what changed, one row each. */
+  scenarios?: Array<{ name: string; stuck: string; now: string }>;
   capabilities: { used: string[]; grown: string[] };
   /** The work Kevin personally drove, separated from the overall outcome. */
   ownership: string;
@@ -257,6 +272,8 @@ export interface CaseArticle {
     stat?: { value: string; label: string };
     paragraphs: string[];
     figure?: ArticleFigure;
+    /** Further screens for a section that needs more than one. */
+    moreFigures?: ArticleFigure[];
   }>;
   /** Evidence plus a plain invitation to talk; never a pitch. */
   closing: string;
@@ -302,7 +319,12 @@ export interface CasesContent {
     outcome: string;
   };
   /** Labels for a case's capabilities: full on the case page, short on its card. */
-  capabilityLabels: { used: string; grown: string; cardUsed: string; cardGrown: string };
+  capabilityLabels: {
+    used: string;
+    grown: string;
+    cardUsed: string;
+    cardGrown: string;
+  };
   decisionLabel: string;
   fullProcessLabel: string;
   fullProcessCollapse: string;

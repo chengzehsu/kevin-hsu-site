@@ -55,10 +55,10 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       headline: { value: "約 2 週 → 約 2 小時", label: "新舊案場都能導入，PM 自己完成，不用再等工程師（不含現場接線與控制策略）", also: "每輪點位測試的交接 4 → 0 次" },
     },
     "sensor-naming": {
-      src: "/ai-covers/naming-core.svg",
-      alt: "示意圖：資料回傳與模擬分析兩條流程都接到同一支命名程式，命名字典由人拍板",
-      title: "一支命名程式，兩條流程共用",
-      context: "廠商清單不再靠人工對照",
+      src: "/ai-covers/naming.svg",
+      alt: "示意圖：格式雜亂的廠商命名排成標準名稱，沒把握的一項交給人確認",
+      title: "各種廠商寫法，對成同一套標準名稱",
+      context: "PM 自己把點位表轉成內部格式",
       treatment: "reconstructed",
       headline: { value: "93%", label: "的廠商清單項目，機器一次對到標準名稱（抽 72 筆實測）", also: "「信心很高卻答錯」0 筆" },
     },
@@ -118,29 +118,6 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
         },
       ],
     },
-    ecofirst: {
-      src: "/portfolio-artifacts/ecofirst-hvac-platform.webp",
-      alt: "Ecofirst HVAC 內部後台成果圖，顯示兩個月 218 次程式提交，以及案場點位、資料匯出與互動查詢整合畫面",
-      title: "Ecofirst HVAC 內部後台",
-      context: "748 次程式提交，把散落的資料流程整合進同一個後台",
-      layout: "square",
-      treatment: "published",
-      headline: { value: "4～5 輪 → 1～2 輪", label: "需求確認的來回次數（內部估算）", also: "17 個資料庫串起業務到 RD" },
-      stills: [
-        {
-          src: "/portfolio-wall/film-7.webp",
-          alt: "介紹影片畫面：用 Claude Code 做出內部平台，2 個月 218 次提交",
-          caption: "內部後台｜2 個月 218 次程式提交",
-          ...FILM,
-        },
-        {
-          src: "/portfolio-artifacts/ecofirst-ops.zh.svg",
-          alt: "Notion 營運系統：名片、客戶、專案與業務推進連到售前閘門，再進軟體部專案與需求池，並以 PM 期待日對比 RD 預計日判斷插單；業務推進 1,639 筆、RD 任務 1,829 筆",
-          caption: "營運系統｜從業務到 RD，資料都串在一起",
-          ...FILM,
-        },
-      ],
-    },
     namecard: {
       src: "/portfolio-artifacts/namecard-journey.zh.svg",
       alt: "AI 名片管理助手的演進：個人原型、欄位對齊公司 CRM 並把判斷欄位留給業務、嘗試多租戶與訂閱方案，最後依實際用量拆掉分散式架構",
@@ -178,10 +155,10 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       headline: { value: "~2 weeks → ~2 hours", label: "to onboard a new or existing site, done by PMs with no engineer wait (excluding on-site wiring and control strategy)", also: "4 → 0 handoffs per round of testing" },
     },
     "sensor-naming": {
-      src: "/ai-covers/naming-core.svg",
-      alt: "Illustration: data collection and analysis both call one naming tool, with a person-approved dictionary",
-      title: "One naming tool, two workflows",
-      context: "No more mapping vendor lists by hand",
+      src: "/ai-covers/naming.svg",
+      alt: "Illustration: messy vendor names line up as standard names, and the one the tool is unsure of goes to a person",
+      title: "Every vendor spelling, one set of standard names",
+      context: "PMs convert sensor lists to our format themselves",
       treatment: "reconstructed",
       headline: { value: "93%", label: "of sensors matched correctly on the first try (72-sensor walkthrough)", also: "0 confident-but-wrong answers" },
     },
@@ -243,29 +220,6 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
         },
       ],
     },
-    ecofirst: {
-      src: "/portfolio-artifacts/ecofirst-hvac-platform.webp",
-      alt: "Ecofirst HVAC internal-platform result showing 218 commits in 2 months and an integrated workflow for sensor points, data export, and interactive queries",
-      title: "Ecofirst HVAC internal platform",
-      context: "748 commits turned scattered data workflows into one platform",
-      layout: "square",
-      treatment: "published",
-      headline: { value: "4-5 → 1-2", unit: "rounds", label: "Requirement sign-off rounds (internal estimate)", also: "17 Notion databases linking sales to engineering" },
-      stills: [
-        {
-          src: "/portfolio-wall/film-7.webp",
-          alt: "Film still: an internal platform built with Claude Code, 218 commits in 2 months",
-          caption: "Internal platform | 218 commits in 2 months",
-          ...FILM,
-        },
-        {
-          src: "/portfolio-artifacts/ecofirst-ops.en.svg",
-          alt: "Notion operating model: business cards, customers, projects, and sales updates feed a presales gate, then software projects and a requirements queue that flags rush jobs by comparing the PM's date with engineering's estimate; 1,639 sales updates and 1,829 engineering tasks",
-          caption: "Operating model | Sales and engineering connected in one data flow",
-          ...FILM,
-        },
-      ],
-    },
     namecard: {
       src: "/portfolio-artifacts/namecard-journey.en.svg",
       alt: "How the AI business-card assistant evolved: a personal prototype, fields matched to the company CRM with judgment fields left to sales, a multi-tenant trial with subscription plans, then a version scaled back to match real usage",
@@ -291,7 +245,6 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
  */
 export const CASE_POSTERS: Record<string, string> = {
   grocery: "/case-posters/grocery.svg",
-  ecofirst: "/case-posters/ecofirst.svg",
   "health-app": "/case-posters/health-app.svg",
   cdp: "/case-posters/cdp.svg",
 };
@@ -314,7 +267,6 @@ export const CASE_WALL_TILES = [
   "/portfolio-wall/film-6.webp",
   "/portfolio-artifacts/cdp-market-validation.svg",
   "/portfolio-artifacts/internal-backend-warroom.webp",
-  "/portfolio-artifacts/ecofirst-ops.zh.svg",
   "/portfolio-wall/film-7.webp",
   "/portfolio-artifacts/internal-backend-timeseries.webp",
 ] as const;

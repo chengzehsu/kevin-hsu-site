@@ -14,7 +14,7 @@ export const en = {
   nav: {
     brand: "Kevin Hsu",
     links: [
-      { label: "AI in practice", href: "#ai" },
+      { label: "Solved with AI", href: "#ai" },
       { label: "Résumé", href: "/en/resume/", depth: true },
       { label: "Portfolio", href: "/en/portfolio/", depth: true },
     ],
@@ -27,7 +27,8 @@ export const en = {
 
   hero: {
     eyebrow: "Kevin Hsu | Senior Product Manager · 7+ years in product",
-    kicker: "Platform rebuilds and internal systems: I turn work that waits on engineers into workflows PMs can finish on their own.",
+    kicker:
+      "Platform rebuilds and internal systems: I turn work that waits on engineers into workflows PMs can finish on their own.",
     headline:
       "Find the 【bottleneck】. Build the 【fix】. Prove it in 【numbers】.",
     profile: [
@@ -74,9 +75,35 @@ export const en = {
   },
 
   aiPractice: {
-    title: "AI in practice",
+    title: "Problems I solved with AI this year",
     intro:
       "AI proposes, a person decides, and AI earns autonomy only once it proves accurate. Each project below shows the problem, what AI did, what a person decided, and the result.",
+    highlights: [
+      {
+        problem: "100,000+ control settings, tested by hand",
+        solution: "Built a simulator with AI that runs and ranks them all.",
+        stat: { value: "1 wk → 2 hr", label: "to tune one strategy" },
+      },
+      {
+        problem: "A hospital director wanted a screen before any savings",
+        solution:
+          "Prototyped it with AI, then built it with the software team.",
+        stat: {
+          value: "1 day",
+          label: "to build the second prospect's dashboard",
+        },
+        caseId: "internal-backend",
+        anchor: "customer-view",
+      },
+      {
+        problem: "PMs waited on engineers to change one cell",
+        solution:
+          "Built the platform with Claude Code, so PMs edit and check it themselves. 748 commits.",
+        stat: { value: "4 → 0", label: "handoffs per test round" },
+        caseId: "internal-backend",
+        anchor: "site-management",
+      },
+    ],
     labels: {
       stuck: "Problem",
       ai: "What AI did",
@@ -130,7 +157,6 @@ export const en = {
               width: 800,
               height: 500,
             },
-            caseId: "ecofirst",
           },
           {
             title: "AI business-card assistant",
@@ -139,8 +165,12 @@ export const en = {
             ai: "A rep photographs a card in LINE, Gemini reads it, and the contact lands in the company CRM.",
             human:
               "Reps still fill in fields that take judgment, such as deal stage and decision-making influence. AI doesn't make those calls for them.",
-            stat: { value: "99% less", label: "time to log a card, vs manual entry" },
-            result: "Reps actually use it: they entered 80 cards within 4 days.",
+            stat: {
+              value: "99% less",
+              label: "time to log a card, vs manual entry",
+            },
+            result:
+              "Reps actually use it: they entered 80 cards within 4 days.",
             source:
               "Photo vs manual entry time; record count from the company Notion",
             image: {
@@ -172,11 +202,17 @@ export const en = {
           },
           {
             title: "This site: I set the spec, AI writes the code",
-            stuck: "I wanted a site that shows my product skills firsthand, and I had no engineering team.",
+            stuck:
+              "I wanted a site that shows my product skills firsthand, and I had no engineering team.",
             ai: "Claude Code writes the code, motion, and tests from specs, and helps check that the content stays consistent.",
-            human: "I decide the positioning, what content stays, the layout, and the source of every figure, and I sign off on each release.",
-            stat: { value: "7 weeks", label: "a bilingual site and launch film, built solo" },
-            result: "Working alone, I shipped a bilingual site, a launch film, and an animated portfolio wall, and every push to main deploys automatically.",
+            human:
+              "I decide the positioning, what content stays, the layout, and the source of every figure, and I sign off on each release.",
+            stat: {
+              value: "7 weeks",
+              label: "a bilingual site and launch film, built solo",
+            },
+            result:
+              "Working alone, I shipped a bilingual site, a launch film, and an animated portfolio wall, and every push to main deploys automatically.",
             source: "This site's git history (Nov 2026)",
             image: {
               src: "/hero-reel-poster.en.webp",
@@ -194,13 +230,16 @@ export const en = {
         lead: {
           title: "Sensor naming without manual mapping",
           stuck:
-            "Every vendor sends sensor lists in a different format, and PMs mapped each line to the company's standard names by hand. The lines automated matching could not handle often sat unresolved, so engineers got half-finished lists.",
+            "Every vendor names sensor points differently. A site has about 200 points, too many to check by eye, and one wrong match puts errors in the data reports.",
           ai: 'One shared naming tool maps vendor names to standard names, then checks whether values are plausible. It looks only at periods when equipment is running, and anything it cannot judge is marked "can\'t tell", never "normal".',
           human:
             "When the tool is unsure, it asks one question at a time. When nobody knows, it writes a question to forward to the system integrator instead of guessing. It always asks a person about site facts, such as shared or separate chilled-water piping and unit counts.",
-          stat: { value: "93%", label: "of sensors matched correctly on the first try" },
+          stat: {
+            value: "93%",
+            label: "of sensors matched correctly on the first try",
+          },
           result:
-            'A rule change must add a test case first, pass ten automated test suites, and produce zero "confident but wrong" answers before it ships. As of Sep 2026, 31 sites and 4,491 sensor rows have been inventoried.',
+            'A rule change must add a test case first, pass ten automated test suites, and produce zero "confident but wrong" answers before it ships. As of Sep 2026, 34 sites and 7,110 sensor points have been inventoried.',
           source:
             "Walkthrough of 72 points from 2 real sites and 1 demo case (2026-09-10); inventory of all sites (2026-09-01)",
           image: {
@@ -219,7 +258,10 @@ export const en = {
             ai: "Each week AI drafts FAQ entries from meeting notes with their sources, and flags pricing, warranty, and subsidy questions as highly sensitive.",
             human:
               "Two human approval steps: the sales lead picks the questions, and an answer owner writes the official answer. AI can answer reps only from approved entries.",
-            stat: { value: "51 entries", label: "approved answers reps can look up (AI drafted 185)" },
+            stat: {
+              value: "51 entries",
+              label: "approved answers reps can look up (AI drafted 185)",
+            },
             result:
               "The workflow runs end to end. To answer more questions, the next step is faster human review.",
             source: "Sales FAQ database in the company Notion (2026-09-30)",
@@ -239,19 +281,18 @@ export const en = {
             human: "I review and edit every draft before it goes out.",
             stat: {
               value: "110",
-              label: "daily meeting follow-ups, drafted by AI and confirmed by me (since Apr 2026)",
+              label:
+                "daily meeting follow-ups, drafted by AI and confirmed by me (since Apr 2026)",
             },
             result:
               "Daily meeting follow-ups have reached 110 since Apr 2026, and a person confirms each one before it goes out.",
-            source:
-              "Count from the scheduled job's output (Oct 2026)",
+            source: "Count from the scheduled job's output (Oct 2026)",
             image: {
               src: "/linkedin-posts/ai-product-workflow.en.svg",
               alt: "Product workflow diagram: meeting follow-up, requirements, specs, mock-data checks, and dev handoff, each drafted by AI",
               width: 1200,
               height: 750,
             },
-            caseId: "ecofirst",
             href: "https://www.linkedin.com/feed/update/urn:li:activity:7448723703296659456/",
           },
         ],
@@ -266,7 +307,10 @@ export const en = {
           ai: "Built with Claude Code from specs: it fetches bills from email, sorts them, flags duplicate or missing charges, and reminds me before due dates. Day to day, I can log or look up anything with one sentence.",
           human:
             "I set the rules, such as never logging in to online banking, and I confirm and fix the sorting rules when they are wrong.",
-          stat: { value: "Daily use", label: "sorting bills and sending reminders, since Mar 2026" },
+          stat: {
+            value: "Daily use",
+            label: "sorting bills and sending reminders, since Mar 2026",
+          },
           result:
             "It runs automatically, and anything that needs my judgment is listed separately.",
           source:
@@ -322,7 +366,11 @@ export const en = {
             ai: "I built two Claude Code add-ons: one picks skills and thinking effort, and one shows what each AI helper is doing when several run at once.",
             human:
               "Using a control group, I compared 839 logged turns, found that automatic skill selection barely helped, and raised the threshold based on the data.",
-            stat: { value: "839", label: "logged turns compared, showing automatic skill selection barely helped" },
+            stat: {
+              value: "839",
+              label:
+                "logged turns compared, showing automatic skill selection barely helped",
+            },
             result:
               "The skill-pick threshold went up based on the data, and the other features stay in use.",
             source: "Usage log and review of the tools (2026-10-14 to 10-19)",
@@ -369,12 +417,12 @@ export const en = {
     ],
   },
 
-
   cases: {
     title: "Portfolio",
-    inventory: "{total} case studies: {work} from work, {side} from side projects",
+    inventory:
+      "{total} case studies: {work} from work, {side} from side projects",
     intro: "Each project's result, and the skills I used and learned.",
-    workTitle: "Case studies", 
+    workTitle: "Case studies",
     allLabel: "See all {total} case studies",
     copyLabel: "Copy case study link",
     copiedLabel: "Link copied",
@@ -426,25 +474,47 @@ export const en = {
           "Internal platform: from waiting on engineers to a customer-ready screen in 2 hours",
         role: "Senior Product Manager (planning and build)",
         scope:
-          "34 sites | Site management, data collection, customer energy dashboard, energy savings",
+          "34 sites | Site management, data collection, customer energy dashboard",
         collaboration:
           "Project PMs, data-collection engineers, sales, and the software team",
         impact:
           "Onboarding: about 2 weeks waiting on engineers → about 2 hours, PM self-serve (excluding on-site wiring and control strategy) | 34 sites (Oct 2026)",
+        scenarios: [
+          {
+            name: "Site management",
+            stuck: "PMs waited on an engineer to change one cell",
+            now: "PMs download, edit, upload, and check on their own",
+          },
+          {
+            name: "Data collection",
+            stuck:
+              "Data problems often surfaced only when reports were being prepared",
+            now: "The overview shows which unit has a problem and who should handle it",
+          },
+          {
+            name: "Customer data",
+            stuck:
+              "Until savings accumulated, the customer's executives had no screen to look at",
+            now: "Customers have a screen to look at during onboarding",
+          },
+        ],
         capabilities: {
           used: ["Problem framing", "Data definitions"],
-          grown: ["AI-assisted prototyping", "Taking prototypes to production with engineering"],
+          grown: [
+            "AI-assisted prototyping",
+            "Taking prototypes to production with engineering",
+          ],
         },
         ownership:
-          "I defined the problem and what success meant, wrote the platform blueprint for the general manager, and decided what to build and what to leave out. I built it with working prototypes and AI, then turned it into production features with the software team.",
+          "I defined the problem and what success meant, wrote the platform blueprint for the general manager, and decided what to build and what to leave out. I built it with working prototypes and AI, then turned it into production features with the software team, reaching 748 commits by Oct 2026.",
         situation:
-          "Each site's list of sensor points (every value read from the equipment) sat in different files and versions. A PM who wanted to change one cell had to go through an engineer, and answering any customer question about a site meant asking an engineer first.",
+          "Each site's list of sensor points (every value read from the equipment) sat in different files. Changing one cell, or answering a customer's question about a site, meant asking an engineer first.",
         bottleneck:
           "Onboarding a site meant waiting about 2 weeks on engineers. Data problems often surfaced only when reports were being prepared. Until savings accumulated, the customer's executives had no screen to look at.",
         decision:
-          "Instead of speeding up the ticket process, remove the handoff: put download, upload, and checks in one place, and give customers a screen before savings results arrive.",
+          "Remove the handoff between PMs and engineers by putting download, upload, and checks in one place, and give customers a screen before savings results arrive.",
         decisionSummary:
-          "Remove the handoff between PMs and engineers, and give decision makers a screen before savings results arrive.",
+          "Remove the handoff between PMs and engineers, so PMs onboard sites themselves.",
         hypothesis:
           "If PMs can test sensor points themselves, onboarding stops depending on engineers' schedules. If data is defined before it is checked, problems surface before customers see them. A working prototype confirms what a customer wants faster than a slide deck.",
         decisionLog: [
@@ -454,27 +524,6 @@ export const en = {
               'At one hotel, counting by rule read "37 judged, 4 in violation, 73 untested"; counting by equipment read "17 checked, 4 with issues". 244 "often missing" alerts merged into 12.',
             outcome:
               "PMs see at a glance which units need work, and the 4 real problems with readings, previously buried, move to the top.",
-          },
-          {
-            call: "The system picks energy-savings points by name, so PMs don't configure each site, but its guesses are never pre-selected on the form.",
-            signal:
-              "Savings can be calculated for 28 of 34 sites; a PM once took a pre-selected guess as fact.",
-            outcome:
-              "People enter only contract numbers such as targets and baselines; the system's guesses are marked separately until someone confirms them.",
-          },
-          {
-            call: "Calculate savings as total power ÷ total refrigeration tons, even though it differs from past reports.",
-            signal:
-              "A simple average gives low-load nights and full-load days one vote each and inflates the number; dividing totals matches the electricity bill.",
-            outcome:
-              "The old method stayed until there was a clear reason to change, and both decisions are on record.",
-          },
-          {
-            call: "Days already calculated stay as they were: each change to refrigeration-ton settings is logged as a version and takes effect the next day.",
-            signal:
-              "Applying new settings at read time would change past numbers with every edit.",
-            outcome:
-              "Every change leaves an effective date, and earlier days keep their original results.",
           },
           {
             call: "A person presses the button for every production release; passing tests alone never trigger a release.",
@@ -494,7 +543,6 @@ export const en = {
           "Data-collection overview and health page",
           "Monitoring rules PMs can write themselves",
           "Customer energy dashboard prototype",
-          "Energy-savings statistics",
           "AI-assisted development process",
         ],
         measurement:
@@ -502,20 +550,21 @@ export const en = {
         measurementSummary:
           "Onboarding time: first-hand experience; tasks and hours: company task database",
         article: {
-          lead: '"We need a screen the hospital director can look at." A hospital said this in a sales meeting. Savings take time to accumulate, and back then a PM had to wait about 2 weeks on engineers just to get a site\'s data in place. I treated that wait as a product problem.',
+          lead: "This platform's three functions each solve a problem for different people, so here they are one at a time.",
           sections: [
             {
-              id: "no-handoff",
-              trait: "Problem framing",
+              id: "site-management",
+              trait: "Site management",
               heading:
                 "Engineers weren't slow; every cell edit just had to go through them",
               stat: {
-                value: "4 → 0",
-                label: "handoffs per round of sensor-point testing",
+                value: "20+ uploads",
+                label:
+                  "by PMs on their own in about 1 month, each saving engineers about 1 hour (estimate)",
               },
               paragraphs: [
-                "Each site has a sensor list recording every value read from its equipment. Lists are rarely right the first time, yet to change one cell a PM had to ask an engineer for the current version, hand back the edits, wait for the upload, and go around again if the check failed.",
-                "Task records show at least 54 such tasks in six months but only 32 logged hours, because the time PMs spent waiting was never recorded. So instead of optimizing the ticket flow, I removed the handoff.",
+                "Each site has a sensor list recording every value read from its equipment. Lists are rarely right the first time, yet to change one cell a PM had to ask an engineer for the current version, hand back the edits, wait for the upload, and go around again if the check failed. Task records show at least 54 such tasks in six months but only 32 logged hours, because the time PMs spent waiting was never recorded.",
+                "So instead of optimizing the ticket flow, I removed the handoff: a PM now downloads, edits, and uploads the list, then checks the incoming data directly. I once added per-minute aggregation to make the files easier to read, and removed it the same week, because downloads must reconcile row by row with the source.",
               ],
               figure: {
                 src: "/portfolio-artifacts/internal-backend-flow-en.svg",
@@ -525,33 +574,22 @@ export const en = {
                 width: 1480,
                 height: 760,
               },
-            },
-            {
-              id: "self-serve",
-              trait: "Workflow redesign",
-              heading: "Download, upload, and check in one place",
-              stat: {
-                value: "20+ uploads",
-                label:
-                  "by PMs on their own in about 1 month, each saving engineers about 1 hour (estimate)",
-              },
-              paragraphs: [
-                "Now a PM downloads the list, edits it, and uploads it; the system updates itself, and the PM checks the incoming data on the same page. If something is wrong, the PM repeats the loop. Engineers are freed from repetitive upkeep, and sites on the platform grew from 9 to 34 (May to Oct 2026).",
-                "There were tradeoffs too. I added per-minute aggregation to make the files easier to read, and removed it the same week. Downloads must reconcile row by row with the source; convenience can't come at the cost of verifiability.",
+              moreFigures: [
+                {
+                  src: "/portfolio-artifacts/internal-backend-timeseries.webp",
+                  alt: "Time-series chart: 3.5 days of power use for 4 chillers, with data completeness of 98.5% marked above",
+                  caption:
+                    "Time series | Check the values right after uploading: 3.5 days of power for 4 chillers, with 98.5% data completeness marked above.",
+                  width: 1536,
+                  height: 936,
+                },
               ],
-              figure: {
-                src: "/portfolio-artifacts/internal-backend-timeseries.webp",
-                alt: "Time-series chart: 3.5 days of power use for 4 chillers, with data completeness of 98.5% marked above",
-                caption:
-                  "Time series | Check the values right after uploading: 3.5 days of power for 4 chillers, with 98.5% data completeness marked above.",
-                width: 1536,
-                height: 936,
-              },
             },
             {
-              id: "disprove",
-              trait: "Measured results",
-              heading: "Define what complete data means, then let the data prove me wrong",
+              id: "data-collection",
+              trait: "Data collection",
+              heading:
+                "Define what complete data means, then let PMs judge it themselves",
               stat: {
                 value: "244 → 12",
                 label: "missing-data alerts (after merging by cause)",
@@ -570,7 +608,7 @@ export const en = {
             },
             {
               id: "customer-view",
-              trait: "Business judgment",
+              trait: "Customer data",
               heading:
                 "Show decision makers a screen before the savings arrive",
               stat: {
@@ -578,7 +616,7 @@ export const en = {
                 label: "to build the second prospect's energy dashboard",
               },
               paragraphs: [
-                "Savings take time, but a customer's executives want to see something now, and sales only had slides. So I built a working dashboard prototype that puts outdoor air conditions, cooling load, the AI's suggested supply temperature, and projected savings on one screen. The prototype defined the layout and the calculations, and the software team turned it into a production feature.",
+                '"We need a screen the hospital director can look at." A hospital said this in a sales meeting. Savings take time to accumulate, and sales only had slides. So I built a working dashboard prototype that puts outdoor air conditions, cooling load, the AI\'s suggested supply temperature, and projected savings on one screen. The prototype defined the layout and the calculations, and the software team turned it into a production feature.',
                 'The second prospect was an electronics manufacturer. I made the layout configuration-driven, built it in a day, and numbered four steps in the order a decision maker reads the screen, so sales could walk through them. Every benefit is labeled "estimated": a prospect is seeing a promise, not a track record.',
               ],
               figure: {
@@ -590,17 +628,9 @@ export const en = {
                 height: 1000,
               },
             },
-            {
-              id: "ai-workflow",
-              trait: "AI adoption",
-              heading: "Built with AI, kept in check by process",
-              paragraphs: [
-                "Each feature starts with a requirements brief, goes to AI to build, and merges only after a second AI model reviews it; a person presses the button for every release. That process added up to 748 commits without taking time from the software team's schedule.",
-              ],
-            },
           ],
           closing:
-            "The internal platform covers 34 sites (Oct 2026). In the roughly 1 month since uploads launched, PMs have uploaded on their own 20+ times, each saving engineers about 1 hour (estimate). If you want to talk through the tradeoffs, get in touch.",
+            "The internal platform covers 34 sites (Oct 2026). If you want to talk through the tradeoffs, get in touch.",
         },
       },
       {
@@ -658,7 +688,11 @@ export const en = {
           "Client product, engineering, data migration, IoT, and localization partners",
         impact: "DAU: 12,000 → 20,000 in one year (+66%, team result)",
         capabilities: {
-          used: ["User interviews", "Prioritization", "QA and acceptance testing"],
+          used: [
+            "User interviews",
+            "Prioritization",
+            "QA and acceptance testing",
+          ],
           grown: ["Data migration risk management", "IoT data integration"],
         },
         ownership:
@@ -732,141 +766,45 @@ export const en = {
           "Record volume and channel coverage after integration",
       },
       {
-        id: "ecofirst",
-        org: "Ecofirst (台灣愛淨)",
-        period: "Mar 2025 - Oct 2026",
-        rank: 5,
-        relatedCases: ["internal-backend", "sensor-naming", "sales-faq"],
-        alsoDid: {
-          title: "Also improved how the company runs",
-          bullets: [
-            "Maintained the software team's job-level and performance-review system and designed its skills matrix: every skill is verified in person, and a skill counts as covered only with at least one expert and two people who can do it, so no skill depends on one person",
-            "AI drafts an FAQ from sales meetings every week, and only human-approved answers can be cited; pricing and contract topics are flagged as sensitive",
-            "Created a standard process for opening and closing accounts when people join or leave; before someone leaves, it requires an asset inventory, an access handover, and a named owner for every item",
-          ],
-        },
-        title: "AI energy product: connecting sales and engineering in one workflow",
-        role: "Senior Product Manager",
-        scope:
-          "4 engineers | About NT$100M in contracts | Roadmap, AI development, internal tools",
-        collaboration: "Software, project, sales, and site-operations teams",
-        impact:
-          "17 databases linking sales to engineering | Delivery time down 30% (estimate)",
-        capabilities: {
-          used: ["Operating model design", "Requirements standards"],
-          grown: ["Data-driven management of the sales-to-engineering handoff"],
-        },
-        ownership:
-          "Designed and maintained the Notion operating model for the sales and software teams, plus the requirements and presales rules.",
-        situation:
-          "The AI HVAC product was at an early stage, and site information lived in LINE, email, and personal laptops; sales and engineering had to chase people for timelines and requirements.",
-        bottleneck:
-          "Sales promised dates on gut feel, requirements reached development half written, and nobody could measure rush jobs, overload, or who was waiting on whom.",
-        decision:
-          "Split the sales-to-engineering system into six layers: data, relations, computation, views, rules, and AI; delivery dates start at requirements sign-off.",
-        decisionSummary:
-          "Sales to engineering as a six-layer architecture; delivery dates start at requirements sign-off.",
-        hypothesis:
-          "17 databases hold business cards, accounts, projects, sales updates, and engineering tasks. One account card shows the owner, stage, and decision maker. Formulas calculate sales cycle days, rush jobs, delays, and weekly capacity, and sales, PMs, and engineering each get a workspace. Requirement templates, a ticket calendar, and presales sizing set the rules, and AI drafts the FAQ, glossary, and requirements.",
-        decisionLog: [
-          {
-            call: 'Presales quotes a tier, not person-days: S/M/L/XL, and contracts say "N weeks after specs and data are complete", never "N weeks after signing".',
-            signal:
-              "From Jan to Jul 2026, 735 tasks took about 920 hours, and 51% of that work went to single-site customization.",
-            outcome:
-              "No date until scope is locked, and XL starts with a paid assessment. These figures are the pre-change baseline behind the decision, not a result.",
-          },
-          {
-            call: "Delivery dates start at T=0, not the contract date: T=0 is the day data is complete and the PM signs off on the requirements doc.",
-            signal:
-              "Each project's data-complete date, requirements sign-off date, and engineering estimate, plus days spent in each of the 8 sales stages.",
-            outcome:
-              "Delivery dates share one starting point, and a delay can be traced to data, requirements, or development.",
-          },
-          {
-            call: "The PM's target date and engineering's estimate are recorded separately instead of being merged into one deadline.",
-            signal:
-              "The gap between the two dates, the rush-job count, and weekly capacity across 4 engineers.",
-            outcome:
-              "Formulas flag rush jobs automatically, so schedule conflicts are argued with numbers, not memory.",
-          },
-          {
-            call: "Presales work is sized S, M, L, or XL, with three gates: G0, G1, G2.",
-            signal:
-              "How many back-and-forth rounds a requirement takes before sign-off.",
-            outcome:
-              "Requirement sign-off dropped from 4-5 rounds to 1-2 (internal estimate).",
-          },
-          {
-            call: "Every request records its first-reply time, against a 24-hour reply standard.",
-            signal: "First-reply time per request.",
-            outcome:
-              "Instead of chasing people, sales can now track engineering's reply time as a number.",
-          },
-          {
-            call: "Scheduled AI jobs only draft, and a person finalizes. If a run fails, the job reports the failure instead of making up results, and each run is capped at 20 items.",
-            signal:
-              "Whether the scheduled jobs actually deliver: 110 daily meeting follow-ups since Apr 2026.",
-            outcome:
-              "Meeting follow-ups keep running, and a person checks each one before it goes out.",
-          },
-        ],
-        result: [
-          "Requirement sign-off: 4-5 rounds → 1-2 (internal estimate)",
-          "Sales can now track engineering's reply time instead of chasing people",
-          "Shared tools and modular control strategies cut delivery time on related projects by 30% (estimate)",
-          "The system holds 1,639 sales updates and 1,829 engineering tasks",
-          "AI drafts FAQ entries from a pool of 1,500+ meeting notes: 44 notes processed, 185 entries drafted, 51 approved through human review (Sep 2026)",
-        ],
-        artifacts: [
-          "Operating data model across 17 databases",
-          "Formulas for rush jobs, delays, and capacity",
-          "Workspaces for sales, PMs, and engineering",
-          "Requirement templates, ticket calendar, and presales rules",
-          "AI drafting for the FAQ, glossary, and requirements",
-          "Internal platform (has its own case study)",
-          "Control-strategy simulator",
-        ],
-        measurement:
-          "Delivery time is an estimate; architecture and counts come from the company Notion (Oct 2026), with no customer names or amounts.",
-        measurementSummary:
-          "Delivery time: estimate; architecture and counts: company Notion",
-      },
-      {
         id: "sensor-naming",
         org: "Ecofirst",
         period: "Aug 2026 - Oct 2026",
         rank: 6,
-        title: "Sensor naming: no more mapping vendor lists by hand",
+        title:
+          "Sensor naming: PMs convert vendor sensor lists to our format themselves",
         role: "Senior Product Manager (planning and build)",
         scope:
-          "One shared naming tool | Data collection and simulation analysis | Naming dictionary and test set",
+          "34 sites, 7,110 sensor points (Sep 2026) | Mapping workbook and naming rules | Shared by data collection and simulation analysis",
         collaboration:
           "Project PMs, data-collection engineers, software engineers, and system integrators",
         impact:
           "93% correct on the first try across 72 sensors | 0 confident-but-wrong answers",
         capabilities: {
           used: ["HVAC domain knowledge", "Naming rule design"],
-          grown: ["Evaluating AI accuracy", "Designing human review for low-confidence cases"],
+          grown: [
+            "Evaluating AI accuracy",
+            "Designing human review for low-confidence cases",
+          ],
         },
         ownership:
-          "I defined the flow, the rules, and the release gate. The naming tool was built with Claude Code, and every dictionary change starts with a new test case.",
+          "I built the sensor mapping workbook and defined the flow, the rules, and the release gate. I used Claude Code to turn the mapping into naming rules, and every dictionary change starts with a new test case.",
         situation:
-          "Every vendor sends sensor lists in a different format, and PMs mapped each line to the company's standard names by hand. The same naming rule lived in three tool guides and drifted apart.",
+          "Each site's list of sensor points (every value read from the equipment) comes from a different vendor. Everyone names points differently, so the same point has several spellings.",
         bottleneck:
-          "The lines automated matching could not handle often sat unresolved, so engineers received half-finished lists, and data gaps showed up only after a 185 MB output file was built.",
+          "A site has about 200 points, too many to check by eye, and one wrong match puts errors in the data reports. The lines automated matching could not handle also often sat unresolved, so engineers received half-finished lists.",
         decision:
-          "Keep one naming tool for the whole company, called by both data collection and analysis. When the tool is unsure, it asks a person one question at a time, and it always asks a person about site facts.",
+          "Put the standard names and the keywords vendors may use into one mapping workbook, and have Claude read it and write the rules. With a new sensor list, a PM converts it to our format and uploads it on their own.",
         decisionSummary:
-          "One naming tool: when it is unsure, it asks a person, and it always asks about site facts.",
+          "Build a mapping workbook, have Claude write the rules, and let PMs convert and upload lists themselves.",
         hypothesis:
-          "Pull the rules out of every tool into one place so a change takes effect everywhere, and add a real test case before every rule change so the test set blocks confident-but-wrong answers.",
+          "Keep the naming rules in one place so a change takes effect everywhere. When the tool is unsure, it asks a person one question at a time, and it always asks about site facts. Add a test case before every rule change to block confident-but-wrong answers.",
         result: [
           "In a 72-sensor walkthrough, 93% matched right the first time, with 0 confident-but-wrong answers",
           "The PM settled 13 questions on the spot and forwarded 11 to the system integrator",
-          "The same rules have been used to inventory 31 sites and 4,491 sensor rows",
+          "Inventory of all sites: 34 sites, 7,110 sensor points (Sep 2026)",
         ],
         artifacts: [
+          "Sensor mapping workbook (30 equipment codes, 50 standard parameters)",
           "One shared naming tool",
           "Naming dictionary (9 sheets)",
           "Ten automated test suites and a test set",
@@ -875,22 +813,37 @@ export const en = {
           "Team handbook",
         ],
         measurement:
-          "Walkthrough of 72 points from 2 real sites and 1 demo case (2026-09-10); inventory of all sites (2026-09-01); the comparison with and without the tool used 3 test cases. No manual-hours baseline exists, so no time saving is claimed.",
+          "Walkthrough of 72 points from 2 real sites and 1 demo case (2026-09-10); inventory of all sites (2026-09-01); equipment and parameter counts from mapping workbook v1 (Aug 2026); the comparison with and without the tool used 3 test cases. No manual-hours baseline exists, so no time saving is claimed.",
         measurementSummary:
           "72-point walkthrough and site inventory (Sep 2026)",
         article: {
-          lead: 'A vendor sends a sensor list where "CH-1 chilled water supply temp", "Chiller1 outlet", and "CHL01_TCHS" are the same point. The PM maps each line to the company\'s standard name, and the lines automated matching can\'t handle tend to sit unresolved.',
+          lead: 'A vendor sends a sensor list where "CH-1 chilled water supply temp", "Chiller1 outlet", and "CHL01_TCHS" are the same point. Everyone writes these differently, a site has about 200 points, too many to check by eye, and one wrong match puts errors in the data reports.',
           sections: [
             {
-              id: "one-core",
-              trait: "Process mapping",
-              heading: "One rule, changed in one place",
+              id: "mapping",
+              trait: "Problem framing",
+              heading: "List every spelling first, in one mapping workbook",
               stat: {
-                value: "1",
-                label: "naming tool shared by data collection and analysis",
+                value: "30 codes, 50 parameters",
+                label:
+                  "of standard names in the workbook, each listing the spellings vendors may use",
               },
               paragraphs: [
-                "The same naming rule used to live in three tool guides; fixing one left the other two out of date. I moved the rules and the plausible value ranges into one tool that every workflow calls, and a workflow on an outdated version stops instead of quietly using old rules.",
+                "I listed every point and matched each standard name to the keywords vendors may use. Chilled-water supply temperature, for example, may appear as CHW Supply Temp, CHWS, or Chilled Water Supply. The workbook also settles conversations with vendors: anyone can look up what their spelling maps to.",
+              ],
+            },
+            {
+              id: "rules",
+              trait: "AI adoption",
+              heading:
+                "Have Claude read the workbook and write rules PMs can use",
+              stat: {
+                value: "1 tool",
+                label:
+                  "for naming, shared by data collection and simulation analysis",
+              },
+              paragraphs: [
+                "Claude reads the workbook and writes the mapping as naming rules, packaged as a skill (a reusable AI tool) PMs can run directly. The same rule once lived in three tool guides and drifted apart. Now the rules and plausible value ranges sit in one tool, which stops if its version is too old instead of quietly applying old rules.",
               ],
               figure: {
                 src: "/ai-covers/naming-core.svg",
@@ -902,45 +855,26 @@ export const en = {
               },
             },
             {
-              id: "ask",
-              trait: "AI adoption",
+              id: "self-serve",
+              trait: "Workflow redesign",
               heading:
-                "When the tool is unsure, it asks one question at a time",
-              stat: {
-                value: "93%",
-                label:
-                  "of sensors matched right the first time (72-point walkthrough)",
-              },
+                "PMs convert and upload on their own, and the tool asks when unsure",
               paragraphs: [
-                "Every point gets a confidence score; low scores go to a review list that asks the PM one question at a time with a suggested answer. When the PM doesn't know either, it writes a question to forward to the system integrator instead of guessing.",
-              ],
-              figure: {
-                src: "/ai-covers/naming.svg",
-                alt: "Illustration: messy vendor names line up as standard names, and the one the tool is unsure of goes to a person",
-                caption:
-                  "In this walkthrough the PM settled 13 questions on the spot and forwarded 11 to the integrator.",
-                width: 800,
-                height: 500,
-              },
-            },
-            {
-              id: "facts",
-              trait: "Systems and data",
-              heading: "Always ask a person about site facts",
-              paragraphs: [
-                "Whether chilled-water piping is shared or separate, how many units there are, how many flow meters: none of that follows from a name. Written as a rule, that assumption silently goes wrong at the next site, so these points get a confidence score of zero and always need a person.",
+                "With a new sensor list, a PM runs the skill to convert it to our format, then uploads it to the internal platform to complete data collection. Every point gets a confidence score. Below the threshold, the tool asks the PM one question at a time with a suggested answer. If the PM does not know, it writes a question to forward to the system integrator instead of guessing.",
+                "Shared or separate chilled-water piping, unit counts, and flow-meter counts can't be inferred from a name, so these points get a confidence of zero and always go to a person.",
               ],
             },
             {
               id: "gate",
               trait: "Measured results",
-              heading: "No rule change without a test case first",
+              heading: "Add a test case before changing a rule",
               stat: {
-                value: "84 of 189",
-                label: "test cases the old tool failed, caught before the rewrite",
+                value: "84 cases",
+                label:
+                  "the old tool got wrong out of 189, caught before the rewrite",
               },
               paragraphs: [
-                "I turned every rule in the old tool into a test case, and the old version got 84 wrong. Since then every dictionary change needs a new test case first, ten automated test suites, and zero confident-but-wrong answers before it ships.",
+                "I turned every rule in the old tool into a test case, and the old version failed 84 of them. Every dictionary change now adds a case first and must pass ten automated test suites, with zero confident-but-wrong answers, before it ships.",
               ],
               figure: {
                 src: "/ai-covers/naming-gate.svg",
@@ -963,7 +897,8 @@ export const en = {
         rank: 7,
         title: "Sales FAQ: reps only get confirmed answers",
         role: "Senior Product Manager (process design)",
-        scope: "Meeting-note analysis | Two human approval steps | Q&A tool for sales",
+        scope:
+          "Meeting-note analysis | Two human approval steps | Q&A tool for sales",
         collaboration:
           "Sales, the sales lead, and the manager who owns official answers",
         impact:
@@ -1264,12 +1199,21 @@ export const en = {
         rank: 11,
         title: "This site: treating a job search as a product",
         role: "Product owner and developer",
-        scope: "Bilingual site | Launch film | Animated wall | Printable résumé | Automatic deploys",
-        collaboration: "Built solo with Claude Code; important changes start as a spec",
-        impact: "7 weeks, 86 commits | Every push to main deploys to Cloudflare",
+        scope:
+          "Bilingual site | Launch film | Animated wall | Printable résumé | Automatic deploys",
+        collaboration:
+          "Built solo with Claude Code; important changes start as a spec",
+        impact:
+          "7 weeks, 86 commits | Every push to main deploys to Cloudflare",
         capabilities: {
-          used: ["Positioning and information architecture", "Content fact-checking"],
-          grown: ["Motion design and CSS 3D animation", "Cloudflare deployment"],
+          used: [
+            "Positioning and information architecture",
+            "Content fact-checking",
+          ],
+          grown: [
+            "Motion design and CSS 3D animation",
+            "Cloudflare deployment",
+          ],
         },
         ownership:
           "I decide positioning, what stays, layout, and acceptance; Claude Code builds from the specs, and I confirm the source of every figure.",
@@ -1279,7 +1223,8 @@ export const en = {
           "The site kept growing: the same projects had several entry points, and as a hiring manager I wouldn't have read it myself. Figures sat in different files and contradicted each other after every edit.",
         decision:
           "Iterate the site like a product: rebuild when the positioning is wrong, cut when it's too full, and write retired claims into a test that runs before each release.",
-        decisionSummary: "Iterate the site like a product: rebuild when the positioning is wrong, cut when it's too full, and test that retired claims stay gone.",
+        decisionSummary:
+          "Iterate the site like a product: rebuild when the positioning is wrong, cut when it's too full, and test that retired claims stay gone.",
         hypothesis:
           "Readers use this site as they judge it, so the site is itself a work sample: motion, speed, and consistent content all show how I build products.",
         result: [
@@ -1304,8 +1249,7 @@ export const en = {
 
   experience: {
     title: "Experience",
-    intro:
-      "",
+    intro: "",
     currentLabel: "Now",
     expandLabel: "View role details",
     collapseLabel: "Hide role details",
@@ -1322,11 +1266,13 @@ export const en = {
         summary:
           "Owned the B2B AI HVAC energy-saving product, roadmap, and internal platform, leading 4 engineers. Contracts totaled about NT$100M, and customers saved about 15% on energy on average.",
         bullets: [
-          "Cut customer onboarding from about 2 weeks to about 2 hours: 3 PMs now set up sensor points in the internal platform, which works for all 34 sites (excluding wiring and control strategy), and handoffs per round dropped from 4 to 0",
-          "20+ self-serve uploads in about 1 month: each saves engineers about 1 hour (estimate); led the work from requirements through build with Claude Code, across 748 commits",
-          "Cut requirement handling from about 1 month to about 1 week: switched a data-management project from PRD-first to prototype-first to align on problems and solutions; built the second prospect's energy dashboard in 1 day",
-          "Cut delivery time on related projects by 30% (estimate): built shared tools and modular control strategies instead of one-off internal tools",
-          "PMs diagnose data issues themselves: a data-collection overview puts issues across 34 sites on one page, replacing email alerts and manual data pulls; alerts at one site dropped from 244 to 12",
+          "Cut customer onboarding from about 2 weeks to about 2 hours: 3 PMs set up sensor points themselves, for all 34 sites (excluding wiring and control strategy); handoffs per round from 4 to 0",
+          "Cut control-strategy tuning from 1 week to 2 hours: built a simulator with AI for 100,000+ combinations; modular strategies cut delivery time on related projects by 30% (estimate)",
+          "Cut requirement handling from about 1 month to about 1 week: switched a data-management project from PRD-first to prototype-first; built the second prospect's energy dashboard in 1 day",
+          "Led the platform build with Claude Code, 748 commits: PMs made 20+ self-serve uploads in about 1 month; each saves engineers about 1 hour (estimate)",
+          "Cut alerts at one site from 244 to 12: issues across 34 sites sit on one page, replacing email alerts and manual data pulls",
+          "Matched 93% of sensor names on the first try (72-sensor walkthrough): 0 confident-but-wrong answers, and unsure cases go to a person; 7,110 sensors inventoried",
+          "Got sales using AI: 51 FAQ answers cleared two human reviews; the business-card assistant logged 80 cards in 4 days",
         ],
       },
       {
@@ -1335,8 +1281,7 @@ export const en = {
         role: "Independent Consultant | Operations digitization and fundraising",
         period: "Sep 2024 - Feb 2025",
         focus: "Operations redesign and fundraising in energy and hospitality",
-        summary:
-          "",
+        summary: "",
         bullets: [
           "Brought about NT$170M in fundraising across 2 deals, in energy and hospitality, into substantive investor talks; mapped workflows for 3 departments at the energy company and rolled out Asana",
           "Analyzed 106 Airbnb listings: found a room type at 90% occupancy (Taipei average 65%) and positioned 2 hotels around it",
@@ -1349,8 +1294,7 @@ export const en = {
         period: "Nov 2023 - Aug 2024",
         focus:
           "Enterprise training, online learning, and Hong Kong market entry",
-        summary:
-          "",
+        summary: "",
         bullets: [
           "First-week revenue above NT$1M: entered the Hong Kong market within 3 weeks",
           "Mapped and redesigned HR leave, expense-claim, and customer-service flows",
@@ -1364,8 +1308,7 @@ export const en = {
         period: "Jun 2023 - Nov 2023",
         focus:
           "Development workflows, product roadmaps, and a personal playbook",
-        summary:
-          "",
+        summary: "",
         bullets: [
           "Brought Notion to a 15-person outsourcing team; set a product roadmap tied to business metrics for a multinational SaaS company",
         ],
@@ -1376,8 +1319,7 @@ export const en = {
         role: "Senior Operations Manager",
         period: "Nov 2022 - May 2023",
         focus: "Supply-chain and warehouse operations",
-        summary:
-          "",
+        summary: "",
         gapAfter: "Aug 2022 - Oct 2022 | Career break and freelance work",
         bullets: [
           "Built a product database joining customer, shipping, and purchasing data; redesigned warehouse locations and product categories",
@@ -1402,8 +1344,7 @@ export const en = {
         role: "Product Manager",
         period: "Jun 2020 - Dec 2020",
         focus: "Customer data platforms, chatbots, and dashboards",
-        summary:
-          "",
+        summary: "",
         bullets: [
           "10M customer records integrated across 3 industries: directly managed 12 people in data and product, and launched a CDP across 5 channels",
         ],
@@ -1414,8 +1355,7 @@ export const en = {
         role: "Product Assistant",
         period: "Feb 2019 - Jun 2020",
         focus: "Market research, prototyping, and early product validation",
-        summary:
-          "",
+        summary: "",
         bullets: [
           "2 companies I helped incubate each passed NT$1M in revenue: mapped business models and competitors, identified second growth curves, and planned how to use existing resources to lower risk",
         ],

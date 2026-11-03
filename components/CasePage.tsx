@@ -20,8 +20,8 @@ import { KeepTogether } from "./KeepTogether";
 import styles from "./CasePage.module.css";
 
 const COPY = {
-  zh: { next: "下一個案例", read: "繼續看" },
-  en: { next: "Next case study", read: "Read next" },
+  zh: { next: "下一個案例", read: "繼續看", scenarios: "三個功能，對應三種情境" },
+  en: { next: "Next case study", read: "Read next", scenarios: "Three functions, three situations" },
 } as const;
 
 /**
@@ -41,6 +41,26 @@ export function CasePage({
   const artifact = caseArtifacts[locale][item.id];
   const nextArtifact = caseArtifacts[locale][next.id];
   const back = `${portfolioPath(locale)}#${item.id}`;
+  // Role, scope, and team sit beside the headline: a hiring manager's first question.
+  // A case with scenarios already fills the first screen, so these open its disclosure instead.
+  const facts = (
+    <dl className={styles.facts}>
+      <div>
+        <dt>{cases.roleLabel}</dt>
+        <dd>{item.role}</dd>
+      </div>
+      <div>
+        <dt>{cases.scopeLabel}</dt>
+        <dd>
+          <KeepTogether text={item.scope} />
+        </dd>
+      </div>
+      <div>
+        <dt>{cases.collaborationLabel}</dt>
+        <dd>{item.collaboration}</dd>
+      </div>
+    </dl>
+  );
 
   return (
     <>
@@ -107,6 +127,20 @@ export function CasePage({
                   />
                 </div>
               </div>
+              {item.scenarios?.length ? (
+                <div id="scenarios" className={styles.scenarios}>
+                  <h2>{copy.scenarios}</h2>
+                  <ul>
+                    {item.scenarios.map((scenario) => (
+                      <li key={scenario.name}>
+                        <strong>{scenario.name}</strong>
+                        <p>{scenario.stuck}</p>
+                        <p data-now>{scenario.now}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <div className={styles.capabilities}>
                 <div>
                   <h2>{cases.capabilityLabels.used}</h2>
@@ -125,23 +159,7 @@ export function CasePage({
                   </ul>
                 </div>
               </div>
-              {/* Role, scope, and team sit beside the headline: a hiring manager's first question. */}
-              <dl className={styles.facts}>
-                <div>
-                  <dt>{cases.roleLabel}</dt>
-                  <dd>{item.role}</dd>
-                </div>
-                <div>
-                  <dt>{cases.scopeLabel}</dt>
-                  <dd>
-                    <KeepTogether text={item.scope} />
-                  </dd>
-                </div>
-                <div>
-                  <dt>{cases.collaborationLabel}</dt>
-                  <dd>{item.collaboration}</dd>
-                </div>
-              </dl>
+              {item.scenarios?.length ? null : facts}
             </div>
           </header>
 
@@ -154,6 +172,7 @@ export function CasePage({
               expandLabel={cases.fullProcessLabel}
               collapseLabel={cases.fullProcessCollapse}
             >
+              {item.scenarios?.length ? facts : null}
               <p className={styles.processOwnership}>
                 <span>{cases.ownershipLabel}</span>
                 {item.ownership}

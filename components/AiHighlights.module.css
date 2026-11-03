@@ -23,7 +23,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: 13rem minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) 15rem auto;
   align-items: start;
   gap: var(--space-7);
   padding-block: var(--space-6);
@@ -47,14 +47,14 @@
 .stat span { color: var(--muted); font-size: var(--text-small); }
 
 .copy { display: grid; gap: var(--space-1); max-width: 62ch; }
-.copy strong { font-size: var(--text-body); font-weight: var(--weight-semibold); transition: color var(--duration-fast) var(--ease-standard); }
+.copy strong { font-size: var(--text-lead); font-weight: var(--weight-semibold); transition: color var(--duration-fast) var(--ease-standard); }
 .copy span { color: var(--muted); font-size: var(--text-body); line-height: var(--leading-body); text-wrap: pretty; }
 
 .arrow { margin-top: var(--space-1); color: var(--muted); }
 
 @media (max-width: 767px) {
   .row { grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-3) var(--space-4); }
-  .stat { grid-column: 1; }
-  .copy { grid-column: 1 / -1; }
+  .copy { grid-column: 1; grid-row: 1; }
+  .stat { grid-column: 1 / -1; grid-row: 2; }
   .arrow { grid-column: 2; grid-row: 1; }
 }

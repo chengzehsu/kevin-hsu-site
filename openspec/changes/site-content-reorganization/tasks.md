@@ -85,6 +85,11 @@
 - [ ] 8.15 Ask Kevin: keep the "4 to 0" chapter stat on internal-backend (it repeats the hero's supporting line), and confirm the LinkedIn file changes: 卓越獎 to 優選, and whether 218 commits there should become 748, and the 93% chapter stat on sensor-naming, which repeats its hero figure
 - [ ] 8.16 Remove the orphaned flow scene as one chain: FlowReconfigurationScene.tsx, BuilderLoop.module.css, motion/flowScene.ts, content/flowExperience.ts, lib/flowSimulation.ts, scripts/test-flow-simulation.mjs, and the three dependency, after checking nothing else uses them
 
+- [x] 8.17 Internal-backend case: remove the savings-rate feature and tell the story as three situations (site management, data collection, customer data), per Kevin 2026-11-03. This also drops the repeated "4 to 0" chapter stat from 8.15, and moves its role, scope, and collaboration behind the disclosure so the first screen stays short
+- [x] 8.18 Remove the `ecofirst` case per Kevin 2026-11-03: old links redirect to the portfolio, skill links move to the internal-backend and sales-faq cases or the experience row, and its files are deleted. The Ecofirst experience row and resume stay
+- [x] 8.19 Retell the sensor-naming case as Kevin described it (mapping workbook, Claude writes the rules, PMs convert and upload themselves), and correct the inventory to 34 sites and 7,110 points per the workbook
+- [x] 8.20 Mapping workbook v1 names the skill's dictionary as its source, while the case says Claude wrote the rules from the workbook; Kevin chose to keep the case wording as written (2026-11-03)
+
 ## 9. After deploy
 
 - [ ] 9.1 Confirm the first Workers build passes with tests in the build command

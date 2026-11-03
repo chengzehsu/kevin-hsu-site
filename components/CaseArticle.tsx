@@ -61,24 +61,24 @@ export function CaseArticle({
               </p>
             ))}
           </div>
-          {section.figure ? (
-            <figure className={styles.figure} style={{ maxWidth: section.figure.width }}>
+          {[...(section.figure ? [section.figure] : []), ...(section.moreFigures ?? [])].map((figure) => (
+            <figure key={figure.src} className={styles.figure} style={{ maxWidth: figure.width }}>
               {/* On a phone the screen is small; a tap opens it at full size. */}
-              <a href={section.figure.src} target="_blank" rel="noopener" className={styles.zoom}>
+              <a href={figure.src} target="_blank" rel="noopener" className={styles.zoom}>
               <img
-                src={section.figure.src}
-                srcSet={srcSetFor(section.figure.src)}
+                src={figure.src}
+                srcSet={srcSetFor(figure.src)}
                 sizes="(max-width: 1215px) 92vw, 1120px"
-                alt={section.figure.alt}
-                width={section.figure.width}
-                height={section.figure.height}
+                alt={figure.alt}
+                width={figure.width}
+                height={figure.height}
                 loading="lazy"
                 decoding="async"
               />
               </a>
-              <figcaption>{section.figure.caption}</figcaption>
+              <figcaption>{figure.caption}</figcaption>
             </figure>
-          ) : null}
+          ))}
         </section>
       ))}
       <p className={styles.closing}>{article.closing}</p>

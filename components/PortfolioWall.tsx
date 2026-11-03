@@ -50,12 +50,6 @@ const TILES: Tile[] = [
     "Internal platform | Energy dashboard",
   ),
   localized(
-    "ecofirst",
-    `${A}/ecofirst-ops`,
-    "AI 節能產品｜營運系統",
-    "AI energy | Operating model",
-  ),
-  localized(
     "health-app",
     `${A}/health-spec`,
     "健康 App｜規格與對照表",

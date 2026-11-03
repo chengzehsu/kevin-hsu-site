@@ -66,7 +66,7 @@ Every case SHALL state the capabilities the project used and the capabilities it
 
 ### Requirement: Case first screen answers value and capability
 
-Every case page SHALL open with the title, result figure, decision summary, capabilities used, capabilities grown, role, scope, collaboration, and main image. All other case content SHALL sit behind one disclosure, stay in the delivered HTML, and open when a visitor arrives with a link to a chapter inside it.
+Every case page SHALL open with the title, result figure, decision summary, capabilities used, capabilities grown, role, scope, collaboration, and main image. A case that lists scenarios SHALL show those on the first screen and open its disclosure with role, scope, and collaboration instead. All other case content SHALL sit behind one disclosure, stay in the delivered HTML, and open when a visitor arrives with a link to a chapter inside it.
 
 #### Scenario: Reader arrives
 

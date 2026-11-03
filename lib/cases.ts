@@ -25,10 +25,10 @@ export function fillCounts(template: string, items: CaseStudy[]): string {
     .replace("{featured}", String(FEATURED_COUNT));
 }
 
-/** The short case name: the part of the title before the colon, e.g. "AI 節能產品：…" / "AI energy product: …". */
+/** The short case name: the part of the title before the colon, e.g. "內部後台：…" / "Internal platform: …". */
 export function caseName(item: Pick<CaseStudy, "title">): string {
   return item.title.split(/[：:]/)[0];
 }
 
-/** Cases that take two grid cells, so ten cases fill a 3 by 4 grid with no empty cell. */
-export const WIDE_CASES = ["internal-backend", "resume-site"];
+/** Cases that take two grid cells, so nine cases fill a 3 by 4 grid, and a 2-column grid, with no empty cell. */
+export const WIDE_CASES = ["internal-backend", "sales-faq", "resume-site"];
