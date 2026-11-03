@@ -851,7 +851,7 @@ export const en = {
         title: "AI energy product: sales to RD on one line",
         role: "Senior Product Manager",
         scope:
-          "4 engineers | 50 sites | About NT$100M in projects | Roadmap, AI development, internal tools",
+          "4 engineers | About NT$100M in projects | Roadmap, AI development, internal tools",
         collaboration: "Software, project, sales, and site-operations teams",
         impact: "Delivery efficiency +50% | Site-ops efficiency +20%",
         ownership:
@@ -1395,13 +1395,12 @@ export const en = {
         skillSignal:
           "Turning field practice into a roadmap, AI tools, and one delivery workflow that software, project, and sales teams all use.",
         summary:
-          "Owned a 0-to-1 AI energy-saving HVAC product sold on its savings rate, leading 4 engineers across 50 deployed sites and about NT$100M in projects, and turned practices that lived in individual experience into tools and processes.",
+          "Owned the B2B AI HVAC energy-saving product and roadmap, leading 4 engineers on about NT$100M in projects, with an average customer energy saving of about 15%.",
         bullets: [
-          "Built the internal platform where customers see data status, energy reporting, and savings dashboards: onboarding went from about two weeks waiting on engineers to about 2 hours by a PM (excludes on-site wiring and control strategy); sensor-test handoffs fell from 4 to 0; coverage grew from 9 to 34 sites (May to Oct 2026)",
-          "Defined the customer war room: a hospital needed something its director could see before savings results existed; I prototyped the layout and metrics and RD shipped it. A second customer took one day on a config-driven layout, with benefits labeled as estimates",
-          "Centralized the savings-rate calculation in the platform: versioned parameters take effect the next day, and suspect data states what is missing instead of reporting on target, giving about 15 contracted sites numbers that can be recalculated",
-          "Let data overturn my own direction: an audit of 8,129 readings showed the 18 hand-set threshold rules caught 0 anomalies, so zero-config checks went first; merging same-cause alerts cut 244 down to 12",
-          "Brought AI into requirements through dev handoff for +50% delivery efficiency",
+          "Requirement handling from about 1 month to about 1 week: turned requirements directly into AI-built prototypes so sales, PMs, and engineers aligned on the spot",
+          "Customer onboarding from about 2 weeks to about 2 hours: connected APIs with AI to build an internal back office; 3 PMs manage 34 sites, with handoffs per round down from 4 to 0",
+          "Customer dashboard done in 1 day, available across all 34 sites: prototyped from a hospital request, engineers shipped it, and the layout became config-driven",
+          "Delivery time on related projects down 30% (estimate): turned common features into shared tools and modularized control strategies",
           "Replaced person-day quotes in pre-sales with S/M/L/XL sizing and contracts that read N weeks after data is complete; requirement sign-off fell from 4-5 rounds to 1-2 (internal estimate)",
           "Consolidated account and site information scattered across LINE, email, and personal laptops into one sales-to-RD operating system in Notion, with delivery dates starting at requirements sign-off",
         ],

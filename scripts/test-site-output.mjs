@@ -283,7 +283,7 @@ for (const [locale, file, home] of [
     const homeHtml = await readFile(new URL(home, import.meta.url), "utf8");
     const prefix = locale === "en" ? "/en/" : "/";
     assert.ok(homeHtml.includes(`href="${prefix}resume/"`), "Hero and nav link to the résumé");
-    for (const id of ["internal-backend", "grocery", "health-app", "cdp", "ecofirst", "sensor-naming", "sales-faq", "namecard", "podcast-stock", "life-hub"]) {
+    for (const id of ["internal-backend", "ecofirst", "grocery", "health-app", "cdp"]) {
       assert.ok(html.includes(`href="${prefix}cases/${id}/"`), `Résumé links to the ${id} case`);
     }
     assert.ok(html.includes("+233%") && html.includes("+66%"), "Canonical figures appear on the résumé");

@@ -28,7 +28,7 @@ function localeBase(locale: Locale): LocaleBase {
       "hero.headline": content.hero.headline,
       "resume.headline": resume.headline,
       "resume.summary": resume.summary,
-      "resume.keywords": resume.keywords,
+      "resume.keywords": resume.skills,
     },
     skills: skillsContent[locale].featured.map(({ id, name, statement, summary }) => ({ id, name, statement, summary })),
     experience: content.experience.items.map(({ id, org, role, bullets }) => ({ id, org, role, bullets })),
