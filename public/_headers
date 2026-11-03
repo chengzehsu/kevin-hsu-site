@@ -10,8 +10,11 @@
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Baseline protection on every response. No CSP yet: the theme, language, and analytics scripts are inline.
+# Baseline protection on every response. The CSP leaves scripts unrestricted on purpose: Next writes page data into
+# inline scripts that differ on every page, so hashes would have to be generated per page, and 'unsafe-inline' would
+# not stop inline injection anyway. These four limits block framing and base-tag injection at no risk of breaking a page.
 /*
+  Content-Security-Policy: frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin

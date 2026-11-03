@@ -54,7 +54,7 @@ export function ThemeSwitch({ locale }: { locale: Locale }) {
       aria-label={label}
       title={label}
       onClick={toggle}
-      className="inline-grid size-11 shrink-0 place-items-center rounded-ui border border-line text-muted transition-colors hover:bg-surface hover:text-fg"
+      className="inline-grid size-11 shrink-0 place-items-center rounded-ui border border-line text-muted transition-[color,background-color,border-color,transform] hover:border-muted hover:bg-surface hover:text-fg focus-visible:border-muted focus-visible:bg-surface focus-visible:text-fg active:scale-[0.98]"
     >
       {/* Both glyphs render; CSS picks one from the pre-paint data-theme, so the icon never flips on hydration. */}
       <SunIcon className="theme-icon-sun" size={18} aria-hidden="true" />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { THEME_SCRIPT, THEME_VIEWPORT } from "@/lib/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,9 +8,8 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-// This page bypasses both root layouts, so it applies the saved theme itself.
-const THEME_SCRIPT =
-  '(function(){try{var t=localStorage.getItem("portfolio-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=d?"dark":"light"}catch(e){}})();';
+// This page bypasses both root layouts, so it applies the saved theme and browser colour itself.
+export const viewport = THEME_VIEWPORT;
 
 const ACTION =
   "inline-flex min-h-11 items-center rounded-ui px-5 py-3 font-medium transition-transform active:scale-[0.98]";
@@ -32,14 +32,14 @@ export default function GlobalNotFound() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="/"
-                className={`${ACTION} bg-accent text-accent-fg hover:bg-accent/90`}
+                className={`${ACTION} bg-accent text-accent-fg hover:bg-accent/90 focus-visible:bg-accent/90`}
               >
                 回到首頁
               </a>
               <a
                 href="/en/"
                 lang="en"
-                className={`${ACTION} border border-line hover:bg-surface`}
+                className={`${ACTION} border border-line hover:bg-surface focus-visible:bg-surface`}
               >
                 English home
               </a>

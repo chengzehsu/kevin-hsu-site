@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { SITE_ORIGIN } from "@/lib/locale";
+import { THEME_SCRIPT, THEME_VIEWPORT } from "@/lib/theme";
 import { personJsonLd } from "@/lib/personJsonLd";
 import { Analytics } from "@/components/Analytics";
 import { TailoredBoot, TailoredStart } from "@/components/TailoredBoot";
@@ -8,13 +9,7 @@ import "../globals.css";
 
 export const metadata: Metadata = { metadataBase: new URL(SITE_ORIGIN) };
 
-// Matches --bg in globals.css, so the phone's browser bar blends into the page in either theme.
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f7fa" },
-    { media: "(prefers-color-scheme: dark)", color: "#171e28" },
-  ],
-};
+export const viewport: Viewport = THEME_VIEWPORT;
 
 // First-visit language redirect. The web platform does not expose a dependable
 // operating-system locale, so use the device/browser preferred-language list.
@@ -22,8 +17,6 @@ export const viewport: Viewport = {
 // the switch arrived with ?lang=zh because localStorage was unavailable.
 const REDIRECT_SCRIPT =
   '(function(){try{if(location.pathname!=="/"||/[?&]lang=zh(?:&|$)/.test(location.search))return;var h=location.hash||"";var p=localStorage.getItem("locale");var ls=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];var l=(ls[0]||"").toLowerCase();if(p==="en"||(!p&&l.indexOf("zh")!==0)){location.replace("/en/"+location.search+h)}}catch(e){}})();';
-const THEME_SCRIPT =
-  '(function(){try{var t=localStorage.getItem("portfolio-theme");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=d?"dark":"light"}catch(e){}})();';
 
 // Reveal blocks are server-rendered hidden and shown by motion; without JS they must stay visible.
 const NOSCRIPT_CSS = "[data-reveal],[data-hero-intro]{opacity:1!important;transform:none!important}[data-disclosure]::details-content{transition:none!important}";
