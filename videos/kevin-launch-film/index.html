@@ -804,7 +804,7 @@
           <div class="tag">控制策略模擬工具</div>
           <div id="a3-title">策略調整需要</div>
           <div id="a3-line"><span id="a3-text">1 週</span><span id="a3-caret"></span></div>
-          <div id="a3-plus"><b>+50%</b><span>把 AI 放進開發流程後的交付效率</span></div>
+          <div id="a3-plus"><b>約 2 週 → 約 2 小時</b><span>客戶導入，PM 自己完成</span></div>
         </div>
       </div>
 
@@ -821,7 +821,7 @@
           <div id="end-name">許承澤</div>
           <div id="end-en">Kevin Hsu</div>
           <div id="end-rule"></div>
-          <div id="end-role">Product Manager · AI、資料產品與複雜營運系統</div>
+          <div id="end-role">Senior Product Manager · 平台重構與內部系統</div>
           <div id="end-line">找出痛點，做出解法，量出成果。</div>
         </div>
         <div id="end-radar"></div>
@@ -867,10 +867,11 @@
           "#a3 .tag": "Control-strategy simulator",
           "#a3-title": "Tuning a strategy took",
           "#a3-text": "1 week",
-          "#a3-plus span": "delivery speed after putting AI into the dev workflow",
+          "#a3-plus b": "~2 weeks → ~2 hours",
+          "#a3-plus span": "customer onboarding, PM self-serve",
           "#end-name": "Kevin Hsu",
           "#end-en": "許承澤",
-          "#end-role": "Product Manager · AI, data, and operational products",
+          "#end-role": "Senior Product Manager · Platform rebuilds and internal systems",
           "#end-line": "Find the bottleneck. Build the fix. Prove it in numbers.",
         };
         Object.entries(T).forEach(([sel, txt]) => ($(sel).textContent = txt));
@@ -899,7 +900,7 @@
         { year: "2023", org: "獨立顧問", role: "包租代管 SaaS", title: "從商業策略拆到 Roadmap。", metric: "協助約 100 棟房源的 SaaS 產品化", grow: [0, 3], shape: [0.82, 0.38, 0.36, 0.86, 0.86, 0.78] },
         { year: "2023", org: "知識衛星", role: "Senior Product Manager", title: "三種使用者，一份優先序。", metric: "3 週切入香港，首週破 NT$100 萬", grow: [1, 0], shape: [0.88, 0.72, 0.38, 0.87, 0.87, 0.78] },
         { year: "2024", org: "獨立顧問", role: "營運數位轉型與募資", title: "把營運數據寫成投資故事。", metric: "約 NT$1.7 億募資進入實質洽談", grow: [0, 5], shape: [0.9, 0.74, 0.4, 0.88, 0.87, 0.8] },
-        { year: "2025", org: "台灣愛淨", role: "Product Manager", title: "把 AI 放進真實工作。", metric: "交付效率 +50% · 案場營運 +20%", grow: [2, 1], shape: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
+        { year: "2025", org: "台灣愛淨", role: "Senior Product Manager", title: "把 AI 放進真實工作。", metric: "客戶導入 約 2 週 → 約 2 小時 · 34 個案場", grow: [2, 1], shape: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
       ];
 
       if (EN) {
@@ -911,7 +912,7 @@
           ["Independent consultant", "Property-management SaaS", "From business strategy to roadmap.", "Productizing a SaaS for ~100 buildings"],
           ["SAT. Knowledge", "Senior Product Manager", "Three users, one priority list.", "Into Hong Kong in 3 weeks, NT$1M+ in week one"],
           ["Independent consultant", "Operations transformation & fundraising", "Turn operating data into an investor story.", "~NT$170M in raises reached investor talks"],
-          ["Ecofirst", "Product Manager", "Put AI into real work.", "Delivery +50% · Site operations +20%"],
+          ["Ecofirst", "Senior Product Manager", "Put AI into real work.", "Onboarding ~2 weeks → ~2 hours · 34 sites"],
         ];
         CHAPTERS.forEach((c, i) => ([c.org, c.role, c.title, c.metric] = E[i]));
       }
@@ -1076,7 +1077,7 @@
       tail.fromTo("#app", { scale: 1 }, { scale: 1.5, duration: 1.2, ease: "power3.inOut" }, 44.2);
       tail.to("#win", { x: 980, duration: 0.4, ease: "power3.in" }, 45.5);
       tail.to("#a2-left", { x: -120, opacity: 0, duration: 0.3, ease: "power3.in" }, 45.6);
-      // A3 45.9–50: 追求效率, 1 週 → 2 小時, then +50%.
+      // A3 45.9–50: 追求效率, 1 週 → 2 小時, then customer onboarding.
       lightTrait(2, 45.9);
       tail.fromTo("#a3", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 45.9);
       const typed = $("#a3-text");
