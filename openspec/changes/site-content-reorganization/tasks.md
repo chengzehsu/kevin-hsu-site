@@ -50,32 +50,40 @@
 
 ## 6. Design tokens (next)
 
-- [ ] 6.1 Spacing: replace about 218 distinct padding, margin, and gap values with an 8-step scale, in reviewable batches, checking each batch in Aside
-- [ ] 6.2 Text rhythm: reduce line-height (28 values), letter-spacing (36), and font-weight (13) to role tokens
-- [ ] 6.3 Surfaces: reduce box-shadow (17 values) to 2 or 3 levels and use the radius tokens everywhere
-- [ ] 6.4 Motion: reduce durations and easing curves to a few tokens
-- [ ] 6.5 Layout: reduce breakpoints (767, 768, 860, 560, 380, 640, 1023, 1024) to 640, 768, and 1024, and name the z-index layers
-- [ ] 6.6 Color: replace the 32 hard-coded colors with tokens and check both themes
-- [ ] 6.7 Add a test for each token group, as the type scale has, and keep the résumé out of scope because it is fitted to A4
+- [x] 6.1 Spacing: replace about 218 distinct padding, margin, and gap values with an 8-step scale, in reviewable batches, checking each batch in Aside
+- [x] 6.2 Text rhythm: reduce line-height (28 values), letter-spacing (36), and font-weight (13) to role tokens
+- [x] 6.3 Surfaces: reduce box-shadow (17 values) to 2 or 3 levels and use the radius tokens everywhere
+- [x] 6.4 Motion: reduce durations and easing curves to a few tokens
+- [x] 6.5 Layout: reduce breakpoints (767, 768, 860, 560, 380, 640, 1023, 1024) to 640, 768, and 1024, and name the z-index layers
+- [x] 6.6 Color: replace the 32 hard-coded colors with tokens and check both themes
+- [x] 6.7 Add a test for each token group, as the type scale has, and keep the résumé out of scope because it is fitted to A4
 
 ## 7. Frontend basics (next)
 
-- [ ] 7.1 Responsive images: generate several widths with srcset and stop lazy-loading the first-screen image
-- [ ] 7.2 Check hover and focus-visible states match on every interactive element
-- [ ] 7.3 Update theme-color when a visitor switches theme by hand; it follows only the system setting now
-- [ ] 7.4 Decide on a Content-Security-Policy; the theme, language, and analytics scripts are inline
-- [ ] 7.5 Align the home hero with the page grid; it starts further left than the sections below it
+- [x] 7.1 Responsive images: generate several widths with srcset and stop lazy-loading the first-screen image
+- [x] 7.2 Check hover and focus-visible states match on every interactive element
+- [x] 7.3 Update theme-color when a visitor switches theme by hand; it follows only the system setting now
+- [x] 7.4 Decide on a Content-Security-Policy; the theme, language, and analytics scripts are inline
+- [x] 7.5 Align the home hero with the page grid; it starts further left than the sections below it
 
 ## 8. Copy and facts to settle
 
-- [ ] 8.1 Ask Kevin: are "machine misses one to two tenths" and "93% right first time" different scopes, and which of 一成多 and 一到兩成 is right
-- [ ] 8.2 Ask Kevin to confirm: the AI energy figure (4-5 rounds to 1-2, internal estimate), the wording of 34 sites, and C111 as a company process
-- [ ] 8.3 Ask Kevin: what A32 "reversed order" became is written as "run the no-setup checks first"; confirm it
-- [ ] 8.4 Stop page stats repeating the hero figure on sales-faq, life-hub, and internal-backend
-- [ ] 8.5 Add "team result" where only meta descriptions and next-case links lack it (health-app impact, grocery 120%)
-- [ ] 8.6 Compare the résumé skill lists: zh has 7 under platform and data, en has 5
-- [ ] 8.7 Update content/linkedin-sync.md, which still has +50%, +20%, and the old positioning
-- [ ] 8.8 Have a reviewer read the last copy fixes (new and existing sites, life-hub wording), which only had automated checks
+- [x] 8.1 Ask Kevin: are "machine misses one to two tenths" and "93% right first time" different scopes, and which of 一成多 and 一到兩成 is right
+- [x] 8.2 Ask Kevin to confirm: the AI energy figure (4-5 rounds to 1-2, internal estimate), the wording of 34 sites, and C111 as a company process
+- [x] 8.3 Ask Kevin: what A32 "reversed order" became is written as "run the no-setup checks first"; confirm it
+- [x] 8.4 Stop page stats repeating the hero figure on sales-faq, life-hub, and internal-backend
+- [x] 8.5 Add "team result" where only meta descriptions and next-case links lack it (health-app impact, grocery 120%)
+- [x] 8.6 Compare the résumé skill lists: zh has 7 under platform and data, en has 5
+- [x] 8.7 Update content/linkedin-sync.md, which still has +50%, +20%, and the old positioning
+- [x] 8.8 Have a reviewer read the last copy fixes (new and existing sites, life-hub wording), which only had automated checks
+- [ ] 8.9 Ask Kevin, then fix: "新舊案場" and "a new or existing site" (caseArtifacts.ts:55, 178) mix first-time setup with later list changes; what were the about 2 weeks and about 2 hours measured on, and was it both. The same claim is in facts.ts, resume.ts, zh.ts, en.ts, and linkedin-sync.md, so change them together
+- [x] 8.10 Align the English "across 34 sites" with the "works for all 34" wording Kevin confirmed
+- [ ] 8.11 Ask Kevin, then fix: the internal-backend title says a customer sees a screen in 2 hours, but the body stops at PM upload and data check, and the customer dashboard took 1 day and used simulated figures
+- [ ] 8.12 Ask Kevin, then fix: when uploads launched, how much of 9 to 34 came after it, and whether to split that sentence so it does not read as cause and effect
+- [ ] 8.13 Ask Kevin: life-hub says daily runs and "runs automatically", but the same case says the daily schedule has been blocked since late May 2026 and now catches up when Claude Code opens; is "daily use" true, and are "data stays with me" and the holdings, tax, and doctor examples fine to publish
+- [x] 8.14 Fix the English privacy note on life-hub, which gives a commit count and then says no counts
+- [ ] 8.15 Ask Kevin: keep the "4 to 0" chapter stat on internal-backend (it repeats the hero's supporting line), and confirm the LinkedIn file changes: 卓越獎 to 優選, and whether 218 commits there should become 748, and the 93% chapter stat on sensor-naming, which repeats its hero figure
+- [ ] 8.16 Remove the orphaned flow scene as one chain: FlowReconfigurationScene.tsx, BuilderLoop.module.css, motion/flowScene.ts, content/flowExperience.ts, lib/flowSimulation.ts, scripts/test-flow-simulation.mjs, and the three dependency, after checking nothing else uses them
 
 ## 9. After deploy
 

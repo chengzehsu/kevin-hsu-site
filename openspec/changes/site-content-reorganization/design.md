@@ -58,6 +58,18 @@ A new side case, id `resume-site`. Claims come from the repo: positioning iterat
 
 Kevin asked for type sizes that follow a design system instead of everything being large. `app/globals.css` defines eight role tokens (caption 12, small 14, body 16, lead 18, h3 20, h2 up to 28, h1 up to 36, display up to 48), and every size outside the résumé uses them. Section titles are h2. On a case page the result figure is the one display element and the title is h1. The résumé keeps its own sizes because they are fitted to two A4 pages, and a test blocks literal sizes elsewhere. Tokens follow role, not old size: a paragraph is always lead or body, whatever it says, and only headings and figures use heading sizes. A chapter heading must never be smaller than the text under it.
 
+### Design tokens
+
+The same reasoning as the type scale extends to spacing, text rhythm, elevation, motion, layers, and color, with tokens at the top of `app/globals.css` and `scripts/test-tokens.mjs` blocking literal values. Spacing has eight steps from the values already most used, plus three fluid steps between sections. Breakpoints stay literal because `var()` does not work in `@media`: 640, 768, and 1024, with 639, 767, and 1023 as their max-width sides so the two sides never overlap. The résumé, the admin, and the film player keep their own values. Two exceptions protect signature motion: the wall loops and radar choreography keep their durations, and the brand flow mark hides at 380, because 639 would remove it from every phone. Accent-tinted shadows became neutral elevation levels, except the glow above the wall, which keeps its accent as a drop-shadow filter. The test reads CSS only, so Tailwind classes in components are outside it.
+
+### Case pages must not hide the way in
+
+Kevin found "See the full process" easy to miss, and nearly all of a case sits behind it. On case pages it is a solid accent button at body size, full width on phones, between two rules. The decision log inside it has its own kind and keeps the quiet style, as do the experience and AI lists.
+
+### Content Security Policy
+
+Only `frame-ancestors`, `object-src`, `base-uri`, and `form-action` are restricted. Next writes page data into inline scripts that differ per page, so hashes would be needed per page and `unsafe-inline` would not stop inline injection.
+
 ### Figures must read alone
 
 A card figure has to make sense to a recruiter who knows nothing about the company: number first, then what it counts. Ratios such as 51 / 185 and commit counts as headlines are out; Sales FAQ reads "51 answers reps can look up", and commit counts move into the caption. `result` is a list of one outcome per line.
@@ -69,3 +81,4 @@ A card figure has to make sense to a recruiter who knows nothing about the compa
 - [Hidden detail] Collapsing most of a case can hide evidence from a reader who does not open it. Mitigation: the measurement summary stays beside the figure, and the content stays in the HTML.
 - [Dropped detail] Some experience bullets disappear. Mitigation: git keeps them, and the cases hold the evidence.
 - [Unconfirmed claims] +20% is removed until Kevin confirms how it was measured.
+- [Removed claims] The overall share of sensor points automated matching missed is removed because the site gave two figures that also disagreed with the 93% sample. The monitoring sentence about 18 human-set rules catching 0 anomalies is removed at Kevin's request, because he found it unclear; `content/internal-backend-pm-value.md`, which the site does not render, still has it.
