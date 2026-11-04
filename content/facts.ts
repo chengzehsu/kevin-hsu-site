@@ -16,10 +16,10 @@ export const facts: Record<Locale, Metric[]> = {
     },
     {
       value: "300 → 1,000 單／日",
-      label: "蔬果電商揀貨產能",
-      detail: "重構訂單到交付流程後 +233%",
+      label: "蔬果電商出貨量",
+      detail: "重整入庫到出貨流程後 +233%",
       caseId: "grocery",
-      og: { value: "300 到 1,000 單／日", label: "蔬果電商揀貨產能" },
+      og: { value: "300 到 1,000 單／日", label: "蔬果電商出貨量" },
     },
     {
       value: "DAU +66%",
@@ -39,10 +39,10 @@ export const facts: Record<Locale, Metric[]> = {
     },
     {
       value: "300 → 1,000 orders a day",
-      label: "E-commerce order-picking capacity",
-      detail: "+233% after the order-to-delivery rebuild",
+      label: "E-commerce daily shipments",
+      detail: "+233% after redesigning inbound-to-shipping",
       caseId: "grocery",
-      og: { value: "300 to 1,000 orders/day", label: "E-commerce order-picking capacity" },
+      og: { value: "300 to 1,000 orders/day", label: "E-commerce daily shipments" },
     },
     {
       value: "DAU +66%",

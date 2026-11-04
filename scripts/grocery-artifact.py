@@ -16,7 +16,7 @@ NAVY, BLUE, LIGHT, MUTED = "#172234", "#2D61A6", "#DCE8F7", "#5A6980"
 COPY = {
     "zh": {
         "title": "蔬果電商的專案資訊系統",
-        "desc": "客戶、工程與設計團隊、同事每週重複詢問進度、上版內容、時數與過往做法；把這些資訊整理成資訊流盤點、專案總覽與專案詳細資訊三個模組。專案期間揀貨日產能由 300 提升到 1,000 單／日 (+233%)。",
+        "desc": "客戶、工程與設計團隊、同事每週重複詢問進度、上版內容、時數與過往做法；把這些資訊整理成資訊流盤點、專案總覽與專案詳細資訊三個模組。專案期間出貨量由 300 提升到 1,000 單／日 (+233%)。",
         "kicker": "PROJECT OPERATIONS / 蔬果電商",
         "head": "資訊透明，溝通成本才會下降",
         "sub": "客戶、團隊與同事每週重複問的問題，收進同一套專案系統。",
@@ -32,12 +32,12 @@ COPY = {
             ("專案總覽", "進度、上版內容、測試範圍，一頁對齊"),
             ("專案詳細資訊", "時數、權限、過往做法，隨時查得到"),
         ],
-        "result": ("專案成果", "揀貨日產能 300 → 1,000 單／日 (+233%)"),
+        "result": ("專案成果", "出貨量 300 → 1,000 單／日 (+233%)"),
         "head_size": 44,
     },
     "en": {
         "title": "Project information system for the grocery program",
-        "desc": "Clients, the engineering and design team, and colleagues asked the same questions about timeline, release scope, billable hours, and past decisions every week; the answers became three modules: an information-flow map, a project overview, and project detail pages. Picking capacity rose from 300 → 1,000 orders/day (+233%) during the program.",
+        "desc": "Clients, the engineering and design team, and colleagues asked the same questions about timeline, release scope, billable hours, and past decisions every week; the answers became three modules: an information-flow map, a project overview, and project detail pages. Shipments rose from 300 → 1,000 orders/day (+233%) during the program.",
         "kicker": "PROJECT OPERATIONS / GROCERY E-COMMERCE",
         "head": "Make the work visible, and the questions stop",
         "sub": "What clients, the team, and colleagues asked every week now lives in one project system.",
@@ -53,7 +53,7 @@ COPY = {
             ("Project overview", "Timeline, release scope, and test plan on one page"),
             ("Project details", "Hours, access, and past decisions, findable any time"),
         ],
-        "result": ("Program result", "Picking 300 → 1,000 orders/day (+233%)"),
+        "result": ("Program result", "Shipments 300 → 1,000 orders/day (+233%)"),
         "head_size": 38,
     },
 }

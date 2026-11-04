@@ -645,25 +645,26 @@ export const en = {
         scope: "NT$6.2M | Web/app | Orders, warehouse, AWS",
         collaboration:
           "Product, engineering, client operations, warehouse logistics, and AWS teams",
-        impact: "Picking capacity: 300 → 1,000 orders/day (+233%)",
+        impact: "Shipments: 300 → 1,000 orders/day (+233%)",
         capabilities: {
           used: ["Bottleneck analysis", "Cross-system coordination"],
           grown: ["Warehouse and delivery capacity assessment"],
         },
         ownership:
-          "Mapped order-to-delivery; aligned storefront, back office, app, and AWS rebuild.",
+          "Mapped inbound-to-shipping; redesigned the shipping mode, slips, and storage locations; aligned the storefront, back office, app, and AWS rebuild.",
         situation:
           "Pandemic demand overwhelmed the storefront, back office, and app of a fresh-produce business with about NT$200M in annual revenue.",
         bottleneck:
-          "End-to-end mapping identified picking and transport capacity as the primary constraints.",
+          "Mapping every step from inbound through picking to delivery identified picking and transport capacity as the primary constraints.",
         decision:
-          "Fixed picking and transport capacity first, then rebuilt the storefront, back office, app, and AWS architecture around the order-to-delivery flow.",
+          "Tackled picking and transport capacity first, moving from next-day to same-day delivery and redesigning shipping slips and storage locations; then improved the existing site's architecture and rebuilt the storefront, back office, app, and AWS stack in phases.",
         decisionSummary:
-          "Removed warehouse and transport constraints first, then rebuilt the storefront, back office, and AWS stack together.",
+          "Changed the shipping mode, slips, and storage locations to clear the picking bottleneck, then rebuilt the systems in phases.",
         hypothesis:
           "Used one shared priority list across product, engineering, warehouse, and operations to get through peak season first, then rebuild in phases.",
         result: [
-          "Picking capacity: 300 → 1,000 orders/day (+233%)",
+          "Shipments: 300 → 1,000 orders/day (+233%)",
+          "Picking efficiency up 30%",
           "Platform revenue grew 120% during the program (team result)",
           "AWS later featured the project",
         ],
@@ -675,42 +676,44 @@ export const en = {
           "Project knowledge base",
         ],
         measurement:
-          "Compared daily picking capacity before and after the rebuild. The AWS digital-transformation feature provides public evidence; revenue growth was a team outcome during the program.",
-        measurementSummary: "Daily picking capacity: before vs after",
+          "Compared daily shipments before and after the rebuild. The AWS digital-transformation feature provides public evidence; revenue growth was a team outcome during the program.",
+        measurementSummary: "Daily shipments: before vs after",
       },
       {
         id: "health-app",
         org: "Fable (寓意科技)",
         period: "Mar 2021 - Jul 2022",
         rank: 3,
-        title: "Health app and IoT integration",
+        title: "Health app: user flows redesigned",
         role: "Senior Project Manager",
-        scope: "Health app | IoT scales | Data migration | Localization",
+        scope: "Health app | User flows | IoT scales | Data migration | Localization",
         collaboration:
           "Client product, engineering, data migration, IoT, and localization partners",
         impact: "DAU: 12,000 → 20,000 in one year (+66%, team result)",
         capabilities: {
           used: [
             "User interviews",
+            "User flow design",
             "Prioritization",
             "QA and acceptance testing",
           ],
           grown: ["Data migration risk management", "IoT data integration"],
         },
         ownership:
-          "Led interviews, competitor analysis, workshops, prioritization, and QA acceptance.",
+          "Led interviews, competitor analysis, workshops, requirement focus, prioritization, and QA acceptance.",
         situation:
-          "A health app with about NT$800M in annual revenue needed rebuild, IoT scales, event registration, localization, and legacy-data migration.",
+          "A health app with about NT$800M in annual revenue needed a rebuild: engagement had room to grow, and sharing health data was inconvenient and incomplete, adding to health coaches' workload. It also needed IoT scales, event registration, localization, and legacy-data migration.",
         bottleneck:
           "Legacy fields, IoT data, and new feature flows didn't match, which blocked a safe migration and made the app hard to use.",
         decision:
-          "Turned interview scenarios into wireframes, user stories, and PRDs; aligned parameter and translation tables before development.",
+          "Turned interview scenarios into wireframes, user stories, and PRDs to focus requirements: connected scales for weigh-in check-ins to lift engagement and improved the sharing flow; aligned parameter and translation tables before development.",
         decisionSummary:
-          "Wrote specs from real user scenarios first, then reduced migration and localization risk.",
+          "Focused requirements through interviews, redesigned weigh-in check-ins and sharing, then reduced migration and localization risk.",
         hypothesis:
           "Used interviews, competitor research, and client workshops to prioritize work, then designed QA around real use cases.",
         result: [
-          "Launched the new platform and completed migration",
+          "Relaunched the app and completed migration",
+          "Made health-data sharing easier and more complete, easing the load on health coaches",
           "DAU: about 12,000 → 20,000 within one year (+66%, team result)",
         ],
         artifacts: [
@@ -741,7 +744,7 @@ export const en = {
         ownership:
           "Planned the CDP, chatbots, tracking, and dashboards; led biweekly alignment across the product and data teams.",
         situation:
-          "LINE, Facebook, website, e-commerce, and POS data were fragmented, hiding each customer's source and purchase behavior.",
+          "Chatbot (LINE, Facebook), website, e-commerce, and POS data were fragmented, hiding each customer's source and purchase behavior and making segment-based marketing hard.",
         bottleneck:
           "Channel formats and identity rules differed; the data needed structuring and matching before it could form Customer 360 views.",
         decision:
@@ -754,6 +757,7 @@ export const en = {
           "Connected five channels",
           "Integrated 10M records across retail, e-commerce, and real estate",
           "Built Customer 360 views",
+          "Enabled clients to target customer segments with marketing automation",
         ],
         artifacts: [
           "Product roadmap",
@@ -1285,8 +1289,9 @@ export const en = {
         focus: "Operations redesign and fundraising in energy and hospitality",
         summary: "",
         bullets: [
-          "Brought about NT$170M in fundraising across 2 deals, in energy and hospitality, into substantive investor talks; mapped workflows for 3 departments at the energy company and rolled out Asana",
+          "Brought 2 fundraising deals worth about NT$170M into investor due diligence: prepared energy and hospitality companies, from clarifying the business model and coaching the pitch deck to building the due diligence data room",
           "Analyzed 106 Airbnb listings: found a room type at 90% occupancy (Taipei average 65%) and positioned 2 hotels around it",
+          "Mapped workflows for 3 departments at the energy company and rolled out Asana",
         ],
       },
       {
@@ -1306,13 +1311,14 @@ export const en = {
       {
         id: "consulting",
         org: "Freelance",
-        role: "Independent Consultant | Product workflows and roadmaps",
+        role: "Independent Consultant | Product and project management workflows",
         period: "Jun 2023 - Nov 2023",
         focus:
-          "Development workflows, product roadmaps, and a personal playbook",
+          "Project management workflows, product management workflows, and internal workshops",
         summary: "",
         bullets: [
-          "Brought Notion to a 15-person outsourcing team; set a product roadmap tied to business metrics for a multinational SaaS company",
+          "Raised project management efficiency 20%: brought Notion to a 15-person outsourcing team, mapped its project management workflow, and built it into Notion",
+          "Mapped product management for a multinational rental-management SaaS: from business goals and the product roadmap to day-to-day requirements and delivery, and ran internal workshops to improve the process",
         ],
       },
       {
@@ -1336,8 +1342,9 @@ export const en = {
         summary:
           "Managed an NT$12M+ client project portfolio, leading 10 engineers across projects and directly managing 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award.",
         bullets: [
-          "Scaled picking from 300 to 1,000 orders a day (+233%): mapped order-to-delivery during the pandemic surge and coordinated storefront, app, and AWS rebuilds; revenue grew 120% during the rebuild (team result), and AWS featured the project as a case study",
-          "Grew health app daily active users from 12,000 to 20,000 (+66% in a year, team result): rebuilt an app platform with about NT$800M annual revenue, migrated data, and integrated IoT scales",
+          "Scaled grocery shipments from 300 to 1,000 orders a day (+233%): during the pandemic surge, mapped the flow from inbound to shipping and improved the existing site's architecture; revenue grew 120% during the rebuild (team result), and AWS featured the project as a case study",
+          "Improved picking efficiency 30%: moved shipping from next-day to same-day delivery and redesigned shipping slips and storage locations",
+          "Grew health app daily active users from 12,000 to 20,000 (+66% in a year, team result): redesigned the user flows of an app with about NT$800M annual revenue, from user interviews and focusing requirements to relaunch; connected IoT scales for weigh-in check-ins to lift engagement, and improved health-data sharing to ease the load on health coaches",
         ],
       },
       {
@@ -1348,7 +1355,7 @@ export const en = {
         focus: "Customer data platforms, chatbots, and dashboards",
         summary: "",
         bullets: [
-          "Integrated 10M customer records across 3 industries: directly managed a 12-person data and product team, and launched a CDP connecting 5 channels",
+          "Integrated 10M customer records across 3 industries: directly managed a 12-person data and product team and launched a CDP connecting 5 channels: chatbots (LINE, Facebook), website, e-commerce, and POS, so clients could target customer segments with marketing automation",
         ],
       },
       {
@@ -1392,15 +1399,15 @@ export const en = {
     },
     bottleneckLabel: "Bottleneck",
     hypothesis:
-      "Rebuilt the storefront, back office, app, and AWS architecture\naround one order-to-delivery flow",
+      "Redesigned shipping, slips, and storage locations\nthen rebuilt the site, app, and AWS stack",
     throughputLabel: "300 → 1,000 orders/day",
     captions: [
       "Orders queue at picking: 300 orders/day.",
-      "Rebuilt the storefront, back office, app, and AWS architecture around the delivery flow.",
-      "Picking reached 1,000 orders/day, while platform revenue grew 120% (team result).",
+      "Changed the shipping mode, slips, and storage locations, then rebuilt the site, app, and AWS stack.",
+      "Shipments reached 1,000 orders/day, while platform revenue grew 120% (team result).",
     ],
     replay: "Replay",
     ariaLabel:
-      "Animated diagram: orders flow through intake, picking, packing, and shipping; picking becomes the bottleneck, and after the AWS rebuild, throughput rises from 300 to 1,000 orders/day.",
+      "Animated diagram: orders flow through intake, picking, packing, and shipping; picking becomes the bottleneck, and after changing the shipping mode, slips, and storage locations and rebuilding the systems, throughput rises from 300 to 1,000 orders/day.",
   },
 } satisfies SiteContent;

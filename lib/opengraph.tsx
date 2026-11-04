@@ -6,7 +6,7 @@ const CARD_CONTENT: Record<Locale, { eyebrow: string; impacts: Array<{ value: st
   zh: {
     eyebrow: "產品管理 · 將系統化為成果",
     impacts: [
-      { value: "1,000", label: "單／日揀貨產能" },
+      { value: "1,000", label: "單／日出貨量" },
       { value: "+120%", label: "電商平台營業額" },
       { value: "10M", label: "客戶資料整合" },
     ],

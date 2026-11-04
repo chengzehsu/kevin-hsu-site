@@ -62,7 +62,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       },
       {
         figure: "300 → 1,000 單／日",
-        label: "電商揀貨",
+        label: "電商出貨",
         note: "獲 AWS 收錄為案例",
       },
       {
@@ -109,6 +109,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
         items: [
           "內部系統規劃",
           "CDP 規劃",
+          "行銷自動化",
           "API 串接",
           "系統整合",
           "資料遷移",
@@ -119,7 +120,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       },
       {
         label: "流程與協作",
-        items: ["流程優化", "專案管理", "跨部門協作", "QA 驗收"],
+        items: ["流程優化", "專案管理", "跨部門協作", "工作坊引導", "QA 驗收"],
       },
       {
         label: "AI 與工具",
@@ -150,7 +151,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       },
       {
         figure: "300 → 1,000 orders/day",
-        label: "E-commerce picking",
+        label: "E-commerce shipping",
         note: "Featured as an AWS case study",
       },
       {
@@ -197,6 +198,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
         items: [
           "Internal Systems",
           "CDP",
+          "Marketing Automation",
           "API Integration",
           "System Integration",
           "Data Migration",
@@ -209,6 +211,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
         label: "Process and teams",
         items: [
           "Process Optimization",
+          "Workshop Facilitation",
           "Project Management",
           "Cross-functional Collaboration",
           "QA",

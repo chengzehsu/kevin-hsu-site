@@ -78,7 +78,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         name: "流程重構",
         statement: "先找到卡住產能的那一步。",
         summary: "走進現場、訪談第一線，畫出跨部門的現有流程，找出等待、重複作業與資料斷點，再用規則、系統或工具解開瓶頸。",
-        proof: "揀貨 300 → 1,000 單／日 (+233%)",
+        proof: "出貨 300 → 1,000 單／日 (+233%)",
         references: [
           { label: "Fable 寓意科技", href: "/cases/grocery/" },
           { label: "內部後台", href: "/cases/internal-backend/" },
@@ -199,7 +199,7 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         name: "Process mapping",
         statement: "Find the step that caps throughput.",
         summary: "Walk the floor and interview frontline staff to map the cross-team workflow, find wait times, repeated work, and data gaps, then clear the bottleneck with rules, systems, or tools.",
-        proof: "Picking 300 → 1,000 orders/day (+233%)",
+        proof: "Shipments 300 → 1,000 orders/day (+233%)",
         references: [
           { label: "Fable", href: "/en/cases/grocery/" },
           { label: "Internal platform", href: "/en/cases/internal-backend/" },

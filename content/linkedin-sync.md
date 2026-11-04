@@ -40,7 +40,7 @@ Senior Product Manager | Platform Rebuilds & Internal Systems | I turn work that
 ・台灣愛淨：自建內部後台，客戶導入從約 2 週縮短到約 2 小時（改由 PM 自己設定點位，34 個案場都適用，不含現場接線與控制策略）
 ・台灣愛淨：把散在 LINE、Email 與個人電腦的客戶與案場資料，整合成業務到 RD 共用的 Notion 營運系統；需求處理從約 1 個月縮短到約 1 週
 ・控制策略模擬工具：調整一次策略，從 1 週縮短到 2 小時
-・Fable 寓意科技：主導蔬果電商訂單到交付的重構，揀貨 300 → 1,000 單／日；健康 App 重構後 DAU 一年 +66%（團隊成果）
+・Fable 寓意科技：重整蔬果電商入庫到出貨的流程，出貨 300 → 1,000 單／日；健康 App 重構後 DAU 一年 +66%（團隊成果）
 ・帶過 10 人工程團隊與 2 位初階 PM，管理 NT$1,200 萬以上的專案組合
 
 程式經驗不多，但原型與內部工具我自己用 Claude Code 做，2 個月 218 次提交。我的原則是：AI 先提案，人來拍板，驗證準了才放手。
@@ -62,7 +62,7 @@ A few results:
 - Ecofirst: built an internal platform that cut customer onboarding from ~2 weeks to ~2 hours (PMs set up sensor points themselves, which works for all 34 sites, excluding on-site wiring and control strategy)
 - Ecofirst: merged customer and site data scattered across LINE, email, and laptops into one Notion operations system shared from sales to R&D; requirement handling fell from ~1 month to ~1 week
 - A control-strategy simulator cut each strategy tuning cycle from 1 week to 2 hours
-- Fable: led an order-to-delivery rebuild for a grocery e-commerce client, picking 300 → 1,000 orders/day; a health app rebuild grew DAU 66% in a year (team result)
+- Fable: redesigned inbound-to-shipping for a grocery e-commerce client, taking shipments from 300 → 1,000 orders/day; a health app rebuild grew DAU 66% in a year (team result)
 - Led a 10-person engineering team and two junior PMs across a NT$12M+ portfolio
 
 I'm not a career engineer, but I build my own prototypes and internal tools with Claude Code (218 commits in 2 months). My rule: AI proposes, a person decides, and it earns autonomy once it's proven right.
@@ -111,9 +111,9 @@ I'm looking for a team with clear roles, data-driven product decisions, and an a
 
 ### 獨立顧問｜營運數位轉型與募資策略（2024/9 – 2025/2）
 
-- 能源業：盤點 3 個部門流程並導入 Asana，支撐約 NT$1 億募資進入實質洽談
-- 旅宿業：分析 106 間 Airbnb 房型住房率，找出 3 房家庭房型 90% 住房率（台北平均 65%），推動約 NT$7,000 萬募資進入實質洽談
-- 建置 DD room、試算估值模型，把營運數據寫成投資人看得懂的商業故事
+- 能源業：盤點 3 個部門流程並導入 Asana，支撐約 NT$1 億募資進入盡職調查（DD）階段
+- 旅宿業：分析 106 間 Airbnb 房型住房率，找出 3 房家庭房型 90% 住房率（台北平均 65%），推動約 NT$7,000 萬募資進入盡職調查（DD）階段
+- 梳理商業模式、輔導募資簡報、建置 DD room、試算估值模型，把營運數據寫成投資人看得懂的商業故事
 
 ### Senior Product Manager｜知識衛星 SAT. KNOWLEDGE（2023/11 – 2024/8）
 
@@ -125,8 +125,8 @@ I'm looking for a team with clear roles, data-driven product decisions, and an a
 
 管理 NT$1,200 萬以上 B2C 專案組合，帶領 10 人工程團隊與 2 位初階 PM；獲 2022 PMI 標竿專案獎優選。
 
-- 蔬果電商（客戶年營收約 NT$2 億）：主導訂單到交付流程盤點與 AWS 架構重構，揀貨 300 → 1,000 單／日（+233%），重構期間平台營收 +120%（團隊成果），獲 AWS 收錄為案例
-- 健康管理 App（年營收約 NT$8 億）：重構平台並整合 IoT 體重計，DAU 一年由 12,000 成長至 20,000（+66%，團隊成果）
+- 蔬果電商（客戶年營收約 NT$2 億）：主導入庫到出貨流程盤點，把隔日配改為當日配並重新設計出貨單與儲位（揀貨效率 +30%），出貨 300 → 1,000 單／日（+233%），重構期間平台營收 +120%（團隊成果），獲 AWS 收錄為案例
+- 健康管理 App（年營收約 NT$8 億）：從使用者訪談到重新上架，重新設計使用者流程，串接 IoT 體重計加入上秤打卡，並改善健康數據分享，DAU 一年由 12,000 成長至 20,000（+66%，團隊成果）
 
 ### 其他經歷（照網站逐條貼）
 

@@ -110,7 +110,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
         value: "300 → 1,000",
         unit: "單／日",
         delta: "（+233%）",
-        label: "揀貨產能",
+        label: "出貨量",
       },
       stills: [
         {
@@ -253,7 +253,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
         value: "300 → 1,000",
         unit: "orders/day",
         delta: "(+233%)",
-        label: "Daily order-picking capacity",
+        label: "Shipments",
       },
       stills: [
         {
