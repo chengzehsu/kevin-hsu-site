@@ -1,11 +1,13 @@
 """Synthesize the launch film's original, royalty-free background track from code alone.
 
-Usage: python3 scripts/film-bgm.py 66.8 <out.wav> [seed]
+Usage: python3 scripts/film-bgm.py 60 <out.wav> [seed]
 Bouncy off-beat chords, glockenspiel melody, finger snaps and a soft shaker. Every voice is low-passed and
 nothing is hard-clipped, because noise-based hats and plucks read as harsh.
 
-The arrangement follows the film clock. 120 BPM puts a bar every 2 seconds, so the chapters start on a bar at 12s
-and the three tagline lines land on the beats at 57, 58 and 59 seconds. If the film is re-timed, change these.
+The arrangement follows the film clock. 120 BPM puts a bar every 2 seconds, and the grid starts 1 second early, so bars
+fall on odd seconds: the cuts at 5, 11, 19, 25 and 55 land on a bar, and those at 32, 42 and 50 on its third beat.
+The groove enters at 11s, drops out a bar before the tagline, and the three tagline lines land on 50, 51 and 52 seconds.
+If the film is re-timed, change these.
 """
 import sys
 import wave
@@ -18,8 +20,9 @@ BPM = 120
 BEAT = 60 / BPM
 BAR = BEAT * 4
 
-FULL_FROM, BREAK_FROM, OUTRO_FROM = 12.0, 56.0, 61.0  # film clock: chapters, tagline, end card
-TAGLINE_HITS = (57.0, 58.0, 59.0)
+GRID_OFFSET = -1.0  # the first bar starts before the film, so its downbeats land on odd seconds
+FULL_FROM, BREAK_FROM, OUTRO_FROM = 11.0, 49.0, 55.0  # film clock: first result, tagline run-up, end card
+TAGLINE_HITS = (50.0, 51.0, 52.0)
 
 CHORDS = [[60, 64, 67], [59, 62, 67], [57, 60, 64], [57, 60, 65]]  # C G Am F
 ROOTS = [48, 43, 45, 41]
@@ -90,7 +93,7 @@ def snap(rng):
 
 def add(track, sig, at, gain):
     i = int(at * SR)
-    if i >= len(track):
+    if i < 0 or i >= len(track):
         return
     j = min(len(track), i + len(sig))
     track[i:j] += sig[: j - i] * gain
@@ -114,7 +117,7 @@ def make(seconds, seed=7):
     stabs = {}
     n_bars = int(np.ceil(seconds / BAR)) + 1
     for b in range(n_bars):
-        t0 = b * BAR
+        t0 = GRID_OFFSET + b * BAR
         chord, root = CHORDS[b % 4], ROOTS[b % 4]
         intro = t0 < FULL_FROM or t0 >= OUTRO_FROM
         tagline = BREAK_FROM <= t0 < OUTRO_FROM

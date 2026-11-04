@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1600, height=1000" />
-    <title>許承澤 Kevin Hsu · 67s</title>
+    <title>許承澤 Kevin Hsu · 60s</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
       @font-face {
@@ -55,9 +55,9 @@
         color: #2b5896;
       }
       .tag {
-        font-size: 26px;
-        font-weight: 600;
-        letter-spacing: 0.02em;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
         color: #2b5896;
       }
       .num {
@@ -89,69 +89,147 @@
       }
       #chrome-row {
         position: absolute;
-        left: 80px;
-        right: 80px;
-        top: 52px;
+        left: 140px;
+        right: 140px;
+        top: 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 24px;
-        font-weight: 600;
+        font-size: 28px;
+        font-weight: 700;
       }
-      #chrome-count {
+      #chrome-sec {
         position: relative;
-        width: 110px;
-        height: 30px;
+        width: 500px;
+        height: 36px;
       }
-      #chrome-count span {
+      #chrome-sec span {
         position: absolute;
         right: 0;
         top: 0;
         opacity: 0;
-        font-variant-numeric: tabular-nums;
+        color: #2b5896;
+        white-space: nowrap;
       }
       #chrome-rule {
         position: absolute;
-        left: 80px;
-        right: 80px;
+        left: 140px;
+        right: 140px;
         top: 100px;
         height: 2px;
         background: #d7dfe8;
       }
 
-      /* ── S1 hook ───────────────────────────────────────── */
+      /* ── Shared before/after figure ────────────────────── */
+      .ft {
+        display: flex;
+        align-items: baseline;
+        gap: 28px;
+        line-height: 1.1;
+        white-space: nowrap;
+      }
+      .ft .from {
+        position: relative;
+        font-weight: 700;
+        color: #526173;
+      }
+      .ft .from i {
+        position: absolute;
+        left: -6px;
+        right: -6px;
+        top: 54%;
+        height: 5px;
+        border-radius: 3px;
+        background: #526173;
+        transform-origin: 0 50%;
+      }
+      .ft .arrow {
+        font-weight: 600;
+        color: #526173;
+      }
+      .ft .to {
+        font-weight: 700;
+        color: #2b5896;
+        letter-spacing: -0.03em;
+      }
+      .note {
+        font-size: 30px;
+        font-weight: 600;
+        color: #526173;
+      }
+
+      /* ── S1 open: who and what, already on the first frame ─ */
+      #o-name {
+        position: absolute;
+        left: 140px;
+        top: 250px;
+        font-size: 100px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        white-space: nowrap;
+      }
+      #o-role {
+        position: absolute;
+        left: 140px;
+        top: 368px;
+        font-size: 38px;
+        font-weight: 600;
+        color: #526173;
+      }
+      #o-rule {
+        position: absolute;
+        left: 140px;
+        top: 440px;
+        width: 320px;
+        height: 4px;
+        border-radius: 3px;
+        background: #2b5896;
+        transform-origin: 0 50%;
+      }
+      #o-line1,
+      #o-line2 {
+        position: absolute;
+        left: 140px;
+        font-size: 60px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+      #o-line1 {
+        top: 480px;
+      }
+      #o-line2 {
+        top: 562px;
+      }
+
+      /* ── S2 problem ────────────────────────────────────── */
       .hook {
         position: absolute;
         left: 140px;
-        right: 140px;
-        top: 360px;
-        font-size: 150px;
-        font-weight: 800;
+        font-size: 92px;
+        font-weight: 700;
         letter-spacing: -0.03em;
-        line-height: 1.08;
-        opacity: 0;
+        line-height: 1.1;
+        white-space: nowrap;
       }
-      #h1c {
-        top: 290px;
+      #h1 {
+        top: 270px;
       }
-      #h1c-small {
-        font-size: 64px;
-        font-weight: 600;
-        color: #526173;
-        letter-spacing: -0.01em;
-        margin-bottom: 18px;
+      #h2 {
+        top: 380px;
       }
       #load {
         position: absolute;
         left: 140px;
-        top: 700px;
-        width: 620px;
-        opacity: 0;
+        top: 610px;
+        width: 900px;
       }
       #load-track {
         position: relative;
-        height: 12px;
-        border-radius: 6px;
+        height: 14px;
+        border-radius: 7px;
         background: #d7dfe8;
         overflow: hidden;
       }
@@ -159,48 +237,437 @@
         position: absolute;
         inset: 0;
         background: #202a36;
-        border-radius: 6px;
+        border-radius: 7px;
         transform-origin: 0 50%;
       }
       #load-label {
+        position: relative;
+        height: 54px;
+        margin-top: 16px;
+        font-size: 32px;
+        font-weight: 600;
+        color: #526173;
+      }
+      #load-label span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        white-space: nowrap;
+      }
+
+      #old-flow {
+        position: absolute;
+        left: 140px;
+        top: 520px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 38px;
+        font-weight: 600;
+        color: #526173;
+        white-space: nowrap;
+      }
+
+      /* ── S3 the new way of working ─────────────────────── */
+      #sn-flow {
+        position: absolute;
+        left: 140px;
+        top: 290px;
+        width: 1320px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      #sn-flow > div {
+        flex: 1;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: #fcfcfd;
+        border: 2px solid #d7dfe8;
+        font-size: 34px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      #sn-flow > div.key {
+        background: #2b5896;
+        border-color: #2b5896;
+        color: #f5f8fc;
+      }
+      #sn-flow > i {
+        font-style: normal;
+        font-size: 34px;
+        font-weight: 600;
+        color: #526173;
+      }
+      #sn-fig {
+        position: absolute;
+        left: 140px;
+        top: 500px;
+      }
+      #sn-fig .ft {
+        margin-top: 4px;
+      }
+      #sn-fig .from,
+      #sn-fig .arrow {
+        font-size: 52px;
+      }
+      #sn-fig .to {
+        font-size: 92px;
+      }
+
+      /* ── S3 onboarding: the figure above the real screen ── */
+      #s3-head {
+        position: absolute;
+        left: 140px;
+        top: 132px;
+        width: 1320px;
+      }
+      #s3-head .ft {
+        margin-top: 2px;
+        height: 108px;
+      }
+      #s3-head .from {
+        font-size: 52px;
+      }
+      #s3-head .arrow {
+        font-size: 52px;
+      }
+      #s3-head .to {
+        font-size: 92px;
+      }
+      #s3-side {
+        position: absolute;
+        left: 890px;
+        top: 132px;
+      }
+      #s3-num {
+        margin-top: 2px;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        height: 108px;
+        line-height: 1.1;
+      }
+      #s3-count {
+        font-size: 92px;
+        font-weight: 700;
+      }
+      #s3-unit {
+        font-size: 34px;
+        font-weight: 700;
+      }
+      #win {
+        position: absolute;
+        left: 140px;
+        top: 396px;
+        width: 1126px;
+        border-radius: 22px;
+        background: #fcfcfd;
+        border: 2px solid #d7dfe8;
+        box-shadow:
+          0 40px 80px rgba(32, 42, 54, 0.14),
+          0 10px 24px rgba(32, 42, 54, 0.08);
+        overflow: hidden;
+      }
+      .win-bar {
+        height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 20px;
+        border-bottom: 2px solid #d7dfe8;
+        background: #eef2f7;
+      }
+      .win-bar i {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #c9d4e2;
+      }
+      /* 1320 of 1568 source pixels wide: the screens only ever shrink. */
+      #win-view {
+        position: relative;
+        width: 1320px;
+        height: 481px;
+        overflow: hidden;
+        zoom: 0.85;
+      }
+      #win-view img {
+        display: block;
+        width: 1320px;
+        height: auto;
+      }
+      #row-hl {
+        position: absolute;
+        left: 0;
+        top: 93px;
+        width: 1320px;
+        height: 104px;
+        background: rgba(43, 88, 150, 0.1);
+        box-shadow: inset 0 0 0 3px #2b5896;
+      }
+      #detail {
+        position: absolute;
+        left: 0;
+        top: 196px;
+        width: 1320px;
+        height: 285px;
+        overflow: hidden;
+        background: #fcfcfd;
+        border-top: 2px solid #2b5896;
+        box-shadow: 0 -18px 40px rgba(32, 42, 54, 0.16);
+      }
+      #cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 48px;
+        transform-origin: 4px 3px;
+      }
+
+      /* ── S4 reply time: a day collapses to ten minutes ──── */
+      #s4-tag {
+        position: absolute;
+        left: 140px;
+        top: 300px;
+        font-size: 38px;
+      }
+      #s4-from {
+        position: absolute;
+        left: 140px;
+        top: 360px;
+        font-size: 140px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: #526173;
+        transform-origin: 0 100%;
+        white-space: nowrap;
+      }
+      #s4-arrow {
+        position: absolute;
+        left: 340px;
+        top: 412px;
+        font-size: 64px;
+        font-weight: 600;
+        color: #526173;
+      }
+      #s4-to {
+        position: absolute;
+        left: 440px;
+        top: 360px;
+        font-size: 140px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: #2b5896;
+        white-space: nowrap;
+      }
+      #s4-bar {
+        position: absolute;
+        left: 140px;
+        top: 580px;
+        width: 1000px;
+        height: 18px;
+        border-radius: 9px;
+        background: #d7dfe8;
+      }
+      #s4-fill {
+        position: absolute;
+        inset: 0;
+        border-radius: 9px;
+        background: #526173;
+        transform-origin: 0 50%;
+      }
+
+      /* ── S5 cost: two figures over the health page ──────── */
+      #s5-stats {
+        position: absolute;
+        left: 140px;
+        top: 140px;
+        width: 1320px;
+        display: flex;
+        gap: 40px;
+      }
+      #s5-stats > div {
+        flex: 1;
+      }
+      #s5-stats .tag {
+        font-size: 30px;
+      }
+      #s5-stats .ft {
+        margin-top: 6px;
+        gap: 18px;
+      }
+      #s5-stats .from {
+        font-size: 40px;
+      }
+      #s5-stats .arrow {
+        font-size: 40px;
+      }
+      #s5-stats .to {
+        font-size: 78px;
+      }
+      /* 1386 of 1648 source pixels wide. */
+      #health {
+        position: absolute;
+        left: 112px;
+        top: 300px;
+        width: 1178px;
+        height: 393px;
+      }
+      #health img {
+        display: block;
+        width: 1178px;
+        height: auto;
+      }
+      .h-row {
+        position: absolute;
+        left: 59px;
+        width: 1085px;
+        height: 50px;
+        border-radius: 14px;
+        box-shadow: inset 0 0 0 3px #2b5896;
+        background: rgba(43, 88, 150, 0.06);
+      }
+
+      /* ── S6 built by hand: three proofs ─────────────────── */
+      /* Each screenshot carries its own window frame; all are shown below source size. */
+      #a3 {
+        position: absolute;
+        left: 140px;
+        right: 140px;
+        top: 270px;
+      }
+      #a3 .tag {
+        font-size: 38px;
+      }
+      #a3-line {
+        margin-top: 6px;
+        height: 180px;
+        font-size: 140px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+        white-space: nowrap;
+      }
+      #a3-line span {
+        display: inline-block;
+      }
+      #a3-caret {
+        width: 10px;
+        height: 110px;
+        margin-left: 18px;
+        vertical-align: -8px;
+        background: #2b5896;
+        border-radius: 3px;
+      }
+      #a3-plus {
         margin-top: 18px;
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+      }
+      #a3-plus b {
+        font-size: 46px;
+        font-weight: 700;
+        color: #2b5896;
+        letter-spacing: -0.03em;
+      }
+      #a3-plus span {
+        font-size: 30px;
+        font-weight: 700;
+      }
+      #a3-count {
+        display: inline-block;
+        font-style: normal;
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+      }
+      #a3-grid {
+        position: absolute;
+        left: 1060px;
+        top: 0;
+        width: 260px;
+        height: 260px;
+      }
+
+      /* ── S7 scale and recognition, beside the radar ─────── */
+      .rows {
+        position: absolute;
+        left: 140px;
+        top: 230px;
+        width: 640px;
+      }
+      .rows-head {
+        height: 78px;
+        font-size: 38px;
+        font-weight: 700;
+        color: #2b5896;
+        white-space: nowrap;
+      }
+      #turn {
+        position: absolute;
+        left: 140px;
+        top: 370px;
+        width: 680px;
+      }
+      #turn-year {
+        font-size: 38px;
+        font-weight: 700;
+        color: #526173;
+      }
+      #turn-line {
+        margin-top: 10px;
+        font-size: 64px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #2b5896;
+        white-space: nowrap;
+      }
+      #turn-sub {
+        margin-top: 18px;
+        font-size: 32px;
+        font-weight: 600;
+        color: #526173;
+      }
+      .row {
+        height: 150px;
+        margin-top: 0;
+      }
+      .row .v {
+        font-size: 58px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        white-space: nowrap;
+      }
+      .row .v small {
         font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin-left: 12px;
+      }
+      .row .l {
+        margin-top: 2px;
+        font-size: 30px;
         font-weight: 600;
         color: #526173;
       }
 
-      /* ── S2 rubric ─────────────────────────────────────── */
-      #s2-copy {
-        position: absolute;
-        left: 140px;
-        top: 300px;
-        width: 620px;
-      }
-      #r1 {
-        font-size: 88px;
-        white-space: nowrap;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-      }
-      #r2,
-      #r3 {
-        margin-top: 22px;
-        font-size: 50px;
-        font-weight: 700;
-        line-height: 1.35;
-        letter-spacing: -0.01em;
-      }
-      #r2 {
-        color: #526173;
-      }
-
-      /* ── Radar (persistent 6.0–42.2) ───────────────────── */
+      /* ── Radar: one continuous shape from 42 to the end ─── */
       #radar-box {
         position: absolute;
-        left: 800px;
-        top: 180px;
+        left: 988px;
+        top: 220px;
         width: 720px;
         height: 720px;
+        zoom: 0.85;
       }
       #radar-box svg {
         position: absolute;
@@ -212,441 +679,64 @@
         margin-left: -110px;
         margin-top: -20px;
         text-align: center;
-        font-size: 30px;
+        font-size: 32px;
         font-weight: 700;
         color: #526173;
         white-space: nowrap;
-        opacity: 0;
       }
-      #radar-cap {
+
+      #years {
+        position: absolute;
+        left: 966px;
+        top: 816px;
+        width: 360px;
+      }
+      #years-label {
+        position: relative;
+        height: 44px;
+        text-align: center;
+      }
+      #years-label span {
         position: absolute;
         left: 0;
         right: 0;
-        top: 128px;
-        text-align: center;
-        font-size: 58px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        opacity: 0;
-      }
-
-      /* ── S3 chapters ───────────────────────────────────── */
-      .ch {
-        position: absolute;
-        left: 120px;
-        top: 220px;
-        width: 640px;
-        opacity: 0;
-      }
-      .ch-year {
-        font-size: 130px;
-        font-weight: 800;
-        line-height: 1;
-        color: #2b5896;
-      }
-      .ch-org {
-        margin-top: 18px;
-        font-size: 50px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        white-space: nowrap;
-      }
-      .ch-role {
-        margin-top: 8px;
-        font-size: 28px;
-        font-weight: 600;
-        color: #526173;
-      }
-      .ch-title {
-        margin-top: 34px;
-        font-size: 40px;
-        font-weight: 700;
-      }
-      .ch-metric {
-        margin-top: 14px;
-        font-size: 34px;
+        top: 0;
+        font-size: 32px;
         font-weight: 700;
         color: #2b5896;
         font-variant-numeric: tabular-nums;
-        white-space: nowrap;
+        opacity: 0;
       }
-      .ch-chips {
-        margin-top: 30px;
-        display: flex;
-        gap: 12px;
-      }
-      .ch-chips span {
-        display: inline-block;
-        padding: 10px 18px;
-        border-radius: 999px;
-        border: 2px solid #2b5896;
-        background: #e3ebf6;
-        font-size: 26px;
-        font-weight: 700;
-        color: #2b5896;
-        white-space: nowrap;
-      }
-      #rail {
-        position: absolute;
-        left: 120px;
-        top: 890px;
-        width: 620px;
+      #years-track {
         height: 4px;
         border-radius: 2px;
         background: #d7dfe8;
       }
-      #rail-fill {
-        position: absolute;
-        inset: 0;
+      #years-fill {
+        height: 4px;
         border-radius: 2px;
         background: #2b5896;
         transform-origin: 0 50%;
       }
 
-      /* ── S4 AI way of working ──────────────────────────── */
-      #traits {
-        position: absolute;
-        left: 140px;
-        top: 150px;
-        display: flex;
-        gap: 14px;
-        opacity: 0;
-      }
-      #traits span {
-        padding: 10px 22px;
-        border-radius: 999px;
-        border: 2px solid #d7dfe8;
-        font-size: 28px;
-        font-weight: 700;
-        color: #526173;
-        background: #fcfcfd;
-      }
-      #a0 {
-        position: absolute;
-        left: 140px;
-        right: 140px;
-        top: 300px;
-      }
-      #a0-l1,
-      #a0-l2 {
-        font-size: 120px;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        line-height: 1.15;
-        opacity: 0;
-      }
-      #a0-l1 {
-        color: #526173;
-      }
-      #tools {
-        margin-top: 50px;
-        display: flex;
-        gap: 16px;
-      }
-      #tools span {
-        padding: 14px 26px;
-        border-radius: 16px;
-        border: 2px solid #d7dfe8;
-        background: #fcfcfd;
-        font-size: 32px;
-        font-weight: 700;
-        box-shadow: 0 12px 30px rgba(32, 42, 54, 0.08);
-        opacity: 0;
-      }
-      #a1 {
-        position: absolute;
-        left: 140px;
-        right: 140px;
-        top: 260px;
-        opacity: 0;
-      }
-      #a1-left {
-        width: 520px;
-      }
-      #a1-count {
-        margin-top: 12px;
-        font-size: 210px;
-        font-weight: 800;
-        line-height: 1.12;
-        transform-origin: 0 80%;
-      }
-      .a-title {
-        margin-top: 6px;
-        font-size: 44px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        line-height: 1.25;
-      }
-      .a-sub {
-        margin-top: 22px;
-        font-size: 30px;
-        font-weight: 500;
-        line-height: 1.5;
-        color: #526173;
-      }
-      #map {
-        position: absolute;
-        left: 520px;
-        top: 20px;
-        width: 800px;
-        height: 480px;
-      }
-      #map svg {
-        position: absolute;
-        inset: 0;
-      }
-      #map path {
-        fill: none;
-        stroke: #2b5896;
-        stroke-width: 3;
-        stroke-linecap: round;
-      }
-      #map .chip {
-        position: absolute;
-        left: 0;
-        width: 400px;
-        height: 72px;
-        display: flex;
-        align-items: center;
-        padding: 0 24px;
-        border-radius: 16px;
-        background: #fcfcfd;
-        border: 2px solid #d7dfe8;
-        font-size: 28px;
-        font-weight: 600;
-        white-space: nowrap;
-        box-shadow: 0 12px 28px rgba(32, 42, 54, 0.08);
-        opacity: 0;
-      }
-      #map .chip.muted {
-        color: #526173;
-        border-style: dashed;
-      }
-      #map .out {
-        left: 540px;
-        width: 260px;
-        font-weight: 800;
-        white-space: normal;
-        line-height: 1.2;
-      }
-      #map .std {
-        height: 112px;
-        background: #2b5896;
-        border-color: #2b5896;
-        color: #f5f8fc;
-      }
-      #map .ask {
-        border-color: #2b5896;
-        color: #2b5896;
-      }
-      #map-label {
-        position: absolute;
-        left: 540px;
-        top: 62px;
-        font-size: 24px;
-        font-weight: 700;
-        color: #2b5896;
-        opacity: 0;
-      }
-      #a2-left {
-        position: absolute;
-        left: 120px;
-        top: 250px;
-        width: 520px;
-        opacity: 0;
-      }
-      #a2-count {
-        margin-top: 28px;
-        font-size: 210px;
-        font-weight: 800;
-        line-height: 1.12;
-      }
-      #a2-unit {
-        margin-top: 6px;
-        font-size: 46px;
-        font-weight: 700;
-      }
-      #a2-body {
-        margin-top: 28px;
-        font-size: 31px;
-        font-weight: 500;
-        line-height: 1.5;
-        color: #526173;
-      }
-      #a2-body div {
-        white-space: nowrap;
-      }
-      #win {
-        position: absolute;
-        left: 636px;
-        top: 290px;
-        width: 884px;
-        border-radius: 22px;
-        background: #fcfcfd;
-        border: 2px solid #d7dfe8;
-        box-shadow:
-          0 50px 100px rgba(32, 42, 54, 0.16),
-          0 10px 24px rgba(32, 42, 54, 0.08);
-        overflow: hidden;
-        opacity: 0;
-      }
-      #win-bar {
-        height: 48px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 0 20px;
-        border-bottom: 2px solid #d7dfe8;
-        background: #eef2f7;
-      }
-      #win-bar i {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #c9d4e2;
-      }
-      #win-view {
-        position: relative;
-        width: 880px;
-        height: 321px;
-        overflow: hidden;
-      }
-      #app {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 880px;
-        height: 321px;
-        transform-origin: 0 321px;
-      }
-      #app img {
-        display: block;
-        width: 880px;
-        height: auto;
-      }
-      #row-hl {
-        position: absolute;
-        left: 0;
-        top: 62px;
-        width: 880px;
-        height: 69px;
-        background: rgba(43, 88, 150, 0.1);
-        box-shadow: inset 0 0 0 3px #2b5896;
-        opacity: 0;
-      }
-      #detail {
-        position: absolute;
-        left: 0;
-        top: 131px;
-        width: 880px;
-        height: 190px;
-        overflow: hidden;
-        background: #fcfcfd;
-        border-top: 2px solid #2b5896;
-        box-shadow: 0 -18px 40px rgba(32, 42, 54, 0.16);
-      }
-      #ripple {
-        position: absolute;
-        left: 765px;
-        top: 64px;
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        border: 4px solid #2b5896;
-        opacity: 0;
-      }
-      #cursor {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 40px;
-        height: 48px;
-        transform-origin: 4px 3px;
-        opacity: 0;
-      }
-      #a3 {
-        position: absolute;
-        left: 140px;
-        right: 140px;
-        top: 250px;
-        opacity: 0;
-      }
-      #a3-title {
-        margin-top: 18px;
-        font-size: 64px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-      }
-      #a3-line {
-        margin-top: 20px;
-        height: 310px;
-        font-size: 270px;
-        font-weight: 800;
-        line-height: 1.15;
-        letter-spacing: -0.04em;
-        white-space: nowrap;
-      }
-      #a3-line span {
-        display: inline-block;
-      }
-      #a3-caret {
-        width: 14px;
-        height: 220px;
-        margin-left: 18px;
-        vertical-align: -16px;
-        background: #2b5896;
-        border-radius: 3px;
-      }
-      #a3-plus {
-        margin-top: 40px;
-        display: flex;
-        align-items: baseline;
-        gap: 20px;
-        opacity: 0;
-      }
-      #a3-plus b {
-        font-size: 72px;
-        font-weight: 800;
-        color: #2b5896;
-        letter-spacing: -0.03em;
-      }
-      #a3-plus span {
-        font-size: 36px;
-        font-weight: 700;
-      }
-      #a3-count {
-        display: inline-block;
-        font-style: normal;
-        font-variant-numeric: tabular-nums;
-        text-align: right;
-      }
-      #a3-grid {
-        position: absolute;
-        left: 960px;
-        top: 130px;
-        width: 360px;
-        height: 360px;
-      }
-
-      /* ── S5 tagline ────────────────────────────────────── */
+      /* ── S8 tagline ────────────────────────────────────── */
       .slam {
         position: absolute;
         left: 140px;
-        font-size: 168px;
-        font-weight: 900;
+        font-size: 104px;
+        font-weight: 800;
         letter-spacing: -0.04em;
         line-height: 1;
         white-space: nowrap;
-        opacity: 0;
       }
       #p1 {
-        top: 200px;
+        top: 290px;
       }
       #p2 {
         top: 420px;
       }
       #p3 {
-        top: 640px;
+        top: 550px;
       }
       #p3 .hl {
         position: relative;
@@ -656,148 +746,141 @@
         position: absolute;
         left: 0;
         right: 0;
-        bottom: -8px;
-        height: 16px;
+        bottom: -6px;
+        height: 10px;
         border-radius: 8px;
         background: #2b5896;
         transform-origin: 0 50%;
       }
 
-      /* ── S6 end ────────────────────────────────────────── */
+      /* ── S9 end card: holds still, the last frame stays up ─ */
       #end {
         position: absolute;
         left: 140px;
-        top: 250px;
-        width: 700px;
+        top: 270px;
+        width: 760px;
       }
       #end-name {
-        font-size: 150px;
-        font-weight: 800;
+        font-size: 100px;
+        font-weight: 700;
         letter-spacing: -0.04em;
         line-height: 1.05;
       }
       #end-en {
-        font-size: 92px;
-        font-weight: 800;
+        font-size: 62px;
+        font-weight: 700;
         letter-spacing: -0.03em;
       }
       #end-rule {
-        margin-top: 36px;
-        width: 420px;
-        height: 6px;
+        margin-top: 26px;
+        width: 320px;
+        height: 4px;
         border-radius: 3px;
         background: #2b5896;
         transform-origin: 0 50%;
       }
       #end-role {
-        margin-top: 30px;
-        font-size: 32px;
+        margin-top: 22px;
+        font-size: 34px;
         font-weight: 600;
         color: #526173;
         white-space: nowrap;
       }
-      #end-line {
-        margin-top: 14px;
-        font-size: 38px;
+      #end-cta {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 14px 28px;
+        border-radius: 14px;
+        background: #2b5896;
+        color: #f5f8fc;
+        font-size: 30px;
         font-weight: 700;
+        white-space: nowrap;
       }
-      #end-radar {
-        position: absolute;
-        left: 880px;
-        top: 200px;
-        width: 620px;
-        height: 620px;
-        opacity: 0;
-      }
+
       /* ── English layout ────────────────────────────────── */
-      #root.en .hook {
-        font-size: 128px;
+      #root.en #o-line1,
+      #root.en #o-line2 {
+        font-size: 54px;
       }
-      #root.en #r1 {
+      #root.en .hook {
         font-size: 76px;
       }
-      #root.en #r2,
-      #root.en #r3 {
-        font-size: 46px;
+      #root.en #old-flow {
+        font-size: 34px;
       }
-      #root.en .ax {
-        width: 300px;
-        margin-left: -150px;
-        font-size: 24px;
+      #root.en #s3-head .to {
+        font-size: 84px;
       }
-      #root.en .ch-org {
-        font-size: 46px;
+      #root.en #s3-side {
+        left: 850px;
       }
-      #root.en .ch-title {
-        font-size: 36px;
+      #root.en .note {
+        font-size: 28px;
       }
-      #root.en .ch-metric {
-        font-size: 30px;
-        white-space: normal;
+      #root.en #s4-from {
+        top: 380px;
+        font-size: 120px;
       }
-      #root.en .ch-chips span {
-        font-size: 22px;
+      #root.en #s4-arrow {
+        left: 320px;
+        top: 426px;
       }
-      #root.en #radar-cap {
-        font-size: 52px;
+      #root.en #s4-to {
+        left: 420px;
+        top: 386px;
+        font-size: 112px;
       }
-      #root.en #traits span {
-        font-size: 26px;
+      #root.en #s5-stats .from,
+      #root.en #s5-stats .arrow {
+        font-size: 38px;
       }
-      #root.en #a0-l1,
-      #root.en #a0-l2 {
-        font-size: 110px;
-      }
-      #root.en .a-title {
-        font-size: 40px;
-      }
-      #root.en #map .chip {
-        font-size: 24px;
+      #root.en #s5-stats .to {
+        font-size: 74px;
       }
       #root.en #a3-count {
         min-width: 3.4em;
       }
-      #root.en #a3-grid {
-        left: 1016px;
-        top: 150px;
-        width: 304px;
-        height: 304px;
-      }
-      #root.en #a2-unit {
-        font-size: 42px;
-      }
-      #root.en #a2-body {
+      #root.en #a3-plus span {
         font-size: 28px;
       }
-      #root.en #a3-title {
-        font-size: 60px;
+      #root.en .row .v {
+        font-size: 54px;
       }
-      #root.en #a3-plus span {
+      #root.en .row .l {
+        font-size: 28px;
+      }
+      #root.en .row .v small {
+        font-size: 26px;
+      }
+      #root.en #turn-line {
+        font-size: 56px;
+      }
+      #root.en #turn-sub {
+        font-size: 28px;
+      }
+      #root.en .ax {
+        width: 300px;
+        margin-left: -150px;
         font-size: 32px;
       }
       #root.en .slam {
-        font-size: 135px;
-      }
-      #root.en #p1 {
-        top: 225px;
-      }
-      #root.en #p2 {
-        top: 430px;
-      }
-      #root.en #p3 {
-        top: 620px;
+        font-size: 62px;
       }
       #root.en #end-name {
-        font-size: 140px;
+        font-size: 92px;
       }
       #root.en #end-role {
+        font-size: 32px;
+      }
+      #root.en #end-cta {
         font-size: 28px;
       }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="66.8" data-width="1600" data-height="1000">
-      <div id="bg" class="scene clip" data-start="0" data-duration="66.8" data-track-index="0">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1600" data-height="1000">
+      <div id="bg" class="scene clip" data-start="0" data-duration="60" data-track-index="0">
         <div id="bg-dots"></div>
         <div id="bg-glow"></div>
         <svg id="bg-grain" width="1600" height="1000" viewBox="0 0 1600 1000" aria-hidden="true">
@@ -809,90 +892,62 @@
         </svg>
       </div>
 
-      <!-- S1 hook: 0–6 -->
-      <div id="s1" class="scene clip" data-start="0" data-duration="6" data-track-index="1">
-        <div id="h1a" class="hook">規格寫完了。</div>
-        <div id="h1b" class="hook">會議開完了。</div>
-        <div id="h1c" class="hook">
-          <div id="h1c-small">東西，</div>
-          <div>還沒跑起來。</div>
-        </div>
+      <!-- S1 open: 0–5 -->
+      <div id="s1" class="scene clip" data-start="0" data-duration="5" data-track-index="1">
+        <div id="o-name">許承澤 Kevin Hsu</div>
+        <div id="o-role">Senior Product Manager</div>
+        <div id="o-rule"></div>
+        <div id="o-line1">我找出卡住產能的那一步，</div>
+        <div id="o-line2"><span class="hl">親手做出工具</span>拿掉它</div>
+      </div>
+
+      <!-- S2 before: 5–11 -->
+      <div id="s2" class="scene clip" data-start="5" data-duration="6" data-track-index="1">
+        <div id="h1" class="hook">PM 改一格資料，</div>
+        <div id="h2" class="hook">都要<span class="hl">等工程師</span></div>
+        <div id="old-flow"><span>文件來回</span><span>→</span><span>排工程師</span><span>→</span><span>做完才驗證</span></div>
         <div id="load">
           <div id="load-track"><div id="load-fill"></div></div>
-          <div id="load-label">載入中 12%</div>
+          <div id="load-label">卡在 12%</div>
         </div>
       </div>
 
-      <!-- S2 rubric: 6–12 -->
-      <div id="s2" class="scene clip" data-start="6" data-duration="6" data-track-index="1">
-        <div id="s2-copy">
-          <div id="r1">AI 時代的 PM，</div>
-          <div id="r2">做出東西不再是門檻，</div>
-          <div id="r3">要看的是這六項。</div>
+      <!-- S3 now: 11–17 -->
+      <div id="sn" class="scene clip" data-start="11" data-duration="6" data-track-index="1">
+        <div id="sn-flow">
+          <div>釐清需求</div><i>→</i><div class="key">做出 Prototype</div><i>→</i><div>確認需求</div><i>→</i><div>正式實作</div>
         </div>
-      </div>
-
-      <!-- S3 chapters: 12–42.2 (cards built by script) -->
-      <div id="s3" class="scene clip" data-start="12" data-duration="30.2" data-track-index="1">
-        <div id="chapters"></div>
-        <div id="rail"><div id="rail-fill"></div></div>
-      </div>
-
-      <!-- Radar: one continuous shape from 6.0 to 42.2, so the growth reads as accumulation. -->
-      <div id="radar" class="scene clip" data-start="6" data-duration="36.2" data-track-index="2">
-        <div id="radar-cap">每一段經歷，都讓這張圖再大一圈。</div>
-        <div id="radar-box"></div>
-      </div>
-
-      <!-- S4 AI way of working: 42.2–56.8 -->
-      <div id="s4" class="scene clip" data-start="42.2" data-duration="14.6" data-track-index="1">
-        <div id="traits"><span>好奇</span><span>勇於嘗試</span><span>追求效率</span></div>
-        <div id="a0">
-          <div id="a0-l1">看到新工具，</div>
-          <div id="a0-l2">我先<span class="hl">動手試</span>。</div>
-          <div id="tools"><span>Claude Code</span><span>Cursor</span><span>Gemini</span><span>Notion AI</span></div>
-        </div>
-        <div id="a1">
-          <div id="a1-left">
-            <div class="tag">點位命名</div>
-            <div id="a1-count" class="num">0%</div>
-            <div class="a-title">機器一次對到標準名稱</div>
-            <div class="a-sub"><div>抽 72 筆實測</div><div>「信心很高卻答錯」0 筆</div></div>
-          </div>
-          <div id="map">
-            <svg width="800" height="480" viewBox="0 0 800 480" aria-hidden="true">
-              <path id="l0" pathLength="1" d="M400 56 C470 56 470 166 540 166" />
-              <path id="l1" pathLength="1" d="M400 166 L540 166" />
-              <path id="l2" pathLength="1" d="M400 276 C470 276 470 166 540 166" />
-              <path id="l3" pathLength="1" d="M400 416 L540 416" />
-            </svg>
-            <div class="chip v" style="top: 20px">CH-1 冰水出水溫度</div>
-            <div class="chip v" style="top: 130px">冰機1 出水溫</div>
-            <div class="chip v" style="top: 240px">CHL01_TCHS</div>
-            <div id="map-label">標準名稱</div>
-            <div class="chip out std" style="top: 110px">冰水出水溫</div>
-            <div class="chip muted" id="unclear" style="top: 380px">寫法看不出來</div>
-            <div class="chip out ask" style="top: 380px">問人確認</div>
+        <div id="sn-fig">
+          <div class="tag">需求處理</div>
+          <div class="ft">
+            <span class="from"><span id="sn-from">約 1 個月</span><i id="sn-strike"></i></span>
+            <span class="arrow" id="sn-arrow">→</span>
+            <span class="to" id="sn-to">約 1 週</span>
           </div>
         </div>
-        <div id="a2-left">
-          <div class="tag">內部後台</div>
-          <div id="a2-count" class="num">0</div>
-          <div id="a2-unit">次提交 · 約 6 個月</div>
-          <div id="a2-body">
-            <div>程式經驗不多的產品經理，</div>
-            <div>用 Claude Code 做出內部後台。</div>
+      </div>
+
+      <!-- S4 built by hand, onboarding: 17–25 -->
+      <div id="s3" class="scene clip" data-start="17" data-duration="8" data-track-index="1">
+        <div id="s3-head">
+          <div class="tag">客戶導入</div>
+          <div class="ft">
+            <span class="from"><span id="s3-from">約 2 週</span><i id="s3-strike"></i></span>
+            <span class="arrow" id="s3-arrow">→</span>
+            <span class="to" id="s3-to">約 2 小時</span>
           </div>
+          <div class="note" id="s3-note">PM 自己完成，不含現場接線與控制策略</div>
+        </div>
+        <div id="s3-side">
+          <div class="tag">用 Claude Code 親手開發</div>
+          <div id="s3-num"><span id="s3-count" class="num">0</span><span id="s3-unit">次提交</span></div>
         </div>
         <div id="win">
-          <div id="win-bar"><i></i><i></i><i></i></div>
+          <div class="win-bar"><i></i><i></i><i></i></div>
           <div id="win-view">
-            <div id="app">
-              <img src="assets/internal-backend-table.webp" alt="" />
-              <div id="row-hl"></div>
-              <div id="detail"><img src="assets/internal-backend-detail.webp" alt="" /></div>
-              <div id="ripple"></div>
-            </div>
+            <img src="assets/internal-backend-table.webp" alt="" />
+            <div id="row-hl"></div>
+            <div id="detail"><img src="assets/internal-backend-detail.webp" alt="" /></div>
             <svg id="cursor" viewBox="0 0 34 40" aria-hidden="true">
               <path
                 d="M3 2 L3 32 L11 25 L17 38 L23 35 L17 22 L28 22 Z"
@@ -904,43 +959,102 @@
             </svg>
           </div>
         </div>
+      </div>
+
+      <!-- Replying to customers: 25–29. No public screen exists, so it stays type and a bar. -->
+      <div id="s4" class="scene clip" data-start="25" data-duration="4" data-track-index="1">
+        <div id="s4-tag" class="tag">回覆客戶</div>
+        <div id="s4-from">一天</div>
+        <div id="s4-arrow">→</div>
+        <div id="s4-to">10 分鐘</div>
+        <div id="s4-bar"><div id="s4-fill"></div></div>
+      </div>
+
+      <!-- Cost: 29–35 -->
+      <div id="s5" class="scene clip" data-start="29" data-duration="6" data-track-index="1">
+        <div id="s5-stats">
+          <div id="st1">
+            <div class="tag">單一案場客製占比</div>
+            <div class="ft"><span class="from">30%</span><span class="arrow">→</span><span class="to num" id="st1-to">30%</span></div>
+          </div>
+          <div id="st2">
+            <div class="tag">單一案場異常處理</div>
+            <div class="ft"><span class="from" id="st2-from">30 分鐘</span><span class="arrow">→</span><span class="to num" id="st2-to">30 分鐘</span></div>
+          </div>
+        </div>
+        <div id="health">
+          <img src="assets/internal-backend-site-health.webp" alt="" />
+          <div class="h-row" style="top: 139px"></div>
+          <div class="h-row" style="top: 196px"></div>
+          <div class="h-row" style="top: 254px"></div>
+        </div>
+      </div>
+
+      <!-- Built by hand, the simulator: 35–41 -->
+      <div id="s6c" class="scene clip" data-start="35" data-duration="6" data-track-index="1">
         <div id="a3">
-          <div class="tag">控制策略模擬工具</div>
-          <div id="a3-title">策略調整需要</div>
+          <div class="tag">控制策略調整</div>
           <div id="a3-line"><span id="a3-text">1 週</span><span id="a3-caret"></span></div>
-          <div id="a3-plus"><b>超過 <i id="a3-count">0</i> 萬種組合</b><span>用 AI 做模擬工具，一次試算</span></div>
+          <div id="a3-plus"><b>超過 <i id="a3-count">0</i> 萬種組合</b><span>一次試算</span></div>
           <svg id="a3-grid" viewBox="0 0 360 360" aria-hidden="true"></svg>
         </div>
       </div>
 
-      <!-- S5 tagline: 50–54.5 -->
-      <div id="s5" class="scene clip" data-start="56.8" data-duration="4.5" data-track-index="1">
+      <!-- Growth, the foundation: 41–46 -->
+      <div id="s7a" class="scene clip" data-start="41" data-duration="5" data-track-index="1">
+        <div class="rows">
+          <div class="rows-head" id="rows-head">2019–2024 帶團隊交付</div>
+          <div class="row"><div class="v">10 位</div><div class="l">帶過的工程師</div></div>
+          <div class="row"><div class="v">300 → 1,000<small>單／日 (+233%)</small></div><div class="l">出貨量</div></div>
+          <div class="row"><div class="v">2022 優選</div><div class="l">PMI 台灣分會標竿專案獎</div></div>
+        </div>
+      </div>
+
+      <!-- Growth, the turn: 46–50 -->
+      <div id="s7b" class="scene clip" data-start="46" data-duration="4" data-track-index="1">
+        <div id="turn">
+          <div id="turn-year">2025 起</div>
+          <div id="turn-line">親手做出工具</div>
+          <div id="turn-sub">從釐清需求到 Prototype，自己跑完</div>
+        </div>
+      </div>
+
+      <!-- Radar: one continuous shape, growing through S7 and staying up to the last frame. -->
+      <div id="radar" class="scene clip" data-start="41" data-duration="19" data-track-index="2">
+        <div id="radar-box"></div>
+        <div id="years">
+          <div id="years-label"><span>2019</span><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span></div>
+          <div id="years-track"><div id="years-fill"></div></div>
+        </div>
+      </div>
+
+      <!-- S8 tagline: 50–55 -->
+      <div id="s8" class="scene clip" data-start="50" data-duration="5" data-track-index="1">
         <div id="p1" class="slam">找出<span class="hl">痛點</span>，</div>
         <div id="p2" class="slam">做出<span class="hl">解法</span>，</div>
         <div id="p3" class="slam">量出<span class="hl"><span id="p3-mark"></span>成果</span>。</div>
       </div>
 
-      <!-- S6 end: 54.5–60 -->
-      <div id="s6" class="scene clip" data-start="61.3" data-duration="5.5" data-track-index="1">
+      <!-- S9 end card: 55–60. Holds still; the player stops here instead of looping. -->
+      <div id="s9" class="scene clip" data-start="55" data-duration="5" data-track-index="1" data-hold>
         <div id="end">
           <div id="end-name">許承澤</div>
           <div id="end-en">Kevin Hsu</div>
           <div id="end-rule"></div>
-          <div id="end-role">Senior Product Manager · 平台重構與內部系統</div>
-          <div id="end-line">找出痛點，做出解法，量出成果。</div>
+          <div id="end-role">Senior Product Manager</div>
+          <div id="end-cta">看履歷與案例 →</div>
         </div>
-        <div id="end-radar"></div>
       </div>
 
       <!-- Original track from scripts/film-bgm.py; the site player keeps it muted until full screen. -->
-      <audio id="bgm" src="assets/bgm.m4a" data-start="0" data-duration="66.8" data-track-index="5" data-volume="1"></audio>
+      <audio id="bgm" src="assets/bgm.m4a" data-start="0" data-duration="60" data-track-index="5" data-volume="1"></audio>
 
-      <div id="chrome" class="scene clip" data-start="0" data-duration="66.8" data-track-index="4">
+      <!-- Name stays on every frame between the opening and the end card, for anyone who drops in or leaves early. -->
+      <div id="chrome" class="scene clip" data-start="5" data-duration="50" data-track-index="4">
         <div id="chrome-row">
-          <div>Kevin Hsu</div>
-          <div id="chrome-count">
-            <span>01 / 06</span><span>02 / 06</span><span>03 / 06</span><span>04 / 06</span><span>05 / 06</span
-            ><span>06 / 06</span>
+          <div id="chrome-name">許承澤 Kevin Hsu</div>
+          <div id="chrome-sec">
+            <span>以前</span><span>現在</span><span>親手做</span><span>增效</span><span>降本</span><span>親手做</span><span>成長</span>
           </div>
         </div>
         <div id="chrome-rule"></div>
@@ -948,6 +1062,7 @@
     </div>
 
     <script>
+      window.__timelines = window.__timelines || {};
       const $ = (s) => document.querySelector(s);
       const $$ = (s) => Array.from(document.querySelectorAll(s));
       const ACCENT = "#2b5896";
@@ -957,74 +1072,71 @@
         document.documentElement.lang = "en";
         $("#root").classList.add("en");
         const T = {
-          "#h1a": "Spec: done.",
-          "#h1b": "Meetings: done.",
-          "#h1c-small": "The product?",
-          "#h1c > div:last-child": "Still not running.",
-          "#load-label": "Loading 12%",
-          "#r1": "The AI-era PM.",
-          "#r2": "Building is no longer the hard part.",
-          "#r3": "These six are.",
-          "#radar-cap": "Every chapter made the shape bigger.",
-          "#a0-l1": "See a new tool?",
-          "#a1 .tag": "Sensor naming",
-          "#a1 .a-title": "matched to the standard name on the first try",
-                    "#a2-left .tag": "Internal platform",
-          "#a2-unit": "commits · ~6 months",
-          "#a3 .tag": "Control-strategy simulator",
-          "#a3-title": "Tuning a strategy took",
+          "#o-name": "Kevin Hsu",
+          "#o-line1": "I find the step that caps throughput,",
+          "#chrome-name": "Kevin Hsu",
+          "#h1": "Change one cell of data.",
+          "#load-label": "Stuck at 12%",
+          "#sn-fig .tag": "Handling a requirement",
+          "#sn-from": "~1 month",
+          "#sn-to": "~1 week",
+          "#s3-head .tag": "Customer onboarding",
+          "#s3-from": "~2 weeks",
+          "#s3-to": "~2 hours",
+          "#s3-note": "PMs do it themselves; excludes on-site wiring and control strategy",
+          "#s3-side .tag": "Hand-built with Claude Code",
+          "#s3-unit": "commits",
+          "#s4-tag": "Replying to customers",
+          "#s4-from": "1 day",
+          "#s4-to": "10 minutes",
+          "#st1 .tag": "Customization, per site",
+          "#st2 .tag": "Issue handling, per site",
+          "#st2-from": "30 min",
+          "#st2-to": "30 min",
+          "#s6c .tag": "Tuning a control strategy",
           "#a3-text": "1 week",
-                    "#a3-plus span": "tested at once with AI",
+          "#a3-plus span": "tested at once",
+          "#rows-head": "2019–2024: leading team delivery",
+          "#turn-year": "From 2025",
+          "#turn-line": "Building the tools myself",
+          "#turn-sub": "From clarifying needs to a working prototype",
           "#end-name": "Kevin Hsu",
           "#end-en": "許承澤",
-          "#end-role": "Senior Product Manager · Platform rebuilds and internal systems",
-          "#end-line": "Find the bottleneck. Build the fix. Prove it in numbers.",
+          "#end-cta": "See résumé and case studies →",
         };
         Object.entries(T).forEach(([sel, txt]) => ($(sel).textContent = txt));
         const H = {
-          "#a0-l2": 'I <span class="hl">try it first</span>.',
+          "#o-line2": 'then <span class="hl">build the tool</span> that removes it.',
+          "#h2": 'Wait for <span class="hl">an engineer</span>.',
           "#a3-plus b": '<i id="a3-count">0</i>+ combinations',
-          "#a1 .a-sub": "<div>72-sensor walkthrough</div><div>0 confident-but-wrong</div>",
-          "#a2-body": "<div>A PM with little coding background</div><div>built an internal platform</div><div>with Claude Code.</div>",
+          "#s7a .row:nth-of-type(2)": '<div class="v">10</div><div class="l">engineers led</div>',
+          "#s7a .row:nth-of-type(3)": '<div class="v">300 → 1,000<small>orders/day (+233%)</small></div><div class="l">Shipments</div>',
+          "#s7a .row:nth-of-type(4)": '<div class="v">2022 Merit</div><div class="l">PMI Taiwan Benchmark Project Award</div>',
           "#p1": 'Find the <span class="hl">bottleneck</span>.',
           "#p2": 'Build the <span class="hl">fix</span>.',
           "#p3": 'Prove it in <span class="hl"><span id="p3-mark"></span>numbers</span>.',
         };
         Object.entries(H).forEach(([sel, html]) => ($(sel).innerHTML = html));
-        ["Curious", "Willing to try", "Chasing efficiency"].forEach((t, i) => ($$("#traits span")[i].textContent = t));
-        ["CH-1 chilled water supply temp", "Chiller1 outlet", "CHL01_TCHS", "Chilled-water supply temp", "Unclear name", "Ask a person"].forEach((t, i) => ($$("#map .chip")[i].textContent = t));
-        $("#map-label").textContent = "Standard name";
+        ["Clarify", "Prototype", "Confirm", "Build"].forEach((t, i) => ($$("#sn-flow > div")[i].textContent = t));
+        ["Docs back and forth", "→", "Queue for engineers", "→", "Validate at the end"].forEach((t, i) => ($$("#old-flow span")[i].textContent = t));
+        ["Before", "Now", "Built by hand", "Higher output", "Lower cost", "Built by hand", "Growth"].forEach((t, i) => ($$("#chrome-sec span")[i].textContent = t));
       }
 
-      // ── Data: six AI-era PM axes and the six chapters that grew them (relative, never shown as scores) ──
+      // ── Radar data: the six AI-era PM axes and the eight roles that grew them (relative, never shown as scores) ──
       const AXES = EN
         ? ["Problem framing", "Fast experiments", "Prototyping", "Workflow redesign", "Cross-team delivery", "Data judgment"]
         : ["問題定義", "快速實驗", "原型實作", "流程重構", "跨團隊交付", "資料判讀"];
-      const BASE = [0, 0, 0, 0, 0, 0]; // Nothing is drawn until the first chapter: the rubric scene shows the axes alone.
+      const BASE = [0, 0, 0, 0, 0, 0];
       const CHAPTERS = [
-        { year: "2019", org: "眾碩投資", role: "產品助理", title: "先驗證，再動手。", metric: "孵化 2 家公司，營收皆破 NT$100 萬", grow: [0, 2], shape: [0.36, 0.2, 0.3, 0.12, 0.15, 0.12] },
-        { year: "2020", org: "歐可達數據", role: "Product Manager", title: "讓資料說話。", metric: "5 個通路 · 1,000 萬筆客戶資料", grow: [5, 4], shape: [0.38, 0.25, 0.32, 0.2, 0.46, 0.5] },
-        { year: "2021", org: "Fable 寓意科技", role: "Senior Project Manager", title: "在壓力下規模化。", metric: "300 → 1,000 單／日 (+233%)", grow: [3, 4], shape: [0.4, 0.3, 0.34, 0.6, 0.84, 0.5] },
-        { year: "2022", org: "華曜興業", role: "Senior Operations Manager", title: "把產品方法帶進倉庫。", metric: "客戶、出貨與採購資料整合成一庫", grow: [3, 5], shape: [0.42, 0.32, 0.34, 0.76, 0.84, 0.64] },
-        { year: "2023", org: "獨立顧問", role: "產品流程與 Roadmap", title: "從商業策略拆到 Roadmap。", metric: "替跨國 SaaS 公司擬定 Roadmap，對應商業指標", grow: [0, 3], shape: [0.6, 0.38, 0.36, 0.9, 0.86, 0.64] },
-        { year: "2023", org: "知識衛星", role: "Senior Product Manager", title: "三種使用者，一份優先序。", metric: "3 週切入香港，首週破 NT$100 萬", grow: [1, 0], shape: [0.72, 0.72, 0.38, 0.9, 0.87, 0.64] },
-        { year: "2024", org: "獨立顧問", role: "營運數位轉型與募資", title: "把營運數據寫成投資故事。", metric: "約 NT$1.7 億募資進入實質洽談", grow: [0, 5], shape: [0.9, 0.74, 0.4, 0.9, 0.87, 0.8] },
-        { year: "2025", org: "台灣愛淨", role: "Senior Product Manager", title: "把 AI 放進真實工作。", metric: "客戶導入 約 2 週 → 約 2 小時，34 個案場都適用", grow: [2, 1], shape: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
+        { grow: [0, 2], shape: [0.36, 0.2, 0.3, 0.12, 0.15, 0.12] },
+        { grow: [5, 4], shape: [0.38, 0.25, 0.32, 0.2, 0.46, 0.5] },
+        { grow: [3, 4], shape: [0.4, 0.3, 0.34, 0.6, 0.84, 0.5] },
+        { grow: [3, 5], shape: [0.42, 0.32, 0.34, 0.76, 0.84, 0.64] },
+        { grow: [0, 3], shape: [0.6, 0.38, 0.36, 0.9, 0.86, 0.64] },
+        { grow: [1, 0], shape: [0.72, 0.72, 0.38, 0.9, 0.87, 0.64] },
+        { grow: [0, 5], shape: [0.9, 0.74, 0.4, 0.9, 0.87, 0.8] },
+        { grow: [2, 1], shape: [0.9, 0.93, 0.9, 0.92, 0.88, 0.8] },
       ];
-
-      if (EN) {
-        const E = [
-          ["Zhongshuo Investment", "Product Assistant", "Validate first, then build.", "2 incubated ventures, each past NT$1M revenue"],
-          ["Oakda Data", "Product Manager", "Make data speak.", "5 channels · 10M customer records"],
-          ["Fable", "Senior Project Manager", "Scale under pressure.", "300 → 1,000 orders/day (+233%)"],
-          ["Hua Yao Industrial", "Senior Operations Manager", "Product thinking on the warehouse floor.", "Customer, shipping, and purchasing data in one base"],
-          ["Independent consultant", "Product workflows & roadmaps", "From business strategy to roadmap.", "Set a roadmap tied to business metrics for a multinational SaaS"],
-          ["SAT. Knowledge", "Senior Product Manager", "Three users, one priority list.", "Into Hong Kong in 3 weeks, NT$1M+ in week one"],
-          ["Independent consultant", "Operations transformation & fundraising", "Turn operating data into an investor story.", "~NT$170M in raises reached investor talks"],
-          ["Ecofirst", "Senior Product Manager", "Put AI into real work.", "Onboarding ~2 weeks → ~2 hours, works for all 34 sites"],
-        ];
-        CHAPTERS.forEach((c, i) => ([c.org, c.role, c.title, c.metric] = E[i]));
-      }
 
       // ── Build radar SVG (static rings + live polygon) ──
       const R = 230,
@@ -1032,19 +1144,15 @@
         CY = 360;
       const ang = (k) => -Math.PI / 2 + (k * Math.PI * 2) / 6;
       const pt = (k, v, r = R, cx = CX, cy = CY) => [cx + Math.cos(ang(k)) * r * v, cy + Math.sin(ang(k)) * r * v];
-      const ring = (v, r, cx, cy) => [0, 1, 2, 3, 4, 5].map((k) => pt(k, v, r, cx, cy).join(",")).join(" ");
-      function radarSVG(id, size, r) {
-        const c = size / 2;
-        return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true">
-          ${[0.25, 0.5, 0.75, 1].map((v) => `<polygon points="${ring(v, r, c, c)}" fill="none" stroke="#d7dfe8" stroke-width="2"/>`).join("")}
-          ${[0, 1, 2, 3, 4, 5].map((k) => { const [x, y] = pt(k, 1, r, c, c); return `<line x1="${c}" y1="${c}" x2="${x}" y2="${y}" stroke="#d7dfe8" stroke-width="2"/>`; }).join("")}
-          <polygon id="${id}-poly" fill="${ACCENT}" fill-opacity="0.22" stroke="${ACCENT}" stroke-width="4" stroke-linejoin="round"/>
-          ${[0, 1, 2, 3, 4, 5].map((k) => `<circle id="${id}-v${k}" r="8" fill="${ACCENT}"/>`).join("")}
-        </svg>`;
-      }
-      $("#radar-box").innerHTML = radarSVG("rd", 720, R);
+      const ring = (v) => [0, 1, 2, 3, 4, 5].map((k) => pt(k, v).join(",")).join(" ");
+      $("#radar-box").innerHTML = `<svg width="720" height="720" viewBox="0 0 720 720" aria-hidden="true">
+        ${[0.25, 0.5, 0.75, 1].map((v) => `<polygon points="${ring(v)}" fill="none" stroke="#d7dfe8" stroke-width="2"/>`).join("")}
+        ${[0, 1, 2, 3, 4, 5].map((k) => { const [x, y] = pt(k, 1); return `<line x1="${CX}" y1="${CY}" x2="${x}" y2="${y}" stroke="#d7dfe8" stroke-width="2"/>`; }).join("")}
+        <polygon id="rd-poly" fill="${ACCENT}" fill-opacity="0.22" stroke="${ACCENT}" stroke-width="4" stroke-linejoin="round"/>
+        ${[0, 1, 2, 3, 4, 5].map((k) => `<circle id="rd-v${k}" r="8" fill="${ACCENT}"/>`).join("")}
+      </svg>`;
       AXES.forEach((label, k) => {
-        const [x, y] = pt(k, 1, R + 62);
+        const [x, y] = pt(k, 1, R + (EN ? 92 : 62)); // English labels are longer, so they sit clear of the shape.
         const el = document.createElement("div");
         el.className = "ax";
         el.id = `ax${k}`;
@@ -1053,186 +1161,110 @@
         el.textContent = label;
         $("#radar-box").append(el);
       });
-      // Rubric scene only: a spoke draws out to each axis as its label lights up.
-      const radarSvg = $("#radar-box svg");
-      AXES.forEach((_, k) => {
-        const [x, y] = pt(k, 1);
-        const spoke = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        spoke.setAttribute("class", "spoke");
-        spoke.setAttribute("id", `spoke${k}`);
-        spoke.setAttribute("x1", CX);
-        spoke.setAttribute("y1", CY);
-        spoke.setAttribute("x2", x);
-        spoke.setAttribute("y2", y);
-        spoke.setAttribute("pathLength", 1);
-        spoke.setAttribute("stroke", ACCENT);
-        spoke.setAttribute("stroke-width", 4);
-        spoke.setAttribute("stroke-linecap", "round");
-        radarSvg.append(spoke);
-      });
-      $("#end-radar").innerHTML = radarSVG("er", 620, 200);
-      function drawShape(id, vals, r, c) {
-        $(`#${id}-poly`).setAttribute("points", vals.map((v, k) => pt(k, v, r, c, c).join(",")).join(" "));
+      function drawShape(vals) {
+        $("#rd-poly").setAttribute("points", vals.map((v, k) => pt(k, v).join(",")).join(" "));
         vals.forEach((v, k) => {
-          const [x, y] = pt(k, v, r, c, c);
-          $(`#${id}-v${k}`).setAttribute("cx", x);
-          $(`#${id}-v${k}`).setAttribute("cy", y);
+          const [x, y] = pt(k, v);
+          $(`#rd-v${k}`).setAttribute("cx", x);
+          $(`#rd-v${k}`).setAttribute("cy", y);
         });
       }
-      drawShape("rd", BASE, R, CX);
-      drawShape("er", CHAPTERS[CHAPTERS.length - 1].shape, 200, 310);
-
-      // ── Build chapter cards ──
-      CHAPTERS.forEach((c, i) => {
-        const card = document.createElement("div");
-        card.className = "ch";
-        card.id = `ch${i}`;
-        card.innerHTML = `<div class="ch-year num">${c.year}</div><div class="ch-org">${c.org}</div><div class="ch-role">${c.role}</div>
-          <div class="ch-title">${c.title}</div><div class="ch-metric">${c.metric}</div>
-          <div class="ch-chips">${c.grow.map((k) => `<span>+ ${AXES[k]}</span>`).join("")}</div>`;
-        $("#chapters").append(card);
-      });
+      drawShape(BASE);
 
       const tl = gsap.timeline({ paused: true });
-      function count(sel, from, to, at, dur, fmt, on = tl) {
+      function count(sel, from, to, at, dur, fmt) {
         const box = { v: from };
         const el = $(sel);
         el.textContent = fmt(from);
-        on.fromTo(box, { v: from }, { v: to, duration: dur, ease: "power2.out", immediateRender: false, onUpdate: () => (el.textContent = fmt(box.v)) }, at);
+        tl.fromTo(box, { v: from }, { v: to, duration: dur, ease: "power2.out", immediateRender: false, onUpdate: () => (el.textContent = fmt(box.v)) }, at);
       }
       const int = (v) => Math.round(v).toLocaleString("en-US");
 
-      // ── Background + chrome ──
-      tl.fromTo("#bg-glow", { x: 0, y: 0 }, { x: -260, y: 120, duration: 66.8, ease: "sine.inOut" }, 0);
-      tl.fromTo("#bg-dots", { x: 0, y: 0 }, { x: -40, y: -40, duration: 66.8, ease: "none" }, 0);
-      const SCENES = [0, 6, 12, 42.2, 56.8, 61.3];
-      const counts = $$("#chrome-count span");
-      SCENES.forEach((t, i) => {
-        tl.set(counts, { opacity: 0 }, t);
-        tl.set(counts[i], { opacity: 1 }, t);
+      // ── Background and section label. The drift stops with the end card, so the last frames are truly still. ──
+      tl.fromTo("#bg-glow", { x: 0, y: 0 }, { x: -260, y: 120, duration: 55, ease: "sine.inOut" }, 0);
+      tl.fromTo("#bg-dots", { x: 0, y: 0 }, { x: -40, y: -40, duration: 55, ease: "none" }, 0);
+      const SECTIONS = [5, 11, 17, 25, 29, 35, 41]; // 以前, 現在, 親手做, 增效, 降本, 親手做, 成長
+      const secs = $$("#chrome-sec span");
+      SECTIONS.forEach((t, i) => {
+        tl.set(secs, { opacity: 0 }, t);
+        tl.set(secs[i], { opacity: 1 }, t);
       });
-      tl.fromTo("#chrome-row", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.3);
-      tl.fromTo("#chrome-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power3.out", transformOrigin: "0 50%" }, 0.3);
+      tl.set(secs, { opacity: 0 }, 50);
+      tl.fromTo("#chrome-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.out", transformOrigin: "0 50%" }, 5.05);
 
-      // ── S1 hook: three beats, 1.6s apart ──
-      tl.fromTo("#h1a", { opacity: 0, scale: 1.35, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "power4.out", transformOrigin: "0 50%" }, 0.4);
-      tl.set("#h1a", { opacity: 0 }, 2.0);
-      tl.fromTo("#h1b", { opacity: 0, x: -320 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 2.0);
-      tl.set("#h1b", { opacity: 0 }, 3.6);
-      tl.fromTo("#h1c", { opacity: 0, y: 90, rotation: 3 }, { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: "circ.out", transformOrigin: "0 100%" }, 3.6);
-      tl.fromTo("#load", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 4.1);
-      tl.fromTo("#load-fill", { scaleX: 0 }, { scaleX: 0.12, duration: 0.5, ease: "power2.out" }, 4.2);
-      tl.to("#load-fill", { scaleX: 0.125, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 5.0);
+      // ── S1 open: the name is already there on frame 0, then the role, then the promise ──
+      tl.fromTo("#o-role", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "none" }, 0.3);
+      tl.fromTo("#o-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 0.5);
+      tl.fromTo("#o-line1", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 0.9);
+      tl.fromTo("#o-line2", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "none" }, 1.9);
 
-      // ── S2 rubric: copy on the left, the empty radar's axes light up one by one ──
-      tl.fromTo("#r1", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 6.3);
-      tl.fromTo("#r2", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 7.2);
-      tl.fromTo("#r3", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 8.3);
-      tl.fromTo("#radar-box svg", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", transformOrigin: "50% 50%" }, 6.6);
-      AXES.forEach((_, k) => {
-        const at = 8.4 + k * 0.32;
-        tl.fromTo(`#spoke${k}`, { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDasharray: 1, strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, at - 0.08);
-        tl.fromTo(`#ax${k}`, { opacity: 0, y: 12, scale: 0.9, color: ACCENT }, { opacity: 1, y: 0, scale: 1.16, color: ACCENT, duration: 0.35, ease: "back.out(1.8)" }, at);
-        // All six stay lit until the rubric copy clears, then settle before the first chapter.
-        tl.to(`#ax${k}`, { color: "#526173", scale: 1, duration: 0.4, ease: "power2.inOut" }, 11.5);
-      });
-      tl.to(".spoke", { opacity: 0, duration: 0.35, ease: "power2.in" }, 11.5);
-      // The polygon first appears at the centre as the 2019 chapter starts to grow it.
-      tl.fromTo('#rd-poly, [id^="rd-v"]', { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 13.55);
-      tl.to("#s2-copy", { opacity: 0, x: -60, duration: 0.35, ease: "power3.in" }, 11.6);
+      // ── S2 before: the old flow, ending in a progress bar that never gets anywhere ──
+      tl.fromTo("#h1", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "none" }, 5.1);
+      tl.fromTo("#h2", { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 5.8);
+      tl.fromTo("#old-flow span", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none", stagger: 0.28 }, 6.7);
+      tl.fromTo("#load", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "none" }, 8.2);
+      tl.fromTo("#load-fill", { scaleX: 0 }, { scaleX: 0.12, duration: 0.7, ease: "power2.out" }, 8.3);
+      tl.to("#load-fill", { scaleX: 0.125, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 9.7);
 
-      // ── S3 chapters: 3.4s each; each chip lands, then the polygon grows toward that chapter's shape ──
-      const CH = CHAPTERS.map((_, i) => 12.2 + i * 3.4);
-      CHAPTERS.forEach((c, i) => {
-        const t = CH[i];
-        const sel = `#ch${i}`;
-        tl.fromTo(sel, { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, t);
-        tl.fromTo(`${sel} .ch-metric`, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, t + 0.6);
-        tl.fromTo(`${sel} .ch-chips span`, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", stagger: 0.12 }, t + 1.0);
-        c.grow.forEach((k) => {
-          tl.fromTo(`#ax${k}`, { color: ACCENT, scale: 1.12 }, { color: "#526173", scale: 1, duration: 1.2, ease: "power2.out", immediateRender: false }, t + 1.4);
-          tl.fromTo(`#rd-v${k}`, { attr: { r: 16 } }, { attr: { r: 8 }, duration: 1.0, ease: "power2.out", immediateRender: false }, t + 1.9);
-        });
-        if (i < CHAPTERS.length - 1) tl.to(sel, { opacity: 0, y: -60, duration: 0.3, ease: "power3.in" }, t + 3.1);
-      });
-      // One seek-safe driver for the whole growth: the shape is a pure function of time.
-      const grow = gsap.parseEase("power3.inOut");
-      const shapeAt = (t) =>
-        CHAPTERS.reduce((cur, c, i) => {
-          const k = grow(Math.min(1, Math.max(0, (t - (CH[i] + 1.4)) / 1.0)));
-          return cur.map((v, a) => v + (c.shape[a] - v) * k);
-        }, BASE.slice());
-      const clock = { t: 6 };
-      tl.fromTo(clock, { t: 6 }, { t: 42.2, duration: 36.2, ease: "none", immediateRender: false, onUpdate: () => drawShape("rd", shapeAt(clock.t), R, CX) }, 6);
-      tl.fromTo("#rail-fill", { scaleX: 0 }, { scaleX: 1, duration: 27.2, ease: "none" }, 12.2);
+      // ── S3 now: the prototype step changes the flow, and the figure shows what it bought ──
+      tl.fromTo("#sn-flow > *", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", stagger: 0.16 }, 11.1);
+      tl.fromTo("#sn-fig .tag", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 12.6);
+      tl.fromTo("#sn-from", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 12.7);
+      tl.fromTo("#sn-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.inOut" }, 13.3);
+      tl.fromTo("#sn-arrow", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 13.4);
+      tl.fromTo("#sn-to", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "none" }, 13.6);
 
-      // Recap 39.2–42.2: the finished shape takes the centre.
-      tl.to(`#ch${CHAPTERS.length - 1}, #rail`, { opacity: 0, x: -80, duration: 0.4, ease: "power3.in" }, 39);
-      tl.to("#radar-box", { x: -360, y: 40, scale: 1.08, duration: 0.9, ease: "power3.inOut" }, 39.2);
-      tl.fromTo("#radar-cap", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 39.8);
-      tl.fromTo("#rd-poly", { attr: { "fill-opacity": 0.22 } }, { attr: { "fill-opacity": 0.4 }, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 40.1);
-      tl.to("#radar-box, #radar-cap", { opacity: 0, duration: 0.3, ease: "power2.in" }, 41.85);
+      // ── S4 built by hand: the commit count, then the onboarding it made possible, then the real screen ──
+      tl.fromTo("#win", { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 17.1);
+      tl.fromTo("#s3-side", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 17.05);
+      count("#s3-count", 0, 748, 17.15, 1.2, int);
+      tl.fromTo("#s3-head .tag", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 18.3);
+      tl.fromTo("#s3-from", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 18.35);
+      tl.fromTo("#s3-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.inOut" }, 18.95);
+      tl.fromTo("#s3-arrow", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 19.05);
+      tl.fromTo("#s3-to", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "none" }, 19.25);
+      tl.fromTo("#s3-note", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, 19.9);
+      tl.fromTo("#cursor", { opacity: 0, x: 780, y: 410 }, { opacity: 1, x: 780, y: 410, duration: 0.15, ease: "none" }, 20.7);
+      tl.to("#cursor", { x: 1180, y: 132, duration: 0.7, ease: "power2.inOut" }, 20.9);
+      tl.to("#cursor", { scale: 0.82, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, 21.65);
+      tl.fromTo("#row-hl", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "power2.out" }, 21.7);
+      tl.fromTo("#detail", { y: 300 }, { y: 0, duration: 0.55, ease: "expo.out" }, 21.9);
+      tl.to("#cursor", { x: 860, y: 340, duration: 0.8, ease: "power2.inOut" }, 22.6);
+      tl.to("#cursor", { opacity: 0, duration: 0.2 }, 23.6);
 
-      // Six roles became eight; everything from S4 on keeps its original 60s timing on a child
-      // timeline placed 6.8s later (positions below are pre-shift; add 6.8 for the film clock).
-      const tail = gsap.timeline();
-      // ── S4 AI way of working: 35.4–50 ──
-      const traits = $$("#traits span");
-      const lightTrait = (i, at) => {
-        tail.set(traits, { backgroundColor: "#fcfcfd", color: "#526173", borderColor: "#d7dfe8" }, at);
-        tail.set(traits[i], { backgroundColor: ACCENT, color: "#f5f8fc", borderColor: ACCENT }, at);
-      };
-      tail.fromTo("#traits", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 35.6);
-      // A0 35.4–38.6: the stance, then the tools.
-      tail.fromTo("#a0-l1", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 35.6);
-      tail.fromTo("#a0-l2", { opacity: 0, scale: 1.2, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out", transformOrigin: "0 50%" }, 36.4);
-      tail.fromTo("#tools span", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", stagger: 0.14 }, 37.1);
-      tail.to("#a0", { opacity: 0, y: -40, duration: 0.25, ease: "power3.in" }, 38.1);
-      // A1 38.4–41.7: 好奇. The figure lands first, then the writings resolve into one name and the unclear one goes to a person.
-      lightTrait(0, 38.4);
-      tail.fromTo("#a1", { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 38.4);
-      count("#a1-count", 0, 93, 38.5, 1.1, (v) => `${Math.round(v)}%`, tail);
-      tail.fromTo("#a1-count", { scale: 0.72 }, { scale: 1, duration: 1.1, ease: "expo.out" }, 38.5);
-      tail.fromTo("#map .chip.v", { opacity: 0, x: -36 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", stagger: 0.1 }, 38.7);
-      ["#l0", "#l1", "#l2"].forEach((l, i) => tail.fromTo(l, { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDasharray: 1, strokeDashoffset: 0, duration: 0.32, ease: "power2.inOut" }, 39.25 + i * 0.07));
-      tail.fromTo("#map .std", { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 39.62);
-      tail.fromTo("#map-label", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "none" }, 39.72);
-      tail.fromTo("#unclear", { opacity: 0, x: -36 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 40.1);
-      tail.fromTo("#l3", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDasharray: 1, strokeDashoffset: 0, duration: 0.24, ease: "power2.inOut" }, 40.4);
-      tail.fromTo("#map .ask", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 40.6);
-      tail.to("#a1", { opacity: 0, x: -120, duration: 0.25, ease: "power3.in" }, 41.7);
-      // A2 42.0–45.8: 勇於嘗試, the internal platform: click a site row, then zoom to its detail.
-      lightTrait(1, 42.0);
-      tail.fromTo("#a2-left", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 42.0);
-      count("#a2-count", 0, 748, 42.2, 1.5, int, tail);
-      tail.fromTo("#a2-count", { scale: 0.7 }, { scale: 1, duration: 1.5, ease: "power2.out", transformOrigin: "0 80%" }, 42.2);
-      tail.fromTo("#win", { opacity: 0, y: 60, rotationX: 8 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.8, ease: "power3.out", transformPerspective: 1600 }, 42.1);
-      tail.fromTo("#cursor", { opacity: 0, x: 500, y: 270 }, { opacity: 1, x: 500, y: 270, duration: 0.1 }, 42.8);
-      tail.to("#cursor", { x: 787, y: 88, duration: 0.6, ease: "power2.inOut" }, 43.0);
-      tail.to("#cursor", { scale: 0.82, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, 43.62);
-      tail.fromTo("#ripple", { opacity: 0.9, scale: 0.3 }, { opacity: 0, scale: 2.4, duration: 0.6, ease: "power2.out" }, 43.62);
-      tail.to("#cursor", { opacity: 0, duration: 0.25 }, 44.1);
-      tail.fromTo("#row-hl", { opacity: 0 }, { opacity: 1, duration: 0.14, ease: "power2.out" }, 43.64);
-      tail.fromTo("#detail", { y: 200 }, { y: 0, duration: 0.5, ease: "expo.out" }, 43.82);
-      tail.fromTo("#app", { scale: 1 }, { scale: 1.16, duration: 1.05, ease: "sine.inOut" }, 44.4);
-      tail.to("#win", { x: 980, duration: 0.4, ease: "power3.in" }, 45.5);
-      tail.to("#a2-left", { x: -120, opacity: 0, duration: 0.3, ease: "power3.in" }, 45.6);
-      // A3 45.9–50: 追求效率, 1 週 → 2 小時, then what the simulator tests.
-      lightTrait(2, 45.9);
-      tail.fromTo("#a3", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 45.9);
+      // ── Reply time: the long bar is a day; it collapses to ten minutes (10/480 of a working day) ──
+      tl.fromTo("#s4-tag", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 25.05);
+      tl.fromTo("#s4-from", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "none" }, 25.05);
+      tl.fromTo("#s4-bar", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.4, ease: "power3.out", transformOrigin: "0 50%" }, 25.15);
+      tl.to("#s4-from", { scale: 0.6, duration: 0.45, ease: "power3.inOut" }, 25.8);
+      tl.to("#s4-fill", { scaleX: 10 / 480, duration: 0.7, ease: "power3.inOut" }, 25.8);
+      tl.to("#s4-fill", { backgroundColor: ACCENT, duration: 0.3, ease: "none" }, 26.1);
+      tl.fromTo("#s4-arrow", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 26.05);
+      tl.fromTo("#s4-to", { opacity: 0, filter: "blur(12px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "none" }, 26.2);
+
+      // ── Cost: each figure counts down over the page that made it possible ──
+      tl.fromTo("#health", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 29.15);
+      tl.fromTo("#st1", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 29.1);
+      count("#st1-to", 30, 10, 29.4, 1.0, (v) => `${Math.round(v)}%`);
+      tl.fromTo("#st2", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 30.6);
+      count("#st2-to", 30, 3, 30.9, 1.0, (v) => `${Math.round(v)}${EN ? " min" : " 分鐘"}`);
+      tl.fromTo(".h-row", { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none", stagger: 0.35 }, 32.4);
+      tl.to(".h-row", { opacity: 0, duration: 0.3, ease: "none" }, 34.2);
+
+      // ── The simulator: 1 week is retyped as 2 hours, then every combination lights up and one is chosen ──
+      tl.fromTo("#a3 .tag", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 35.05);
       const typed = $("#a3-text");
       const TYPE = EN
-        ? [[46.8, "1 wee"], [46.87, "1 we"], [46.94, "1 w"], [47.01, "1 "], [47.08, "1"], [47.15, ""], [47.3, "2"], [47.37, "2 "], [47.44, "2 h"], [47.51, "2 ho"], [47.58, "2 hou"], [47.65, "2 hour"], [47.72, "2 hours"]]
-        : [[46.85, "1 "], [46.97, "1"], [47.09, ""], [47.3, "2"], [47.4, "2 "], [47.5, "2 小"], [47.6, "2 小時"]];
-      TYPE.forEach(([t, txt]) => tail.set(typed, { textContent: txt }, t));
-      tail.set(typed, { color: ACCENT }, 47.3);
-      tail.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 5, repeatDelay: 0.28 }, 46.2);
-      tail.set("#a3-caret", { opacity: 1 }, TYPE[0][0]);
-      tail.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 3, repeatDelay: 0.3 }, 47.9);
-      // The combinations are counted while they light up; the tool compares them all, and a person picks one.
-      tail.fromTo("#a3-plus", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 47.95);
-      if (EN) count("#a3-count", 0, 100000, 48.0, 1.15, int, tail);
-      else count("#a3-count", 0, 10, 48.0, 1.15, (v) => `${Math.round(v)}`, tail);
+        ? [[36.1, "1 wee"], [36.15, "1 we"], [36.2, "1 w"], [36.25, "1 "], [36.3, "1"], [36.35, ""], [36.5, "2"], [36.55, "2 "], [36.6, "2 h"], [36.65, "2 ho"], [36.7, "2 hou"], [36.75, "2 hour"], [36.8, "2 hours"]]
+        : [[36.1, "1 "], [36.2, "1"], [36.3, ""], [36.5, "2"], [36.6, "2 "], [36.7, "2 小"], [36.8, "2 小時"]];
+      TYPE.forEach(([t, txt]) => tl.set(typed, { textContent: txt }, t));
+      tl.set(typed, { color: ACCENT }, 36.5);
+      tl.to("#a3-caret", { opacity: 0, duration: 0.01, yoyo: true, repeat: 3, repeatDelay: 0.28 }, 35.1);
+      tl.set("#a3-caret", { opacity: 1 }, TYPE[0][0]);
+      tl.set("#a3-caret", { opacity: 0 }, 37.0);
+      tl.fromTo("#a3-plus", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 37.2);
+      if (EN) count("#a3-count", 0, 100000, 37.3, 1.3, int);
+      else count("#a3-count", 0, 10, 37.3, 1.3, (v) => `${Math.round(v)}`);
       const GRID = 18;
       const svgNS = "http://www.w3.org/2000/svg";
       for (let i = 0; i < GRID * GRID; i++) {
@@ -1245,34 +1277,69 @@
         cell.setAttribute("fill", "#dde4ec");
         $("#a3-grid").append(cell);
         // Scattered, not random: the same order on every seek.
-        const at = 48.0 + (((i * 97) % (GRID * GRID)) / (GRID * GRID)) * 1.05;
-        tail.fromTo(cell, { attr: { fill: "#dde4ec" } }, { attr: { fill: "#2b5896" }, duration: 0.08, ease: "none" }, at);
-        tail.to(cell, { attr: { fill: "#c3d0e0" }, duration: 0.3, ease: "power2.out" }, 49.2);
+        const at = 37.3 + (((i * 97) % (GRID * GRID)) / (GRID * GRID)) * 1.2;
+        tl.fromTo(cell, { attr: { fill: "#dde4ec" } }, { attr: { fill: "#2b5896" }, duration: 0.08, ease: "none" }, at);
+        tl.to(cell, { attr: { fill: "#c3d0e0" }, duration: 0.3, ease: "power2.out" }, 38.7);
       }
       const chosen = $("#a3-grid").children[6 * GRID + 11];
       $("#a3-grid").append(chosen);
-      tail.to(chosen, { attr: { fill: "#2b5896" }, duration: 0.01 }, 49.5);
-      tail.fromTo(chosen, { scale: 1 }, { scale: 2.1, duration: 0.3, ease: "back.out(2)", svgOrigin: "232 132" }, 49.5);
-      tail.to("#traits", { opacity: 0, duration: 0.2 }, 49.8);
+      tl.to(chosen, { attr: { fill: "#2b5896" }, duration: 0.01 }, 39.1);
+      tl.fromTo(chosen, { scale: 1 }, { scale: 2.1, duration: 0.3, ease: "back.out(2)", svgOrigin: "232 132" }, 39.1);
 
-      // ── S5 tagline ──
-      tail.fromTo("#p1", { opacity: 0, scale: 1.45, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power4.out", transformOrigin: "0 50%" }, 50.3);
-      tail.fromTo("#p2", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 51.2);
-      tail.fromTo("#p3", { opacity: 0, x: -360 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 52.0);
-      tail.fromTo("#p3-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 52.6);
-      tail.to("#p1, #p2, #p3", { scale: 1.015, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0 50%" }, 52.8);
+      // ── Growth: 2019–2024 grows every axis except prototyping; from 2025 that axis fills the shape in ──
+      tl.fromTo("#radar-box svg", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out", transformOrigin: "50% 50%" }, 41.05);
+      tl.fromTo(".ax", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none", stagger: 0.04 }, 41.1);
+      tl.fromTo(".rows-head", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 41.1);
+      tl.fromTo("#s7a .row", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out", stagger: 0.95 }, 41.5);
+      const STEP = 0.66;
+      const LAST = 46.3;
+      const CH = CHAPTERS.map((_, i) => (i === CHAPTERS.length - 1 ? LAST : 41.4 + i * STEP));
+      const DUR = CHAPTERS.map((_, i) => (i === CHAPTERS.length - 1 ? 1.2 : 0.55));
+      CHAPTERS.slice(0, -1).forEach((c, i) => {
+        c.grow.forEach((k) => {
+          tl.fromTo(`#ax${k}`, { color: ACCENT }, { color: "#526173", duration: 0.6, ease: "power2.out", immediateRender: false }, CH[i]);
+          tl.fromTo(`#rd-v${k}`, { attr: { r: 14 } }, { attr: { r: 8 }, duration: 0.5, ease: "power2.out", immediateRender: false }, CH[i] + 0.2);
+        });
+      });
+      // The turn: only the prototyping axis stays lit while it fills the gap, then the highlight clears for the tagline.
+      tl.to("#ax2", { color: ACCENT, duration: 0.3, ease: "none" }, LAST);
+      tl.to("#ax2", { color: "#526173", duration: 0.3, ease: "none" }, 49.7);
+      // One seek-safe driver for the whole growth: the shape is a pure function of time.
+      const grow = gsap.parseEase("power2.inOut");
+      const shapeAt = (t) =>
+        CHAPTERS.reduce((cur, c, i) => {
+          const k = grow(Math.min(1, Math.max(0, (t - CH[i]) / DUR[i])));
+          return cur.map((v, a) => v + (c.shape[a] - v) * k);
+        }, BASE.slice());
+      const clock = { t: 41 };
+      tl.fromTo(clock, { t: 41 }, { t: 50, duration: 9, ease: "none", immediateRender: false, onUpdate: () => drawShape(shapeAt(clock.t)) }, 41);
+      const yearAt = [0, 1, 2, 3, 4, 4, 5, 6]; // index into the year labels for each role's step
+      const yearEls = $$("#years-label span");
+      CH.forEach((t, i) => {
+        tl.set(yearEls, { opacity: 0 }, t);
+        tl.set(yearEls[yearAt[i]], { opacity: 1 }, t);
+      });
+      tl.fromTo("#years-track", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 41.2);
+      tl.fromTo("#years-fill", { scaleX: 0 }, { scaleX: 1, duration: LAST + 0.6 - 41.4, ease: "none" }, 41.4);
+      tl.to("#years", { opacity: 0, duration: 0.2, ease: "none" }, 49.8);
+      tl.fromTo("#turn-year", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, 46.1);
+      tl.fromTo("#turn-line", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "none" }, 46.3);
+      tl.fromTo("#turn-sub", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, 47.3);
 
-      // ── S6 end: name beside the finished radar, then clear for the loop ──
-      tail.fromTo("#end-name", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.7);
-      tail.fromTo("#end-en", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 54.95);
-      tail.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.inOut" }, 55.3);
-      tail.fromTo("#end-role", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 55.5);
-      tail.fromTo("#end-line", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 55.8);
-      tail.fromTo("#end-radar", { opacity: 0, scale: 0.85, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.9, ease: "power3.out", transformOrigin: "50% 50%" }, 55.0);
-      tail.to("#end, #end-radar", { opacity: 0, duration: 0.45, ease: "power2.in" }, 59.4);
-      tail.to("#chrome-row, #chrome-rule", { opacity: 0, duration: 0.45, ease: "power2.in" }, 59.4);
+      // ── Tagline: three lines on the beat; the complete radar stays beside them ──
+      tl.fromTo("#p1", { opacity: 0, filter: "blur(12px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "none" }, 50.0);
+      tl.fromTo("#p2", { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 51.0);
+      tl.fromTo("#p3", { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 52.0);
+      tl.fromTo("#p3-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 52.6);
 
-      tl.add(tail, 6.8);
+      // ── End card: everything lands within a second, then nothing moves until the film stops ──
+      tl.fromTo("#end-name", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 55.05);
+      tl.fromTo("#end-en", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 55.2);
+      tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 55.4);
+      tl.fromTo("#end-role", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 55.55);
+      tl.fromTo("#end-cta", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 55.9);
+      // Pad the timeline to the full 60 seconds so the hold is real.
+      tl.set({}, {}, 60);
 
       window.__timelines["main"] = tl;
     </script>

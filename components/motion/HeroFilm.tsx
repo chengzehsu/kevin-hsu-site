@@ -18,8 +18,8 @@ interface ConnectionPreference extends EventTarget {
 }
 
 /**
- * The film carries its own on-screen text, so there is one render per locale. The poster is the sign-off frame (name plus
- * "make it run, then ship it"), legible even at thumbnail size; for visitors who never get motion the sr-only summary narrates the whole film.
+ * The film carries its own on-screen text, so there is one render per locale. The poster is the end card (name, title, and
+ * where to go next), legible even at thumbnail size; for visitors who never get motion the sr-only summary narrates the whole film.
  * The film attaches after load, plays only while visible, and never autoplays under reduced motion or data saving;
  * the button always wins. It stays muted on the page: sound opens only when a visitor enlarges it, and closes again on exit.
  */
@@ -59,8 +59,8 @@ export function HeroFilm({
   const scrubber = useRef<HTMLInputElement>(null);
   const clock = useRef<HTMLSpanElement>(null);
   const pendingSeek = useRef<number | null>(null);
-  // The film is a fixed 66.8s cut; the real duration takes over once metadata loads.
-  const [duration, setDuration] = useState(66.8);
+  // The film is a fixed 60s cut; the real duration takes over once metadata loads.
+  const [duration, setDuration] = useState(60);
   const [fullscreen, setFullscreen] = useState(false);
   const [sound, setSound] = useState(false);
 
@@ -244,7 +244,6 @@ export function HeroFilm({
           width={960}
           height={600}
           muted
-          loop
           playsInline
           preload="none"
           aria-hidden="true"
@@ -258,7 +257,7 @@ export function HeroFilm({
             }
           }}
           onLoadedMetadata={(event) =>
-            setDuration(event.currentTarget.duration || 66.8)
+            setDuration(event.currentTarget.duration || 60)
           }
           onTimeUpdate={paintProgress}
           onSeeked={paintProgress}
@@ -267,6 +266,10 @@ export function HeroFilm({
             setPlaying(true);
           }}
           onPause={() => setPlaying(false)}
+          // The end card says where to go next, so it stays up; only an explicit press replays the film.
+          onEnded={() => {
+            choice.current = "pause";
+          }}
         >
           {sources ? (
             <>

@@ -115,8 +115,8 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       stills: [
         {
           src: "/portfolio-wall/film-2.webp",
-          alt: "介紹影片畫面：2021 Fable 寓意科技，揀貨 300 → 1,000 單／日 (+233%)",
-          caption: "介紹影片｜2021 Fable 寓意科技",
+          alt: "介紹影片畫面：2019–2024 帶團隊交付，帶過 10 位工程師、出貨量 300 → 1,000 單／日 (+233%)、2022 PMI 台灣分會標竿專案獎優選",
+          caption: "介紹影片｜帶團隊交付",
           ...FILM,
         },
       ],
@@ -144,14 +144,6 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
         value: "1,000 萬筆",
         label: "跨 3 個產業、5 個通路的客戶資料，完成串接",
       },
-      stills: [
-        {
-          src: "/portfolio-wall/film-1.webp",
-          alt: "介紹影片畫面：2020 歐可達數據，讓資料說話",
-          caption: "介紹影片｜2020 歐可達數據",
-          ...FILM,
-        },
-      ],
     },
     namecard: {
       src: "/portfolio-artifacts/namecard-journey.zh.svg",
@@ -255,8 +247,8 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       stills: [
         {
           src: "/portfolio-wall/film-2.webp",
-          alt: "Film still: 2021 at Fable, picking capacity 300 → 1,000 orders/day (+233%)",
-          caption: "Launch film | 2021 at Fable",
+          alt: "Film still: 2019 to 2024, leading team delivery, with 10 engineers led, 300 → 1,000 orders/day (+233%), and a 2022 PMI Taiwan award",
+          caption: "Launch film | Leading team delivery",
           ...FILM,
         },
       ],
@@ -287,14 +279,6 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
         unit: "customer records",
         label: "Connected across 3 industries × 5 channels",
       },
-      stills: [
-        {
-          src: "/portfolio-wall/film-1.webp",
-          alt: "Film still: 2020 at Oakda, letting data speak",
-          caption: "Launch film | 2020 at Oakda",
-          ...FILM,
-        },
-      ],
     },
     namecard: {
       src: "/portfolio-artifacts/namecard-journey.en.svg",

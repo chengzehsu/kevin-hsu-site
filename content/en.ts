@@ -57,12 +57,13 @@ export const en = {
       unmuteLabel: "Unmute",
       chapters: [
         { at: 0, label: "Intro" },
-        { at: 12, label: "Six skills" },
-        { at: 42.2, label: "Three habits" },
-        { at: 56.8, label: "Closing" },
+        { at: 11, label: "Now" },
+        { at: 17, label: "Results" },
+        { at: 41, label: "Growth" },
+        { at: 50, label: "Closing" },
       ],
       summary:
-        "67-second film. The spec is written, the meeting is over, and nothing runs yet. For a PM in the AI era, building is no longer the hard part. These six skills are: problem framing, rapid experimentation, prototyping, workflow redesign, cross-team delivery, and data interpretation; each role expanded that chart. By 2025, customer onboarding fell from about 2 weeks to about 2 hours and works for all 34 sites (excluding on-site wiring and control strategy). Then three working habits. Curious: when a new tool appears, I try it hands-on, from Claude Code and Cursor to Gemini and Notion AI. Any vendor format, one standard name: the machine gets 93% right on the first try (72-sensor walkthrough), with 0 confident-but-wrong answers, and asks a person when unsure. Willing to try: with limited coding background, I built an internal platform with Claude Code, 748 commits in about 6 months. Chasing efficiency: a control-strategy simulator tests 100,000+ combinations at once and cut tuning from 1 week to 2 hours. Find the bottleneck. Build the fix. Prove it in numbers. Kevin Hsu, Senior Product Manager · Platform rebuilds and internal systems.",
+        "60-second film. Kevin Hsu, Senior Product Manager. I find the step that caps throughput, then build the tool that removes it. Before: change one cell of data and wait for an engineer, with docs going back and forth, a queue for engineers, and validation only at the end. Now: clarify, prototype, confirm, build, which cut handling a requirement from about 1 month to about 1 week. Hand-built with Claude Code: an internal platform, 748 commits. Customer onboarding fell from about 2 weeks to about 2 hours, and PMs do it themselves (excluding on-site wiring and control strategy). Replying to customers fell from 1 day to 10 minutes. Per site, customization fell from 30% to 10% and issue handling from 30 minutes to 3. Tuning a control strategy fell from 1 week to 2 hours, with 100,000+ combinations tested at once. From 2019 to 2024, leading team delivery: 10 engineers led, shipments of 300 → 1,000 orders/day (+233%), and a 2022 PMI Taiwan Benchmark Project Merit Award. From 2025, building the tools myself, from clarifying needs to a working prototype. Find the bottleneck. Build the fix. Prove it in numbers. See résumé and case studies.",
     },
     primaryCta: { label: "Résumé", href: "/en/resume/" },
     secondaryCta: { label: "See case studies", href: "#work" },
@@ -147,7 +148,7 @@ export const en = {
             source: "Tuning time before vs after the tool",
             image: {
               src: "/portfolio-wall/film-8.en.webp",
-              alt: "Launch film frame: tuning a strategy took 2 hours, with 100,000+ combinations tested at once with AI",
+              alt: "Launch film frame: tuning a control strategy takes 2 hours, with 100,000+ combinations tested at once",
               width: 1600,
               height: 1000,
             },
