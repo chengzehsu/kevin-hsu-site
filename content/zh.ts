@@ -25,13 +25,13 @@ export const zh = {
   },
 
   hero: {
-    eyebrow: "許承澤 Kevin Hsu｜Senior Product Manager · 7 年以上｜帶過 10 位工程師｜負責的產品合約 NT$1 億",
+    eyebrow: "許承澤 Kevin Hsu｜Senior Product Manager · 7 年以上｜帶過 10 位工程師｜負責的產品合約總額約 NT$1 億",
     kicker: "我找出卡住產能的那一步，親手做出工具拿掉它：用 Claude Code 開發內部後台，748 次提交。",
     headline: "找出【痛點】，做出【解法】，量出【成果】。",
     profile: [
       {
         label: "規模",
-        value: "帶過 10 位工程師、直屬管理 2 位初階 PM；負責的產品合約 NT$1 億",
+        value: "帶過 10 位工程師、直屬管理 2 位初階 PM；負責的產品合約總額約 NT$1 億",
       },
       {
         label: "產品領域",
