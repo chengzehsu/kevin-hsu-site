@@ -107,6 +107,13 @@
   .row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+/* Two columns: a spanning card has its row to itself, so no neighbour gives height: 100% anything to fill.
+   Everything inside is absolutely placed, so without its own shape the card collapses to its border. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lead .link,
+  .poster:last-child .link { height: auto; aspect-ratio: 16 / 9; }
+}
+
 /* Phones: a swipeable shelf instead of five stacked posters. */
 @media (max-width: 767px) {
   .row {

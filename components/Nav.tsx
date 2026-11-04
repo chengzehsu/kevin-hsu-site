@@ -86,7 +86,7 @@ export function Nav({
             <a
               href={href(resume.href)}
               aria-current={current(resume.href)}
-              className="text-sm whitespace-nowrap text-muted md:hidden"
+              className="nav-bar-resume text-sm whitespace-nowrap text-muted md:hidden"
             >
               {resume.label}
             </a>

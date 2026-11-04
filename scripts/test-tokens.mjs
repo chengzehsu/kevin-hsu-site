@@ -86,6 +86,8 @@ function violations(file, css) {
       const allowed = side === "max" ? ["639px", "767px", "1023px"] : ["640px", "768px", "1024px"];
       // The brand flow mark hides only on the narrowest phones: 639 would remove this signature mark on every phone.
       if (isGlobals && side === "max" && width === "380px" && css.includes("@media (max-width: 380px) { .site-nav .brand-flow { display: none; } }")) continue;
+      // At 320 px the English bar still overflows; 639 would take the résumé link off every phone's bar.
+      if (isGlobals && side === "max" && width === "340px" && css.includes("@media (max-width: 340px) { .site-nav:lang(en) .nav-bar-resume { display: none; } }")) continue;
       if (!allowed.includes(width)) report(query.trim(), width, `${side}-width must be ${allowed.join(", ")}`);
     }
   }

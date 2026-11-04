@@ -397,6 +397,23 @@ for (const [locale, file, home] of [
   });
 }
 
+test("the home timeline stacks on phones and places its parts by name", async () => {
+  // Removing the disclosure left .signal as the last child, so a rule meant for its control squeezed the dates
+  // into a sliver beside the highlight and the two overlapped on every phone.
+  const css = await readFile(new URL("../components/Timeline.module.css", import.meta.url), "utf8");
+  assert.ok(!css.includes(":last-child"), "Grid placement must not depend on which child happens to be last");
+  const phone = css.match(/@media \(max-width: 767px\) \{([\s\S]*?)\n\}/)?.[1] ?? "";
+  assert.match(phone, /\.summary \{[^}]*grid-template-columns: minmax\(0, 1fr\);/, "A phone row is one column");
+  assert.match(css, /\.year \{[^}]*white-space: nowrap;/, "A date range stays on one line");
+});
+
+test("the home shelf's spanning cards keep a shape in two columns", async () => {
+  // height: 100% has nothing to fill once a spanning card is alone in its row, and its content is absolutely placed.
+  const css = await readFile(new URL("../components/ProofStack.module.css", import.meta.url), "utf8");
+  const tablet = css.match(/@media \(min-width: 768px\) and \(max-width: 1023px\) \{([\s\S]*?)\n\}/)?.[1] ?? "";
+  assert.match(tablet, /\.lead \.link,\s*\.poster:last-child \.link \{[^}]*aspect-ratio: \d+ \/ \d+;/);
+});
+
 test("the résumé's phone layout never reaches paper", async () => {
   // An A4 sheet is about 690 px wide, so a bare max-width query collapses the printed rail into one column.
   const css = await readFile(new URL("../components/ResumePage.module.css", import.meta.url), "utf8");

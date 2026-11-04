@@ -852,6 +852,8 @@ html[data-variant="pending"] [data-v] { visibility: hidden; }
 /* Narrowest phones (375 px and below): the flow mark gives way so the English bar keeps the menu on screen.
    The one width outside the scale, because 639 would hide this signature mark on every phone. */
 @media (max-width: 380px) { .site-nav .brand-flow { display: none; } }
+/* 320 px, English only: the longer labels still push the menu off screen, and the résumé link is also in the menu. */
+@media (max-width: 340px) { .site-nav:lang(en) .nav-bar-resume { display: none; } }
 
 /* Paper is always light: a visitor in dark mode must not print or save a dark résumé. */
 @media print {
