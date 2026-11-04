@@ -438,8 +438,6 @@ export const en = {
       cardGrown: "Learned",
     },
     decisionLabel: "The decision I made",
-    fullProcessLabel: "See the full process",
-    fullProcessCollapse: "Collapse",
     readLabel: "See case study",
     roleLabel: "Role",
     scopeLabel: "Scope",
@@ -648,23 +646,23 @@ export const en = {
         impact: "Shipments: 300 → 1,000 orders/day (+233%)",
         capabilities: {
           used: ["Bottleneck analysis", "Cross-system coordination"],
-          grown: ["Warehouse and delivery capacity assessment"],
+          grown: ["Warehouse capacity assessment"],
         },
         ownership:
-          "Mapped inbound-to-shipping; redesigned the shipping mode, slips, and storage locations; aligned the storefront, back office, app, and AWS rebuild.",
+          "Worked on site with the client's COO across departments; mapped inbound-to-shipping; redesigned the shipping mode, slips, storage locations, and picking flow; aligned the storefront, back office, app, and AWS rebuild.",
         situation:
           "Pandemic demand overwhelmed the storefront, back office, and app of a fresh-produce business with about NT$200M in annual revenue.",
         bottleneck:
-          "Mapping every step from inbound through picking to delivery identified picking and transport capacity as the primary constraints.",
+          "Mapping every step from inbound through picking to delivery identified picking as the primary constraint; transport was outsourced and outside this work.",
         decision:
-          "Tackled picking and transport capacity first, moving from next-day to same-day delivery and redesigning shipping slips and storage locations; then improved the existing site's architecture and rebuilt the storefront, back office, app, and AWS stack in phases.",
+          "Tackled the picking bottleneck first, moving from next-day to same-day delivery and redesigning shipping slips, storage locations, and the picking flow; then improved the existing site's architecture and rebuilt the storefront, back office, app, and AWS stack in phases.",
         decisionSummary:
           "Changed the shipping mode, slips, and storage locations to clear the picking bottleneck, then rebuilt the systems in phases.",
         hypothesis:
           "Used one shared priority list across product, engineering, warehouse, and operations to get through peak season first, then rebuild in phases.",
         result: [
           "Shipments: 300 → 1,000 orders/day (+233%)",
-          "Picking efficiency up 30%",
+          "Picking efficiency up 30% (average time to ship an order)",
           "Platform revenue grew 120% during the program (team result)",
           "AWS later featured the project",
         ],
@@ -676,7 +674,7 @@ export const en = {
           "Project knowledge base",
         ],
         measurement:
-          "Compared daily shipments before and after the rebuild. The AWS digital-transformation feature provides public evidence; revenue growth was a team outcome during the program.",
+          "Compared daily shipments before and after the rebuild, and average time to ship an order before and after the storage and shipping-slip redesign. The AWS digital-transformation feature provides public evidence; revenue growth was a team outcome during the program.",
         measurementSummary: "Daily shipments: before vs after",
       },
       {
@@ -1272,13 +1270,14 @@ export const en = {
         summary:
           "Owned the B2B AI HVAC energy-saving product, roadmap, and internal platform, leading 4 engineers. Contracts totaled about NT$100M, and customers saved about 15% on energy on average.",
         bullets: [
-          "Cut customer onboarding to first equipment data from about 2 weeks to about 2 hours: built a data management platform to replace per-project customization, so PMs configure data points themselves",
+          "Grew sites on the platform from 9 to 34 with no added engineers: built a data platform with Claude Code (748 commits) that replaced per-project customization, removed 4 handoffs per test round, and cut onboarding from about 2 weeks to about 2 hours; PMs self-served 20+ uploads in the first month; each saves engineers about 1 hour (estimate)",
           "Cut control-strategy tuning from 1 week to 2 hours: built an AI simulator that tests 100,000+ combinations; modular strategies cut delivery time on related projects by about 30% (estimate)",
-          "Cut requirement handling from about 1 month to about 1 week: clarified needs with Claude Code and validated them with prototypes; built an energy dashboard for a second prospect in 1 day",
-          "Led the internal platform build with Claude Code (748 commits): in its first month, PMs uploaded point lists themselves 20+ times; each saves engineers about 1 hour (estimate)",
-          "Cut per-site issue handling from 30 minutes to 3 minutes: with detection rules in place, PMs see each morning which sites have problems and route them to the software team or the customer, instead of reading notifications and checking values by eye",
-          "Cut internal point-sheet creation from 1 hour to 5 minutes: turned mappings for 7,110 data points into rules and an AI skill, so PMs upload a list to convert it; in a 72-point sample, 93% were right the first time",
-          "Cut sales response time on customer questions from 1 hour to 1 minute: built an AI Q&A bot with Notion as the database and a Claude Project as the entry point, holding 51 official answers; also built an AI business-card assistant that logged 80 cards in 4 days",
+          "Gave customer executives a screen before savings came in: prototyped with Claude Code, cutting requirement handling from about 1 month to about 1 week; built an energy dashboard for a second prospect in 1 day, which reached sales talks",
+          "Cut single-site customization from 51% to about 30%: analyzed 735 tasks (about 920 hours) from the task database and took the sales-speed vs delivery-readiness trade-off to the general manager",
+          "Caught data problems before customers saw them: detection rules cut per-site issue handling from 30 minutes to 3 minutes and merged one site's 244 alerts into 12; report rework and requirement-clarification time fell about 30% (estimate)",
+          "In a 72-point sample, 93% right first time, 0 confident errors: about 200 points per site, and one error affects the report; turned 7,110 point mappings into an AI skill that asks a person when unsure, cutting sheet creation from 1 hour to 5 minutes",
+          "Cut sales response time from 1 hour to 1 minute: built an AI Q&A bot with 51 official answers, sales leads choosing questions and an owner setting answers; an AI assistant moved business cards from salespeople's desks into Notion, logging 80 in 4 days",
+          "Closed the data gap from sales to R&D: merged customer and site data scattered across LINE, email, and laptops into one shared Notion operations system (17 databases)",
         ],
       },
       {
@@ -1289,8 +1288,8 @@ export const en = {
         focus: "Operations redesign and fundraising in energy and hospitality",
         summary: "",
         bullets: [
-          "Brought 2 fundraising deals worth about NT$170M into investor due diligence: prepared energy and hospitality companies, from clarifying the business model and coaching the pitch deck to building the due diligence data room",
-          "Analyzed 106 Airbnb listings: found a room type at 90% occupancy (Taipei average 65%) and positioned 2 hotels around it",
+          "Brought 2 fundraising deals worth about NT$170M into investor due diligence: clarified business models, coached pitch decks, and built data rooms for energy and hospitality companies",
+          "Analyzed 106 Airbnb listings: found a 90%-occupancy room type (Taipei average 65%) to position 2 hotels",
           "Mapped workflows for 3 departments at the energy company and rolled out Asana",
         ],
       },
@@ -1305,7 +1304,7 @@ export const en = {
         bullets: [
           "First-week revenue above NT$1M: entered the Hong Kong market within 3 weeks",
           "Mapped and redesigned HR leave, expense-claim, and customer-service flows",
-          "Interviewed HR teams at companies of different sizes and planned a learning-data dashboard for corporate training",
+          "Interviewed HR teams and planned a learning-data dashboard for corporate training",
         ],
       },
       {
@@ -1317,8 +1316,8 @@ export const en = {
           "Project management workflows, product management workflows, and internal workshops",
         summary: "",
         bullets: [
-          "Raised project management efficiency 20%: brought Notion to a 15-person outsourcing team, mapped its project management workflow, and built it into Notion",
-          "Mapped product management for a multinational rental-management SaaS: from business goals and the product roadmap to day-to-day requirements and delivery, and ran internal workshops to improve the process",
+          "Raised project management efficiency about 20% (estimate): PMs on a 15-person outsourcing team used separate tools and struggled to report progress; moved all reporting into Notion",
+          "Mapped product management for a multinational rental-management SaaS, from business goals and roadmap to delivery, and ran internal workshops to improve it",
         ],
       },
       {
@@ -1342,9 +1341,9 @@ export const en = {
         summary:
           "Managed an NT$12M+ client project portfolio, leading 10 engineers across projects and directly managing 2 junior PMs; won the 2022 PMI Taiwan Benchmark Project Merit Award.",
         bullets: [
-          "Scaled grocery shipments from 300 to 1,000 orders a day (+233%): during the pandemic surge, mapped the flow from inbound to shipping and improved the existing site's architecture; revenue grew 120% during the rebuild (team result), and AWS featured the project as a case study",
-          "Improved picking efficiency 30%: moved shipping from next-day to same-day delivery and redesigned shipping slips and storage locations",
-          "Grew health app daily active users from 12,000 to 20,000 (+66% in a year, team result): redesigned the user flows of an app with about NT$800M annual revenue, from user interviews and focusing requirements to relaunch; connected IoT scales for weigh-in check-ins to lift engagement, and improved health-data sharing to ease the load on health coaches",
+          "Scaled grocery shipments from 300 to 1,000 orders a day (+233%): worked on site with the client's COO across departments during the pandemic surge, mapped inbound to shipping, and set one priority list for a phased rebuild; revenue grew 120% during the rebuild (team result), and AWS featured the project as a case study",
+          "Improved picking efficiency 30% (average time to ship an order): moved shipping from next-day to same-day delivery and redesigned shipping slips, storage locations, and the picking flow",
+          "Grew health app daily active users from 12,000 to 20,000 (+66% in a year, team result): redesigned the user flows of an app with about NT$800M annual revenue; added IoT weigh-in check-ins and better health-data sharing, easing the load on health coaches",
         ],
       },
       {
@@ -1355,7 +1354,7 @@ export const en = {
         focus: "Customer data platforms, chatbots, and dashboards",
         summary: "",
         bullets: [
-          "Integrated 10M customer records across 3 industries: directly managed a 12-person data and product team and launched a CDP connecting 5 channels: chatbots (LINE, Facebook), website, e-commerce, and POS, so clients could target customer segments with marketing automation",
+          "Integrated 10M customer records across 3 industries: directly managed a 12-person team and launched a CDP connecting chatbots (LINE, Facebook), website, e-commerce, and POS for segment-based marketing automation",
         ],
       },
       {
@@ -1366,7 +1365,7 @@ export const en = {
         focus: "Market research, prototyping, and early product validation",
         summary: "",
         bullets: [
-          "2 companies I helped incubate each passed NT$1M in revenue: mapped business models and competitors, identified second growth curves, and planned how to use existing resources to lower risk",
+          "2 companies I helped incubate each passed NT$1M in revenue: mapped business models and competitors, found new growth directions, and planned lower-risk use of existing resources",
         ],
       },
     ],

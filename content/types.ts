@@ -329,8 +329,6 @@ export interface CasesContent {
     cardGrown: string;
   };
   decisionLabel: string;
-  fullProcessLabel: string;
-  fullProcessCollapse: string;
   /** Label for a case's public source link. */
   sourceLabel: string;
   items: CaseStudy[];

@@ -5,7 +5,7 @@ Bilingual portfolio for a product manager. Traditional Chinese at `/`, English a
 - Next.js 16 (App Router, `output: 'export'`), Tailwind v4, native CSS motion
 - Content lives in `content/zh.ts` and `content/en.ts`; both must satisfy `content/types.ts`
 - Homepage: concise profile, three outcome metrics, expandable work history, and inline case studies
-- Case summaries expose ownership and outcomes. Native `<details>` reveals the full text without leaving the page, including without JavaScript.
+- Case pages show ownership, outcomes, the full process, and the decision log without a click, including without JavaScript.
 - Shareable cases at `/cases/[id]/` and `/en/cases/[id]/` use the same content and evidence as the inline version.
 - The optional 8-second workflow film loads only after clicking its control inside the grocery case. The decision experiment is no longer part of the site.
 - Off-white/cobalt tokens in `app/globals.css`; locally hosted Geist and Noto Sans TC

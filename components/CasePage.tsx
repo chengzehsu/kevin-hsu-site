@@ -14,7 +14,6 @@ import { CaseBack } from "./CaseBack";
 import { CaseDetails } from "./CaseDetails";
 import { CaseHeadlineFigure } from "./CaseHeadlineFigure";
 import { CaseShare } from "./CaseShare";
-import { Disclosure } from "./Disclosure";
 import { HashScroll } from "./HashScroll";
 import { KeepTogether } from "./KeepTogether";
 import styles from "./CasePage.module.css";
@@ -25,7 +24,7 @@ const COPY = {
 } as const;
 
 /**
- * The first screen answers value and capability; one skeleton behind a single disclosure holds the rest:
+ * The first screen answers value and capability; the rest follows without a click, so nobody misses it:
  * problem, decision, result, what was built, then the full story if any.
  */
 export function CasePage({
@@ -42,7 +41,7 @@ export function CasePage({
   const nextArtifact = caseArtifacts[locale][next.id];
   const back = `${portfolioPath(locale)}#${item.id}`;
   // Role, scope, and team sit beside the headline: a hiring manager's first question.
-  // A case with scenarios already fills the first screen, so these open its disclosure instead.
+  // A case with scenarios already fills the first screen, so these open its process section instead.
   const facts = (
     <dl className={styles.facts}>
       <div>
@@ -164,14 +163,7 @@ export function CasePage({
           </header>
 
           <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
-            <Disclosure
-              kind="case"
-              className={styles.process}
-              summaryClassName={styles.processSummary}
-              summary={<span className="sr-only">{item.title}</span>}
-              expandLabel={cases.fullProcessLabel}
-              collapseLabel={cases.fullProcessCollapse}
-            >
+            <div className={styles.process} data-case-process>
               {item.scenarios?.length ? facts : null}
               <p className={styles.processOwnership}>
                 <span>{cases.ownershipLabel}</span>
@@ -181,7 +173,7 @@ export function CasePage({
               {item.article ? (
                 <CaseArticle article={item.article} locale={locale} />
               ) : null}
-            </Disclosure>
+            </div>
 
             <a
               className={`${styles.next} scroll-rise`}

@@ -53,7 +53,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "許承澤 Kevin Hsu",
     headline: "資深產品經理 Senior Product Manager｜平台重構與內部系統",
     summary:
-      "Senior Product Manager，7 年以上 B2B、AI 與電商產品相關經驗，專注平台重構與內部系統，能用 Claude Code 自建工具。",
+      "Senior Product Manager，7 年以上 B2B、AI 與電商產品相關經驗，專注跨部門流程與系統整合的平台重構；進新產業會跟著同事跑現場與展覽，直接了解使用者問題，也能用 Claude Code 自建工具。",
     summaryPoints: [
       {
         figure: "約 2 週 → 約 2 小時",
@@ -142,7 +142,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     name: "Kevin Hsu (許承澤)",
     headline: "Senior Product Manager | Platform rebuilds and internal systems",
     summary:
-      "Senior Product Manager with 7+ years of product-related experience in B2B, AI, and e-commerce, focused on platform rebuilds and internal systems, who builds internal tools with Claude Code.",
+      "Senior Product Manager with 7+ years in B2B, AI, and e-commerce, focused on platform rebuilds across workflows and systems. I learn new industries at sites and trade shows, and build internal tools with Claude Code.",
     summaryPoints: [
       {
         figure: "~2 weeks → ~2 hours",
@@ -211,7 +211,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
         label: "Process and teams",
         items: [
           "Process Optimization",
-          "Workshop Facilitation",
+          "Workshops",
           "Project Management",
           "Cross-functional Collaboration",
           "QA",

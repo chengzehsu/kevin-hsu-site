@@ -66,21 +66,21 @@ Every case SHALL state the capabilities the project used and the capabilities it
 
 ### Requirement: Case first screen answers value and capability
 
-Every case page SHALL open with the title, result figure, decision summary, capabilities used, capabilities grown, role, scope, collaboration, and main image. A case that lists scenarios SHALL show those on the first screen and open its disclosure with role, scope, and collaboration instead. All other case content SHALL sit behind one disclosure, stay in the delivered HTML, and open when a visitor arrives with a link to a chapter inside it.
+Every case page SHALL open with the title, result figure, decision summary, capabilities used, capabilities grown, role, scope, collaboration, and main image. A case that lists scenarios SHALL show those on the first screen and open its process section with role, scope, and collaboration instead. All other case content SHALL follow in one process section that is visible without a click and stays in the delivered HTML.
 
 #### Scenario: Reader arrives
 
 - **WHEN** a case page loads without a hash
-- **THEN** the capabilities are visible outside the disclosure and the disclosure is closed
+- **THEN** the capabilities appear on the first screen and the process section below them is already open, with no button to reveal it
 
 #### Scenario: Chapter link
 
-- **WHEN** a case page loads with a hash naming an element inside the disclosure
-- **THEN** the disclosure opens and that element scrolls into view
+- **WHEN** a case page loads with a hash naming an element inside the process section
+- **THEN** that element scrolls into view
 
 ### Requirement: Every case follows one skeleton
 
-Inside the disclosure, every case page SHALL render problem, decision, result, measurement, and what was built in that order, followed by the article when one exists. Every case hero SHALL keep the moving wall of work behind it.
+Inside the process section, every case page SHALL render problem, decision, result, measurement, and what was built in that order, followed by the article when one exists. Every case hero SHALL keep the moving wall of work behind it.
 
 #### Scenario: Article case keeps the skeleton
 

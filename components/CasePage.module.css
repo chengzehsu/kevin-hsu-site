@@ -140,7 +140,7 @@
 
 .heroCopy .heroFigure { margin-top: var(--space-4); padding-top: var(--space-3); border-top: 2px solid var(--accent); }
 
-/* The basis of the figure stays beside it, so a reader who never opens the process still sees it. */
+/* The basis of the figure stays beside it, so a reader who stops at the first screen still sees it. */
 .measureNote { margin: var(--space-2) 0 0; color: var(--muted); font-size: var(--text-caption); line-height: var(--leading-ui); }
 
 /* What the project used and what it grew: the second thing a hiring manager wants after the result. */
@@ -176,8 +176,8 @@
 /* Everything else waits behind one control, so the first screen stays the whole answer. The control is a button
    (styled in Disclosure.module.css for the case kind); this band gives it air and a rule so the page visibly continues. */
 .process { padding-block: var(--space-section-sm); border-block: 1px solid var(--line); }
-.processSummary { font-weight: var(--weight-semibold); }
 .processOwnership { max-width: 62ch; margin: var(--space-6) 0 0; color: var(--muted); font-size: var(--text-body); line-height: var(--leading-body); }
+.processOwnership:first-child { margin-top: 0; }
 .processOwnership > span { margin-right: var(--space-3); color: var(--fg); font-weight: var(--weight-semibold); }
 .impact { margin: 0; color: var(--accent); font-size: var(--text-h2); font-weight: var(--weight-semibold); }
 

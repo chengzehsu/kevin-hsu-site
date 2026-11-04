@@ -103,9 +103,11 @@ for (const file of files) {
   });
 }
 
-test("only the main case disclosure is styled as the primary button", async () => {
-  const details = await readFile(new URL("components/CaseDetails.tsx", ROOT), "utf8");
-  assert.doesNotMatch(details, /kind="case"/, "The decision log sits inside the main disclosure and keeps the quiet style");
+test("case pages show the process without a primary disclosure button", async () => {
+  const page = await readFile(new URL("components/CasePage.tsx", ROOT), "utf8");
+  const disclosure = await readFile(new URL("components/Disclosure.tsx", ROOT), "utf8");
+  assert.doesNotMatch(page, /<Disclosure/, "The process stays open on every case");
+  assert.doesNotMatch(disclosure, /"case"/, "No disclosure kind is styled as the primary button");
 });
 
 test("the spacing scale has eight steps", () => {

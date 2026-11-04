@@ -16,57 +16,15 @@
 .close:is(:hover, :focus-visible) { color: var(--accent); }
 .close:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
-/* Case pages hide everything after the first screen behind this control, so it has to read as a button:
-   a solid accent block, full width on a phone, and an outlined twin once the process is open.
-   Scoped to the case kind, so the decision log, experience, and AI lists keep their text link. */
-[data-disclosure="case"] > .summary { display: block; }
-[data-disclosure="case"] > .summary .affordance {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-3);
-  width: 100%;
-  min-height: 3.25rem;
-  padding: var(--space-3) var(--space-6);
-  border: 2px solid var(--accent);
-  border-radius: var(--radius-ui);
-  background: var(--accent);
-  box-shadow: var(--shadow-sm);
-  color: var(--accent-fg);
-  font-size: var(--text-body);
-  font-weight: var(--weight-semibold);
-  transition: background-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
-}
-[data-disclosure="case"] > .summary .chevron { width: 1.5rem; height: 1.5rem; }
-[data-disclosure="case"] > .summary:is(:hover, :focus-visible) .affordance {
-  background: color-mix(in oklch, var(--accent) 86%, var(--fg));
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-}
-[data-disclosure="case"] > .summary:focus-visible { outline: 3px solid var(--fg); outline-offset: 4px; }
-[data-disclosure="case"][open] > .summary .affordance {
-  background: var(--surface);
-  box-shadow: none;
-  color: var(--accent);
-}
-[data-disclosure="case"][open] > .summary:is(:hover, :focus-visible) .affordance {
-  background: color-mix(in oklch, var(--accent) 10%, var(--surface));
-  box-shadow: var(--shadow-sm);
-}
-@media (min-width: 640px) {
-  [data-disclosure="case"] > .summary .affordance { width: fit-content; min-width: 20rem; margin-inline: auto; }
-}
-
 /* Browsers without intrinsic-size transitions retain native instant disclosure. */
 @supports (interpolate-size: allow-keywords) and selector(::details-content) {
   .disclosure::details-content { block-size: 0; overflow: clip; transition: block-size var(--duration-fast) var(--ease-standard), content-visibility var(--duration-fast); transition-behavior: allow-discrete; }
   .disclosure[open]::details-content { block-size: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .disclosure::details-content, .chevron, [data-disclosure="case"] > .summary .affordance { transition: none; }
-  [data-disclosure="case"] > .summary:is(:hover, :focus-visible) .affordance { transform: none; }
+  .disclosure::details-content, .chevron { transition: none; }
 }
 @media print {
   .disclosure::details-content { content-visibility: visible; block-size: auto; overflow: visible; }
   .affordance, .actions { display: none; }
-  [data-disclosure="case"] > .summary .affordance { display: none; }
 }

@@ -181,16 +181,16 @@ for (const [locale, file, heading] of [
       assert.ok(detail.includes(`href="/cases/${id}/"`) || locale === "zh");
       assert.ok(detail.includes(`href="/en/cases/${id}/"`) || locale === "en");
       assert.ok(detail.includes(`href="${locale === "en" ? "/en/portfolio/" : "/portfolio/"}#${id}"`));
-      // The first screen answers value and capability before the one disclosure that holds the rest.
-      const fold = detail.indexOf('data-disclosure="case"');
-      assert.ok(fold > 0, `${id} keeps its process behind a disclosure`);
-      assert.ok(!detail.slice(fold, detail.indexOf(">", fold)).includes(" open"), `${id} starts collapsed`);
+      // The first screen answers value and capability; the process follows open, with no button to miss.
+      const fold = detail.indexOf("data-case-process");
+      assert.ok(fold > 0, `${id} shows its process section`);
+      assert.ok(!detail.includes('data-disclosure="case"'), `${id} does not fold its process`);
       assert.match(detail.slice(0, fold), /measureNote[^"]*">[^<]+</, `${id} shows how its figure was measured on the first screen`);
       for (const label of locale === "zh" ? ["用到的能力", "學到的能力", "我做的決定", "合作對象"] : ["Skills used", "Skills learned", "The decision I made", "Worked with"]) {
         const at = detail.indexOf(label);
-        // A case with scenarios moves role, scope, and team behind the disclosure to keep its first screen short.
+        // A case with scenarios moves role, scope, and team into the process section to keep its first screen short.
         const behind = id === "internal-backend" && (label === "合作對象" || label === "Worked with");
-        assert.ok(at > 0 && (behind ? at > fold : at < fold), `${id} shows ${label} ${behind ? "behind the disclosure" : "on the first screen"}`);
+        assert.ok(at > 0 && (behind ? at > fold : at < fold), `${id} shows ${label} ${behind ? "in the process section" : "on the first screen"}`);
       }
       // One skeleton on every case: problem, decision, result, what was built, then the full story.
       const order = ["situation", "decision", "result", "artifacts"].map((anchor) => detail.indexOf(`id="${anchor}"`));
@@ -200,13 +200,13 @@ for (const [locale, file, heading] of [
       assert.ok(detail.includes(locale === "zh" ? "數字來源" : "How it was measured"));
       // AI projects keep their AI and human split on the case, since the AI section no longer repeats them.
       assert.equal(detail.includes("data-ai-split"), ["internal-backend", "namecard", "sensor-naming", "sales-faq", "life-hub", "resume-site"].includes(id));
-      // Interviewers ask which calls were made and on what data; the logs fold away until asked for.
+      // Interviewers ask which calls were made and on what data; the logs stay open so nobody misses them.
       const log = detail.match(/<div id="decision-log"[\s\S]*?<\/ol>/)?.[0];
       const logSizes = { "internal-backend": 2 };
       if (id in logSizes) {
         assert.ok(log, `The ${id} case lists its decisions, server rendered`);
         assert.equal((log.match(/<li/g) ?? []).length, logSizes[id]);
-        assert.ok(log.includes("<details"), "The log starts collapsed");
+        assert.ok(!log.includes("<details"), "The log stays open");
         assert.ok(log.includes(locale === "zh" ? "依據" : "Evidence"));
       } else {
         assert.ok(!log);

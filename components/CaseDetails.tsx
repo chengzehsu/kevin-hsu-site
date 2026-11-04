@@ -6,7 +6,6 @@ import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { aiStoryForCase } from "@/lib/aiPractice";
 import { casePath } from "@/lib/locale";
 import { srcSetFor } from "@/lib/responsive-image";
-import { Disclosure } from "./Disclosure";
 import { Highlight } from "./Highlight";
 import { CaseEvidence } from "./CaseEvidence";
 import styles from "./CasePage.module.css";
@@ -33,11 +32,6 @@ export const CASE_CHAPTERS: Record<
     result: "Result",
   },
 };
-
-const LOG_LABELS = {
-  zh: { expand: "看決定紀錄", collapse: "收合" },
-  en: { expand: "See the decision log", collapse: "Collapse" },
-} as const;
 
 const RELATED_LABEL = { zh: "這個產品的其他案例", en: "Related case studies for this product" } as const;
 
@@ -117,12 +111,7 @@ export function CaseDetails({
               ) : null}
               {item.decisionLog?.length ? (
                 <div id="decision-log" className={styles.block}>
-                <Disclosure
-                  kind="log"
-                  expandLabel={LOG_LABELS[locale].expand}
-                  collapseLabel={LOG_LABELS[locale].collapse}
-                  summary={<h3 className={styles.label}>{content.cases.decisionLog.title}</h3>}
-                >
+                  <h3 className={styles.label}>{content.cases.decisionLog.title}</h3>
                   <ol className={styles.decisionLog}>
                     {item.decisionLog.map((entry, index) => (
                       <li key={entry.call} className="scroll-rise">
@@ -146,7 +135,6 @@ export function CaseDetails({
                       </li>
                     ))}
                   </ol>
-                </Disclosure>
               </div>
               ) : null}
             </div>
