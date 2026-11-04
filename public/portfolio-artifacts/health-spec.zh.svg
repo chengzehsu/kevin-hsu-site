@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="674" viewBox="0 0 1200 674" role="img" aria-labelledby="title desc">
-<title id="title">健康 App 的情境規格化</title>
+<title id="title">健康管理 App 的情境規格化</title>
 <desc id="desc">訪談重要角色，還原 IoT 體重計、活動報名、多國語系與舊資料遷移的真實情境，再整理成 Wireframe、User Story、PRD、參數對照表與翻譯對照表。新平台上線一年後，DAU 由 12,000 增至 20,000 (+66%)。</desc>
 <defs>
   <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DCE4EF" stroke-width="1"/></pattern>
@@ -7,7 +7,7 @@
 </defs>
 <rect width="1200" height="674" fill="#F5F7FB"/>
 <rect width="1200" height="674" fill="url(#grid)" opacity=".48"/>
-<text x="96" y="66" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2.4">PRODUCT SPEC / 健康 App</text>
+<text x="96" y="66" fill="#2D61A6" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="15" font-weight="700" text-anchor="start" letter-spacing="2.4">PRODUCT SPEC / 健康管理 App</text>
 <text x="96" y="122" fill="#172234" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="44" font-weight="700" text-anchor="start">先還原真實情境，再寫成規格</text>
 <text x="96" y="160" fill="#5A6980" font-family="Arial, 'PingFang TC', 'Noto Sans TC', sans-serif" font-size="20" font-weight="400" text-anchor="start">訪談重要角色，把跨裝置情境轉成工程能直接開工的文件。</text>
 <g filter="url(#shadow)"><rect x="96" y="196" width="380" height="404" rx="26" fill="#152236"/></g>

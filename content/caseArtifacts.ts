@@ -71,9 +71,9 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "PM 自己把點位表轉成內部格式",
       treatment: "reconstructed",
       headline: {
-        value: "93%",
-        label: "的廠商清單項目，機器一次對到標準名稱（抽 72 筆實測）",
-        also: "「信心很高卻答錯」0 筆",
+        value: "1 小時 → 5 分鐘",
+        label: "點位表製作時間（抽 72 個點位，93% 一次正確）",
+        also: "PM 上傳點位表，AI 依規則自動轉換",
       },
     },
     "sales-faq": {
@@ -83,9 +83,9 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "業務只拿得到確認過的答案",
       treatment: "reconstructed",
       headline: {
-        value: "51 題",
-        label: "正式答案，業務可直接查（AI 整理 185 題，人工確認才開放）",
-        also: "還有 130 題等主管審核",
+        value: "一天 → 10 分鐘",
+        label: "業務回覆客戶的時間（約 50 題正式答案可直接查）",
+        also: "業務只拿得到確認過的答案",
       },
     },
     "life-hub": {
@@ -123,7 +123,7 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
     },
     "health-app": {
       src: "/portfolio-artifacts/health-spec.zh.svg",
-      alt: "健康 App 規格整理：透過訪談還原 IoT 體重計、活動報名、多國語系與舊資料的情境，整理成 Wireframe、User Story、PRD、參數對照表與翻譯對照表",
+      alt: "健康管理 App 規格整理：透過訪談還原 IoT 體重計、活動報名、多國語系與舊資料的情境，整理成 Wireframe、User Story、PRD、參數對照表與翻譯對照表",
       title: "Wireframe、User Story、PRD 與對照表",
       context: "把跨裝置的使用情境，寫成工程師能照著做的規格",
       treatment: "reconstructed",
@@ -160,8 +160,8 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "業務不用再手動輸入名片",
       treatment: "reconstructed",
       headline: {
-        value: "縮短 99%",
-        label: "名片建檔時間：手動輸入改成 LINE 拍照",
+        value: "2,000 張",
+        label: "實體名片改由 LINE 拍照記進 Notion CRM",
         also: "內部工具與 SaaS，兩種架構都親手做過",
       },
       stills: [
@@ -211,10 +211,9 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "PMs convert sensor lists to our format themselves",
       treatment: "reconstructed",
       headline: {
-        value: "93%",
-        label:
-          "of sensors matched correctly on the first try (72-sensor walkthrough)",
-        also: "0 confident-but-wrong answers",
+        value: "1 hour → 5 min",
+        label: "to build a sensor sheet (72-sensor walkthrough: 93% right first time)",
+        also: "PMs upload a list and AI converts it by rule",
       },
     },
     "sales-faq": {
@@ -224,11 +223,9 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "Reps only get confirmed answers",
       treatment: "reconstructed",
       headline: {
-        value: "51",
-        unit: "entries",
-        label:
-          "of approved answers sales reps can look up (AI drafted 185; each needs human approval)",
-        also: "130 more waiting on the sales lead",
+        value: "1 day → 10 min",
+        label: "customer response time (about 50 approved answers reps can look up)",
+        also: "Reps only get confirmed answers",
       },
     },
     "life-hub": {
@@ -306,8 +303,8 @@ export const caseArtifacts: Record<Locale, Record<string, CaseArtifact>> = {
       context: "Fixing how sales files business cards",
       treatment: "reconstructed",
       headline: {
-        value: "99% less",
-        label: "Time to log a business card, vs manual entry",
+        value: "2,000 cards",
+        label: "moved from paper into Notion CRM by LINE photo",
         also: "Built it both as an internal tool and as a SaaS product",
       },
       stills: [
@@ -331,6 +328,7 @@ export const CASE_POSTERS: Record<string, string> = {
   grocery: "/case-posters/grocery.svg",
   "health-app": "/case-posters/health-app.svg",
   cdp: "/case-posters/cdp.svg",
+  "sales-faq": "/ai-covers/faq.svg",
 };
 export const CASE_POSTER_SIZE = { width: 600, height: 800 } as const;
 

@@ -12,7 +12,7 @@ const MORE = {
   en: (count: number) => `See ${count} more AI projects`,
 } as const;
 
-/** Home answers one question: which problems did AI solve? Each row leads with the problem; the full set lives on /portfolio/. */
+/** Home shows tools Kevin built himself. Each row leads with the problem; the full set lives on /portfolio/. */
 export function AiHighlights({ content, locale }: SectionProps) {
   const practice = content.aiPractice;
   const picks = practice.highlights;
@@ -30,7 +30,7 @@ export function AiHighlights({ content, locale }: SectionProps) {
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <div className={`${styles.heading} scroll-rise`}>
           <h2 id="ai-heading" className="section-title">
-            {practice.title}
+            {practice.highlightsTitle}
           </h2>
           <a
             className={`${styles.more} action-link`}

@@ -5,9 +5,11 @@ import styles from "./Timeline.module.css";
 
 const RESUME_LABEL = { zh: "看完整履歷", en: "See the full résumé" } as const;
 
-/** A vertical rail of where and when; results live on the résumé, so the two never read the same. */
+/** A vertical rail of the representative roles, one result each; the résumé holds every role in full. */
 export function Timeline({ content, locale }: SectionProps) {
   const { title, currentLabel, items } = content.experience;
+  const shown = items.filter((item) => item.homeHighlight);
+  const others = items.filter((item) => !item.homeHighlight);
 
   return (
     <section
@@ -28,8 +30,12 @@ export function Timeline({ content, locale }: SectionProps) {
           </a>
         </div>
 
+        {/* Links to a role not shown here still land on this section. */}
+        {others.map((item) => (
+          <span key={item.id} id={`experience-${item.id}`} aria-hidden="true" />
+        ))}
         <ol className={styles.rail}>
-          {items.map((item) => (
+          {shown.map((item) => (
             <Fragment key={item.id}>
               <li
                 id={`experience-${item.id}`}
@@ -47,12 +53,9 @@ export function Timeline({ content, locale }: SectionProps) {
                     <strong className={styles.org}>{item.org}</strong>
                     <span className={styles.role}>{item.role}</span>
                   </span>
-                  <span className={styles.signal}>{item.focus}</span>
+                  <span className={styles.signal}>{item.homeHighlight}</span>
                 </div>
               </li>
-              {item.gapAfter ? (
-                <li className={styles.gap}>{item.gapAfter}</li>
-              ) : null}
             </Fragment>
           ))}
         </ol>

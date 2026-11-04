@@ -43,9 +43,12 @@ export function LinkedInPosts({ content, locale }: SectionProps) {
               className={styles.group}
               data-ai-chapter={chapter.id}
             >
-              {/* The process chapter merged into the first group; links sent earlier still land on it. */}
+              {/* The process and life chapters merged into the first group; links sent earlier still land on it. */}
               {chapter.id === "ai-build" ? (
-                <span id="ai-process" aria-hidden="true" />
+                <>
+                  <span id="ai-process" aria-hidden="true" />
+                  <span id="ai-life" aria-hidden="true" />
+                </>
               ) : null}
               <h3 className={styles.groupTitle}>{chapter.title}</h3>
               <ul className={styles.rows}>

@@ -263,6 +263,8 @@
 .bullets li { text-wrap: pretty; }
 .bullets li::marker { color: var(--line); }
 .lead { color: var(--accent); font-weight: var(--weight-semibold); }
+.bullets .bulletGroup { margin: var(--space-2) 0 0 calc(var(--space-4) * -1); color: var(--fg); font-weight: var(--weight-semibold); list-style: none; }
+.bullets .bulletGroup:first-child { margin-top: 0; }
 
 /* The case links follow the role's results they back up. */
 .roleLinks {

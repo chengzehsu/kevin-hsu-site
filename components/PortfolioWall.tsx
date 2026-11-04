@@ -52,8 +52,8 @@ const TILES: Tile[] = [
   localized(
     "health-app",
     `${A}/health-spec`,
-    "健康 App｜規格與對照表",
-    "Health app | Spec and mapping tables",
+    "健康管理 App｜規格與對照表",
+    "Health management app | Spec and mapping tables",
   ),
   same(
     "internal-backend",

@@ -86,9 +86,16 @@ export interface Metric {
   og: { value: string; label: string };
 }
 
+export interface MetricGroup {
+  label: string;
+  items: Array<{ value: string; label: string; caseId?: string }>;
+}
+
 export interface MetricsContent {
   title: string;
+  /** Short list the social preview reads. */
   items: Metric[];
+  groups: MetricGroup[];
 }
 
 interface RecognitionDetails {
@@ -152,6 +159,8 @@ export interface AiPracticeContent {
   title: string;
   intro: string;
   /** The three problems the home page shows. */
+  /** Heading of the home list, which shows tools rather than the whole AI practice. */
+  highlightsTitle: string;
   highlights: AiHighlight[];
   labels: {
     stuck: string;
@@ -212,6 +221,8 @@ export interface CaseStudy {
   /** When one product serves different situations: who is stuck on what, and what changed, one row each. */
   scenarios?: Array<{ name: string; stuck: string; now: string }>;
   capabilities: { used: string[]; grown: string[] };
+  /** Result-led card title on the home shelf; the case page keeps its own title. */
+  homeTitle?: string;
   /** The work Kevin personally drove, separated from the overall outcome. */
   ownership: string;
   situation: string;
@@ -343,8 +354,12 @@ export interface ExperienceItem {
   focus: string;
   /** One or two sentences; null when the facts are not yet supplied (both locales must declare it). */
   summary: string | null;
+  /** One line for the home rail; only roles with one appear there, and the résumé keeps them all. */
+  homeHighlight?: string;
   /** Short bullets, max 4; empty array when none. */
   bullets: string[];
+  /** Optional headings over consecutive runs of bullets, in order; counts add up to bullets.length. Ignored when a variant picks its own bullets. */
+  bulletGroups?: Array<{ label: string; count: number }>;
   /** Explains the break between this role and the previous (older) one, e.g. "2024/9 - 2025/2｜休息與接案". */
   gapAfter?: string;
   /** True only for a role held today; the timeline shows the current-role badge from this, never from list order. */

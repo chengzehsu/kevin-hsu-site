@@ -16,9 +16,9 @@ NAVY, BLUE, LIGHT, MUTED = "#172234", "#2D61A6", "#DCE8F7", "#5A6980"
 
 COPY = {
     "zh": {
-        "title": "健康 App 的情境規格化",
+        "title": "健康管理 App 的情境規格化",
         "desc": "訪談重要角色，還原 IoT 體重計、活動報名、多國語系與舊資料遷移的真實情境，再整理成 Wireframe、User Story、PRD、參數對照表與翻譯對照表。新平台上線一年後，DAU 由 12,000 增至 20,000 (+66%)。",
-        "kicker": "PRODUCT SPEC / 健康 App",
+        "kicker": "PRODUCT SPEC / 健康管理 App",
         "head": "先還原真實情境，再寫成規格",
         "sub": "訪談重要角色，把跨裝置情境轉成工程能直接開工的文件。",
         "asked": "訪談還原的情境",

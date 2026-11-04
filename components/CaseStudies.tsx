@@ -1,6 +1,6 @@
 import type { CaseStudy, SectionProps } from "@/content/types";
 import { CASE_CARD_COVERS, caseArtifacts } from "@/content/caseArtifacts";
-import { caseName, fillCounts, orderCases, WIDE_CASES } from "@/lib/cases";
+import { caseName, fillCounts, listedCases, orderCases, WIDE_CASES } from "@/lib/cases";
 import { casePath } from "@/lib/locale";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { CaseArtifact } from "./CaseArtifact";
@@ -29,7 +29,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
           <p className={styles.lede}>{cases.intro}</p>
         </header>
         <div className={styles.grid}>
-          {orderCases(cases.items).map(renderCard)}
+          {orderCases(listedCases(cases.items)).map(renderCard)}
         </div>
       </div>
     </section>
@@ -38,7 +38,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
   function renderCard(item: CaseStudy) {
     const artifact = caseArtifacts[locale][item.id];
     const wide = WIDE_CASES.includes(item.id);
-    const { used, grown } = item.capabilities;
+    const { used } = item.capabilities;
     const cardCover = CASE_CARD_COVERS[item.id];
     return (
       <article
@@ -84,10 +84,6 @@ export function CaseStudies({ content, locale }: SectionProps) {
               <span>
                 <b>{cases.capabilityLabels.cardUsed}</b>
                 {used.slice(0, 2).join(locale === "zh" ? "、" : ", ")}
-              </span>
-              <span>
-                <b>{cases.capabilityLabels.cardGrown}</b>
-                {grown[0]}
               </span>
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, type ReactNode } from "react";
+import { Children, Fragment, type ReactNode } from "react";
 import { BULLET_LEAD } from "@/lib/bullets";
 import type { Locale } from "@/lib/locale";
 import { useOverlay } from "@/lib/variantStore";
@@ -76,22 +76,39 @@ export function TOrder({
 export function TBullets({
   id,
   bullets,
+  groups,
+  groupClassName,
   locale,
   highlight = false,
   leadClassName,
 }: {
   id: string;
   bullets: string[];
+  /** Headings over runs of bullets; dropped when a variant picks its own, since positions no longer match. */
+  groups?: Array<{ label: string; count: number }>;
+  groupClassName?: string;
   locale: Locale;
   highlight?: boolean;
   /** Sets the result before the first colon apart, so a scan reads the outcomes first. */
   leadClassName?: string;
 }) {
-  const shown = applyBullets(bullets, useOverlay(locale).bullets[id]);
-  return shown.map((bullet) => {
+  const spec = useOverlay(locale).bullets[id];
+  const shown = applyBullets(bullets, spec);
+  const headingAt = new Map<number, string>();
+  if (!spec) {
+    let start = 0;
+    for (const group of groups ?? []) {
+      headingAt.set(start, group.label);
+      start += group.count;
+    }
+  }
+  return shown.map((bullet, index) => {
     const lead = leadClassName ? bullet.match(BULLET_LEAD) : null;
+    const heading = headingAt.get(index);
     return (
-      <li key={bullet}>
+      <Fragment key={bullet}>
+      {heading ? <li className={groupClassName}>{heading}</li> : null}
+      <li>
         {lead ? (
           <>
             <strong className={leadClassName}>{lead[1]}</strong>
@@ -103,6 +120,7 @@ export function TBullets({
           bullet
         )}
       </li>
+      </Fragment>
     );
   });
 }

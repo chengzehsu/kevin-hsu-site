@@ -7,7 +7,7 @@ export const LINK_PAGES = {
   resume: { path: "/resume/", label: "履歷（給人資）" },
   "case-internal-backend": { path: "/cases/internal-backend/", label: "案例：內部後台（給主管）", medium: "manager" },
   "case-grocery": { path: "/cases/grocery/", label: "案例：蔬果電商（給主管）", medium: "manager" },
-  "case-health-app": { path: "/cases/health-app/", label: "案例：健康 App（給主管）", medium: "manager" },
+  "case-health-app": { path: "/cases/health-app/", label: "案例：健康管理 App（給主管）", medium: "manager" },
   "case-cdp": { path: "/cases/cdp/", label: "案例：跨通路資料（給主管）", medium: "manager" },
   home: { path: "/", label: "首頁" },
   portfolio: { path: "/portfolio/", label: "作品集" },

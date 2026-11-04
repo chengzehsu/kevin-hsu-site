@@ -16,7 +16,7 @@ export function aiOnlyPractice(practice: AiPracticeContent): AiPracticeContent {
     ...practice,
     chapters: [
       { ...build, lead: work[0], items: work.slice(1) },
-      { ...life, lead: rest[0], items: rest.slice(1) },
+      ...(rest.length ? [{ ...life, lead: rest[0], items: rest.slice(1) }] : []),
     ],
   };
 }

@@ -134,7 +134,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
                       </h3>
                       {role.summary ? <p className={styles.muted}>{role.summary}</p> : null}
                       <ul className={styles.bullets} data-v="">
-                        <TBullets id={role.id} bullets={role.bullets} locale={locale} leadClassName={styles.lead} />
+                        <TBullets id={role.id} bullets={role.bullets} groups={role.bulletGroups} groupClassName={styles.bulletGroup} locale={locale} leadClassName={styles.lead} />
                       </ul>
                       {resume.roleCases[role.id] ? (
                         <p className={styles.roleLinks}>
@@ -176,6 +176,19 @@ export function ResumePage({ locale }: { locale: Locale }) {
                 <span className={styles.org}>{resume.education.detail}</span>
               </p>
             </div>
+          </section>
+
+          <section className={`${styles.section} ${styles.keepWhole}`} aria-labelledby="resume-awards">
+            <h2 id="resume-awards">{resume.sections.awards}</h2>
+            {content.awards.items.map((award) => (
+              <div key={award.id} className={styles.education}>
+                <p className={styles.period}>{award.kind === "award" ? award.year : ""}</p>
+                <p className={styles.school}>
+                  {award.title}
+                  <span className={styles.org}>{award.distinction}</span>
+                </p>
+              </div>
+            ))}
           </section>
 
           <p className={styles.more}>

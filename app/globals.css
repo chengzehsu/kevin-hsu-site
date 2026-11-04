@@ -404,11 +404,14 @@ body::after {
 :lang(en) .builder-loop-steps strong { margin-top: var(--space-3); font-size: var(--text-caption); }
 
 /* Three factual results form an open typographic strip, with the current role first. */
-.impact-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: var(--space-7); margin-top: 0; padding-block: var(--space-7); border-block: 1px solid var(--line); }
+.impact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-7); margin-top: 0; padding-block: var(--space-7); border-block: 1px solid var(--line); }
 .impact-cell { min-width: 0; }
+.impact-group { color: var(--accent); font-size: var(--text-small); font-weight: var(--weight-semibold); }
+.impact-rows { display: grid; gap: var(--space-5); margin: var(--space-4) 0 0; padding: 0; list-style: none; }
+.impact-rows .impact-value { font-size: var(--text-h3); }
+.impact-cell-4 > * { animation-range: entry 20% entry 100%; }
 .impact-cell + .impact-cell { border-left: 1px solid var(--line); padding-left: var(--space-7); }
 .impact-value { color: var(--fg); font-size: var(--text-h2); text-wrap: balance; font-weight: var(--weight-semibold); line-height: var(--leading-display); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; }
-.impact-cell:first-child .impact-value { color: var(--accent); }
 .impact-cell { overflow: clip; }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
@@ -433,6 +436,11 @@ body::after {
   }
 }
 .section-layout > :last-child { min-width: 0; }
+@media (max-width: 1023px) {
+  .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .impact-cell:nth-child(3) { border-left: 0; padding-left: 0; }
+}
+
 @media (max-width: 1023px) {
   .section-layout { grid-template-columns: 1fr; }
   .section-layout > .section-title { position: static; padding-top: 0; }

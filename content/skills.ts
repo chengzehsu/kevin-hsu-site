@@ -74,6 +74,38 @@ export const skillsContent: Record<Locale, SkillsContent> = {
     },
     featured: [
       {
+        id: "product-strategy",
+        name: "問題定義",
+        statement: "先定義問題，再決定先做什麼、不做什麼。",
+        summary: "依商業目標、使用者需求與交付限制排出 Roadmap。在愛淨分析 735 張任務、約 920 小時的去向，合約也改成從資料齊備那天起算。",
+        proof: "51% 的工作花在單一案場客製，所以售前改用 S/M/L/XL 四種規模報價",
+        references: [
+          { label: "內部後台", href: "/cases/internal-backend/" },
+          { label: "台灣愛淨", href: "#experience-ecofirst" },
+        ],
+      },
+      {
+        id: "experiments",
+        name: "快速實驗",
+        statement: "先做小實驗，用真實用量決定要不要做大。",
+        summary: "把不同商業模式直接做成能運作的版本，用真實用量決定留哪一個。",
+        proof: "名片助手的 SaaS 版本測過用量後，退回精簡架構",
+        references: [
+          { label: "AI 名片管理助手", href: "/cases/namecard/" },
+        ],
+      },
+      {
+        id: "ai-delivery",
+        name: "原型實作",
+        statement: "用 Claude Code 親手做出原型，再和 RD 做成正式功能。",
+        summary: "找出 AI 幫得上的環節：從需求、規格、用假資料驗證，到開發交接，都先讓 AI 寫初稿。Notion 上的 AI 排程一開始只提建議，連續 3 輪有 90% 以上被採納，才讓它自動寫入；原型則用 Claude Code 自己做。",
+        proof: "交付時間縮短 30%（估算）；PM 導入案場從約 2 週到約 2 小時（不含現場接線與控制策略）",
+        references: [
+          { label: "內部後台", href: "/cases/internal-backend/" },
+          { label: "台灣愛淨", href: "#experience-ecofirst" },
+        ],
+      },
+      {
         id: "operations",
         name: "流程重構",
         statement: "先找到卡住產能的那一步。",
@@ -85,46 +117,25 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         ],
       },
       {
+        id: "delivery",
+        name: "跨團隊交付",
+        statement: "讓產品、工程與現場照同一份優先順序。",
+        summary: "把跨部門的需求排成同一份優先順序，再分階段交付，降低重構風險。",
+        proof: "DAU +66%（團隊成果），附量測方式",
+        references: [
+          { label: "健康管理 App", href: "/cases/health-app/" },
+        ],
+      },
+      {
         id: "systems",
-        name: "系統與資料",
+        name: "資料判讀",
         statement: "先把資料講清楚，系統才判得準。",
         summary: "釐清資料在 LINE、Email、Excel 與各系統之間怎麼流動，定義清楚每個數字怎麼算，再和工程師談好怎麼串接。以內部後台為例：先定義什麼叫「資料到齊」，再把「無法判斷」和「缺資料」分開。",
         proof: "34 個案場一個畫面看完；整合 1,000 萬筆跨通路資料",
         references: [
+          { label: "點位命名", href: "/cases/sensor-naming/" },
           { label: "內部後台", href: "/cases/internal-backend/" },
           { label: "歐可達數據科技", href: "/cases/cdp/" },
-        ],
-      },
-      {
-        id: "product-strategy",
-        name: "商業判斷",
-        statement: "用數據決定先做什麼、不做什麼。",
-        summary: "依商業目標、使用者需求與交付限制排出 Roadmap。在愛淨分析 735 張任務、約 920 小時的去向，合約也改成從資料齊備那天起算。",
-        proof: "51% 的工作花在單一案場客製，所以售前改用 S/M/L/XL 四種規模報價",
-        references: [
-          { label: "台灣愛淨", href: "#experience-ecofirst" },
-        ],
-      },
-      {
-        id: "ai-delivery",
-        name: "AI 導入",
-        statement: "AI 先提案、人來拍板，準了才放手。",
-        summary: "找出 AI 幫得上的環節：從需求、規格、用假資料驗證，到開發交接，都先讓 AI 寫初稿。Notion 上的 AI 排程一開始只提建議，連續 3 輪有 90% 以上被採納，才讓它自動寫入；原型則用 Claude Code 自己做。",
-        proof: "交付時間縮短 30%（估算）；PM 導入案場從約 2 週到約 2 小時（不含現場接線與控制策略）",
-        references: [
-          { label: "內部後台", href: "/cases/internal-backend/" },
-          { label: "台灣愛淨", href: "#experience-ecofirst" },
-        ],
-      },
-      {
-        id: "measured-results",
-        name: "成效驗證",
-        statement: "每個成果都寫明怎麼量。",
-        summary: "改善前先定基準，上線後用同一把尺比較；沒有前後數字的，就只寫規模與做法，不寫百分比。",
-        proof: "+233%、+66%（團隊成果），都附量測方式",
-        references: [
-          { label: "蔬果電商", href: "/cases/grocery/" },
-          { label: "健康 App", href: "/cases/health-app/" },
         ],
       },
     ],
@@ -195,8 +206,40 @@ export const skillsContent: Record<Locale, SkillsContent> = {
     },
     featured: [
       {
+        id: "product-strategy",
+        name: "Problem framing",
+        statement: "Frame the problem, then decide what to do first and what not to do.",
+        summary: "Build the roadmap from business goals, user needs, and delivery constraints. At Ecofirst, I traced where 735 tasks and about 920 hours went, and contract timelines now start when the data is complete.",
+        proof: "51% of the work went to single-site customization, so presales moved to S/M/L/XL tiers",
+        references: [
+          { label: "Internal platform", href: "/en/cases/internal-backend/" },
+          { label: "Ecofirst", href: "#experience-ecofirst" },
+        ],
+      },
+      {
+        id: "experiments",
+        name: "Rapid experimentation",
+        statement: "Run a small test, and let real usage decide whether to scale.",
+        summary: "Build different business models as working versions, then let real usage decide which one stays.",
+        proof: "The card assistant's SaaS version went back to a lean build after a usage test",
+        references: [
+          { label: "AI business-card assistant", href: "/en/cases/namecard/" },
+        ],
+      },
+      {
+        id: "ai-delivery",
+        name: "Prototyping",
+        statement: "Build the prototype myself with Claude Code, then ship it with R&D.",
+        summary: "Find where AI actually helps: requirements, specs, mock-data checks, and dev handoff start as AI drafts. Scheduled Notion AI jobs only make suggestions until at least 90% of them are accepted three rounds in a row, and only then write on their own. I build prototypes myself with Claude Code.",
+        proof: "Delivery time down 30% (estimate); PM site onboarding from about 2 weeks to about 2 hours (excluding on-site wiring and control strategy)",
+        references: [
+          { label: "Internal platform", href: "/en/cases/internal-backend/" },
+          { label: "Ecofirst", href: "#experience-ecofirst" },
+        ],
+      },
+      {
         id: "operations",
-        name: "Process mapping",
+        name: "Workflow redesign",
         statement: "Find the step that caps throughput.",
         summary: "Walk the floor and interview frontline staff to map the cross-team workflow, find wait times, repeated work, and data gaps, then clear the bottleneck with rules, systems, or tools.",
         proof: "Shipments 300 → 1,000 orders/day (+233%)",
@@ -206,46 +249,25 @@ export const skillsContent: Record<Locale, SkillsContent> = {
         ],
       },
       {
+        id: "delivery",
+        name: "Cross-team delivery",
+        statement: "Get product, engineering, and the field on one priority list.",
+        summary: "Put cross-team requests on one priority list and deliver in phases to lower rebuild risk.",
+        proof: "DAU +66% (team result), with its measurement basis",
+        references: [
+          { label: "Health management app", href: "/en/cases/health-app/" },
+        ],
+      },
+      {
         id: "systems",
-        name: "Systems and data",
+        name: "Data judgment",
         statement: "Define the data first so the system can make the right call.",
         summary: "Trace how data moves between chat apps, email, Excel, and systems, define how every number is calculated, then work with engineers on integration. The internal platform started here: define what complete data means, and keep \"cannot tell\" apart from \"missing data\".",
         proof: "34 sites on one screen; 10M cross-channel customer records integrated",
         references: [
+          { label: "Sensor naming", href: "/en/cases/sensor-naming/" },
           { label: "Internal platform", href: "/en/cases/internal-backend/" },
           { label: "Oakda", href: "/en/cases/cdp/" },
-        ],
-      },
-      {
-        id: "product-strategy",
-        name: "Business judgment",
-        statement: "Let data decide what to do first and what not to do.",
-        summary: "Build the roadmap from business goals, user needs, and delivery constraints. At Ecofirst, I traced where 735 tasks and about 920 hours went, and contract timelines now start when the data is complete.",
-        proof: "51% of the work went to single-site customization, so presales moved to S/M/L/XL tiers",
-        references: [
-          { label: "Ecofirst", href: "#experience-ecofirst" },
-        ],
-      },
-      {
-        id: "ai-delivery",
-        name: "AI adoption",
-        statement: "AI proposes, a person decides, and AI earns autonomy once it proves accurate.",
-        summary: "Find where AI actually helps: requirements, specs, mock-data checks, and dev handoff start as AI drafts. Scheduled Notion AI jobs only make suggestions until at least 90% of them are accepted three rounds in a row, and only then write on their own. I build prototypes myself with Claude Code.",
-        proof: "Delivery time down 30% (estimate); PM site onboarding from about 2 weeks to about 2 hours (excluding on-site wiring and control strategy)",
-        references: [
-          { label: "Internal platform", href: "/en/cases/internal-backend/" },
-          { label: "Ecofirst", href: "#experience-ecofirst" },
-        ],
-      },
-      {
-        id: "measured-results",
-        name: "Measured results",
-        statement: "Every result says how it was measured.",
-        summary: "Set the baseline before the change and measure the same way after it. Without a before-and-after figure, I state scale and method, never a percentage.",
-        proof: "+233% and +66% (team result), each with its measurement basis",
-        references: [
-          { label: "Fresh-produce e-commerce", href: "/en/cases/grocery/" },
-          { label: "Health app", href: "/en/cases/health-app/" },
         ],
       },
     ],

@@ -5,7 +5,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/content/types";
 import { CASE_POSTERS, CASE_POSTER_SIZE, CASE_SHELF_SHOTS } from "@/content/caseArtifacts";
-import { FEATURED_COUNT, fillCounts, orderCases } from "@/lib/cases";
+import { fillCounts, HOME_CASES, orderCases } from "@/lib/cases";
 import { casePath, portfolioPath } from "@/lib/locale";
 import { srcSetFor } from "@/lib/responsive-image";
 import { KeepTogether } from "./KeepTogether";
@@ -19,8 +19,7 @@ import { TOrder } from "./Tailored";
 export function ProofStack({ content, locale }: SectionProps) {
   const { cases } = content;
   const items = orderCases(cases.items)
-    .filter((item) => item.kind !== "side")
-    .slice(0, FEATURED_COUNT);
+    .filter((item) => HOME_CASES.includes(item.id));
 
   return (
     <section
@@ -77,7 +76,7 @@ export function ProofStack({ content, locale }: SectionProps) {
                   <span className={styles.copy}>
                     <span className={styles.meta}>{item.org}</span>
                     <span className={styles.title}>
-                      <KeepTogether text={item.title} title />
+                      <KeepTogether text={item.homeTitle ?? item.title} title />
                     </span>
                     <ArrowUpRightIcon
                       className={styles.arrow}

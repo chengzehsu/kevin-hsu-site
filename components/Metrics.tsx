@@ -1,9 +1,9 @@
 import type { SectionProps } from "@/content/types";
 import { casePath } from "@/lib/locale";
 
-/** Three results, each linking to the case that proves it, then the outside recognition behind them. */
+/** Results grouped by the value they show, each linking to its proof where a case exists, then the outside recognition. */
 export function Metrics({ content, locale }: SectionProps) {
-  const { title, items } = content.metrics;
+  const { title, groups } = content.metrics;
 
   return (
     <section
@@ -19,16 +19,33 @@ export function Metrics({ content, locale }: SectionProps) {
         </h2>
 
         <ul className="impact-grid">
-          {items.map((metric, i) => (
+          {groups.map((group, i) => (
             <li
-              key={metric.caseId}
+              key={group.label}
               className={`impact-cell impact-cell-${i + 1}`}
             >
-              <a className="impact-link" href={casePath(locale, metric.caseId)}>
-                <p className="impact-value">{metric.value}</p>
-                <p className="impact-caption">{metric.label}</p>
-                <p className="impact-detail">{metric.detail}</p>
-              </a>
+              <p className="impact-group">{group.label}</p>
+              <ul className="impact-rows">
+                {group.items.map((metric) => {
+                  const body = (
+                    <>
+                      <p className="impact-value">{metric.value}</p>
+                      <p className="impact-caption">{metric.label}</p>
+                    </>
+                  );
+                  return (
+                    <li key={metric.label}>
+                      {metric.caseId ? (
+                        <a className="impact-link" href={casePath(locale, metric.caseId)}>
+                          {body}
+                        </a>
+                      ) : (
+                        body
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             </li>
           ))}
         </ul>
