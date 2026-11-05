@@ -442,7 +442,7 @@ export const en = {
           ],
         },
         ownership:
-          "I defined the problem and what success meant, wrote the platform blueprint for the general manager, and decided what to build and what to leave out. I built it with working prototypes and AI, then turned it into production features with the software team, reaching 748 commits by Oct 2026.",
+          "I defined the problem and what success meant, wrote the platform blueprint for the general manager, and decided what to build and what to leave out. I built it with working prototypes and AI, listened to the people who would use it, revised it, then turned it into production features with the software team, reaching 748 commits by Oct 2026.",
         situation:
           "Each site's sensor list sat in a different file. To change one cell or answer a client about a site, a PM had to ask an engineer first.",
         bottleneck:
@@ -460,7 +460,7 @@ export const en = {
         measurementSummary:
           "Onboarding time: first-hand experience; tasks and hours: company task database",
         article: {
-          lead: "Three functions, each for a different group that was stuck.",
+          lead: "Three problems came one after another: PMs waiting on engineers to change data, data errors found too late, and customer decision makers with no screen to look at. Each time, I built a working version, listened to the people who would use it, revised it, and then made it a real feature with R&D.",
           sections: [
             {
               id: "site-management",
@@ -496,12 +496,12 @@ export const en = {
               id: "data-collection",
               trait: "Data collection",
               heading:
-                "Define what complete data means, then let PMs judge it themselves",
+                "The first standard was too strict, so I redefined what complete data means",
               stat: {
                 value: "244 → 12",
                 label: "missing-data alerts (after merging by cause)",
               },
-              paragraphs: ["Problems used to surface only at report time. I first defined complete data as under 5% missing, then counted alerts by unit instead of by rule, with each problem showing the actual value and who should take it."],
+              paragraphs: ["Once PMs could upload on their own, the next problem was data errors surfacing only at report time. The first version of the checks stalled because its standard was too strict. I redefined complete data as under 5% missing, then counted alerts by unit instead of by rule, with each problem showing the actual value and who should take it."],
               figure: {
                 src: "/portfolio-artifacts/internal-backend-site-health.webp",
                 alt: "Data-collection health page: the first line reads 7 units with issues out of 22 checked, followed by negative cooling, power, and flow readings, each marked for the data-collection engineer",
@@ -520,7 +520,7 @@ export const en = {
                 value: "1 day",
                 label: "to build the second prospect's energy dashboard",
               },
-              paragraphs: ["\"We need something the hospital director can see,\" one hospital said. I built a working dashboard prototype, and R&D made it a real feature. For a second prospect, an electronics plant, config changes alone rebuilt it in a day; every benefit is labeled as an estimate."],
+              paragraphs: ["\"We need something the hospital director can see,\" one hospital said. I built a working dashboard prototype. Sales saw it and said two things were missing: how the results translate into money saved, and how control would work going forward. To reassure customers, we had to make the business value and the forecast clear, so I added the estimated benefit after adoption and the coming week's plan, and R&D made it a real feature. For a second prospect, an electronics plant, config changes alone rebuilt it in a day; every benefit is labeled as an estimate."],
               figure: {
                 src: "/portfolio-artifacts/internal-backend-warroom.webp",
                 alt: "Energy dashboard demo screen with four numbered areas: live chilled-water status, estimated benefit after adoption, the coming week's plan, and automatic control of auxiliary equipment, with every benefit labeled as estimated",

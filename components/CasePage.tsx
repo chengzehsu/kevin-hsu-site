@@ -159,14 +159,14 @@ export function CasePage({
           <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
             <div className={styles.process} data-case-process>
               {item.scenarios?.length ? facts : null}
-              <p className={styles.processOwnership}>
-                <span>{cases.ownershipLabel}</span>
-                {item.ownership}
-              </p>
               <CaseDetails item={item} content={content} locale={locale} />
               {item.article ? (
                 <CaseArticle article={item.article} locale={locale} />
               ) : null}
+              <p className={styles.processOwnership}>
+                <span>{cases.ownershipLabel}</span>
+                {item.ownership}
+              </p>
             </div>
 
             <a
