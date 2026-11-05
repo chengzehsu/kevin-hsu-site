@@ -540,7 +540,7 @@ export const en = {
         org: "Fable (寓意科技)",
         period: "Mar 2021 - Jul 2022",
         rank: 2,
-        title: "Fresh-produce e-commerce, rebuilt",
+        title: "Grocery e-commerce: 300 → 1,000 orders/day (+233%)",
         homeTitle: "Grocery e-commerce: 300 → 1,000 orders/day (+233%)",
         role: "Senior Project Manager",
         scope: "NT$6.2M | Web/app | Orders, warehouse, AWS",
@@ -585,7 +585,7 @@ export const en = {
         org: "Fable (寓意科技)",
         period: "Mar 2021 - Jul 2022",
         rank: 3,
-        title: "Health management app: user flows redesigned",
+        title: "Health management app: DAU +66% in a year (team result)",
         homeTitle: "Health management app: DAU +66% in a year (team result)",
         role: "Senior Project Manager",
         scope: "Health management app | User flows | IoT scales | Data migration | Localization",
@@ -634,7 +634,7 @@ export const en = {
         org: "Oakda (歐可達數據科技有限公司)",
         period: "Jun 2020 - Dec 2020",
         rank: 4,
-        title: "Connecting customer data",
+        title: "Customer data: 5 channels and 10 million records connected",
         role: "Product Manager",
         scope: "CDP | Chatbots | Web tracking | Dashboards | POS",
         collaboration: "UX, sales, marketing, product, and data teams",
@@ -679,7 +679,7 @@ export const en = {
         period: "Aug 2026 - Oct 2026",
         rank: 6,
         title:
-          "Sensor naming: PMs convert vendor sensor lists to our format themselves",
+          "Sensor naming: building a sensor list went from 1 hour to 5 minutes",
         role: "Senior Product Manager (planning and build)",
         scope:
           "34 sites, 7,110 sensors (Sep 2026) | Shared by data return and simulation",
@@ -740,7 +740,7 @@ export const en = {
               trait: "Workflow redesign",
               heading:
                 "PMs upload a list and AI converts it",
-              paragraphs: ["PMs upload a new sensor list and AI converts it by rule, so nobody checks it by eye. Anything a name can't reveal, such as unit counts, always goes to a person."],
+              paragraphs: ["PMs upload a new sensor list and AI converts it by rule, so nobody checks it by eye. Anything a name can't reveal, such as unit counts, always goes to a person. Some sensor points are new to the dictionary, so I clarify them with the PM and then add them."],
             },
           ],
           closing:
@@ -803,7 +803,7 @@ export const en = {
               id: "gates",
               trait: "Process mapping",
               heading: "Two approval steps for two kinds of judgment",
-              paragraphs: ["Sales leads decide which questions stay, and an owner writes the company's official answer."],
+              paragraphs: ["Sales leads decide which questions stay, and an owner writes the company's official answer. I first planned to send each question to a manager and update answers as they came in, but that wouldn't hold up long term. So I built up a set of guidelines instead: answer every question from them first, then keep adding to them."],
             },
             {
               id: "entry",
