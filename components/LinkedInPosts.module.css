@@ -10,7 +10,7 @@
   align-items: start;
   margin-top: var(--space-section-sm);
 }
-.group { min-width: 0; scroll-margin-top: calc(var(--space-8) * 2 + var(--space-4)); }
+.group { min-width: 0; scroll-margin-top: calc(var(--nav-height) + var(--space-6)); }
 .groupTitle { margin: 0 0 var(--space-2); color: var(--muted); font-size: var(--text-small); font-weight: var(--weight-semibold); line-height: var(--leading-ui); }
 
 .rows { margin: 0; padding: 0; list-style: none; }
@@ -27,7 +27,7 @@
 /* Four short labelled lines; the person's line is marked as the guardrail. */
 .detail { display: grid; gap: var(--space-3); margin: var(--space-1) 0 0; }
 .detail > div { display: grid; gap: var(--space-1); }
-.detail dt { color: var(--muted); font-size: var(--text-caption); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-normal); }
+.detail dt { color: var(--muted); font-size: var(--text-caption); font-weight: var(--weight-label); letter-spacing: var(--tracking-normal); }
 .detail dd { margin: 0; font-size: var(--text-small); line-height: var(--leading-body); }
 .detail > div[data-role="human"] { padding-left: var(--space-3); box-shadow: inset 2px 0 0 var(--accent); }
 .detail > div[data-role="human"] dt { color: var(--accent); }

@@ -60,7 +60,7 @@
   /* Two lines keep the far side of the hero open for the wall. */
   max-width: 14em;
   font-size: var(--text-display);
-  letter-spacing: var(--tracking-heading);
+  letter-spacing: var(--tracking-cjk);
   line-height: var(--leading-display);
 }
 

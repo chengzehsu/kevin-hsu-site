@@ -42,7 +42,7 @@ export function AiHighlights({ content, locale }: SectionProps) {
         </div>
         <ul className={styles.list}>
           {picks.map((item) => (
-            <li key={item.problem} className="scroll-rise">
+            <li key={item.problem} className="entry-unveil">
               <a
                 href={
                   item.caseId

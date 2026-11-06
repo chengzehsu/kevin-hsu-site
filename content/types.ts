@@ -33,17 +33,16 @@ export interface NavContent {
 }
 
 export interface HeroContent {
-  /** A short positioning line above the headline. */
-  eyebrow: string;
-  /** The hook from the launch film, set above the headline: the gap most PMs leave open. */
+  /** The page title (h1): who this is. The first thing a hiring reader needs answered. */
+  name: string;
+  /** Second line of the h1. */
+  role: string;
+  /** Scope in one line, set under the actions. */
+  facts: string;
+  /** The positioning sentence under the tagline: the hook from the launch film. */
   kicker: string;
-  /** Max two lines at desktop. Words wrapped in 【】 take the accent colour. */
+  /** The tagline, set as a statement under the name. Words wrapped in 【】 take the accent colour. */
   headline: string;
-  /** Three factual signals that help a hiring reader understand the profile quickly. */
-  profile: Array<{
-    label: string;
-    value: string;
-  }>;
   /** Hero film: the rendered workflow study, tied to the case it illustrates. */
   film: {
     /** Visible caption under the film; the picking metric keeps its canonical wording. */
@@ -86,16 +85,36 @@ export interface Metric {
   og: { value: string; label: string };
 }
 
-export interface MetricGroup {
+/** One result on the home strip; links to the case that proves it when there is one. */
+export interface MetricItem {
+  /** The figure as read aloud, e.g. "約 2 週 → 約 2 小時". */
+  value: string;
   label: string;
-  items: Array<{ value: string; label: string; caseId?: string }>;
+  caseId?: string;
+  /** A figure that shows a change carries both ends; both or neither. Scrolling it into view plays the change. */
+  from?: string;
+  to?: string;
+}
+
+/** One product on the home strip: who Kevin was in it, what he changed, what it is worth. */
+export interface MetricRow {
+  product: string;
+  /** Kevin's role, said with "I", so ownership is read before any number. */
+  role: string;
+  /** Employer, and whether the numbers are a team result. */
+  note: string;
+  productValue: MetricItem[];
+  businessValue: MetricItem[];
 }
 
 export interface MetricsContent {
   title: string;
   /** Short list the social preview reads. */
   items: Metric[];
-  groups: MetricGroup[];
+  /** Column names, read before every row's numbers. */
+  productValueLabel: string;
+  businessValueLabel: string;
+  rows: MetricRow[];
 }
 
 interface RecognitionDetails {
@@ -381,14 +400,16 @@ export interface ExperienceContent {
 }
 
 export interface ContactContent {
-  /** Optional closing line above the title, e.g. the site tagline. */
-  kicker?: string;
   title: string;
   text: string;
   /** Same label as nav.contact (single contact intent per locale); null until the email is supplied. */
   cta: Cta | null;
   /** Optional external links (LinkedIn, Heptabase). Omit entries whose URL is not yet supplied. */
   links: Cta[];
+  /** The three values a hiring reader should keep, each said with "I" as the subject. */
+  values: Array<{ label: string; value: string }>;
+  /** One line of background under the values: team size, contract scope, recognition. */
+  background: string;
 }
 
 export interface FooterContent {

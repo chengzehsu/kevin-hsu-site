@@ -1,4 +1,5 @@
-/* Split hero: display type on the left, the rendered workflow film bleeding off the right edge. */
+/* Split hero: who on the left in the largest type, the launch film taking the larger share on the right,
+   bleeding off the edge. The film is the strongest proof on the page, so it gets the space. */
 .hero {
   --gutter: var(--space-7);
   isolation: isolate;
@@ -11,9 +12,9 @@
 
 .composition {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
   align-items: center;
-  gap: var(--space-section-md);
+  gap: var(--space-8);
   width: 100%;
   max-width: var(--site-width);
   margin-inline: auto;
@@ -33,17 +34,6 @@
 
 .media :global(figcaption) { padding-right: var(--gutter); }
 
-/* Soft spotlight behind the film, the same light the launch film uses. */
-.media::before {
-  content: "";
-  position: absolute;
-  z-index: var(--z-behind);
-  inset: -18% -10% -10% -18%;
-  background: radial-gradient(closest-side, color-mix(in oklch, var(--accent) 22%, transparent), transparent);
-  filter: blur(8px);
-  pointer-events: none;
-}
-
 .caption {
   display: inline-flex;
   align-items: center;
@@ -59,31 +49,41 @@
 .caption:hover,
 .caption:focus-visible { color: var(--accent); }
 
-.copy :global(.hero-eyebrow) { color: var(--muted); font-size: var(--text-small); font-weight: var(--weight-medium); letter-spacing: var(--tracking-normal); }
+/* The h1: the name at display size, the role under it one step down. Two lines at every width. */
+.copy :global(.hero-name) { margin: 0; font-family: var(--font-display); font-weight: var(--weight-semibold); line-height: var(--leading-display); }
+.copy :global(.hero-name-line) { display: block; font-size: var(--text-display); letter-spacing: var(--tracking-display); white-space: nowrap; }
+/* Han glyphs take no negative tracking, as everywhere else on the site. */
+.copy :global(.hero-name-line):lang(zh-Hant), .copy :global(.hero-role):lang(zh-Hant) { letter-spacing: var(--tracking-cjk); }
+/* The role reads as part of the name, one step under the tagline: smaller, lighter, muted. */
+.copy :global(.hero-role) { display: block; margin-top: var(--space-2); color: var(--muted); font-size: var(--text-h3); font-weight: var(--weight-medium); letter-spacing: var(--tracking-heading); }
+/* The tagline is a statement under the name, not a second headline. */
 .copy :global(.hero-title) {
   max-width: none;
-  margin-top: var(--space-4);
-  font-size: var(--text-display);
+  margin-top: var(--space-6);
+  font-size: var(--text-h2);
   font-weight: var(--weight-semibold);
-  line-height: var(--leading-display);
-  letter-spacing: var(--tracking-display);
-}
-.copy :global(.hero-title-zh) {
-  font-size: var(--text-display);
   line-height: var(--leading-display);
   letter-spacing: var(--tracking-heading);
 }
+.copy :global(.hero-title-zh) {
+  font-size: var(--text-h2);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-heading);
+}
+/* Clauses flow on one line where they fit; inline-block keeps each clause's rise clipped to its own mask. */
+.copy :global(.hero-title .hero-line) { display: inline-block; }
 .copy :global(.hero-title-zh .hero-line > span) { white-space: nowrap; }
-.copy :global(.hero-positioning) { max-width: 34rem; margin: var(--space-5) 0 0; color: var(--muted); font-size: var(--text-lead); line-height: var(--leading-body); text-wrap: pretty; }
+.copy :global(.hero-positioning) { max-width: 34rem; margin: var(--space-4) 0 0; color: var(--fg); font-size: var(--text-body); line-height: var(--leading-body); text-wrap: pretty; }
 .copy :global(.hero-actions) { margin-top: var(--space-6); }
+.copy :global(.hero-facts) { margin: var(--space-5) 0 0; color: var(--muted); font-size: var(--text-small); }
 
 @media (max-width: 1023px) {
   .hero { --gutter: var(--space-6); }
   /* The column stays at the old 48rem reading width but starts at the page grid, not centered in it. */
   .composition { grid-template-columns: minmax(0, min(100%, calc(48rem - 2 * var(--gutter)))); gap: var(--space-8); }
   .media { margin-right: calc(-1 * var(--gutter)); }
-  .copy :global(.hero-title-zh) { font-size: var(--text-display); }
-  .copy :global(.hero-title) { font-size: var(--text-display); }
+  .copy :global(.hero-title-zh) { font-size: var(--text-h2); }
+  .copy :global(.hero-title) { font-size: var(--text-h2); }
 }
 
 @media (max-width: 639px) {
@@ -92,8 +92,8 @@
 
 @media (max-width: 767px) {
   .hero { padding-block: var(--space-7) var(--space-8); }
-  .copy :global(.hero-title-zh) { font-size: var(--text-display); }
-  .copy :global(.hero-title) { font-size: var(--text-h1); }
+  .copy :global(.hero-name-line) { font-size: var(--text-h1); }
+  .copy :global(.hero-title-zh), .copy :global(.hero-title) { font-size: var(--text-h2); }
   .copy :global(.hero-trait) { grid-template-columns: 4.75rem minmax(0, 1fr); gap: var(--space-3); }
   .copy :global(.hero-actions) { gap: var(--space-3); margin-top: var(--space-6); }
   .copy :global(.hero-actions) > a { min-height: 44px; padding: var(--space-3) var(--space-4); font-size: var(--text-small); }

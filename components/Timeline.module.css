@@ -115,7 +115,7 @@
   background: color-mix(in oklch, var(--accent) 16%, transparent);
   color: var(--accent);
   font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-label);
   vertical-align: 0.1em;
 }
 
@@ -208,7 +208,7 @@
 .extrasTitle {
   color: var(--accent);
   font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-label);
 }
 
 .extras .evidence {
@@ -227,7 +227,7 @@
   margin-bottom: var(--space-1);
   color: var(--accent);
   font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-label);
 }
 
 @media (max-width: 1023px) {

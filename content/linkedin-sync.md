@@ -97,7 +97,7 @@ I'm looking for a team with clear roles, data-driven product decisions, and an a
 
 ### Senior Product Manager｜台灣愛淨節能科技 Ecofirst（2025/3 – 2026/10）
 
-負責 B2B AI 空調節能產品、Roadmap 與內部後台，帶領 4 位工程師，合約總額約 NT$1 億，客戶平均節能率約 15%。
+負責 B2B AI 空調節能平台的產品與交付、Roadmap 與內部後台，帶領 4 位工程師；平台合約總額約 NT$1 億，客戶平均節能率約 15%。
 
 降本：客製占比從 30% 降到 10%，異常處理與點位製作時間減少 90% 以上
 

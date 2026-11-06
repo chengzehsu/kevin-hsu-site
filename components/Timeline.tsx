@@ -39,7 +39,7 @@ export function Timeline({ content, locale }: SectionProps) {
             <Fragment key={item.id}>
               <li
                 id={`experience-${item.id}`}
-                className={`${styles.entry} scroll-rise`}
+                className={`${styles.entry} entry-rail`}
               >
                 <span className={styles.node} aria-hidden="true" />
                 <div className={styles.summary}>

@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/locale";
-import type { Metric, MetricGroup } from "./types";
+import type { Metric, MetricRow } from "./types";
 
 /**
  * The results the home page leads with, and the social preview reads. Change a result here first;
@@ -54,67 +54,85 @@ export const facts: Record<Locale, Metric[]> = {
   ],
 };
 
-/** The home results strip, grouped by the kind of value each result shows. */
-export const metricGroups: Record<Locale, MetricGroup[]> = {
+/**
+ * The home results, one row per product. Each row opens with the product and Kevin's role in it, so a
+ * reader never takes a team or sales result for a personal one; then what he changed in the product,
+ * then what the product is worth to the business. The current role leads and is set largest.
+ */
+export const metricRows: Record<Locale, MetricRow[]> = {
   zh: [
     {
-      label: "降本",
-      items: [
-        { value: "30% → 10%", label: "單一案場客製占比", caseId: "internal-backend" },
-        { value: "30 分鐘 → 3 分鐘", label: "單一案場異常處理", caseId: "internal-backend" },
+      product: "AI 節能平台",
+      role: "我負責產品與交付",
+      note: "Ecofirst，現職",
+      productValue: [
+        { value: "約 2 週 → 約 2 小時", from: "約 2 週", to: "約 2 小時", label: "PM 自己完成客戶導入（不含現場接線與控制策略）", caseId: "internal-backend" },
+        { value: "30% → 10%", from: "30%", to: "10%", label: "單一案場客製占比", caseId: "internal-backend" },
+        { value: "約 1 個月 → 約 1 週", from: "約 1 個月", to: "約 1 週", label: "需求處理時間", caseId: "internal-backend" },
       ],
-    },
-    {
-      label: "增效",
-      items: [
-        { value: "約 2 週 → 約 2 小時", label: "客戶導入（不含現場接線與控制策略）", caseId: "internal-backend" },
-        { value: "一天 → 10 分鐘", label: "業務回覆客戶", caseId: "sales-faq" },
-      ],
-    },
-    {
-      label: "商業規模",
-      items: [
-        { value: "約 NT$1 億", label: "負責的產品合約總額" },
+      businessValue: [
+        { value: "約 NT$1 億", label: "平台合約總額" },
         { value: "約 15%", label: "客戶平均節能率" },
-        { value: "約 NT$1.7 億", label: "2 個募資案進入盡職調查（DD）" },
       ],
     },
     {
-      label: "過往驗證",
-      items: [
-        { value: "300 → 1,000 單／日 (+233%)", label: "蔬果電商出貨量", caseId: "grocery" },
-        { value: "DAU +66%", label: "健康管理 App（團隊成果）", caseId: "health-app" },
+      product: "蔬果電商平台",
+      role: "我帶跨職能團隊交付",
+      note: "Fable 寓意科技，團隊成果",
+      productValue: [
+        { value: "重整入庫到出貨", label: "改出貨模式、出貨單與儲位，再分階段重構系統" },
+      ],
+      businessValue: [
+        { value: "300 → 1,000 單／日", from: "300 單／日", to: "1,000 單／日", label: "每日出貨量 +233%，平台營收 +120%", caseId: "grocery" },
+      ],
+    },
+    {
+      product: "健康管理 App",
+      role: "我帶團隊重新設計流程",
+      note: "Fable 寓意科技，團隊成果",
+      productValue: [
+        { value: "重新設計使用流程", label: "從使用者訪談出發，串接 IoT 體重計加入上秤打卡" },
+      ],
+      businessValue: [
+        { value: "DAU +66%", label: "一年內日活躍使用者 12,000 → 20,000", caseId: "health-app" },
       ],
     },
   ],
   en: [
     {
-      label: "Lower cost",
-      items: [
-        { value: "30% → 10%", label: "Single-site customization", caseId: "internal-backend" },
-        { value: "30 min → 3 min", label: "Per-site issue handling", caseId: "internal-backend" },
+      product: "AI energy-saving platform",
+      role: "I own product and delivery",
+      note: "Ecofirst, current role",
+      productValue: [
+        { value: "~2 weeks → ~2 hours", from: "~2 weeks", to: "~2 hours", label: "PMs onboard customers themselves (excluding on-site wiring and control strategy)", caseId: "internal-backend" },
+        { value: "30% → 10%", from: "30%", to: "10%", label: "Single-site customization", caseId: "internal-backend" },
+        { value: "~1 month → ~1 week", from: "~1 month", to: "~1 week", label: "Requirement handling", caseId: "internal-backend" },
       ],
-    },
-    {
-      label: "Higher output",
-      items: [
-        { value: "~2 weeks → ~2 hours", label: "Customer onboarding (excluding on-site wiring and control strategy)", caseId: "internal-backend" },
-        { value: "1 day → 10 min", label: "Sales response to customers", caseId: "sales-faq" },
-      ],
-    },
-    {
-      label: "Business scale",
-      items: [
-        { value: "~NT$100M", label: "Product contracts I owned" },
+      businessValue: [
+        { value: "~NT$100M", label: "Platform contracts in total" },
         { value: "~15%", label: "Average customer energy savings" },
-        { value: "~NT$170M", label: "2 fundraising deals reaching due diligence" },
       ],
     },
     {
-      label: "Earlier proof",
-      items: [
-        { value: "300 → 1,000 orders/day (+233%)", label: "Grocery e-commerce shipments", caseId: "grocery" },
-        { value: "DAU +66%", label: "Health management app (team result)", caseId: "health-app" },
+      product: "Grocery e-commerce platform",
+      role: "I led cross-functional delivery",
+      note: "Fable, team result",
+      productValue: [
+        { value: "Inbound-to-shipping redesign", label: "Changed the shipping model, packing slips, and bin layout, then rebuilt the system in phases" },
+      ],
+      businessValue: [
+        { value: "300 → 1,000 orders/day", from: "300 orders/day", to: "1,000 orders/day", label: "Daily shipments +233%; platform revenue +120%", caseId: "grocery" },
+      ],
+    },
+    {
+      product: "Health management app",
+      role: "I led the team through a flow redesign",
+      note: "Fable, team result",
+      productValue: [
+        { value: "Redesigned user flows", label: "Started from user interviews and added IoT weigh-in check-ins" },
+      ],
+      businessValue: [
+        { value: "DAU +66%", label: "Daily active users 12,000 → 20,000 in one year", caseId: "health-app" },
       ],
     },
   ],

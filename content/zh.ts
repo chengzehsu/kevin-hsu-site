@@ -1,4 +1,4 @@
-import { facts, metricGroups } from "./facts";
+import { facts, metricRows } from "./facts";
 import type { SiteContent } from "./types";
 
 export const zh = {
@@ -25,23 +25,11 @@ export const zh = {
   },
 
   hero: {
-    eyebrow: "許承澤 Kevin Hsu｜Senior Product Manager · 7 年以上｜帶過 10 位工程師｜負責的產品合約總額約 NT$1 億",
+    name: "許承澤 Kevin Hsu",
+    role: "Senior Product Manager",
+    facts: "7 年以上產品經驗｜帶過 10 位工程師",
     kicker: "我找出卡住產能的那一步，親手做出工具拿掉它：用 Claude Code 開發內部後台，748 次提交。",
     headline: "找出【痛點】，做出【解法】，量出【成果】。",
-    profile: [
-      {
-        label: "規模",
-        value: "帶過 10 位工程師、直屬管理 2 位初階 PM；負責的產品合約總額約 NT$1 億",
-      },
-      {
-        label: "產品領域",
-        value: "AI 節能（B2B）、電商訂單到交付、健康管理 App、跨通路資料平台與企業培訓",
-      },
-      {
-        label: "獎項",
-        value: "2022 PMI 台灣分會標竿專案獎優選、AWS 數位轉型案例",
-      },
-    ],
     film: {
       caption: "看內部後台案例",
       caseId: "internal-backend",
@@ -67,9 +55,11 @@ export const zh = {
   },
 
   metrics: {
-    title: "代表成果",
+    title: "我負責的產品，與它帶來的價值",
     items: facts.zh,
-    groups: metricGroups.zh,
+    productValueLabel: "產品價值",
+    businessValueLabel: "商業價值",
+    rows: metricRows.zh,
   },
 
   aiPractice: {
@@ -1006,7 +996,7 @@ export const zh = {
         focus: "AI 節能產品、內部工具與跨團隊交付",
         homeHighlight: "客戶導入從約 2 週縮短到約 2 小時，客製占比從 30% 降到 10%",
         summary:
-          "負責 B2B AI 空調節能產品、Roadmap 與內部後台，帶領 4 位工程師，合約總額約 NT$1 億，客戶平均節能率約 15%。",
+          "負責 B2B AI 空調節能平台的產品與交付、Roadmap 與內部後台，帶領 4 位工程師；平台合約總額約 NT$1 億，客戶平均節能率約 15%。",
         bullets: [
           "單一案場客製占比從 30% 降到 10%，換算每年約省下 370 小時（估算）：把重複需求抽象成控制策略，再寫成文件並參數化",
           "單一案場異常處理從 30 分鐘縮短到 3 分鐘：寫好判斷規則，2 位 PM 監看的 34 個案場，異常集中在同一頁",
@@ -1112,7 +1102,6 @@ export const zh = {
   },
 
   contact: {
-    kicker: "找出痛點，做出解法，量出成果。",
     title: "聊聊下一個產品機會。",
     text: "團隊卡在交付或跨部門流程、想讓 AI 真正進到日常工作，來聊聊。",
     cta: { label: "寫信給我", href: "mailto:kevin492625@gmail.com" },
@@ -1122,6 +1111,12 @@ export const zh = {
         href: "https://www.linkedin.com/in/chengze-hsu/",
       },
     ],
+    values: [
+      { label: "把客製做成產品", value: "我把一案一案的客製需求，做成 34 個案場共用的內部後台。" },
+      { label: "拿掉卡住的那一步", value: "我找出交付流程中卡住的那一步，親手做出工具拿掉它。" },
+      { label: "讓成果看得到", value: "我優化的產品，客戶省得到能源，公司看得到營收。" },
+    ],
+    background: "帶過 10 位工程師｜負責產品與交付的 AI 節能平台，合約總額約 NT$1 億｜2022 PMI 台灣分會標竿專案獎優選",
   },
 
   footer: {

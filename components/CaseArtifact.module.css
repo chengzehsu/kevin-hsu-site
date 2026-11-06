@@ -51,7 +51,7 @@
   background: color-mix(in srgb, var(--stage-bg) 72%, transparent);
   color: var(--stage-fg);
   font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-label);
   letter-spacing: var(--tracking-normal);
   line-height: var(--leading-ui);
 }
@@ -67,7 +67,7 @@
   grid-row: 1 / span 2;
   color: var(--accent);
   font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-label);
   letter-spacing: var(--tracking-normal);
 }
 

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import {
   ArrowUpRightIcon,
   PlusIcon,
@@ -60,6 +61,8 @@ function Radar({ radar }: { radar: SkillsRadarContent }) {
               <line
                 key={k}
                 className={styles.spoke}
+                pathLength={1}
+                style={{ "--k": k } as CSSProperties}
                 x1={C}
                 y1={C}
                 x2={x}
@@ -178,8 +181,6 @@ export function SkillsRadar({
                   className="scroll-rise"
                 >
                   <p className={styles.skillLabel}>
-                    {/* Numbered by a CSS counter, so a tailored order keeps 01, 02, … in display order. */}
-                    <span aria-hidden="true" />
                     {skill.name}
                   </p>
                   <h4 className={styles.statement}>

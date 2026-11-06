@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { caseTransition } from "@/lib/viewTransition";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
@@ -24,7 +25,7 @@ export function ProofStack({ content, locale }: SectionProps) {
   return (
     <section
       id="work"
-      className={`content-section ${styles.section}`}
+      className="content-section"
       aria-labelledby="work-heading"
     >
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
@@ -63,6 +64,7 @@ export function ProofStack({ content, locale }: SectionProps) {
                       loading="lazy"
                       decoding="async"
                       className={styles.shot}
+                      style={caseTransition(item.id)}
                     />
                   ) : poster ? (
                     <Image
@@ -71,6 +73,7 @@ export function ProofStack({ content, locale }: SectionProps) {
                       {...CASE_POSTER_SIZE}
                       sizes="(max-width: 767px) 78vw, (max-width: 1023px) 45vw, 22vw"
                       className={styles.image}
+                      style={caseTransition(item.id)}
                     />
                   ) : null}
                   <span className={styles.copy}>

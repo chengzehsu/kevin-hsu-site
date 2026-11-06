@@ -21,7 +21,7 @@ export default async function OpenGraphImage() {
   const { hero } = getContent("zh");
   return new ImageResponse(
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 76px", background: "#eef1f4", color: "#202b36", fontFamily: "Manrope, Noto Sans TC", fontWeight: 600 }}>
-      <div style={{ display: "flex", color: "#285cab", fontSize: 24 }}>{hero.eyebrow}</div>
+      <div style={{ display: "flex", color: "#285cab", fontSize: 24 }}>{hero.name}｜{hero.role}</div>
       <div style={{ display: "flex", maxWidth: 1048, fontSize: 66, lineHeight: 1.3 }}>{hero.headline.replace(/[【】]/g, "")}</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
         <div style={{ display: "flex", color: "#536274", fontSize: 22 }}>代表成果</div>

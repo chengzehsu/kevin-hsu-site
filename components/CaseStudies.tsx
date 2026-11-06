@@ -1,4 +1,5 @@
 import type { CaseStudy, SectionProps } from "@/content/types";
+import { caseTransition } from "@/lib/viewTransition";
 import { CASE_CARD_COVERS, caseArtifacts } from "@/content/caseArtifacts";
 import { caseName, fillCounts, listedCases, orderCases, WIDE_CASES } from "@/lib/cases";
 import { casePath } from "@/lib/locale";
@@ -53,7 +54,7 @@ export function CaseStudies({ content, locale }: SectionProps) {
           href={casePath(locale, item.id)}
           aria-label={`${cases.readLabel}: ${item.title}`}
         >
-          <div className={styles.visual}>
+          <div className={styles.visual} style={caseTransition(item.id)}>
             <CaseArtifact
               caseId={item.id}
               locale={locale}

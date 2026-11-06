@@ -20,11 +20,13 @@
 /* Cool paper, ink, and one restrained cobalt accent. */
 :root {
   /* Type scale: every size on the site comes from here, so hierarchy is set by role rather than per component.
-     Only one element per page uses display. The résumé keeps its own sizes because they are fitted to two A4 pages. */
+     Display is kept for the home h1 and the figures of the current role in the results ledger; no other
+     element uses it. The résumé keeps its own sizes because they are fitted to two A4 pages. */
   --text-caption: .75rem;
   --text-small: .875rem;
   --text-body: 1rem;
-  --text-lead: 1.125rem;
+  /* Lead text shares the h3 step: five text sizes on a page, not six. */
+  --text-lead: var(--text-h3);
   --text-h3: 1.25rem;
   --text-h2: clamp(1.5rem, 2vw, 1.75rem);
   --text-h1: clamp(1.875rem, 2.6vw, 2.25rem);
@@ -46,6 +48,10 @@
   --space-section-md: clamp(2rem, 4vw, 3.5rem);
   --space-section-lg: clamp(3rem, 7vw, 6rem);
   --site-width: 74rem;
+  /* The sticky nav's height: every sticky offset and scroll margin is the nav plus a spacing step. */
+  --nav-height: 4.5rem;
+  /* The edge a card takes under the pointer or keyboard focus, the same on every card. */
+  --border-hover: color-mix(in oklch, var(--accent) 50%, var(--line));
 
   /* Text rhythm: chosen by role, like the type scale. */
   --leading-none: 1; /* single-line figures and icons */
@@ -56,10 +62,14 @@
   --tracking-display: -.04em;
   --tracking-heading: -.02em;
   --tracking-normal: 0;
+  /* Han text takes no negative tracking: every :lang(zh-Hant) override uses this one value. */
+  --tracking-cjk: 0;
   --tracking-label: .06em; /* uppercase labels only */
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
+  /* Small labels (caption size) take one weight everywhere. */
+  --weight-label: var(--weight-semibold);
   --weight-bold: 700;
 
   /* Surfaces: three elevation levels. Radii live in the theme block below, plus one for pills. */
@@ -111,6 +121,12 @@
 /* Expose tokens as Tailwind utilities: bg-bg, text-fg, text-muted, border-line, bg-surface,
    bg-accent, text-accent, text-accent-fg, rounded-ui, rounded-panel, font-sans. */
 @theme inline {
+  /* Tailwind's text-sm (nav, footer) maps onto the type scale, so it follows --text-small and --leading-ui. */
+  --text-sm: var(--text-small);
+  --text-sm--line-height: var(--leading-ui);
+  /* Tailwind transitions (hero buttons) run on the site's own timing. */
+  --default-transition-duration: var(--duration-fast);
+  --default-transition-timing-function: var(--ease-standard);
   --color-bg: var(--bg);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
@@ -119,21 +135,23 @@
   --color-surface-strong: var(--surface-strong);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
-  /* Shape rule: controls, cards and small insets use radius-ui; feature panels
-     (portfolio model, case header and evidence, contact) use radius-panel with one
+  /* Shape rule: controls and small insets (buttons, wall tiles, chips) use radius-ui; case cards and
+     feature panels (portfolio model, case header and evidence, contact) use radius-panel, panels with one
      radius-tip corner as the portfolio's signature shape. */
   --radius-ui: 0.4rem;
   --radius-panel: 1.25rem;
   --radius-tip: 0.3rem;
+  /* One typeface. font-sans (Tailwind) and font-display (headings) are role names for it, so the
+     heading face can change in one line without touching components. */
   --font-sans: var(--font-body);
-  --container-site: 74rem;
   --font-display: var(--font-body);
+  --container-site: var(--site-width);
 }
 
 html {
   color-scheme: light;
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--space-8) * 2); /* sticky nav height + breathing room */
+  scroll-padding-top: calc(var(--nav-height) + var(--space-2));
 }
 
 body {
@@ -199,6 +217,7 @@ main { width: 100%; max-width: 100%; overflow-x: clip; }
 @keyframes reveal-settle { from { transform: translateY(12px); } to { transform: translateY(0); } }
 @media (prefers-reduced-motion: no-preference) {
   [data-reveal][data-entered="true"] { animation: reveal-settle var(--duration-slow) var(--ease-out) both; animation-delay: var(--reveal-delay, 0s); }
+  .action-link:not([data-magnetic]) { transition: background-size var(--duration-base) var(--ease-out), color var(--duration-fast) var(--ease-standard); }
   .action-link svg { transition: transform var(--duration-fast) var(--ease-standard); }
   .action-link:is(:hover, :focus-visible) svg { transform: translateX(3px); }
 }
@@ -210,12 +229,14 @@ main { width: 100%; max-width: 100%; overflow-x: clip; }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-line > span { animation: line-rise var(--duration-slower) var(--ease-out) both; animation-delay: calc(var(--line, 0) * 90ms + 60ms); }
-  .hero-eyebrow, .hero-kicker, .hero-trait, .hero-actions { animation: soft-rise var(--duration-slower) var(--ease-out) both; }
+  .hero-name, .hero-kicker, .hero-trait, .hero-positioning, .hero-actions, .hero-facts { animation: soft-rise var(--duration-slower) var(--ease-out) both; }
+  .hero-positioning { animation-delay: .25s; }
+  .hero-actions { animation-delay: .35s; }
+  .hero-facts { animation-delay: .45s; }
   .hero-kicker { animation-delay: .05s; }
   .hero-trait:nth-child(1) { animation-delay: .45s; }
   .hero-trait:nth-child(2) { animation-delay: .55s; }
   .hero-trait:nth-child(3) { animation-delay: .65s; }
-  .hero-actions { animation-delay: .75s; }
   /* The film's beat, replayed once: "1 週" is struck out, then "2 小時" lands. */
   .hero-shift-from { animation: strike-out var(--duration-slow) var(--ease-in-out) both; animation-delay: 1.5s; }
   .hero-shift-to { display: inline-block; animation: shift-land var(--duration-slow) var(--ease-spring) both; animation-delay: 1.95s; }
@@ -233,8 +254,13 @@ main { width: 100%; max-width: 100%; overflow-x: clip; }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .scroll-rise { animation: scroll-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
+    /* Entrances chosen by content: experience rows slide in off the rail, AI items unveil from their baseline. */
+    .entry-rail { animation: rail-in linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    .entry-unveil { animation: unveil linear both; animation-timeline: view(); animation-range: entry 0% entry 50%; }
   }
 }
+@keyframes rail-in { from { opacity: .001; transform: translateX(-1.5rem); } }
+@keyframes unveil { from { clip-path: inset(0 0 100% 0); transform: translateY(.75rem); } }
 @keyframes strike-out { from { background-size: 0% 2px; color: var(--fg); } }
 @keyframes shift-land { from { opacity: 0; transform: translateY(.5em) scale(.9); } }
 @keyframes film-wipe { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0 0 0 0); } }
@@ -255,7 +281,8 @@ body::after {
 
 /* Adjacent sections contribute half the gap each: 2.5rem each, 5rem between sections.
    Keep this shared so per-section utility padding cannot silently double it. */
-.content-section { padding-block: var(--space-8); }
+/* One rhythm between sections: every content section, the case shelf included, takes the same fluid step. */
+.content-section { padding-block: var(--space-section-md); }
 
 /* Section titles speak at the hero's scale, so the page keeps one voice after the first screen. */
 .section-title {
@@ -278,7 +305,7 @@ body::after {
 }
 
 .hero-eyebrow,
-.flow-label { margin: 0; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-label); }
+.flow-label { margin: 0; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-label); letter-spacing: var(--tracking-label); }
 
 .hero-title {
   max-width: 12ch;
@@ -347,7 +374,7 @@ body::after {
 .hero-profile dt {
   color: var(--accent);
   font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-label);
   letter-spacing: var(--tracking-label);
 }
 
@@ -388,14 +415,14 @@ body::after {
 }
 
 .builder-loop { position: relative; display: grid; min-height: 19rem; align-content: center; gap: var(--space-6); }
-.builder-loop-label { margin: 0; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-label); }
+.builder-loop-label { margin: 0; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-label); letter-spacing: var(--tracking-label); }
 .flow-canvas { height: clamp(11rem, 23vw, 15rem); margin: calc(-1 * var(--space-3)) calc(-1 * var(--space-4)) calc(-1 * var(--space-4)); cursor: crosshair; }
 .flow-canvas canvas { display: block; width: 100% !important; height: 100% !important; }
 .builder-loop-steps { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
 .builder-loop-steps::before { position: absolute; top: 48%; right: 6%; left: 6%; z-index: var(--z-base); height: 1px; background: color-mix(in oklch, var(--accent) 72%, var(--line)); content: ""; }
 .builder-loop-steps li { position: relative; z-index: var(--z-raised); min-width: 0; min-height: 5.4rem; padding: var(--space-3) var(--space-2) var(--space-2); border-top: 1px solid color-mix(in oklch, var(--fg) 22%, var(--line)); background: linear-gradient(180deg, color-mix(in oklch, var(--accent) 8%, var(--surface)), transparent 62%); }
 .builder-loop-steps li:not(:last-child)::after { position: absolute; top: 48%; right: -.42rem; z-index: var(--z-top); width: .42rem; height: 1px; background: var(--accent); content: ""; }
-.builder-loop-steps span { display: block; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-label); }
+.builder-loop-steps span { display: block; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-label); letter-spacing: var(--tracking-label); }
 .builder-loop-steps strong { display: block; margin-top: var(--space-4); color: var(--fg); font-size: var(--text-small); font-weight: var(--weight-semibold); line-height: var(--leading-ui); overflow-wrap: anywhere; }
 .builder-loop-result { justify-self: end; margin: 0; padding-top: var(--space-4); border-top: 1px solid color-mix(in oklch, var(--accent) 48%, var(--line)); color: var(--accent); font-size: var(--text-h2); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); }
 
@@ -403,21 +430,53 @@ body::after {
 :lang(en) .builder-loop-steps li { min-height: 5.7rem; }
 :lang(en) .builder-loop-steps strong { margin-top: var(--space-3); font-size: var(--text-caption); }
 
-/* Three factual results form an open typographic strip, with the current role first. */
-.impact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-7); margin-top: 0; padding-block: var(--space-7); border-block: 1px solid var(--line); }
-.impact-cell { min-width: 0; }
+/* One row per product, read like a ledger: product and role, what changed, what it is worth. */
+.impact-title { margin-bottom: var(--space-6); }
+.impact-list { margin: 0; padding: 0; list-style: none; border-block: 1px solid var(--line); }
+.impact-row { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-7); padding-block: var(--space-6); }
+.impact-row + .impact-row { border-top: 1px solid var(--line); }
+.impact-row-lead { padding-block: var(--space-7); }
+.impact-head, .impact-col { min-width: 0; }
+.impact-row { overflow: clip; }
+.impact-product { font-size: var(--text-h3); font-weight: var(--weight-semibold); line-height: var(--leading-ui); }
+.impact-row-lead .impact-product { font-size: var(--text-h2); }
+.impact-role { margin-top: var(--space-2); color: var(--fg); font-size: var(--text-body); font-weight: var(--weight-medium); }
+.impact-note { margin-top: var(--space-1); color: var(--muted); font-size: var(--text-small); }
 .impact-group { color: var(--accent); font-size: var(--text-small); font-weight: var(--weight-semibold); }
+/* Column names read as the header of the ledger: shown over the first row, kept for screen readers after it. */
+.impact-row:not(:first-child) .impact-group { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .impact-rows { display: grid; gap: var(--space-5); margin: var(--space-4) 0 0; padding: 0; list-style: none; }
-.impact-rows .impact-value { font-size: var(--text-h3); }
-.impact-cell-4 > * { animation-range: entry 20% entry 100%; }
-.impact-cell + .impact-cell { border-left: 1px solid var(--line); padding-left: var(--space-7); }
-.impact-value { color: var(--fg); font-size: var(--text-h2); text-wrap: balance; font-weight: var(--weight-semibold); line-height: var(--leading-display); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; }
-.impact-cell { overflow: clip; }
+.impact-row:not(:first-child) .impact-rows { margin-top: 0; }
+.impact-value { color: var(--fg); font-size: var(--text-h3); text-wrap: balance; font-weight: var(--weight-semibold); line-height: var(--leading-display); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; }
+/* The current role carries the section: its numbers at display size, one dominant thing on the screen. */
+.impact-row-lead .impact-value { font-size: var(--text-display); }
+/* A changing figure: the before value small and struck, the after value at full size, on one line. */
+.impact-ba { display: inline-flex; flex-wrap: nowrap; align-items: baseline; gap: 0.35em; white-space: nowrap; }
+.impact-from { position: relative; color: var(--muted); font-size: 0.5em; font-weight: var(--weight-medium); text-decoration: none; }
+.impact-from::after { content: ""; position: absolute; left: -0.08em; right: -0.08em; top: 55%; height: 0.09em; min-height: 1.5px; background: currentColor; transform-origin: left center; }
+.impact-to { display: inline-block; overflow: clip; padding-bottom: 0.06em; }
+/* Earlier rows set figures at h3, where half size would be unreadable: their before value takes the small step. */
+.impact-row:not(.impact-row-lead) .impact-from { font-size: var(--text-small); }
+.impact-to > span { display: inline-block; }
+/* Before to after, driven by scroll: as a figure scrolls in, its before value starts full size, is struck
+   through and shrinks, then the after value rises beside it. Scrolling back plays it in reverse. Without
+   scroll-driven animation, or with reduced motion, the finished state above is all there is. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .impact-cell > * { animation: metric-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
-    .impact-cell-2 > * { animation-range: entry 10% entry 90%; }
-    .impact-cell-3 > * { animation-range: entry 20% entry 100%; }
+    .impact-from { display: inline-block; transform-origin: left 80%; animation: ba-from linear both; animation-timeline: view(); animation-range: entry 0% cover 50%; }
+    .impact-from::after { animation: ba-strike linear both; animation-timeline: view(); animation-range: entry 0% cover 50%; }
+    .impact-to > span { animation: ba-to linear both; animation-timeline: view(); animation-range: entry 0% cover 50%; }
+    .impact-row:not(.impact-row-lead) .impact-from { transform-origin: left 80%; }
+  }
+}
+@keyframes ba-from { 0%, 30% { transform: scale(2); color: var(--fg); } 70%, 100% { transform: scale(1); color: var(--muted); } }
+@keyframes ba-strike { 0%, 30% { transform: scaleX(0); } 55%, 100% { transform: scaleX(1); } }
+@keyframes ba-to { 0%, 60% { transform: translateY(108%); } 100% { transform: translateY(0); } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .impact-row > * { animation: metric-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
+    .impact-row > :nth-child(2) { animation-range: entry 10% entry 90%; }
+    .impact-row > :nth-child(3) { animation-range: entry 20% entry 100%; }
   }
 }
 @keyframes metric-rise { from { opacity: 0; transform: translateY(70%); } }
@@ -429,17 +488,13 @@ body::after {
 .impact-awards { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-6); margin: 0; padding: 0 0 var(--space-6); list-style: none; color: var(--muted); font-size: var(--text-small); }
 .impact-awards a { text-decoration: underline; text-underline-offset: 0.2em; }
 .section-layout { display: grid; grid-template-columns: 10rem minmax(0, 1fr); column-gap: var(--space-8); align-items: start; }
-.section-layout > .section-title { position: sticky; top: 6rem; padding-top: var(--space-6); font-size: var(--text-h2); }
+.section-layout > .section-title { position: sticky; top: calc(var(--nav-height) + var(--space-6)); padding-top: var(--space-6); font-size: var(--text-h2); }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .section-title { animation: soft-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; }
   }
 }
 .section-layout > :last-child { min-width: 0; }
-@media (max-width: 1023px) {
-  .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .impact-cell:nth-child(3) { border-left: 0; padding-left: 0; }
-}
 
 @media (max-width: 1023px) {
   .section-layout { grid-template-columns: 1fr; }
@@ -462,7 +517,7 @@ body::after {
   background: radial-gradient(circle at 90% 5%, var(--glow), transparent 23rem), color-mix(in oklch, var(--surface) 78%, transparent);
   box-shadow: var(--shadow-md);
 }
-.case-stage-kicker { margin: 0; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-bold); letter-spacing: var(--tracking-label); }
+.case-stage-kicker { margin: 0; color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-label); letter-spacing: var(--tracking-label); }
 .case-stage-copy h2 { max-width: 12ch; margin: var(--space-4) 0; font-size: var(--text-display); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); line-height: var(--leading-heading); text-wrap: balance; }
 .case-stage-copy > p:not(.case-stage-kicker) { max-width: 34ch; color: var(--muted); line-height: var(--leading-body); }
 .case-stage-decision { margin-top: var(--space-7); opacity: .15; transform: translateY(1.25rem); color: var(--fg) !important; font-weight: var(--weight-semibold); }
@@ -551,9 +606,9 @@ body::after {
 .case-impact { max-width: 26ch; font-family: var(--font-display); font-size: var(--text-body); font-weight: var(--weight-medium); line-height: var(--leading-ui); }
 .case-impact .keyword { display: inline; background: none; color: var(--accent); font-size: 1.08em; }
 .case-ownership { display: grid; gap: var(--space-2); margin: var(--space-5) 0 0; padding-left: var(--space-4); border-left: 2px solid color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--muted); font-size: var(--text-small); line-height: var(--leading-body); }
-.case-ownership span { color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-label); }
+.case-ownership span { color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-label); letter-spacing: var(--tracking-label); }
 .case-evidence > div { padding-left: var(--space-4); border-left: 1px solid var(--line); }
-.case-evidence h4 { color: var(--muted); font-size: var(--text-caption); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-label); }
+.case-evidence h4 { color: var(--muted); font-size: var(--text-caption); font-weight: var(--weight-label); letter-spacing: var(--tracking-label); }
 .case-evidence p { font-size: var(--text-body); line-height: var(--leading-body); }
 .case-evidence .case-result { border-left-color: var(--accent); }
 .case-evidence .case-result h4 { color: var(--accent); }
@@ -601,14 +656,16 @@ body::after {
 
 /* The underline exists in every motion mode so aria-current stays visible;
    only its growth is gated on motion preference. */
-.site-nav a:not(.rounded-ui) {
+.site-nav a:not(.rounded-ui),
+.action-link:not([data-magnetic]) {
   background-image: linear-gradient(var(--accent), var(--accent));
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0 1px;
 }
 .site-nav a:not(.rounded-ui):hover,
-.site-nav a:not(.rounded-ui):focus-visible { background-size: 100% 1px; }
+.site-nav a:not(.rounded-ui):focus-visible,
+.action-link:not([data-magnetic]):is(:hover, :focus-visible) { background-size: 100% 1px; }
 .site-nav a:not(.rounded-ui):focus-visible { color: var(--fg); }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -676,10 +733,15 @@ body::after {
   .hero-profile { grid-template-columns: 1fr; gap: 0; }
   .hero-profile > div { padding-inline: 0; }
   .contact-panel { grid-template-columns: 1fr; gap: var(--space-6); }
-  .impact-grid { grid-template-columns: 1fr; gap: var(--space-5); padding-block: var(--space-6); }
-  .impact-cell { display: block; }
-  .impact-cell + .impact-cell { padding-left: 0; border-left: 0; }
-  .impact-value { font-size: var(--text-h2); }
+  .impact-row, .impact-row-lead { grid-template-columns: 1fr; gap: var(--space-5); padding-block: var(--space-6); }
+  .impact-row:not(:first-child) .impact-group { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; }
+  .impact-row:not(:first-child) .impact-rows { margin-top: var(--space-3); }
+  .impact-rows { margin-top: var(--space-3); gap: var(--space-4); }
+  /* Earlier rows shrink to role plus result on a phone; the case page holds what changed. */
+  .impact-row:not(.impact-row-lead) { gap: var(--space-3); padding-block: var(--space-5); }
+  .impact-row:not(.impact-row-lead) .impact-col-product { display: none; }
+  .impact-row:not(.impact-row-lead) .impact-col-business .impact-group { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .impact-row:not(.impact-row-lead) .impact-rows { margin-top: 0; }
   .impact-value .metric-unit { font-size: 0.48em; }
   .impact-caption { margin-top: 0; font-size: var(--text-small); }
   .impact-detail { font-size: var(--text-caption); }
@@ -724,13 +786,15 @@ body::after {
 /* ---- CJK typography: no negative tracking, weight not italic, CLReq spacing ---- */
 html:lang(zh-Hant) {
   /* Leading is set once on body (1.8) for both locales; a value here would not inherit past it. */
-  letter-spacing: 0;
+  letter-spacing: var(--tracking-cjk);
   /* CLReq recommends a gap of no more than 1/4 em at Han-alphanumeric boundaries. */
   text-autospace: ideograph-alpha ideograph-numeric;
 }
 .section-title:lang(zh-Hant),
-.case-heading h3:lang(zh-Hant) {
-  letter-spacing: 0;
+.case-heading h3:lang(zh-Hant),
+.impact-value:lang(zh-Hant),
+.impact-product:lang(zh-Hant) {
+  letter-spacing: var(--tracking-cjk);
   line-height: var(--leading-ui);
 }
 html:lang(zh-Hant) :is(em, i) {
@@ -803,7 +867,9 @@ html:lang(zh-Hant) :is(em, i) {
   }
 }
 
-/* Follow the system until a visitor chooses a theme in the navigation. */
+/* Follow the system until a visitor chooses a theme in the navigation. The dark values are written twice,
+   once for the chosen theme and once inside the system query, because CSS cannot share them across the
+   media boundary: change both lines together. Print colours live in the one print block further down. */
 :root[data-theme="dark"] { --bg: #171e28; --fg: #eaf0f7; --muted: #a8b6c8; --line: #354253; --surface: #202a37; --surface-strong: #243449; --accent: #99bff3; --accent-fg: #142335; --glow: transparent; --shadow-color: rgb(5 13 24 / .45); }
 html[data-theme="dark"] { color-scheme: dark; }
 :root[data-theme="light"] { color-scheme: light; }
@@ -811,7 +877,6 @@ html[data-theme="dark"] { color-scheme: dark; }
   :root:not([data-theme]) { --bg: #171e28; --fg: #eaf0f7; --muted: #a8b6c8; --line: #354253; --surface: #202a37; --surface-strong: #243449; --accent: #99bff3; --accent-fg: #142335; --glow: transparent; --shadow-color: rgb(5 13 24 / .45); }
   html:not([data-theme]) { color-scheme: dark; }
 }
-@media print { :root { --bg: #fff; --fg: #202a36; --muted: #526173; --line: #d7dfe8; --surface: #fff; --surface-strong: #f0f3f8; --accent: #2b5896; --accent-fg: #fff; } }
 
 /* Tailored links (lib/variantStore.ts): while a visitor's variant loads, overridable fields keep their
    space but stay invisible, so the copy never visibly swaps. The head script clears this within 1.2 s. */
@@ -874,3 +939,17 @@ html[data-variant="pending"] [data-v] { visibility: hidden; }
 
   body { background: var(--bg) !important; color: var(--fg) !important; }
 }
+
+/* Curtain contact (home only): the page above slides away and uncovers the contact section held beneath it.
+   Only where the panel fits one screen and motion is welcome; otherwise contact scrolls in normal flow. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) and (min-height: 800px) {
+  .home-main > section:not(#contact) { position: relative; z-index: var(--z-raised); background: var(--bg); }
+  .home-main > #contact { position: sticky; bottom: 0; z-index: var(--z-base); }
+}
+
+/* Carried cover: a case card's picture morphs into the case page hero across the page load. Supporting
+   browsers only; the rest navigate as before. Reduced motion keeps plain navigation. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+::view-transition-group(*) { animation-duration: var(--duration-slow); animation-timing-function: var(--ease-out); }

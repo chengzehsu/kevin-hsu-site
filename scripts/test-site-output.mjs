@@ -90,12 +90,34 @@ for (const [locale, file, heading] of [
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     const metrics = html.match(/<section id="metrics"[\s\S]*?<\/section>/)?.[0];
     assert.ok(metrics, "The results strip renders without JavaScript");
-    assert.equal((metrics.match(/class="impact-link"/g) ?? []).length, 6);
-    for (const label of locale === "zh" ? ["降本", "增效", "商業規模", "過往驗證"] : ["Lower cost", "Higher output", "Business scale", "Earlier proof"]) assert.ok(metrics.includes(label), `Results show ${label}`);
-    for (const id of ["internal-backend", "grocery", "sales-faq", "health-app"]) {
+    // The first screen answers "who" in its largest type: the h1 is the name and role, the tagline is not a heading.
+    const h1 = html.match(/<h1[\s\S]*?<\/h1>/g) ?? [];
+    assert.equal(h1.length, 1, "One h1 on the home page");
+    assert.ok(h1[0].includes(locale === "zh" ? "許承澤 Kevin Hsu" : "Kevin Hsu") && h1[0].includes("Senior Product Manager"), "The h1 names Kevin and his role");
+    assert.ok(!/痛點|bottleneck/.test(h1[0]), "The tagline sits under the h1, not inside it");
+    assert.ok(!/id="metrics-heading" class="[^"]*sr-only/.test(metrics), "The results heading is visible");
+    // Each changing figure ships both ends in the server HTML, so the toggle and the signature move read real data.
+    const ends = locale === "zh"
+      ? ["約 2 週", "約 2 小時", "30%", "10%", "約 1 個月", "約 1 週", "300 單／日", "1,000 單／日"]
+      : ["~2 weeks", "~2 hours", "30%", "10%", "~1 month", "~1 week", "300 orders/day", "1,000 orders/day"];
+    for (const end of ends) assert.ok(metrics.includes(`>${end}<`), `The ledger renders ${end} on its own`);
+    assert.equal((metrics.match(/class="impact-from"/g) ?? []).length, 4, "Four changing figures show their before value");
+    assert.ok(!/impact-(from|to)[^>]*style="[^"]*display:\s*none/.test(metrics), "No figure is hidden by default");
+    // The before/now control needs script, so the server HTML leaves it out and shows the static form.
+    assert.ok(!metrics.includes("impact-toggle"), "The toggle is not in the server HTML");
+    assert.equal((metrics.match(/class="impact-link"/g) ?? []).length, 5);
+    assert.equal((metrics.match(/class="impact-row[ "]/g) ?? []).length, 3, "One row per product");
+    for (const label of locale === "zh" ? ["商業價值", "產品價值"] : ["Business value", "Product value"]) assert.ok(metrics.includes(label), `Results show ${label}`);
+    // Each row names Kevin's role before its numbers, so the NT$100M platform total never reads as a sales win.
+    const lead = metrics.slice(metrics.indexOf("impact-row-lead"), metrics.indexOf("1 億") > 0 ? metrics.indexOf("1 億") : metrics.indexOf("NT$100M"));
+    assert.ok(lead.includes(locale === "zh" ? "我負責產品與交付" : "I own product and delivery"), "The platform total follows Kevin's delivery role");
+    assert.equal((metrics.match(locale === "zh" ? /團隊成果/g : /team result/g) ?? []).length, 2, "Both earlier rows say they are team results");
+    for (const id of ["internal-backend", "grocery", "health-app"]) {
       assert.ok(metrics.includes(`/cases/${id}/`), `A result links to the ${id} case`);
     }
     assert.ok(metrics.includes("2022"));
+    const contact = html.match(/<section id="contact"[\s\S]*?<\/section>/)?.[0];
+    for (const label of locale === "zh" ? ["把客製做成產品", "拿掉卡住的那一步", "讓成果看得到"] : ["Turn custom work into product", "Remove the step that blocks delivery", "Make results visible"]) assert.ok(contact?.includes(label), `Contact closes on the value ${label}`);
     const sourceLink = metrics.match(/<a[^>]*href="https:\/\/www\.thenewslens\.com\/feature\/aws\/250301"[^>]*>/)?.[0];
     assert.ok(sourceLink?.includes(article), "Use the supplied public source");
     assert.ok(sourceLink.includes('target="_blank"'));
@@ -431,3 +453,24 @@ test("on screen and paper the accent marks results, not labels", async () => {
   assert.ok(!css.includes(".results > li:first-child .figure"), "No single figure is singled out");
   assert.ok(!/@media print[\s\S]*\.(?:figure|lead|skills dt) \{[^}]*(?:^|[\s;])color:/.test(css), "Paper inherits the same colours");
 });
+
+// Carried cover: each case's picture carries one view-transition name per page, matching between the
+// card that opens it and the case page hero, so the browser can morph one into the other.
+for (const locale of ["zh", "en"]) {
+  test(`${locale}: case covers and case heroes share unique view-transition names`, async () => {
+    const prefix = locale === "en" ? "/en" : "";
+    const names = (html) => [...html.matchAll(/view-transition-name:\s*case-([a-z0-9-]+)/g)].map((m) => m[1]);
+    for (const page of [`../out${prefix}/index.html`, `../out${prefix}/portfolio/index.html`]) {
+      const found = names(await readFile(new URL(page, import.meta.url), "utf8"));
+      assert.ok(found.length > 0, `${page} names its case covers`);
+      assert.equal(new Set(found).size, found.length, `${page} repeats no transition name`);
+    }
+    const home = names(await readFile(new URL(`../out${prefix}/index.html`, import.meta.url), "utf8"));
+    for (const id of home) {
+      const casePage = names(await readFile(new URL(`../out${prefix}/cases/${id}/index.html`, import.meta.url), "utf8"));
+      assert.equal(casePage.filter((n) => n === id).length, 1, `The ${id} case hero carries its name once`);
+      assert.equal(new Set(casePage).size, casePage.length, `The ${id} case page repeats no transition name`);
+    }
+  });
+}
+

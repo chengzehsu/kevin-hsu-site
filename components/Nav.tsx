@@ -45,7 +45,7 @@ export function Nav({
   }));
 
   return (
-    <header className="site-nav sticky top-0 z-(--z-nav) h-[4.5rem]">
+    <header className="site-nav sticky top-0 z-(--z-nav) h-(--nav-height)">
       <a className="skip-link" href="#main-content">
         {content.nav.skipLabel}
       </a>

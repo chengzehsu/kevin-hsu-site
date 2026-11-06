@@ -23,12 +23,11 @@
   margin-top: var(--space-section-md);
 }
 
-.beliefs { display: grid; margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.beliefs { display: grid; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
 .beliefs a {
   display: grid;
   gap: var(--space-1);
   padding-block: var(--space-4);
-  border-bottom: 1px solid var(--line);
   transition: color var(--duration-fast) var(--ease-standard);
 }
 .beliefs a:hover strong,
@@ -39,7 +38,7 @@
 
 .radarColumn {
   position: sticky;
-  top: 6rem;
+  top: calc(var(--nav-height) + var(--space-6));
   min-width: 0;
 }
 
@@ -47,11 +46,9 @@
 .radar {
   margin: 0;
   padding: var(--space-section-sm);
-  border: 1px solid var(--line);
   border-radius: var(--radius-panel) var(--radius-panel) var(--radius-tip) var(--radius-panel);
-  background:
-    radial-gradient(closest-side at 50% 42%, color-mix(in oklch, var(--accent) 14%, transparent), transparent),
-    var(--surface);
+  /* A tone step from the page, no outline or glow. */
+  background: var(--surface);
 }
 
 .radarPlot {
@@ -117,9 +114,7 @@
 .radar figcaption {
   display: grid;
   gap: var(--space-2);
-  margin-top: var(--space-5);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--line);
+  margin-top: var(--space-6);
 }
 
 .radar figcaption strong {
@@ -175,6 +170,22 @@
   }
 }
 
+/* Spokes are drawn out of the centre one after another, so the axes exist before the shape fills them. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .spoke {
+      stroke-dasharray: 1;
+      animation: spoke-draw linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--k, 0) * 6%) entry calc(40% + var(--k, 0) * 6%);
+    }
+  }
+}
+
+@keyframes spoke-draw {
+  from { stroke-dashoffset: 1; }
+}
+
 @keyframes radar-grow {
   from { opacity: 0.2; transform: scale(0.4); }
 }
@@ -208,21 +219,6 @@
 }
 
 .featured {
-  counter-reset: featured-skill;
-}
-
-.featured > li {
-  counter-increment: featured-skill;
-}
-
-.skillLabel > span::before {
-  content: counter(featured-skill, decimal-leading-zero);
-}
-
-.skillLabel > span {
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: var(--tracking-normal);
 }
 
 .statement {
@@ -394,7 +390,7 @@
 .libraryTitle {
   position: absolute;
   width: 1px;
-  height: 1px;
+  height: 1px; /* visually hidden title, not a rule. taste-skill-ignore */
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
@@ -409,7 +405,6 @@
 .group {
   min-width: 0;
   padding: var(--space-4) var(--space-4) var(--space-3);
-  border: 1px solid var(--line);
   border-radius: var(--radius-ui);
   background: var(--surface);
 }

@@ -3,7 +3,7 @@
   display: grid;
   gap: var(--space-section-md);
   margin-top: var(--space-section-md);
-  scroll-margin-top: calc(4 * var(--space-8) - var(--space-2));
+  scroll-margin-top: calc(var(--nav-height) + var(--space-8) * 2);
 }
 
 .title {
@@ -12,7 +12,7 @@
   border-top: 1px solid var(--line);
   color: var(--accent);
   font-size: var(--text-caption);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-label);
   letter-spacing: var(--tracking-normal);
 }
 
@@ -26,14 +26,14 @@
   line-height: var(--leading-heading);
   text-wrap: pretty;
 }
-.lead:lang(zh-Hant) { letter-spacing: var(--tracking-normal); line-height: var(--leading-ui); }
+.lead:lang(zh-Hant) { letter-spacing: var(--tracking-cjk); line-height: var(--leading-ui); }
 
 .section {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-section-sm);
   min-width: 0;
-  scroll-margin-top: calc(4 * var(--space-8) - var(--space-2));
+  scroll-margin-top: calc(var(--nav-height) + var(--space-8) * 2);
 }
 
 /* Copy reads first at a comfortable measure; the screen below gets the full width so its numbers stay legible. */
@@ -67,7 +67,7 @@
   line-height: var(--leading-heading);
   text-wrap: pretty;
 }
-.heading:lang(zh-Hant) { letter-spacing: var(--tracking-normal); line-height: var(--leading-ui); }
+.heading:lang(zh-Hant) { letter-spacing: var(--tracking-cjk); line-height: var(--leading-ui); }
 
 /* The section's one number: large, accent, read before the prose. */
 .stat { display: grid; gap: var(--space-1); margin: var(--space-1) 0; }

@@ -15,7 +15,7 @@
 
 .card {
   min-width: 0;
-  scroll-margin-top: calc(var(--space-8) * 2 + var(--space-4));
+  scroll-margin-top: calc(var(--nav-height) + var(--space-6));
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-panel);
@@ -65,10 +65,10 @@
   font-size: var(--text-small);
   line-height: var(--leading-ui);
 }
-.capabilities b { margin-right: var(--space-2); color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-bold); }
+.capabilities b { margin-right: var(--space-2); color: var(--accent); font-size: var(--text-caption); font-weight: var(--weight-label); }
 
 .card:hover,
-.card:has(:focus-visible) { border-color: color-mix(in oklch, var(--accent) 45%, var(--line)); }
+.card:has(:focus-visible) { border-color: var(--border-hover); }
 .card:hover .name, .card:hover .nameRow > svg,
 .card:has(:focus-visible) .name, .card:has(:focus-visible) .nameRow > svg { color: var(--accent); }
 

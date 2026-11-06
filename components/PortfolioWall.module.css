@@ -45,7 +45,7 @@
   background: color-mix(in srgb, var(--stage-bg) 88%, transparent);
   color: var(--stage-fg);
   font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-label);
   line-height: var(--leading-ui);
   opacity: 0;
   transition: opacity var(--duration-fast) var(--ease-standard);

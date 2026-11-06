@@ -19,7 +19,7 @@ export function Site({ locale }: { locale: Locale }) {
   return (
     <>
       <Nav {...props} />
-      <main id="main-content">
+      <main id="main-content" className="home-main">
         <Hero {...props} />
         <Metrics {...props} />
         <ProofStack {...props} />

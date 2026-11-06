@@ -6,22 +6,13 @@
   gap: var(--space-section-md);
   overflow: hidden;
   padding: var(--space-section-md);
-  border: 1px solid color-mix(in oklch, var(--accent) 30%, var(--line));
   border-radius: var(--radius-panel) var(--radius-panel) var(--radius-tip) var(--radius-panel);
-  background:
-    radial-gradient(circle at 88% 12%, color-mix(in oklch, var(--accent) 22%, transparent), transparent 28rem),
-    var(--surface-strong);
+  /* A flat tone step from the page, no outline or glow: the panel is separated by its colour alone. */
+  background: var(--surface-strong);
 }
 
 .copy {
   min-width: 0;
-}
-
-.kicker {
-  color: var(--accent);
-  font-size: var(--text-h3);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-normal);
 }
 
 .title {
@@ -33,6 +24,11 @@
   line-height: var(--leading-display);
   letter-spacing: var(--tracking-display);
   text-wrap: balance;
+}
+
+.title:lang(zh-Hant) {
+  letter-spacing: var(--tracking-cjk);
+  line-height: var(--leading-ui);
 }
 
 .text {
@@ -64,7 +60,6 @@
   font-size: var(--text-body);
   font-weight: var(--weight-semibold);
   white-space: nowrap;
-  box-shadow: var(--shadow-md);
   transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
 }
 
@@ -120,26 +115,25 @@
   color: var(--accent);
 }
 
-.profile {
+.values {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-6);
   margin: 0;
-  padding-top: var(--space-6);
-  border-top: 1px solid color-mix(in oklch, var(--fg) 14%, var(--line));
+  padding-top: var(--space-2);
 }
 
-.profile > div {
+.values > div {
   min-width: 0;
 }
 
-.profile dt {
+.values dt {
   color: var(--accent);
   font-size: var(--text-small);
   font-weight: var(--weight-semibold);
 }
 
-.profile dd {
+.values dd {
   text-wrap: pretty;
   margin: var(--space-1) 0 0;
   font-size: var(--text-body);
@@ -147,8 +141,16 @@
   line-height: var(--leading-ui);
 }
 
+.background {
+  margin-top: var(--space-5);
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
 @media (max-width: 767px) {
-  .profile {
+  .values {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-4);
   }

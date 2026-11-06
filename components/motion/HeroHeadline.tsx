@@ -16,14 +16,14 @@ function accented(line: string) {
   );
 }
 
-/** The hero headline; a tailored link may re-word it (hero.headline), with the same 【】 accent markup. */
+/** The hero tagline, set under the name as a statement; a tailored link may re-word it (hero.headline), with the same 【】 accent markup. */
 export function HeroHeadline({ headline, chinese }: { headline: string; chinese: boolean }) {
   const text = useOverlay(chinese ? "zh" : "en").text["hero.headline"] ?? headline;
   return (
-    <h1 className={chinese ? "hero-title hero-title-zh" : "hero-title"} data-v="">
+    <p className={chinese ? "hero-title hero-title-zh" : "hero-title"} data-v="">
       {headlineLines(text, chinese).map((line, index) => (
         <span key={line} className="hero-line" style={{ "--line": index } as CSSProperties}><span>{accented(line)}</span></span>
       ))}
-    </h1>
+    </p>
   );
 }

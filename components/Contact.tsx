@@ -7,10 +7,9 @@ import type { SectionProps } from "@/content/types";
 import { MagneticLink } from "./motion/MagneticLink";
 import styles from "./Contact.module.css";
 
-/** The closing frame: the tagline, one contact intent, and the three facts a hiring reader keeps. */
+/** The closing frame: the tagline, one contact intent, and the three values a hiring reader keeps. */
 export function Contact({ content }: SectionProps) {
-  const { kicker, title, text, cta, links } = content.contact;
-  const { profile } = content.hero;
+  const { title, text, cta, links, values, background } = content.contact;
   const showCta = Boolean(cta && cta.label);
   const hasActions = showCta || links.length > 0;
   const email =
@@ -27,7 +26,6 @@ export function Contact({ content }: SectionProps) {
       <div className="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
         <div className={`${styles.panel} scroll-rise`}>
           <div className={styles.copy}>
-            {kicker ? <p className={styles.kicker}>{kicker}</p> : null}
             <h2 id="contact-heading" className={styles.title}>
               {title}
             </h2>
@@ -81,14 +79,17 @@ export function Contact({ content }: SectionProps) {
             ) : null}
           </div>
 
-          <dl className={styles.profile}>
-            {profile.map((item) => (
-              <div key={item.label}>
-                <dt>{item.label}</dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
-          </dl>
+          <div>
+            <dl className={styles.values}>
+              {values.map((item) => (
+                <div key={item.label}>
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className={styles.background}>{background}</p>
+          </div>
         </div>
       </div>
     </section>

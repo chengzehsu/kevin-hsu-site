@@ -1,4 +1,5 @@
 import { listedCases, orderCases } from "@/lib/cases";
+import { caseTransition } from "@/lib/viewTransition";
 import type { CaseStudy, SectionProps } from "@/content/types";
 import { caseArtifacts } from "@/content/caseArtifacts";
 import { casePath, portfolioPath } from "@/lib/locale";
@@ -118,7 +119,7 @@ export function CasePage({
                     {item.decisionSummary}
                   </p>
                 </div>
-                <div className={styles.heroVisual}>
+                <div className={styles.heroVisual} style={caseTransition(item.id)}>
                   <CaseArtifact
                     caseId={item.id}
                     locale={locale}

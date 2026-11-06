@@ -1,4 +1,4 @@
-import { facts, metricGroups } from "./facts";
+import { facts, metricRows } from "./facts";
 import type { SiteContent } from "./types";
 
 export const en = {
@@ -26,25 +26,13 @@ export const en = {
   },
 
   hero: {
-    eyebrow: "Kevin Hsu | Senior Product Manager · 7+ years | Led 10 engineers | Product contracts about NT$100M",
+    name: "Kevin Hsu",
+    role: "Senior Product Manager",
+    facts: "7+ years in product | Led 10 engineers",
     kicker:
       "I find the step that caps throughput, then build the tool that removes it: an internal platform built with Claude Code, 748 commits.",
     headline:
       "Find the 【bottleneck】. Build the 【fix】. Prove it in 【numbers】.",
-    profile: [
-      {
-        label: "Scale",
-        value: "Led 10 engineers and directly managed 2 junior PMs; product contracts about NT$100M",
-      },
-      {
-        label: "Domains",
-        value: "AI energy savings (B2B), e-commerce order-to-delivery, health management apps, cross-channel customer-data platforms, and enterprise training",
-      },
-      {
-        label: "Recognition",
-        value: "2022 PMI Taiwan Benchmark Project Merit Award; AWS digital transformation case study",
-      },
-    ],
     film: {
       caption: "See the internal platform case study",
       caseId: "internal-backend",
@@ -70,9 +58,11 @@ export const en = {
   },
 
   metrics: {
-    title: "Key results",
+    title: "The products I led, and what they are worth",
     items: facts.en,
-    groups: metricGroups.en,
+    productValueLabel: "Product value",
+    businessValueLabel: "Business value",
+    rows: metricRows.en,
   },
 
   aiPractice: {
@@ -1087,7 +1077,7 @@ export const en = {
           "AI energy-saving HVAC, internal tools, and cross-functional delivery",
         homeHighlight: "Cut onboarding from about 2 weeks to about 2 hours and customization from 30% to 10%",
         summary:
-          "Owned the B2B AI HVAC energy-saving product, roadmap, and internal platform, leading 4 engineers. Contracts totaled about NT$100M, and customers saved about 15% on energy on average.",
+          "Owned product and delivery for the B2B AI HVAC energy-saving platform, its roadmap, and the internal platform, leading 4 engineers. Platform contracts total about NT$100M, and customers save about 15% on energy on average.",
         bullets: [
           "Cut customization from 30% to 10%, saving ~370 hours a year (estimate): abstracted repeated requests into control strategies, then documented and parameterized them",
           "Cut per-site issue handling from 30 to 3 minutes: detection rules put issues from 34 sites on one page for 2 PMs",
@@ -1195,7 +1185,6 @@ export const en = {
   },
 
   contact: {
-    kicker: "Find the bottleneck. Build the fix. Prove it in numbers.",
     title: "Let's talk about the next product opportunity.",
     text: "If your team is stuck on delivery or cross-team workflows and wants AI in daily work, let's talk.",
     cta: { label: "Contact me", href: "mailto:kevin492625@gmail.com" },
@@ -1205,6 +1194,12 @@ export const en = {
         href: "https://www.linkedin.com/in/chengze-hsu/",
       },
     ],
+    values: [
+      { label: "Turn custom work into product", value: "I turned one-off customer requests into an internal platform shared by 34 sites." },
+      { label: "Remove the step that blocks delivery", value: "I find the step that holds delivery back, then build the tool that removes it." },
+      { label: "Make results visible", value: "The products I improved save customers energy and grow company revenue." },
+    ],
+    background: "Led 10 engineers | Own product and delivery for an AI energy-saving platform with about NT$100M in contracts | 2022 PMI Taiwan Benchmark Project Merit Award",
   },
 
   footer: {
