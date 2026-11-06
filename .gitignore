@@ -37,3 +37,4 @@ videos/**/.claude/
 videos/**/.hyperframes-check.log
 .gstack/
 content/internal-backend-pm-value.md
+openspec/.vector-search.db*
